@@ -1,0 +1,183 @@
+body {
+background-image: url('N64.png');
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+h1 {
+	text-align: center;
+	color: white;
+	text-shadow: 1.5px 2px #000000;
+}
+#frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 640px;
+  min-height: 440px;
+  background: black;
+  background-image: url('WALLPAPER.png');
+  border: 2px solid #17cdc4;
+  box-shadow: -1px 1px 5px 7px rgba(0,0,0,0.5);
+  z-index: 999;
+  touch-action: none;
+  user-select: none;
+}
+.closebtn {
+  position: absolute;
+  top:-5px;
+  right: 2px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 999;
+}
+.closebtn:hover {
+  color: lightgrey;
+  z-index: 999;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #C20D02; /*red*/
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #069330; /*green*/
+}
+input:focus + .slider {
+  box-shadow: 0 0 4px solid #17cdc4; /*cyan*/
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+.buttonU {
+	position: fixed;
+	top: 1px;
+	left: 4px;
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.buttonU:hover {
+    background-color: white;
+    color: black;
+}
+.search {
+	position: fixed;
+	top: 60px;
+	left: 4px;
+	border: none;
+    padding: 10px 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+}
+.buttonFind {
+	position: fixed;
+	top: 60px;
+	left: 37px;
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 10px 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.buttonFind:hover {
+    background-color: white;
+    color: black;
+}
+.buttonScroll {
+	position: fixed;
+	top: 100px;
+	left: 4px;
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 10px 17px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.buttonScroll:hover {
+    background-color: white;
+    color: black;
+}
+.buttonD {
+	position: fixed;
+	/*top: 50px;*/
+	top: 90%;
+	left: 4px;
+    background-color: grey;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.buttonD:hover {
+    background-color: white;
+    color: black;
+}
+.footer {
+	color: white;
+	text-shadow: 1.5px 2px #000000;
+}
