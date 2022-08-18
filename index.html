@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="Config/N64.css">
 </head>
 <body>
-<div id="logo"><center><image src="Config/logo.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
+<div id="logo"><center><image src="Config/LOGO.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
 <h1>GAMES CATALOG</h1>
 <div class="frame" id="frame">
 <div class="card-header" id="frametitle">GAME TITLE</div>
@@ -61,6 +61,10 @@ for (i=0; i < titleCount; i++){
 		div.style.backgroundImage = "url('Covers/"+gTitle+" E.png')";
 		} else if (lines[info].match("REGIONS=E ")){
 		div.style.backgroundImage = "url('Covers/"+gTitle+" E.png')";
+		} else if (lines[info].match("REGIONS=F ")){
+		div.style.backgroundImage = "url('Covers/"+gTitle+" F.png')";
+		} else if (lines[info].match("REGIONS=D ")){
+		div.style.backgroundImage = "url('Covers/"+gTitle+" D.png')";
 		} else if (lines[info].match("REGIONS=A ")){
 		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
 		} else if (lines[info].match("REGIONS=UA ")){
