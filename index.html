@@ -4,8 +4,9 @@
 <meta charset="UTF-8"> 
 <title>PROJECT REALITY</title>
 <link rel="stylesheet" href="Config/N64.css">
-<link rel="shortcut icon" href="sfavicon.ico" type="image/x-icon">
-<link rel="icon" href="Config/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="Config/favicon.png" />
 </head>
 <body>
 <div id="logo"><center><image src="Config/LOGO.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
@@ -99,18 +100,16 @@ for (i=0; i < titleCount; i++){
 	var gYear = lines[info].slice( (lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1) );
 	var gGenre = lines[info].slice( (lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1) );
 	var gScore = lines[info].slice( (lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1) );
-	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: thin solid; border-color: grey; white-space: wrap; overflow: hidden;'><span style='color:green'>No: </span>"+coverFlow[i]+"/"+titleCount+"<button id='"+coverFlow[i]+"' style='position: relative; left: 15px;' onclick='reply_click(this.id)'>🎮</button><br><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
+	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: thin solid; border-color: grey; white-space: wrap; overflow: hidden;'><span style='color:green'>No: </span>"+coverFlow[i]+"/"+titleCount+"<button id='"+coverFlow[i]+"' style='position: relative; left: 15px;' onclick='reply_click(this.id)'>🎮</button><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 //border-color: yellow blue red green;
 }
 
-//end-main-loop////////////////////////////////////////////
+//end-main-loop//
 	for (j=0; j < jpboxes.length; j++){
 	document.getElementById("card"+jpboxes[j]).style.backgroundSize ="120px";
 	document.getElementById("card"+jpboxes[j]).style.backgroundPosition = "60px 8px";
 	}
-//end-fix-jpboxes//////////////////////////////////////////
-
-
+//end-fix-jpboxes//
 function reply_click(clicked_id){
 document.getElementById("frame").style.display = "block";
 document.getElementById("frametitle").innerHTML = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) );
@@ -128,32 +127,34 @@ document.getElementById("frametitle").innerHTML = lines[clicked_id-1].slice( (li
 }
 function AZclick() {
 	switch (document.getElementById("myText").value){
-	case "0": case "1": 
-	case "2": case "4": document.getElementById('card1').scrollIntoView({behavior: 'auto' }); break;
-	case "a": case "A": document.getElementById('card'+alphamatch.indexOf("A")+1).scrollIntoView({behavior: 'auto' }); break;
-	case "b": case "B": document.getElementById('card'+alphamatch.indexOf("B")+1).scrollIntoView({behavior: 'auto' }); break;
-	case "c": case "C": document.getElementById('card'+alphamatch.indexOf("C")+1).scrollIntoView({behavior: 'auto' }); break;
-	case "d": case "D": document.getElementById('card60').scrollIntoView({behavior: 'auto' }); break;
-	case "e": case "E": document.getElementById('card74').scrollIntoView({behavior: 'auto' }); break;
-	case "f": case "F": document.getElementById('card81').scrollIntoView({behavior: 'auto' }); break;
-	case "g": case "G": document.getElementById('card96').scrollIntoView({behavior: 'auto' }); break;
-	case "h": case "H": document.getElementById('card126').scrollIntoView({behavior: 'auto' }); break;
-	case "i": case "I": document.getElementById('card113').scrollIntoView({behavior: 'auto' }); break;
-	case "j": case "J": document.getElementById('card120').scrollIntoView({behavior: 'auto' }); break;
-	case "k": case "K": document.getElementById('card128').scrollIntoView({behavior: 'auto' }); break;
-	case "l": case "L": document.getElementById('card134').scrollIntoView({behavior: 'auto' }); break;
-	case "m": case "M": document.getElementById('card140').scrollIntoView({behavior: 'auto' }); break;
-	case "n": case "N": document.getElementById('card172').scrollIntoView({behavior: 'auto' }); break;
-	case "o": case "O": document.getElementById('card202').scrollIntoView({behavior: 'auto' }); break;
-	case "p": case "P": document.getElementById('card207').scrollIntoView({behavior: 'auto' }); break;
-	case "q": case "Q": document.getElementById('card224').scrollIntoView({behavior: 'auto' }); break;
-	case "r": case "R": document.getElementById('card226').scrollIntoView({behavior: 'auto' }); break;
-	case "s": case "S": document.getElementById('card250').scrollIntoView({behavior: 'auto' }); break;
-	case "t": case "T": document.getElementById('card277').scrollIntoView({behavior: 'auto' }); break;
-	case "v": case "V": document.getElementById('card300').scrollIntoView({behavior: 'auto' }); break;
-	case "w": case "W": document.getElementById('card305').scrollIntoView({behavior: 'auto' }); break;
-	case "x": case "X": document.getElementById('card326').scrollIntoView({behavior: 'auto' }); break;
-	case "y": case "Y": document.getElementById('card327').scrollIntoView({behavior: 'auto' }); break;
+	case "0": document.getElementById('card'+(alphamatch.indexOf("0")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "1": document.getElementById('card'+(alphamatch.indexOf("1")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "6": document.getElementById('card'+(alphamatch.indexOf("6")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "a": case "A": document.getElementById('card'+(alphamatch.indexOf("A")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "b": case "B": document.getElementById('card'+(alphamatch.indexOf("B")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "c": case "C": document.getElementById('card'+(alphamatch.indexOf("C")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "d": case "D": document.getElementById('card'+(alphamatch.indexOf("D")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "e": case "E": document.getElementById('card'+(alphamatch.indexOf("E")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "f": case "F": document.getElementById('card'+(alphamatch.indexOf("F")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "g": case "G": document.getElementById('card'+(alphamatch.indexOf("G")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "h": case "H": document.getElementById('card'+(alphamatch.indexOf("H")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "i": case "I": document.getElementById('card'+(alphamatch.indexOf("I")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "j": case "J": document.getElementById('card'+(alphamatch.indexOf("J")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "k": case "K": document.getElementById('card'+(alphamatch.indexOf("K")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "l": case "L": document.getElementById('card'+(alphamatch.indexOf("L")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "m": case "M": document.getElementById('card'+(alphamatch.indexOf("M")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "n": case "N": document.getElementById('card'+(alphamatch.indexOf("N")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "o": case "O": document.getElementById('card'+(alphamatch.indexOf("O")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "p": case "P": document.getElementById('card'+(alphamatch.indexOf("P")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "q": case "Q": document.getElementById('card'+(alphamatch.indexOf("Q")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "r": case "R": document.getElementById('card'+(alphamatch.indexOf("R")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "s": case "S": document.getElementById('card'+(alphamatch.indexOf("S")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "t": case "T": document.getElementById('card'+(alphamatch.indexOf("T")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "v": case "V": document.getElementById('card'+(alphamatch.indexOf("U")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "w": case "W": document.getElementById('card'+(alphamatch.indexOf("V")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "x": case "X": document.getElementById('card'+(alphamatch.indexOf("X")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "y": case "Y": document.getElementById('card'+(alphamatch.indexOf("Y")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "z": case "Z": document.getElementById('card'+(alphamatch.indexOf("Z")+1)).scrollIntoView({behavior: 'auto' }); break;
 	default:
 	}
   }
@@ -171,15 +172,20 @@ setInterval(function() {window.scrollBy(0, g);}, h);
 	g = 1;
 	h = 20;
  }
-  
 function noscroll(){
 	scrolling = false;
 	g = 0;
 	h = 0;
 }
+document.body.addEventListener("keypress", function(event) {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		document.getElementById("find").click();
+		}
+})
 </script>
 <button id="top" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
-<input type="text" id="myText" value="0" class="search" maxlength="1" size="1">
+<input type="text" id="myText" value="0" class="search" maxlength="1" size="1" onclick="this.value=''">
 <button id="find" onclick="AZclick();" class="buttonFind">⌕</button>
 <button id="scroll" onclick="scrollMode();" class="buttonScroll">Scroll</button>
 <button id="bottom" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" class="buttonD">↓</button>
