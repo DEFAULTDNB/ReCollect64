@@ -24,9 +24,9 @@
 		<br><br><br><br>
 		</div>
 		<div class="grid-item">Art gallery:<br><br>
-		<img id="thumb1" class="thumbs" src='Config/LOGO.png' onclick='thumbFunct()'><img id="thumb2" class="thumbs" src='Config/LOGO.png' onclick='myfunction()'><img id="thumb3" class="thumbs" src='Config/LOGO.png' onclick='myfunction()'>
+		<img id="thumb1" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct()'><img id="thumb2" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'><img id="thumb3" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'><img id="thumb4" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'><img id="thumb5" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'><img id="thumb6" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
 		<br>
-		<img id="thumbs" class="thumbs" src='Config/LOGO.png' onclick='myfunction()'><img id="thumbs" class="thumbs" src='Config/LOGO.png' onclick='myfunction()'><img id="thumbs" class="thumbs" src='Config/LOGO.png' onclick='myfunction()'>
+		<img id="thumb7" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
 		</div>  
 		<div class="grid-item">Collection:<br><br>
 		Cart:<BR>EU:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>US:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>JP:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>HK:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>TW:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>NFR:<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
@@ -83,6 +83,8 @@ for (i=0; i < titleCount; i++){
 		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
 		} else if (lines[info].match("REGIONS=UA ")){
 		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
+		} else if (lines[info].match("REGIONS=UEA ")){
+		div.style.backgroundImage = "url('Covers/"+gTitle+" E.png')";
 		} else if (lines[info].match("REGIONS=JUA ")){
 		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
 	}
@@ -119,6 +121,9 @@ document.getElementById("frametitle").innerHTML = lines[clicked_id-1].slice( (li
 document.getElementById("thumb1").src = 'Covers/'+frametitle.innerHTML+' E.png';
 document.getElementById("thumb2").src = 'Covers/'+frametitle.innerHTML+' U.png';
 document.getElementById("thumb3").src = 'Covers/'+frametitle.innerHTML+' J.png';
+document.getElementById("thumb4").src = 'Covers/'+frametitle.innerHTML+' A.png';
+document.getElementById("thumb5").src = 'Covers/'+frametitle.innerHTML+' D.png';
+document.getElementById("thumb6").src = 'Covers/'+frametitle.innerHTML+' F.png';
 
 	/*switch (clicked_id){
 	case ",":;
