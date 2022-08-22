@@ -24,15 +24,17 @@
 		<br><br><br><br>
 		</div>
 		<div class="grid-item">Art gallery:<br><br>
-		<img id="thumb1" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct()'><img id="thumb2" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'><img id="thumb3" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'><img id="thumb4" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'><img id="thumb5" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'><img id="thumb6" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
+		<img id="thumb1" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb2" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb3" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb4" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb5" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb6" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 		<br>
 		<img id="thumb7" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
 		</div>  
 		<div class="grid-item">Collection:<br><br>
+		<div style='border: thin solid; border-color: grey;'>
 		Cart:<BR>EU:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>US:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>JP:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>HK:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>TW:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>NFR:<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Manual:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Box:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Sealed:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+		</div>
 		</div>
 		
 	</div>
@@ -113,8 +115,6 @@ for (i=0; i < titleCount; i++){
 	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: thin solid; border-color: grey; white-space: wrap; overflow: hidden;'><span style='color:green'>No: </span>"+coverFlow[i]+"/"+titleCount+"<button id='"+coverFlow[i]+"' style='position: relative; left: 15px;' onclick='reply_click(this.id)'>🎮</button><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 	//border-color: yellow blue red green;
 }
-
-
 function reply_click(clicked_id){
 document.getElementById("frame").style.display = "block";
 document.getElementById("frametitle").innerHTML = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) );
@@ -124,18 +124,6 @@ document.getElementById("thumb3").src = 'Covers/'+frametitle.innerHTML+' J.png';
 document.getElementById("thumb4").src = 'Covers/'+frametitle.innerHTML+' A.png';
 document.getElementById("thumb5").src = 'Covers/'+frametitle.innerHTML+' D.png';
 document.getElementById("thumb6").src = 'Covers/'+frametitle.innerHTML+' F.png';
-
-	/*switch (clicked_id){
-	case ",":;
-	break;
-	default: r = confirm("Open larger image?");
-		if (r == true) {
-		let tile = document.getElementById("card"+clicked_id).style.backgroundImage;
-		let shorter = tile.slice( (tile.indexOf("(")+2) , (tile.indexOf(")")-1) );
-		window.open(shorter);
-		} else {
-		}
-	}*/
 }
 function AZclick() {
 	switch (document.getElementById("myText").value){
@@ -185,12 +173,8 @@ document.onkeypress = function (e) {
 	document.getElementById("myText").value = e.key.toUpperCase();
 	AZclick();
 };
-function thumbFunct() {
-/*
-  window.open('Covers/'+frametitle.innerHTML+' E.png', "BOX ART", "width=450", "height=295");
-  window.open('Covers/'+frametitle.innerHTML+' U.png', "BOX ART", "width=450", "height=295");
-  window.open('Covers/'+frametitle.innerHTML+' J.png', "BOX ART", "width=450", "height=295");
-*/
+function thumbFunct(clicked_id) {
+window.open(document.getElementById(clicked_id).src, frametitle.innerHTML, 'width='+document.getElementById(clicked_id).naturalWidth+'px,height='+document.getElementById(clicked_id).naturalHeight+'px');
 }
 
 </script>
