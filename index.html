@@ -15,7 +15,7 @@
 <div class="frame" id="frame">
 <div class="card-header" id="frametitle">GAME TITLE</div>
 	<div class="background-image"></div>
-	<span class="closebtn"><img src="Config/CLEFT.png" onclick="prev();" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CDOWN.png" onclick="frame.style.display='none';" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CRIGHT.png" onclick="next();" style="vertical-align: top-right;" height="32px" width="32px"/></span>
+	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CDOWN.png" title="Close panel" onclick="frame.style.display='none';" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" style="vertical-align: top-right;" height="32px" width="32px"/></span>
 	<div class="grid-container">
 		<div class="grid-item"><center>About:</center><br>
 		</div>
@@ -176,10 +176,9 @@ function reply_click(clicked_id){
 	}
 	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
 	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
-	let memInfo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1));
-	//BUILD INFO\\
+
 	document.getElementById("p2-1").innerHTML = altName + "<br>Publisher: " + pubCo + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour;
-	///////\\\\\\\
+
 	document.getElementById("frame").style.display = "block";
 	document.getElementById("frametitle").innerHTML = (lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) ));
 	document.getElementById("thumb1").src = 'Covers/'+frametitle.innerHTML+' E.png';
