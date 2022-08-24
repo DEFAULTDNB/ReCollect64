@@ -35,7 +35,7 @@ background-position: 5px 8px;
 	background: #C1BED1;
 	background-image: url('WALLPAPER.png');
 	border: 3px solid #FFC001;
-	border-color: yellow blue red green;
+	border-color: #C1BED1;
 	box-shadow: -1px 1px 5px 7px rgba(0,0,0,0.5);
 	z-index: 999;
 	touch-action: none;
@@ -47,17 +47,20 @@ background-position: 5px 8px;
 	text-align: center;
 	font-size: 20px;
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-  --background-color: white;
-  padding: 0px;
-}
 .thumbs {
 	width: 100px;
 	height: 70px;
 }
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 640px;
+  grid-template-rows: 50% 50%;
+  height: 440px;
+  --background-color: white;
+  padding: 0px;
+}
+
 .grid-item {
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid #C1BED1;
