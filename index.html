@@ -176,9 +176,10 @@ function reply_click(clicked_id){
 	}
 	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
 	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
-
+	let memInfo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1));
+	//BUILD INFO\\
 	document.getElementById("p2-1").innerHTML = altName + "<br>Publisher: " + pubCo + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour;
-
+	///////\\\\\\\
 	document.getElementById("frame").style.display = "block";
 	document.getElementById("frametitle").innerHTML = (lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) ));
 	document.getElementById("thumb1").src = 'Covers/'+frametitle.innerHTML+' E.png';
