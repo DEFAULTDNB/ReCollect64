@@ -10,27 +10,28 @@
 </head>
 <body>
 <div id="logo"><center><image src="Config/LOGO.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
-<h1>GAMES CATALOG</h1>
+<h1>GAME COLLECTION</h1>
 <div class="frame" id="frame">
 <div class="card-header" id="frametitle">GAME TITLE</div>
 	<div class="background-image"></div>
-	<span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
-	<BR>
+	<span class="closebtn"><img src="Config/CLEFT.png" onclick="prev();" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/START.png" onclick="frame.style.display='none';" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CRIGHT.png" onclick="next();" style="vertical-align: top-right;" height="32px" width="32px"/></span>
 	<div class="grid-container">
-		<div class="grid-item">About <game name>:<br><br>
-		<br><br><br><br>
+		<div class="grid-item"><center>About:</center><br>
 		</div>
-		<div class="grid-item">Regional info:<br><br>
-		<br><br><br><br>
+		<div id="p2" class="grid-item"><center>Info:</center><br>
+		<div id="p2-1"></div>
 		</div>
-		<div class="grid-item">Art gallery:<br><br>
+		<div class="grid-item"><center>Art:</center><br>
 		<img id="thumb1" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb2" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb3" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb4" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb5" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb6" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 		<br>
 		<img id="thumb7" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
 		</div>  
-		<div class="grid-item">Collection:<br><br>
-		<div style='border: thin solid; border-color: grey;'>
-		Cart:<BR>EU:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>US:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>JP:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>HK:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>TW:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>NFR:<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
+		<div class="grid-item"><center>Collection:</center>
+		<div style='border: 2px solid #C1BED1;'>
+		Cart:<BR>PAL:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>US:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>JP:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+		<br>NFR:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>HK:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>TW:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
+		</div>
+		<div style='border: 2px solid #C1BED1;'>
 		Manual:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Box:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Sealed:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
@@ -113,18 +114,57 @@ for (i=0; i < titleCount; i++){
 	var gGenre = lines[info].slice( (lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1) );
 	var gScore = lines[info].slice( (lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1) );
 	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: thin solid; border-color: grey; white-space: wrap; overflow: hidden;'><span style='color:green'>No: </span>"+coverFlow[i]+"/"+titleCount+"<button id='"+coverFlow[i]+"' style='position: relative; left: 15px;' onclick='reply_click(this.id)'>🎮</button><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
-	//border-color: yellow blue red green;
 }
+var prevCard;
+var nextCard;
 function reply_click(clicked_id){
-document.getElementById("frame").style.display = "block";
-document.getElementById("frametitle").innerHTML = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) );
-document.getElementById("thumb1").src = 'Covers/'+frametitle.innerHTML+' E.png';
-document.getElementById("thumb2").src = 'Covers/'+frametitle.innerHTML+' U.png';
-document.getElementById("thumb3").src = 'Covers/'+frametitle.innerHTML+' J.png';
-document.getElementById("thumb4").src = 'Covers/'+frametitle.innerHTML+' A.png';
-document.getElementById("thumb5").src = 'Covers/'+frametitle.innerHTML+' D.png';
-document.getElementById("thumb6").src = 'Covers/'+frametitle.innerHTML+' F.png';
+	let expak = "";
+	if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("1")){
+	expak = " Expansion Pak Required!";
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("2")){
+	expak = " Expansion Pak Enhanced!";
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("3")){
+	expak = " Don't use Expansion Pak!";
+	} else {
+	expak = " No Expansion Pak Support!";
+	}
+	let altName = "";
+	if (lines[clicked_id-1].match("ALT=")){
+	altName = "AKA: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length) );
+	} else {
+	altName = "";
+	}
+	let cartColour = "";
+	if (lines[clicked_id-1].match(/\[(.*?)\]/)){
+	cartColour = "<br>Cart: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
+	} else {
+	cartColour = "";
+	}
+	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
+	let memInfo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1));
+	//BUILD INFO\\
+	document.getElementById("p2-1").innerHTML = altName + "<br>Size: " + mbSize + "<br>Mem: "+ memInfo + "<br>Exp: " + expak + cartColour;
+	///////\\\\\\\
+	document.getElementById("frame").style.display = "block";
+	document.getElementById("frametitle").innerHTML = (lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) ));
+	document.getElementById("thumb1").src = 'Covers/'+frametitle.innerHTML+' E.png';
+	document.getElementById("thumb2").src = 'Covers/'+frametitle.innerHTML+' U.png';
+	document.getElementById("thumb3").src = 'Covers/'+frametitle.innerHTML+' J.png';
+	document.getElementById("thumb4").src = 'Covers/'+frametitle.innerHTML+' A.png';
+	document.getElementById("thumb5").src = 'Covers/'+frametitle.innerHTML+' D.png';
+	document.getElementById("thumb6").src = 'Covers/'+frametitle.innerHTML+' F.png';
+	prevCard = Number(clicked_id)-1;
+	nextCard = Number(clicked_id)+1;
 }
+function prev() {
+document.getElementById(prevCard).click();
+document.getElementById('card'+(prevCard-1)).scrollIntoView({behavior: 'auto' });
+}
+function next() {
+document.getElementById(nextCard).click();
+document.getElementById('card'+(nextCard-1)).scrollIntoView({behavior: 'auto' });
+}
+
 function AZclick() {
 	switch (document.getElementById("myText").value){
 	case "0": document.getElementById('card'+(alphamatch.indexOf("0")+1)).scrollIntoView({behavior: 'auto' }); break;
@@ -176,7 +216,6 @@ document.onkeypress = function (e) {
 function thumbFunct(clicked_id) {
 window.open(document.getElementById(clicked_id).src, frametitle.innerHTML, 'width='+document.getElementById(clicked_id).naturalWidth+'px,height='+document.getElementById(clicked_id).naturalHeight+'px');
 }
-
 </script>
 <button id="top" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
 <input type="text" id="myText" value="0" class="search" maxlength="1" size="6" onclick="this.value=''">
