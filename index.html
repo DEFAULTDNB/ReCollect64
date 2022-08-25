@@ -15,24 +15,26 @@
 <div class="frame" id="frame">
 <div class="card-header" id="frametitle">GAME TITLE</div>
 	<div class="background-image"></div>
-	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CDOWN.png" title="Close panel" onclick="frame.style.display='none';" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" style="vertical-align: top-right;" height="32px" width="32px"/></span>
+	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/START.png" title="Close panel" onclick="frame.style.display='none';" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" style="vertical-align: top-right;" height="32px" width="32px"/></span>
 	<div class="grid-container">
 		<div class="grid-item"><center>About:</center><br>
 		</div>
 		<div id="p2" class="grid-item"><center>Info:</center>
-		<div id="p2-1"></div>
+		<div id="p2-1" style="border: thin dashed; border-color: #FFC001;"></div>
 		</div>
-		<div class="grid-item"><center>Art:</center><br>
+		<div class="grid-item"><center>Artwork:</center>
+		<div style="border: thin dashed; border-color: #C20D02;">
 		<img id="thumb1" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb2" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb3" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb4" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb5" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb6" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 		<br>
 		<img id="thumb7" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
-		</div>  
-		<div class="grid-item"><center>Collection:</center>
-		<div style='border: 2px solid #C1BED1;'>
-		Cart:<BR>PAL:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>US:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>JP:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
-		<br>NFR:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>HK:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>TW:<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
 		</div>
-		<div style='border: 2px solid #C1BED1;'>
+		</div>
+		<div class="grid-item"><center>Collection:</center>
+		<div style='border: thin dashed #069330;'>
+		Cartridges:<BR>🇪🇺<label class="switch" title="PAL"><input type="checkbox"><span class="slider round"></span></label>🇺🇸<label title="NTSC-U" class="switch"><input type="checkbox"><span class="slider round"></span></label>🇯🇵<label title="NTSC-J" class="switch"><input type="checkbox"><span class="slider round"></span></label>
+		<br>🇭🇰<label title="Hong Kong" class="switch"><input type="checkbox"><span class="slider round"></span></label>🇹🇼<label title="Taiwan" class="switch"><input type="checkbox"><span class="slider round"></span></label>™️<label title="Not For Resale" class="switch"><input type="checkbox"><span class="slider round"></span></label>
+		</div>
+		<div style='border: thin dashed #011DA9;'>
 		Manual:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Box:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Sealed:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
@@ -116,7 +118,7 @@ for (i=0; i < titleCount; i++){
 	var gYear = lines[info].slice( (lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1) );
 	var gGenre = lines[info].slice( (lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1) );
 	var gScore = lines[info].slice( (lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1) );
-	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: thin dashed; border-color: grey; white-space: wrap; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
+	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: thin dashed; border-color: #C1BED1; white-space: wrap; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 }
 var prevCard;
 var nextCard;
@@ -152,16 +154,7 @@ function reply_click(clicked_id){
 	} else {
 	mpak = "Password System!"; //6
 	}
-	
-	/*
-    Controller Pak (32,768 bytes) SRAM
-    4 Kilobits (512 bytes) EEPROM
-    16 Kilobits (2048 bytes) EEPROM
-    256 Kilobits (32,768 bytes) SRAM
-    1024 Kilobits (131,072 bytes) FlashRAM
-    No Save (included at the bottom)
-	*/
-	
+
 	let altName = "";
 	if (lines[clicked_id-1].match("ALT=")){
 	altName = "AKA: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length) );
@@ -176,8 +169,9 @@ function reply_click(clicked_id){
 	}
 	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
 	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
+	let rDate = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("DATE=")+5), (lines[clicked_id-1].indexOf("SCORE=")-1));
 
-	document.getElementById("p2-1").innerHTML = altName + "<br>Publisher: " + pubCo + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour;
+	document.getElementById("p2-1").innerHTML = altName + "Publisher: " + pubCo + "<BR>Released: " + rDate + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour;
 
 	document.getElementById("frame").style.display = "block";
 	document.getElementById("frametitle").innerHTML = (lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) ));
@@ -257,7 +251,7 @@ document.getElementById("overlay").style.display = "none";
 </script>
 <button id="top" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
 <input type="text" id="myText" value="0" class="search" maxlength="1" size="6" onclick="this.value=''">
-<button id="scroll" onclick="scrollMode();" class="buttonScroll">Scroll</button>
+<!--button id="scroll" onclick="scrollMode();" class="buttonScroll">Scroll</button-->
 <button id="bottom" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" class="buttonD">↓</button>
 <div id="footer" class="footer">DEFAULTDNB 2022</div>
 </body>
