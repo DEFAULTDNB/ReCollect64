@@ -17,18 +17,27 @@
 	<div class="background-image"></div>
 	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/START.png" title="Close panel" onclick="frame.style.display='none';" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" style="vertical-align: top-right;" height="32px" width="32px"/></span>
 	<div class="grid-container">
-		<div class="grid-item"><center>About:</center><br>
+		<div class="grid-item"><center>About:</center>
+		<div id="a1" style="border: thin dashed; border-color: #C1BED1;">
+		</div>
 		</div>
 		<div id="p2" class="grid-item"><center>Info:</center>
 		<div id="p2-1" style="border: thin dashed; border-color: #FFC001;"></div>
 		</div>
-		<div class="grid-item"><center>Artwork:</center>
-		<div style="border: thin dashed; border-color: #C20D02;">
-		<img id="thumb1" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb2" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb3" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb4" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb5" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'><img id="thumb6" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-		<br>
-		<img id="thumb7" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
-		</div>
-		</div>
+			<div class="grid-item"><center>Artwork:</center>
+				<div id="art" style="border: thin dashed; border-color: #C20D02;">
+				<img id="thumbE" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbU" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbJ" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbA" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbD" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbF" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbS" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
+				<img id="thumbI" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
+				<img id="thumbPC" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
+				<img id="thumbPCU" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='myfunction()'>
+				</div>
+			</div>
 		<div class="grid-item"><center>Collection:</center>
 		<div style='border: thin dashed #069330;'>
 		Cartridges:<BR>🇪🇺<label class="switch" title="PAL"><input type="checkbox"><span class="slider round"></span></label>🇺🇸<label title="NTSC-U" class="switch"><input type="checkbox"><span class="slider round"></span></label>🇯🇵<label title="NTSC-J" class="switch"><input type="checkbox"><span class="slider round"></span></label>
@@ -99,7 +108,7 @@ for (i=0; i < titleCount; i++){
 	//card styling
 	div.style.height = "180px";
 	div.style.width = "400px" ;
-	div.style.border ="thin solid grey";
+	div.style.border ="thin solid #C1BED1";
 	div.style.backgroundColor = "rgba(0,0,0,0.5)";
 	div.style.color = "white";
 	div.style.textShadow = "1.5px 2px #000000";
@@ -157,7 +166,7 @@ function reply_click(clicked_id){
 
 	let altName = "";
 	if (lines[clicked_id-1].match("ALT=")){
-	altName = "AKA: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length) );
+	altName = "AKA: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length) )+"<br>";
 	} else {
 	altName = "";
 	}
@@ -170,17 +179,53 @@ function reply_click(clicked_id){
 	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
 	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
 	let rDate = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("DATE=")+5), (lines[clicked_id-1].indexOf("SCORE=")-1));
-
+	let gameTitle = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) );
+	let gameGenre = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1) );
+	let gameScore = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGIONS=")-1) );
+	let gameRegions = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("REGIONS=")+8), (lines[clicked_id-1].indexOf("SIZE=")-1) );
+	let colCart = "";
+	if (cartColour != "") {
+	colCart = " , and it also had a regional exclusive " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]"))).toLowerCase() + " cartridge to collect!";
+	} else {
+	colCart = "";
+	}
+	
+	if (gameRegions.match("JUE")){
+		gameRegions = "Japan, USA and Europe";
+		} else if (gameRegions.match("UE")){ 
+		gameRegions = "USA and Europe";
+		} else if (gameRegions.match("JE")){ 
+		gameRegions = "Japan and Europe";
+		} else if (gameRegions.match("JU")){ 
+		gameRegions = "Japan and USA";
+		} else if (gameRegions.match("JUA")){ 
+		gameRegions = "Japan, USA and Australia (PAL)";
+		} else if (gameRegions.match("J")){ 
+		gameRegions = "Japan (NTSC-J) exclusively.";
+		} else if (gameRegions.match("U")){ 
+		gameRegions = "USA (NTSC-U) exclusively.";
+		} else if (gameRegions.match("E")){ 
+		gameRegions = "Europe (PAL) exclusively.";
+		} else if (gameRegions.match("A")){ 
+		gameRegions = "Australia (PAL) exclusively.";
+	}
+	
 	document.getElementById("p2-1").innerHTML = altName + "Publisher: " + pubCo + "<BR>Released: " + rDate + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour;
 
+	document.getElementById("a1").innerHTML = "The " + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " on " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
+
 	document.getElementById("frame").style.display = "block";
-	document.getElementById("frametitle").innerHTML = (lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) ));
-	document.getElementById("thumb1").src = 'Covers/'+frametitle.innerHTML+' E.png';
-	document.getElementById("thumb2").src = 'Covers/'+frametitle.innerHTML+' U.png';
-	document.getElementById("thumb3").src = 'Covers/'+frametitle.innerHTML+' J.png';
-	document.getElementById("thumb4").src = 'Covers/'+frametitle.innerHTML+' A.png';
-	document.getElementById("thumb5").src = 'Covers/'+frametitle.innerHTML+' D.png';
-	document.getElementById("thumb6").src = 'Covers/'+frametitle.innerHTML+' F.png';
+	document.getElementById("frametitle").innerHTML = (gameTitle);
+	document.getElementById("thumbE").src = 'Covers/'+frametitle.innerHTML+' E.png';
+	document.getElementById("thumbU").src = 'Covers/'+frametitle.innerHTML+' U.png';
+	document.getElementById("thumbJ").src = 'Covers/'+frametitle.innerHTML+' J.png';
+	document.getElementById("thumbA").src = 'Covers/'+frametitle.innerHTML+' A.png';
+	document.getElementById("thumbD").src = 'Covers/'+frametitle.innerHTML+' D.png';
+	document.getElementById("thumbF").src = 'Covers/'+frametitle.innerHTML+' F.png';
+	document.getElementById("thumbS").src = 'Covers/'+frametitle.innerHTML+' S.png';
+	document.getElementById("thumbI").src = 'Covers/'+frametitle.innerHTML+' I.png';
+	document.getElementById("thumbPC").src = 'Covers/'+frametitle.innerHTML+' PC.png';
+	document.getElementById("thumbPCU").src = 'Covers/'+frametitle.innerHTML+' PCU.png';
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
 }
