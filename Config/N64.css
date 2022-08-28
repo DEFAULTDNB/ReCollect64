@@ -10,7 +10,7 @@ h1 {
 	text-shadow: 1.5px 2px #000000;
 }
 .main {
-	display: inline-block;
+	display: block;
 	font-size: 0;
 }
 #frame {
