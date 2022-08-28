@@ -9,9 +9,11 @@ h1 {
 	color: white;
 	text-shadow: 1.5px 2px #000000;
 }
-.main {
-	display: block;
-	font-size: 0;
+#main {
+	/*display: inline-block;
+	font-size: 0;*/
+	display: flex;
+	flex-wrap: wrap;
 }
 #frame {
 	position: fixed;
@@ -137,7 +139,7 @@ input:checked + .slider {
   background-color: #069330; /*green*/
 }
 input:focus + .slider {
-  box-shadow: 0 0 4px solid #011DA9; /*blue*/
+  /*box-shadow: 0 0 4px solid #011DA9; /*blue*/
 }
 input:checked + .slider:before {
   -webkit-transform: translateX(16px);
