@@ -47,9 +47,19 @@ background-position: 5px 8px;
 	text-align: center;
 	font-size: 20px;
 }
+#art {
+	font-size: 0;
+}
 .thumbs {
+	display: block;
+	position: relative;
 	width: 100px;
 	height: 70px;
+}
+.thumbs:hover {
+	border: 2px solid #C20D02;
+	margin: -2px;
+	z-index: 1 !important;
 }
 .grid-container {
   display: grid;
@@ -64,7 +74,7 @@ background-position: 5px 8px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid #C1BED1;
   padding: 5px;
-  font-size: 20px;
+  font-size: 18px;
   text-align: left;
 }
 .closebtn {
