@@ -41,11 +41,11 @@
 				</div>
 			</div>
 		<div class="grid-item"><center>Collection:</center>
-		<div style='border: 2px dashed #069330;'>
+		<div style='border: 1px dashed #069330;'>
 		Cartridges:<BR>🇪🇺<label class="switch" title="PAL"><input type="checkbox"><span class="slider round"></span></label>🇺🇸<label title="NTSC-U" class="switch"><input type="checkbox"><span class="slider round"></span></label>🇯🇵<label title="NTSC-J" class="switch"><input type="checkbox"><span class="slider round"></span></label>
 		<br>🇭🇰<label title="Hong Kong" class="switch"><input type="checkbox"><span class="slider round"></span></label>🇹🇼<label title="Taiwan" class="switch"><input type="checkbox"><span class="slider round"></span></label>™️<label title="Not For Resale" class="switch"><input type="checkbox"><span class="slider round"></span></label>
 		</div>
-		<div style='border: 2px dashed #011DA9;'>
+		<div style='border: 1px dashed #011DA9;'>
 		Manual:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Box:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label><br>
 		Sealed:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
@@ -75,7 +75,7 @@ for (i=0; i < titleCount; i++){
 	var div = document.createElement("div");
 	document.getElementById("main").appendChild(div);
 	div.id = "card"+coverFlow[i];
-	div.class = "tile";
+	//div.class = "tile";
 	var info = coverFlow[i]-1;
 	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("GENRE=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1) ).stringify();
 	alphamatch.push(lines[info].charAt(0));
@@ -196,6 +196,8 @@ function reply_click(clicked_id){
 		gameRegions = "Japan, USA and Europe";
 		} else if (gameRegions.match("UE")){ 
 		gameRegions = "USA and Europe";
+		} else if (gameRegions.match("UA")){ 
+		gameRegions = "USA and Australia";
 		} else if (gameRegions.match("JE")){ 
 		gameRegions = "Japan and Europe";
 		} else if (gameRegions.match("JU")){ 
