@@ -9,10 +9,12 @@ h1 {
 	color: white;
 	text-shadow: 1.5px 2px #000000;
 }
-
+.main {
+	font-size: 0;
+}
 .tile {
 	display: inline-block;
-	font-size: 0;
+	
 	float: left;
 }
 
