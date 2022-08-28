@@ -11,18 +11,9 @@ h1 {
 }
 
 .tile {
-height: 180px;
-width: 400px;
-border: 1px solid grey;
-background-color: rgba(0,0,0,0.5);
-color: white;
-text-shadow: 1.5px 2px #000000;
-font-size: 17px;
-display: inline-block;
-background-image: url(Config/LOGO.png);
-background-repeat: no-repeat;
-background-size: 225px;
-background-position: 5px 8px;
+	display: inline-block;
+	font-size: 0;
+	float: left;
 }
 
 #frame {
@@ -72,7 +63,7 @@ background-position: 5px 8px;
 }
 .grid-item {
   background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid #C1BED1;
+  border: 2px solid #C1BED1;
   padding: 5px;
   font-size: 18px;
   text-align: left;
