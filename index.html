@@ -15,7 +15,7 @@
 <div class="frame" id="frame">
 <div class="card-header" id="frametitle">GAME TITLE</div>
 	<div class="background-image"></div>
-	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/START.png" title="Close panel" onclick="frame.style.display='none';" style="vertical-align: top-right;" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" style="vertical-align: top-right;" height="32px" width="32px"/></span>
+	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" height="32px" width="32px"/><img src="Config/START.png" title="Close panel" onclick="frame.style.display='none';" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" height="32px" width="32px"/></span>
 	<div class="grid-container">
 		<div class="grid-item"><center>About:</center>
 		<div id="a1" style="border: 1px dashed; border-color: #C1BED1;">
@@ -51,7 +51,6 @@
 		Sealed:&#9;<label class="switch"><input type="checkbox"><span class="slider round"></span></label>
 		</div>
 		</div>
-		
 	</div>
 </div>
 <center><div id="main" class="main" style="border: none;"></div><center>
@@ -129,7 +128,7 @@ for (i=0; i < titleCount; i++){
 	var gYear = lines[info].slice( (lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1) );
 	var gGenre = lines[info].slice( (lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1) );
 	var gScore = lines[info].slice( (lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1) );
-	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; white-space: wrap; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
+	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 }
 var prevCard;
 var nextCard;
