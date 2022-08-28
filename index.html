@@ -185,7 +185,7 @@ function reply_click(clicked_id){
 	let gameRegions = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("REGIONS=")+8), (lines[clicked_id-1].indexOf("SIZE=")-1) );
 	let colCart = "";
 	if (cartColour != "") {
-	colCart = " , and it also had a regional exclusive " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]"))).toLowerCase() + " cartridge to collect!";
+	colCart = ", and it also had a regional exclusive " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]"))).toLowerCase() + " cartridge to collect!";
 	} else {
 	colCart = "";
 	}
@@ -201,13 +201,13 @@ function reply_click(clicked_id){
 		} else if (gameRegions.match("JUA")){ 
 		gameRegions = "Japan, USA and Australia (PAL)";
 		} else if (gameRegions.match("J")){ 
-		gameRegions = "Japan (NTSC-J) exclusively.";
+		gameRegions = "Japan (NTSC-J) exclusively";
 		} else if (gameRegions.match("U")){ 
-		gameRegions = "USA (NTSC-U) exclusively.";
+		gameRegions = "USA (NTSC-U) exclusively";
 		} else if (gameRegions.match("E")){ 
-		gameRegions = "Europe (PAL) exclusively.";
+		gameRegions = "Europe (PAL) exclusively";
 		} else if (gameRegions.match("A")){ 
-		gameRegions = "Australia (PAL) exclusively.";
+		gameRegions = "Australia (PAL) exclusively";
 	}
 	
 	document.getElementById("p2-1").innerHTML = altName + "Publisher: " + pubCo + "<BR>Released: " + rDate + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour;
