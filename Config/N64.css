@@ -10,14 +10,9 @@ h1 {
 	text-shadow: 1.5px 2px #000000;
 }
 .main {
+	display: inline-block;
 	font-size: 0;
 }
-.tile {
-	display: inline-block;
-	
-	float: left;
-}
-
 #frame {
 	position: fixed;
 	top: 50%;
