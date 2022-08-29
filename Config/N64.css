@@ -10,8 +10,6 @@ h1 {
 	text-shadow: 1.5px 2px #000000;
 }
 #main {
-	/*display: inline-block;
-	font-size: 0;*/
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -41,12 +39,14 @@ h1 {
 }
 #art {
 	font-size: 0;
+	max-height: 200px;
+	padding: 2px;
 }
 .thumbs {
 	display: block;
 	position: relative;
 	width: 100px;
-	height: 70px;
+	height: 60px;
 }
 .thumbs:hover {
 	border: 2px solid #C20D02;
