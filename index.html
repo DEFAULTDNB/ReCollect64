@@ -14,7 +14,7 @@
 <h1>GAME COLLECTION</h1>
 <div class="frame" id="frame">
 <div class="card-header" id="frametitle">GAME TITLE</div>
-	<div class="background-image"></div>
+	<div class="background-image" id="artwork"></div>
 	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" height="32px" width="32px"/><img src="Config/START.png" title="Close panel" onclick="frame.style.display='none';" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" height="32px" width="32px"/></span>
 	<div class="grid-container">
 		<div class="grid-item"><center>About:</center>
@@ -34,9 +34,11 @@
 				<img id="thumbF" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbS" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbI" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbPC" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbPCU" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbAS" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbHK" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbSE" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbPCE" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbPCU" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbALT" class="thumbs" src='Config/LOGO.png' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				</div>
 			</div>
@@ -74,7 +76,6 @@ for (i=0; i < titleCount; i++){
 	var div = document.createElement("div");
 	document.getElementById("main").appendChild(div);
 	div.id = "card"+coverFlow[i];
-	//div.class = "tile";
 	var info = coverFlow[i]-1;
 	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("GENRE=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1) ).stringify();
 	alphamatch.push(lines[info].charAt(0));
@@ -106,7 +107,6 @@ for (i=0; i < titleCount; i++){
 		} else if (lines[info].match("REGIONS=JUA ")){
 		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
 	}
-	//card styling
 	div.style.height = "180px";
 	div.style.width = "400px" ;
 	div.style.border ="thin solid #C1BED1";
@@ -116,15 +116,12 @@ for (i=0; i < titleCount; i++){
 	div.style.fontSize = "17px";
 	div.style.display = "inline-block";
 	div.style.backgroundRepeat = "no-repeat";
-	//div.style.backgroundSize ="contain"; //220px
-	div.style.backgroundSize ="225px"; //220px
+	div.style.backgroundSize ="225px";
 	div.style.backgroundPosition = "5px 8px"
-	//end-main-loop//
 	for (j=0; j < jpboxes.length; j++){
 	document.getElementById("card"+jpboxes[j]).style.backgroundSize ="120px";
 	document.getElementById("card"+jpboxes[j]).style.backgroundPosition = "60px 8px";
 	}
-	//end-fix-jpboxes//
 	var gYear = lines[info].slice( (lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1) );
 	var gGenre = lines[info].slice( (lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1) );
 	var gScore = lines[info].slice( (lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1) );
@@ -143,7 +140,6 @@ function reply_click(clicked_id){
 	} else {
 	expak = "Unsupported!";
 	}
-	
 	let mpak = "";
 	if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("0")){
 	mpak = "Memory Pak<br>(32,768 bytes) SRAM";
@@ -164,7 +160,6 @@ function reply_click(clicked_id){
 	} else {
 	mpak = "Password System!"; //6
 	}
-
 	let altName = "";
 	if (lines[clicked_id-1].match("ALT=")){
 	altName = "AKA: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length) )+"<br>";
@@ -186,11 +181,10 @@ function reply_click(clicked_id){
 	let gameRegions = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("REGIONS=")+8), (lines[clicked_id-1].indexOf("SIZE=")-1) );
 	let colCart = "";
 	if (cartColour != "") {
-	colCart = ", and it also had a regional exclusive " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]"))).toLowerCase() + " cartridge to collect!";
+	colCart = ", and it also had an exclusive " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]"))).toLowerCase() + " cartridge available!";
 	} else {
 	colCart = "";
 	}
-	
 	if (gameRegions.match("JUE")){
 		gameRegions = "Japan, USA and Europe";
 		} else if (gameRegions.match("UE")){ 
@@ -212,13 +206,11 @@ function reply_click(clicked_id){
 		} else if (gameRegions.match("A")){ 
 		gameRegions = "Australia (PAL) exclusively";
 	}
-	
 	document.getElementById("p2-1").innerHTML = altName + "Publisher: " + pubCo + "<BR>Released: " + rDate + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour;
-
 	document.getElementById("a1").innerHTML = "The " + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " on " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
-
 	document.getElementById("frame").style.display = "block";
 	document.getElementById("frametitle").innerHTML = (gameTitle);
+	
 	document.getElementById("thumbE").src = 'Covers/'+frametitle.innerHTML+' E.png';
 	document.getElementById("thumbU").src = 'Covers/'+frametitle.innerHTML+' U.png';
 	document.getElementById("thumbJ").src = 'Covers/'+frametitle.innerHTML+' J.png';
@@ -227,22 +219,24 @@ function reply_click(clicked_id){
 	document.getElementById("thumbF").src = 'Covers/'+frametitle.innerHTML+' F.png';
 	document.getElementById("thumbS").src = 'Covers/'+frametitle.innerHTML+' S.png';
 	document.getElementById("thumbI").src = 'Covers/'+frametitle.innerHTML+' I.png';
-	document.getElementById("thumbPC").src = 'Covers/'+frametitle.innerHTML+' PC.png';
-	document.getElementById("thumbPCU").src = 'Covers/'+frametitle.innerHTML+' PCU.png';
+	document.getElementById("thumbAS").src = 'Covers/'+frametitle.innerHTML+' AS.png';
+	document.getElementById("thumbHK").src = 'Covers/'+frametitle.innerHTML+' HK.png';
 	document.getElementById("thumbSE").src = 'Covers/'+frametitle.innerHTML+' SE.png';
+	document.getElementById("thumbPCE").src = 'Covers/'+frametitle.innerHTML+' PCE.png';
+	document.getElementById("thumbPCU").src = 'Covers/'+frametitle.innerHTML+' PCU.png';
 	document.getElementById("thumbALT").src = 'Covers/'+frametitle.innerHTML+' ALT.png';
+	
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
 }
 function prev() {
-document.getElementById(prevCard).click();
-document.getElementById('card'+(prevCard-1)).scrollIntoView({behavior: 'auto' });
+	document.getElementById(prevCard).click();
+	document.getElementById('card'+(prevCard-1)).scrollIntoView({behavior: 'auto' });
 }
 function next() {
-document.getElementById(nextCard).click();
-document.getElementById('card'+(nextCard-1)).scrollIntoView({behavior: 'auto' });
+	document.getElementById(nextCard).click();
+	document.getElementById('card'+(nextCard-1)).scrollIntoView({behavior: 'auto' });
 }
-
 function AZclick() {
 	switch (document.getElementById("myText").value){
 	case "0": document.getElementById('card'+(alphamatch.indexOf("0")+1)).scrollIntoView({behavior: 'auto' }); break;
@@ -293,6 +287,7 @@ document.onkeypress = function (e) {
 };
 function thumbFunct(clicked_id) {
 window.open(document.getElementById(clicked_id).src, frametitle.innerHTML, 'width='+document.getElementById(clicked_id).naturalWidth+'px,height='+document.getElementById(clicked_id).naturalHeight+'px');
+//CHANGE THIS TO SPAWN ITS OWN INTERNAL FRAME\\
 }
 
 window.onload = function () {
