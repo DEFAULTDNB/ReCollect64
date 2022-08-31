@@ -22,6 +22,7 @@
 		</div>
 		</div>
 		<div id="p2" class="grid-item"><center>Info:</center>
+		<img class="closebtn" title="EXPANSION PAK ENHANCED TITLE!" id="expak" src='Config/EXPAK.png' />
 		<div id="p2-1" style="border: 1px dashed; border-color: #FFC001;"></div>
 		</div>
 			<div class="grid-item"><center>Artwork:</center>
@@ -38,6 +39,7 @@
 				<img id="thumbAS" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('AScart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('AScart').style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbHK" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('HKcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('HKcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbTW" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('TWcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('TWcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbKO" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('TWcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('KOcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbSEE" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('SEEcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('SEEcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbSEU" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('SEUcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('SEUcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbSEJ" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('SEJcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('SEJcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
@@ -50,7 +52,6 @@
 			</div>
 		<div class="grid-item"><center>Collection:</center>
 			<div id="container" style='border: 1px dashed #069330;'>
-			Version:<BR>
 				<div id="Ecart"><span title="EUROPEAN">🇪🇺 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
 				<div id="Ucart"><span title="AMERICAN">🇺🇸 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
 				<div id="Jcart"><span title="JAPANESE">🇯🇵 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
@@ -63,14 +64,15 @@
 				<div id="AScart"><span title="ASIAN">🇲🇾 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
 				<div id="HKcart"><span title="HONG KONG VERSION">🇭🇰 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
 				<div id="TWcart"><span title="TAIWAN VERSION">🇹🇼 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
-				<div id="SEEcart"><span title="SE EUR">⭐🇪🇺 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
-				<div id="SEUcart"><span title="SE USA">⭐🇺🇸 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
-				<div id="SEJcart"><span title="SE JAPAN">⭐🇯🇵 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
-				<div id="SEOcart"><span title="SE OTHER">⭐🌐 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
-				<div id="PCEcart"><span title="PLAYERS CHOICE EUR">🥇🇪🇺 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
-				<div id="PCUcart"><span title="PLAYERS CHOICE USA">🥇🇺🇸 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
+				<div id="KOcart"><span title="KOREAN VERSION">🇰🇷 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
+				<div id="SEEcart"><span title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="vertical-align: middle; width: 20px; height: auto:"/>&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
+				<div id="SEUcart"><span title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="vertical-align: middle; width: 20px; height: auto:"/>&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
+				<div id="SEJcart"><span title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="vertical-align: middle; width: 20px; height: auto:"/>&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
+				<div id="SEOcart"><span title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="vertical-align: middle; width: 20px; height: auto:"/>&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
+				<div id="PCEcart"><span title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: 45deg; vertical-align: middle; width: 19px; height: auto:"/>&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
+				<div id="PCUcart"><span title="PLAYERS CHOICE USA"><img src="Config/PCU.png" style="vertical-align: middle; width: 20px; height: auto:"/>&nbsp<label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
 				<div id="ALTcart"><span title="ALTERNATE VERSION">𝖠𝖫𝖳 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span><br></div>
-				<div id="NFRcart"><span title="Not For Resale">𝖭𝖥𝖱 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span></div>
+				<div id="NFRcart"><span title="NOT FOR RESALE">𝖭𝖥𝖱 <label class="switch"><input type="checkbox"><span class="slider round"></span></label></span><span title="Boxed?"> 📦:<input type="checkbox"></span><span title="Manual?"> 📗:<input type="checkbox"></span><span title="Sealed?"> 🆕:<input type="checkbox"></span></div>
 			</div>
 		</div>
 	</div>
@@ -80,6 +82,7 @@
 document.getElementById("overlaytext").innerHTML = "Loading..";
 document.getElementById("overlay").style.display = "block";
 document.getElementById("frame").style.display = "none";
+document.getElementById("expak").style.display = "none";
 var fileName = "Config/N64.cfg";
 var xmlFile = new XMLHttpRequest;
 xmlFile.open('get', fileName, false);
@@ -153,12 +156,16 @@ function reply_click(clicked_id){
 	let expak = "";
 	if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("1")){
 	expak = "Required!";
+	document.getElementById("expak").style.display = 'block';
 	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("2")){
 	expak = "Enhanced!";
+	document.getElementById("expak").style.display = 'block';
 	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("3")){
 	expak = "DO NOT USE!";
+	document.getElementById("expak").style.display = 'none';
 	} else {
 	expak = "Unsupported!";
+	document.getElementById("expak").style.display = 'none';
 	}
 	let mpak = "";
 	if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("0")){
@@ -230,7 +237,6 @@ function reply_click(clicked_id){
 	document.getElementById("a1").innerHTML = "The " + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " on " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
 	document.getElementById("frame").style.display = "block";
 	document.getElementById("frametitle").innerHTML = (gameTitle);
-	
 	document.getElementById("thumbE").src = 'Covers/'+frametitle.innerHTML+' E.png'; //EUROPE (GENERAL)
 	document.getElementById("thumbU").src = 'Covers/'+frametitle.innerHTML+' U.png'; //USA
 	document.getElementById("thumbJ").src = 'Covers/'+frametitle.innerHTML+' J.png'; //JAPAN
@@ -243,6 +249,7 @@ function reply_click(clicked_id){
 	document.getElementById("thumbAS").src = 'Covers/'+frametitle.innerHTML+' AS.png'; //ASIA (GENERAL)
 	document.getElementById("thumbHK").src = 'Covers/'+frametitle.innerHTML+' HK.png'; //HONG KONG
 	document.getElementById("thumbTW").src = 'Covers/'+frametitle.innerHTML+' TW.png'; //TAIWAN
+	document.getElementById("thumbKO").src = 'Covers/'+frametitle.innerHTML+' KO.png'; //KOREAN
 	document.getElementById("thumbSEE").src = 'Covers/'+frametitle.innerHTML+' SEE.png'; //SPECIAL EDITION EUROPE
 	document.getElementById("thumbSEU").src = 'Covers/'+frametitle.innerHTML+' SEU.png'; //SPECIAL EDITION USA
 	document.getElementById("thumbSEJ").src = 'Covers/'+frametitle.innerHTML+' SEJ.png'; //SPECIAL EDITION JAPAN
@@ -251,7 +258,6 @@ function reply_click(clicked_id){
 	document.getElementById("thumbPCU").src = 'Covers/'+frametitle.innerHTML+' PCU.png'; //PLAYERS CHOICE USA
 	document.getElementById("thumbALT").src = 'Covers/'+frametitle.innerHTML+' ALT.png'; //ALTERNATE VERSION
 	document.getElementById("thumbNFR").src = 'Covers/'+frametitle.innerHTML+' NFR.png'; //NOT FOR RESALE
-	
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
 }
@@ -338,6 +344,30 @@ document.getElementById("overlay").style.display = "none";
 }
 
 function storeCollection () {
+/* CONCEPT:
+
+if arry exists {
+CREATE ARRAY in LOCALSTORAGE
+} else {
+
+On GAME PANEL open {
+
+1, READ GAME NAME row in array.
+if nothing exists in array, do nothing 
+}else{
+when slider or box checked ADD to array and SAVE ARRAY again
+}
+
+if things exist in array {
+check off the relevant boxes to display.
+}
+
+END TASK
+
+//NOTE: ALERT ONLY DISPLAYS 1048 CHARS\\
+//NOTE: LOCALSTORAGE = ~5MB MAX\\
+
+*/
 
 //put DB into variable
 var myCollection = xmlDoc;
