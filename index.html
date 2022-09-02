@@ -8,19 +8,17 @@
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
 <script>
-//INITIALIZE COLLECTION
+	var myCollectionList = [];
 	if (localStorage.myCollection == null) {
-		var myCollectionList = [];
 		localStorage.myCollection = JSON.stringify(myCollectionList);
 		//alert("storage created"); //WORKS!
 		} else {
 		//alert("storage exists"); //WORKS!
-		var myCollectionList = JSON.parse(localStorage.myCollection);
+		myCollectionList = JSON.parse(localStorage.myCollection);
 	}
-////////////\\\\\\\\\\\\
 </script>
 </head>
-<body>
+<body onload="populate();">
 <div id="gcount" onchange="checkCombo();" hidden></div>
 <div id="overlay"><div id="overlaytext" style="font-size: 22px"></div></div>
 <div id="logo"><center><image src="Config/LOGO.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
@@ -78,11 +76,11 @@
 				<div id="HKcart"><span title="HONG KONG VERSION">🇭🇰 <input id="HKcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="HKbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="HKmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="HKsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
 				<div id="TWcart"><span title="TAIWAN VERSION">🇹🇼 <input id="TWcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="TWbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="TWmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="TWsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
 				<div id="KOcart"><span title="KOREAN VERSION">🇰🇷 <input id="KOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="KObox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="KOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="KOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEEcart"><span title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp<input id="SEEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEEbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEUcart"><span title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp<input id="SEUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEUbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEJcart"><span title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp<input id="SEJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEJbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEJmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEJsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEOcart"><span title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp<input id="SEOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEObox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="PCEcart"><span title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: -45deg; margin-left: 2px; vertical-align: middle; width: 16px; height: auto:"/>&nbsp<input id="PCEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCEbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="SEEcart"><span title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEEbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="SEUcart"><span title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEUbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="SEJcart"><span title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEJbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEJmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEJsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="SEOcart"><span title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEObox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="PCEcart"><span title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: -45deg; margin-left: 2px; vertical-align: middle; width: 16px; height: auto:"/>&nbsp <input id="PCEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCEbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
 				<div id="PCUcart"><span title="PLAYERS CHOICE USA"><img src="Config/PCU.png" style="margin-left: 1px; margin-right: 2px; vertical-align: middle; width: 20px; height: auto:"/><input id="PCUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCUbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
 				<div id="ALTcart"><span title="ALTERNATE VERSION">𝖠𝖫𝖳 <input id="ALTcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="ALTbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="ALTmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input type="checkbox" onclick="check_click(this.id)"></span><br></div>
 				<div id="NFRcart"><span title="NOT FOR RESALE">𝖭𝖥𝖱 <input id="NFRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="NFRbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="NFRmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input type="checkbox" onclick="check_click(this.id)"></span></div>
@@ -104,8 +102,6 @@ var xmlDoc = xmlFile.responseText;
 var lines = xmlDoc.split("\r\n");
 let titleCount = lines.length;
 var coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
-var g = 0;
-var h = 0;
 const jpboxes = [];
 const alphamatch = [];
 for (i=0; i < titleCount; i++){
@@ -158,9 +154,9 @@ for (i=0; i < titleCount; i++){
 	document.getElementById("card"+jpboxes[j]).style.backgroundSize ="120px";
 	document.getElementById("card"+jpboxes[j]).style.backgroundPosition = "60px 8px";
 	}
-	var gYear = lines[info].slice( (lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1) );
-	var gGenre = lines[info].slice( (lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1) );
-	var gScore = lines[info].slice( (lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1) );
+	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
+	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
+	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1));
 	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 }
 var prevCard;
@@ -168,13 +164,13 @@ var nextCard;
 var myID;
 function reply_click(clicked_id){
 	let expak = "";
-	if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("1")){
+	if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("1")){
 	expak = "Required!";
 	document.getElementById("expak").style.display = 'block';
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("2")){
+	} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("2")){
 	expak = "Enhanced!";
 	document.getElementById("expak").style.display = 'block';
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("EXPAK=")+6), (lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("3")){
+	} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("3")){
 	expak = "DO NOT USE!";
 	document.getElementById("expak").style.display = 'none';
 	} else {
@@ -363,14 +359,6 @@ function AZclick() {
 	default: alert("No entries found!");
 	}
 }
-var scrolling = false;
-function scrollMode() {
-	if (scrolling == true) {
-	setInterval(function() {window.scrollBy(0, 0);}, 0);
-	} else {
-	setInterval(function() {window.scrollBy(0, 1);}, 20);
-	}
-}
 document.onkeydown = checkKey;
 function checkKey(e) {
 	e = e || window.event;	
@@ -429,9 +417,8 @@ function nuke () {
 </script>
 <button id="top" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
 <input type="text" id="myText" value="0" class="search" maxlength="1" size="6" onclick="this.value=''">
-<!--button id="scroll" onclick="scrollMode();" class="buttonScroll">Scroll</button-->
 <button id="bottom" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" class="buttonD">↓</button>
-<button id="nuke" onclick="nuke();">⚠️</button>
+<button id="nuke" onclick="nuke();">-=⚠️=-</button>
 <div id="footer" class="footer">DEFAULTDNB 2022</div>
 </body>
 </html>
