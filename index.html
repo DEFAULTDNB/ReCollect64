@@ -182,21 +182,21 @@ function reply_click(clicked_id){
 	document.getElementById("expak").style.display = 'none';
 	}
 	let mpak = "";
-	if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("0")){
+	if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+7)).match("0")){
 	mpak = "Memory Pak<br>(32,768 bytes) SRAM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("1")){
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+7)).match("1")){
 	mpak = "4 Kilobits<br>(512 bytes) EEPROM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("2")){
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+7)).match("2")){
 	mpak = "16 Kilobits<br>(2048 bytes) EEPROM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("3")){
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+7)).match("3")){
 	mpak = "256 Kilobits<br>(32,768 bytes) SRAM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("4")){
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+7)).match("4")){
 	mpak = "1024 Kilobits<br>(131,072 bytes) FlashRAM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("5")){
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+7)).match("5")){
 	mpak = "No Saves!";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("7")){
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+7)).match("7")){
 	mpak = "768Kbit SRAM + Battery!";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("CART=")-1)).match("8")){
+	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+7)).match("8")){
 	mpak = "256Kbit SRAM + Battery for RTC!";
 	} else {
 	mpak = "Password System!"; //6
