@@ -84,16 +84,6 @@ document.getElementById("overlaytext").innerHTML = "Loading..";
 document.getElementById("overlay").style.display = "block";
 document.getElementById("frame").style.display = "none";
 document.getElementById("expak").style.display = "none";
-//INITIALIZE COLLECTION
-if (localStorage.myCollection == null) {
-	var myCollectionList = [];
-	localStorage.myCollection = JSON.stringify(myCollectionList);
-	//alert("storage created"); //WORKS!
-	} else {
-	//alert("storage exists"); //WORKS!
-	var myCollectionList = JSON.parse(localStorage.myCollection);
-}
-////////////\\\\\\\\\\\\
 var fileName = "Config/N64.cfg";
 var xmlFile = new XMLHttpRequest;
 xmlFile.open('get', fileName, false);
@@ -161,6 +151,16 @@ for (i=0; i < titleCount; i++){
 	var gScore = lines[info].slice( (lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1) );
 	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 }
+//INITIALIZE COLLECTION
+if (localStorage.myCollection == null) {
+	var myCollectionList = [];
+	localStorage.myCollection = JSON.stringify(myCollectionList);
+	//alert("storage created"); //WORKS!
+	} else {
+	//alert("storage exists"); //WORKS!
+	var myCollectionList = JSON.parse(localStorage.myCollection);
+}
+////////////\\\\\\\\\\\\
 var prevCard;
 var nextCard;
 var myID;
