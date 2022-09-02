@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
 <title>PROJECT REALITY</title>
 <link rel="stylesheet" href="Config/N64.css">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
+<script>
+//INITIALIZE COLLECTION
+	if (localStorage.myCollection == null) {
+		var myCollectionList = [];
+		localStorage.myCollection = JSON.stringify(myCollectionList);
+		//alert("storage created"); //WORKS!
+		} else {
+		//alert("storage exists"); //WORKS!
+		var myCollectionList = JSON.parse(localStorage.myCollection);
+	}
+////////////\\\\\\\\\\\\
+</script>
 </head>
 <body>
 <div id="gcount" onchange="checkCombo();" hidden></div>
@@ -151,16 +163,6 @@ for (i=0; i < titleCount; i++){
 	var gScore = lines[info].slice( (lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1) );
 	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 }
-//INITIALIZE COLLECTION
-if (localStorage.myCollection == null) {
-	var myCollectionList = [];
-	localStorage.myCollection = JSON.stringify(myCollectionList);
-	//alert("storage created"); //WORKS!
-	} else {
-	//alert("storage exists"); //WORKS!
-	var myCollectionList = JSON.parse(localStorage.myCollection);
-}
-////////////\\\\\\\\\\\\
 var prevCard;
 var nextCard;
 var myID;
@@ -390,7 +392,7 @@ function checkKey(e) {
 		} else {
 		document.getElementById("gcount").innerHTML += "R";
 		}
-	} else if (e.keyCode == '13'/*||e.keyCode == '16'||e.keyCode == '17'||e.keyCode == '32'*/) {
+	} else if (e.keyCode == '13'||e.keyCode == '16'||e.keyCode == '17'||e.keyCode == '32') {
 	} else {
 	document.getElementById("myText").value = e.key.toUpperCase();
 	document.getElementById("gcount").innerHTML += e.key.toUpperCase();
