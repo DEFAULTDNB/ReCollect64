@@ -9,24 +9,35 @@
 <link rel="apple-touch-icon" href="Config/favicon.png" />
 <script>
 	var myCollectionList = [];
+	var cartsCounted = boxesCounted = manualsCounted = sealedCounted = 0;
+	var tally = 0;
 	if (localStorage.myCollection == null) {
 		localStorage.myCollection = JSON.stringify(myCollectionList);
-		//alert("storage created"); //WORKS!
+		tally = 0;
 		} else {
-		//alert("storage exists"); //WORKS!
 		myCollectionList = JSON.parse(localStorage.myCollection);
+		cartsCounted = myCollectionList.flat().filter(x => x.match(/cartridge/gi)).length;
+		boxesCounted = myCollectionList.flat().filter(x => x.match(/box/gi)).length;
+		manualsCounted = myCollectionList.flat().filter(x => x.match(/manual/gi)).length;
+		sealedCounted = myCollectionList.flat().filter(x => x.match(/sealed/gi)).length;
+		tally = 0
+		for(var k = 0; k < myCollectionList.length; k++){
+			if(myCollectionList[k][0] && myCollectionList[k][1]){
+			tally = tally +1;
+			}
+		}
 	}
 </script>
 </head>
-<body onload="populate();">
+<body>
 <div id="gcount" onchange="checkCombo();" hidden></div>
 <div id="overlay"><div id="overlaytext" style="font-size: 22px"></div></div>
 <div id="logo"><center><image src="Config/LOGO.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
 <h1>GAME COLLECTION</h1>
-<div class="frame" id="frame">
+<div class="frame" id="frame" onmouseleave="">
 <div class="card-header" id="frametitle">GAME TITLE</div>
 	<div class="background-image" id="artwork"></div>
-	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" height="32px" width="32px"/><img src="Config/START.png" title="Close panel" onclick="frame.style.display='none';" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" height="32px" width="32px"/></span>
+	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" height="32px" width="32px"/><img src="Config/START.png" title="Close panel" onclick="closeCard();" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" height="32px" width="32px"/></span>
 	<div class="grid-container">
 		<div class="grid-item"><center>About:</center>
 		<div id="a1" style="border: 1px dashed; border-color: #C1BED1;">
@@ -90,10 +101,10 @@
 </div>
 <center><div id="main" class="main" style="border: none;"></div><center>
 <script>
-document.getElementById("overlaytext").innerHTML = "Loading..";
-document.getElementById("overlay").style.display = "block";
 document.getElementById("frame").style.display = "none";
 document.getElementById("expak").style.display = "none";
+document.getElementById("overlay").style.display = "block";
+document.getElementById("overlaytext").innerHTML = "Loading..";
 var fileName = "Config/N64.cfg";
 var xmlFile = new XMLHttpRequest;
 xmlFile.open('get', fileName, false);
@@ -271,10 +282,8 @@ function reply_click(clicked_id){
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
 	myID = clicked_id-1;
-	//declare new array for gameTitle
 	myCollectionList.push([gameTitle]);
-	//check for dupes
-	function multiDimensionalUnique(myCollectionList) {
+	function multiDimensionalUnique(myCollectionList) { //dupe check
     var uniques = [];
     var itemsFound = {};
     for(var i = 0, l = myCollectionList.length; i < l; i++) {
@@ -283,16 +292,15 @@ function reply_click(clicked_id){
         uniques.push(myCollectionList[i]);		
         itemsFound[stringified] = true;
     }
-	myCollectionList.length = 0; // Clear contents
-	myCollectionList.splice(0, myCollectionList.length, ...uniques); // Append new contents
+	myCollectionList.length = 0;
+	myCollectionList.splice(0, myCollectionList.length, ...uniques);
 	}
 	multiDimensionalUnique(myCollectionList);
-	//alert(JSON.stringify(myCollectionList));
 	const things = ["cartridge", "box", "manual", "sealed"];
 	const regions = ["E", "U", "J", "A", "B", "D", "F", "S", "I", "AS", "HK", "TW", "KO", "SEE", "SEU", "SEJ", "SEO", "PCE", "PCU", "ALT", "NFR"];
-	for (i = 0; i < myCollectionList.length; i++) { // check collection
-		for (r = 0; r < regions.length; r++) { // check region
-			for (f = 0; f < things.length; f++) { // check items
+	for (i = 0; i < myCollectionList.length; i++) {
+		for (r = 0; r < regions.length; r++) {
+			for (f = 0; f < things.length; f++) {
 				if (myCollectionList[myID].includes(regions[r]+things[f])) {
 				document.getElementById(regions[r]+things[f]).checked = true;
 				} else {
@@ -302,6 +310,7 @@ function reply_click(clicked_id){
 		}
 	}	
 }
+var parts = ["cartridge", "manual", "box"];
 function check_click(clicked_id){
 	// ADD & REMOVE GAME ITEMS \\
 	if (document.getElementById(clicked_id).checked == 1){
@@ -314,17 +323,24 @@ function check_click(clicked_id){
 	}
 	//alert(JSON.stringify(myCollectionList));
 	}
-	//save everything to storage each click
+	//save everything to storage
 	localStorage.myCollection = JSON.stringify(myCollectionList);
 }
 function prev() {
 	document.getElementById(prevCard).click();
 	document.getElementById('card'+(prevCard-1)).scrollIntoView({behavior: 'auto' });
+	roundUp();
 }
 function next() {
 	document.getElementById(nextCard).click();
 	document.getElementById('card'+(nextCard-1)).scrollIntoView({behavior: 'auto' });
+	roundUp();
 }
+function closeCard() {
+	document.getElementById("frame").style.display = "none";
+	roundUp();
+}
+
 function AZclick() {
 	switch (document.getElementById("myText").value){
 	case "0": document.getElementById('card'+(alphamatch.indexOf("0")+1)).scrollIntoView({behavior: 'auto' }); break;
@@ -380,7 +396,7 @@ function checkKey(e) {
 		} else {
 		document.getElementById("gcount").innerHTML += "R";
 		}
-	} else if (e.keyCode == '13'||e.keyCode == '16'||e.keyCode == '17'||e.keyCode == '32') {
+	} else if (e.keyCode == '8'||e.keyCode == '9'||e.keyCode == '13'||e.keyCode == '16'||e.keyCode == '17'||e.keyCode == '32'||e.keyCode == '45'||e.keyCode == '46') {
 	} else {
 	document.getElementById("myText").value = e.key.toUpperCase();
 	document.getElementById("gcount").innerHTML += e.key.toUpperCase();
@@ -394,12 +410,15 @@ window.open(document.getElementById(clicked_id).src, frametitle.innerHTML, 'widt
 }
 window.onload = function () {
 document.getElementById("overlay").style.display = "none";
+roundUp();
 }
+
 function copyOutCollection () {
-// back up collection to external blob
+// back up
 }
+
 function copyInCollection () {
-// restore collection from external blob
+// restore
 }
 function nuke () {
 	if (confirm("WARNING: Delete Collection?")) {
@@ -414,11 +433,23 @@ function nuke () {
     alert("Phew that was close!")
 	}
 }
+function roundUp () {
+	cartsCounted = myCollectionList.flat().filter(x => x.match(/cartridge/gi)).length;
+	tally = 0
+		for(var k = 0; k < myCollectionList.length; k++){
+			if(myCollectionList[k][0] && myCollectionList[k][1]){
+			tally = tally +1;
+			}
+		}
+	document.getElementById("tally").innerHTML = "Carts: "+cartsCounted+"<br>Boxes: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Sealed: "+sealedCounted+"<br>Unique: "+tally+"/"+titleCount;
+}
 </script>
 <button id="top" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
 <input type="text" id="myText" value="0" class="search" maxlength="1" size="6" onclick="this.value=''">
+<div id="tally"></div>
+<button id='save' onclick="copyOutCollection();"> SAVE OUT DATA TO TEXT FILE :P </button>
 <button id="bottom" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" class="buttonD">↓</button>
-<button id="nuke" onclick="nuke();">-=⚠️=-</button>
+<button id="nuke" onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();">-=⚠️=-</button>
 <div id="footer" class="footer">DEFAULTDNB 2022</div>
 </body>
 </html>
