@@ -30,7 +30,7 @@
 </script>
 </head>
 <body>
-<div id="gcount" onchange="checkCombo();" hidden></div>
+<div id="gcount" onchange="checkCombo();"></div>
 <div id="overlay"><div id="overlaytext" style="font-size: 22px"></div></div>
 <div id="logo"><center><image src="Config/LOGO.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
 <h1>GAME COLLECTION</h1>
@@ -100,7 +100,7 @@
 	</div>
 </div>
 <center><div id="main" class="main" style="border: none;"></div><center>
-<script>
+<script charset="utf-8">
 document.getElementById("frame").style.display = "none";
 document.getElementById("expak").style.display = "none";
 document.getElementById("overlay").style.display = "block";
@@ -412,19 +412,48 @@ window.onload = function () {
 document.getElementById("overlay").style.display = "none";
 roundUp();
 }
-
-function copyOutCollection () {
-// back up
+function copyOutCollection() {
+	if (confirm("BACKUP your collection?")) {
+		navigator.clipboard.writeText(JSON.stringify(myCollectionList));
+		alert("Collection backed up to: MYREALITY.P64");
+		var blob = new Blob([JSON.stringify(myCollectionList)], {
+		type: "db/plain;charset=utf-8"
+		});
+		var url = URL.createObjectURL(blob);
+		var b = document.createElement('a');
+		b.download = "MYREALITY.P64";
+		b.href = url;
+		b.textContent = "";
+		document.body.appendChild(b);
+		b.click();
+	} else {
+		alert("Backup your collection regularly.")
+	}
 }
-
-function copyInCollection () {
-// restore
+function openFile() {
+	if (confirm("ADD-IN an existing *.P64 collection?\n\rThis will delete your current collection.\n(Suggestion: Make a backup)")) {
+	document.getElementById('inp').click();
+	} else {
+	alert("Import cancelled!")
+	}
+}
+function readFile(e) {
+	var file = e.target.files[0];
+	if (!file) return;
+	var reader = new FileReader();
+	reader.onload = function(e) {
+	localStorage.myCollectionList = [];
+	localStorage.myCollection = e.target.result;
+	alert("Collection IMPORTED! Press OK to reload page.");
+	location.reload();
+	}
+	reader.readAsText(file, "UTF-8")
 }
 function nuke () {
 	if (confirm("WARNING: Delete Collection?")) {
 		if (confirm("WARNING: REALLY Delete Collection??")) {
 		localStorage.removeItem('myCollection')
-		alert("Collection Deleted! Refreshing..")
+		alert("Collection Deleted! Press OK to reload page.")
 		location.reload(); 
 		} else {
 		alert("Phew that was REALLY close!!")
@@ -435,6 +464,9 @@ function nuke () {
 }
 function roundUp () {
 	cartsCounted = myCollectionList.flat().filter(x => x.match(/cartridge/gi)).length;
+	boxesCounted = myCollectionList.flat().filter(x => x.match(/box/gi)).length;
+	manualsCounted = myCollectionList.flat().filter(x => x.match(/manual/gi)).length;
+	sealedCounted = myCollectionList.flat().filter(x => x.match(/sealed/gi)).length;
 	tally = 0
 		for(var k = 0; k < myCollectionList.length; k++){
 			if(myCollectionList[k][0] && myCollectionList[k][1]){
@@ -443,13 +475,19 @@ function roundUp () {
 		}
 	document.getElementById("tally").innerHTML = "Carts: "+cartsCounted+"<br>Boxes: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Sealed: "+sealedCounted+"<br>Unique: "+tally+"/"+titleCount;
 }
+function share() {
+window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/"+titleCount+"%20games!%0ATrack%20yours%20on%20@defaultdnb's%20site:%20https://defaultdnb.github.io/PROJECTREALITY/");
+}
 </script>
 <button id="top" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
 <input type="text" id="myText" value="0" class="search" maxlength="1" size="6" onclick="this.value=''">
 <div id="tally"></div>
-<button id='save' onclick="copyOutCollection();"> SAVE OUT DATA TO TEXT FILE :P </button>
+<img id="backup" title="Backup collection to file" onclick="copyOutCollection();" src="Config/BBUT.png" />
+<img id="restore" title="Add-in collection from file" onclick="openFile()" src="Config/ABUT.png" />
+<input id="inp" type='file' style="visibility:hidden;" accept=".P64" onchange="readFile(event)" />
+<img id="nuke" title="Pull the trigger & delete collection" onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" src="Config/ZBUT.png" />
+<div id="tweet" onclick="share();" title="Share your progress on Twitter!"></div>
 <button id="bottom" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" class="buttonD">↓</button>
-<button id="nuke" onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();">-=⚠️=-</button>
 <div id="footer" class="footer">DEFAULTDNB 2022</div>
 </body>
 </html>
