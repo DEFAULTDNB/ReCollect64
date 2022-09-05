@@ -152,18 +152,82 @@ h1 {
 #tally {
 	position: fixed;
 	/*top: 50px;*/
-	top: 1px;
-	right: 4px;
-    background-color: #069330;
+	top: 5px;
+	right: 5px;
+	height: 100px;
+	width: 85px;
+    --background-color: rgba(6,147,48,0.5);
+    background-color: rgba(194,13,2,0.5);
     border: none;
-    color: white;
+    color: rgba(255,255,255,100);
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
+	text-shadow: 1.5px 2px #000000;
     display: inline-block;
     font-size: 15px;
-    margin: 4px 2px;
     cursor: pointer;
+}
+#backup {
+	position: fixed;
+	top: 130px;
+	right: 60px;
+	height: 50px;
+	width: 50px;
+	--background-color: rgba(193,190,209,0.5);
+	color: white;
+	opacity: 0.5;
+	display: inline-block;
+    cursor: pointer;
+}
+#backup:hover {
+	opacity: 1;
+}
+#restore {
+	position: fixed;
+	top: 130px;
+	right: 5px;
+	height: 50px;
+	width: 50px;
+	--background-color: rgba(193,190,209,0.5);
+	color: white;
+	opacity: 0.5;
+	display: inline-block;
+    cursor: pointer;
+}
+#restore:hover {
+	opacity: 1;
+}
+#nuke {
+	position: fixed;
+	top: 185px;
+	right: 60px;
+	height: 50px;
+	width: 50px;
+	--background-color: rgba(193,190,209,0.5);
+	opacity: 0.5;
+	display: inline-block;
+    cursor: pointer;
+}
+#nuke:hover {
+	opacity: 1;
+}
+#tweet {
+	background-image: url('TWEET.png');
+	background-size: cover;
+	position: fixed;
+	top: 185px;
+	right: 5px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	opacity: 0.5;
+	text-shadow: 1.5px 2px #000000;
+	display: inline-block;
+    cursor: pointer;
+}
+#tweet:hover {
+	opacity: 1;
 }
 .buttonD {
 	position: fixed;
