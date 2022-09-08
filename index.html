@@ -17,7 +17,7 @@
 		} else {
 		myCollectionList = JSON.parse(localStorage.myCollection);
 		cartsCounted = myCollectionList.flat().filter(x => x.match(/cartridge/gi)).length;
-		boxesCounted = myCollectionList.flat().filter(x => x.match(/box/gi)).length;
+		boxesCounted = myCollectionList.flat().filter(x => x.match(/boxed/gi)).length;
 		manualsCounted = myCollectionList.flat().filter(x => x.match(/manual/gi)).length;
 		sealedCounted = myCollectionList.flat().filter(x => x.match(/sealed/gi)).length;
 		tally = 0
@@ -74,27 +74,27 @@
 			</div>
 		<div class="grid-item"><center>Collection:</center>
 			<div id="container" style='border: 1px dashed #069330;'>
-				<div id="Ecart"><span title="EUROPEAN">🇪🇺 <input id="Ecartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Ebox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Emanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Esealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Ucart"><span title="AMERICAN">🇺🇸 <input id="Ucartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Ubox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Umanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Usealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Jcart"><span title="JAPANESE">🇯🇵 <input id="Jcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Jbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Jmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Jsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Acart"><span title="AUSTRALIAN">🇦🇺 <input id="Acartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Abox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Amanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Asealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Bcart"><span title="BRAZILIAN">🇧🇷 <input id="Bcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Bbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Bmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Bsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Dcart"><span title="GERMAN">🇩🇪 <input id="Dcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Dbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Dmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Dsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Fcart"><span title="FRENCH">🇫🇷 <input id="Fcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Fbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Fmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Fsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Scart"><span title="SPANISH">🇪🇸 <input id="Scartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Sbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Smanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Ssealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Icart"><span title="ITALIAN">🇮🇹 <input id="Icartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Ibox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Imanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Isealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="AScart"><span title="ASIAN">🇲🇾 <input id="AScartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="ASbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="ASmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="ASsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="HKcart"><span title="HONG KONG VERSION">🇭🇰 <input id="HKcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="HKbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="HKmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="HKsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="TWcart"><span title="TAIWAN VERSION">🇹🇼 <input id="TWcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="TWbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="TWmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="TWsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="KOcart"><span title="KOREAN VERSION">🇰🇷 <input id="KOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="KObox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="KOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="KOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEEcart"><span title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEEbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEUcart"><span title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEUbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEJcart"><span title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEJbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEJmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEJsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEOcart"><span title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEObox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="PCEcart"><span title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: -45deg; margin-left: 2px; vertical-align: middle; width: 16px; height: auto:"/>&nbsp <input id="PCEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCEbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="PCUcart"><span title="PLAYERS CHOICE USA"><img src="Config/PCU.png" style="margin-left: 1px; margin-right: 2px; vertical-align: middle; width: 20px; height: auto:"/><input id="PCUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCUbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="ALTcart"><span title="ALTERNATE VERSION">𝖠𝖫𝖳 <input id="ALTcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="ALTbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="ALTmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="NFRcart"><span title="NOT FOR RESALE">𝖭𝖥𝖱 <input id="NFRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="NFRbox" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="NFRmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input type="checkbox" onclick="check_click(this.id)"></span></div>
+				<div id="Ecart"><span title="EUROPEAN">🇪🇺 <input id="Ecartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Eboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Emanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Esealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="Ucart"><span title="AMERICAN">🇺🇸 <input id="Ucartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Uboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Umanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Usealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="Jcart"><span title="JAPANESE">🇯🇵 <input id="Jcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Jboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Jmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Jsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="Acart"><span title="AUSTRALIAN">🇦🇺 <input id="Acartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Aboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Amanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Asealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="Bcart"><span title="BRAZILIAN">🇧🇷 <input id="Bcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Bboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Bmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Bsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="Dcart"><span title="GERMAN">🇩🇪 <input id="Dcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Dboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Dmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Dsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="Fcart"><span title="FRENCH">🇫🇷 <input id="Fcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Fboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Fmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Fsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="Scart"><span title="SPANISH">🇪🇸 <input id="Scartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Sboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Smanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Ssealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="Icart"><span title="ITALIAN">🇮🇹 <input id="Icartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Iboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Imanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Isealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="AScart"><span title="ASIAN">🇲🇾 <input id="AScartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="ASboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="ASmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="ASsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="HKcart"><span title="HONG KONG VERSION">🇭🇰 <input id="HKcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="HKboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="HKmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="HKsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="TWcart"><span title="TAIWAN VERSION">🇹🇼 <input id="TWcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="TWboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="TWmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="TWsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="KOcart"><span title="KOREAN VERSION">🇰🇷 <input id="KOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="KOboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="KOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="KOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="SEEcart"><span title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEEboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="SEUcart"><span title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEUboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="SEJcart"><span title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEJboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEJmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEJsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="SEOcart"><span title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEOboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="PCEcart"><span title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: -45deg; margin-left: 2px; vertical-align: middle; width: 16px; height: auto:"/>&nbsp <input id="PCEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCEboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="PCUcart"><span title="PLAYERS CHOICE USA"><img src="Config/PCU.png" style="margin-left: 1px; margin-right: 2px; vertical-align: middle; width: 20px; height: auto:"/><input id="PCUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCUboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="ALTcart"><span title="ALTERNATE VERSION">𝖠𝖫𝖳 <input id="ALTcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="ALTboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="ALTmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input type="checkbox" onclick="check_click(this.id)"></span><br></div>
+				<div id="NFRcart"><span title="NOT FOR RESALE">𝖭𝖥𝖱 <input id="NFRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="NFRboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="NFRmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input type="checkbox" onclick="check_click(this.id)"></span></div>
 			</div>
 		</div>
 	</div>
@@ -174,6 +174,13 @@ var prevCard;
 var nextCard;
 var myID;
 function reply_click(clicked_id){
+	let gameTitle = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) );
+	let gameGenre = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1) );
+	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
+	let rDate = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("DATE=")+5), (lines[clicked_id-1].indexOf("SCORE=")-1));	
+	let gameScore = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGIONS=")-1) );
+	let gameRegions = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("REGIONS=")+8), (lines[clicked_id-1].indexOf("SIZE=")-1) );
+	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
 	let expak = "";
 	if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("1")){
 	expak = "Required!";
@@ -220,16 +227,9 @@ function reply_click(clicked_id){
 	} else {
 	cartColour = "";
 	}
-	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
-	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
-	let rDate = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("DATE=")+5), (lines[clicked_id-1].indexOf("SCORE=")-1));
-	let gameTitle = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) );
-	let gameGenre = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1) );
-	let gameScore = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGIONS=")-1) );
-	let gameRegions = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("REGIONS=")+8), (lines[clicked_id-1].indexOf("SIZE=")-1) );
 	let colCart = "";
 	if (cartColour != "") {
-	colCart = ", and it also had an exclusive " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]"))).toLowerCase() + " cartridge available!";
+	colCart = ", and it also had a " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]"))).toLowerCase() + " cartridge available!";
 	} else {
 	colCart = "";
 	}
@@ -283,7 +283,8 @@ function reply_click(clicked_id){
 	nextCard = Number(clicked_id)+1;
 	myID = clicked_id-1;
 	myCollectionList.push([gameTitle]);
-	function multiDimensionalUnique(myCollectionList) { //dupe check
+	
+	function multiDimensionalUnique(myCollectionList) {
     var uniques = [];
     var itemsFound = {};
     for(var i = 0, l = myCollectionList.length; i < l; i++) {
@@ -296,51 +297,75 @@ function reply_click(clicked_id){
 	myCollectionList.splice(0, myCollectionList.length, ...uniques);
 	}
 	multiDimensionalUnique(myCollectionList);
-	const things = ["cartridge", "box", "manual", "sealed"];
+	
+	// NOT QUITE WORKING YET \\
 	const regions = ["E", "U", "J", "A", "B", "D", "F", "S", "I", "AS", "HK", "TW", "KO", "SEE", "SEU", "SEJ", "SEO", "PCE", "PCU", "ALT", "NFR"];
+	const things = ["cartridge", "boxed", "manual", "sealed"];
+	/*
+	for (m = 0; m < myCollectionList.length; m++) {
+		if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
+			for (i = 1; i < myCollectionList[m].length; i++) {
+				for (r = 0; r < regions.length; r++) {
+					for (t = 0; t < things.length; t++) {
+						if (myCollectionList[m][i] == regions[r]+things[t]) {
+						document.getElementById(regions[r]+things[t]).checked = true;
+						} else {
+						document.getElementById(regions[r]+things[t]).checked = false;
+						}
+					}
+				}
+			}
+        }
+    }
+	////////////\\\\\\\\\\\\\
+	*/
 	for (i = 0; i < myCollectionList.length; i++) {
 		for (r = 0; r < regions.length; r++) {
 			for (f = 0; f < things.length; f++) {
-				if (myCollectionList[myID].includes(regions[r]+things[f])) {
-				document.getElementById(regions[r]+things[f]).checked = true;
-				} else {
-				document.getElementById(regions[r]+things[f]).checked = false;
+				if (myCollectionList[i][0] == document.getElementById("frametitle").innerHTML) {
+					if (myCollectionList[i].includes(regions[r]+things[f])) {
+					document.getElementById(regions[r]+things[f]).checked = true;
+					} else {
+					document.getElementById(regions[r]+things[f]).checked = false;
+					}
 				}
 			}
 		}
-	}	
+	}
 }
-var parts = ["cartridge", "manual", "box"];
 function check_click(clicked_id){
-	// ADD & REMOVE GAME ITEMS \\
-	if (document.getElementById(clicked_id).checked == 1){
-	myCollectionList[myID].push(clicked_id);
-	//alert(JSON.stringify(myCollectionList));
-	} else {
-	if (myCollectionList[myID].includes(clicked_id, 1)) {
-	myCollectionList[myID].splice(myCollectionList.indexOf(clicked_id+1), 1);
+	// ADD & REMOVE GAME ITEMS \\	
+	if (document.getElementById(clicked_id).checked == true){
+		for (m = 0; m < myCollectionList.length; m++) {
+			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
+				myCollectionList[m].push(clicked_id);
+			}
+		}
+	} else if (document.getElementById(clicked_id).checked == false){
+		for (m = 0; m < myCollectionList.length; m++) {
+			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
+			myCollectionList[m].splice(myCollectionList.indexOf(clicked_id+1), 1);    
+			}
+		}	
 	} else {
 	}
-	//alert(JSON.stringify(myCollectionList));
-	}
-	//save everything to storage
 	localStorage.myCollection = JSON.stringify(myCollectionList);
+	alert(localStorage.myCollection + "\n\rActual!");
 }
 function prev() {
+	roundUp();
 	document.getElementById(prevCard).click();
 	document.getElementById('card'+(prevCard-1)).scrollIntoView({behavior: 'auto' });
-	roundUp();
 }
 function next() {
+	roundUp();
 	document.getElementById(nextCard).click();
 	document.getElementById('card'+(nextCard-1)).scrollIntoView({behavior: 'auto' });
-	roundUp();
 }
 function closeCard() {
-	document.getElementById("frame").style.display = "none";
 	roundUp();
+	document.getElementById("frame").style.display = "none";
 }
-
 function AZclick() {
 	switch (document.getElementById("myText").value){
 	case "0": document.getElementById('card'+(alphamatch.indexOf("0")+1)).scrollIntoView({behavior: 'auto' }); break;
@@ -415,13 +440,13 @@ roundUp();
 function copyOutCollection() {
 	if (confirm("BACKUP your collection?")) {
 		navigator.clipboard.writeText(JSON.stringify(myCollectionList));
-		alert("Collection backed up to: MYREALITY.P64");
+		alert("Collection backed up to: MYREALITY (DATE & TIME).P64");
 		var blob = new Blob([JSON.stringify(myCollectionList)], {
 		type: "db/plain;charset=utf-8"
 		});
 		var url = URL.createObjectURL(blob);
 		var b = document.createElement('a');
-		b.download = "MYREALITY.P64";
+		b.download = "MYREALITY ("+(new Date().toLocaleString())+").P64";
 		b.href = url;
 		b.textContent = "";
 		document.body.appendChild(b);
@@ -453,7 +478,14 @@ function nuke () {
 	if (confirm("WARNING: Delete Collection?")) {
 		if (confirm("WARNING: REALLY Delete Collection??")) {
 		localStorage.removeItem('myCollection')
-		alert("Collection Deleted! Press OK to reload page.")
+		var node_list = document.getElementsByTagName('input');
+		for (n = 0; n < node_list.length; n++) {
+		var node = node_list[n];
+			if (node.getAttribute('type') == 'checkbox') {		
+				document.getElementsByTagName('input')[n].checked = false;
+			}
+		}
+		alert("Collection Deleted! Press OK to reload page.");		
 		location.reload(); 
 		} else {
 		alert("Phew that was REALLY close!!")
@@ -464,7 +496,7 @@ function nuke () {
 }
 function roundUp () {
 	cartsCounted = myCollectionList.flat().filter(x => x.match(/cartridge/gi)).length;
-	boxesCounted = myCollectionList.flat().filter(x => x.match(/box/gi)).length;
+	boxesCounted = myCollectionList.flat().filter(x => x.match(/boxed/gi)).length;
 	manualsCounted = myCollectionList.flat().filter(x => x.match(/manual/gi)).length;
 	sealedCounted = myCollectionList.flat().filter(x => x.match(/sealed/gi)).length;
 	tally = 0
