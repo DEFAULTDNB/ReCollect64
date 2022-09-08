@@ -34,10 +34,10 @@
 <div id="overlay"><div id="overlaytext" style="font-size: 22px"></div></div>
 <div id="logo"><center><image src="Config/LOGO.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
 <h1>GAME COLLECTION</h1>
-<div class="frame" id="frame" onmouseleave="">
+<div class="frame" id="frame" onmouseleave="" style="display:none">
 <div class="card-header" id="frametitle">GAME TITLE</div>
 	<div class="background-image" id="artwork"></div>
-	<span class="closebtn"><img src="Config/CLEFT.png" title="Scroll left" onclick="prev();" height="32px" width="32px"/><img src="Config/START.png" title="Close panel" onclick="closeCard();" height="32px" width="32px"/><img src="Config/CRIGHT.png" title="Scroll right" onclick="next();" height="32px" width="32px"/></span>
+	<span class="closebtn"><img id="nav" src="Config/CLEFT.png" title="Scroll left" onclick="prev();"/><img id="start" src="Config/START.png" title="Close panel" onclick="closeCard();"/><img id="nav" src="Config/CRIGHT.png" title="Scroll right" onclick="next();"/></span>
 	<div class="grid-container">
 		<div class="grid-item"><center>About:</center>
 		<div id="a1" style="border: 1px dashed; border-color: #C1BED1;">
@@ -101,8 +101,6 @@
 </div>
 <center><div id="main" class="main" style="border: none;"></div><center>
 <script charset="utf-8">
-document.getElementById("frame").style.display = "none";
-document.getElementById("expak").style.display = "none";
 document.getElementById("overlay").style.display = "block";
 document.getElementById("overlaytext").innerHTML = "Loading..";
 var fileName = "Config/N64.cfg";
@@ -438,6 +436,7 @@ document.getElementById("overlay").style.display = "none";
 roundUp();
 }
 function copyOutCollection() {
+document.getElementById("frame").style.display = "none";
 	if (confirm("BACKUP your collection?")) {
 		navigator.clipboard.writeText(JSON.stringify(myCollectionList));
 		alert("Collection backed up to: MYREALITY (DATE & TIME).P64");
@@ -456,6 +455,7 @@ function copyOutCollection() {
 	}
 }
 function openFile() {
+document.getElementById("frame").style.display = "none";
 	if (confirm("ADD-IN an existing *.P64 collection?\n\rThis will delete your current collection.\n(Suggestion: Make a backup)")) {
 	document.getElementById('inp').click();
 	} else {
@@ -463,6 +463,7 @@ function openFile() {
 	}
 }
 function readFile(e) {
+document.getElementById("frame").style.display = "none";
 	var file = e.target.files[0];
 	if (!file) return;
 	var reader = new FileReader();
@@ -475,6 +476,7 @@ function readFile(e) {
 	reader.readAsText(file, "UTF-8")
 }
 function nuke () {
+document.getElementById("frame").style.display = "none";
 	if (confirm("WARNING: Delete Collection?")) {
 		if (confirm("WARNING: REALLY Delete Collection??")) {
 		localStorage.removeItem('myCollection')
@@ -508,7 +510,7 @@ function roundUp () {
 	document.getElementById("tally").innerHTML = "Carts: "+cartsCounted+"<br>Boxes: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Sealed: "+sealedCounted+"<br>Unique: "+tally+"/"+titleCount;
 }
 function share() {
-window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/"+titleCount+"%20games!%0ATrack%20yours%20on%20@defaultdnb's%20site:%20https://defaultdnb.github.io/PROJECTREALITY/");
+window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/"+titleCount+"%20games!%0A%0ATrack%20yours%20on%20%40defaultdnb%27s%20site%3A%20https%3A%2F%2Fdefaultdnb.github.io%2FPROJECTREALITY%2F%0A%0A%23PROJECTREALITY");
 }
 </script>
 <button id="top" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
