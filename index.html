@@ -118,7 +118,7 @@ for (i=0; i < titleCount; i++){
 	document.getElementById("main").appendChild(div);
 	div.id = "card"+coverFlow[i];
 	var info = coverFlow[i]-1;
-	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("GENRE=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1) ).stringify();
+	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("PLAYERS=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1) ).stringify();
 	alphamatch.push(lines[info].charAt(0));
 	if (lines[info].match("REGIONS=J ")){
 		jpboxes.push(coverFlow[i]);
@@ -172,7 +172,8 @@ var prevCard;
 var nextCard;
 var myID;
 function reply_click(clicked_id){
-	let gameTitle = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("GENRE=")-1) );
+	let gameTitle = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("PLAYERS=")-1) );
+	let gamePlayers = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1) );
 	let gameGenre = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1) );
 	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
 	let rDate = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("DATE=")+5), (lines[clicked_id-1].indexOf("SCORE=")-1));	
@@ -225,11 +226,11 @@ function reply_click(clicked_id){
 	} else {
 	cartColour = "";
 	}
-	let colCart = "";
+	let colCart = ".";
 	if (cartColour != "") {
 	colCart = ", and it also had a " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]"))).toLowerCase() + " cartridge available!";
 	} else {
-	colCart = "";
+	colCart = ".";
 	}
 	if (gameRegions.match("JUE")){
 		gameRegions = "Japan, USA and Europe";
@@ -252,8 +253,21 @@ function reply_click(clicked_id){
 		} else if (gameRegions.match("A")){ 
 		gameRegions = "Australia (PAL) exclusively";
 	}
-	document.getElementById("p2-1").innerHTML = altName + "Publisher: " + pubCo + "<BR>Released: " + rDate + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour;
-	document.getElementById("a1").innerHTML = "The " + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " on " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
+	if (gamePlayers == "1") {
+		gamePlayers = "single player ";
+		} else {
+		gamePlayers = gamePlayers + " player ";
+	}
+	let specialFeatures = ".";
+	if (gameTitle.match("Morita Shogi 64")) {
+		specialFeatures = "<br>Features: Built-in RJ-11 Modem connection port for online play.";
+		} else if (gameTitle.match("Mario no Photopi")) {
+		specialFeatures = "<br>Features: Dual SmartMedia card slots for image import & export.";
+		} else {
+		specialFeatures = "";
+	}
+	document.getElementById("p2-1").innerHTML = altName + "Publisher: " + pubCo + "<BR>Released: " + rDate + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour + specialFeatures;
+	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " on " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
 	document.getElementById("frame").style.display = "block";
 	document.getElementById("frametitle").innerHTML = (gameTitle);
 	document.getElementById("thumbE").src = 'Covers/'+frametitle.innerHTML+' E.png'; //EUROPE (GENERAL)
@@ -281,7 +295,6 @@ function reply_click(clicked_id){
 	nextCard = Number(clicked_id)+1;
 	myID = clicked_id-1;
 	myCollectionList.push([gameTitle]);
-	
 	function multiDimensionalUnique(myCollectionList) {
     var uniques = [];
     var itemsFound = {};
@@ -295,28 +308,8 @@ function reply_click(clicked_id){
 	myCollectionList.splice(0, myCollectionList.length, ...uniques);
 	}
 	multiDimensionalUnique(myCollectionList);
-	
-	// NOT QUITE WORKING YET \\
 	const regions = ["E", "U", "J", "A", "B", "D", "F", "S", "I", "AS", "HK", "TW", "KO", "SEE", "SEU", "SEJ", "SEO", "PCE", "PCU", "ALT", "NFR"];
 	const things = ["cartridge", "boxed", "manual", "sealed"];
-	/*
-	for (m = 0; m < myCollectionList.length; m++) {
-		if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
-			for (i = 1; i < myCollectionList[m].length; i++) {
-				for (r = 0; r < regions.length; r++) {
-					for (t = 0; t < things.length; t++) {
-						if (myCollectionList[m][i] == regions[r]+things[t]) {
-						document.getElementById(regions[r]+things[t]).checked = true;
-						} else {
-						document.getElementById(regions[r]+things[t]).checked = false;
-						}
-					}
-				}
-			}
-        }
-    }
-	////////////\\\\\\\\\\\\\
-	*/
 	for (i = 0; i < myCollectionList.length; i++) {
 		for (r = 0; r < regions.length; r++) {
 			for (f = 0; f < things.length; f++) {
@@ -331,8 +324,7 @@ function reply_click(clicked_id){
 		}
 	}
 }
-function check_click(clicked_id){
-	// ADD & REMOVE GAME ITEMS \\	
+function check_click(clicked_id){	
 	if (document.getElementById(clicked_id).checked == true){
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
