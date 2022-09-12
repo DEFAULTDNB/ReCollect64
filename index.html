@@ -149,7 +149,7 @@ for (i=0; i < titleCount; i++){
 		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
 	}
 	div.style.height = "180px";
-	div.style.width = "400px" ;
+	div.style.width = "400px";
 	div.style.border ="thin solid #C1BED1";
 	div.style.backgroundColor = "rgba(0,0,0,0.5)";
 	div.style.color = "white";
@@ -167,18 +167,20 @@ for (i=0; i < titleCount; i++){
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1));
 	let gotOrNot = "";
+	let divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
 	myList = JSON.parse(localStorage.myCollection);
 	for (w = 0; w < myList.length; w++) {
 	let isIt = String(myList[w].flat());
 		if (gTitle.match(myList[w][0])) {
 			if (isIt.match(/cartridge/gi)) {
 			gotOrNot = "<span class='got' title='You own this game!'>⭐</span>";
+			divStyle = "<div style='background-color: rgba(0,255,0,0.15); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
 			} else {
 			gotOrNot = "";
 			}
 		}
 	}
-	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
+	div.innerHTML = divStyle+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 }
 var prevCard;
 var nextCard;
