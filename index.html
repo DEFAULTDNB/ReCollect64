@@ -166,7 +166,19 @@ for (i=0; i < titleCount; i++){
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1));
-	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
+	let gotOrNot = "";
+	myList = JSON.parse(localStorage.myCollection);
+	for (w = 0; w < myList.length; w++) {
+	let isIt = String(myList[w].flat());
+		if (gTitle.match(myList[w][0])) {
+			if (isIt.match(/cartridge/gi)) {
+			gotOrNot = "<span class='got' title='You own this game!'>⭐</span>";
+			} else {
+			gotOrNot = "";
+			}
+		}
+	}
+	div.innerHTML = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>"+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
 }
 var prevCard;
 var nextCard;
@@ -324,7 +336,20 @@ function reply_click(clicked_id){
 		}
 	}
 }
-function check_click(clicked_id){	
+function check_click(clicked_id){
+	let rMatch = clicked_id.charAt(0);
+	if (clicked_id.match(/sealed/g)){
+		const parts = ["cartridge", "boxed", "manual"];
+		for (p = 0; p < parts.length; p++) {
+			if (document.getElementById(rMatch+"sealed").checked == false){ 
+			} else {
+				if (document.getElementById(rMatch+parts[p]).checked == false){
+				document.getElementById(rMatch+parts[p]).click();
+				} else {
+				}
+			}
+		}
+	}
 	if (document.getElementById(clicked_id).checked == true){
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
@@ -499,7 +524,7 @@ function roundUp () {
 			tally = tally +1;
 			}
 		}
-	document.getElementById("tally").innerHTML = "Carts: "+cartsCounted+"<br>Boxes: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Sealed: "+sealedCounted+"<br>Unique: "+tally+"/"+titleCount;
+	document.getElementById("tally").innerHTML = "Carts: "+cartsCounted+"<br>Boxed: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Sealed: "+sealedCounted+"<br>Unique: "+tally+"/"+titleCount;
 }
 function share() {
 window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/"+titleCount+"%20games!%0A%0ATrack%20yours%20on%20%40defaultdnb%27s%20site%3A%20https%3A%2F%2Fdefaultdnb.github.io%2FPROJECTREALITY%2F%0A%0A%23PROJECTREALITY");
