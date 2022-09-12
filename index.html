@@ -171,7 +171,7 @@ for (i=0; i < titleCount; i++){
 	myList = JSON.parse(localStorage.myCollection);
 	for (w = 0; w < myList.length; w++) {
 	let isIt = String(myList[w].flat());
-		if (gTitle.match(myList[w][0])) {
+		if (gTitle === myList[w][0]) {
 			if (isIt.match(/cartridge/gi)) {
 			gotOrNot = "<span class='got' title='You own this game!'>⭐</span>";
 			divStyle = "<div style='background-color: rgba(0,255,0,0.15); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
