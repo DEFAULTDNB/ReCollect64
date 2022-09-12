@@ -63,6 +63,9 @@ h1 {
 	width: 29px;
 	height: 29px;
 }
+.got {
+	cursor: pointer;
+}
 .thumbs {
 	display: block;
 	position: relative;
