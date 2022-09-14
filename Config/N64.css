@@ -161,12 +161,10 @@ h1 {
 }
 #tally {
 	position: fixed;
-	/*top: 50px;*/
 	top: 5px;
 	right: 5px;
 	height: 105px;
 	width: 85px;
-    --background-color: rgba(6,147,48,0.5);
     background-color: rgba(194,13,2,0.5);
     border: none;
     color: rgba(255,255,255,100);
@@ -184,7 +182,6 @@ h1 {
 	right: 60px;
 	height: 50px;
 	width: 50px;
-	--background-color: rgba(193,190,209,0.5);
 	color: white;
 	opacity: 0.5;
 	display: inline-block;
@@ -199,7 +196,6 @@ h1 {
 	right: 5px;
 	height: 50px;
 	width: 50px;
-	--background-color: rgba(193,190,209,0.5);
 	color: white;
 	opacity: 0.5;
 	display: inline-block;
@@ -214,7 +210,6 @@ h1 {
 	right: 60px;
 	height: 50px;
 	width: 50px;
-	--background-color: rgba(193,190,209,0.5);
 	opacity: 0.5;
 	display: inline-block;
     cursor: pointer;
@@ -261,7 +256,6 @@ h1 {
 }
 .buttonD {
 	position: fixed;
-	/*top: 50px;*/
 	top: 90%;
 	left: 4px;
     background-color: #C1BED1;
