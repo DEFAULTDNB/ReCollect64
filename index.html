@@ -125,6 +125,7 @@ for (i=0; i < titleCount; i++){
 	var div = document.createElement("div");
 	document.getElementById("main").appendChild(div);
 	div.id = "card"+coverFlow[i];
+	div.loading = "lazy";
 	var info = coverFlow[i]-1;
 	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("PLAYERS=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1) ).stringify();
 	alphamatch.push(lines[info].charAt(0));
