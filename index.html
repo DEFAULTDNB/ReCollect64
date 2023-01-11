@@ -2,15 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PROJECT REALITY</title>
+<title>PROJECT REALITY V2</title>
 <link rel="stylesheet" href="Config/N64.css">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
 <script>
+	var myCount = 0;
 	var myCollectionList = [];
-	var cartsCounted = boxesCounted = manualsCounted = sealedCounted = 0;
-	var tally = 0;
+	var cartsCounted = colourCounted = boxesCounted = manualsCounted = sealedCounted = tally = 0;
 	if (localStorage.myCollection == null) {
 		localStorage.myCollection = JSON.stringify(myCollectionList);
 		tally = 0;
@@ -27,81 +27,327 @@
 			}
 		}
 	}
+	var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+	if (document.addEventListener) {
+		document.addEventListener('contextmenu', function(e) {
+		e.preventDefault();
+		document.getElementById('gcount').scrollIntoView({behavior: 'auto' }); noscroll();
+		}, false);
+	} else {
+		document.attachEvent('oncontextmenu', function() {
+		window.event.returnValue = false;
+		document.getElementById('gcount').scrollIntoView({behavior: 'auto' }); noscroll();
+		});
+	}
 </script>
 </head>
 <body>
+<div id="canvas" onmouseup="document.getElementById('canvas').style.display = 'none';" onmouseleave="document.getElementById('canvas').style.display = 'none';" style="display:none">
+<div class="card-header" id="frametitle2">CLICK TO CLOSE ARTWORK</div>
+<span class="closebtn"><img id="start" src="Config/START.png" title="𝗖𝗹𝗼𝘀𝗲 𝗯𝗼𝘅 𝗮𝗿𝘁" onclick="document.getElementById('canvas').style.display = 'none';"/></span>
+<img id="imgzoom" src="" onmouseleave="display:none" title="𝗖𝗹𝗶𝗰𝗸 𝘁𝗼 𝗰𝗹𝗼𝘀𝗲" />
+</div>
 <div id="gcount" onchange="checkCombo();"></div>
 <div id="overlay"><div id="overlaytext" style="font-size: 22px"></div></div>
-<div id="logo"><center><image src="Config/LOGO.png" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
+<center>
+<span>
+<img id="list" title="𝗟𝗜𝗦𝗧 𝗡𝗘𝗘𝗗𝗘𝗗 𝗧𝗜𝗧𝗟𝗘𝗦!&#10;(𝗦𝘂𝗴𝗴𝗲𝘀𝘁𝗲𝗱 𝘂𝘀𝗲: <𝟭𝟬𝟬 𝗻𝗲𝗲𝗱𝗲𝗱)" onclick="alert('🔍 This sections need list:\n\n🔴 ' + myNeedList.join('\n🔴 '));" src="Config/LBUT.png" />
+<select name="Region" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗮 𝗿𝗲𝗴𝗶𝗼𝗻" id="Region" onchange="changeRegion()">
+	<option value="EU" title="PAL Collection (243)">🇪🇺 🌍 EUR</option>
+	<option value="US" title="NTSC-U Collection (297)">🇺🇸 🌎 USA</option>
+	<option value="JP" title="NTSC-J Collection (198)">🇯🇵 🗾 JPN</option>
+	<option value="BR" title="Brazil Collection (135)">🇧🇷 🌎 BRA</option>
+	<option value="AUS" title="Australian Collection (133)">🇦🇺 🌎 AUS</option>
+	<option value="FULL" title="Every N64 Title (388)">🏆 100% </option>
+	<option value="MORE" title="Every N64 Title+ (393)">🏆 101% </option>
+	<option value="NTSC" title="USA set + JP Exclusives (386)">🇺🇸 🇯🇵 NTSC</option>
+	<option value="PALX" title="PAL Exclusives (4)">🇪🇺 ⭐ EXC</option>
+	<option value="USAX" title="USA Exclusives (50)">🇺🇸 ⭐ EXC</option>
+	<option value="JPNX" title="JPN Exclusives (86)">🇯🇵 ⭐ EXC</option>
+	<option value="PCX" title="Players Choice/Million Seller (32)">⭐⭐ SPE</option>
+	<option value="AS" title="Asian Variants">🇹🇼 🌏 ASI</option>
+	<option value="NFR" title="Not For Resale (30)">‍🚫 NFR</option>
+	<option value="N64DD" title="N64DD (10)">🇯🇵 64DD</option>
+	<option value="IQUE" title="iQue Collection (14)">🇨🇳 iQue</option>
+	<option value="ALL" title="Everything (1457): /!\ SLOW /!\">⚠️🌐 FULL</option>
+</select>
+<img id="reload" title="𝗥𝗘𝗙𝗥𝗘𝗦𝗛 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡 𝗧𝗢𝗧𝗔𝗟𝗦" onclick="location.reload();" src="Config/RBUT.png" />
+</span>
+</center>
+<div id="logo"><center><image src="Config/LOGO.png" onclick="alert('𝗟𝗼𝗰𝗮𝘁𝗶𝗼𝗻: ' + timeZone.slice(0, timeZone.indexOf('/')))" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
 <h1>GAME COLLECTION</h1>
 <div class="frame" id="frame" onmouseleave="" style="display:none">
 <div class="card-header" id="frametitle">GAME TITLE</div>
 	<div class="background-image" id="artwork"></div>
-	<span class="closebtn"><img id="nav" src="Config/CLEFT.png" title="Scroll left" onclick="prev();"/><img id="start" src="Config/START.png" title="Close panel" onclick="closeCard();"/><img id="nav" src="Config/CRIGHT.png" title="Scroll right" onclick="next();"/></span>
+	<span class="closebtn"><img id="nav" src="Config/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();"/><img id="start" src="Config/START.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();"/><img id="nav" src="Config/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();"/></span>
 	<div class="grid-container">
 		<div class="grid-item"><center>About:</center>
-		<div id="a1" style="border: 1px dashed; border-color: #C1BED1;">
-		</div>
+		<div id="a1" style="border: 1px dashed; border-color: #C1BED1;"></div>
 		</div>
 		<div id="p2" class="grid-item"><center>Info:</center>
-		<img class="closebtn" title="EXPANSION PAK ENHANCED TITLE!" id="expak" src='Config/EXPAK.png' />
+		<img class="closebtn" title="𝗘𝗫𝗣𝗔𝗡𝗦𝗜𝗢𝗡 𝗣𝗔𝗞 𝗘𝗡𝗛𝗔𝗡𝗖𝗘𝗗 𝗧𝗜𝗧𝗟𝗘!" id="expak" src='Config/EXPAK.png' /><img class="closebtn" title="𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗼𝗻 𝗡𝗦𝗢!" id="NSO" src='Config/NSO.png' onclick="nsoInfo();"/>
 		<div id="p2-1" style="border: 1px dashed; border-color: #FFC001;"></div>
 		</div>
 			<div class="grid-item"><center>Artwork:</center>
-				<div id="art" style="border: 1px dashed; border-color: #C20D02;">
-				<img id="thumbE" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('Ecart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Ecart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbU" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('Ucart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Ucart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbJ" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '50px'; this.style.paddingLeft = '25px'; this.style.paddingRight = '25px'; this.style.backgroundColor = 'black'; document.getElementById('Jcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Jcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbA" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('Acart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Acart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbB" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('Bcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Bcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbD" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('Dcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Dcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbF" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('Fcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Fcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbS" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('Scart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Scart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbI" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('Icart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('Icart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbAS" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('AScart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('AScart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbHK" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('HKcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('HKcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbTW" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('TWcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('TWcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbKO" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('TWcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('KOcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbSEE" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('SEEcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('SEEcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbSEU" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('SEUcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('SEUcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbSEJ" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('SEJcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('SEJcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbSEO" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('SEOcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('SEOcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbPCE" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('PCEcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('PCEcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbPCU" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('PCUcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('PCUcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbALT" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('ALTcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('ALTcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbNFR" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('NFRcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('NFRcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbCC" class="thumbs" src='' onload="this.style.display = 'inline-block'; document.getElementById('CCcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('CCcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbDD" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '66px'; this.style.paddingLeft = '17px'; this.style.paddingRight = '17px'; this.style.backgroundColor = 'black'; document.getElementById('DDcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('DDcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbDI" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '66px'; this.style.paddingLeft = '17px'; this.style.paddingRight = '17px'; this.style.backgroundColor = 'black'; document.getElementById('DIcart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('DIcart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbA1" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '60px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'black'; document.getElementById('A1cart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('A1cart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbA2" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '60px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'black'; document.getElementById('A2cart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('A2cart').style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbA3" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '60px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'black'; document.getElementById('A3cart').style.display = 'inline-block';" onerror="this.style.display = 'none'; document.getElementById('A3cart').style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<div id="art" style="border: 1px dashed; border-color: #C20D02;" title="𝗧𝗮𝗸𝗲 𝗮 𝗰𝗹𝗼𝘀𝗲𝗿 𝗹𝗼𝗼𝗸">
+				<img id="thumb" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbCC" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbRC" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbNFR" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbDI" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbA1" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbA2" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbA3" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbMMT64" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				</div>
 			</div>
 		<div class="grid-item"><center>Collection:</center>
 			<div id="container" style='border: 1px dashed #069330;'>
-				<div id="Ecart"><span title="EUROPEAN">🇪🇺 <input id="Ecartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Eboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Emanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Esealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Ucart"><span title="AMERICAN">🇺🇸 <input id="Ucartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Uboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Umanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Usealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Jcart"><span title="JAPANESE">🇯🇵 <input id="Jcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Jboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Jmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Jsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Acart"><span title="AUSTRALIAN">🇦🇺 <input id="Acartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Aboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Amanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Asealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Bcart"><span title="BRAZILIAN">🇧🇷 <input id="Bcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Bboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Bmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Bsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Dcart"><span title="GERMAN">🇩🇪 <input id="Dcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Dboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Dmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Dsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Fcart"><span title="FRENCH">🇫🇷 <input id="Fcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Fboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Fmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Fsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Scart"><span title="SPANISH">🇪🇸 <input id="Scartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Sboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Smanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Ssealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="Icart"><span title="ITALIAN">🇮🇹 <input id="Icartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="Iboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="Imanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="Isealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="AScart"><span title="ASIAN">🇲🇾 <input id="AScartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="ASboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="ASmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="ASsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="HKcart"><span title="HONG KONG VERSION">🇭🇰 <input id="HKcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="HKboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="HKmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="HKsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="TWcart"><span title="TAIWAN VERSION">🇹🇼 <input id="TWcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="TWboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="TWmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="TWsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="KOcart"><span title="KOREAN VERSION">🇰🇷 <input id="KOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="KOboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="KOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="KOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEEcart"><span title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEEboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEUcart"><span title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEUboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEJcart"><span title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEJboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEJmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEJsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="SEOcart"><span title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="vertical-align: middle; width: 19px; height: auto:"/>&nbsp <input id="SEOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="SEOboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="SEOmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="SEOsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="PCEcart"><span title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: -45deg; margin-left: 2px; vertical-align: middle; width: 16px; height: auto:"/>&nbsp <input id="PCEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCEboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCEmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCEsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="PCUcart"><span title="PLAYERS CHOICE USA"><img src="Config/PCU.png" style="margin-left: 1px; margin-right: 2px; vertical-align: middle; width: 20px; height: auto:"/><input id="PCUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="PCUboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="PCUmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="PCUsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="ALTcart"><span title="ALTERNATE VERSION">𝖠𝖫𝖳 <input id="ALTcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="ALTboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="ALTmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="ALTsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="NFRcart"><span title="NOT FOR RESALE">𝖭𝖥𝖱 <input id="NFRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="NFRboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="NFRmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="NFRsealed" type="checkbox" onclick="check_click(this.id)"></span><br></div>
-				<div id="DDcart"><span title="N64DD">DD <input id="DDcartridge" type="checkbox" onclick="check_click(this.id)"></span><span title="Boxed?"> 📦:<input id="DDboxed" type="checkbox" onclick="check_click(this.id)"></span><span title="Manual?"> 📗:<input id="DDmanual" type="checkbox" onclick="check_click(this.id)"></span><span title="Sealed?"> 🆕:<input id="DDsealed" type="checkbox" onclick="check_click(this.id)"></span></div>
+				<div id="Acart"><span class="flag" title="AUSTRALIAN">🇦🇺</span><span><input id="Acartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Acolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Aboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Amanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Asealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="Bcart"><span class="flag" title="BELGIUM">🇧🇪</span><span><input id="Bcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Bcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Bboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Bmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Bsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="CANcart"><span class="flag" title="CANADA">🇨🇦</span><span><input id="CANcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="CANcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="CANboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="CANmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="CANsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="Dcart"><span class="flag" title="GERMAN">🇩🇪</span><span><input id="Dcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Dcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Dboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Dmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Dsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="SEDcart"><span class="spesh" title="SPECIAL BUNDLE GERMANY"><img src="Config/SED.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEDcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEDboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEDmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEDsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="Ecart"><span class="flag" title="EUROPEAN">🇪🇺</span><span><input id="Ecartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Ecolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Eboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Emanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Esealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="EUUcart"><span class="flag" title="EUROPEAN">🇪🇺</span><span><input id="EUUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="EUUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="EUUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="EUUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="EUUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="Fcart"><span class="flag" title="FRENCH">🇫🇷</span><span><input id="Fcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Fcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Fboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Fmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Fsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="FAHcart"><span class="flag" title="FRANCE/HOLLAND"><div id="FAHPNG"></div></span><span><input id="FAHcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="FAHcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="FAHboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="FAHmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="FAHsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="FRGcart"><span class="flag" title="FRANCE/GERMANY"><div id="FRGPNG"></div></span><span><input id="FRGcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="FRGcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="FRGboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="FRGmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="FRGsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="Icart"><span class="flag" title="ITALIAN">🇮🇹</span><span><input id="Icartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Icolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Iboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Imanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Isealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="Jcart"><span class="flag" title="JAPANESE">🇯🇵</span><span><input id="Jcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Jcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Jboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Jmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Jsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="MSAcart"><span class="flag" title="Mexico & SA">🇲🇽</span><span><input id="MSAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="MSAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="MSAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="MSAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="MSAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="Scart"><span class="flag" title="SPANISH">🇪🇸</span><span><input id="Scartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Scolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Sboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Smanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Ssealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="SCNcart"><span class="flag" title="SCANDINAVIA"><div id="SCNPNG"></div></span><span><input id="SCNcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SCNcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SCNboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SCNmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="SCNsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="Ucart"><span class="flag" title="AMERICAN">🇺🇸</span><span><input id="Ucartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Ucolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Uboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Umanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="Usealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="UKVcart"><span class="flag" title="UNITED KINGDOM">🇬🇧</span><span><input id="UKVcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="UKVcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="UKVboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="UKVmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="UKVsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="AScart"><span class="flag" title="ASIAN">🇸🇬</span><span><input id="AScartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="AScolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ASboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ASmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="ASsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="BRcart"><span class="flag" title="BRAZILIAN">🇧🇷</span><span><input id="BRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="BRmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="BRsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="BRBcart"><span class="flag" title="BRAZILIAN BUNDLE">🇧🇷</span><span><input id="BRBcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRBcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRBboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="BRBmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="BRBsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="BRScart"><span class="flag" title="BRAZILIAN SPECIAL">🇧🇷</span><span><input id="BRScartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRScolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRSboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="BRSmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="BRSsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="CHcart"><span class="flag" title="CHINESE">🇨🇳</span><span><input id="CHcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="CHcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="CHboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="CHmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="CHsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="HOLcart"><span class="flag" title="HOLLAND">🇳🇱</span><span><input id="HOLcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="HOLcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="HOLboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="HOLmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="HOLsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="HKcart"><span class="flag" title="HONG KONG VERSION">🇭🇰</span><span><input id="HKcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="HKcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="HKboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="HKmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="HKsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="TWcart"><span class="flag" title="TAIWAN VERSION">🇹🇼</span><span><input id="TWcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="TWcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="TWboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="TWmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="TWsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="KOcart"><span class="flag" title="KOREAN VERSION">🇰🇷</span><span><input id="KOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="KOcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="KOboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="KOmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="KOsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="SEAcart"><span class="spesh" title="SPECIAL BUNDLE AUS"><img src="Config/SEA.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="SEEcart"><span class="spesh" title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="SEUcart"><span class="spesh" title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="SEJcart"><span class="spesh" title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEJcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEJboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEJmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEJsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="SEOcart"><span class="spesh" title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEOcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEOboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEOmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEOsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="PCAcart"><span class="spesh" title="PLAYERS CHOICE AUS"><img src="Config/PCU.png" style="margin: 3px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="PCAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="PCAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="PCAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="PCEcart"><span class="spesh" title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: -45deg; margin: 8px 4px; vertical-align: middle; width: 25px; height: auto:"/>&nbsp </span><span><input id="PCEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="PCEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="PCEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="PCUcart"><span class="spesh" title="PLAYERS CHOICE USA"><img src="Config/PCU.png" style="margin: 3px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="PCUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="PCUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="PCUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="ALTBcart"><span title="ALT BRA VERSION"><div id="ALTPNG"></div></span><span><input id="ALTBcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTBcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTBboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTBmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTBsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="ALTEcart"><span title="ALT EUR VERSION"><div id="ALTPNG"></div></span><span><input id="ALTEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="ALTJcart"><span title="ALT JPN VERSION"><div id="ALTPNG"></div></span><span><input id="ALTJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTJcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTJboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTJmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTJsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="ALTUcart"><span title="ALT USA VERSION"><div id="ALTPNG"></div></span><span><input id="ALTUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				</div>
+				<div id="ALTNcart"><span title="NOT FOR RESALE ALT"><div id="ALTPNG"></div></span><span><input id="ALTNcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				</div>
+				<div id="NFRcart"><span title="NOT FOR RESALE"><div id="NFRPNG"></div></span><span><input id="NFRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				</div>
+				<div id="IQUEcart"><span title="iQue"><div id="IQPNG"></div></span><span><input id="IQUEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="gOwn"></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="IQUEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="IQUEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				</div>
+				<div id="DDcart"><span title="N64DD"><div id="DDDPNG"></div></span><span><input id="DDcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="dOwn"></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="DDboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="DDmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="DDsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><br>
+				</div>
+				<div id="LRGcart"><span title="Limited Run"><div id="LRGPNG"></div></span><span><input id="LRGcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="dOwn"></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="LRGboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="LRGmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="LRGsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><br>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -110,242 +356,401 @@
 <script charset="utf-8">
 document.getElementById("overlay").style.display = "block";
 document.getElementById("overlaytext").innerHTML = "Loading..";
-var fileName = "Config/N64.cfg";
+if (localStorage.region==null){
+	alert("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗥𝗘𝗔𝗟𝗜𝗧𝗬 𝗩𝟮: 𝘁𝗵𝗲 𝘂𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗡𝟲𝟰 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗮𝗽𝗽!\n\nYour region has been detected as: '" + timeZone.slice(0, timeZone.indexOf("/")) + "' so an initial region has been set to match your location.\n\n𝗨𝘀𝗮𝗴𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀:\n⚫ Click the (START) button to open/close a games sub menu, enjoy the game info/art and then check off any items you have.\n⚫ Click the (R) button to refresh page, hilight & count titles.\n⚫ Click the (L) button to show your NEED list.\n⚫ Click the (B) button to back up your collection regularly.\n⚫ Click the (A) button to import a previously backed up collection.\n⚫ Click the (C) left/right buttons to move between titles.\n⚫ Click the (Z) trigger to delete your current collection.\n⚫ Tap keys (A-Z/0-9) to skip to that range.\n\n(𝗡𝗢𝗧𝗘: 𝗔𝗳𝘁𝗲𝗿 𝗮𝗱𝗱𝗶𝗻𝗴/𝗿𝗲𝗺𝗼𝘃𝗶𝗻𝗴 𝗴𝗮𝗺𝗲𝘀 𝗶𝗻 𝘁𝗵𝗲 𝗰𝗵𝗲𝗰𝗸𝗹𝗶𝘀𝘁: 𝗮𝗹𝘄𝗮𝘆𝘀 𝗿𝗲𝗺𝗲𝗺𝗯𝗲𝗿 𝘁𝗼 𝗿𝗲𝗳𝗿𝗲𝘀𝗵 𝘁𝗵𝗲 𝗽𝗮𝗴𝗲, 𝗮𝗻𝗱 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝗯𝗮𝗰𝗸 𝘂𝗽 𝗿𝗲𝗴𝘂𝗹𝗮𝗿𝗹𝘆!)\n\nYou can now swap between regional collections at any time from the drop down menu at the top.\n\n𝙃𝙖𝙫𝙚 𝙛𝙪𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜! ~ 𝘿𝙉𝘽");
+	if (timeZone.slice(0, timeZone.indexOf("/")) == "Australia"||"Africa"||"Etc"||"Europe"||"Indian"){
+	localStorage.region="PAL.cfg";
+	document.getElementById("Region").value == "EU";
+	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Antarctica"||"America"||"Atlantic"||"Canada"||"Pacific"||"US"){
+	localStorage.region=="NTSCU.cfg";
+	document.getElementById("Region").value = "US";
+	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Japan"){
+	localStorage.region=="NTSCJ.cfg";
+	document.getElementById("Region").value = "JP";
+	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Asia"){
+	localStorage.region=="IQUE.cfg";
+	document.getElementById("Region").value = "IQUE";
+	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Brazil"){
+	localStorage.region=="BRA.cfg";
+	document.getElementById("Region").value = "BR";
+	}
+	location.reload();
+} else if (localStorage.region=="ALL.cfg"){
+document.getElementById("Region").value = "ALL";
+} else if (localStorage.region=="PAL.cfg"){
+document.getElementById("Region").value = "EU";
+} else if (localStorage.region=="NTSCU.cfg"){
+document.getElementById("Region").value = "US";
+} else if (localStorage.region=="NTSCJ.cfg"){
+document.getElementById("Region").value = "JP";
+} else if (localStorage.region=="NTSCA.cfg"){
+document.getElementById("Region").value = "NTSC";
+} else if (localStorage.region=="FULL.cfg"){
+document.getElementById("Region").value = "FULL";
+} else if (localStorage.region=="MORE.cfg"){
+document.getElementById("Region").value = "MORE";
+} else if (localStorage.region=="PALX.cfg"){
+document.getElementById("Region").value = "PALX";
+} else if (localStorage.region=="USAX.cfg"){
+document.getElementById("Region").value = "USAX";
+} else if (localStorage.region=="JPNX.cfg"){
+document.getElementById("Region").value = "JPNX";
+} else if (localStorage.region=="ASI.cfg"){
+document.getElementById("Region").value = "AS";
+} else if (localStorage.region=="AUS.cfg"){
+document.getElementById("Region").value = "AUS";
+} else if (localStorage.region=="BRA.cfg"){
+document.getElementById("Region").value = "BR";
+} else if (localStorage.region=="N64DD.cfg"){
+document.getElementById("Region").value = "N64DD";
+} else if (localStorage.region=="PCX.cfg"){
+document.getElementById("Region").value = "PCX";
+} else if (localStorage.region=="NFR.cfg"){
+document.getElementById("Region").value = "NFR";
+} else if (localStorage.region=="IQUE.cfg"){
+document.getElementById("Region").value = "IQUE";
+}
+function changeRegion() {
+	if (document.getElementById("Region").value == "ALL"){
+	localStorage.region = "ALL.cfg";
+	} else if (document.getElementById("Region").value == "EU"){
+	localStorage.region = "PAL.cfg";
+	} else if (document.getElementById("Region").value == "US"){
+	localStorage.region = "NTSCU.cfg";
+	} else if (document.getElementById("Region").value == "JP"){
+	localStorage.region = "NTSCJ.cfg";
+	} else if (document.getElementById("Region").value == "NTSC"){
+	localStorage.region = "NTSCA.cfg";
+	} else if (document.getElementById("Region").value == "FULL"){
+	localStorage.region = "FULL.cfg";
+	} else if (document.getElementById("Region").value == "MORE"){
+	localStorage.region = "MORE.cfg";
+	} else if (document.getElementById("Region").value == "PALX"){
+	localStorage.region = "PALX.cfg";
+	} else if (document.getElementById("Region").value == "USAX"){
+	localStorage.region = "USAX.cfg";
+	} else if (document.getElementById("Region").value == "JPNX"){
+	localStorage.region = "JPNX.cfg";
+	} else if (document.getElementById("Region").value == "AS"){
+	localStorage.region = "ASI.cfg";
+	} else if (document.getElementById("Region").value == "AUS"){
+	localStorage.region = "AUS.cfg";
+	} else if (document.getElementById("Region").value == "BR"){
+	localStorage.region = "BRA.cfg";
+	} else if (document.getElementById("Region").value == "N64DD"){
+	localStorage.region = "N64DD.cfg";
+	} else if (document.getElementById("Region").value == "PCX"){
+	localStorage.region = "PCX.cfg";
+	} else if (document.getElementById("Region").value == "NFR"){
+	localStorage.region = "NFR.cfg";
+	} else if (document.getElementById("Region").value == "IQUE"){
+	localStorage.region = "IQUE.cfg";
+	}
+	location.reload();
+}
+let fileName = "Config/"+localStorage.region;
 var xmlFile = new XMLHttpRequest;
 xmlFile.open('get', fileName, false);
 xmlFile.send(null);
 var xmlDoc = xmlFile.responseText;
-var lines = xmlDoc.split("\r\n");
+var lines = xmlDoc.split("\r\n")
 let titleCount = lines.length;
 var coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
-const jpboxes = [];
-const ddboxes = [];
 const alphamatch = [];
+let myNeedList = [];
 for (i=0; i < titleCount; i++){
 	var div = document.createElement("div");
 	document.getElementById("main").appendChild(div);
-	div.id = "card"+coverFlow[i];
 	div.loading = "lazy";
+	div.id = "card"+coverFlow[i];
+	div.setAttribute('class', 'thumbnail');
 	var info = coverFlow[i]-1;
 	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("PLAYERS=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1) ).stringify();
+	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7), (lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
-	if (lines[info].match("REGIONS=J ")){
-		jpboxes.push(coverFlow[i]);
-		div.style.backgroundImage = "url('Covers/"+gTitle+" J.png')";
-		} else if (lines[info].match("REGIONS=JU ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" U.png')";
-		} else if(lines[info].match("REGIONS=JUE ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" E.png')";
-		} else if (lines[info].match("REGIONS=UE ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" E.png')";
-		} else if (lines[info].match("REGIONS=U ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" U.png')";
-		} else if (lines[info].match("REGIONS=JE ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" E.png')";
-		} else if (lines[info].match("REGIONS=E ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" E.png')";
-		} else if (lines[info].match("REGIONS=F ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" F.png')";
-		} else if (lines[info].match("REGIONS=D ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" D.png')";
-		} else if (lines[info].match("REGIONS=A ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
-		} else if (lines[info].match("REGIONS=UA ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
-		} else if (lines[info].match("REGIONS=UEA ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" E.png')";
-		} else if (lines[info].match("REGIONS=JUA ")){
-		div.style.backgroundImage = "url('Covers/"+gTitle+" A.png')";
-		} else if (lines[info].match("REGIONS=DD ")){
-		ddboxes.push(coverFlow[i]);
-		div.style.backgroundImage = "url('Covers/"+gTitle+" DD.png')";
-	}
-	div.style.height = "180px";
-	div.style.width = "400px";
-	div.style.border ="thin solid #C1BED1";
-	div.style.backgroundColor = "rgba(0,0,0,0.5)";
-	div.style.color = "white";
-	div.style.textShadow = "1.5px 2px #000000";
-	div.style.fontSize = "17px";
-	div.style.display = "inline-block";
-	div.style.backgroundRepeat = "no-repeat";
-	div.style.backgroundSize ="225px";
-	div.style.backgroundPosition = "5px 8px"
-	for (j=0; j < jpboxes.length; j++){
-	document.getElementById("card"+jpboxes[j]).style.backgroundSize ="120px";
-	document.getElementById("card"+jpboxes[j]).style.backgroundPosition = "60px 8px";
-	}
-	for (d=0; d < ddboxes.length; d++){
-	document.getElementById("card"+ddboxes[d]).style.backgroundSize ="187px";
-	document.getElementById("card"+ddboxes[d]).style.backgroundPosition = "20px 8px";
+	myNeedList.push(gTitle + " " + gRegion);	
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
+	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")){ //Vertical box art
+	div.dataBackground = "url('Covers/"+gTitle+" "+gRegion+".png')";
+	div.style.backgroundSize = "120px";
+	div.style.backgroundPosition = "60px 8px";
+	} else if (lines[info].match("REGION=DD ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png')";
+	div.style.backgroundSize = "187px";
+	div.style.backgroundPosition = "20px 8px";
+	} else if (lines[info].match("REGION=SED ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png')";
+	div.style.backgroundSize = "110px";
+	div.style.backgroundPosition = "60px 8px";
+	} else if (lines[info].match("REGION=IQUE ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png')";
+	div.style.backgroundSize = "100px";
+	div.style.backgroundPosition = "60px 8px";
+	} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
+	div.style.backgroundImage = "url('Carts/NFRs/"+gTitle+" "+gRegion+".png')";
+	div.style.backgroundSize = "180px";
+	div.style.backgroundPosition = "25px 25px";
+	} else if (lines[info].match("REGION=E ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
+	} else if (lines[info].match("REGION=SCN ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" UKV.png'), url('Covers/"+gTitle+" E.png'), url('Config/BLANK.png')"; //FIFA 99 FALLBACK
+	} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=EUU ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" E.png'), url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" EUU.png'), url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //EUROPEAN FALLBACK
+	} else if (lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=KO ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" U.png'), url('Config/BLANK.png')"; //USA FALLBACK
+	} else if (lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" J.png'), url('Config/BLANK.png')"; //JPN FALLBACK
+	div.style.backgroundSize = "120px";
+	div.style.backgroundPosition = "60px 8px";
+	} else if (lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")||lines[info].match("REGION=ALTB ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" BR.png'), url('Config/BLANK.png')"; //BRA FALLBACK
+	} else if (lines[info].match("REGION=TW ")){
+	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" HK.png'), url('Config/BLANK.png')"; //TWN FALLBACK	
 	}
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
-	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGIONS=")-1));
+	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
 	let gotOrNot = "";
 	let divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
 	myList = JSON.parse(localStorage.myCollection);
 	for (w = 0; w < myList.length; w++) {
 	let isIt = String(myList[w].flat());
-		if (gTitle === myList[w][0]) {
-			if (isIt.match(/cartridge/gi)) {
-			gotOrNot = "<span class='got' title='You own this game!'>⭐</span>";
-			divStyle = "<div style='background-color: rgba(0,255,0,0.2); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
-			} else {
-			gotOrNot = "";
+		if (gTitle + " " + gRegion === myList[w][0]) {
+			if (isIt.match(/sealed/gi)) {
+			gotOrNot = "<span class='got' title='𝗗𝗲𝗱𝗶𝗰𝗮𝘁𝗲𝗱 𝗠𝗜𝗕 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
+			divStyle = "<div style='background-color: rgba(255,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
+			myCount = myCount + 1;
+			myNeedList.splice(myNeedList.indexOf(gTitle),1);
+			} else if (isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) {
+			gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗴𝗮𝗺𝗲!'>⭐</span>";
+			divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
+			myCount = myCount + 1;
+			myNeedList.splice(myNeedList.indexOf(gTitle),1);
 			}
-		}
+		}		
 	}
-	div.innerHTML = divStyle+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='Open info panel' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+"<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></label></div>";
+	div.innerHTML = divStyle+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+" ["+gRegion+"]<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></div>";
 }
 var prevCard;
 var nextCard;
 var myID;
 function reply_click(clicked_id){
+	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
+	const things = ["cartridge", "boxed", "manual", "sealed","colcart"];
 	let gameTitle = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("PLAYERS=")-1) );
 	let gamePlayers = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1) );
 	let gameGenre = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1) );
 	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
-	let rDate = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("DATE=")+5), (lines[clicked_id-1].indexOf("SCORE=")-1));	
-	let gameScore = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGIONS=")-1) );
-	let gameRegions = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("REGIONS=")+8), (lines[clicked_id-1].indexOf("SIZE=")-1) );
+	let rDate = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SCORE=")-5), (lines[clicked_id-1].indexOf("SCORE=")-1));
+	let gameScore = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGION=")-1) );
+	let gameRegions = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("REGION=")+7), (lines[clicked_id-1].indexOf("SIZE=")-1) );
 	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
+	let gCode = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("CODE=")+5), (lines[clicked_id-1].indexOf("MEMPAK=")-1));
+	let gCIC = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("CIC=")+4), (lines[clicked_id-1].indexOf("CODE=")-1));
+	let gNSO = "";
+		if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("NSO=")+4),(lines[clicked_id-1].indexOf("NSO=")+5)).match("1")){
+		document.getElementById("NSO").style.display = 'block';
+		} else {
+		document.getElementById("NSO").style.display = 'none';
+		}
+	let gFeatures = "";
+		if (lines[clicked_id-1].match("FEATURES=")){
+		gFeatures = "<br>Features: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("FEATURES=")+9), (lines[clicked_id-1].lastIndexOf("."))) + ".";
+		} else {
+		gFeatures = "";
+		}
 	let expak = "";
-	if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("1")){
-	expak = "Required!";
-	document.getElementById("expak").style.display = 'block';
-	} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("2")){
-	expak = "Enhanced!";
-	document.getElementById("expak").style.display = 'block';
-	} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("MEMPAK=")-1)).match("3")){
-	expak = "DO NOT USE!";
-	document.getElementById("expak").style.display = 'none';
-	} else {
-	expak = "Unsupported!";
-	document.getElementById("expak").style.display = 'none';
-	}
+		if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("EXPAK=")+7)).match("1")){
+		expak = "Required!";
+		document.getElementById("expak").style.display = 'block';
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("EXPAK=")+7)).match("2")){
+		expak = "Enhanced!";
+		document.getElementById("expak").style.display = 'block';
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("EXPAK=")+7)).match("3")){
+		expak = "DO NOT USE!";
+		document.getElementById("expak").style.display = 'none';
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("EXPAK=")+7)).match("0")){
+		expak = "Unsupported!";
+		document.getElementById("expak").style.display = 'none';
+		}
 	let mpak = "";
-	if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("0")){
-	mpak = "Memory Pak<br>(32,768 bytes) SRAM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("1")){
-	mpak = "4 Kilobits<br>(512 bytes) EEPROM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("2")){
-	mpak = "16 Kilobits<br>(2048 bytes) EEPROM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("3")){
-	mpak = "256 Kilobits<br>(32,768 bytes) SRAM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("4")){
-	mpak = "1024 Kilobits<br>(131,072 bytes) FlashRAM";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("5")){
-	mpak = "No Saves!";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("7")){
-	mpak = "768Kbit SRAM + Battery!";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("8")){
-	mpak = "256Kbit SRAM + Battery for RTC!";
-	} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("9")){
-	mpak = "Writes directly to game disk";
-	} else {
-	mpak = "Password System!"; //6
-	}
+		if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("0")){
+		mpak = "Memory Pak<br>(32,768 bytes) SRAM";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("1")){
+		mpak = "4 Kilobits<br>(512 bytes) EEPROM";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("2")){
+		mpak = "16 Kilobits<br>(2048 bytes) EEPROM";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("3")){
+		mpak = "256 Kilobits<br>(32,768 bytes) SRAM";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("4")){
+		mpak = "1024 Kilobits<br>(131,072 bytes) FlashRAM";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("5")){
+		mpak = "No Saves!";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("7")){
+		mpak = "768Kbit SRAM + Battery!";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("8")){
+		mpak = "256Kbit SRAM + Battery for RTC!";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("9")){
+		mpak = "Writes directly to game disk";
+		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("Q")){
+		mpak = "RAM buffer written to NAND";
+		} else {
+		mpak = "Password System!"; //6
+		}
 	let altName = "";
-	if (lines[clicked_id-1].match("ALT=")){
-	altName = "AKA: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length) )+"<br>";
-	} else {
-	altName = "";
-	}
+		if (lines[clicked_id-1].match("ALT=")){
+		altName = "AKA: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length) )+"<br>";
+		} else {
+		altName = "";
+		}
 	let cartColour = "";
-	if (lines[clicked_id-1].match(/\[(.*?)\]/)){
-	cartColour = "<br>Coloured Cart: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
-	} else {
-	cartColour = "";
-	}
+		if (lines[clicked_id-1].match(/\[(.*?)\]/)){
+		cartColour = "<br>Coloured Cart: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
+		} else {
+		cartColour = "";
+		}
 	let colCart = ".";
 	let CC = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
-	if (cartColour != "") {
-	colCart = ", and it also had a " + CC.toLowerCase() + " cartridge available!";
-	} else {
-	colCart = ".";
+		if (cartColour != "") {
+		colCart = ", and it also had a " + CC.toLowerCase() + " cartridge available!";
+		var divsToHide = document.getElementsByClassName("CCvariant");
+			for(var i = 0; i < divsToHide.length; i++){
+				divsToHide[i].style.display = "block";
+			}
+		} else {
+		colCart = ".";
+		var divsToHide = document.getElementsByClassName("CCvariant");
+			for(var i = 0; i < divsToHide.length; i++){
+				divsToHide[i].style.display = "none";
+			}
+		}	
+	for (q = 0; q < regions.length; q++) {
+	document.getElementById(regions[q]+"cart").style.display = "none";
 	}
-	if (gameRegions.match("JUE")){
-		gameRegions = "Japan, USA and Europe";
-		} else if (gameRegions.match("UE")){ 
-		gameRegions = "USA and Europe";
-		} else if (gameRegions.match("UA")){ 
-		gameRegions = "USA and Australia";
-		} else if (gameRegions.match("JE")){ 
-		gameRegions = "Japan and Europe";
-		} else if (gameRegions.match("JU")){ 
-		gameRegions = "Japan and USA";
-		} else if (gameRegions.match("JUA")){ 
-		gameRegions = "Japan, USA and Australia (PAL)";
-		} else if (gameRegions.match("J")){ 
-		gameRegions = "Japan (NTSC-J) exclusively";
-		} else if (gameRegions.match("U")){ 
-		gameRegions = "USA (NTSC-U) exclusively";
-		} else if (gameRegions.match("E")){ 
-		gameRegions = "Europe (PAL) exclusively";
-		} else if (gameRegions.match("A")){ 
-		gameRegions = "Australia (PAL) exclusively";
-		} else if (gameRegions.match("DD")){ 
-		gameRegions = "Japan for N64DD exclusively";
-	}
+	document.getElementById("frametitle").innerHTML = gameTitle + " " + gameRegions;	
+	document.getElementById("frametitle2").innerHTML = gameTitle + " (" + gameRegions + ")";
+	document.getElementById(gameRegions+"cart").style.display = "inline-block";
+		if (gameRegions.match("J")||gameRegions.match("SEJ")){
+		gameRegions = "Japan (NTSC-J)";
+		} else if (gameRegions.match("UKV")){
+		gameRegions = "United Kingdom (PAL)";
+		} else if (gameRegions.match("IQUE")){
+		gameRegions = "China (Digital Download)";
+		} else if (gameRegions.match("PCU")||gameRegions.match("U")||gameRegions.match("SEU")){
+		gameRegions = "USA (NTSC-U)";
+		} else if (gameRegions.match("PCE")||gameRegions.match("E")||gameRegions.match("SEE")){
+		gameRegions = "Europe (PAL)";
+		} else if (gameRegions.match("SEA")||gameRegions.match("PCA")||gameRegions.match("A")){
+		gameRegions = "Australia (PAL)";
+		} else if (gameRegions.match("ALTE")||gameRegions.match("ALTJ")||gameRegions.match("ALTU")){
+		gameRegions = "ALT (TEST)";
+		} else if (gameRegions.match("BRB")){
+		gameRegions = "Brazil (Bundle)";
+		} else if (gameRegions.match("BR")||gameRegions.match("BRS")){
+		gameRegions = "Brazil (MPAL)";
+		} else if (gameRegions.match("B")){
+		gameRegions = "Belgium (PAL)";
+		} else if (gameRegions.match("DD")){
+		gameRegions = "Japan for N64DD";
+		} else if (gameRegions.match("D")||gameRegions.match("SED")){
+		gameRegions = "Germany (PAL)";
+		} else if (gameRegions.match("NFR")||gameRegions.match("ALTN")){ //ALTN = NFR ALT
+		gameRegions = "store kiosks (DEMO)";
+		} else if (gameRegions.match("F")){
+		gameRegions = "France (PAL)";
+		} else if (gameRegions.match("I")){
+		gameRegions = "Italy (PAL)";
+		} else if (gameRegions.match("SCN")){
+		gameRegions = "Scandinavia (PAL)";
+		} else if (gameRegions.match("S")){ //"ESP"
+		gameRegions = "Spain (PAL)";
+		} else if (gameRegions.match("AS")){
+		gameRegions = "Asia (NTSC)";
+		} else if (gameRegions.match("CAN")){
+		gameRegions = "Canada (NTSC)";
+		} else if (gameRegions.match("CH")){
+		gameRegions = "China (NTSC)";
+		} else if (gameRegions.match("HK")){
+		gameRegions = "Hong Kong (NTSC)";
+		} else if (gameRegions.match("KO")){
+		gameRegions = "Korea (NTSC)";
+		} else if (gameRegions.match("TW")){
+		gameRegions = "Taiwan (ROC / NTSC)";
+		} else if (gameRegions.match("MSA")){
+		gameRegions = "Mexico & South America (NTSC)";
+		} else if (gameRegions.match("EUU")){
+		gameRegions = "European Union (PAL)";
+		} else if (gameRegions.match("FRG")){
+		gameRegions = "France & Germany (PAL)";
+		} else if (gameRegions.match("FAH")){
+		gameRegions = "France & Holland (PAL)";
+		} else if (gameRegions.match("HOL")){
+		gameRegions = "Holland (PAL)";
+		} else if (gameRegions.match("LRG")){
+		gameRegions = "limited quantities via Limited Run Games.";
+		}
 	if (gamePlayers == "1") {
 		gamePlayers = "single player ";
 		} else {
 		gamePlayers = gamePlayers + " player ";
 	}
-	let specialFeatures = ".";
-	if (gameTitle.match("40 Winks")) {
-		specialFeatures = "<br>Features: There are regular & SE variants for PAL & NTSC.";
-		} else if (gameTitle.match("Mario no Photopi")) {
-		specialFeatures = "<br>Features: Dual SmartMedia card slots for image import & export.";
-		} else if (gameTitle.match("Mario Artist Paint Studio")) {
-		specialFeatures = "<br>Features: Came bundled with the two-button Nintendo 64 Mouse.";
-		} else if (gameTitle.match("Mario Artist Talent Studio")) {
-		specialFeatures = "<br>Features: Came bundled with the Capture Cassette & microphone.";
-		} else if (gameTitle.match("Mario Artist Communication Kit")) {
-		specialFeatures = "<br>Features: Upload & swap creations on the RandNetDD online service.";
-		} else if (gameTitle.match("Morita Shogi 64")) {
-		specialFeatures = "<br>Features: Built-in RJ-11 Modem connection port for online play.";
-		} else if (gameTitle.match("Randnet")) {
-		specialFeatures = "<br>Features: This was a subscription based online service for the 64DD.";
-		} else {
-		specialFeatures = "";
-	}
-	document.getElementById("p2-1").innerHTML = altName + "Publisher: " + pubCo + "<BR>Released: " + rDate + "<br>ROM SIZE: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour + specialFeatures;
-	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " on " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
+	document.getElementById("p2-1").innerHTML = altName + "NUS ID: " + gCode + "<br>CIC: " + gCIC + " / ROM: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour + gFeatures;
+	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " in " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
 	document.getElementById("frame").style.display = "block";
-	document.getElementById("frametitle").innerHTML = (gameTitle);
-	document.getElementById("thumbE").src = 'Covers/'+frametitle.innerHTML+' E.png'; //EUROPE (GENERAL)
-	document.getElementById("thumbU").src = 'Covers/'+frametitle.innerHTML+' U.png'; //USA
-	document.getElementById("thumbJ").src = 'Covers/'+frametitle.innerHTML+' J.png'; //JAPAN
-	document.getElementById("thumbA").src = 'Covers/'+frametitle.innerHTML+' A.png'; //AUSTRALIA
-	document.getElementById("thumbB").src = 'Covers/'+frametitle.innerHTML+' B.png'; //BRAZIL
-	document.getElementById("thumbD").src = 'Covers/'+frametitle.innerHTML+' D.png'; //GERMANY
-	document.getElementById("thumbF").src = 'Covers/'+frametitle.innerHTML+' F.png'; //FRANCE
-	document.getElementById("thumbS").src = 'Covers/'+frametitle.innerHTML+' S.png'; //SPAIN
-	document.getElementById("thumbI").src = 'Covers/'+frametitle.innerHTML+' I.png'; //ITALY
-	document.getElementById("thumbAS").src = 'Covers/'+frametitle.innerHTML+' AS.png'; //ASIA (GENERAL)
-	document.getElementById("thumbHK").src = 'Covers/'+frametitle.innerHTML+' HK.png'; //HONG KONG
-	document.getElementById("thumbTW").src = 'Covers/'+frametitle.innerHTML+' TW.png'; //TAIWAN
-	document.getElementById("thumbKO").src = 'Covers/'+frametitle.innerHTML+' KO.png'; //KOREAN
-	document.getElementById("thumbSEE").src = 'Covers/'+frametitle.innerHTML+' SEE.png'; //SPECIAL EDITION EUROPE
-	document.getElementById("thumbSEU").src = 'Covers/'+frametitle.innerHTML+' SEU.png'; //SPECIAL EDITION USA
-	document.getElementById("thumbSEJ").src = 'Covers/'+frametitle.innerHTML+' SEJ.png'; //SPECIAL EDITION JAPAN
-	document.getElementById("thumbSEO").src = 'Covers/'+frametitle.innerHTML+' SEO.png'; //SPECIAL EDITION (OTHER)
-	document.getElementById("thumbPCE").src = 'Covers/'+frametitle.innerHTML+' PCE.png'; //PLAYERS CHOICE EUROPE
-	document.getElementById("thumbPCU").src = 'Covers/'+frametitle.innerHTML+' PCU.png'; //PLAYERS CHOICE USA
-	document.getElementById("thumbALT").src = 'Covers/'+frametitle.innerHTML+' ALT.png'; //ALTERNATE VERSION
-	document.getElementById("thumbNFR").src = 'Covers/'+frametitle.innerHTML+' NFR.png'; //NOT FOR RESALE
-	document.getElementById("thumbCC").src = 'Carts/'+frametitle.innerHTML+" "+CC+'.png'; //COLOURED CARTS
-	document.getElementById("thumbDD").src = 'Covers/'+frametitle.innerHTML+' DD.png'; //N64DD
-	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML+' DI.png'; //N64DD Disk
-	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML+' A1.png'; //Accessory 1
-	document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML+' A2.png'; //Accessory 2
-	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML+' A3.png'; //Accessory 3
+	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
+	if (pReg === "J" || pReg === "CH" || pReg === "SEJ") {
+	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
+	document.getElementById("thumb").style.width = "74px";
+	document.getElementById("thumb").style.padding = "0px 33px";
+	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
+	} else if (pReg === "DD") {
+	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
+	document.getElementById("thumb").style.width = "110px";
+	document.getElementById("thumb").style.padding = "0px 15px";
+	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
+	} else if (pReg === "IQUE") {
+	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
+	document.getElementById("thumb").style.width = "60px";
+	document.getElementById("thumb").style.padding = "0px 40px";
+	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
+	} else if (pReg === "SED") {
+	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
+	document.getElementById("thumb").style.width = "70px";
+	document.getElementById("thumb").style.padding = "0px 33px";
+	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
+	} else {
+	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
+	document.getElementById("thumb").style.width = "140px";
+	document.getElementById("thumb").style.padding = "0px 0px";
+	}
+	if (document.getElementById("thumb").complete === false) {
+		if (pReg === "BR" || pReg === "CAN" || pReg === "MSA" || pReg === "ALTU" || pReg === "AS" || pReg === "HK") {
+		document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		}
+		if (pReg === "BRS" || pReg === "BRB") {
+		document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
+		}
+		if (pReg === "UKV" || pReg === "A" || pReg === "ALTE" || pReg === "D" || pReg === "F" || pReg === "I" || pReg === "S" || pReg === "EUU" || pReg === "FAH" || pReg === "FRG" || pReg === "HOL" || pReg === "SCN") {
+		document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+		}
+		if (pReg === "ALTJ" || pReg === "SEJ"){
+		document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
+		document.getElementById("thumb").style.width = "74px";
+		document.getElementById("thumb").style.padding = "0px 33px";
+		document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
+		}
+	}	
+	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
+	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
+	document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
+	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
+	document.getElementById("thumbCC").src = 'Carts/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' '+CC+'.png'; //COLOURED CART
+	document.getElementById("thumbRC").src = 'Carts/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' Grey.png'; //REGULAR CART
+	document.getElementById("thumbNFR").src = 'Carts/NFRs/'+frametitle.innerHTML+'.png';
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
 	myID = clicked_id-1;
-	myCollectionList.push([gameTitle]);
+	myCollectionList.push([frametitle.innerHTML]);
 	function multiDimensionalUnique(myCollectionList) {
     var uniques = [];
     var itemsFound = {};
@@ -359,37 +764,41 @@ function reply_click(clicked_id){
 	myCollectionList.splice(0, myCollectionList.length, ...uniques);
 	}
 	multiDimensionalUnique(myCollectionList);
-	const regions = ["E", "U", "J", "A", "B", "D", "F", "S", "I", "AS", "HK", "TW", "KO", "SEE", "SEU", "SEJ", "SEO", "PCE", "PCU", "ALT", "NFR", "DD"];
-	const things = ["cartridge", "boxed", "manual", "sealed"];
+	let r = document.getElementById("frametitle").innerHTML.split(" ").splice(-1);
 	for (i = 0; i < myCollectionList.length; i++) {
-		for (r = 0; r < regions.length; r++) {
-			for (f = 0; f < things.length; f++) {
-				if (myCollectionList[i][0] == document.getElementById("frametitle").innerHTML) {
-					if (myCollectionList[i].includes(regions[r]+things[f])) {
-					document.getElementById(regions[r]+things[f]).checked = true;
-					} else {
-					document.getElementById(regions[r]+things[f]).checked = false;
-					}
+		for (f = 0; f < things.length; f++) {
+			if (myCollectionList[i][0] == document.getElementById("frametitle").innerHTML){
+				if (myCollectionList[i].includes(r+things[f])) {
+				document.getElementById(r+things[f]).checked = true;
+				} else {
+				document.getElementById(r+things[f]).checked = false;
 				}
 			}
 		}
 	}
 }
 function check_click(clicked_id){
+const fourUpper = (clicked_id[3].toUpperCase() === clicked_id[3]);
 const threeUpper = (clicked_id[2].toUpperCase() === clicked_id[2]);
 const twoUpper = (clicked_id[1].toUpperCase() === clicked_id[1]);
 const oneUpper = (clicked_id[0].toUpperCase() === clicked_id[0]);
-	if (threeUpper == true) {
+	if (fourUpper == true) {
+	let rMatch = clicked_id.slice(0,4);
+	} else if (threeUpper == true) {
 	let rMatch = clicked_id.slice(0,3);
 	} else if (twoUpper == true) {
 	rMatch = clicked_id.slice(0,2);
 	} else {
 	rMatch = clicked_id.charAt(0);
-	}	
+	}
+	const parts = ["cartridge", "boxed", "manual"];
 	if (clicked_id.match(/sealed/g)){
-		const parts = ["cartridge", "boxed", "manual"];
 		for (p = 0; p < parts.length; p++) {
-			if (document.getElementById(rMatch+"sealed").checked == false){ 
+			if (document.getElementById(rMatch+"sealed").checked == false){
+				if (document.getElementById(rMatch+parts[p]).checked == true){
+				document.getElementById(rMatch+parts[p]).click();
+				} else {
+				}
 			} else {
 				if (document.getElementById(rMatch+parts[p]).checked == false){
 				document.getElementById(rMatch+parts[p]).click();
@@ -398,7 +807,7 @@ const oneUpper = (clicked_id[0].toUpperCase() === clicked_id[0]);
 			}
 		}
 	}
-	if (document.getElementById(clicked_id).checked == true){
+	if (document.getElementById(clicked_id).checked){
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
 				myCollectionList[m].push(clicked_id);
@@ -407,9 +816,9 @@ const oneUpper = (clicked_id[0].toUpperCase() === clicked_id[0]);
 	} else if (document.getElementById(clicked_id).checked == false){
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
-			myCollectionList[m].splice(myCollectionList.indexOf(clicked_id+1), 1);    
+			myCollectionList[m].splice(myCollectionList.indexOf(clicked_id+1), 1);
 			}
-		}	
+		}
 	} else {
 	}
 	localStorage.myCollection = JSON.stringify(myCollectionList);
@@ -460,7 +869,7 @@ function AZclick() {
 	case "X": document.getElementById('card'+(alphamatch.indexOf("X")+1)).scrollIntoView({behavior: 'auto' }); break;
 	case "Y": document.getElementById('card'+(alphamatch.indexOf("Y")+1)).scrollIntoView({behavior: 'auto' }); break;
 	case "Z": document.getElementById('card'+(alphamatch.indexOf("Z")+1)).scrollIntoView({behavior: 'auto' }); break;
-	default: alert("No entries found!");
+	default: alert("𝗡𝗼 𝗲𝗻𝘁𝗿𝗶𝗲𝘀 𝗳𝗼𝘂𝗻𝗱!");
 	}
 }
 document.onkeydown = checkKey;
@@ -484,7 +893,7 @@ function checkKey(e) {
 		} else {
 		document.getElementById("gcount").innerHTML += "R";
 		}
-	} else if (e.keyCode == '8'||e.keyCode == '9'||e.keyCode == '13'||e.keyCode == '16'||e.keyCode == '17'||e.keyCode == '32'||e.keyCode == '45'||e.keyCode == '46') {
+	} else if (e.keyCode == '8'||e.keyCode == '9'||e.keyCode == '13'||e.keyCode == '16'||e.keyCode == '17'||e.keyCode == '45'||e.keyCode == '46') {
 	} else {
 	document.getElementById("myText").value = e.key.toUpperCase();
 	document.getElementById("gcount").innerHTML += e.key.toUpperCase();
@@ -493,8 +902,8 @@ function checkKey(e) {
 }
 var F=c;(function(Q,S){var E=c,L=Q();while(!![]){try{var r=-parseInt(E(0xe7))/0x1*(-parseInt(E(0xe4))/0x2)+parseInt(E(0xd1))/0x3*(-parseInt(E(0xd6))/0x4)+parseInt(E(0xe2))/0x5+parseInt(E(0xd9))/0x6+-parseInt(E(0xe5))/0x7*(parseInt(E(0xdf))/0x8)+-parseInt(E(0xd4))/0x9+-parseInt(E(0xdb))/0xa;if(r===S)break;else L['push'](L['shift']());}catch(u){L['push'](L['shift']());}}}(l,0x4c75f),document[F(0xd3)]('\x67\x63\x6f\x75\x6e\x74')[F(0xd5)](F(0xd0),comboFunct));function c(Q,S){var L=l();return c=function(r,u){r=r-0xcd;var E=L[r];return E;},c(Q,S);}function comboFunct(){var n=F;if(document[n(0xd3)]('\x67\x63\x6f\x75\x6e\x74')['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c'][n(0xdc)](n(0xde)))new Audio(n(0xdd))[n(0xd7)](),document[n(0xd3)](n(0xe0))[n(0xcd)]='';else{if(document[n(0xd3)](n(0xe0))[n(0xcd)][n(0xdc)](n(0xe3)))new Audio(n(0xd8))['\x70\x6c\x61\x79'](),document[n(0xd3)](n(0xe0))[n(0xcd)]='';else{if(document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](n(0xe0))[n(0xcd)][n(0xdc)](n(0xe6)))new Audio(n(0xd2))['\x70\x6c\x61\x79'](),document[n(0xd3)]('\x67\x63\x6f\x75\x6e\x74')['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']='';else{if(document['\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64'](n(0xe0))[n(0xcd)][n(0xdc)](n(0xce)))new Audio(n(0xda))[n(0xd7)](),document[n(0xd3)](n(0xe0))[n(0xcd)]='';else{if(document[n(0xd3)](n(0xe0))[n(0xcd)][n(0xdc)](n(0xcf)))new Audio(n(0xe1))[n(0xd7)](),document[n(0xd3)](n(0xe0))['\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c']='';else{}}}}}}function l(){var g=['\x31\x39\x31\x36\x30\x7a\x57\x75\x61\x72\x6e','\x67\x63\x6f\x75\x6e\x74','\x43\x6f\x6e\x66\x69\x67\x2f\x35\x2e\x77\x61\x76','\x32\x31\x39\x32\x30\x37\x35\x6f\x77\x42\x42\x68\x79','\x57\x41\x56\x45\x52\x41\x43\x45\x52','\x36\x5a\x54\x44\x79\x6e\x65','\x37\x48\x62\x47\x61\x6f\x4b','\x53\x50\x4f\x4f\x4b\x59\x57\x4f\x4f\x4b\x59','\x31\x33\x31\x34\x33\x34\x4f\x65\x69\x61\x61\x72','\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c','\x47\x4f\x54\x54\x41\x47\x4f\x46\x41\x53\x54','\x43\x4f\x4c\x44\x48\x41\x52\x44\x43\x41\x53\x48','\x44\x4f\x4d\x53\x75\x62\x74\x72\x65\x65\x4d\x6f\x64\x69\x66\x69\x65\x64','\x31\x31\x32\x32\x39\x34\x38\x44\x58\x59\x66\x65\x44','\x43\x6f\x6e\x66\x69\x67\x2f\x33\x2e\x77\x61\x76','\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x42\x79\x49\x64','\x37\x31\x35\x39\x38\x36\x70\x57\x4b\x4c\x64\x47','\x61\x64\x64\x45\x76\x65\x6e\x74\x4c\x69\x73\x74\x65\x6e\x65\x72','\x34\x57\x59\x44\x6a\x63\x54','\x70\x6c\x61\x79','\x43\x6f\x6e\x66\x69\x67\x2f\x32\x2e\x77\x61\x76','\x32\x36\x37\x34\x34\x32\x38\x6b\x66\x4e\x6a\x45\x6e','\x43\x6f\x6e\x66\x69\x67\x2f\x34\x2e\x77\x61\x76','\x35\x30\x39\x30\x30\x37\x30\x76\x6c\x74\x53\x6b\x46','\x69\x6e\x63\x6c\x75\x64\x65\x73','\x43\x6f\x6e\x66\x69\x67\x2f\x31\x2e\x77\x61\x76','\x55\x4c\x54\x52\x41\x55\x4c\x54\x52\x41'];l=function(){return g;};return l();}
 function thumbFunct(clicked_id) {
-window.open(document.getElementById(clicked_id).src, frametitle.innerHTML, 'width='+document.getElementById(clicked_id).naturalWidth+'px,height='+document.getElementById(clicked_id).naturalHeight+'px');
-//CHANGE THIS TO SPAWN ITS OWN INTERNAL FRAME\\
+document.getElementById("canvas").style.display = "block";
+document.getElementById("imgzoom").src = document.getElementById(clicked_id).src;
 }
 window.onload = function () {
 document.getElementById("overlay").style.display = "none";
@@ -502,9 +911,9 @@ roundUp();
 }
 function copyOutCollection() {
 document.getElementById("frame").style.display = "none";
-	if (confirm("BACKUP your collection?")) {
+	if (confirm("𝗕𝗔𝗖𝗞𝗨𝗣 𝗬𝗢𝗨𝗥 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡?\n\nA *.P64 file will be created for safe keeping.")) {
 		navigator.clipboard.writeText(JSON.stringify(myCollectionList));
-		alert("Collection backed up to: MYREALITY (DATE & TIME).P64");
+		alert("𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡 𝗕𝗔𝗖𝗞𝗘𝗗 𝗨𝗣 𝗧𝗢:\n\nMYREALITY (DATE & TIME).P64");
 		var blob = new Blob([JSON.stringify(myCollectionList)], {
 		type: "db/plain;charset=utf-8"
 		});
@@ -516,15 +925,15 @@ document.getElementById("frame").style.display = "none";
 		document.body.appendChild(b);
 		b.click();
 	} else {
-		alert("Backup your collection regularly.")
+		alert("𝗥𝗘𝗠𝗜𝗡𝗗𝗘𝗥:\n\nBackup your collection regularly!")
 	}
 }
 function openFile() {
 document.getElementById("frame").style.display = "none";
-	if (confirm("ADD-IN an existing *.P64 collection?\n\rThis will delete your current collection.\n(Suggestion: Make a backup)")) {
+	if (confirm("𝗔𝗗𝗗-𝗜𝗡 𝗔𝗡 𝗘𝗫𝗜𝗦𝗧𝗜𝗡𝗚 *.𝗣𝟲𝟰 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡?\n\nThis will erase your current collection.")) {
 	document.getElementById('inp').click();
 	} else {
-	alert("Import cancelled!")
+	alert("𝗜𝗠𝗣𝗢𝗥𝗧 𝗖𝗔𝗡𝗖𝗘𝗟𝗟𝗘𝗗!")
 	}
 }
 function readFile(e) {
@@ -535,16 +944,16 @@ document.getElementById("frame").style.display = "none";
 	reader.onload = function(e) {
 	localStorage.myCollectionList = [];
 	localStorage.myCollection = e.target.result;
-	alert("Collection IMPORTED! Press OK to reload page.");
+	alert("𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡 𝗜𝗠𝗣𝗢𝗥𝗧𝗘𝗗!\n\nPress OK to reload page.");
 	location.reload();
 	}
 	reader.readAsText(file, "UTF-8")
 }
 function nuke () {
 document.getElementById("frame").style.display = "none";
-	if (confirm("WARNING: Delete Collection?")) {
-		if (confirm("WARNING: REALLY Delete Collection??")) {
-		localStorage.removeItem('myCollection')
+	if (confirm("𝗪𝗔𝗥𝗡𝗜𝗡𝗚:\n\nDelete Collection?")) {
+		if (confirm("𝗪𝗔𝗥𝗡𝗜𝗡𝗚:\n\nREALLY Delete Collection??")) {
+		localStorage.removeItem('myCollection');
 		var node_list = document.getElementsByTagName('input');
 		for (n = 0; n < node_list.length; n++) {
 		var node = node_list[n];
@@ -552,13 +961,13 @@ document.getElementById("frame").style.display = "none";
 				document.getElementsByTagName('input')[n].checked = false;
 			}
 		}
-		alert("Collection Deleted! Press OK to reload page.");		
+		alert("𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡 𝗗𝗘𝗟𝗘𝗧𝗘𝗗!\n\nPress OK to reload page.");		
 		location.reload(); 
 		} else {
-		alert("Phew that was REALLY close!!")
+		alert("𝗪𝗢𝗪 𝗧𝗛𝗔𝗧 𝗪𝗔𝗦 𝗪𝗔𝗬 𝗧𝗢𝗢 𝗖𝗟𝗢𝗦𝗘!!!")
 		}
 	} else {
-    alert("Phew that was close!")
+    alert("𝗧𝗛𝗔𝗧 𝗪𝗔𝗦 𝗖𝗟𝗢𝗦𝗘!")
 	}
 }
 function roundUp () {
@@ -572,21 +981,38 @@ function roundUp () {
 			tally = tally +1;
 			}
 		}
-	document.getElementById("tally").innerHTML = "Games: "+cartsCounted+"<br>Boxed: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Sealed: "+sealedCounted+"<br>Unique: "+tally+"/"+titleCount;
+	document.getElementById("tally").innerHTML = "Total: "+(colourCounted+cartsCounted)+"<br>Boxed: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Sealed: "+sealedCounted+"<br>Section: "+myCount+"/"+titleCount;
+	if (myCount == titleCount){
+	alert("🏆 𝗪𝗲𝗹𝗹 𝗗𝗼𝗻𝗲 🏆\n\nYou own all titles in this category!");
+	}
+	if (document.getElementById("Region").value == "BR") {
+	alert("⚠️ 𝗗𝘂𝗲 𝘁𝗼 𝗹𝗮𝗰𝗸 𝗼𝗳 𝗮𝗿𝘁 𝘄𝗼𝗿𝗸:\n\nSome covers are borrowed from the NTSC-U version\n\nCan you contribute any artwork/images?\n\nContact me TWITTER: @DEFAULTDNB");
+	}
+	if (document.getElementById("Region").value == "MORE") {
+	alert("⁉️ 𝟭𝟬𝟭% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nIncludes 40 winks, Shindou editions and worthy regional variants!");
+	}
+	//https://twitter.com/messages/compose?recipient_id=170775741
 }
 function share() {
-window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/"+titleCount+"%20games!%0A%0ATrack%20yours%20on%20%40defaultdnb%27s%20site%3A%20https%3A%2F%2Fdefaultdnb.github.io%2FPROJECTREALITY%2F%0A%0A%23PROJECTREALITY");
+	if (confirm("𝗧𝗪𝗘𝗘𝗧 𝘆𝗼𝘂𝗿 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝘁𝗵𝗲 𝘄𝗼𝗿𝗹𝗱?\n\nTrack and share your "+tally+" variant N64 collection so far!")) {
+	window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/1457%20variants!%0A%0ATrack%20yours%20on%20%40defaultdnb%27s%20site%3A%20https%3A%2F%2Fdefaultdnb.github.io%2FPROJECTREALITY%2F%0A%0A%23PROJECTREALITYV2");
+	} else {
+	alert("𝗠𝗮𝘆𝗯𝗲 𝗮𝗻𝗼𝘁𝗵𝗲𝗿 𝘁𝗶𝗺𝗲?\n\nKeep collecting and then share when youre ready!");
+	}
+}
+function nsoInfo() {
+window.open("https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Nintendo-64-Nintendo-Switch-Online-2067751.html");
 }
 </script>
-<button id="top" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
+<button id="top" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝘁𝗼𝗽" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
 <input type="text" id="myText" value="0" class="search" maxlength="1" size="6" onclick="this.value=''">
-<div id="tally"></div>
-<img id="backup" title="Backup collection to file" onclick="copyOutCollection();" src="Config/BBUT.png" />
-<img id="restore" title="Add-in collection from file" onclick="openFile()" src="Config/ABUT.png" />
+<div id="tally" title="𝗗𝗶𝘀𝗽𝗹𝗮𝘆𝘀 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀 𝗶𝗻 𝘁𝗼𝘁𝗮𝗹/𝗰𝘂𝗿𝗿𝗲𝗻𝘁 𝗿𝗲𝗴𝗶𝗼𝗻 𝘀𝗲𝗰𝘁𝗶𝗼𝗻."></div>
+<img id="backup" title="𝗕𝗮𝗰𝗸𝘂𝗽 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝗳𝗶𝗹𝗲." onclick="copyOutCollection();" src="Config/BBUT.png" />
+<img id="restore" title="𝗔𝗱𝗱-𝗶𝗻 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗳𝗿𝗼𝗺 𝗳𝗶𝗹𝗲." onclick="openFile()" src="Config/ABUT.png" />
 <input id="inp" type='file' style="visibility:hidden;" accept=".P64" onchange="readFile(event)" />
-<img id="nuke" title="Pull the trigger & delete collection" onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" src="Config/ZBUT.png" />
-<div id="tweet" onclick="share();" title="Share your progress on Twitter!"></div>
-<button id="bottom" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" class="buttonD">↓</button>
-<div id="footer" class="footer">DEFAULTDNB 2022</div>
+<img id="nuke" title="𝗣𝘂𝗹𝗹 𝘁𝗵𝗲 𝘁𝗿𝗶𝗴𝗴𝗲𝗿 & 𝗱𝗲𝗹𝗲𝘁𝗲 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻." onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" src="Config/ZBUT.png" />
+<div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀 𝗼𝗻 𝗧𝘄𝗶𝘁𝘁𝗲𝗿!"></div>
+<button id="bottom" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝗯𝗼𝘁𝘁𝗼𝗺" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" class="buttonD">↓</button>
+<div id="footer" class="footer">DEFAULTDNB 2023</div><img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/CDOWN.png" onmousedown="localStorage.removeItem('region'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </body>
 </html>

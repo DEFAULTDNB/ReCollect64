@@ -10,11 +10,42 @@ h1 {
 	color: white;
 	text-shadow: 1.5px 2px #000000;
 }
+select {
+	width: auto;
+	height: 35px;
+	font-size: 22px;
+	background-color: grey;
+}
+.thumbnail {
+	width: 400px;
+	height: 180px;
+	background-size: 225px;
+	background-position: 5px 8px;
+	background-repeat: no-repeat;
+	display: inline-block;
+	border: thin solid #C1BED1;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	text-shadow: 1.5px 2px #000000;
+	font-size: 17px;
+}
 #main {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
+}
+#canvas {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: natural;
+	height: natural;
+	border: 5px solid #FFC001;
+	border-color: #C1BED1;
+	z-index: 1000;
+	background: #C1BED1;
 }
 #frame {
 	position: fixed;
@@ -38,6 +69,12 @@ h1 {
 	text-align: center;
 	font-size: 22px;
 }
+#frametitle2 {
+	color: #011DA9;
+	background-color: #C1BED1;
+	text-align: center;
+	font-size: 22px;
+}
 #a1 {
 	font-size: 17px;
 }
@@ -46,8 +83,10 @@ h1 {
 }
 #art {
 	font-size: 0;
-	max-height: 200px;
+	max-height: 180px;
 	padding: 2px;
+	overflow: auto;
+	scrollbar-gutter: auto | stable && both-edges?;
 }
 #container {
 	max-height: 180px;
@@ -63,14 +102,47 @@ h1 {
 	width: 29px;
 	height: 29px;
 }
+#NSO {
+	position: inline-block;
+	left: 32px;
+	top: 0px;
+	--right: 2px;
+	--bottom: 222px;
+	width: 25px;
+	height: 25px;
+}
 .got {
 	cursor: pointer;
+}
+#cOwn::after {
+	content: " I own this cart!";
+}
+#gOwn::after {
+	content: " I own this game!";
+}
+#dOwn::after {
+	content: " I own this disk!";
+}
+#bOwn::after {
+	content: " I've got the box..";
+}
+#mOwn::after {
+	content: " I have the manual..";
+}
+#sOwn::after {
+	content: " Mines MINT sealed!";
+}
+#nfrOwn::after {
+	content: " It's rare, but I own this cart!";
+}
+#altOwn::after {
+	content: " I own the colour variant!";
 }
 .thumbs {
 	display: block;
 	position: relative;
-	width: 100px;
-	height: 60px;
+	width: 140px;
+	height: 100px;
 }
 .thumbs:hover {
 	border: 2px solid #C20D02;
@@ -165,7 +237,8 @@ h1 {
 	right: 5px;
 	height: 105px;
 	width: 85px;
-    background-color: rgba(194,13,2,0.5);
+	background-color: rgba(0,100,100,0.5);
+    --background-color: rgba(194,13,2,0.5);
     border: none;
     color: rgba(255,255,255,100);
     padding: 10px 10px;
@@ -175,6 +248,38 @@ h1 {
     display: inline-block;
     font-size: 15px;
     cursor: pointer;
+}
+#reload {
+	vertical-align:middle;
+	width: 100px;
+	color: white;
+	opacity: 0.5;
+	display: inline;
+    cursor: pointer;
+}
+#reload:hover {
+	opacity: 1;
+}
+#list {
+	vertical-align:middle;
+	width: 100px;
+	color: white;
+	opacity: 0.5;
+	display: inline-block;
+    cursor: pointer;
+}
+#list:hover {
+	opacity: 1;
+}
+#regNuke {
+	width: 50px;
+	color: white;
+	opacity: 0.5;
+	display: inline;
+    cursor: pointer;
+}
+#regNuke:hover {
+	opacity: 1;
 }
 #backup {
 	position: fixed;
@@ -272,6 +377,122 @@ h1 {
 .buttonD:hover {
     background-color: white;
     color: black;
+}
+#BOXPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('BOX.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#MANPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('MANUAL.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#SLDPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('SEALED.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#DDDPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('DISK.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#IQPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('IQUE.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#LRGPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('LRG.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#NFRPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('NFR.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#ALTPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('ALT.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#SCNPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('SCN.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:30px;
+	width:35px;
+}
+#FAHPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('FAH.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:30px;
+	width:35px;
+}
+#FRGPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('FRG.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:30px;
+	width:35px;
+}
+.flag {
+	display:inline-block;
+	vertical-align:middle;
+	font-size: 35px;
+}
+.spesh {
+	display:inline-block;
+	vertical-align:middle;
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:41px;
+	width:35px;
+}
+	
+#art:hover {
+	cursor: zoom-in;
 }
 .footer {
 	color: white;
