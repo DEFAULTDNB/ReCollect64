@@ -450,7 +450,7 @@ function changeRegion() {
 }
 let fileName = "Config/"+localStorage.region;
 var xmlFile = new XMLHttpRequest;
-xmlFile.open('get', fileName, false);
+xmlFile.open('GET', fileName, false);
 xmlFile.send(null);
 var xmlDoc = xmlFile.responseText;
 var lines = xmlDoc.split("\r\n")
