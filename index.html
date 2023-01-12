@@ -465,7 +465,7 @@ for (i=0; i < titleCount; i++){
 	div.id = "card"+coverFlow[i];
 	div.setAttribute('class', 'thumbnail');
 	var info = coverFlow[i]-1;
-	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("PLAYERS=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1) ).stringify();
+	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("PLAYERS=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1));
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7), (lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle + " " + gRegion);	
