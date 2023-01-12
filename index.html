@@ -469,21 +469,17 @@ for (i=0; i < titleCount; i++){
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7), (lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle + " " + gRegion);	
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
 	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")){ //Vertical box art
-	div.dataBackground = "url('Covers/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "120px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=DD ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "187px";
 	div.style.backgroundPosition = "20px 8px";
 	} else if (lines[info].match("REGION=SED ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "110px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=IQUE ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "100px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
@@ -491,21 +487,21 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundSize = "180px";
 	div.style.backgroundPosition = "25px 25px";
 	} else if (lines[info].match("REGION=E ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
 	} else if (lines[info].match("REGION=SCN ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" UKV.png'), url('Covers/"+gTitle+" E.png'), url('Config/BLANK.png')"; //FIFA 99 FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Covers/E/"+gTitle+" E.png'), url('Config/BLANK.png')"; //FIFA 99 FALLBACK
 	} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=EUU ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" E.png'), url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" EUU.png'), url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //EUROPEAN FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/E/"+gTitle+" E.png'), url('Covers/EUU/"+gTitle+" EUU.png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //EUROPEAN FALLBACK
 	} else if (lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=KO ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" U.png'), url('Config/BLANK.png')"; //USA FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/U/"+gTitle+" U.png'), url('Config/BLANK.png')"; //USA FALLBACK
 	} else if (lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" J.png'), url('Config/BLANK.png')"; //JPN FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/J/"+gTitle+" J.png'), url('Config/BLANK.png')"; //JPN FALLBACK
 	div.style.backgroundSize = "120px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")||lines[info].match("REGION=ALTB ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" BR.png'), url('Config/BLANK.png')"; //BRA FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/BR/"+gTitle+" BR.png'), url('Config/BLANK.png')"; //BRA FALLBACK
 	} else if (lines[info].match("REGION=TW ")){
-	div.style.backgroundImage = "url('Covers/"+gTitle+" "+gRegion+".png'), url('Covers/"+gTitle+" HK.png'), url('Config/BLANK.png')"; //TWN FALLBACK	
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/HK/"+gTitle+" HK.png'), url('Config/BLANK.png')"; //TWN FALLBACK	
 	}
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
@@ -698,43 +694,39 @@ function reply_click(clicked_id){
 	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " in " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
 	document.getElementById("frame").style.display = "block";
 	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
+	document.getElementById("thumb").src = 'Covers/'+pReg+"/"+frametitle.innerHTML+'.png';
 	if (pReg === "J" || pReg === "CH" || pReg === "SEJ") {
-	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
 	document.getElementById("thumb").style.width = "74px";
 	document.getElementById("thumb").style.padding = "0px 33px";
 	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
 	} else if (pReg === "DD") {
-	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
 	document.getElementById("thumb").style.width = "110px";
 	document.getElementById("thumb").style.padding = "0px 15px";
 	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
 	} else if (pReg === "IQUE") {
-	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
 	document.getElementById("thumb").style.width = "60px";
 	document.getElementById("thumb").style.padding = "0px 40px";
 	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
 	} else if (pReg === "SED") {
-	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
 	document.getElementById("thumb").style.width = "70px";
 	document.getElementById("thumb").style.padding = "0px 33px";
 	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
 	} else {
-	document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML+'.png';
 	document.getElementById("thumb").style.width = "140px";
 	document.getElementById("thumb").style.padding = "0px 0px";
 	}
 	if (document.getElementById("thumb").complete === false) {
 		if (pReg === "BR" || pReg === "CAN" || pReg === "MSA" || pReg === "ALTU" || pReg === "AS" || pReg === "HK") {
-		document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		document.getElementById("thumb").src = 'Covers/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
 		if (pReg === "BRS" || pReg === "BRB") {
-		document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
+		document.getElementById("thumb").src = 'Covers/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 		}
 		if (pReg === "UKV" || pReg === "A" || pReg === "ALTE" || pReg === "D" || pReg === "F" || pReg === "I" || pReg === "S" || pReg === "EUU" || pReg === "FAH" || pReg === "FRG" || pReg === "HOL" || pReg === "SCN") {
-		document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+		document.getElementById("thumb").src = 'Covers/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 		}
 		if (pReg === "ALTJ" || pReg === "SEJ"){
-		document.getElementById("thumb").src = 'Covers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
+		document.getElementById("thumb").src = 'Covers/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		document.getElementById("thumb").style.width = "74px";
 		document.getElementById("thumb").style.padding = "0px 33px";
 		document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
@@ -744,8 +736,8 @@ function reply_click(clicked_id){
 	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
 	document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
 	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
-	document.getElementById("thumbCC").src = 'Carts/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' '+CC+'.png'; //COLOURED CART
-	document.getElementById("thumbRC").src = 'Carts/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' Grey.png'; //REGULAR CART
+	document.getElementById("thumbCC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' '+CC+'.png'; //COLOURED CART
+	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' Grey.png'; //REGULAR CART
 	document.getElementById("thumbNFR").src = 'Carts/NFRs/'+frametitle.innerHTML+'.png';
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
