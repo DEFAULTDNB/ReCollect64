@@ -450,7 +450,7 @@ function changeRegion() {
 }
 let fileName = "Config/"+localStorage.region;
 var xmlFile = new XMLHttpRequest;
-xmlFile.open('GET', fileName, true);
+xmlFile.open('GET', fileName, false);
 xmlFile.send(null);
 var xmlDoc = xmlFile.responseText;
 var lines = xmlDoc.split("\r\n")
@@ -465,8 +465,8 @@ for (i=0; i < titleCount; i++){
 	div.id = "card"+coverFlow[i];
 	div.setAttribute('class', 'thumbnail');
 	var info = coverFlow[i]-1;
-	var gTitle = lines[info].slice( (lines[info]), (lines[info].indexOf("PLAYERS=")-1) ) || lines[info].slice( (lines[info]), (lines[info].indexOf("ALT=")-1));
-	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7), (lines[info].indexOf("SIZE=")-1));
+	var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
+	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle + " " + gRegion);	
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
