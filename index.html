@@ -488,7 +488,7 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundImage = "url('Carts/NFRs/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "180px";
 	div.style.backgroundPosition = "25px 25px";
-	//} else if (lines[info].match("REGION=E ")){
+	/*} else if (lines[info].match("REGION=E ")){
 	//div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
 	} else if (lines[info].match("REGION=SCN ")){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Covers/E/"+gTitle+" E.png'), url('Config/BLANK.png')"; //FIFA 99 FALLBACK
@@ -504,7 +504,7 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/BR/"+gTitle+" BR.png'), url('Config/BLANK.png')"; //BRA FALLBACK
 	} else if (lines[info].match("REGION=TW ")){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/HK/"+gTitle+" HK.png'), url('Config/BLANK.png')"; //TWN FALLBACK	
-	}
+	*/}
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
