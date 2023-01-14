@@ -488,8 +488,8 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundImage = "url('Carts/NFRs/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "180px";
 	div.style.backgroundPosition = "25px 25px";
-	} else if (lines[info].match("REGION=E ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
+	//} else if (lines[info].match("REGION=E ")){
+	//div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
 	} else if (lines[info].match("REGION=SCN ")){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Covers/E/"+gTitle+" E.png'), url('Config/BLANK.png')"; //FIFA 99 FALLBACK
 	} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=EUU ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
@@ -596,11 +596,11 @@ function reply_click(clicked_id){
 		mpak = "Password System!"; //6
 		}
 	let altName = "";
-		/*if (lines[clicked_id-1].match("ALT=")){
+		if (lines[clicked_id-1].match("ALT=")){
 		altName = "AKA: " + lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length))+"<br>";
 		} else {
 		altName = "";
-		}*/
+		}
 	let cartColour = "";
 		if (lines[clicked_id-1].match(/\[(.*?)\]/)){
 		cartColour = "<br>Coloured Cart: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
