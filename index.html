@@ -465,7 +465,8 @@ for (i=0; i < titleCount; i++){
 	div.id = "card"+coverFlow[i];
 	div.setAttribute('class', 'thumbnail');
 	var info = coverFlow[i]-1;
-	var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
+	//var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
+	var gTitle = lines[info].slice(0,(lines[info].indexOf("PLAYERS=")-1));
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle + " " + gRegion);	
@@ -534,7 +535,7 @@ var myID;
 function reply_click(clicked_id){
 	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
 	const things = ["cartridge", "boxed", "manual", "sealed","colcart"];
-	let gameTitle = lines[clicked_id-1].slice((lines[clicked_id-1]), (lines[clicked_id-1].indexOf("PLAYERS=")-1));
+	let gameTitle = lines[clicked_id-1].slice(0, (lines[clicked_id-1].indexOf("PLAYERS=")-1));
 	let gamePlayers = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1));
 	let gameGenre = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1));
 	let pubCo = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
@@ -571,35 +572,35 @@ function reply_click(clicked_id){
 		document.getElementById("expak").style.display = 'none';
 		}
 	let mpak = "";
-		if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("0")){
+		if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("0")){
 		mpak = "Memory Pak<br>(32,768 bytes) SRAM";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("1")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("1")){
 		mpak = "4 Kilobits<br>(512 bytes) EEPROM";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("2")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("2")){
 		mpak = "16 Kilobits<br>(2048 bytes) EEPROM";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("3")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("3")){
 		mpak = "256 Kilobits<br>(32,768 bytes) SRAM";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("4")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("4")){
 		mpak = "1024 Kilobits<br>(131,072 bytes) FlashRAM";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("5")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("5")){
 		mpak = "No Saves!";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("7")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("7")){
 		mpak = "768Kbit SRAM + Battery!";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("8")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("8")){
 		mpak = "256Kbit SRAM + Battery for RTC!";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("9")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("9")){
 		mpak = "Writes directly to game disk";
-		} else if (lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("Q")){
+		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("Q")){
 		mpak = "RAM buffer written to NAND";
 		} else {
 		mpak = "Password System!"; //6
 		}
 	let altName = "";
-		if (lines[clicked_id-1].match("ALT=")){
-		altName = "AKA: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length) )+"<br>";
+		/*if (lines[clicked_id-1].match("ALT=")){
+		altName = "AKA: " + lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length))+"<br>";
 		} else {
 		altName = "";
-		}
+		}*/
 	let cartColour = "";
 		if (lines[clicked_id-1].match(/\[(.*?)\]/)){
 		cartColour = "<br>Coloured Cart: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
