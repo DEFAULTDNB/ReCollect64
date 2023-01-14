@@ -450,8 +450,8 @@ function changeRegion() {
 }
 let fileName = "Config/"+localStorage.region;
 var xmlFile = new XMLHttpRequest;
-xmlFile.open('GET', fileName, false);
-xmlFile.send(null);
+xmlFile.open('get', fileName, false);
+xmlFile.send();
 var xmlDoc = xmlFile.responseText;
 var lines = xmlDoc.split("\r\n")
 let titleCount = lines.length;
@@ -480,6 +480,7 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundSize = "110px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=IQUE ")){
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "100px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
@@ -719,6 +720,9 @@ function reply_click(clicked_id){
 		if (pReg === "BR" || pReg === "CAN" || pReg === "MSA" || pReg === "ALTU" || pReg === "AS" || pReg === "HK") {
 		document.getElementById("thumb").src = 'Covers/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
+		if (pReg === "TW") {
+		document.getElementById("thumb").src = 'Covers/HK/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'HK.png';
+		}
 		if (pReg === "BRS" || pReg === "BRB") {
 		document.getElementById("thumb").src = 'Covers/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 		}
@@ -834,6 +838,7 @@ function AZclick() {
 	switch (document.getElementById("myText").value){
 	case "0": document.getElementById('card'+(alphamatch.indexOf("0")+1)).scrollIntoView({behavior: 'auto' }); break;
 	case "1": document.getElementById('card'+(alphamatch.indexOf("1")+1)).scrollIntoView({behavior: 'auto' }); break;
+	case "4": document.getElementById('card'+(alphamatch.indexOf("4")+1)).scrollIntoView({behavior: 'auto' }); break;
 	case "6": document.getElementById('card'+(alphamatch.indexOf("6")+1)).scrollIntoView({behavior: 'auto' }); break;
 	case "A": document.getElementById('card'+(alphamatch.indexOf("A")+1)).scrollIntoView({behavior: 'auto' }); break;
 	case "B": document.getElementById('card'+(alphamatch.indexOf("B")+1)).scrollIntoView({behavior: 'auto' }); break;
