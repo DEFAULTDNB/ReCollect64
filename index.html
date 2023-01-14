@@ -534,16 +534,16 @@ var myID;
 function reply_click(clicked_id){
 	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
 	const things = ["cartridge", "boxed", "manual", "sealed","colcart"];
-	let gameTitle = lines[clicked_id-1].slice( (lines[clicked_id-1]), (lines[clicked_id-1].indexOf("PLAYERS=")-1) );
-	let gamePlayers = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1) );
-	let gameGenre = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1) );
-	let pubCo = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
-	let rDate = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SCORE=")-5), (lines[clicked_id-1].indexOf("SCORE=")-1));
-	let gameScore = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGION=")-1) );
-	let gameRegions = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("REGION=")+7), (lines[clicked_id-1].indexOf("SIZE=")-1) );
-	let mbSize = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
-	let gCode = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("CODE=")+5), (lines[clicked_id-1].indexOf("MEMPAK=")-1));
-	let gCIC = lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("CIC=")+4), (lines[clicked_id-1].indexOf("CODE=")-1));
+	let gameTitle = lines[clicked_id-1].slice((lines[clicked_id-1]), (lines[clicked_id-1].indexOf("PLAYERS=")-1));
+	let gamePlayers = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1));
+	let gameGenre = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1));
+	let pubCo = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
+	let rDate = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SCORE=")-5), (lines[clicked_id-1].indexOf("SCORE=")-1));
+	let gameScore = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGION=")-1));
+	let gameRegions = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("REGION=")+7), (lines[clicked_id-1].indexOf("SIZE=")-1));
+	let mbSize = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
+	let gCode = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("CODE=")+5), (lines[clicked_id-1].indexOf("MEMPAK=")-1));
+	let gCIC = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("CIC=")+4), (lines[clicked_id-1].indexOf("CODE=")-1));
 	let gNSO = "";
 		if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("NSO=")+4),(lines[clicked_id-1].indexOf("NSO=")+5)).match("1")){
 		document.getElementById("NSO").style.display = 'block';
@@ -552,7 +552,7 @@ function reply_click(clicked_id){
 		}
 	let gFeatures = "";
 		if (lines[clicked_id-1].match("FEATURES=")){
-		gFeatures = "<br>Features: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("FEATURES=")+9), (lines[clicked_id-1].lastIndexOf("."))) + ".";
+		gFeatures = "<br>Features: " + lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("FEATURES=")+9), (lines[clicked_id-1].lastIndexOf("."))) + ".";
 		} else {
 		gFeatures = "";
 		}
