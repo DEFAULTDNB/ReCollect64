@@ -465,8 +465,7 @@ for (i=0; i < titleCount; i++){
 	div.id = "card"+coverFlow[i];
 	div.setAttribute('class', 'thumbnail');
 	var info = coverFlow[i]-1;
-	//var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
-	var gTitle = lines[info].slice(0,(lines[info].indexOf("PLAYERS=")-1));
+	var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle + " " + gRegion);	
@@ -535,7 +534,7 @@ var myID;
 function reply_click(clicked_id){
 	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
 	const things = ["cartridge", "boxed", "manual", "sealed","colcart"];
-	let gameTitle = lines[clicked_id-1].slice(0, (lines[clicked_id-1].indexOf("PLAYERS=")-1));
+	let gameTitle = lines[clicked_id-1].slice(lines[clicked_id-1], (lines[clicked_id-1].indexOf("PLAYERS=")-1));
 	let gamePlayers = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1));
 	let gameGenre = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1));
 	let pubCo = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
