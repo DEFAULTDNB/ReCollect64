@@ -456,7 +456,7 @@ var xmlDoc = xmlFile.responseText;
 var lines = xmlDoc.split("\r\n")
 let titleCount = lines.length;
 var coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
-const alphamatch = [];
+let alphamatch = [];
 let myNeedList = [];
 for (i=0; i < titleCount; i++){
 	var div = document.createElement("div");
@@ -470,6 +470,7 @@ for (i=0; i < titleCount; i++){
 	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle + " " + gRegion);	
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
+
 	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")){ //Vertical box art
 	div.style.backgroundSize = "120px";
 	div.style.backgroundPosition = "60px 8px";
@@ -487,6 +488,9 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundImage = "url('Carts/NFRs/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "180px";
 	div.style.backgroundPosition = "25px 25px";
+	
+	
+	
 	/*} else if (lines[info].match("REGION=E ")){
 	//div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
 	} else if (lines[info].match("REGION=SCN ")){
@@ -504,6 +508,7 @@ for (i=0; i < titleCount; i++){
 	} else if (lines[info].match("REGION=TW ")){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/HK/"+gTitle+" HK.png'), url('Config/BLANK.png')"; //TWN FALLBACK	
 	*/}
+	
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
@@ -595,11 +600,11 @@ function reply_click(clicked_id){
 		mpak = "Password System!"; //6
 		}
 	let altName = "";
-		if (lines[clicked_id-1].match("ALT=")){
+		/*if (lines[clicked_id-1].match("ALT=")){
 		altName = "AKA: " + lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length))+"<br>";
 		} else {
 		altName = "";
-		}
+		}*/
 	let cartColour = "";
 		if (lines[clicked_id-1].match(/\[(.*?)\]/)){
 		cartColour = "<br>Coloured Cart: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
