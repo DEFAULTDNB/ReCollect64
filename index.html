@@ -488,9 +488,6 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundImage = "url('Carts/NFRs/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "180px";
 	div.style.backgroundPosition = "25px 25px";
-	
-	
-	
 	/*} else if (lines[info].match("REGION=E ")){
 	//div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
 	} else if (lines[info].match("REGION=SCN ")){
@@ -600,11 +597,11 @@ function reply_click(clicked_id){
 		mpak = "Password System!"; //6
 		}
 	let altName = "";
-		/*if (lines[clicked_id-1].match("ALT=")){
+		if (lines[clicked_id-1].match("ALT=")){
 		altName = "AKA: " + lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("ALT=")+4), (lines[clicked_id-1].length))+"<br>";
 		} else {
 		altName = "";
-		}*/
+		}
 	let cartColour = "";
 		if (lines[clicked_id-1].match(/\[(.*?)\]/)){
 		cartColour = "<br>Coloured Cart: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
@@ -696,7 +693,8 @@ function reply_click(clicked_id){
 		} else {
 		gamePlayers = gamePlayers + " player ";
 	}
-	document.getElementById("p2-1").innerHTML = altName + "NUS ID: " + gCode + "<br>CIC: " + gCIC + " / ROM: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour + gFeatures;
+	//document.getElementById("p2-1").innerHTML = altName + "NUS ID: " + gCode + "<br>CIC: " + gCIC + " / ROM: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour + gFeatures;
+	document.getElementById("p2-1").innerHTML = "TEST";
 	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre.toLowerCase() + " game: '" + gameTitle + "', was published by " + pubCo + " in " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
 	document.getElementById("frame").style.display = "block";
 	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
