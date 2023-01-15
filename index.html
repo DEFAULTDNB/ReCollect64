@@ -469,9 +469,7 @@ for (i=0; i < titleCount; i++){
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle + " " + gRegion);	
-	//div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
-	div.style.backgroundImage =  "url('Config/BLANK.png')";
-
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
 	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")){ //Vertical box art
 	div.style.backgroundSize = "120px";
 	div.style.backgroundPosition = "60px 8px";
@@ -489,8 +487,8 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundImage = "url('Carts/NFRs/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "180px";
 	div.style.backgroundPosition = "25px 25px";
-	/*} else if (lines[info].match("REGION=E ")){
-	//div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
+	} else if (lines[info].match("REGION=E ")){
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
 	} else if (lines[info].match("REGION=SCN ")){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Covers/E/"+gTitle+" E.png'), url('Config/BLANK.png')"; //FIFA 99 FALLBACK
 	} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=EUU ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
@@ -505,8 +503,7 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/BR/"+gTitle+" BR.png'), url('Config/BLANK.png')"; //BRA FALLBACK
 	} else if (lines[info].match("REGION=TW ")){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/HK/"+gTitle+" HK.png'), url('Config/BLANK.png')"; //TWN FALLBACK	
-	*/}
-	
+	}
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
@@ -529,11 +526,11 @@ for (i=0; i < titleCount; i++){
 			}
 		}		
 	}
-	div.innerHTML = divStyle+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+" ["+gRegion+"]<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></div>";
+	//div.innerHTML = divStyle+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+" ["+gRegion+"]<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></div>";
 }
+alert('yo');
 var prevCard;
 var nextCard;
-var myID;
 function reply_click(clicked_id){
 	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
 	const things = ["cartridge", "boxed", "manual", "sealed","colcart"];
@@ -740,16 +737,15 @@ function reply_click(clicked_id){
 		document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
 		}
 	}	
-	/*document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
+	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
 	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
 	document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
 	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
 	document.getElementById("thumbCC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' '+CC+'.png'; //COLOURED CART
 	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' Grey.png'; //REGULAR CART
-	document.getElementById("thumbNFR").src = 'Carts/NFRs/'+frametitle.innerHTML+'.png';*/
+	document.getElementById("thumbNFR").src = 'Carts/NFRs/'+frametitle.innerHTML+'.png';
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
-	myID = clicked_id-1;
 	myCollectionList.push([frametitle.innerHTML]);
 	function multiDimensionalUnique(myCollectionList) {
     var uniques = [];
