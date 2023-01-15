@@ -469,7 +469,8 @@ for (i=0; i < titleCount; i++){
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle + " " + gRegion);	
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
+	//div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
+	div.style.backgroundImage =  "url('Config/BLANK.png')";
 
 	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")){ //Vertical box art
 	div.style.backgroundSize = "120px";
