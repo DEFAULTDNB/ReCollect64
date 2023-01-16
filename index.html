@@ -448,9 +448,9 @@ function changeRegion() {
 	}
 	location.reload();
 }
-let fileName = "Config/"+localStorage.region;
+//let fileName = "Config/"+localStorage.region;
 var xmlFile = new XMLHttpRequest;
-xmlFile.open('get', fileName, false);
+xmlFile.open('get', localStorage.region, false);
 xmlFile.send();
 var xmlDoc = xmlFile.responseText;
 var lines = xmlDoc.split("\r\n")
@@ -527,11 +527,7 @@ for (i=0; i < titleCount; i++){
 		}		
 	}
 	div.innerHTML = divStyle+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+" ["+gRegion+"]<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></div>";
-
-alert('fail');
-
 }
-
 var prevCard;
 var nextCard;
 function reply_click(clicked_id){
