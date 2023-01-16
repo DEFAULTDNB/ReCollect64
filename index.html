@@ -448,9 +448,9 @@ function changeRegion() {
 	}
 	location.reload();
 }
-//let fileName = "Config/"+localStorage.region;
+let fileName = "Config/"+localStorage.region;
 var xmlFile = new XMLHttpRequest;
-xmlFile.open('get', localStorage.region, false);
+xmlFile.open('get', fileName, false);
 xmlFile.send();
 var xmlDoc = xmlFile.responseText;
 var lines = xmlDoc.split("\r\n")
