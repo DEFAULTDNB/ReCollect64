@@ -8,6 +8,7 @@
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
 <script>
+	var skullkid = 1460;
 	var myCount = 0;
 	var myCollectionList = [];
 	var cartsCounted = colourCounted = boxesCounted = manualsCounted = sealedCounted = tally = 0;
@@ -508,25 +509,26 @@ for (i=0; i < titleCount; i++){
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
 	let gotOrNot = "";
-	let divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
+	let divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 0px dashed; border-color: #C1BED1; overflow: hidden;'>";
 	myList = JSON.parse(localStorage.myCollection);
 	for (w = 0; w < myList.length; w++) {
 	let isIt = String(myList[w].flat());
 		if (gTitle + " " + gRegion === myList[w][0]) {
 			if (isIt.match(/sealed/gi)) {
 			gotOrNot = "<span class='got' title='𝗗𝗲𝗱𝗶𝗰𝗮𝘁𝗲𝗱 𝗠𝗜𝗕 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
-			divStyle = "<div style='background-color: rgba(255,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
+			divStyle = "<div style='background-color: rgba(255,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: yellow; overflow: hidden;'>";
 			myCount = myCount + 1;
 			myNeedList.splice(myNeedList.indexOf(gTitle),1);
 			} else if (isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) {
 			gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗴𝗮𝗺𝗲!'>⭐</span>";
-			divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px dashed; border-color: #C1BED1; overflow: hidden;'>";
+			divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
 			myCount = myCount + 1;
 			myNeedList.splice(myNeedList.indexOf(gTitle),1);
 			}
 		}		
 	}
-	div.innerHTML = divStyle+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+" ["+gRegion+"]<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></div>";
+	//div.innerHTML = divStyle+coverFlow[i]+"/"+titleCount+" "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br>"+gTitle+" ["+gRegion+"]<br><span style='color:yellow'>Date: </span>"+gYear+"<br><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow'>Score: </span>"+gScore+"%</span></div>";
+	div.innerHTML = divStyle+"<span style='font-size:11pt'>"+coverFlow[i]+"/"+titleCount+"</span> "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br><span style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
 }
 var prevCard;
 var nextCard;
@@ -981,7 +983,7 @@ function roundUp () {
 	alert("🏆 𝗪𝗲𝗹𝗹 𝗗𝗼𝗻𝗲 🏆\n\nYou own all titles in this category!");
 	}
 	if (document.getElementById("Region").value == "BR") {
-	alert("⚠️ 𝗗𝘂𝗲 𝘁𝗼 𝗹𝗮𝗰𝗸 𝗼𝗳 𝗮𝗿𝘁 𝘄𝗼𝗿𝗸:\n\nSome covers are borrowed from the NTSC-U version\n\nCan you contribute any artwork/images?\n\nContact me TWITTER: @DEFAULTDNB");
+	alert("⚠️ 𝗗𝘂𝗲 𝘁𝗼 𝗹𝗮𝗰𝗸 𝗼𝗳 𝗶𝗺𝗮𝗴𝗲𝘀:\n\nSome covers are borrowed from the NTSC-U version\n\nCan you contribute any artwork/images?\n\nContact me TWITTER: @DEFAULTDNB");
 	}
 	if (document.getElementById("Region").value == "MORE") {
 	alert("⁉️ 𝟭𝟬𝟭% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nIncludes 40 winks, Shindou editions and worthy regional variants!");
@@ -990,9 +992,9 @@ function roundUp () {
 }
 function share() {
 	if (confirm("𝗧𝗪𝗘𝗘𝗧 𝘆𝗼𝘂𝗿 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝘁𝗵𝗲 𝘄𝗼𝗿𝗹𝗱?\n\nTrack and share your "+tally+" variant N64 collection so far!")) {
-	window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/1458%20variants!%0A%0ATrack%20yours%20on%20%40defaultdnb%27s%20site%3A%20https%3A%2F%2Fdefaultdnb.github.io%2FPROJECTREALITY%2F%0A%0A%23PROJECTREALITYV2");
+	window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/"+skullkid+"%20variants!%0A%0ATrack%20yours%20on%20%40defaultdnb%27s%20site%3A%20https%3A%2F%2Fdefaultdnb.github.io%2FPROJECTREALITY%2F%0A%0A%23PROJECTREALITYV2");
 	} else {
-	alert("𝗠𝗮𝘆𝗯𝗲 𝗮𝗻𝗼𝘁𝗵𝗲𝗿 𝘁𝗶𝗺𝗲?\n\nKeep collecting and then share when youre ready!");
+	alert("𝗠𝗮𝘆𝗯𝗲 𝗮𝗻𝗼𝘁𝗵𝗲𝗿 𝘁𝗶𝗺𝗲?\n\nKeep collecting and then share when you're ready!");
 	}
 }
 function nsoInfo() {
