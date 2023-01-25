@@ -1,8 +1,7 @@
 body {
-background: rgb(150,149,149);
+background: rgb(150,149,149) no-repeat fixed;
 background: radial-gradient(circle, rgba(150,149,149,1) 0%, rgba(29,29,29,1) 95%);
 background-size: auto 100vh;    
-background-attachment: fixed;
 font-family: Arial, Helvetica, sans-serif;
 }
 h1 {
