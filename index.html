@@ -8,7 +8,7 @@
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
 <script>
-	var skullkid = 1460;
+	var skullkid = 1462;
 	var myCount = 0;
 	var myCollectionList = [];
 	var cartsCounted = colourCounted = boxesCounted = manualsCounted = sealedCounted = tally = 0;
@@ -52,7 +52,7 @@
 <div id="overlay"><div id="overlaytext" style="font-size: 22px"></div></div>
 <center>
 <span>
-<img id="list" title="𝗟𝗜𝗦𝗧 𝗡𝗘𝗘𝗗𝗘𝗗 𝗧𝗜𝗧𝗟𝗘𝗦!&#10;(𝗦𝘂𝗴𝗴𝗲𝘀𝘁𝗲𝗱 𝘂𝘀𝗲: <𝟭𝟬𝟬 𝗻𝗲𝗲𝗱𝗲𝗱)" onclick="alert('🔍 This sections need list:\n\n🔴 ' + myNeedList.join('\n🔴 '));" src="Config/LBUT.png" />
+<img id="list" title="𝗟𝗜𝗦𝗧 𝗡𝗘𝗘𝗗𝗘𝗗 𝗧𝗜𝗧𝗟𝗘𝗦!&#10;(𝗦𝘂𝗴𝗴𝗲𝘀𝘁𝗲𝗱 𝘂𝘀𝗲: <𝟱𝟬 𝗻𝗲𝗲𝗱𝗲𝗱)" onclick="needInfo();" src="Config/LBUT.png" />
 <select name="Region" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗮 𝗿𝗲𝗴𝗶𝗼𝗻" id="Region" onchange="changeRegion()">
 	<option value="EU" title="PAL Collection (243)">🇪🇺 🌍 EUR</option>
 	<option value="US" title="NTSC-U Collection (297)">🇺🇸 🌎 USA</option>
@@ -92,14 +92,12 @@
 			<div class="grid-item"><center>Artwork:</center>
 				<div id="art" style="border: 1px dashed; border-color: #C20D02;" title="𝗧𝗮𝗸𝗲 𝗮 𝗰𝗹𝗼𝘀𝗲𝗿 𝗹𝗼𝗼𝗸">
 				<img id="thumb" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbCC" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbRC" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbNFR" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbCC" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+				<img id="thumbRC" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbDI" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbA1" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbA2" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				<img id="thumbA3" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbMMT64" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				</div>
 			</div>
 		<div class="grid-item"><center>Collection:</center>
@@ -469,7 +467,8 @@ for (i=0; i < titleCount; i++){
 	var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
-	myNeedList.push(gTitle + " " + gRegion);	
+	//myNeedList.push(gTitle+" ("+gRegion+")");
+	myNeedList.push(gTitle);
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
 	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")){ //Vertical box art
 	div.style.backgroundSize = "120px";
@@ -485,7 +484,7 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundSize = "100px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
-	div.style.backgroundImage = "url('Carts/NFRs/"+gTitle+" "+gRegion+".png')";
+	div.style.backgroundImage = "url('Carts/NFR/"+gTitle+" "+gRegion+".png'), url('Carts/ALTN/"+gTitle+" "+gRegion+".png')";
 	div.style.backgroundSize = "180px";
 	div.style.backgroundPosition = "25px 25px";
 	} else if (lines[info].match("REGION=E ")){
@@ -534,7 +533,7 @@ var nextCard;
 function reply_click(clicked_id){
 	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
 	const things = ["cartridge", "boxed", "manual", "sealed","colcart"];
-	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 U","Pokemon Stadium 2 E","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","WWF Wrestlemania 2000 U"];
+	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 BR","Pokemon Stadium 2 U","Pokemon Stadium 2 E","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
 	let gameTitle = lines[clicked_id-1].slice(lines[clicked_id-1], (lines[clicked_id-1].indexOf("PLAYERS=")-1));
 	let gamePlayers = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1));
 	let gameGenre = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1));
@@ -735,7 +734,7 @@ function reply_click(clicked_id){
 		if (pReg === "TW") {
 		document.getElementById("thumb").src = 'Covers/HK/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'HK.png';
 		}
-		if (pReg === "BRS" || pReg === "BRB") {
+		if (pReg === "BRS" || pReg === "BRB" || pReg === "ALTB") {
 		document.getElementById("thumb").src = 'Covers/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 		}
 		if (pReg === "FAH") {
@@ -757,7 +756,6 @@ function reply_click(clicked_id){
 	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
 	document.getElementById("thumbCC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' '+CC+'.png'; //COLOURED CART
 	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png'; //REGULAR CART
-	document.getElementById("thumbNFR").src = 'Carts/NFRs/'+frametitle.innerHTML+'.png';
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
 	myCollectionList.push([frametitle.innerHTML]);
@@ -1013,6 +1011,14 @@ function share() {
 }
 function nsoInfo() {
 window.open("https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Nintendo-64-Nintendo-Switch-Online-2067751.html");
+}
+function needInfo() {
+
+if (document.getElementById("Region").value == "ALL") {
+	alert("🔍 This sections need list:\n\nToo many to list in this section!");
+	} else {
+	alert('🔍 This sections need list:\n\n🔴 ' + myNeedList.join('\n🔴 '));
+	}
 }
 </script>
 <button id="top" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝘁𝗼𝗽" onclick="document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>

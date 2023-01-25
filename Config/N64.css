@@ -1,8 +1,7 @@
 body {
-background-image: url('N64.png');
-background-repeat: no-repeat;
+background: rgb(162,162,162);
+background: radial-gradient(circle, rgba(162,162,162,1) 0%, rgba(0,0,0,1) 100%); 
 background-attachment: fixed;
-background-size: cover;
 font-family: Arial, Helvetica, sans-serif;
 }
 h1 {
