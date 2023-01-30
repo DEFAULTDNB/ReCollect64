@@ -337,19 +337,29 @@ select {
 #tweet:hover {
 	opacity: 1;
 }
-#nav {
+#navL {
 	height: 42px;
 	width: 42px;
 	opacity: 0.5;
 	position: relative;
 	top: -5px;
 }
-#nav:hover {
+#navL:hover {
+	opacity: 1;
+}
+#navR {
+	height: 42px;
+	width: 42px;
+	opacity: 0.5;
+	position: relative;
+	top: -5px;
+}
+#navR:hover {
 	opacity: 1;
 }
 #start {
-	height: 40px;
-	width: 40px;
+	height: 42px;
+	width: 42px;
 	opacity: 0.5;
 	position: relative;
 	top: -5px;

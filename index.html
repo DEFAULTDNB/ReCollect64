@@ -18,6 +18,7 @@
 		} else {
 		myCollectionList = JSON.parse(localStorage.myCollection);
 		cartsCounted = myCollectionList.flat().filter(x => x.match(/cartridge/gi)).length;
+		colourCounted = myCollectionList.flat().filter(x => x.match(/colcart/gi)).length;
 		boxesCounted = myCollectionList.flat().filter(x => x.match(/boxed/gi)).length;
 		manualsCounted = myCollectionList.flat().filter(x => x.match(/manual/gi)).length;
 		sealedCounted = myCollectionList.flat().filter(x => x.match(/sealed/gi)).length;
@@ -39,13 +40,13 @@
 		window.event.returnValue = false;
 		document.getElementById('gcount').scrollIntoView({behavior: 'auto' }); noscroll();
 		});
-	}
+	}	
 </script>
 </head>
 <body>
 <div id="canvas" onmouseup="document.getElementById('canvas').style.display = 'none';" onmouseleave="document.getElementById('canvas').style.display = 'none';" style="display:none">
 <div class="card-header" id="frametitle2">CLICK TO CLOSE ARTWORK</div>
-<span class="closebtn"><img id="start" src="Config/START.png" title="𝗖𝗹𝗼𝘀𝗲 𝗯𝗼𝘅 𝗮𝗿𝘁" onclick="document.getElementById('canvas').style.display = 'none';"/></span>
+<span class="closebtn"><img id="start" src="Config/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗯𝗼𝘅 𝗮𝗿𝘁" onclick="document.getElementById('canvas').style.display = 'none';"/></span>
 <img id="imgzoom" src="" onmouseleave="display:none" title="𝗖𝗹𝗶𝗰𝗸 𝘁𝗼 𝗰𝗹𝗼𝘀𝗲" />
 </div>
 <div id="gcount" onchange="checkCombo();"></div>
@@ -80,7 +81,7 @@
 <div class="frame" id="frame" onmouseleave="" style="display:none">
 <div class="card-header" id="frametitle">GAME TITLE</div>
 	<div class="background-image" id="artwork"></div>
-	<span class="closebtn"><img id="nav" src="Config/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();"/><img id="start" src="Config/START.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();"/><img id="nav" src="Config/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();"/></span>
+	<span class="closebtn"><img id="navL" src="Config/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();"/><img id="start" src="Config/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();"/><img id="navR" src="Config/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();"/></span>
 	<div class="grid-container">
 		<div class="grid-item"><center>About:</center>
 		<div id="a1" style="border: 1px dashed; border-color: #C1BED1;"></div>
@@ -356,7 +357,7 @@
 document.getElementById("overlay").style.display = "block";
 document.getElementById("overlaytext").innerHTML = "Loading..";
 if (localStorage.region==null){
-	alert("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗥𝗘𝗔𝗟𝗜𝗧𝗬 𝗩𝟮: 𝘁𝗵𝗲 𝘂𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗡𝟲𝟰 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗮𝗽𝗽!\n\nYour region has been detected as: '" + timeZone.slice(0, timeZone.indexOf("/")) + "' so an initial region has been set to match your location.\n\n𝗨𝘀𝗮𝗴𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀:\n⚫ Click the (START) button to open/close a games sub menu, enjoy the game info/art and then check off any items you have.\n⚫ Click the (R) button to refresh page, hilight & count titles.\n⚫ Click the (L) button to show your NEED list.\n⚫ Click the (B) button to back up your collection regularly.\n⚫ Click the (A) button to import a previously backed up collection.\n⚫ Click the (C) left/right buttons to move between titles.\n⚫ Click the (Z) trigger to delete your current collection.\n⚫ Tap keys (A-Z/0-9) to skip to that range.\n\n(𝗡𝗢𝗧𝗘: 𝗔𝗳𝘁𝗲𝗿 𝗮𝗱𝗱𝗶𝗻𝗴/𝗿𝗲𝗺𝗼𝘃𝗶𝗻𝗴 𝗴𝗮𝗺𝗲𝘀 𝗶𝗻 𝘁𝗵𝗲 𝗰𝗵𝗲𝗰𝗸𝗹𝗶𝘀𝘁: 𝗮𝗹𝘄𝗮𝘆𝘀 𝗿𝗲𝗺𝗲𝗺𝗯𝗲𝗿 𝘁𝗼 𝗿𝗲𝗳𝗿𝗲𝘀𝗵 𝘁𝗵𝗲 𝗽𝗮𝗴𝗲, 𝗮𝗻𝗱 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝗯𝗮𝗰𝗸 𝘂𝗽 𝗿𝗲𝗴𝘂𝗹𝗮𝗿𝗹𝘆!)\n\nYou can now swap between regional collections at any time from the drop down menu at the top.\n\n𝙃𝙖𝙫𝙚 𝙛𝙪𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜! ~ 𝘿𝙉𝘽");
+	alert("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗥𝗘𝗔𝗟𝗜𝗧𝗬 𝗩𝟮: 𝘁𝗵𝗲 𝘂𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗡𝟲𝟰 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗮𝗽𝗽!\n\nYour region has been detected as: '" + timeZone.slice(0, timeZone.indexOf("/")) + "' so an initial region has been set to match your location.\n\n𝗨𝘀𝗮𝗴𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀:\n⚫ Click a tile to open a games sub menu, enjoy the game info/art and then check off any items you have.\n⚫ Click the (R) button to refresh page, hilight & count titles.\n⚫ Click the (L) button to show your NEED list.\n⚫ Click the (B) button to back up your collection regularly.\n⚫ Click the (A) button to import a previously backed up collection.\n⚫ Click the (C) left/right buttons to move between titles.\n⚫ Click the (C) down button to close a title.\n⚫ Click the (Z) trigger to delete your current collection.\n⚫ Tap keys (A-Z/0-9) to skip to that range.\n\n(𝗡𝗢𝗧𝗘: 𝗔𝗳𝘁𝗲𝗿 𝗮𝗱𝗱𝗶𝗻𝗴/𝗿𝗲𝗺𝗼𝘃𝗶𝗻𝗴 𝗴𝗮𝗺𝗲𝘀 𝗶𝗻 𝘁𝗵𝗲 𝗰𝗵𝗲𝗰𝗸𝗹𝗶𝘀𝘁: 𝗮𝗹𝘄𝗮𝘆𝘀 𝗿𝗲𝗺𝗲𝗺𝗯𝗲𝗿 𝘁𝗼 𝗿𝗲𝗳𝗿𝗲𝘀𝗵 𝘁𝗵𝗲 𝗽𝗮𝗴𝗲, 𝗮𝗻𝗱 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝗯𝗮𝗰𝗸 𝘂𝗽 𝗿𝗲𝗴𝘂𝗹𝗮𝗿𝗹𝘆!)\n\nYou can now swap between regional collections at any time from the drop down menu at the top.\n\n𝙃𝙖𝙫𝙚 𝙛𝙪𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜! ~ 𝘿𝙉𝘽");
 	if (timeZone.slice(0, timeZone.indexOf("/")) == "Australia"||"Africa"||"Etc"||"Europe"||"Indian"){
 	localStorage.region="PAL.cfg";
 	document.getElementById("Region").value == "EU";
@@ -460,17 +461,22 @@ let myNeedList = [];
 for (i=0; i < titleCount; i++){
 	var div = document.createElement("div");
 	document.getElementById("main").appendChild(div);
-	div.loading = "lazy";
-	div.id = "card"+coverFlow[i];
+	div.setAttribute('loading', 'lazy');
+	div.setAttribute('id', "card"+coverFlow[i]);
 	div.setAttribute('class', 'thumbnail');
+	div.setAttribute('role', 'presentation');
+	div.setAttribute('title', coverFlow[i]+"/"+titleCount);
+	div.setAttribute("onclick","document.getElementById("+coverFlow[i]+").click()");
+	div.style.cursor = "pointer";
+	div.style.filter = "grayscale(1)";
 	var info = coverFlow[i]-1;
 	var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	alphamatch.push(lines[info].charAt(0));
-	//myNeedList.push(gTitle+" ("+gRegion+")");
 	myNeedList.push(gTitle);
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
-	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")){ //Vertical box art
+	//div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Config/BLANK.png')";
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png')";
+	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")){
 	div.style.backgroundSize = "120px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=DD ")){
@@ -508,26 +514,106 @@ for (i=0; i < titleCount; i++){
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
 	let gotOrNot = "";
-	let divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 0px dashed; border-color: #C1BED1; overflow: hidden;'>";
+	let divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
 	myList = JSON.parse(localStorage.myCollection);
 	for (w = 0; w < myList.length; w++) {
 	let isIt = String(myList[w].flat());
 		if (gTitle + " " + gRegion === myList[w][0]) {
-			if (isIt.match(/sealed/gi)) {
-			gotOrNot = "<span class='got' title='𝗗𝗲𝗱𝗶𝗰𝗮𝘁𝗲𝗱 𝗠𝗜𝗕 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
-			divStyle = "<div style='background-color: rgba(255,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: yellow; overflow: hidden;'>";
-			myCount = myCount + 1;
-			myNeedList.splice(myNeedList.indexOf(gTitle),1);
-			} else if (isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) {
-			gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗴𝗮𝗺𝗲!'>⭐</span>";
-			divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
-			myCount = myCount + 1;
-			myNeedList.splice(myNeedList.indexOf(gTitle),1);
+			if (gRegion.match("NFR")||gRegion.match("ALTN")){
+				if (isIt.match(/cartridge/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗡𝗙𝗥!'>🏆</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				}
+			} else if (gRegion.match("IQUE")){
+				if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗜𝗻𝗰𝗿𝗲𝗱𝗶𝗯𝗹𝗲 𝗜𝗤𝗨𝗘 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if (isIt.match(/cartridge/gi) && isIt.match(/manual/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲 & 𝗺𝗮𝗻𝘂𝗮𝗹'>⭐▪️▫️</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if (isIt.match(/cartridge/gi) && isIt.match(/boxed/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲 & 𝗯𝗼𝘅'>⭐▫️▪️</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if (isIt.match(/cartridge/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗴𝗮𝗺𝗲!'>⭐▪️▪️</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);		
+				} else if (isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅 & 𝗺𝗮𝗻𝘂𝗮𝗹'>◾▫️▫️</span>";
+				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
+				} else if (isIt.match(/manual/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗺𝗮𝗻𝘂𝗮𝗹'>◾◾▫️</span>";
+				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
+				} else if (isIt.match(/boxed/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅'>◾▫️◾</span>";
+				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
+				}
+			} else {
+				if (isIt.match(/sealed/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗗𝗲𝗱𝗶𝗰𝗮𝘁𝗲𝗱 𝗠𝗜𝗕 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
+				divStyle = "<div style='background-color: rgba(255,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: yellow; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲, 𝗯𝗼𝘅 & 𝗺𝗮𝗻𝘂𝗮𝗹'>⭐▫️▫️▪️</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && (isIt.match(/manual/gi))) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲 & 𝗺𝗮𝗻𝘂𝗮𝗹'>⭐▪️▫️▪️</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && isIt.match(/boxed/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲 & 𝗯𝗼𝘅'>⭐▫️▪️▪️</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if (isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗴𝗮𝗺𝗲!'>⭐▪️▪️▪️</span>";
+				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);		
+				} else if (isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅 & 𝗺𝗮𝗻𝘂𝗮𝗹'>◾▫️▫️◾</span>";
+				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
+				} else if (isIt.match(/manual/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗺𝗮𝗻𝘂𝗮𝗹'>◾◾▫️◾</span>";
+				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
+				} else if (isIt.match(/boxed/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅'>◾▫️◾◾</span>";
+				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
+				}
 			}
-		}		
+		}
 	}
-	div.innerHTML = divStyle+"<span style='font-size:11pt'>"+coverFlow[i]+"/"+titleCount+"</span> "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px' height='40px' width='40px' overflow='hidden'/><br><span style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
-}
+	div.innerHTML = divStyle+"<span style='font-size:11pt;'>"+coverFlow[i]+"/"+titleCount+"</span> "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px; visibility: hidden;' height='40px' width='40px' overflow='hidden'/><br><span style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
+}	
 var prevCard;
 var nextCard;
 function reply_click(clicked_id){
@@ -544,6 +630,8 @@ function reply_click(clicked_id){
 	let mbSize = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
 	let gCode = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("CODE=")+5), (lines[clicked_id-1].indexOf("MEMPAK=")-1));
 	let gCIC = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("CIC=")+4), (lines[clicked_id-1].indexOf("CODE=")-1));
+	let sPages = "";
+	//let sPages = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PAGES=")+6), (lines[clicked_id-1].indexOf("________=")-1));
 	let gNSO = "";
 		if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("NSO=")+4),(lines[clicked_id-1].indexOf("NSO=")+5)).match("1")){
 		document.getElementById("NSO").style.display = 'block';
@@ -635,74 +723,83 @@ function reply_click(clicked_id){
 	for (q = 0; q < regions.length; q++) {
 	document.getElementById(regions[q]+"cart").style.display = "none";
 	}
-	document.getElementById("frametitle").innerHTML = gameTitle + " " + gameRegions;	
-	document.getElementById("frametitle2").innerHTML = gameTitle + " (" + gameRegions + ")";
+	document.getElementById("frametitle").innerHTML = gameTitle + " " + gameRegions;
 	document.getElementById(gameRegions+"cart").style.display = "inline-block";
-		if (gameRegions.match("J")||gameRegions.match("SEJ")){
-		gameRegions = "Japan (NTSC-J)";
-		} else if (gameRegions.match("UKV")){
-		gameRegions = "United Kingdom (PAL)";
-		} else if (gameRegions.match("IQUE")){
-		gameRegions = "China (Digital Download)";
-		} else if (gameRegions.match("PCU")||gameRegions.match("U")||gameRegions.match("SEU")){
-		gameRegions = "USA (NTSC-U)";
-		} else if (gameRegions.match("PCE")||gameRegions.match("E")||gameRegions.match("SEE")){
-		gameRegions = "Europe (PAL)";
-		} else if (gameRegions.match("SEA")||gameRegions.match("PCA")||gameRegions.match("A")){
-		gameRegions = "Australia (PAL)";
-		} else if (gameRegions.match("ALTE")||gameRegions.match("ALTJ")||gameRegions.match("ALTU")){
-		gameRegions = "ALT (TEST)";
-		} else if (gameRegions.match("BRB")){
-		gameRegions = "Brazil (Bundle)";
-		} else if (gameRegions.match("BR")||gameRegions.match("BRS")){
-		gameRegions = "Brazil (MPAL)";
-		} else if (gameRegions.match("B")){
-		gameRegions = "Belgium (PAL)";
-		} else if (gameRegions.match("DD")){
-		gameRegions = "Japan for N64DD";
-		} else if (gameRegions.match("D")||gameRegions.match("SED")){
-		gameRegions = "Germany (PAL)";
-		} else if (gameRegions.match("NFR")||gameRegions.match("ALTN")){ //ALTN = NFR ALT
-		gameRegions = "store kiosks (DEMO)";
-		} else if (gameRegions.match("F")){
-		gameRegions = "France (PAL)";
-		} else if (gameRegions.match("I")){
-		gameRegions = "Italy (PAL)";
-		} else if (gameRegions.match("SCN")){
-		gameRegions = "Scandinavia (PAL)";
-		} else if (gameRegions.match("S")){ //"ESP"
-		gameRegions = "Spain (PAL)";
-		} else if (gameRegions.match("AS")){
-		gameRegions = "Asia (NTSC)";
-		} else if (gameRegions.match("CAN")){
-		gameRegions = "Canada (NTSC)";
-		} else if (gameRegions.match("CH")){
-		gameRegions = "China (NTSC)";
-		} else if (gameRegions.match("HK")){
-		gameRegions = "Hong Kong (NTSC)";
-		} else if (gameRegions.match("KO")){
-		gameRegions = "Korea (NTSC)";
-		} else if (gameRegions.match("TW")){
-		gameRegions = "Taiwan (ROC / NTSC)";
-		} else if (gameRegions.match("MSA")){
-		gameRegions = "Mexico & South America (NTSC)";
-		} else if (gameRegions.match("EUU")){
-		gameRegions = "European Union (PAL)";
-		} else if (gameRegions.match("FRG")){
-		gameRegions = "France & Germany (PAL)";
-		} else if (gameRegions.match("FAH")){
-		gameRegions = "France & Holland (PAL)";
-		} else if (gameRegions.match("HOL")){
-		gameRegions = "Holland (PAL)";
-		} else if (gameRegions.match("LRG")){
-		gameRegions = "limited quantities via Limited Run Games.";
-		}
+	if ((clicked_id) == "1") {
+	document.getElementById("navL").style.display = "none";
+	} else {
+	document.getElementById("navL").style.display = "inline-block";
+	}
+	if ((clicked_id) == lines.length) {
+	document.getElementById("navR").style.display = "none";
+	} else {
+	document.getElementById("navR").style.display = "inline-block";
+	}
+	if (gameRegions.match("J")||gameRegions.match("SEJ")){
+	gameRegions = "Japan (NTSC-J)";
+	} else if (gameRegions.match("UKV")){
+	gameRegions = "United Kingdom (PAL)";
+	} else if (gameRegions.match("IQUE")){
+	gameRegions = "China (Digital Download)";
+	} else if (gameRegions.match("PCU")||gameRegions.match("U")||gameRegions.match("SEU")){
+	gameRegions = "USA (NTSC-U)";
+	} else if (gameRegions.match("PCE")||gameRegions.match("E")||gameRegions.match("SEE")){
+	gameRegions = "Europe (PAL)";
+	} else if (gameRegions.match("SEA")||gameRegions.match("PCA")||gameRegions.match("A")){
+	gameRegions = "Australia (PAL)";
+	} else if (gameRegions.match("ALTE")||gameRegions.match("ALTJ")||gameRegions.match("ALTU")){
+	gameRegions = "ALT (TEST)";
+	} else if (gameRegions.match("BRB")){
+	gameRegions = "Brazil (Bundle)";
+	} else if (gameRegions.match("BR")||gameRegions.match("BRS")){
+	gameRegions = "Brazil (MPAL)";
+	} else if (gameRegions.match("B")){
+	gameRegions = "Belgium (PAL)";
+	} else if (gameRegions.match("DD")){
+	gameRegions = "Japan for N64DD";
+	} else if (gameRegions.match("D")||gameRegions.match("SED")){
+	gameRegions = "Germany (PAL)";
+	} else if (gameRegions.match("NFR")||gameRegions.match("ALTN")){
+	gameRegions = "store kiosks (DEMO)";
+	} else if (gameRegions.match("F")){
+	gameRegions = "France (PAL)";
+	} else if (gameRegions.match("I")){
+	gameRegions = "Italy (PAL)";
+	} else if (gameRegions.match("SCN")){
+	gameRegions = "Scandinavia (PAL)";
+	} else if (gameRegions.match("S")){
+	gameRegions = "Spain (PAL)";
+	} else if (gameRegions.match("AS")){
+	gameRegions = "Asia (NTSC)";
+	} else if (gameRegions.match("CAN")){
+	gameRegions = "Canada (NTSC)";
+	} else if (gameRegions.match("CH")){
+	gameRegions = "China (NTSC)";
+	} else if (gameRegions.match("HK")){
+	gameRegions = "Hong Kong (NTSC)";
+	} else if (gameRegions.match("KO")){
+	gameRegions = "Korea (NTSC)";
+	} else if (gameRegions.match("TW")){
+	gameRegions = "Taiwan (ROC / NTSC)";
+	} else if (gameRegions.match("MSA")){
+	gameRegions = "Mexico & South America (NTSC)";
+	} else if (gameRegions.match("EUU")){
+	gameRegions = "European Union (PAL)";
+	} else if (gameRegions.match("FRG")){
+	gameRegions = "France & Germany (PAL)";
+	} else if (gameRegions.match("FAH")){
+	gameRegions = "France & Holland (PAL)";
+	} else if (gameRegions.match("HOL")){
+	gameRegions = "Holland (PAL)";
+	} else if (gameRegions.match("LRG")){
+	gameRegions = "limited quantities via Limited Run Games.";
+	}
 	if (gamePlayers == "1") {
 		gamePlayers = "single player ";
 		} else {
 		gamePlayers = gamePlayers + " player ";
 	}
-	document.getElementById("p2-1").innerHTML = altName + "NUS ID: " + gCode + "<br>CIC: " + gCIC + " / ROM: " + mbSize + "<br>SAVE TYPE: "+ mpak + "<br>EX PAK: " + expak + cartColour + gFeatures;
+	document.getElementById("p2-1").innerHTML = altName + "NUS ID: " + gCode + "<br>CIC: " + gCIC + " / ROM: " + mbSize + "<br>SAVE TYPE: "+ mpak + sPages + "<br>EX PAK: " + expak + cartColour + gFeatures;
 	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre + " game: '" + gameTitle + "', was published by " + pubCo + " in " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
 	document.getElementById("frame").style.display = "block";
 	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
@@ -822,15 +919,25 @@ const oneUpper = (clicked_id[0].toUpperCase() === clicked_id[0]);
 			}
 		}
 	} else if (document.getElementById(clicked_id).checked == false){
+		
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
-			myCollectionList[m].splice(myCollectionList.indexOf(clicked_id+1), 1);
+			myCollectionList[m].splice(myCollectionList[m].indexOf(clicked_id), 1);
 			}
 		}
+		
+		if (document.getElementById("frametitle").innerHTML.match(/NFR/g)||document.getElementById("frametitle").innerHTML.match(/IQUE/g)){
+		} else {
+			if (document.getElementById(rMatch+"sealed").checked == true){	
+				document.getElementById(clicked_id).click();
+				document.getElementById(rMatch+"sealed").click();
+			}
+		}
+		
 	} else {
 	}
 	localStorage.myCollection = JSON.stringify(myCollectionList);
-	//alert(localStorage.myCollection + "\n\rActual!");
+	//alert(localStorage.myCollection + "\n\rActual!"); //UNCOMMENT FOR DEBUGGING
 }
 function prev() {
 	roundUp();
@@ -981,6 +1088,7 @@ document.getElementById("frame").style.display = "none";
 }
 function roundUp () {
 	cartsCounted = myCollectionList.flat().filter(x => x.match(/cartridge/gi)).length;
+	colourCounted = myCollectionList.flat().filter(x => x.match(/colcart/gi)).length;
 	boxesCounted = myCollectionList.flat().filter(x => x.match(/boxed/gi)).length;
 	manualsCounted = myCollectionList.flat().filter(x => x.match(/manual/gi)).length;
 	sealedCounted = myCollectionList.flat().filter(x => x.match(/sealed/gi)).length;
@@ -1013,8 +1121,7 @@ function nsoInfo() {
 window.open("https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Nintendo-64-Nintendo-Switch-Online-2067751.html");
 }
 function needInfo() {
-
-if (document.getElementById("Region").value == "ALL") {
+	if (document.getElementById("Region").value == "ALL") {
 	alert("🔍 This sections need list:\n\nToo many to list in this section!");
 	} else {
 	alert('🔍 This sections need list:\n\n🔴 ' + myNeedList.join('\n🔴 '));
