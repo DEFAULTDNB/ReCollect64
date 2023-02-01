@@ -87,7 +87,7 @@
 		<div id="a1" style="border: 1px dashed; border-color: #C1BED1;"></div>
 		</div>
 		<div id="p2" class="grid-item"><center>Info:</center>
-		<img class="closebtn" title="𝗘𝗫𝗣𝗔𝗡𝗦𝗜𝗢𝗡 𝗣𝗔𝗞 𝗘𝗡𝗛𝗔𝗡𝗖𝗘𝗗 𝗧𝗜𝗧𝗟𝗘!" id="expak" src='Config/EXPAK.png' /><img class="closebtn" title="𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗼𝗻 𝗡𝗦𝗢!" id="NSO" src='Config/NSO.png' onclick="nsoInfo();"/> 
+		<img class="closebtn" title="𝗘𝗫𝗣𝗔𝗡𝗦𝗜𝗢𝗡 𝗣𝗔𝗞 𝗘𝗡𝗛𝗔𝗡𝗖𝗘𝗗 𝗧𝗜𝗧𝗟𝗘!" id="expak" src='Config/EXPAK.png' /><img class="closebtn" title="𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗼𝗻 𝗡𝗦𝗢!" id="NSO" src='Config/NSO.png' onclick="nsoInfo();"/>
 		<div id="p2-1" style="border: 1px dashed; border-color: #FFC001;"></div>
 		</div>
 			<div class="grid-item"><center>Artwork:</center>
@@ -494,21 +494,21 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundSize = "180px";
 	div.style.backgroundPosition = "25px 25px";
 	} else if (lines[info].match("REGION=E ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //WCW Revenge FALLBACK	
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png')"; //WCW Revenge FALLBACK	
 	} else if (lines[info].match("REGION=SCN ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Covers/E/"+gTitle+" E.png'), url('Config/BLANK.png')"; //FIFA 99 FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Covers/E/"+gTitle+" E.png')"; //FIFA 99 FALLBACK
 	} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=EUU ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/E/"+gTitle+" E.png'), url('Covers/EUU/"+gTitle+" EUU.png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Config/BLANK.png')"; //EUROPEAN FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/E/"+gTitle+" E.png'), url('Covers/EUU/"+gTitle+" EUU.png'), url('Covers/UKV/"+gTitle+" UKV.png')"; //EUROPEAN FALLBACK
 	} else if (lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=KO ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/U/"+gTitle+" U.png'), url('Config/BLANK.png')"; //USA FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/U/"+gTitle+" U.png')"; //USA FALLBACK
 	} else if (lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/J/"+gTitle+" J.png'), url('Config/BLANK.png')"; //JPN FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/J/"+gTitle+" J.png')"; //JPN FALLBACK
 	div.style.backgroundSize = "120px";
 	div.style.backgroundPosition = "60px 8px";
 	} else if (lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")||lines[info].match("REGION=ALTB ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/BR/"+gTitle+" BR.png'), url('Config/BLANK.png')"; //BRA FALLBACK
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/BR/"+gTitle+" BR.png')"; //BRA FALLBACK
 	} else if (lines[info].match("REGION=TW ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/HK/"+gTitle+" HK.png'), url('Config/BLANK.png')"; //TWN FALLBACK	
+	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/HK/"+gTitle+" HK.png')"; //TWN FALLBACK	
 	}
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
