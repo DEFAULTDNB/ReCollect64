@@ -505,7 +505,7 @@ for (i=0; i < titleCount; i++){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/J/"+gTitle+" J.png')"; //JPN FALLBACK
 	div.style.backgroundSize = "120px";
 	div.style.backgroundPosition = "60px 8px";
-	} else if (lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")||lines[info].match("REGION=ALTB ")){
+	} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/BR/"+gTitle+" BR.png')"; //BRA FALLBACK
 	} else if (lines[info].match("REGION=TW ")){
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/HK/"+gTitle+" HK.png')"; //TWN FALLBACK	
