@@ -217,17 +217,15 @@ select {
     background-color: white;
     color: black;
 }
-.search {
+#searcher {
 	position: fixed;
-	top: 60px;
-	left: 4px;
-	border: none;
-    padding: 10px 2px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
+	top: 65px;
+	left: 6px;
+	display: inline-block;
+	width: 52px;
+}
+#searcher:hover {
+	width: 150px;
 }
 #tally {
 	position: fixed;
