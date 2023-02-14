@@ -456,7 +456,6 @@ var xmlDoc = xmlFile.responseText;
 var lines = xmlDoc.split("\n")
 let titleCount = lines.length;
 var coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
-let alphamatch = [];
 let myNeedList = [];
 for (i=0; i < titleCount; i++){
 	var div = document.createElement("div");
@@ -468,14 +467,13 @@ for (i=0; i < titleCount; i++){
 	div.setAttribute('title', coverFlow[i]+"/"+titleCount);
 	div.setAttribute("onclick","document.getElementById("+coverFlow[i]+").click()");
 	div.style.cursor = "pointer";
-	div.style.filter = "grayscale(1)";
+	div.style.filter = "grayscale(90%)";
 	var info = coverFlow[i]-1;
 	var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
-	alphamatch.push(lines[info].charAt(0));
 	myNeedList.push(gTitle);
 	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png')";
 	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
@@ -987,7 +985,7 @@ var len = elms.length;
 		for (var jj = 0; jj < len2; jj++) {
 			if(myChildred[jj].nodeType === 3) {
 				if (myChildred[jj].nodeValue.includes(searchValue, "gi")) {
-					document.getElementsByTagName("*")[ii].scrollIntoView({behavior: 'auto' }); break;
+					document.getElementsByTagName("*")[ii].scrollIntoView({behavior: 'auto' }); window.scrollBy(0, -25); break;
 				}
 			}
 		}
@@ -1115,7 +1113,7 @@ function needInfo() {
 }
 </script>
 <button id="top" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝘁𝗼𝗽" onclick="document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
-<input type="text" value="" id="searcher" onkeyup="search()" placeholder="Search" onclick="this.value='';" autofocus />
+<input type="text" value="" id="searcher" onkeyup="search()" placeholder="Find" onclick="this.value='';" style='font-size: 25px;' autofocus />
 <div id="tally" title="𝗗𝗶𝘀𝗽𝗹𝗮𝘆𝘀 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀 𝗶𝗻 𝘁𝗼𝘁𝗮𝗹/𝗰𝘂𝗿𝗿𝗲𝗻𝘁 𝗿𝗲𝗴𝗶𝗼𝗻 𝘀𝗲𝗰𝘁𝗶𝗼𝗻."></div>
 <img id="backup" title="𝗕𝗮𝗰𝗸𝘂𝗽 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝗳𝗶𝗹𝗲." onclick="copyOutCollection();" src="Config/BBUT.png" />
 <img id="restore" title="𝗔𝗱𝗱-𝗶𝗻 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗳𝗿𝗼𝗺 𝗳𝗶𝗹𝗲." onclick="openFile()" src="Config/ABUT.png" />
