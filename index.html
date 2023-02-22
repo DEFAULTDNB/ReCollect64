@@ -8,7 +8,7 @@
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
 <script>
-	var skullkid = 1471;
+	var skullkid = 1489;
 	var myCount = 0;
 	var myCollectionList = [];
 	var cartsCounted = colourCounted = boxesCounted = manualsCounted = sealedCounted = tally = 0;
@@ -59,7 +59,7 @@
 	<option value="US" title="NTSC-U Collection (297)">🇺🇸 🌎 USA</option>
 	<option value="JP" title="NTSC-J Collection (198)">🇯🇵 🗾 JPN</option>
 	<option value="BR" title="Brazil Collection (135)">🇧🇷 🌎 BRA</option>
-	<option value="AUS" title="Australian Collection (133)">🇦🇺 🌎 AUS</option>
+	<option value="AUS" title="Australian Collection (150)">🇦🇺 🌎 AUS</option>
 	<option value="FULL" title="Every N64 Title (388)">🏆 100% </option>
 	<option value="MORE" title="Every N64 Title+ (393)">🏆 101% </option>
 	<option value="NTSC" title="USA set + JP Exclusives (386)">🇺🇸 🇯🇵 NTSC</option>
@@ -354,6 +354,7 @@
 </div>
 <center><div id="main" class="main" style="border: none;"></div><center>
 <script charset="utf-8">
+var gRegion, gTitle, gYear, gGenre, gScore;
 document.getElementById("overlay").style.display = "block";
 document.getElementById("overlaytext").innerHTML = "Loading..";
 if (localStorage.region==null){
@@ -468,11 +469,11 @@ for (i=0; i < titleCount; i++){
 	div.setAttribute("onclick","document.getElementById("+coverFlow[i]+").click()");
 	div.style.cursor = "pointer";
 	var info = coverFlow[i]-1;
-	var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
-	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
-	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
-	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
-	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
+	gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
+	gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
+	gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
+	gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
+	gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
 	myNeedList.push(gTitle+" "+gRegion);
 	let gotOrNot = "";
 	myList = JSON.parse(localStorage.myCollection);
@@ -604,7 +605,7 @@ for (i=0; i < titleCount; i++){
 	} else if (lines[info].match("REGION=TW ")){
 	document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/HK/'+gTitle+' HK.png"');
 	} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
-		if (gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("Xena")) {
+		if (gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
 		} else if (gTitle.match("Tony")) {
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/EUU/'+gTitle+' EUU.png"');
