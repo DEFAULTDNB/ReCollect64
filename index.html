@@ -8,7 +8,7 @@
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
 <script>
-	var skullkid = 1470;
+	var skullkid = 1471;
 	var myCount = 0;
 	var myCollectionList = [];
 	var cartsCounted = colourCounted = boxesCounted = manualsCounted = sealedCounted = tally = 0;
@@ -467,146 +467,153 @@ for (i=0; i < titleCount; i++){
 	div.setAttribute('title', coverFlow[i]+"/"+titleCount);
 	div.setAttribute("onclick","document.getElementById("+coverFlow[i]+").click()");
 	div.style.cursor = "pointer";
-	div.style.filter = "grayscale(90%)";
 	var info = coverFlow[i]-1;
 	var gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
 	var gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	var gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	var gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	var gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
-	myNeedList.push(gTitle);
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png')";
-	if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/J/"+gTitle+" J.png')"; //JPN FALLBACK
-	div.style.backgroundSize = "120px";
-	div.style.backgroundPosition = "60px 8px";
-	} else if (lines[info].match("REGION=DD ")){
-	div.style.backgroundSize = "187px";
-	div.style.backgroundPosition = "20px 8px";
-	} else if (lines[info].match("REGION=SED ")){
-	div.style.backgroundSize = "110px";
-	div.style.backgroundPosition = "60px 8px";
-	} else if (lines[info].match("REGION=IQUE ")){
-	div.style.backgroundSize = "100px";
-	div.style.backgroundPosition = "60px 8px";
-	} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
-	div.style.backgroundImage = "url('Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png')";
-	div.style.backgroundSize = "180px";
-	div.style.backgroundPosition = "25px 25px";
-	} else if (lines[info].match("REGION=E ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png')"; //WCW Revenge FALLBACK	
-	} else if (lines[info].match("REGION=SCN ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/UKV/"+gTitle+" UKV.png'), url('Covers/E/"+gTitle+" E.png')"; //FIFA 99 FALLBACK
-	} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=EUU ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/E/"+gTitle+" E.png'), url('Covers/EUU/"+gTitle+" EUU.png'), url('Covers/UKV/"+gTitle+" UKV.png')"; //EUROPEAN FALLBACK
-	} else if (lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=KO ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/U/"+gTitle+" U.png')"; //USA FALLBACK
-	} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/BR/"+gTitle+" BR.png')"; //BRA FALLBACK
-	} else if (lines[info].match("REGION=TW ")){
-	div.style.backgroundImage = "url('Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png'), url('Covers/HK/"+gTitle+" HK.png')"; //TWN FALLBACK	
-	}
+	myNeedList.push(gTitle+" "+gRegion);
 	let gotOrNot = "";
-	let divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
 	myList = JSON.parse(localStorage.myCollection);
 	for (w = 0; w < myList.length; w++) {
 	let isIt = String(myList[w].flat());
 		if (gTitle + " " + gRegion === myList[w][0]) {
 			if (gRegion.match("NFR")||gRegion.match("ALTN")){
 				if (isIt.match(/cartridge/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗡𝗙𝗥!'>🏆</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				}
 			} else if (gRegion.match("IQUE")){
 				if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗜𝗻𝗰𝗿𝗲𝗱𝗶𝗯𝗹𝗲 𝗜𝗤𝗨𝗘 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				} else if (isIt.match(/cartridge/gi) && isIt.match(/manual/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲 & 𝗺𝗮𝗻𝘂𝗮𝗹'>⭐▪️▫️</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				} else if (isIt.match(/cartridge/gi) && isIt.match(/boxed/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲 & 𝗯𝗼𝘅'>⭐▫️▪️</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				} else if (isIt.match(/cartridge/gi)) {
 				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗴𝗮𝗺𝗲!'>⭐▪️▪️</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);		
 				} else if (isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅 & 𝗺𝗮𝗻𝘂𝗮𝗹'>◾▫️▫️</span>";
-				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
 				} else if (isIt.match(/manual/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗺𝗮𝗻𝘂𝗮𝗹'>◾◾▫️</span>";
-				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
 				} else if (isIt.match(/boxed/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅'>◾▫️◾</span>";
-				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
 				}
 			} else {
 				if (isIt.match(/sealed/gi)) {
 				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗗𝗲𝗱𝗶𝗰𝗮𝘁𝗲𝗱 𝗠𝗜𝗕 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
-				divStyle = "<div style='background-color: rgba(255,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: yellow; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(255,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px yellow";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				} else if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲, 𝗯𝗼𝘅 & 𝗺𝗮𝗻𝘂𝗮𝗹'>⭐▫️▫️▪️</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				} else if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && (isIt.match(/manual/gi))) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲 & 𝗺𝗮𝗻𝘂𝗮𝗹'>⭐▪️▫️▪️</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";				
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				} else if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && isIt.match(/boxed/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗴𝗮𝗺𝗲 & 𝗯𝗼𝘅'>⭐▫️▪️▪️</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				} else if (isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) {
-				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗴𝗮𝗺𝗲!'>⭐▪️▪️▪️</span>";
-				divStyle = "<div style='background-color: rgba(0,255,0,0.3); position: relative; left: 110px; top: 8px; height: 162px; width: 160px; border: 1px solid; border-color: lime; overflow: hidden;'>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
 				myCount = myCount + 1;
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);		
 				} else if (isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
 				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅 & 𝗺𝗮𝗻𝘂𝗮𝗹'>◾▫️▫️◾</span>";
-				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
 				} else if (isIt.match(/manual/gi)) {
 				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗺𝗮𝗻𝘂𝗮𝗹'>◾◾▫️◾</span>";
-				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
 				} else if (isIt.match(/boxed/gi)) {
 				div.style.filter = "none";
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅'>◾▫️◾◾</span>";
-				divStyle = "<div style='position: relative; left: 110px; top: 8px; height: 162px; width: 160px; overflow: hidden;'>";
 				}
 			}
 		}
 	}
-	//div.innerHTML = divStyle+"<span style='font-size:11pt;'>"+coverFlow[i]+"/"+titleCount+"</span> "+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px; visibility: hidden;' height='40px' width='40px' overflow='hidden'/><br><span id='test' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
-	div.innerHTML = divStyle+gotOrNot+"<input type='image' id='"+coverFlow[i]+"' onclick='reply_click(this.id)' src='Config/START.png' title='𝗢𝗽𝗲𝗻 𝗶𝗻𝗳𝗼 𝗽𝗮𝗻𝗲𝗹' style='position: absolute; right: -5px; bottom: -5px; visibility: hidden;' height='40px' width='40px' overflow='hidden'/><br><span id='test' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
+	if (div.style.backgroundColor) {
+		div.innerHTML = "<img id='"+coverFlow[i]+"' loading='lazy' onclick='reply_click(this.id)' src='Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(10%);'/><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='test' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
+	} else {
+		div.innerHTML = "<img id='"+coverFlow[i]+"' loading='lazy' onclick='reply_click(this.id)' src='Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='test' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
+	}
+	document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+	if (lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=KO ")){
+	document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/U/'+gTitle+' U.png"');
+	} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
+	document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/BR/'+gTitle+' BR.png"');
+	} else if (lines[info].match("REGION=DD ")){
+	document.getElementById(coverFlow[i]).style.width = "200px"; document.getElementById(coverFlow[i]).style.left = "25px";
+	} else if (lines[info].match("REGION=E ")){
+	document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+	} else if (lines[info].match("REGION=EUU ")){
+		if (gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Gex")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Ready")||gTitle.match("2049")||gTitle.match("Silicon")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wipeout")){
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
+		} else {
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+		}
+	} else if (lines[info].match("REGION=IQUE ")){
+	document.getElementById(coverFlow[i]).style.width = "100px"; document.getElementById(coverFlow[i]).style.left = "80px";
+	} else if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
+	document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/J/'+gTitle+' J.png"');
+	document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
+	} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
+	document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+	document.getElementById(coverFlow[i]).style.height = "160px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
+	} else if (lines[info].match("REGION=SCN ")){
+		if (gTitle == "FIFA 99"){	
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+		} else {
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
+		}
+	} else if (lines[info].match("REGION=SED ")){
+	document.getElementById(coverFlow[i]).style.width = "115px"; document.getElementById(coverFlow[i]).style.left = "70px";
+	} else if (lines[info].match("REGION=TW ")){
+	document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/HK/'+gTitle+' HK.png"');
+	} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
+		if (gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("Xena")) {
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+		} else if (gTitle.match("Tony")) {
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/EUU/'+gTitle+' EUU.png"');
+		} else {
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
+		}
+	} else {
+	document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+	}
 }	
 var prevCard;
 var nextCard;
@@ -709,10 +716,10 @@ function reply_click(clicked_id){
 		}
 	} else {
 	colCart = ".";
-		var divsToHide = document.getElementsByClassName("CCvariant");
-			for(var i = 0; i < divsToHide.length; i++){
-				divsToHide[i].style.display = "none";
-			}
+	var divsToHide = document.getElementsByClassName("CCvariant");
+		for(var i = 0; i < divsToHide.length; i++){
+			divsToHide[i].style.display = "none";
+		}
 	}
 	for (q = 0; q < regions.length; q++) {
 	document.getElementById(regions[q]+"cart").style.display = "none";
@@ -797,50 +804,26 @@ function reply_click(clicked_id){
 	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre + " game: '" + gameTitle + "', was published by " + pubCo + " in " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
 	document.getElementById("frame").style.display = "block";
 	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
-	document.getElementById("thumb").src = 'Covers/'+pReg+"/"+frametitle.innerHTML+'.png';
-	if (pReg === "J" || pReg === "CH" || pReg === "SEJ") {
+	document.getElementById("thumb").src = document.getElementById(coverFlow[clicked_id-1]).src;
+	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
+	if (pReg === "J" || pReg === "CH" || pReg === "ALTJ"  || pReg === "SEJ") {
 	document.getElementById("thumb").style.width = "74px";
 	document.getElementById("thumb").style.padding = "0px 33px";
-	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
 	} else if (pReg === "DD") {
 	document.getElementById("thumb").style.width = "110px";
 	document.getElementById("thumb").style.padding = "0px 15px";
-	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
 	} else if (pReg === "IQUE") {
 	document.getElementById("thumb").style.width = "60px";
 	document.getElementById("thumb").style.padding = "0px 40px";
-	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
 	} else if (pReg === "SED") {
 	document.getElementById("thumb").style.width = "70px";
 	document.getElementById("thumb").style.padding = "0px 33px";
-	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
+	} else if (pReg === "NFR" || pReg === "ALTN") {
+	document.getElementById("thumb").style.width = "0px"
 	} else {
 	document.getElementById("thumb").style.width = "140px";
 	document.getElementById("thumb").style.padding = "0px 0px";
 	}
-	if (document.getElementById("thumb").complete === false) {
-		if (pReg === "BR" || pReg === "CAN" || pReg === "MSA" || pReg === "ALTU" || pReg === "AS" || pReg === "HK") {
-		document.getElementById("thumb").src = 'Covers/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-		}
-		if (pReg === "TW") {
-		document.getElementById("thumb").src = 'Covers/HK/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'HK.png';
-		}
-		if (pReg === "BRS" || pReg === "BRB" || pReg === "ALTB") {
-		document.getElementById("thumb").src = 'Covers/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
-		}
-		if (pReg === "FAH") {
-		document.getElementById("thumb").src = 'Covers/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
-		}
-		if (pReg === "UKV" || pReg === "A" || pReg === "ALTE" || pReg === "D" || pReg === "F" || pReg === "I" || pReg === "S" || pReg === "EUU" || pReg === "FRG" || pReg === "HOL" || pReg === "SCN") {
-		document.getElementById("thumb").src = 'Covers/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
-		}
-		if (pReg === "ALTJ" || pReg === "SEJ"){
-		document.getElementById("thumb").src = 'Covers/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
-		document.getElementById("thumb").style.width = "74px";
-		document.getElementById("thumb").style.padding = "0px 33px";
-		document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
-		}
-	}	
 	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
 	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
 	document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
@@ -877,57 +860,40 @@ function reply_click(clicked_id){
 	}
 }
 function check_click(clicked_id){
-const fourUpper = (clicked_id[3].toUpperCase() === clicked_id[3]);
-const threeUpper = (clicked_id[2].toUpperCase() === clicked_id[2]);
-const twoUpper = (clicked_id[1].toUpperCase() === clicked_id[1]);
-const oneUpper = (clicked_id[0].toUpperCase() === clicked_id[0]);
-	if (fourUpper == true) {
-	let rMatch = clicked_id.slice(0,4);
-	} else if (threeUpper == true) {
-	let rMatch = clicked_id.slice(0,3);
-	} else if (twoUpper == true) {
-	rMatch = clicked_id.slice(0,2);
-	} else {
-	rMatch = clicked_id.charAt(0);
-	}
+	let rMatch = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
 	const parts = ["cartridge", "boxed", "manual"];
 	if (clicked_id.match(/sealed/g)){
 		for (p = 0; p < parts.length; p++) {
-			if (document.getElementById(rMatch+"sealed").checked == false){
+			if (document.getElementById(rMatch+"sealed").checked == false){ //uncheck all
 				if (document.getElementById(rMatch+parts[p]).checked == true){
 				document.getElementById(rMatch+parts[p]).click();
-				} else {
 				}
 			} else {
-				if (document.getElementById(rMatch+parts[p]).checked == false){
+				if (document.getElementById(rMatch+parts[p]).checked == false){ //check all
 				document.getElementById(rMatch+parts[p]).click();
-				} else {
 				}
 			}
 		}
 	}
-	if (document.getElementById(clicked_id).checked){
+	if (document.getElementById(clicked_id).checked){ //storing check marks
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
 				myCollectionList[m].push(clicked_id);
 			}
 		}
-	} else if (document.getElementById(clicked_id).checked == false){
-		
+	} else if (document.getElementById(clicked_id).checked == false){ //when unchecking
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
 			myCollectionList[m].splice(myCollectionList[m].indexOf(clicked_id), 1);
 			}
 		}
-		
 		if (document.getElementById("frametitle").innerHTML.match(/NFR/g)||document.getElementById("frametitle").innerHTML.match(/IQUE/g)){
 		} else {
-			if (document.getElementById(rMatch+"sealed").checked == true){	
+			if (document.getElementById(rMatch+"sealed").checked == true){
 				document.getElementById(clicked_id).click();
 				document.getElementById(rMatch+"sealed").click();
 			}
 		}
-		
 	} else {
 	}
 	localStorage.myCollection = JSON.stringify(myCollectionList);
