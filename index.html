@@ -2,16 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PROJECT REALITY V2</title>
+<title>Nexus64</title>
 <link rel="stylesheet" href="Config/N64.css">
+<script src="Config/toastify.js"></script>
+<link rel="stylesheet" type="text/css" href="Config/toastify.css">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
+<div id="cake" onclick="cake();" title="𝗧𝗼𝗴𝗴𝗹𝗲 𝗕𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝗼𝗱𝗲!"></div>
 <script>
-	var skullkid = 1491;
+	var cPaid, bPaid, mPaid, sPaid, aPaid, dPaid, gCurrency;
+	var result1,result2,result3,result4,result5,result6 = 0;
+	var skullkid = 1513;
 	var myCount = 0;
 	var myCollectionList = [];
+	var firstCount;
 	var cartsCounted = colourCounted = boxesCounted = manualsCounted = sealedCounted = tally = 0;
+	function calculateSum(array) {
+	let total = 0;
+	array.forEach(value => {total += Number(value);});
+	return total;
+	}
 	if (localStorage.myCollection == null) {
 		localStorage.myCollection = JSON.stringify(myCollectionList);
 		tally = 0;
@@ -22,10 +33,16 @@
 		boxesCounted = myCollectionList.flat().filter(x => x.match(/boxed/gi)).length;
 		manualsCounted = myCollectionList.flat().filter(x => x.match(/manual/gi)).length;
 		sealedCounted = myCollectionList.flat().filter(x => x.match(/sealed/gi)).length;
-		tally = 0
+		result1 = calculateSum(myCollectionList.flat().filter(x => x.match(/cPaid/gi)).map(v => v.slice(6, v.length))); //cart example //alert("£"+result1);
+		result2 = calculateSum(myCollectionList.flat().filter(x => x.match(/bPaid/gi)).map(v => v.slice(6, v.length))); //box example //alert("£"+result2);
+		result3 = calculateSum(myCollectionList.flat().filter(x => x.match(/mPaid/gi)).map(v => v.slice(6, v.length))); //manual example //alert("£"+result3);
+		result4 = calculateSum(myCollectionList.flat().filter(x => x.match(/sPaid/gi)).map(v => v.slice(6, v.length))); //sealed/mint example //alert("£"+result4);
+		result5 = calculateSum(myCollectionList.flat().filter(x => x.match(/aPaid/gi)).map(v => v.slice(6, v.length))); //colourcart example //alert("£"+result5);
+		result6 = calculateSum(myCollectionList.flat().filter(x => x.match(/Paid/gi)).map(v => v.slice(6, v.length))); //total example
+		let tally = 0
 		for(var k = 0; k < myCollectionList.length; k++){
 			if(myCollectionList[k][0] && myCollectionList[k][1]){
-			tally = tally +1;
+			tally = tally+1;
 			}
 		}
 	}
@@ -41,11 +58,16 @@
 		document.getElementById('gcount').scrollIntoView({behavior: 'auto' }); noscroll();
 		});
 	}
+	if (localStorage.cake==null) {
+		localStorage.cake = "true";
+		var myToast = Toastify({text: "𝗕𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝗼𝗱𝗲 𝗮𝗰𝘁𝗶𝘃𝗲!\n\n Click Brian to toggle this option.", style:{background: 'rgb(50,153,0)'}, avatar: "Config/N64.gif", duration: 6000})
+		myToast.showToast();
+	}
 </script>
 </head>
 <body>
 <div id="canvas" onmouseup="document.getElementById('canvas').style.display = 'none';" onmouseleave="document.getElementById('canvas').style.display = 'none';" style="display:none">
-<div class="card-header" id="frametitle2">CLICK TO CLOSE ARTWORK</div>
+<div class="card-header" id="frametitle2">𝗖𝗟𝗜𝗖𝗞 𝗧𝗢 𝗖𝗟𝗢𝗦𝗘 𝗔𝗥𝗧𝗪𝗢𝗥𝗞</div>
 <span class="closebtn"><img id="start" src="Config/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗯𝗼𝘅 𝗮𝗿𝘁" onclick="document.getElementById('canvas').style.display = 'none';"/></span>
 <img id="imgzoom" src="" onmouseleave="display:none" title="𝗖𝗹𝗶𝗰𝗸 𝘁𝗼 𝗰𝗹𝗼𝘀𝗲" />
 </div>
@@ -53,303 +75,359 @@
 <div id="overlay"><div id="overlaytext" style="font-size: 22px"></div></div>
 <center>
 <span>
-<img id="list" title="𝗟𝗜𝗦𝗧 𝗡𝗘𝗘𝗗𝗘𝗗 𝗧𝗜𝗧𝗟𝗘𝗦!&#10;(𝗦𝘂𝗴𝗴𝗲𝘀𝘁𝗲𝗱 𝘂𝘀𝗲: <𝟱𝟬 𝗻𝗲𝗲𝗱𝗲𝗱)" onclick="needInfo();" src="Config/LBUT.png" />
+<img id="list" title="𝗟𝗜𝗦𝗧 𝗡𝗘𝗘𝗗𝗘𝗗 𝗧𝗜𝗧𝗟𝗘𝗦!&#10;" onclick="PrintElem();" src="Config/LBUT.png" />
 <select name="Region" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗮 𝗿𝗲𝗴𝗶𝗼𝗻" id="Region" onchange="changeRegion()">
-	<option value="FULL" title="Every N64 Title (388)">🏆🌎 100% </option>
-	<option value="MORE" title="Every N64 Title+ (393)">🏆🌎 101% </option>
-	<option value="EUR" title="PAL Collection (243)">🇪🇺 🌍 EUR</option>
-	<option value="USA" title="NTSC-U Collection (297)">🇺🇸 🌎 USA</option>
-	<option value="JPN" title="NTSC-J Collection (198)">🇯🇵 🌏 JPN</option>
-	<option value="AUS" title="Australian Collection (152)">🇦🇺 🌏 AUS</option>
-	<option value="BRA" title="Brazil Collection (135)">🇧🇷 🌎 BRA</option>
-	<option value="FRA" title="French Variants (75)">🇫🇷 🌍 FRA</option>
-	<option value="ASI" title="Asian Variants (10)">🇹🇼 🌏 ASI</option>
-	<option value="HKG" title="Hong Kong Variants (7)">🇭🇰 🌏 HKG</option>
-	<option value="SCN" title="Scandinavian Variants (18)">🇩🇰🇳🇴🇸🇪 SCN</option>	
-	<option value="NTSC" title="USA set + JP Exclusives (386)">🇺🇸 🇯🇵 NTSC</option>
-	<option value="PALX" title="PAL Exclusives (4)">🇪🇺 ⭐ EXC</option>
-	<option value="USAX" title="USA Exclusives (50)">🇺🇸 ⭐ EXC</option>
-	<option value="JPNX" title="JPN Exclusives (86)">🇯🇵 ⭐ EXC</option>
-	<option value="N64DD" title="N64DD (10)">🇯🇵 🌏 64DD</option>
-	<option value="IQUE" title="iQue Collection (14)">🇨🇳 🌏 IQUE</option>	
-	<option value="PCX" title="Players Choice/Million Seller (47)">⭐🌎 SPE</option>
-	<option value="NFR" title="Not For Resale (30)">‍🚫🌎 NFR</option>
-	<option value="ALL" title="Everything (1491): /!\ SLOW /!\">⚠️🌐 FULL</option>
+<optgroup label="Collections:">
+	<!--option value="TEST" title="TESTING">🧪🧪🧪🧪🧪</option-->
+	<option value="FULL" title="𝗘𝘃𝗲𝗿𝘆 𝗡𝟲𝟰 𝗧𝗶𝘁𝗹𝗲 (𝟯𝟴𝟴)">🏆🌎 𝟭𝟬𝟬%</option>
+	<option value="MORE" title="𝗘𝘃𝗲𝗿𝘆 𝗡𝟲𝟰 𝗧𝗶𝘁𝗹𝗲+ (𝟯𝟵𝟰)">🏆🌎 𝟭𝟬𝟭%</option>
+	<option value="EUR" title="𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟰𝟯)">🇪🇺 🌍 EUR</option>
+	<option value="USA" title="𝗡𝗧𝗦𝗖-𝗨 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟵𝟳)">🇺🇸 🌎 USA</option>
+	<option value="JPN" title="𝗡𝗧𝗦𝗖-𝗝 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟵𝟴)">🇯🇵 🌏 JPN</option>
+	<option value="NTSC" title="𝗨𝗦𝗔 𝘀𝗲𝘁 + 𝗝𝗣 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟯𝟴𝟲)">🇺🇸 🇯🇵 NTSC</option>
+	<option value="AUS" title="𝗔𝘂𝘀𝘁𝗿𝗮𝗹𝗶𝗮𝗻 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟱𝟮)">🇦🇺 🌏 AUS</option>
+	<option value="BRA" title="𝗕𝗿𝗮𝘇𝗶𝗹 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟯𝟱)">🇧🇷 🌎 BRA</option>
+	<option value="PCX" title="𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲/𝗠𝗶𝗹𝗹𝗶𝗼𝗻 𝗦𝗲𝗹𝗹𝗲𝗿 (𝟰𝟳)">⭐🌎 SPE</option>	
+	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟱𝟭𝟯)">⚠️🌐 FULL</option>
+<optgroup label="Variants:">
+	<option value="ASI" title="𝗔𝘀𝗶𝗮𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟭𝟬)">🇹🇼 🌏 ASI</option>
+	<option value="CAN" title="𝗖𝗮𝗻𝗮𝗱𝗶𝗮𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟭)">🇨🇦 🌎 CAN</option>
+	<option value="ESP" title="𝗦𝗽𝗮𝗻𝗶𝘀𝗵 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟳)">🇪🇸 🌍 ESP</option>	
+	<option value="EUU" title="𝗘𝘂𝗿𝗼𝗽𝗲𝗮𝗻 𝗨𝗻𝗶𝗼𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟯𝟰)">🇪🇺 🌍 EUU</option>	
+	<option value="FAH" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗛𝗼𝗹𝗹𝗮𝗻𝗱 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟳)">🇫🇷 🇳🇱 FAH</option>
+	<option value="FRA" title="𝗙𝗿𝗲𝗻𝗰𝗵 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟳𝟱)">🇫🇷 🌍 FRA</option>
+	<option value="FRG" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗚𝗲𝗿𝗺𝗮𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟮)">🇫🇷 🇩🇪 FRG</option>
+	<option value="NOE" title="𝗚𝗲𝗿𝗺𝗮𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟲𝟬)">🇩🇪 🌍 NOE</option>
+	<option value="HKG" title="𝗛𝗼𝗻𝗴 𝗞𝗼𝗻𝗴 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟳)">🇭🇰 🌏 HKG</option>
+	<option value="HOL" title="𝗛𝗼𝗹𝗹𝗮𝗻𝗱 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟱)">🇳🇱 🌍 HOL</option>
+	<option value="ITA" title="𝗜𝘁𝗮𝗹𝗶𝗮𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟭)">🇮🇹 🌍 ITA</option>
+	<option value="KOR" title="𝗞𝗼𝗿𝗲𝗮𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟰)">🇰🇷 🌏 KOR</option>
+	<option value="MSA" title="𝗠𝗲𝘅𝗶𝗰𝗼/𝗦𝗼𝘂𝘁𝗵 𝗔𝗺𝗲𝗿𝗶𝗰𝗮𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟭𝟲)">🇲🇽 🌎 MSA</option>
+	<option value="SCN" title="𝗦𝗰𝗮𝗻𝗱𝗶𝗻𝗮𝘃𝗶𝗮𝗻 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟭𝟴)">🇩🇰🇳🇴🇸🇪 SCN</option>
+	<option value="ROC" title="𝗧𝗮𝗶𝘄𝗮𝗻𝗲𝘀𝗲 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟯)">🇨🇳 🌏 ROC</option>
+	<option value="UKV" title="𝗨𝗻𝗶𝘁𝗲𝗱 𝗞𝗶𝗻𝗴𝗱𝗼𝗺 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟱𝟮)">🇬🇧 🌍 UKV</option>
+<optgroup label="Exclusives:">
+	<option value="PALX" title="𝗣𝗔𝗟 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟰)">🇪🇺 ⭐ EXC</option>
+	<option value="USAX" title="𝗨𝗦𝗔 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟱𝟬)">🇺🇸 ⭐ EXC</option>
+	<option value="JPNX" title="𝗝𝗣𝗡 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟴𝟲)">🇯🇵 ⭐ EXC</option>
+<optgroup label="Misc:">
+	<option value="COLS" title="𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀 (𝟯𝟮+)">🎨🌎 CCV</option>
+	<option value="NFR" title="𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲 (𝟯𝟬)">‍🚫🌎 NFR</option>
+	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗 (𝟭𝟬)">🇯🇵 🌏 64DD</option>
+	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟰)">🇨🇳 🌏 IQUE</option>	
+	<option value="LRG" title="𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀 (𝟵)">‍🛑🌎 LRG</option>
+	<!--option value="VERS" title="Versions">‍🌎 ALT</option-->
+	<!--option value="HBR" title="𝗢𝘁𝗵𝗲𝗿 (?)">‍❔❓ 𝗢𝘁𝗵𝗲𝗿</option-->
+</select>
+<select id="Currency" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗽𝗿𝗲𝗳𝗲𝗿𝗿𝗲𝗱 𝗰𝘂𝗿𝗿𝗲𝗻𝗰𝘆" name="Currency" title='Select Regional Currency' onchange="bureauDeChange();">
+<option value="$AUD" title="AU DOLLARS">💵 AUS</option>
+<option value="$BRL" title="BR REAL">💵 BRL</option>
+<option value="¥CHN" title="CH RMB">💴 CHN</option>
+<option value="€EUR" title="EU EURO">💶 EUR</option>
+<option value="£GBP" title="GB POUNDS">💷 GBR</option>
+<option value="¥JPN" title="JP YEN">💴 JPN</option>
+<option value="$USD" title="US DOLLARS">💵 USA</option>
 </select>
 <img id="reload" title="𝗥𝗘𝗙𝗥𝗘𝗦𝗛 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡 𝗧𝗢𝗧𝗔𝗟𝗦" onclick="location.reload();" src="Config/RBUT.png" />
 </span>
+<br><br><br>
+<div class="container">
+	<div id="cube">
+	<div class="top"></div>
+	<div class="front" >N</div>
+	<div class="front2">N</div>
+	<div class="right">N</div>
+	<div class="right2">N</div>
+	<div class="back">N</div>
+	<div class="back2">N</div>
+	<div class="left">N</div>
+	<div class="left2">N</div>
+	<div class="bottom"></div>
+	</div>
+</div>
 </center>
-<div id="logo"><center><image src="Config/LOGO.png" onclick="alert('𝗟𝗼𝗰𝗮𝘁𝗶𝗼𝗻: ' + timeZone.slice(0, timeZone.indexOf('/')))" height="150" width="150" style="-webkit-filter: drop-shadow(10px 10px 10px #222); filter: drop-shadow(10px 10px 10px #222);"></image></center></div>
-<h1>N64 COLLECTION</h1>
+<br>
+<h1 onclick="var myToast = Toastify({text: '𝗟𝗼𝗰𝗮𝘁𝗶𝗼𝗻: ' + timeZone.slice(0, timeZone.indexOf('/')), style: {background: 'rgb(50,153,0)'}, duration: 6000});myToast.showToast();">𝗡𝟲𝟰 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡</h1>
 <div class="frame" id="frame" onmouseleave="" style="display:none">
-<div class="card-header" id="frametitle">GAME TITLE</div>
+<div class="card-header" title="Double click to search eBay" id="frametitle" ondblclick="ineedthis();" oncontextmenu="javascript:copyToClippy();return false;">𝗚𝗔𝗠𝗘 𝗧𝗜𝗧𝗟𝗘</div>
 	<div class="background-image" id="artwork"></div>
-	<span class="closebtn"><img id="navL" src="Config/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();"/><img id="start" src="Config/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();location.reload();"/><img id="navR" src="Config/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();"/></span>
+	<span class="closebtn"><img id="navL" src="Config/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();"/><img id="start" src="Config/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();"/><img id="navR" src="Config/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();"/></span>
 	<div class="grid-container">
-		<div class="grid-item"><center>About:</center>
+		<div class="grid-item"><center>𝗔𝗕𝗢𝗨𝗧:</center>
 		<div id="a1" style="border: 1px dashed; border-color: #C1BED1;"></div>
 		</div>
-		<div id="p2" class="grid-item"><center>Info:</center>
+		<div id="p2" class="grid-item"><center>𝗜𝗡𝗙𝗢:</center>
 		<img class="closebtn" title="𝗘𝗫𝗣𝗔𝗡𝗦𝗜𝗢𝗡 𝗣𝗔𝗞 𝗘𝗡𝗛𝗔𝗡𝗖𝗘𝗗 𝗧𝗜𝗧𝗟𝗘!" id="expak" src='Config/EXPAK.png' /><img class="closebtn" title="𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗼𝗻 𝗡𝗦𝗢!" id="NSO" src='Config/NSO.png' onclick="nsoInfo();"/>
 		<div id="p2-1" style="border: 1px dashed; border-color: #FFC001;"></div>
 		</div>
-			<div class="grid-item"><center>Artwork:</center>
+			<div class="grid-item"><center>𝗔𝗥𝗧𝗪𝗢𝗥𝗞:</center>
 				<div id="art" style="border: 1px dashed; border-color: #C20D02;" title="𝗧𝗮𝗸𝗲 𝗮 𝗰𝗹𝗼𝘀𝗲𝗿 𝗹𝗼𝗼𝗸">
-				<img id="thumb" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbCC" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbRC" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbDI" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbA1" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbA2" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				<img id="thumbA3" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumb" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbBB" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbCC" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbRC" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbDI" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbMA" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '70px'; this.style.paddingLeft = '35px'; this.style.paddingRight = '35px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbA1" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbA2" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbA3" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				</div>
 			</div>
-		<div class="grid-item"><center>Collection:</center>
+		<div class="grid-item"><center>𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡:</center>
 			<div id="container" style='border: 1px dashed #069330;'>
-				<div id="Acart"><span class="flag" title="AUSTRALIAN">🇦🇺</span><span><input id="Acartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Acolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Aboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Amanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Asealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Acart"><span class="flag" title="AUSTRALIAN">🇦🇺</span><span><input id="Acartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="AcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Acolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="AcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Aboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="AboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Amanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="AmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Asealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="AsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="Bcart"><span class="flag" title="BELGIUM">🇧🇪</span><span><input id="Bcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Bcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Bboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Bmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Bsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Bcart"><span class="flag" title="BELGIUM">🇧🇪</span><span><input id="Bcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="BcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Bcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="BcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Bboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="BboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Bmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="BmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Bsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="BsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="CANcart"><span class="flag" title="CANADA">🇨🇦</span><span><input id="CANcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="CANcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="CANboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="CANmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="CANsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="CANcart"><span class="flag" title="CANADA">🇨🇦</span><span><input id="CANcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="CANcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="CANcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="CANcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="CANboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="CANboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="CANmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="CANmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="CANsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="CANsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="Dcart"><span class="flag" title="GERMAN">🇩🇪</span><span><input id="Dcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Dcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Dboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Dmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Dsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Dcart"><span class="flag" title="GERMAN">🇩🇪</span><span><input id="Dcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="DcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Dcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="DcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Dboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="DboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Dmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="DmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Dsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="DsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="SEDcart"><span class="spesh" title="SPECIAL BUNDLE GERMANY"><img src="Config/SED.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEDcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEDboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="SEDmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEDsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="SEDcart"><span class="spesh" title="SPECIAL BUNDLE GERMANY"><img src="Config/SED.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEDcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="SEDcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEDboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="SEDboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEDmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="SEDmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="SEDsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="SEDsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="Ecart"><span class="flag" title="EUROPEAN">🇪🇺</span><span><input id="Ecartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Ecolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Eboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Emanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Esealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Ecart"><span class="flag" title="EUROPEAN">🇪🇺</span><span><input id="Ecartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="EcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Ecolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="EcolcartSpent"><span title="Click to insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Eboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="EboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Emanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="EmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Esealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="EsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="EUUcart"><span class="flag" title="EUROPEAN">🇪🇺</span><span><input id="EUUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="EUUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="EUUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="EUUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="EUUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="EUUcart"><span class="flag" title="EUROPEAN">🇪🇺</span><span><input id="EUUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="EUUcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="EUUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="EUUcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="EUUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="EUUboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="EUUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="EUUmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="EUUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="EUUsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="Fcart"><span class="flag" title="FRENCH">🇫🇷</span><span><input id="Fcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Fcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Fboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Fmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Fsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Fcart"><span class="flag" title="FRENCH">🇫🇷</span><span><input id="Fcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="FcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Fcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="FcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Fboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="FboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Fmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="FmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Fsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="FsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="FAHcart"><span class="flag" title="FRANCE/HOLLAND"><div id="FAHPNG"></div></span><span><input id="FAHcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="FAHcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="FAHboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="FAHmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="FAHsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="FAHcart"><span class="flag" title="FRANCE/HOLLAND"><div id="FAHPNG"></div></span><span><input id="FAHcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="FAHcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="FAHcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="FAHcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="FAHboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="FAHboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="FAHmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="FAHmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="FAHsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="FAHsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="FRGcart"><span class="flag" title="FRANCE/GERMANY"><div id="FRGPNG"></div></span><span><input id="FRGcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="FRGcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="FRGboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="FRGmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="FRGsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="FRGcart"><span class="flag" title="FRANCE/GERMANY"><div id="FRGPNG"></div></span><span><input id="FRGcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="FRGcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="FRGcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="FRGcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="FRGboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="FRGboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="FRGmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="FRGmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="FRGsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn">&nbsp;</span><span id="FRGsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="Icart"><span class="flag" title="ITALIAN">🇮🇹</span><span><input id="Icartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Icolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Iboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Imanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Isealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Icart"><span class="flag" title="ITALIAN">🇮🇹</span><span><input id="Icartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="IcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Icolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="IcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Iboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="IboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Imanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="ImanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Isealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="IsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="Jcart"><span class="flag" title="JAPANESE">🇯🇵</span><span><input id="Jcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Jcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Jboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Jmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Jsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Jcart"><span class="flag" title="JAPANESE">🇯🇵</span><span><input id="Jcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="JcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Jcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="JcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Jboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="JboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Jmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="JmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Jsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="JsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="MSAcart"><span class="flag" title="Mexico & SA">🇲🇽</span><span><input id="MSAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="MSAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="MSAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="MSAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="MSAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="MSAcart"><span class="flag" title="Mexico & SA">🇲🇽</span><span><input id="MSAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="MSAcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="MSAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="MSAcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="MSAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="MSAboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="MSAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="MSAmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="MSAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="MSAsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="Scart"><span class="flag" title="SPANISH">🇪🇸</span><span><input id="Scartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Scolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Sboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Smanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Ssealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Scart"><span class="flag" title="SPANISH">🇪🇸</span><span><input id="Scartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="ScartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Scolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="ScolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Sboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="SboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Smanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="SmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Ssealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="SsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="SCNcart"><span class="flag" title="SCANDINAVIA"><div id="SCNPNG"></div></span><span><input id="SCNcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SCNcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="SCNboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="SCNmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="SCNsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="SCNcart"><span class="flag" title="SCANDINAVIA"><div id="SCNPNG"></div></span><span><input id="SCNcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="SCNcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SCNcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="SCNcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SCNboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="SCNboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SCNmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="SCNmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="SCNsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="SCNsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="Ucart"><span class="flag" title="AMERICAN">🇺🇸</span><span><input id="Ucartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Ucolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Uboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Umanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Usealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="Ucart"><span class="flag" title="AMERICAN">🇺🇸</span><span><input id="Ucartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="UcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="Ucolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="UcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="Uboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="UboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="Umanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="UmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="Usealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="UsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="UKVcart"><span class="flag" title="UNITED KINGDOM">🇬🇧</span><span><input id="UKVcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="UKVcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="UKVboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="UKVmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="UKVsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="UKVcart"><span class="flag" title="UNITED KINGDOM">🇬🇧</span><span><input id="UKVcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="UKVcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="UKVcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="UKVcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="UKVboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="UKVboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="UKVmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="UKVmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="UKVsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="UKVsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="AScart"><span class="flag" title="ASIAN">🇸🇬</span><span><input id="AScartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="AScolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="ASboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="ASmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="ASsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="AScart"><span class="flag" title="ASIAN">🇸🇬</span><span><input id="AScartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="AScartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="AScolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span>&nbsp;<span id="AScolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ASboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="ASboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ASmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="ASmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="ASsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="ASsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="BRcart"><span class="flag" title="BRAZILIAN">🇧🇷</span><span><input id="BRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="BRmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="BRsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="BRcart"><span class="flag" title="BRAZILIAN">🇧🇷</span><span><input id="BRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="BRcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="BRcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="BRboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="BRmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="BRmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="BRsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="BRsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="BRBcart"><span class="flag" title="BRAZILIAN BUNDLE">🇧🇷</span><span><input id="BRBcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRBcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRBboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="BRBmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="BRBsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="BRBcart"><span class="flag" title="BRAZILIAN BUNDLE">🇧🇷</span><span><input id="BRBcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="BRBcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRBcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="BRBcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRBboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="BRBboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="BRBmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="BRBmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="BRBsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="BRBsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="BRScart"><span class="flag" title="BRAZILIAN SPECIAL">🇧🇷</span><span><input id="BRScartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRScolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRSboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="BRSmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="BRSsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="BRScart"><span class="flag" title="BRAZILIAN SPECIAL">🇧🇷</span><span><input id="BRScartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="BRScartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="BRScolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="BRScolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRSboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="BRSboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="BRSmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="BRSmanualpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="BRSsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="BRSsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="CHcart"><span class="flag" title="CHINESE">🇨🇳</span><span><input id="CHcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="CHcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="CHboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="CHmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="CHsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="CHcart"><span class="flag" title="CHINESE">🇨🇳</span><span><input id="CHcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="CHcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="CHcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="CHcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="CHboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="CHboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="CHmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="CHmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="CHsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="CHsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="HOLcart"><span class="flag" title="HOLLAND">🇳🇱</span><span><input id="HOLcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="HOLcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="HOLboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="HOLmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="HOLsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="HOLcart"><span class="flag" title="HOLLAND">🇳🇱</span><span><input id="HOLcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="HOLcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="HOLcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="HOLcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="HOLboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="HOLboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="HOLmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="HOLmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="HOLsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="HOLsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="HKcart"><span class="flag" title="HONG KONG VERSION">🇭🇰</span><span><input id="HKcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="HKcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="HKboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="HKmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="HKsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="HKcart"><span class="flag" title="HONG KONG VERSION">🇭🇰</span><span><input id="HKcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="HKcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="HKcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="HKcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="HKboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="HKboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="HKmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="HKmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="HKsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="HKsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="TWcart"><span class="flag" title="TAIWAN VERSION">🇹🇼</span><span><input id="TWcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="TWcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="TWboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="TWmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="TWsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="TWcart"><span class="flag" title="TAIWAN VERSION">🇹🇼</span><span><input id="TWcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="TWcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="TWcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="TWcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="TWboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="TWboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="TWmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="TWmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="TWsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="TWsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="KOcart"><span class="flag" title="KOREAN VERSION">🇰🇷</span><span><input id="KOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="KOcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="KOboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="KOmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="KOsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="KOcart"><span class="flag" title="KOREAN VERSION">🇰🇷</span><span><input id="KOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="KOcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="KOcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="KOcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="KOboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="KOboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="KOmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="KOmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="KOsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="KOsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="SEAcart"><span class="spesh" title="SPECIAL BUNDLE AUS"><img src="Config/SEA.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="SEAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="SEAcart"><span class="spesh" title="SPECIAL BUNDLE AUS"><img src="Config/SEA.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="SEAcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="SEAcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="SEAboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="SEAmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="SEAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="SEAsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="SEEcart"><span class="spesh" title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="SEEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="SEEcart"><span class="spesh" title="SPECIAL EDITION EUR"><img src="Config/SEE.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="SEEcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="SEEcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="SEEboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="SEEmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="SEEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="SEEsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="SEUcart"><span class="spesh" title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="SEUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="SEUcart"><span class="spesh" title="SPECIAL EDITION USA"><img src="Config/SEU.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="SEUcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="SEUcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="SEUboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="SEUmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="SEUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="SEUsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="SEJcart"><span class="spesh" title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEJcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEJboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="SEJmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEJsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="SEJcart"><span class="spesh" title="SPECIAL EDITION JAPAN"><img src="Config/SEJ.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="SEJcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEJcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="SEJcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEJboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="SEJboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEJmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="SEJmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="SEJsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="SEJsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="SEOcart"><span class="spesh" title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEOcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEOboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="SEOmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="SEOsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="SEOcart"><span class="spesh" title="SPECIAL EDITION OTHER"><img src="Config/SEO.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="SEOcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="SEOcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="SEOcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="SEOcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="SEOboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="SEOboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="SEOmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="SEOmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="SEOsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="SEOsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="PCAcart"><span class="spesh" title="PLAYERS CHOICE AUS"><img src="Config/PCU.png" style="margin: 3px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="PCAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="PCAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="PCAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="PCAcart"><span class="spesh" title="PLAYERS CHOICE AUS"><img src="Config/PCU.png" style="margin: 3px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="PCAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="PCAcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCAcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="PCAcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="PCAboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="PCAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="PCAmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="PCAsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"><span id="PCAsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span></span>
 				</div>
-				<div id="PCEcart"><span class="spesh" title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: -45deg; margin: 8px 4px; vertical-align: middle; width: 25px; height: auto:"/>&nbsp </span><span><input id="PCEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="PCEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="PCEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="PCEcart"><span class="spesh" title="PLAYERS CHOICE EUR"><img src="Config/PCE.png" style="rotate: -45deg; margin: 8px 4px; vertical-align: middle; width: 25px; height: auto:"/>&nbsp </span><span><input id="PCEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="PCEcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="PCEcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="PCEboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="PCEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="PCEmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="PCEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="PCEsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="PCUcart"><span class="spesh" title="PLAYERS CHOICE USA"><img src="Config/PCU.png" style="margin: 3px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="PCUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="PCUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="PCUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="PCUcart"><span class="spesh" title="PLAYERS CHOICE USA"><img src="Config/PCU.png" style="margin: 3px 0px; vertical-align: middle; width: 35px; height: auto:"/>&nbsp </span><span><input id="PCUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="PCUcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="PCUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="PCUcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="PCUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="PCUboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="PCUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="PCUmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="PCUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="PCUsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="ALTBcart"><span title="ALT BRA VERSION"><div id="ALTPNG"></div></span><span><input id="ALTBcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTBcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTBboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="ALTBmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTBsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="ALTBcart"><span title="ALT BRA VERSION"><div id="ALTPNG"></div></span><span><input id="ALTBcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="ALTBcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTBcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="ALTBcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTBboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="ALTBboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTBmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="ALTBmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="ALTBsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="ALTBsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="ALTEcart"><span title="ALT EUR VERSION"><div id="ALTPNG"></div></span><span><input id="ALTEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="ALTEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="ALTEcart"><span title="ALT EUR VERSION"><div id="ALTPNG"></div></span><span><input id="ALTEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="ALTEcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTEcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="ALTEcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="ALTEboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="ALTEmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="ALTEsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="ALTEsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="ALTJcart"><span title="ALT JPN VERSION"><div id="ALTPNG"></div></span><span><input id="ALTJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTJcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTJboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="ALTJmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTJsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="ALTJcart"><span title="ALT JPN VERSION"><div id="ALTPNG"></div></span><span><input id="ALTJcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="ALTJcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTJcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="ALTJcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTJboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="ALTJboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTJmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="ALTJmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="ALTJsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="ALTJsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="ALTUcart"><span title="ALT USA VERSION"><div id="ALTPNG"></div></span><span><input id="ALTUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
-				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><br></span>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="ALTUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>
+				<div id="ALTUcart"><span title="ALT USA VERSION"><div id="ALTPNG"></div></span><span><input id="ALTUcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="ALTUcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span class="CCvariant"><span title="Coloured cart?"><div id="ALTPNG"></div><input id="ALTUcolcart" type="checkbox" onclick="check_click(this.id)"></span><span id="altOwn"></span><span id="ALTUcolcartSpent"><span title="Insert value paid" onclick="aMoney()">💲 </span><span title="Value I paid:"class="aPaid">N/A</span></span><br></span>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTUboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="ALTUboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTUmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="ALTUmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="ALTUsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="ALTUsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="ALTNcart"><span title="NOT FOR RESALE ALT"><div id="ALTPNG"></div></span><span><input id="ALTNcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<div id="ALTNcart"><span title="NOT FOR RESALE ALT"><div id="ALTPNG"></div></span><span><input id="ALTNcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="ALTNcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span>
 				</div>
-				<div id="NFRcart"><span title="NOT FOR RESALE"><div id="NFRPNG"></div></span><span><input id="NFRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><br>
+				<div id="NFRcart"><span title="NOT FOR RESALE"><div id="NFRPNG"></div></span><span><input id="NFRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="NFRcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span>
 				</div>
-				<div id="IQUEcart"><span title="iQue"><div id="IQPNG"></div></span><span><input id="IQUEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="gOwn"></span><br>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="IQUEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="IQUEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
+				<div id="IQUEcart"><span title="iQue"><div id="IQPNG"></div></span><span><input id="IQUEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="gOwn"></span>&nbsp;<span id="IQUEcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="IQUEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="IQUEboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="IQUEmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="IQUEmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span>
 				</div>
-				<div id="DDcart"><span title="N64DD"><div id="DDDPNG"></div></span><span><input id="DDcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="dOwn"></span><br>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="DDboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="DDmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="DDsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><br>
+				<div id="DDcart"><span title="N64DD"><div id="DDDPNG"></div></span><span><input id="DDcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="dOwn"></span>&nbsp;<span id="DDcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="DDboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="DDboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="DDmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="DDmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="DDsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="DDsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
-				<div id="LRGcart"><span title="Limited Run"><div id="LRGPNG"></div></span><span><input id="LRGcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="dOwn"></span><br>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="LRGboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="LRGmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="LRGsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><br>
+				<div id="LRGCcart"><span title="Limited Run Classic"><div id="LRGCPNG"></div></span><span><input id="LRGCcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="LRGCcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="LRGCboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="LRGCboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="LRGCsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="LRGCsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
+				</div>
+				<div id="LRGScart"><span title="Limited Run Premium"><div id="LRGSPNG"></div></span><span><input id="LRGScartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="LRGScartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="LRGSboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="LRGSboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="LRGSmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="LRGSmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="LRGSsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="LRGSsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
+				</div>
+				<div id="LRGcart"><span title="Limited Run Games"><div id="LRGPNG"></div></span><span><input id="LRGcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="LRGcartridgeSpent"><span title="Insert value paid" onclick="cMoney()">💲 </span><span title="Value I paid:"class="cPaid">N/A</span></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="LRGboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="LRGboxedSpent"><span title="Insert value paid" onclick="bMoney()">💲 </span><span title="Value I paid:"class="bPaid">N/A</span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="LRGmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="LRGmanualSpent"><span title="Insert value paid" onclick="mMoney()">💲 </span><span title="Value I paid:"class="mPaid">N/A</span></span><br>
+				<span title="Mint?"><div id="SLDPNG"></div><input id="LRGsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="LRGsealedSpent"><span title="Insert value paid" onclick="sMoney()">💲 </span><span title="Value I paid:"class="sPaid">N/A</span></span>
 				</div>
 			</div>
 		</div>
@@ -357,21 +435,33 @@
 </div>
 <center><div id="main" class="main" style="border: none;"></div><center>
 <script charset="utf-8">
-var gRegion, gTitle, gYear, gGenre, gScore;
+var gRegion, gTitle, gYear, gGenre, gScore, cValue, bValue, sValue;
+var currencyList = {USD:1.26, YEN:183.94, EUR:1.17, BRL:6.23, CHN:9.14, AUD:1.95, GBP:1.00};
 document.getElementById("overlay").style.display = "block";
 document.getElementById("overlaytext").innerHTML = "Loading..";
+localStorage.removeItem("myCollectionList");
+if (localStorage.moneyKey==null) {
+	localStorage.moneyKey = document.getElementById("Currency").value;
+	} else {
+	document.getElementById("Currency").value = localStorage.moneyKey;
+}
 if (localStorage.regKey==null){
-	alert("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗥𝗘𝗔𝗟𝗜𝗧𝗬 𝗩𝟮: 𝘁𝗵𝗲 𝘂𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗡𝟲𝟰 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗮𝗽𝗽!\n\nYour region has been detected as: '" + timeZone.slice(0, timeZone.indexOf("/")) + "' so an initial region has been set to match your location.\n\n𝗨𝘀𝗮𝗴𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀:\n⚫ Click a tile to open a games sub menu, enjoy the game info/art and then check off any items you have.\n⚫ Click the (R) button to refresh page, hilight & count titles.\n⚫ Click the (L) button to show your NEED list.\n⚫ Click the (B) button to back up your collection regularly.\n⚫ Click the (A) button to import a previously backed up collection.\n⚫ Click the (C) left/right buttons to move between titles.\n⚫ Click the (C) down button to close a title.\n⚫ Click the (Z) trigger to delete your current collection.\n⚫ Tap keys (A-Z/0-9) to skip to that range.\n\n(𝗡𝗢𝗧𝗘: 𝗔𝗳𝘁𝗲𝗿 𝗮𝗱𝗱𝗶𝗻𝗴/𝗿𝗲𝗺𝗼𝘃𝗶𝗻𝗴 𝗴𝗮𝗺𝗲𝘀 𝗶𝗻 𝘁𝗵𝗲 𝗰𝗵𝗲𝗰𝗸𝗹𝗶𝘀𝘁: 𝗮𝗹𝘄𝗮𝘆𝘀 𝗿𝗲𝗺𝗲𝗺𝗯𝗲𝗿 𝘁𝗼 𝗿𝗲𝗳𝗿𝗲𝘀𝗵 𝘁𝗵𝗲 𝗽𝗮𝗴𝗲, 𝗮𝗻𝗱 𝗱𝗼𝗻'𝘁 𝗳𝗼𝗿𝗴𝗲𝘁 𝘁𝗼 𝗯𝗮𝗰𝗸 𝘂𝗽 𝗿𝗲𝗴𝘂𝗹𝗮𝗿𝗹𝘆!)\n\nYou can now swap between regional collections at any time from the drop down menu at the top.\n\n𝙃𝙖𝙫𝙚 𝙛𝙪𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜! ~ 𝘿𝙉𝘽");
+	alert("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗡𝗲𝘅𝘂𝘀𝟲𝟰: 𝘁𝗵𝗲 𝘂𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗡𝟲𝟰 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗿𝗮𝗰𝗸𝗲𝗿!\n\nYour location has been detected as: '" + timeZone.slice(0, timeZone.indexOf("/")) + "' so an initial region & currency has automatically been set for you.\n\n𝗨𝘀𝗮𝗴𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀:\n⚫ Click a tile to open a games sub menu, enjoy the info/art and tick off items you have.\n⚫ Click the (R) button to refresh page, hilight & count titles.\n⚫ Click the (L) button to show your need list.\n⚫ Click the (B) button to back up your collection.\n⚫ Click the (A) button to import a previously backed up collection.\n⚫ Click the (C-LEFT/RIGHT) buttons to move between titles.\n⚫ Click the (C-DOWN) button to close a title.\n⚫ Click the (Z) trigger to delete your current collection.\n⚫ Search with CTRL+F.\n\n(𝗡𝗢𝗧𝗘: 𝗕𝗮𝗰𝗸𝘂𝗽 𝗿𝗲𝗴𝘂𝗹𝗮𝗿𝗹𝘆, 𝗲𝘀𝗽𝗲𝗰𝗶𝗮𝗹𝗹𝘆 𝗼𝗻 𝗺𝗼𝗯𝗶𝗹𝗲 𝗱𝗲𝘃𝗶𝗰𝗲𝘀!)\n\nYou can now swap between regional collections & currency at any time from the drop down menus at the top.\n\n𝙃𝙖𝙫𝙚 𝙛𝙪𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜! ~ 𝘿𝘿𝙉𝘽");
 	if (timeZone.slice(0, timeZone.indexOf("/")) == "Australia"||"Africa"||"Etc"||"Europe"||"Indian"){
 	document.getElementById("Region").value = "EUR";
+	document.getElementById("Currency").value = "€EUR";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Antarctica"||"America"||"Atlantic"||"Canada"||"Pacific"||"US"){
 	document.getElementById("Region").value = "USA";
+	document.getElementById("Currency").value = "$USD";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Japan"){
 	document.getElementById("Region").value = "JPN";
+	document.getElementById("Currency").value = "¥JPN";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Asia"){
 	document.getElementById("Region").value = "IQUE";
+	document.getElementById("Currency").value = "¥CHN";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Brazil"){
 	document.getElementById("Region").value = "BRA";
+	document.getElementById("Currency").value = "$BRL";
 	}
 	localStorage.regKey = document.getElementById("Region").value+".cfg";
 	location.reload();
@@ -382,6 +472,12 @@ function changeRegion() {
 localStorage.regKey = document.getElementById("Region").value+".cfg";
 location.reload();
 }
+function bureauDeChange() {
+localStorage.moneyKey = document.getElementById("Currency").value;
+location.reload();
+}
+var gCurrency = "£";
+var gMoney = localStorage.moneyKey.slice(0,1);
 let fileName = "Config/"+localStorage.regKey;
 var xmlFile = new XMLHttpRequest;
 xmlFile.open('get', fileName, false);
@@ -391,6 +487,9 @@ var lines = xmlDoc.split("\n")
 let titleCount = lines.length;
 var coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
 let myNeedList = [];
+let CONLYvalue = [];
+let CIBvalue = [];
+let MIBvalue = [];
 for (i=0; i < titleCount; i++){
 	var div = document.createElement("div");
 	document.getElementById("main").appendChild(div);
@@ -399,12 +498,58 @@ for (i=0; i < titleCount; i++){
 	div.setAttribute('title', coverFlow[i]+"/"+titleCount);
 	div.setAttribute("onclick","document.getElementById("+coverFlow[i]+").click()");
 	div.style.cursor = "pointer";
+	div.style.overflow = "auto";
+	div.style.scrollbarGutter = "auto | stable && bothEdges";
 	var info = coverFlow[i]-1;
 	gTitle = lines[info].slice((lines[info]),(lines[info].indexOf("PLAYERS=")-1));
 	gRegion = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	gYear = lines[info].slice((lines[info].indexOf("DATE=")+5), (lines[info].indexOf("SCORE=")-1));
 	gGenre = lines[info].slice((lines[info].indexOf("GENRE=")+6), (lines[info].indexOf("PUB=")-1));
 	gScore = lines[info].slice((lines[info].indexOf("SCORE=")+6), (lines[info].indexOf("REGION=")-1));
+	let indexOfFirst = lines[info].indexOf(gCurrency);
+	let indexOfSecond = lines[info].indexOf(gCurrency, (indexOfFirst + 1));
+	let indexOfThird = lines[info].indexOf(gCurrency, (indexOfSecond + 1));
+	for (m = 0; m < myCollectionList.length; m++) {
+		if ((gTitle+" "+gRegion).match(myCollectionList[m][0])){
+			if (indexOfFirst <1){
+			CONLYvalue.push(0);
+			} else {
+			CONLYvalue.push(Number(lines[info].slice(indexOfFirst+1, indexOfSecond)));
+			}			
+			if (indexOfSecond <1){
+			CIBvalue.push(0);
+			} else {
+			CIBvalue.push(Number(lines[info].slice(indexOfSecond+1, indexOfThird)));
+			}
+			if (lines[info].match("ALT=")){
+				if (indexOfThird <1){
+				MIBvalue.push(0);
+				} else {
+				MIBvalue.push(Number(lines[info].slice(indexOfThird+1, lines[info].indexOf("ALT=")-1)));
+				}
+			} else {
+				if (indexOfThird <1){
+				MIBvalue.push(0);
+				} else {
+				MIBvalue.push(Number(lines[info].slice(indexOfThird+1, lines[info].length-1)));
+				}
+			}
+		}
+	}
+	if (localStorage.cake == "true"){
+		if (new Date().toUTCString().slice(5, 11) === gYear.slice(4, gYear.indexOf(","))+" "+gYear.slice(0, 3)){
+		let thisYear = new Date().getFullYear();
+		let thatYear = gYear.slice(7,12);
+		let age = Number(thisYear - thatYear);
+		let tColor='rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
+		var myToast = Toastify({text: "'"+gTitle+"' ("+gRegion+") " + " released "+age+" years ago today!\n\n("+gYear+")", style: {background: tColor}, avatar: "Config/N64.gif", close: true, stopOnFocus: true, oldestFirst: false, duration: 8000})
+		myToast.showToast();
+		new Audio('Config/Sounds/Party.wav').play();
+		}
+		document.getElementById('cake').style.backgroundImage="url(Config/CAKEON.png)";
+	} else if (localStorage.cake == "false") {
+		document.getElementById('cake').style.backgroundImage="url(Config/CAKEOFF.png)";
+	}
 	myNeedList.push(gTitle+" "+gRegion);
 	let gotOrNot = "";
 	myList = JSON.parse(localStorage.myCollection);
@@ -420,7 +565,7 @@ for (i=0; i < titleCount; i++){
 				myNeedList.splice(myNeedList.indexOf(gTitle),1);
 				}
 			} else if (gRegion.match("IQUE")){
-				if ((isIt.match(/cartridge/gi)||isIt.match(/colcart/gi)) && isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
+				if (isIt.match(/cartridge/gi) && isIt.match(/boxed/gi) && isIt.match(/manual/gi)) {
 				gotOrNot = "<span class='got' title='𝗜𝗻𝗰𝗿𝗲𝗱𝗶𝗯𝗹𝗲 𝗜𝗤𝗨𝗘 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
 				div.style.backgroundColor = "rgba(0,255,0,0.3)";
 				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
@@ -452,6 +597,23 @@ for (i=0; i < titleCount; i++){
 				} else if (isIt.match(/boxed/gi)) {
 				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅'>◾▫️◾</span>";
 				}
+			} else if (gRegion.match("LRGC")){
+				if (isIt.match(/sealed/gi)) {
+				gotOrNot = "<span class='got' title='𝗜𝗗𝗲𝗱𝗶𝗰𝗮𝘁𝗲𝗱 𝗠𝗜𝗕 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿!'>🏆</span>";
+				div.style.backgroundColor = "rgba(255,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px yellow";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if (isIt.match(/cartridge/gi)) {
+				div.style.filter = "none";
+				gotOrNot = "<span class='got' title='𝗜 𝗼𝘄𝗻 𝘁𝗵𝗶𝘀 𝗴𝗮𝗺𝗲!'>⭐▪️</span>";
+				div.style.backgroundColor = "rgba(0,255,0,0.3)";
+				div.style.boxShadow = "inset 0px 0px 0px 4px lime";
+				myCount = myCount + 1;
+				myNeedList.splice(myNeedList.indexOf(gTitle),1);
+				} else if (isIt.match(/boxed/gi)) {
+				gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗯𝗼𝘅'>◾▫️</span>";
+				}				
 			} else {
 				if (isIt.match(/sealed/gi)) {
 				div.style.filter = "none";
@@ -522,6 +684,10 @@ for (i=0; i < titleCount; i++){
 	} else if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
 	document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/J/'+gTitle+' J.png"');
 	document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
+	} else if (lines[info].match("REGION=LRGC ")){
+	document.getElementById(coverFlow[i]).style.width = "120px"; document.getElementById(coverFlow[i]).style.left = "60px";
+	} else if (lines[info].match("REGION=LRGS ")){
+	document.getElementById(coverFlow[i]).style.width = "140px"; document.getElementById(coverFlow[i]).style.left = "50px";
 	} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
 	document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 	document.getElementById(coverFlow[i]).style.height = "160px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
@@ -547,17 +713,42 @@ for (i=0; i < titleCount; i++){
 	document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 	}
 }
+if (document.getElementById("Region").value == "ALL") {
+	var myToast = Toastify({text: "𝗘𝘃𝗲𝗿𝘆 𝗩𝗲𝗿𝘀𝗶𝗼𝗻:\n\nEvery game variant found in across the globe.", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000});
+	myToast.showToast();
+}
+if (document.getElementById("Region").value == "MORE") {
+	var myToast = Toastify({text: "𝟭𝟬𝟭% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nIncludes 40 winks, Xeno Crisis, Shindous', regional variants, etc.", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000});
+	myToast.showToast();
+}
+if (document.getElementById("Region").value == "LRG") {
+	var myToast = Toastify({text: "𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nN64 game releases by Limited Run Games.", style: {background: 'Black', color: "#ED008D"}, avatar: "Config/LRG.png", duration: 6000});
+	myToast.showToast();
+}
+if (document.getElementById("Region").value == "NFR") {
+	var myToast = Toastify({text: "𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲:\n\nN64 kiosk cartridges (very rare)", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000});
+	myToast.showToast();
+}
+if (document.getElementById("Region").value == "COLS") {
+	var myToast = Toastify({text: "𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nColoured carts with their grey variants if they exist.", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000});
+	myToast.showToast();
+}
+if (document.getElementById("Region").value == "N64DD") {
+	var myToast = Toastify({text: "𝗡𝗶𝗻𝘁𝗲𝗻𝗱𝗼 𝟲𝟰𝗗𝗗:\n\nN64 disk drive games!", style: {background: '#0096C8'}, avatar: "Config/N64DD.gif", duration: 6000});
+	myToast.showToast();
+}
 var prevCard;
 var nextCard;
 function reply_click(clicked_id){
-	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
-	const things = ["cartridge", "boxed", "manual", "sealed","colcart"];
-	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 BR","Pokemon Stadium 2 U","Pokemon Stadium 2 E","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
+	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","LRGC","LRGS","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
+	const things = ["cartridge","boxed","manual","sealed","colcart"];
+	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 A","Pokemon Stadium 2 BR","Pokemon Stadium 2 D","Pokemon Stadium 2 E","Pokemon Stadium 2 F","Pokemon Stadium 2 I","Pokemon Stadium 2 S","Pokemon Stadium 2 U","Pokemon Stadium 2 NFR","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
+	firstCount = myCollectionList.flat().filter(x => x.match(/cartridge|boxed|manual|sealed|Paid/gi)).length;
 	let gameTitle = lines[clicked_id-1].slice(lines[clicked_id-1], (lines[clicked_id-1].indexOf("PLAYERS=")-1));
 	let gamePlayers = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1));
 	let gameGenre = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1));
 	let pubCo = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
-	let rDate = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SCORE=")-5), (lines[clicked_id-1].indexOf("SCORE=")-1));
+	let rDate = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SCORE=")-5), (lines[clicked_id-1].indexOf("SCORE=")-1));	
 	let gameScore = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGION=")-1));
 	let gameRegions = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("REGION=")+7), (lines[clicked_id-1].indexOf("SIZE=")-1));
 	let mbSize = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
@@ -565,6 +756,36 @@ function reply_click(clicked_id){
 	let gCIC = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("CIC=")+4), (lines[clicked_id-1].indexOf("CODE=")-1));
 	let sPages = "";
 	//let sPages = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PAGES=")+6), (lines[clicked_id-1].indexOf("________=")-1));
+	let aValue,bValue,cValue,dValue,sValue = "";
+	let indexOfFirst = lines[clicked_id-1].indexOf(gCurrency);
+	let indexOfSecond = lines[clicked_id-1].indexOf(gCurrency, (indexOfFirst + 1));
+	let indexOfThird = lines[clicked_id-1].indexOf(gCurrency, (indexOfSecond + 1));
+		if (lines[clicked_id-1].charAt(indexOfFirst).match(gCurrency)){
+		cartValue = lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond);
+		cValue = "<br><span title='*𝗔𝗣𝗥𝗜𝗟 𝟮𝟬𝟮𝟯'>VALUE: <span title='𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗼𝗻𝗹𝘆'><span style='font-weight: bold'>CO</span> "+gMoney+Math.ceil(lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond) * currencyList[localStorage.moneyKey.slice(1,4)])+"</span></span>"; //currency test
+		} else {
+		cartValue = 0;
+		cValue = "<br><span title='*𝗔𝗣𝗥𝗜𝗟 𝟮𝟬𝟮𝟯'>VALUE: <span title='𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗼𝗻𝗹𝘆'><span style='font-weight: bold'>CO</span> "+gMoney+"NA</span></span>"
+		}
+		if (lines[clicked_id-1].charAt(indexOfSecond).match(gCurrency)){
+		boxValue = lines[clicked_id-1].slice(indexOfSecond+1, indexOfThird);
+		bValue = " <span title='𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗶𝗻 𝗯𝗼𝘅'><span style='font-weight: bold'>CIB</span> "+gMoney+Math.ceil(lines[clicked_id-1].slice(indexOfSecond+1, indexOfThird) * currencyList[localStorage.moneyKey.slice(1,4)])+"</span>";
+		} else {
+		boxValue = 0;
+		bValue = " <span title='𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗶𝗻 𝗯𝗼𝘅'><span style='font-weight: bold'>CIB</span> "+gMoney+"NA</span>";
+		}
+		if (lines[clicked_id-1].charAt(indexOfThird).match(gCurrency)){
+			if (lines[clicked_id-1].match("ALT=")){
+			sealedValue = lines[clicked_id-1].slice(indexOfThird+1, lines[clicked_id-1].indexOf("ALT=")-1);
+			sValue = " <span title='𝗠𝗶𝗻𝘁 𝗶𝗻 𝗯𝗼𝘅!'><span style='font-weight: bold'>MIB</span> "+gMoney+Math.ceil(lines[clicked_id-1].slice(indexOfThird+1, lines[clicked_id-1].indexOf("ALT=")-1) * currencyList[localStorage.moneyKey.slice(1,4)])+"</span>";//FIX FIND END!
+			} else {
+			sealedValue = lines[clicked_id-1].slice(indexOfThird+1, lines[clicked_id-1].length-1);
+			sValue = " <span title='𝗠𝗶𝗻𝘁 𝗶𝗻 𝗯𝗼𝘅!'><span style='font-weight: bold'>MIB</span> "+gMoney+Math.ceil(lines[clicked_id-1].slice(indexOfThird+1, lines[clicked_id-1].length-1) * currencyList[localStorage.moneyKey.slice(1,4)])+"</span>";//FIX FIND END!
+			}
+		} else {
+		sealedValue = 0;
+		sValue = " <span title='𝗠𝗶𝗻𝘁 𝗶𝗻 𝗯𝗼𝘅!'><span style='font-weight: bold'>MIB</span> "+gMoney+"NA</span>";
+		}		
 	let gNSO = "";
 		if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("NSO=")+4),(lines[clicked_id-1].indexOf("NSO=")+5)).match("1")){
 		document.getElementById("NSO").style.display = 'block';
@@ -573,7 +794,7 @@ function reply_click(clicked_id){
 		}
 	let gFeatures = "";
 		if (lines[clicked_id-1].match("FEATURES=")){
-		gFeatures = "<br>Features: " + lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("FEATURES=")+9), (lines[clicked_id-1].lastIndexOf("."))) + ".";
+		gFeatures = "<br>FEATURES: " + lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("FEATURES=")+9), (lines[clicked_id-1].lastIndexOf("."))) + ".";
 		} else {
 		gFeatures = "";
 		}
@@ -623,7 +844,7 @@ function reply_click(clicked_id){
 		}
 	let cartColour = "";
 		if (lines[clicked_id-1].match(/\[(.*?)\]/)){
-		cartColour = "<br>Coloured Cart: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
+		cartColour = "<br>COLORED CART: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
 		} else {
 		cartColour = "";
 		}
@@ -671,13 +892,25 @@ function reply_click(clicked_id){
 	if (gameRegions.match("J")||gameRegions.match("SEJ")){
 	gameRegions = "Japan (NTSC-J)";
 	} else if (gameRegions.match("UKV")){
-	gameRegions = "United Kingdom (PAL)";
+	gameRegions = "the United Kingdom (PAL)";
 	} else if (gameRegions.match("IQUE")){
 	gameRegions = "China (Digital Download)";
+	} else if (gameRegions.match("EUU")){
+	gameRegions = "the European Union (PAL)";
 	} else if (gameRegions.match("PCU")||gameRegions.match("U")||gameRegions.match("SEU")){
 	gameRegions = "USA (NTSC-U)";
 	} else if (gameRegions.match("PCE")||gameRegions.match("E")||gameRegions.match("SEE")){
 	gameRegions = "Europe (PAL)";
+	} else if (gameRegions.match("FAH")){
+	gameRegions = "France/Holland (PAL)";
+	} else if (gameRegions.match("FRG")){
+	gameRegions = "France/Germany (PAL)";
+	} else if (gameRegions.match("CAN")){
+	gameRegions = "Canada (NTSC)";
+	} else if (gameRegions.match("MSA")){
+	gameRegions = "Mexico & South America (NTSC)";
+	} else if (gameRegions.match("AS")){
+	gameRegions = "Asia (NTSC)";
 	} else if (gameRegions.match("SEA")||gameRegions.match("PCA")||gameRegions.match("A")){
 	gameRegions = "Australia (PAL)";
 	} else if (gameRegions.match("ALTE")||gameRegions.match("ALTJ")||gameRegions.match("ALTU")){
@@ -698,14 +931,16 @@ function reply_click(clicked_id){
 	gameRegions = "France (PAL)";
 	} else if (gameRegions.match("I")){
 	gameRegions = "Italy (PAL)";
+	} else if (gameRegions.match("LRGC")){
+	gameRegions = "limited quantities as a Limited Run Games Classic Edition";
+	} else if (gameRegions.match("LRGS")){
+	gameRegions = "limited quantities as a Limited Run Games Premium Edition";
+	} else if (gameRegions.match("LRG")){
+	gameRegions = "limited quantities via Limited Run Games";
 	} else if (gameRegions.match("SCN")){
 	gameRegions = "Scandinavia (PAL)";
 	} else if (gameRegions.match("S")){
 	gameRegions = "Spain (PAL)";
-	} else if (gameRegions.match("AS")){
-	gameRegions = "Asia (NTSC)";
-	} else if (gameRegions.match("CAN")){
-	gameRegions = "Canada (NTSC)";
 	} else if (gameRegions.match("CH")){
 	gameRegions = "China (NTSC)";
 	} else if (gameRegions.match("HK")){
@@ -714,31 +949,21 @@ function reply_click(clicked_id){
 	gameRegions = "Korea (NTSC)";
 	} else if (gameRegions.match("TW")){
 	gameRegions = "Taiwan (ROC / NTSC)";
-	} else if (gameRegions.match("MSA")){
-	gameRegions = "Mexico & South America (NTSC)";
-	} else if (gameRegions.match("EUU")){
-	gameRegions = "European Union (PAL)";
-	} else if (gameRegions.match("FRG")){
-	gameRegions = "France & Germany (PAL)";
-	} else if (gameRegions.match("FAH")){
-	gameRegions = "France & Holland (PAL)";
 	} else if (gameRegions.match("HOL")){
 	gameRegions = "Holland (PAL)";
-	} else if (gameRegions.match("LRG")){
-	gameRegions = "limited quantities via Limited Run Games.";
 	}
 	if (gamePlayers == "1") {
 		gamePlayers = "single player ";
 		} else {
 		gamePlayers = gamePlayers + " player ";
 	}
-	document.getElementById("p2-1").innerHTML = altName + "NUS ID: " + gCode + "<br>CIC: " + gCIC + " / ROM: " + mbSize + "<br>SAVE TYPE: "+ mpak + sPages + "<br>EX PAK: " + expak + cartColour + gFeatures;
-	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre + " game: '" + gameTitle + "', was published by " + pubCo + " in " + rDate+ ".<br><br>The game recieved average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
+	document.getElementById("p2-1").innerHTML = altName + "NUS ID: " + gCode + "<br>CIC: " + gCIC + " / ROM: " + mbSize + "<br>SAVE: "+ mpak + sPages + "<br>EX PAK: " + expak + cartColour + gFeatures + cValue+bValue+sValue;
+	document.getElementById("a1").innerHTML = "The " + gamePlayers + gameGenre + " game: '" + gameTitle + "', was published by " + pubCo + " in " + rDate+ ".<br><br>The game received average review scores of " + gameScore + "%, when it launched in " + gameRegions + colCart;
 	document.getElementById("frame").style.display = "block";
 	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
 	document.getElementById("thumb").src = document.getElementById(coverFlow[clicked_id-1]).src;
 	document.getElementById("thumb").style.backgroundColor = "rgb(0,0,0,0.7)";
-	if (pReg === "J" || pReg === "CH" || pReg === "ALTJ"  || pReg === "SEJ") {
+	if (pReg === "J" || pReg === "CH" || pReg === "ALTJ"  || pReg === "SEJ" || pReg === "LRGC") {
 	document.getElementById("thumb").style.width = "74px";
 	document.getElementById("thumb").style.padding = "0px 33px";
 	} else if (pReg === "DD") {
@@ -752,16 +977,55 @@ function reply_click(clicked_id){
 	document.getElementById("thumb").style.padding = "0px 33px";
 	} else if (pReg === "NFR" || pReg === "ALTN") {
 	document.getElementById("thumb").style.width = "0px"
+	} else if (pReg === "LRGS") {
+	document.getElementById("thumb").style.width = "90px";
+	document.getElementById("thumb").style.padding = "0px 25px";
 	} else {
 	document.getElementById("thumb").style.width = "140px";
 	document.getElementById("thumb").style.padding = "0px 0px";
 	}
 	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
+	document.getElementById("thumbBB").src = 'Backs/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png'; //make itterable.
+	document.getElementById("thumbMA").src = 'Manuals/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png'; //make itterable.
+	if (gFeatures.match("VRU")){
+	document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
+	} else if (gFeatures.match("Transfer Pak")){
+	document.getElementById("thumbA1").src = 'Accessories/Transfer Pak A1.png';
+	document.getElementById("thumbA2").src = 'Accessories/Transfer Pak A2.png';
+	} else {
 	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
 	document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
 	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
+	}
+	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
+		const simgBox = document.getElementById("art");
+		for (var m = 1; m <=7; m++){ //halve actual
+		const simg = document.createElement("img");
+		simg.src = 'Slideshow/Micro Machines 64 Turbo SEU/'+m+'.png';
+		simg.setAttribute('class', 'thumbs2');
+		simg.setAttribute('id', simg.src);
+		simg.style.display = 'inline-block';
+		simg.setAttribute('onclick', 'document.getElementById("canvas").style.display = "block"; document.getElementById("imgzoom").src = this.id');
+		simgBox.appendChild(simg);
+		}
+	} else {
+	const elements = document.getElementsByClassName("thumbs2");
+		while(elements.length > 0){
+			elements[0].parentNode.removeChild(elements[0]);
+		}
+	}
 	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png'; //REGULAR GREY CART
 	document.getElementById("thumbCC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' '+CC+'.png'; //COLOURED CART
+	if (gCode.includes("UKV")){
+	document.getElementById("thumbRC").src = 'Carts/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
+	} else if (gCode.includes("EUR")){
+	document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+	}
+	if (frametitle.innerHTML.includes("40 Winks E")){
+	document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	} else if (frametitle.innerHTML.includes("40 Winks SEE")){
+	document.getElementById("thumbRC").src = 'Carts/SEU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SEU.png';
+	}
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
 	myCollectionList.push([frametitle.innerHTML]);
@@ -784,24 +1048,99 @@ function reply_click(clicked_id){
 			if (myCollectionList[i][0] == document.getElementById("frametitle").innerHTML){
 				if (myCollectionList[i].includes(r+things[f])) {
 				document.getElementById(r+things[f]).checked = true;
+				document.getElementById(r+things[f]+"Spent").style.display = "inline-block";//show price paid
 				} else {
-				document.getElementById(r+things[f]).checked = false;
+					if (document.getElementById(r+things[f]) == null){
+					}else{
+					document.getElementById(r+things[f]).checked = false;
+					document.getElementById(r+things[f]+"Spent").style.display = "none"; //hide price paid
+					}
 				}
 			}
+		}
+	}
+	let h = myCollectionList.findIndex(e => e.includes(document.getElementById("frametitle").innerHTML));
+	let w = myCollectionList[h].findIndex(e => e.includes("cPaid"));
+	let v = myCollectionList[h].findIndex(e => e.includes("bPaid"));
+	let x = myCollectionList[h].findIndex(e => e.includes("mPaid"));
+	let y = myCollectionList[h].findIndex(e => e.includes("sPaid"));
+	let z = myCollectionList[h].findIndex(e => e.includes("aPaid")); //alts
+	if (!myCollectionList[h][w]){
+	[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.innerHTML = 'N/A';});
+	} else {
+	let cAdapted = gMoney+myCollectionList[h][w].slice(7,myCollectionList[h][w].length);
+	[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.innerHTML = cAdapted;});
+		if (parseInt(lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond)) < parseInt(myCollectionList[h][w].slice(7,myCollectionList[h][w].length))){
+		[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		}
+	}
+	if (!myCollectionList[h][v]){
+	[...document.getElementsByClassName('bPaid')].forEach((ele)=>{ele.innerHTML = 'N/A';});
+	} else {
+	let cAdapted = gMoney+myCollectionList[h][v].slice(7,myCollectionList[h][v].length);
+	[...document.getElementsByClassName('bPaid')].forEach((ele)=>{ele.innerHTML = cAdapted;});
+		if (Number(boxValue)+Number(cartValue) < Number(myCollectionList[h][v].slice(7,myCollectionList[h][v].length))){//NOT QUITE RIGHT <--
+		[...document.getElementsByClassName('bPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('bPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		}
+	}
+	if (!myCollectionList[h][x]){
+	[...document.getElementsByClassName('mPaid')].forEach((ele)=>{ele.innerHTML = 'N/A';});
+	} else {
+	let cAdapted = gMoney+myCollectionList[h][x].slice(7,myCollectionList[h][x].length);
+	[...document.getElementsByClassName('mPaid')].forEach((ele)=>{ele.innerHTML = cAdapted;});
+		if (parseInt(lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond)) < parseInt(myCollectionList[h][x].slice(7,myCollectionList[h][x].length))){
+		[...document.getElementsByClassName('mPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('mPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		}
+	}
+	if (!myCollectionList[h][y]){
+	[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.innerHTML = 'N/A';});
+	} else {
+	let cAdapted = gMoney+myCollectionList[h][y].slice(7,myCollectionList[h][y].length);
+	[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.innerHTML = cAdapted;});
+		if (sealedValue < parseInt(myCollectionList[h][y].slice(7,myCollectionList[h][y].length))){
+		[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		}
+	}
+	if (!myCollectionList[h][z]){
+	[...document.getElementsByClassName('aPaid')].forEach((ele)=>{ele.innerHTML = 'N/A';});
+	} else {
+	let cAdapted = gMoney+myCollectionList[h][z].slice(7,myCollectionList[h][z].length);
+	[...document.getElementsByClassName('aPaid')].forEach((ele)=>{ele.innerHTML = cAdapted;});
+		if (parseInt(lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond)) < parseInt(myCollectionList[h][z].slice(7,myCollectionList[h][z].length))){
+		[...document.getElementsByClassName('aPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('aPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
 		}
 	}
 }
 function check_click(clicked_id){
 	let rMatch = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
-	const parts = ["cartridge", "boxed", "manual"];
+	let gRegions = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
+	let indexOfFirst = lines[info].indexOf(gCurrency);
+	let indexOfSecond = lines[info].indexOf(gCurrency, (indexOfFirst + 1));
+	let indexOfThird = lines[info].indexOf(gCurrency, (indexOfSecond + 1));	
+	let parts = [];
+	if (document.getElementById("frametitle").innerHTML.match("LRGC")){
+		parts = ["cartridge", "boxed"];
+		} else {
+		parts = ["cartridge", "boxed", "manual"];
+	}
 	if (clicked_id.match(/sealed/g)){
 		for (p = 0; p < parts.length; p++) {
-			if (document.getElementById(rMatch+"sealed").checked == false){
-				if (document.getElementById(rMatch+parts[p]).checked == true){
+			if (!document.getElementById(rMatch+"sealed").checked){
+				if (document.getElementById(rMatch+parts[p]).checked){
 				document.getElementById(rMatch+parts[p]).click(); //uncheck all
 				}
 			} else {
-				if (document.getElementById(rMatch+parts[p]).checked == false){
+				if (!document.getElementById(rMatch+parts[p]).checked){
 				document.getElementById(rMatch+parts[p]).click(); //check all
 				}
 			}
@@ -812,24 +1151,34 @@ function check_click(clicked_id){
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
 				myCollectionList[m].push(clicked_id);
 			}
+			document.getElementById(clicked_id+"Spent").style.display = "inline-block";
 		}
-	} else if (document.getElementById(clicked_id).checked == false){ //when unchecking
+	} else if (!document.getElementById(clicked_id).checked){ //when unchecking
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
-			myCollectionList[m].splice(myCollectionList[m].indexOf(clicked_id), 1);
+			if (clicked_id.match("colcart")){
+			valPaid = "aPaid";
+			} else {
+			valPaid = clicked_id.charAt(gRegions.length)+"Paid";
 			}
+			//myCollectionList[m].splice(myCollectionList[m].indexOf(clicked_id), 1); //removing keeps game name but not part (fails with a price entered)
+			myCollectionList[m].splice(myCollectionList[m].indexOf(valPaid + ": "+document.getElementById(clicked_id+"Spent").childNodes[1].innerHTML.slice(1)), 1);
+			}
+			document.getElementById(clicked_id+"Spent").childNodes[1].innerHTML = "N/A";
+			document.getElementById(clicked_id+"Spent").style.display = "none";
+			document.getElementById(clicked_id+"Spent").style.color = "black";
 		}
-		if (document.getElementById("frametitle").innerHTML.match(/NFR/g)||document.getElementById("frametitle").innerHTML.match(/IQUE/g)){
+		if (document.getElementById("frametitle").innerHTML.match(/NFR|IQUE/g)){
 		} else {
-			if (document.getElementById(rMatch+"sealed").checked == true){
+			if (document.getElementById(rMatch+"sealed").checked){
 				document.getElementById(clicked_id).click();
 				document.getElementById(rMatch+"sealed").click();
 			}
 		}
 	} else {
-	}
+	}	
 	localStorage.myCollection = JSON.stringify(myCollectionList);
-	//alert(localStorage.myCollection + "\n\rActual!"); //UNCOMMENT FOR DEBUGGING
+	alert(localStorage.myCollection + "\n\rActual!"); //UNCOMMENT FOR DEBUGGING	
 }
 function prev() {
 	roundUp();
@@ -844,56 +1193,68 @@ function next() {
 function closeCard() {
 	roundUp();
 	document.getElementById("frame").style.display = "none";
-}
-var SearchValue;
-document.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
-        search();
-    }
-});
-function search() {
-searchValue = String(document.getElementById("searcher").value);
-//searchValue = searchValue.split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-//searchValue = searchValue.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('-');
-/*if (searchValue == "Fifa"){
-searchValue = "FIFA";
-} else if (searchValue == "F.r"|| searchValue == "Frea"){
-searchValue = "F.R.E.A.K.S";
-} else if (searchValue == "Gasp"){
-searchValue = "G.A.S.P";
-} else if (searchValue == "Hs"){
-searchValue = "HSV";
-} else if (searchValue == "Leg"){
-searchValue = "LEGO";
-} else if (searchValue == "Mr"){
-searchValue = "MRC";
-} else if (searchValue == "Nb"){
-searchValue = "NBA";
-} else if (searchValue == "Nf"){
-searchValue = "NFL";
-} else if (searchValue == "Nh"){
-searchValue = "NHL";
-} else if (searchValue == "Pg"){
-searchValue = "PGA";
-} else if (searchValue == "S.c"|| searchValue == "Scar"){
-searchValue = "S.C.A.R.S";
-} else if (searchValue == "S.w"||searchValue == "Swar"){
-searchValue = "S.W.A.R.M";
-}*/
-var elms = document.getElementsByTagName("*");
-var len = elms.length;
-	for(var ii = len-1; ii >= 0; ii--) {
-		var myChildred = elms[ii].childNodes;
-		len2 = myChildred.length;
-		for (var jj = 0; jj < len2; jj++) {
-			if(myChildred[jj].nodeType === 3) {
-				if (myChildred[jj].nodeValue.includes(searchValue, "gi")) {
-					document.getElementsByTagName("*")[ii].scrollIntoView({behavior: 'auto' }); window.scrollBy(0, -25); break;
-				}
-			}
-		}
+	if (myCollectionList.flat().filter(x => x.match(/cartridge|boxed|manual|sealed|Paid/gi)).length !== firstCount){ //doesnt change for value alterations... fix?
+	location.reload();
+	} else {
 	}
 }
+document.addEventListener('keydown', e => {
+	if ((e.ctrlKey || e.metaKey) && (e.key === 'f')) {
+	e.preventDefault();
+	document.getElementById("searcher").value = "";
+	document.getElementById("searcher").focus();
+	}
+	if (e.key === "Enter") {
+	search();
+	}
+	if (e.key === 'ArrowLeft') {
+		prev();
+	}
+	if (e.key === 'ArrowRight') {
+		next();
+	}
+	if (e.key === 'ArrowDown') {
+		//e.preventDefault();
+		//closeCard();
+	}  
+});
+function search(str) {
+	if (parseInt(navigator.appVersion)<4) return;
+	var strFound;
+	if (document.getElementById("searcher").value.match(/gasp/gi)){
+	str = "G.A.S.P";
+	} else if (document.getElementById("searcher").value.match(/bio freaks|freaks/gi)){
+	str = "bio f.r.e.a.k.s";
+	} else {
+	str = document.getElementById("searcher").value;
+	new Audio('Config/Sounds/'+str+'.wav').play();
+	}
+	if (window.find) {
+	strFound=self.find(str);
+	if (!strFound) {
+	strFound=self.find(str,0,1);
+	while (self.find(str,0,1)) continue;
+	}
+	}
+	else if (navigator.appName.indexOf("Microsoft")!=-1) {
+	if (TRange!=null) {
+	TRange.collapse(false);
+	strFound=TRange.findText(str);
+	if (strFound) TRange.select();
+	}
+	if (TRange==null || strFound==0) {
+	TRange=self.document.body.createTextRange();
+	strFound=TRange.findText(str);
+	if (strFound) TRange.select();
+	}
+	}
+	else if (navigator.appName=="Opera") {
+	alert ("Opera browsers not supported, sorry...")
+	return;
+	}	
+	return;
+}
+
 function thumbFunct(clicked_id) {
 document.getElementById("canvas").style.display = "block";
 document.getElementById("imgzoom").src = document.getElementById(clicked_id).src;
@@ -907,7 +1268,8 @@ function copyOutCollection() {
 document.getElementById("frame").style.display = "none";
 	if (confirm("𝗕𝗔𝗖𝗞𝗨𝗣 𝗬𝗢𝗨𝗥 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡?\n\nA *.P64 file will be created for safe keeping.")) {
 		navigator.clipboard.writeText(JSON.stringify(myCollectionList));
-		alert("𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡 𝗕𝗔𝗖𝗞𝗘𝗗 𝗨𝗣 𝗧𝗢:\n\nMYREALITY (DATE & TIME).P64");
+		var myToast = Toastify({text: "𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡 𝗕𝗔𝗖𝗞𝗘𝗗 𝗨𝗣 𝗧𝗢:\n\nMYREALITY (DATE & TIME).P64" , duration: 6000})
+		myToast.showToast();
 		var blob = new Blob([JSON.stringify(myCollectionList)], {type: "db/plain;charset=utf-8"});
 		var url = URL.createObjectURL(blob);
 		var b = document.createElement('a');
@@ -916,8 +1278,10 @@ document.getElementById("frame").style.display = "none";
 		b.textContent = "";
 		document.body.appendChild(b);
 		b.click();
+		new Audio('Config/Sounds/Horn.wav').play();
 	} else {
-		alert("𝗥𝗘𝗠𝗜𝗡𝗗𝗘𝗥:\n\nBackup your collection regularly!")
+		var myToast = Toastify({text: "𝗥𝗘𝗠𝗜𝗡𝗗𝗘𝗥:\n\nBackup your collection regularly!" , duration: 6000})
+		myToast.showToast();
 	}
 }
 function openFile() {
@@ -925,7 +1289,8 @@ document.getElementById("frame").style.display = "none";
 	if (confirm("𝗔𝗗𝗗-𝗜𝗡 𝗔𝗡 𝗘𝗫𝗜𝗦𝗧𝗜𝗡𝗚 *.𝗣𝟲𝟰 𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡?\n\nThis will erase your current collection.")) {
 	document.getElementById('inp').click();
 	} else {
-	alert("𝗜𝗠𝗣𝗢𝗥𝗧 𝗖𝗔𝗡𝗖𝗘𝗟𝗟𝗘𝗗!")
+	var myToast = Toastify({text: "𝗜𝗠𝗣𝗢𝗥𝗧 𝗖𝗔𝗡𝗖𝗘𝗟𝗟𝗘𝗗!" , duration: 6000})
+	myToast.showToast();
 	}
 }
 function readFile(e) {
@@ -956,10 +1321,12 @@ document.getElementById("frame").style.display = "none";
 		alert("𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝗜𝗢𝗡 𝗗𝗘𝗟𝗘𝗧𝗘𝗗!\n\nPage will be reloaded.");		
 		location.reload(); 
 		} else {
-		alert("𝗪𝗢𝗪 𝗧𝗛𝗔𝗧 𝗪𝗔𝗦 𝗪𝗔𝗬 𝗧𝗢𝗢 𝗖𝗟𝗢𝗦𝗘!!!")
+		var myToast = Toastify({text: "𝗪𝗢𝗪 𝗧𝗛𝗔𝗧 𝗪𝗔𝗦 𝗪𝗔𝗬 𝗧𝗢𝗢 𝗖𝗟𝗢𝗦𝗘!!!" , duration: 6000})
+		myToast.showToast();
 		}
 	} else {
-    alert("𝗧𝗛𝗔𝗧 𝗪𝗔𝗦 𝗖𝗟𝗢𝗦𝗘!")
+	var myToast = Toastify({text: "𝗧𝗛𝗔𝗧 𝗪𝗔𝗦 𝗖𝗟𝗢𝗦𝗘!" , duration: 6000})
+	myToast.showToast();
 	}
 }
 function roundUp () {
@@ -973,42 +1340,242 @@ function roundUp () {
 			if(myCollectionList[k][0] && myCollectionList[k][1]){
 			tally = tally +1;
 			}
-		}
-	document.getElementById("tally").innerHTML = "Total: "+(colourCounted+cartsCounted)+"<br>Boxed: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Sealed: "+sealedCounted+"<br>Section: "+myCount+"/"+titleCount;
-	if (myCount == titleCount){
-	alert("🏆 𝗪𝗲𝗹𝗹 𝗗𝗼𝗻𝗲 🏆\n\nYou own all titles in this category!");
+		}		
+	document.getElementById("tally").innerHTML = "<span style='font-weight:bold;color:white;'>TOTALS:</span><BR>Games: "+(colourCounted+cartsCounted)+"<br>Boxes: "+boxesCounted+"<br>Manuals: "+manualsCounted+"<br>Mint: "+sealedCounted+"<br>Section: "+myCount+"/"+titleCount;
+	document.getElementById("values").innerHTML = "<span style='font-weight:bold;color:white;'>VALUATION:</span><br>Unboxed: "+gMoney+Math.ceil(calculateSum(CONLYvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Boxed: "+gMoney+Math.ceil(calculateSum(CIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Mint: "+gMoney+Math.ceil(calculateSum(MIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>-------<br>Outlay: "+gMoney+result6;
+	//document.getElementById("values").innerHTML = "<span style='font-weight:bold;color:white;'>VALUATION:</span><br>Unboxed: "+gMoney+Math.ceil(calculateSum(CONLYvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Boxed: "+gMoney+Math.ceil(calculateSum(CIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Mint: "+gMoney+Math.ceil(calculateSum(MIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>-------<br>Outlay: "+gMoney+Math.ceil(result6 *currencyList[localStorage.moneyKey.slice(1,4)]);
+	if (myCount == titleCount){//TROPHIES\\
+	new Audio('Config/Sounds/Trophy.wav').play();
+	var myToast = Toastify({text: " 𝗪𝗲𝗹𝗹 𝗗𝗼𝗻𝗲!\n\nYou own all titles in this category.", style: {background: '#0096C8'}, avatar: "Config/Trophy.gif", duration: 6000})
+	myToast.showToast();
 	}
-	if (document.getElementById("Region").value == "MORE") {
-	alert("⁉️ 𝟭𝟬𝟭% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nIncludes 40 winks, Shindou editions and significant regional variants!");
-	}
-	//https://twitter.com/messages/compose?recipient_id=170775741
 }
 function share() {
-	if (confirm("𝗧𝗪𝗘𝗘𝗧 𝘆𝗼𝘂𝗿 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝘁𝗵𝗲 𝘄𝗼𝗿𝗹𝗱?\n\nTrack and share your "+tally+" variant N64 collection so far!")) {
-	window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/"+skullkid+"%20variants!%0A%0ATrack%20yours%20on%20%40defaultdnb%27s%20site%3A%20https%3A%2F%2Fdefaultdnb.github.io%2FPROJECTREALITY%2F%0A%0A%23PROJECTREALITYV2");
+	if (confirm("𝗦𝗛𝗔𝗥𝗘 𝘆𝗼𝘂𝗿 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝘁𝗵𝗲 𝘄𝗼𝗿𝗹𝗱?\n\nTrack and share your "+tally+" variant N64 collection so far!")) {
+	window.open("https://twitter.com/intent/tweet?text=My%20%23N64%20collection%20has%20grown%20to%20"+tally+"/"+skullkid+"%20variants!%0A%0ATrack%20your%20collection%20on%20%40defaultdnb%27s%20site%3A%20https%3A%2F%2Fdefaultdnb.github.io%2FPROJECTREALITY%2F%0A%0A%23PROJECTREALITYV2");
 	} else {
-	alert("𝗠𝗮𝘆𝗯𝗲 𝗮𝗻𝗼𝘁𝗵𝗲𝗿 𝘁𝗶𝗺𝗲?\n\nKeep collecting and then share when you're ready!");
+	var myToast = Toastify({text: "𝗠𝗮𝘆𝗯𝗲 𝗮𝗻𝗼𝘁𝗵𝗲𝗿 𝘁𝗶𝗺𝗲?\n\nKeep collecting & share when you're ready!", avatar: "Config/N64.gif", duration: 6000})
+	myToast.showToast();
 	}
+}
+function PrintElem(elem){
+	regionString = document.getElementById("Region").options[document.getElementById("Region").selectedIndex].title;
+	regionString = regionString.slice(0, regionString.indexOf("(")-1);
+	var myToast = Toastify({text: 'Printing specific need list' , duration: 10000});myToast.showToast();
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    mywindow.document.write('</head><body >');
+    mywindow.document.write('<h1> 𝗡𝟲𝟰 ('+regionString+') 𝗡𝗲𝗲𝗱 𝗟𝗶𝘀𝘁:</h1>');
+	mywindow.document.write('<h2>Just '+myNeedList.length+' to collect!</h2>');
+    mywindow.document.write(myNeedList.join(' - ⬜<br>'));
+    mywindow.document.write(' - ⬜<br></body></html>');
+    mywindow.document.close();
+    mywindow.focus();
+    mywindow.print();
+    mywindow.close();
+    return true;
 }
 function nsoInfo() {
 window.open("https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Nintendo-64-Nintendo-Switch-Online-2067751.html");
 }
-function needInfo() {
-	if (document.getElementById("Region").value == "ALL") {
-	alert("🔍 This sections need list:\n\nToo many to list in this section!");
+let curString = gMoney+gMoney+gMoney+"."+gMoney+gMoney;
+function cMoney() {
+	cPaid = prompt("𝗔𝗺𝗼𝘂𝗻𝘁 𝗽𝗮𝗶𝗱:", curString);
+	n = parseInt(cPaid);
+	if (isNaN(n)){
+	var myToast = Toastify({text: "𝙀𝙣𝙩𝙚𝙧 𝙖 𝙫𝙖𝙡𝙞𝙙 𝙣𝙪𝙢𝙗𝙚𝙧" , duration: 6000})
+	myToast.showToast();
 	} else {
-	alert('🔍 This sections need list:\n\n🔴 ' + myNeedList.join('\n🔴 '));
+	let h = myCollectionList.findIndex(e => e.includes(document.getElementById("frametitle").innerHTML));
+	let w = myCollectionList[h].findIndex(e => e.includes("cPaid"));
+		if (!myCollectionList[h][w]){
+		myCollectionList[h].push("cPaid: "+cPaid);
+		} else {
+		myCollectionList[h][w] = "cPaid: "+cPaid;
+		}
+	localStorage.myCollection = JSON.stringify(myCollectionList);
+	[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.innerHTML = gMoney+cPaid;});
+		if (Number(cartValue) < Number(cPaid)){
+		[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		}
 	}
 }
+function bMoney() {
+	bPaid = prompt("𝗔𝗺𝗼𝘂𝗻𝘁 𝗽𝗮𝗶𝗱:", curString);
+	n = parseInt(bPaid);
+	if (isNaN(n)){
+	var myToast = Toastify({text: "𝙀𝙣𝙩𝙚𝙧 𝙖 𝙫𝙖𝙡𝙞𝙙 𝙣𝙪𝙢𝙗𝙚𝙧" , duration: 6000})
+	myToast.showToast();
+	} else {
+	let h = myCollectionList.findIndex(e => e.includes(document.getElementById("frametitle").innerHTML));
+	let w = myCollectionList[h].findIndex(e => e.includes("bPaid"));
+		if (!myCollectionList[h][w]){
+		myCollectionList[h].push("bPaid: "+bPaid);
+		} else {
+		myCollectionList[h][w] = "bPaid: "+bPaid;
+		}
+	localStorage.myCollection = JSON.stringify(myCollectionList);
+	[...document.getElementsByClassName('bPaid')].forEach((ele)=>{ele.innerHTML = gMoney+bPaid;});
+		if (Number(boxValue) < Number(bPaid)+Number(cPaid)){
+		[...document.getElementsByClassName('bPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('bPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		}
+	}
+}
+function mMoney() {
+	mPaid = prompt("𝗔𝗺𝗼𝘂𝗻𝘁 𝗽𝗮𝗶𝗱:", curString);
+	n = parseInt(mPaid);
+	if (isNaN(n)){
+	var myToast = Toastify({text: "𝙀𝙣𝙩𝙚𝙧 𝙖 𝙫𝙖𝙡𝙞𝙙 𝙣𝙪𝙢𝙗𝙚𝙧" , duration: 6000})
+	myToast.showToast();
+	} else {
+	let h = myCollectionList.findIndex(e => e.includes(document.getElementById("frametitle").innerHTML));
+	let w = myCollectionList[h].findIndex(e => e.includes("mPaid"));
+		if (!myCollectionList[h][w]){
+		myCollectionList[h].push("mPaid: "+mPaid);
+		} else {
+		myCollectionList[h][w] = "mPaid: "+mPaid;
+		}
+	localStorage.myCollection = JSON.stringify(myCollectionList);
+	[...document.getElementsByClassName('mPaid')].forEach((ele)=>{ele.innerHTML = gMoney+mPaid;ele.style.color = 'purple';ele.title = '*𝗨𝗻𝗸𝗻𝗼𝘄𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+	}
+}
+function sMoney() {
+	sPaid = prompt("𝗔𝗺𝗼𝘂𝗻𝘁 𝗽𝗮𝗶𝗱:", curString);
+	n = parseInt(sPaid);
+	if (isNaN(n)){
+	var myToast = Toastify({text: "𝙀𝙣𝙩𝙚𝙧 𝙖 𝙫𝙖𝙡𝙞𝙙 𝙣𝙪𝙢𝙗𝙚𝙧" , duration: 6000})
+	myToast.showToast();
+	} else {
+	let h = myCollectionList.findIndex(e => e.includes(document.getElementById("frametitle").innerHTML));
+	let w = myCollectionList[h].findIndex(e => e.includes("sPaid"));
+		if (!myCollectionList[h][w]){
+		myCollectionList[h].push("sPaid: "+sPaid);
+		} else {
+		myCollectionList[h][w] = "sPaid: "+sPaid;
+		}
+	localStorage.myCollection = JSON.stringify(myCollectionList);
+	[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.innerHTML = gMoney+sPaid;});
+		if (Number(sealedValue) <= Number(sPaid)){
+		[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		}
+	}
+}
+function aMoney() {
+	aPaid = prompt("𝗔𝗺𝗼𝘂𝗻𝘁 𝗽𝗮𝗶𝗱:", curString);
+	n = parseInt(aPaid);
+	if (isNaN(n)){
+	var myToast = Toastify({text: "𝙀𝙣𝙩𝙚𝙧 𝙖 𝙫𝙖𝙡𝙞𝙙 𝙣𝙪𝙢𝙗𝙚𝙧" , duration: 6000})
+	myToast.showToast();
+	} else {
+	let h = myCollectionList.findIndex(e => e.includes(document.getElementById("frametitle").innerHTML));
+	let w = myCollectionList[h].findIndex(e => e.includes("aPaid"));
+		if (!myCollectionList[h][w]){
+		myCollectionList[h].push("aPaid: "+aPaid);
+		} else {
+		myCollectionList[h][w] = "aPaid: "+aPaid;
+		}
+	localStorage.myCollection = JSON.stringify(myCollectionList);
+	[...document.getElementsByClassName('aPaid')].forEach((ele)=>{ele.innerHTML = gMoney+aPaid;});
+		if (Number(cartValue) < Number(aPaid)){
+		[...document.getElementsByClassName('aPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		} else {
+		[...document.getElementsByClassName('aPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲!';});
+		}
+	}
+}
+function cake() {
+	if (localStorage.cake=="true") {
+	localStorage.cake = "false";
+	document.getElementById('cake').style.backgroundImage="url(Config/CAKEOFF.png)";
+	var myToast = Toastify({text: " 𝗕𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝗼𝗱𝗲 𝗱𝗶𝘀𝗮𝗯𝗹𝗲𝗱", style: {background: 'rgb(225,9,22)'}, avatar: "Config/N64.gif", duration: 6000})
+	myToast.showToast();
+	} else if (localStorage.cake == "false") {
+	localStorage.cake = "true";
+	new Audio('Config/Sounds/Quest.wav').play();
+	document.getElementById('cake').style.backgroundImage="url(Config/CAKEON.png)";
+	var myToast = Toastify({text: " 𝗕𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝗼𝗱𝗲 𝗲𝗻𝗮𝗯𝗹𝗲𝗱!", style: {background: 'rgb(50,153,0)'}, avatar: "Config/N64.gif", duration: 6000})
+	myToast.showToast();
+	}
+}
+function ineedthis() {
+let myZone = timeZone.slice(0, timeZone.indexOf("/"));
+let ebaySuffix = ".com";
+if (myZone.match("Europe")){ ebaySuffix = ".co.uk";}
+if (myZone.match("Australia")){ ebaySuffix = ".com.au";}
+window.open("https://www.ebay"+ebaySuffix+"/sch/139973/i.html?_from=R40&_nkw=n64+"+frametitle.innerHTML.replace(" ", "+"));
+}
+function gameLoop() {
+var gamepad = navigator.getGamepads()[0]; //controller 1
+    if (gamepad && gamepad.connected) {
+	var axes = gamepad.axes;
+	for (var i in axes) {//ANALOGUE
+	    if (axes[i] != 0) { 
+		var myToast = Toastify({text: i + " : "+ axes[i], style: {background: 'rgb(50,153,0)'}, avatar: "Config/N64.gif", duration: 6000});
+		myToast.showToast();
+		}
+		//retro-bit: L:0 -0 | R:0 0 | U:1 -0 | D:1 1
+	}
+	var buttons = gamepad.buttons;
+	for (var i in buttons) {//BUTTONS
+	    if (buttons[i].pressed == true) {
+		//gamepad.vibrationActuator.playEffect('vibration', {startDelay: 0, duration: 5000, weakMagnitude: 0.5, strongMagnitude: 1});
+		var myToast = Toastify({text: i, style: {background: 'rgb(50,153,0)'}, avatar: "Config/N64.gif", duration: 6000});
+		myToast.showToast();
+		}
+		if (buttons[0].pressed == true) {openFile();break;}
+		if (buttons[1].pressed == true) {copyOutCollection();break;}
+		if (buttons[2].pressed == true) {closeCard();break;}
+		if (buttons[3].pressed == true) {prev();break;}		
+		if (buttons[4].pressed == true) {PrintElem();break;}
+		if (buttons[5].pressed == true) {location.reload();break;}
+		if (buttons[7].pressed == true) {nuke();break;}
+		if (buttons[9].pressed == true) { break;}//confirm/check/tick
+		if (buttons[10].pressed == true) {next();break;}
+		//retro-bit L:4 | R:5 | B:1 | A:0 | CL:3 | CU:11 | CR:10 | CD:2 | ZL/ZR: 6/7 | DL:14 | DU:12 | DR:15 | DD:13 | START:9 | SELECT:8
+		}
+	}
+}
+var game_loop;
+window.addEventListener("gamepadconnected", function(e) {
+	var myToast = Toastify({text: " " + e.gamepad.id + " connected", style: {background: 'rgb(50,153,0)'}, avatar: "Config/Pad.png", duration: 6000});
+	myToast.showToast();
+	game_loop = setInterval(gameLoop, 70);  //checks per second.
+});
+window.addEventListener("gamepaddisconnected", function(e) {
+    var myToast = Toastify({text: " " + e.gamepad.id + " disconnected", style: {background: 'rgb(225,9,22)'}, avatar: "Config/Pad.png", duration: 6000});
+	myToast.showToast();
+    clearInterval(game_loop);
+});
+function copyToClippy() {
+	navigator.clipboard.writeText(frametitle.innerHTML);
+	var myToast = Toastify({text: "'" + frametitle.innerHTML + "' copied to clipboard", style: {background: 'rgb(50,153,0)'}, avatar: "Config/N64.gif", duration: 6000});
+	myToast.showToast();
+}
 </script>
-<button id="top" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝘁𝗼𝗽" onclick="document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto' }); noscroll();" class="buttonU">↑</button>
-<input type="text" value="" id="searcher" placeholder="Find" onclick="this.value='';" style='font-size: 25px;' autofocus />
-<div id="tally" title="𝗗𝗶𝘀𝗽𝗹𝗮𝘆𝘀 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀 𝗶𝗻 𝘁𝗼𝘁𝗮𝗹/𝗰𝘂𝗿𝗿𝗲𝗻𝘁 𝗿𝗲𝗴𝗶𝗼𝗻 𝘀𝗲𝗰𝘁𝗶𝗼𝗻."></div>
+<img id="top" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝘁𝗼𝗽" onclick="document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto' }); noscroll();" src="Config/CUP.png" class="buttonU"/>
+<input type="text" value="" id="searcher" placeholder="𝗙𝗶𝗻𝗱" onclick="this.value='';" style='font-size: 25px;' autofocus />
+ <div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+	<div id="tally" title="𝗗𝗶𝘀𝗽𝗹𝗮𝘆𝘀 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀 𝗶𝗻 𝘁𝗼𝘁𝗮𝗹/𝗰𝘂𝗿𝗿𝗲𝗻𝘁 𝗿𝗲𝗴𝗶𝗼𝗻 𝘀𝗲𝗰𝘁𝗶𝗼𝗻."></div>
+    </div>
+    <div class="flip-box-back">
+	<div id="values" title="𝗗𝗶𝘀𝗽𝗹𝗮𝘆𝘀 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘃𝗮𝗹𝘂𝗲."></div>
+    </div>
+  </div>
+</div>
 <img id="backup" title="𝗕𝗮𝗰𝗸𝘂𝗽 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝗳𝗶𝗹𝗲." onclick="copyOutCollection();" src="Config/BBUT.png" />
 <img id="restore" title="𝗔𝗱𝗱-𝗶𝗻 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗳𝗿𝗼𝗺 𝗳𝗶𝗹𝗲." onclick="openFile()" src="Config/ABUT.png" />
 <input id="inp" type='file' style="visibility:hidden;" accept=".P64" onchange="readFile(event)" />
-<img id="nuke" title="𝗣𝘂𝗹𝗹 𝘁𝗵𝗲 𝘁𝗿𝗶𝗴𝗴𝗲𝗿 & 𝗱𝗲𝗹𝗲𝘁𝗲 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻." onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" src="Config/ZBUT.png" />
-<div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀 𝗼𝗻 𝗧𝘄𝗶𝘁𝘁𝗲𝗿!"></div>
-<button id="bottom" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝗯𝗼𝘁𝘁𝗼𝗺" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" class="buttonD">↓</button>
-<div id="footer" class="footer">DEFAULTDNB 2023</div><img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/CDOWN.png" onmousedown="localStorage.removeItem('regKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
+<img id="nuke" title="𝗣𝘂𝗹𝗹 𝘁𝗵𝗲 𝘁𝗿𝗶𝗴𝗴𝗲𝗿: 𝗱𝗲𝗹𝗲𝘁𝗲 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻." onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" src="Config/ZBUT.png" />
+<div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀!"></div>
+<img id="bottom" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝗯𝗼𝘁𝘁𝗼𝗺" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" src="Config/CDOWN.png" class="buttonD"/>
+<img id="pussy" src="Config/MEOW.png" class="pussy" onmouseover="new Audio('Config/Sounds/Meow.wav').play();"/>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB 2023</span></div><img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/CDOWN.png" onmousedown="localStorage.removeItem('regKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>

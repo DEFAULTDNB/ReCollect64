@@ -1,0 +1,13 @@
+Kobe Bryant in NBA Courtside 
+PLAYERS=1-4 
+GENRE=Sports 
+PUB=Nintendo 
+DATE=Apr 27, 1998 
+SCORE=82 
+REGION=ALTU 
+SIZE=12MB 
+EXPAK=0 
+CIC=6103 
+CODE=NUS-NNBE-USA 
+MEMPAK=2 
+FEATURES=Million seller sticker variant.
