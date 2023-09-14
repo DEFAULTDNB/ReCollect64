@@ -13,7 +13,7 @@
 <script>
 	var cPaid, bPaid, mPaid, sPaid, aPaid, dPaid, gCurrency;
 	var result1,result2,result3,result4,result5,result6 = 0;
-	var skullkid = 1513;
+	var skullkid = 1519;
 	var myCount = 0;
 	var myCollectionList = [];
 	var firstCount;
@@ -68,7 +68,7 @@
 <body>
 <div id="canvas" onmouseup="document.getElementById('canvas').style.display = 'none';" onmouseleave="document.getElementById('canvas').style.display = 'none';" style="display:none">
 <div class="card-header" id="frametitle2">𝗖𝗟𝗜𝗖𝗞 𝗧𝗢 𝗖𝗟𝗢𝗦𝗘 𝗔𝗥𝗧𝗪𝗢𝗥𝗞</div>
-<span class="closebtn"><img id="start" src="Config/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗯𝗼𝘅 𝗮𝗿𝘁" onclick="document.getElementById('canvas').style.display = 'none';"/></span>
+<span class="closebtn"><!--img id="navL" src="Config/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prevThumb();"/--><img id="start" src="Config/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="document.getElementById('canvas').style.display = 'none';"/><!--img id="navR" src="Config/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="nextThumb();"/--></span>
 <img id="imgzoom" src="" onmouseleave="display:none" title="𝗖𝗹𝗶𝗰𝗸 𝘁𝗼 𝗰𝗹𝗼𝘀𝗲" />
 </div>
 <div id="gcount" onchange="checkCombo();"></div>
@@ -167,7 +167,8 @@
 					<img id="thumbCC" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbRC" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbDI" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-					<img id="thumbMA" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '70px'; this.style.paddingLeft = '35px'; this.style.paddingRight = '35px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbMA" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<!--img id="thumbMA" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '70px'; this.style.paddingLeft = '35px'; this.style.paddingRight = '35px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'-->
 					<img id="thumbA1" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA2" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA3" class="thumbs" src='' onload="this.style.display = 'inline-block'; this.style.width = '100px'; this.style.paddingLeft = '20px'; this.style.paddingRight = '20px'; this.style.backgroundColor = 'rgb(0,0,0,0.7)';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
@@ -440,14 +441,12 @@ var currencyList = {USD:1.26, YEN:183.94, EUR:1.17, BRL:6.23, CHN:9.14, AUD:1.95
 document.getElementById("overlay").style.display = "block";
 document.getElementById("overlaytext").innerHTML = "Loading..";
 localStorage.removeItem("myCollectionList");
-if (localStorage.moneyKey==null) {
-	localStorage.moneyKey = document.getElementById("Currency").value;
-	} else {
-	document.getElementById("Currency").value = localStorage.moneyKey;
-}
 if (localStorage.regKey==null){
 	alert("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗡𝗲𝘅𝘂𝘀𝟲𝟰: 𝘁𝗵𝗲 𝘂𝗹𝘁𝗶𝗺𝗮𝘁𝗲 𝗡𝟲𝟰 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗿𝗮𝗰𝗸𝗲𝗿!\n\nYour location has been detected as: '" + timeZone.slice(0, timeZone.indexOf("/")) + "' so an initial region & currency has automatically been set for you.\n\n𝗨𝘀𝗮𝗴𝗲 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀:\n⚫ Click a tile to open a games sub menu, enjoy the info/art and tick off items you have.\n⚫ Click the (R) button to refresh page, hilight & count titles.\n⚫ Click the (L) button to show your need list.\n⚫ Click the (B) button to back up your collection.\n⚫ Click the (A) button to import a previously backed up collection.\n⚫ Click the (C-LEFT/RIGHT) buttons to move between titles.\n⚫ Click the (C-DOWN) button to close a title.\n⚫ Click the (Z) trigger to delete your current collection.\n⚫ Search with CTRL+F.\n\n(𝗡𝗢𝗧𝗘: 𝗕𝗮𝗰𝗸𝘂𝗽 𝗿𝗲𝗴𝘂𝗹𝗮𝗿𝗹𝘆, 𝗲𝘀𝗽𝗲𝗰𝗶𝗮𝗹𝗹𝘆 𝗼𝗻 𝗺𝗼𝗯𝗶𝗹𝗲 𝗱𝗲𝘃𝗶𝗰𝗲𝘀!)\n\nYou can now swap between regional collections & currency at any time from the drop down menus at the top.\n\n𝙃𝙖𝙫𝙚 𝙛𝙪𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜! ~ 𝘿𝘿𝙉𝘽");
-	if (timeZone.slice(0, timeZone.indexOf("/")) == "Australia"||"Africa"||"Etc"||"Europe"||"Indian"){
+	if (timeZone.slice(0, timeZone.indexOf("/")) == "Australia"){
+	document.getElementById("Region").value = "EUR";
+	document.getElementById("Currency").value = "$AUD";
+	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Africa"||"Etc"||"Europe"||"Indian"){
 	document.getElementById("Region").value = "EUR";
 	document.getElementById("Currency").value = "€EUR";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Antarctica"||"America"||"Atlantic"||"Canada"||"Pacific"||"US"){
@@ -467,6 +466,11 @@ if (localStorage.regKey==null){
 	location.reload();
 } else {
 document.getElementById("Region").value = localStorage.regKey.slice(0, -4);
+}
+if (localStorage.moneyKey==null) {
+	localStorage.moneyKey = document.getElementById("Currency").value;
+	} else {
+	document.getElementById("Currency").value = localStorage.moneyKey;
 }
 function changeRegion() {
 localStorage.regKey = document.getElementById("Region").value+".cfg";
@@ -743,7 +747,7 @@ function reply_click(clicked_id){
 	const regions = ["A","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","KO","LRG","LRGC","LRGS","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV"];
 	const things = ["cartridge","boxed","manual","sealed","colcart"];
 	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 A","Pokemon Stadium 2 BR","Pokemon Stadium 2 D","Pokemon Stadium 2 E","Pokemon Stadium 2 F","Pokemon Stadium 2 I","Pokemon Stadium 2 S","Pokemon Stadium 2 U","Pokemon Stadium 2 NFR","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
-	firstCount = myCollectionList.flat().filter(x => x.match(/cartridge|boxed|manual|sealed|Paid/gi)).length;
+	firstCount = myCollectionList.flat().filter(x => x.match(/cartridge|boxed|manual|sealed|Paid/gi)).length; //maybe hash it?
 	let gameTitle = lines[clicked_id-1].slice(lines[clicked_id-1], (lines[clicked_id-1].indexOf("PLAYERS=")-1));
 	let gamePlayers = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1));
 	let gameGenre = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1));
@@ -880,7 +884,7 @@ function reply_click(clicked_id){
 	document.getElementById("frametitle").innerHTML = gameTitle + " " + gameRegions;
 	document.getElementById(gameRegions+"cart").style.display = "inline-block";
 	if ((clicked_id) == "1") {
-	document.getElementById("navL").style.display = "none";
+	document.getElementById("navL").style.display = "none"; //change these to cycle instead of hide
 	} else {
 	document.getElementById("navL").style.display = "inline-block";
 	}
@@ -966,9 +970,11 @@ function reply_click(clicked_id){
 	if (pReg === "J" || pReg === "CH" || pReg === "ALTJ"  || pReg === "SEJ" || pReg === "LRGC") {
 	document.getElementById("thumb").style.width = "74px";
 	document.getElementById("thumb").style.padding = "0px 33px";
-	} else if (pReg === "DD") {
+	} else if (pReg === "DD") {	
 	document.getElementById("thumb").style.width = "110px";
+	document.getElementById("thumbMA").style.width = "110px";
 	document.getElementById("thumb").style.padding = "0px 15px";
+	document.getElementById("thumbMA").style.padding = "0px 15px";
 	} else if (pReg === "IQUE") {
 	document.getElementById("thumb").style.width = "60px";
 	document.getElementById("thumb").style.padding = "0px 40px";
@@ -982,11 +988,13 @@ function reply_click(clicked_id){
 	document.getElementById("thumb").style.padding = "0px 25px";
 	} else {
 	document.getElementById("thumb").style.width = "140px";
+	document.getElementById("thumbMA").style.width = "70px";
 	document.getElementById("thumb").style.padding = "0px 0px";
+	document.getElementById("thumbMA").style.padding = "0px 35px";
 	}
 	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
-	document.getElementById("thumbBB").src = 'Backs/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png'; //make itterable.
-	document.getElementById("thumbMA").src = 'Manuals/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png'; //make itterable.
+	document.getElementById("thumbBB").src = 'Backs/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
+	document.getElementById("thumbMA").src = 'Manuals/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	if (gFeatures.match("VRU")){
 	document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
 	} else if (gFeatures.match("Transfer Pak")){
@@ -999,7 +1007,7 @@ function reply_click(clicked_id){
 	}
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
 		const simgBox = document.getElementById("art");
-		for (var m = 1; m <=7; m++){ //halve actual
+		for (var m = 1; m <=7; m++){ //halve number
 		const simg = document.createElement("img");
 		simg.src = 'Slideshow/Micro Machines 64 Turbo SEU/'+m+'.png';
 		simg.setAttribute('class', 'thumbs2');
@@ -1178,7 +1186,7 @@ function check_click(clicked_id){
 	} else {
 	}	
 	localStorage.myCollection = JSON.stringify(myCollectionList);
-	//alert(localStorage.myCollection + "\n\rActual!"); //UNCOMMENT FOR DEBUGGING!
+	//alert(localStorage.myCollection + "\n\rActual!"); //UNCOMMENT FOR DEBUGGING	
 }
 function prev() {
 	roundUp();
@@ -1189,6 +1197,15 @@ function next() {
 	roundUp();
 	document.getElementById(nextCard).click();
 	document.getElementById('card'+(nextCard-1)).scrollIntoView({behavior: 'auto' });
+}
+function prevThumb() {
+//cycle images from populated 'thumb' elements
+//array (thumb, thumbA1, thumbA2, thumbA3, thumbBB, thumbCC, thumbDI, thumbMA, thumbRC)
+//if error skip, else show.
+//document.getElementById("imgzoom").src = document.getElementById(x).src
+}
+function nextThumb() {
+//document.getElementById("imgzoom").src =
 }
 function closeCard() {
 	roundUp();
