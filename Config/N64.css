@@ -24,12 +24,20 @@ select {
 	border: thin solid #C1BED1;
 	background-color: rgba(0,0,0,0.5);
 	color: white;
-	text-shadow: 1.5px 2px #000000;
+	text-shadow: 1px 2px 2px #000000;
 	font-size: 17px;
+	font-weight: 700;
+	cursor: pointer;
+	overflow: auto;
+	scrollbar-width: none;
+	scrollbar-gutter: auto | stable && bothEdges;
+	outline: none;
+	box-shadow: none;
 }
 .thumbnail:hover {
-	border: thin dashed yellow;
-	background-color: rgba(0,255,0,0.2);
+	outline: 3px dashed red;
+	background-color: rgba(255,255,255,0.2);
+	position: relative;
 }
 #main {
 	display: flex;
@@ -39,15 +47,17 @@ select {
 }
 #canvas {
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	--top: 50%;
+	top:15px;
+	right: 25vw;
+	--transform: translate(-50%, -50%);
 	width: natural;
 	height: natural;
 	border: 5px solid #FFC001;
 	border-color: #C1BED1;
 	z-index: 1000;
 	background: #C1BED1;
+	display: none;
 }
 #frame {
 	position: fixed;
@@ -74,7 +84,8 @@ select {
 #frametitle2 {
 	color: #011DA9;
 	background-color: #C1BED1;
-	text-align: center;
+	text-align: left;
+	--text-align: center;
 	font-size: 22px;
 }
 #a1 {
@@ -176,46 +187,49 @@ select {
   padding: 0px;
 }
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 2px solid #C1BED1;
-  padding: 5px;
-  font-size: 18px;
-  text-align: left;
+	background-color: rgba(255, 255, 255, 0.7);
+	border: 2px solid #C1BED1;
+	padding: 5px;
+	font-size: 18px;
+	text-align: left;
 }
 .closebtn {
-  position: absolute;
-  top:-5px;
-  right: 2px;
-  color: #C20D02;
-  font-size: 30px;
-  cursor: pointer;
-  z-index: 999;
+	position: absolute;
+	top:-5px;
+	right: 2px;
+	color: #C20D02;
+	font-size: 30px;
+	cursor: pointer;
+	z-index: 999;
 }
 .closebtn:hover {
-  color: lightgrey;
-  z-index: 999;
+	color: lightgrey;
+	z-index: 999;
 }
 #overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 2;
-  cursor: pointer;
+	position: fixed;
+	display: none;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.9);
+	z-index: 2;
+	overflow: auto;
 }
-#overlaytext{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 50px;
-  color: white;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
+#overlaytext {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-size: 22px;
+	color: white;
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+}
+.checker {
+	cursor: pointer;
 }
 .buttonU {
 	position: fixed;
@@ -234,6 +248,7 @@ select {
 	left: 6px;
 	display: inline-block;
 	width: 52px;
+	transition: 0.2s ease-in-out;
 }
 #searcher:hover {
 	width: 150px;
@@ -414,11 +429,23 @@ select {
 #navR:hover {
 	opacity: 1;
 }
-#start {
+#navD {
 	height: 42px;
 	width: 42px;
 	opacity: 0.5;
 	position: relative;
+	cursor: pointer;
+	top: -5px;
+}
+#navD:hover {
+	opacity: 1;
+}
+#start {
+	height: 52px;
+	width: 52px;
+	opacity: 0.5;
+	position: relative;
+	cursor: pointer;
 	top: -5px;
 }
 #start:hover {
@@ -758,4 +785,8 @@ select {
 }
 #Region{
 	z-index: 999;
+}
+::selection {
+  color: red;
+  background-color: white;
 }
