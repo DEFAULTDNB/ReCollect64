@@ -218,6 +218,7 @@ select {
 	background-color: rgba(0,0,0,0.9);
 	z-index: 2;
 	overflow: auto;
+	max-height: 100vh;
 }
 #overlaytext {
 	position: absolute;
@@ -439,7 +440,7 @@ select {
 }
 #navD:hover {
 	opacity: 1;
-}
+}	
 #start {
 	height: 52px;
 	width: 52px;

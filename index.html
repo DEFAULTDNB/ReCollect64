@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
 <title>Nexus64</title>
 <link rel="stylesheet" href="Config/N64.css">
 <script src="Config/toastify.js"></script>
@@ -1498,8 +1498,8 @@ function roundUp () {
 	//document.getElementById("values").innerHTML = "<span style='font-weight:bold;color:white;'>VALUATION:</span><br>Unboxed: "+gMoney+Math.ceil(calculateSum(CONLYvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Boxed: "+gMoney+Math.ceil(calculateSum(CIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Mint: "+gMoney+Math.ceil(calculateSum(MIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>-------<br>Outlay: "+gMoney+Math.ceil(result6 *currencyList[localStorage.moneyKey.slice(1,4)]);
 	if (myCount == titleCount){//TROPHIES\\
 	new Audio('Config/Sounds/Trophy.wav').play();
-	var myToast = Toastify({text: " 𝗪𝗲𝗹𝗹 𝗗𝗼𝗻𝗲!\n\nYou own all titles in this category.", style: {background: '#0096C8'}, avatar: "Config/Trophy.gif", duration: 6000})
-	myToast.showToast();
+	var myToast = Toastify({text: " 𝗪𝗲𝗹𝗹 𝗗𝗼𝗻𝗲!\n\nYou own all titles in this category.", style: {background: '#0096C8'}, avatar: "Config/Trophy.gif", duration: 6000});	myToast.showToast();
+	document.getElementById("start").style.visibility = "hidden";
 	}
 }
 function share() {
@@ -1715,22 +1715,15 @@ function speedRun() {
 	document.body.style.overflow = "hidden";
 	var myToast = Toastify({text: '𝗦𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗠𝗼𝗱𝗲!', duration: 6000}); myToast.showToast();
 	const myTimeout = setTimeout(startRun, 500);
-}5
+}
 function startRun() {
-	if (myCount == titleCount){
-		var myToast = Toastify({text: '𝗡𝗼 𝗺𝗼𝗿𝗲 𝗴𝗮𝗺𝗲𝘀 𝘁𝗼 𝗮𝗱𝗱 𝗶𝗻 𝘁𝗵𝗶𝘀 𝘀𝗲𝗰𝘁𝗶𝗼𝗻!', avatar: "Config/Trophy.gif", duration: 6000}); myToast.showToast();
-		document.getElementById("overlaytext").style.transform = "translate(-50%,-200px)";
-		document.getElementById("overlaytext").innerHTML = "<center>All games added!</center><br><hr>Pull the trigger to exit.<br><hr>"
-		document.getElementById("overlaytext").innerHTML +="<center><br><img id='navD' title='𝗘𝗻𝗱 𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻' src='Config/ZBUT.png' onclick='hideOverlay();' /></center>";
-	} else {
 		document.getElementById("overlaytext").style.transform = "translate(-50%,-200px)";
 		document.getElementById("overlaytext").innerHTML = "<center>𝗖𝗵𝗲𝗰𝗸 𝗮 𝗯𝗼𝘅 𝘁𝗼 𝗮𝗱𝗱 𝗮 𝗴𝗮𝗺𝗲:</center><br><br>"
 		for (n = 0; n < myNeedList.length; n++){
-		document.getElementById("overlaytext").innerHTML += myNeedList[n] + " - <input type='checkbox' title='Click to add/remove' class='checker' id='"+myNeedList[n]+"cartridge' onclick='quickAddRemove(),reply_id();'/><br><hr>";
+		document.getElementById("overlaytext").innerHTML += "<input type='checkbox' title='Click to add/remove' class='checker' id='"+myNeedList[n]+"cartridge' onclick='quickAddRemove(),reply_id();'/> - "+myNeedList[n] + "<br><hr>";
 		}
 		var myToast = Toastify({text: 'You can quick-add game carts\nfrom the selected region here:', style:{background: 'rgb(50,153,0)'}, duration: 10000}); myToast.showToast();
-		document.getElementById("overlaytext").innerHTML +="<center><br><img id='navD' title='End Speed Run' src='Config/ZBUT.png' onclick='hideOverlay();'/></center>";
-	}
+		var myToast = Toastify({text: '𝗖𝗹𝗶𝗰𝗸 𝗵𝗲𝗿𝗲 𝘁𝗼 𝗲𝗻𝗱\n\n𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗠𝗼𝗱𝗲', style:{background: 'rgb(225,9,22)'}, position: "left", onClick: function(){hideOverlay()}, duration: -1}); myToast.showToast();
 }
 function quickAddRemove() {
 	reply_id = function() {
