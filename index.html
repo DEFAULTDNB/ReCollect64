@@ -10,14 +10,18 @@
 <link rel="icon" href="Config/favicon.ico" type="image/x-icon" />
 <link rel="apple-touch-icon" href="Config/favicon.png" />
 <div id="cake" onclick="cake();" title="𝗧𝗼𝗴𝗴𝗹𝗲 𝗕𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝗼𝗱𝗲!"></div>
+<label id="debugL" title="𝗧𝗢𝗚𝗚𝗟𝗘 𝗗𝗘𝗕𝗨𝗚" class="switch"><input type="checkbox" onClick="toggleDebug();" id="debugC"><span class="slider round yellow"></span></label>
+<label id="muteL" title="𝗧𝗢𝗚𝗚𝗟𝗘 𝗠𝗨𝗧𝗘" class="switch"><input type="checkbox" onClick="toggleMute();" id="muteC"><span class="slider round"></span></label>
 <script>
 	var cPaid, bPaid, mPaid, sPaid, aPaid, dPaid, gCurrency;
 	var result1,result2,result3,result4,result5,result6 = 0;
-	var skullkid = 1571;
+	var skullkid = 1572;
 	var myCount = 0;
 	var myCollectionList = [];
 	var firstCount;
 	var cartsCounted = colourCounted = boxesCounted = manualsCounted = sealedCounted = tally = 0;
+	var myAudio;
+	var myVolume = 1.0;
 	function calculateSum(array) {
 	let total = 0;
 	array.forEach(value => {total += Number(value);});
@@ -536,18 +540,70 @@ if (localStorage.regKey==null){
 } else {
 document.getElementById("Region").value = localStorage.regKey.slice(0, -4);
 }
+function changeRegion() {
+localStorage.regKey = document.getElementById("Region").value+".cfg";
+location.reload();
+}
 if (localStorage.moneyKey==null) {
 	localStorage.moneyKey = document.getElementById("Currency").value;
 	} else {
 	document.getElementById("Currency").value = localStorage.moneyKey;
 }
-function changeRegion() {
-localStorage.regKey = document.getElementById("Region").value+".cfg";
-location.reload();
-}
 function bureauDeChange() {
 localStorage.moneyKey = document.getElementById("Currency").value;
 location.reload();
+}
+if (localStorage.debug==null){
+	localStorage.debug = "false";
+	document.getElementById("debugC").checked = false;
+	document.getElementById("start").style.visibility = "visible";
+	} else if (localStorage.debug=="true"){
+	document.getElementById("debugC").checked = true;
+	var myToast = Toastify({text: '𝗗𝗲𝗯𝘂𝗴: 𝗘𝗻𝗮𝗯𝗹𝗲𝗱\n(𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻: 𝗗𝗶𝘀𝗮𝗯𝗹𝗲𝗱)', style:{background: 'rgb(50,153,0)'}, duration: 5000}); myToast.showToast();
+	document.getElementById("start").style.visibility = "hidden";
+	} else if (localStorage.debug=="false"){
+	document.getElementById("debugC").checked = false;
+	document.getElementById("start").style.visibility = "visible";
+}
+function toggleDebug() {
+	if (localStorage.debug=="true"){
+	localStorage.debug = "false";
+	document.getElementById("start").style.visibility = "visible";
+		if (document.getElementById("Region").value == "ALL"){
+		var myToast = Toastify({text: '𝗗𝗲𝗯𝘂𝗴: 𝗗𝗶𝘀𝗮𝗯𝗹𝗲𝗱\n𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗛𝗶𝗱𝗱𝗲𝗻', style:{background: 'rgb(255,9,22)'} , duration: 6000});myToast.showToast();
+		} else {
+		var myToast = Toastify({text: '𝗗𝗲𝗯𝘂𝗴: 𝗗𝗶𝘀𝗮𝗯𝗹𝗲𝗱\n𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻: 𝗘𝗻𝗮𝗯𝗹𝗲𝗱!', style:{background: 'rgb(255,9,22)'}, duration: 5000}); myToast.showToast();	
+		}
+	} else if (localStorage.debug=="false"){
+	localStorage.debug = "true";
+	var myToast = Toastify({text: '𝗗𝗲𝗯𝘂𝗴: 𝗘𝗻𝗮𝗯𝗹𝗲𝗱\n(𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻: 𝗗𝗶𝘀𝗮𝗯𝗹𝗲𝗱)', style:{background: 'rgb(50,153,0)'}, duration: 5000}); myToast.showToast();
+	document.getElementById("start").style.visibility = "hidden";
+	}
+	if (document.getElementById("Region").value == "ALL"){
+		document.getElementById("start").style.visibility = "hidden";
+	}
+}
+if (localStorage.mute==null){
+	localStorage.mute = "false";
+	myVolume = 0.0;	document.getElementById("muteC").checked = false;
+	} else if (localStorage.mute=="true"){
+	myVolume = 1.0;	document.getElementById("muteC").checked = true;
+	} else if (localStorage.mute=="false"){
+	var myToast = Toastify({text: '𝗦𝗙𝗫 𝗮𝗿𝗲 𝗠𝘂𝘁𝗲𝗱!', style:{background: 'rgb(255,9,22)'}, duration: 5000}); myToast.showToast();
+	myVolume = 0.0;	document.getElementById("muteC").checked = false;
+}
+function toggleMute() {
+	if (localStorage.mute=="true"){
+	myVolume = 0.0;	myAudio = new Audio('Config/Sounds/Horn.wav');
+	myAudio.volume = myVolume; myAudio.play();
+	localStorage.mute = "false";
+	var myToast = Toastify({text: '𝗦𝗙𝗫 𝗠𝘂𝘁𝗲𝗱!', style:{background: 'rgb(255,9,22)'}, duration: 6000}); myToast.showToast();
+	} else if (localStorage.mute=="false"){
+	myVolume = 1.0;	myAudio = new Audio('Config/Sounds/Horn.wav');
+	myAudio.volume = myVolume; myAudio.play();
+	localStorage.mute = "true";
+	var myToast = Toastify({text: '𝗦𝗙𝗫 𝗘𝗻𝗮𝗯𝗹𝗲𝗱!', style:{background: 'rgb(50,153,0)'}, duration: 6000}); myToast.showToast();
+	}
 }
 var gCurrency = "£";
 var gMoney = localStorage.moneyKey.slice(0,1);
@@ -608,7 +664,9 @@ for (i=0; i < titleCount; i++){
 	}
 	if (localStorage.cake == "true"){
 		if (new Date().toUTCString().slice(5, 11) === gYear.slice(4, gYear.indexOf(","))+" "+gYear.slice(0, 3)){
-		new Audio('Config/Sounds/Party.wav').play();
+
+		myAudio = new Audio('Config/Sounds/Party.wav');
+		myAudio.volume = myVolume; myAudio.play();
 		let thisYear = new Date().getFullYear();
 		let thatYear = gYear.slice(7,12);
 		let age = Number(thisYear - thatYear);
@@ -791,16 +849,16 @@ for (i=0; i < titleCount; i++){
 	}
 }
 if (document.getElementById("Region").value == "ALL") {
-document.getElementById("start").style.visibility = "hidden";
-var myToast = Toastify({text: "𝗘𝘃𝗲𝗿𝘆 𝗩𝗲𝗿𝘀𝗶𝗼𝗻:\n\nEvery game variant found in across the globe.", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000}); myToast.showToast();
-var myToast = Toastify({text: '𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗛𝗶𝗱𝗱𝗲𝗻:\n\nToo many games to list in this section!' , duration: 6000});myToast.showToast();
-
+	var myToast = Toastify({text: "𝗘𝘃𝗲𝗿𝘆 𝗩𝗲𝗿𝘀𝗶𝗼𝗻:\n\nEvery game variant found in across the globe.", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000}); myToast.showToast();
+	document.getElementById("start").style.visibility = "hidden";
+	//var myToast = Toastify({text: '𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗛𝗶𝗱𝗱𝗲𝗻:\n\nToo many games to list in this section!' , duration: 6000});myToast.showToast();
 }
 if (document.getElementById("Region").value == "MORE") {var myToast = Toastify({text: "𝟭𝟬𝟭% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nIncludes 40 winks, Xeno Crisis, Shindous', regional variants, etc.", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000});	myToast.showToast();}
 if (document.getElementById("Region").value == "LRG") {var myToast = Toastify({text: "𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nN64 game releases by Limited Run Games.", style: {background: 'Black', color: "#ED008D"}, avatar: "Config/LRG.png", duration: 6000}); myToast.showToast();}
 if (document.getElementById("Region").value == "NFR") {var myToast = Toastify({text: "𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲:\n\nN64 kiosk cartridges (very rare)", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000});	myToast.showToast();}
 if (document.getElementById("Region").value == "COLS") {var myToast = Toastify({text: "𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nColoured carts with their grey variants if they exist.", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000});	myToast.showToast();}
 if (document.getElementById("Region").value == "N64DD") {var myToast = Toastify({text: "𝗡𝗶𝗻𝘁𝗲𝗻𝗱𝗼 𝟲𝟰𝗗𝗗:\n\nN64 disk drive games!", style: {background: '#0096C8'}, avatar: "Config/N64DD.gif", duration: 6000});	myToast.showToast();}
+if (document.getElementById("Region").value == "IQUE") {var myToast = Toastify({text: "𝗶𝗤𝘂𝗲 𝗣𝗹𝗮𝘆𝗲𝗿:\n\niQue downloadable games!", style: {background: 'black', color: "darkgrey"}, avatar: "Config/IQUE.png", duration: 6000});	myToast.showToast();}
 if (document.getElementById("Region").value == "REVS") {var myToast = Toastify({text: "𝗩𝗲𝗿𝘀𝗶𝗼𝗻 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀:\n\nKnown cartridge revisions.", style: {background: '#0096C8'}, avatar: "Config/Alert.gif", duration: 6000}); myToast.showToast();}
 var prevCard;
 var nextCard;
@@ -1257,7 +1315,9 @@ function check_click(clicked_id){
 	} else {
 	}	
 	localStorage.myCollection = JSON.stringify(myCollectionList);
-	//alert(localStorage.myCollection + "\n\rActual!"); //UNCOMMENT FOR DEBUGGING	
+		if (localStorage.debug=="true"){
+		alert(localStorage.myCollection + "\n\rActual!");
+		}
 }
 function prev() {
 	roundUp();
@@ -1360,7 +1420,8 @@ function search(str) {
 	str = "bio f.r.e.a.k.s";
 	} else {
 	str = document.getElementById("searcher").value;
-	new Audio('Config/Sounds/'+str+'.wav').play();
+	myAudio = new Audio('Config/Sounds/'+str+'.wav');
+	myAudio.volume = myVolume; myAudio.play();
 	}
 	if (window.find) {
 	strFound=self.find(str);
@@ -1430,7 +1491,8 @@ document.getElementById("frame").style.display = "none";
 		b.textContent = "";
 		document.body.appendChild(b);
 		b.click();
-		new Audio('Config/Sounds/Horn.wav').play();
+		myAudio = new Audio('Config/Sounds/Horn.wav');
+		myAudio.volume = myVolume; myAudio.play();
 	} else {
 		var myToast = Toastify({text: "𝗥𝗘𝗠𝗜𝗡𝗗𝗘𝗥:\n\nBackup your collection regularly!" , duration: 6000})
 		myToast.showToast();
@@ -1497,7 +1559,8 @@ function roundUp () {
 	document.getElementById("values").innerHTML = "<span style='font-weight:bold;color:white;'>VALUATION:</span><br>Unboxed: "+gMoney+Math.ceil(calculateSum(CONLYvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Boxed: "+gMoney+Math.ceil(calculateSum(CIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Mint: "+gMoney+Math.ceil(calculateSum(MIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>-------<br>Outlay: "+gMoney+result6;
 	//document.getElementById("values").innerHTML = "<span style='font-weight:bold;color:white;'>VALUATION:</span><br>Unboxed: "+gMoney+Math.ceil(calculateSum(CONLYvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Boxed: "+gMoney+Math.ceil(calculateSum(CIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>Mint: "+gMoney+Math.ceil(calculateSum(MIBvalue) * currencyList[localStorage.moneyKey.slice(1,4)])+"<br>-------<br>Outlay: "+gMoney+Math.ceil(result6 *currencyList[localStorage.moneyKey.slice(1,4)]);
 	if (myCount == titleCount){//TROPHIES\\
-	new Audio('Config/Sounds/Trophy.wav').play();
+	myAudio = new Audio('Config/Sounds/Trophy.wav');
+	myAudio.volume = myVolume; myAudio.play();
 	var myToast = Toastify({text: " 𝗪𝗲𝗹𝗹 𝗗𝗼𝗻𝗲!\n\nYou own all titles in this category.", style: {background: '#0096C8'}, avatar: "Config/Trophy.gif", duration: 6000});	myToast.showToast();
 	document.getElementById("start").style.visibility = "hidden";
 	}
@@ -1649,7 +1712,8 @@ function cake() {
 	myToast.showToast();
 	} else if (localStorage.cake == "false") {
 	localStorage.cake = "true";
-	new Audio('Config/Sounds/Quest.wav').play();
+	myAudio = new Audio('Config/Sounds/Quest.wav');
+	myAudio.volume = myVolume; myAudio.play();
 	document.getElementById('cake').style.backgroundImage="url(Config/CAKEON.png)";
 	var myToast = Toastify({text: " 𝗕𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝗼𝗱𝗲 𝗲𝗻𝗮𝗯𝗹𝗲𝗱!", style: {background: 'rgb(50,153,0)'}, avatar: "Config/N64.gif", duration: 6000})
 	myToast.showToast();
@@ -1724,6 +1788,7 @@ function startRun() {
 		}
 		var myToast = Toastify({text: 'You can quick-add game carts\nfrom the selected region here:', style:{background: 'rgb(50,153,0)'}, duration: 10000}); myToast.showToast();
 		var myToast = Toastify({text: '𝗖𝗹𝗶𝗰𝗸 𝗵𝗲𝗿𝗲 𝘁𝗼 𝗲𝗻𝗱\n\n𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗠𝗼𝗱𝗲', style:{background: 'rgb(225,9,22)'}, position: "left", onClick: function(){hideOverlay()}, duration: -1}); myToast.showToast();
+		var myToast = Toastify({text: '𝗖𝗹𝗶𝗰𝗸 𝗵𝗲𝗿𝗲 𝘁𝗼 𝗮𝗱𝗱\n\n𝗔𝗟𝗟 𝗴𝗮𝗺𝗲𝘀 𝗹𝗶𝘀𝘁𝗲𝗱!', style:{background: 'rgb(50,153,0)'}, position: "left", onClick: function(){addAll()}, duration: -1}); myToast.showToast();
 }
 function quickAddRemove() {
 	reply_id = function() {
@@ -1760,7 +1825,9 @@ function quickAddRemove() {
 	}
 	multiDimensionalUnique(myCollectionList);
 	localStorage.myCollection = JSON.stringify(myCollectionList);
-	//alert(localStorage.myCollection + "\n\rActual!"); //UNCOMMENT FOR DEBUGGING
+		if (localStorage.debug=="true"){
+		alert(localStorage.myCollection + "\n\rActual!");
+		}
 	}
 }
 function hideOverlay() {
@@ -1772,6 +1839,21 @@ function hideMyToasts() {
 	document.querySelectorAll('.bday').forEach(function(el) {
 	   el.style.display = 'none';
 	});
+}
+function addAll() {
+if (localStorage.debug=="true"){
+	} else {
+		for (n = 0; n < myNeedList.length; n++){
+		myCollectionList.push([myNeedList[n]]);
+			for (m = 0; m < myCollectionList.length; m++) {
+				if (myCollectionList[m][0] == myNeedList[n]) {
+				myCollectionList[m].push(myNeedList[n].slice(myNeedList[n].lastIndexOf(" ")+1,myNeedList[n].length)+"cartridge");
+				}
+			}
+		}
+		localStorage.myCollection = JSON.stringify(myCollectionList);
+		window.location = window.location;
+	}
 }
 </script>
 <img id="top" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝘁𝗼𝗽" onclick="document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto' }); noscroll();" src="Config/CUP.png" class="buttonU"/>
@@ -1792,6 +1874,6 @@ function hideMyToasts() {
 <img id="nuke" title="𝗣𝘂𝗹𝗹 𝘁𝗵𝗲 𝘁𝗿𝗶𝗴𝗴𝗲𝗿: 𝗱𝗲𝗹𝗲𝘁𝗲 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻." onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' }); noscroll();" src="Config/ZBUT.png" />
 <div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀!"></div>
 <img id="bottom" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝗯𝗼𝘁𝘁𝗼𝗺" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" src="Config/CDOWN.png" class="buttonD"/>
-<img id="pussy" src="Config/MEOW.png" class="pussy" onmouseover="new Audio('Config/Sounds/Meow.wav').play();"/>
+<img id="pussy" src="Config/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/>
 <div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB 2023 (APP VER: 2.5)</span></div><img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/CDOWN.png" onmousedown="localStorage.removeItem('regKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
