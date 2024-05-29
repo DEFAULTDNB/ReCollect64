@@ -179,7 +179,7 @@
 		
 		<div id="b1" class="card">
 			<h2><span class="badge new">NEW</span> <span class="title">Welcome to ReCollect64</span></h2>
-			<h5 class="subtitle">Hello World! ~ May 15, 2024</h5>
+			<h5 class="subtitle">Hello World! ~ May 29, 2024</h5>
 				<div class="bgBanner"><img src="Config/Images/ReCollect64.png" class="center"/></div>
 				<h4>When it comes to N64 gaming, what's your ReCollection?</h4><hr>
 				<p>I got my console day-one, from Toys R Us, after patiently/impatiently waiting on the "if someone doesn't come collect theirs, you're next in line" list. 
@@ -218,11 +218,11 @@
 
 		<div class="card">
 		<h3 class="smalltitle">May Top 5:</h3>
-			<a title="Wave Race 64" href="index.html#Wave_Race_64" target="_blank"><div class="bgSmall" style="background-image:url('Blog/Spines/Wave Race 64.png')"></div></a>
-			<a title="Quest 64" href="index.html#Quest_64" target="_blank"><div class="bgSmall" onclick="setFull();" style="background-image:url('Blog/Spines/Quest 64.png')"></div></a>
-			<a title="Space Station Silicon Valley" href="index.html#Space_Station_Silicon_Valley" target="_blank"><div class="bgSmall" style="background-image:url('Blog/Spines/Space Station Silicon Valley.png')"></div></a>
-			<a title="GoldenEye 007" href="index.html#GoldenEye_007" target="_blank"><div class="bgSmall" style="background-image:url('Blog/Spines/GoldenEye 007.png')"></div></a>
-			<a title="Turok 2: Seeds of Evil" href="index.html#Turok_2_Seeds_of_Evil"><div class="bgSmall" style="background-image:url('Blog/Spines/Turok 2.png')"></div></a>
+			<a title="Wave Race 64" href="index.html#Wave_Race_64" target="_blank" onclick="setFULL();"><div class="bgSmall" style="background-image:url('Blog/Spines/Wave Race 64.png')"></div></a>
+			<a title="Quest 64" href="index.html#Quest_64" target="_blank" onclick="setFULL();"><div class="bgSmall" style="background-image:url('Blog/Spines/Quest 64.png')"></div></a>
+			<a title="Space Station Silicon Valley" href="index.html#Space_Station_Silicon_Valley" target="_blank" onclick="setFULL();"><div class="bgSmall" style="background-image:url('Blog/Spines/Space Station Silicon Valley.png')"></div></a>
+			<a title="GoldenEye 007" href="index.html#GoldenEye_007" target="_blank" onclick="setFULL();"><div class="bgSmall" style="background-image:url('Blog/Spines/GoldenEye 007.png')"></div></a>
+			<a title="Turok 2: Seeds of Evil" href="index.html#Turok_2_Seeds_of_Evil" onclick="setFULL();"><div class="bgSmall" style="background-image:url('Blog/Spines/Turok 2.png')"></div></a>
 		</div>
 		
 		<div class="card">
@@ -251,7 +251,7 @@
 function setFULL() {localStorage.regKey = "ALL.cfg";}
 function setIQUE() {localStorage.regKey = "IQUE.cfg";}
 function sharePost(clicked_id) {
-let site = "www.ReCollect64.com/blog.html";
+let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
 let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
 let headerTitle = document.getElementById(parentId).children[0].children[1].innerText;
 let subTitle = document.getElementById(parentId).children[1].innerText;
