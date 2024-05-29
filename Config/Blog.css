@@ -1,0 +1,280 @@
+* {
+	box-sizing: border-box;
+}
+/* Add a gray background color with some padding */
+body {
+	font-family: Arial;
+	padding: 20px;
+	background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(10,10,10,1) 50%, rgba(128,128,128,1) 100%);
+	content-visibility: auto;
+	font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.border {
+	margin: 10px 0px;
+	border-radius: 10px;
+	border: 3px solid silver;
+	padding: 0px 10px;
+	background-color: white;
+}
+/* Header/Blog Title */
+.header {
+	padding: 30px;
+	font-size: 40px;
+	text-align: center;
+	background: none;
+}
+#logo {
+	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
+	width: 350px;
+}
+.masked {
+	display: inline-block;
+	background-image: linear-gradient(to bottom, navy, white);
+	-webkit-mask-size: 95%; /* edges might get cut off if you use 100% */
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+.masked > img {
+	opacity: 0;
+	display:block;
+}
+.strapline {
+	color: white;
+	font-family: "Homenaje", sans-serif;
+	font-size: xxx-large;
+}
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+	float: left;
+	width: 75%;
+}
+/* Right column */
+.rightcolumn {
+	float: left;
+	width: 25%;
+	padding-left: 20px;
+}
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: 250px;
+}
+.bgChat {
+	position: relative;
+	background-color: grey;
+	width: 100%;
+	height: 250px;
+	padding: 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.bgBanner {
+	position: relative;
+	background-color: black;
+	width: 100%;
+	padding: 20px;
+}
+.bgSmall {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 45px;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+/* Add a card effect for articles */
+.card {
+	background-color: white;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 10px;
+}
+.title {
+	font-family: "Homenaje", sans-serif;
+	font-weight: 900;
+	font-style: bolder;
+	font-size: xx-large;
+	margin: 2px 0px;
+}
+.subtitle {
+	font-family: "Homenaje", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: large;
+	margin: 10px 0px;
+}
+.smalltitle {
+	font-family: "Homenaje", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: x-large;
+	margin: 2px 0px;
+}
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+/* Chat containers */
+.container {
+	border: 2px solid #dedede;
+	background-color: #f1f1f1;
+	border-radius: 10px;
+	padding: 3px;
+	margin: 10px 0;
+	width:100%
+}
+/* Darker chat container */
+.darker {
+	border-color: #ccc;
+	background-color: #ddd;
+}
+/* Clear floats */
+.container::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+/* Style images */
+.container img {
+	float: left;
+	max-width: 50px;
+	width: 100%;
+	margin-right: 20px;
+	border-radius: 50%;
+}
+/* Style the right image */
+.container img.right {
+	float: right;
+	margin-left: 20px;
+	margin-right:0;
+}
+.pro {
+	float: left;
+	width: 49%;
+	margin-bottom: 15px;
+	padding: 10px 10px;
+	background-color: #ddffdd;
+	border-left: 6px solid #04AA6D;
+}
+.con {
+	float: right;
+	width: 49%;
+	margin-bottom: 15px;
+	padding: 10px 10px;
+	background-color: #ffdddd;
+	border-left: 6px solid #f44336;
+}
+.verdict {
+	clear: both;
+	width: 100%;
+	margin-bottom: 15px;
+	padding: 10px 10px;
+	background-color: #ffffcc;
+	border-left: 6px solid #ffeb3b;
+}
+.clearfix {
+	overflow: auto;
+}
+.checked {
+	color: orange;
+}
+.badge {
+	color: white;
+	padding: 4px 8px;
+	text-align: center;
+	border-radius: 5px;
+	font-family: "Homenaje", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: xx-large;
+}
+.new {
+	background: red;
+}
+.hot {
+	background-image: linear-gradient(to bottom, red, orange);
+}
+.cool {
+	background: -webkit-linear-gradient(Navy, White);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.overlaytext {
+  background-color: white;
+  color: black;
+  font-family: "Homenaje", sans-serif;
+  font-size: 6vw; 
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 0px;
+  width: 98%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+  --mix-blend-mode: soft-light;
+  --mix-blend-mode: plus-darker;
+}
+.fa-brands {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 4px;
+	font-size: 22px;
+	width: 30px;
+	text-align: center;
+}
+.fa-brands:hover {
+    opacity: 0.7;
+	cursor: pointer;
+}
+.fa-x-twitter {
+	background: black;
+	color: white;
+	border-radius:10px;
+	vertical-align: middle;
+}
+.alignright {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: right;
+}
+.zoom {
+	transition: transform .2s;
+}
+.zoom:active {
+	-ms-transform: scale(1.5); /* IE 9 */
+	-webkit-transform: scale(1.5); /* Safari 3-8 */
+	transform: scale(1.5); 
+}
+table {
+	font-family: "Homenaje", sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+td, th {
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+}
+tr:nth-child(even) {
+	color: white;
+	background-image: linear-gradient(to bottom, Navy, black);
+}
+tr:nth-child(odd) {
+}
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
