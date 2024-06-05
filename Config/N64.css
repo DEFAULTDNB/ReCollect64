@@ -3,7 +3,6 @@
 	--cartridgegrey: rgba(164,157,168,1);
 	--white: rgba(255,255,255,1);	
 	--page-gradient: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(10,10,10,1) 50%, rgba(128,128,128,1) 100%);
-	/*TESTING*/
     --primary-color: rgba(21,166,199,1); /*ice-blue*/
     --primary-color-soft: rgba(21,166,199,0.6); /*ice-blue*/
     --secondary-color: rgba(21,166,199,1); /*ice-lightblue*/
@@ -223,10 +222,14 @@ select {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	--min-width: 80vw;
-	--min-height: 80vh;
-	width: 900px;
-	height: 600px;
+	--min-width: 900px;
+	--max-width: 950px;
+	min-width: 70vw;
+	max-width: 75vw;
+	min-height: 90vh;
+	max-height: 95vh;
+	--width: 900px;
+	--height: 600px;
 	background-image: linear-gradient(to bottom, var(--primary-color), rgba(0,0,0,1), var(--secondary-color));
 	border: 3px solid var(--light-tone);
 	border-radius: 10px;
