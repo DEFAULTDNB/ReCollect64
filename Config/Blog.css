@@ -19,7 +19,7 @@ body {
 }
 /* Header/Blog Title */
 .header {
-	padding: 30px;
+	padding: 0px;
 	font-size: 40px;
 	text-align: center;
 	background: none;
@@ -43,7 +43,6 @@ body {
 	color: white;
 	font-family: "Homenaje", sans-serif;
 	font-size: xxx-large;
-	text-align: center;
 }
 /* Create two unequal columns that floats next to each other */
 /* Left column */
