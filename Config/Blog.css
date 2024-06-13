@@ -43,6 +43,7 @@ body {
 	color: white;
 	font-family: "Homenaje", sans-serif;
 	font-size: xxx-large;
+	text-align: center;
 }
 /* Create two unequal columns that floats next to each other */
 /* Left column */
@@ -184,7 +185,7 @@ body {
 	margin-bottom: 15px;
 	padding: 10px 10px;
 	background-color: #ddffdd;
-	border-left: 6px solid #04AA6D;
+	border-left: 6px solid #04AA6D; 
 }
 .con {
 	float: right;
@@ -233,7 +234,7 @@ body {
   background-color: white;
   color: black;
   font-family: "Homenaje", sans-serif;
-  font-size: 6vw; 
+  font-size: 6vw;
   font-weight: bold;
   margin: 0 auto;
   padding: 0px;
@@ -270,13 +271,13 @@ body {
 	margin-right: auto;
 	text-align: right;
 }
-.zoom {
+.thumbnail {
 	transition: transform .2s;
 }
-.zoom:active {
-	-ms-transform: scale(1.5); /* IE 9 */
-	-webkit-transform: scale(1.5); /* Safari 3-8 */
-	transform: scale(1.5); 
+.thumbnail:hover {
+	-ms-transform: scale(1.05); /* IE 9 */
+	-webkit-transform: scale(1.05); /* Safari 3-8 */
+	transform: scale(1.05);
 }
 table {
 	font-family: "Homenaje", sans-serif;
@@ -286,7 +287,7 @@ table {
 td, th {
 	border: 1px solid #dddddd;
 	text-align: center;
-	padding: 8px;
+	padding: 7px;
 }
 tr:nth-child(even) {
 	color: white;
@@ -306,6 +307,7 @@ details {
 	color: black;
 	background-image: linear-gradient(to bottom, silver, white);
 	--border-radius: 10px;
+	cursor: pointer;
 }
 summary::marker {
 	color: black;
@@ -316,6 +318,13 @@ summary {
 }
 details[open] > summary {
 	list-style-type: '🠻 ';
+}
+.button {
+	height: 50px;
+	opacity: 0.8;
+}
+.button:hover {
+	opacity: 1.0;
 }
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
