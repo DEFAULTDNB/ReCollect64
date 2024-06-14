@@ -18,6 +18,68 @@
 <div class="row">
 
 	<div class="leftcolumn">
+	
+		<div id="b3" class="card">
+			<h2><span class="badge hot">HOT</span> <span class="title">N64Recomp</span></h2>
+			<h5 class="subtitle">Playing ROMs is getting spicy ~ Jun 14, 2024</h5>
+			<div class="bgBanner"><img src="Carts/ALTU/The Legend of Zelda Majoras Mask ALTU.png" alt="N64Recomp" class="center"/><div class="overlaytext">N64Recomp</div></div>
+				<h4>Recomp Fast, Decomp Slow</h4><hr>
+				<p>Mr-Wiseguy's N64Recomp project came to light at the beginning of May, bursting out the gates with a promise of statically recompiling N64 binaries into C code for use on other platforms. With one demonstration provided; <i>The Legend of Zelda Majoras Mask</i> has seen an incredible resurgeance in the last 4 weeks, with virtually everyone I know enjoying the game at 60fps, with gyro aiming, in wide/ultrawide screen, and with a rejuvinated analog camera system.
+				<p>The way the <i>Majoras Mask</i> port was built using the <a href="https://github.com/rt64/rt64" target="_blank">RT64 graphic renderer</a>, means modern APIs such as Vulkan, can be deployed for maximum compatibility across more platforms and with massive resolutions compared to N64's native 320×240, or 640×480 with an Expansion Pak.
+				<p>Recompilation aims to immediately recompile binaries without the need for lengthy (upwards of years) decompilation beforehand, followed by months of porting to other platforms via their respective SDKs. Some decompilation projects have been running for years, with only <i><a href="https://github.com/n64decomp/sm64" target="_blank">Super Mario 64</a>, <a href="https://github.com/zeldaret/oot" target="_blank">The Legend of Zelda Ocarina of Time</a>, <a href="https://github.com/Erick194/DOOM64-RE" target="_blank">Doom 64</a>, <a href="https://github.com/n64decomp/perfect_dark" target="_blank">Perfect Dark</a></i>, and most recently, <i><a href="https://github.com/pmret/papermario" target="_blank">Paper Mario</a></i> taking the lime light. The problem with decompilation is that to get a perfect one-to-one replica of a game's source code takes a long time because each function, instruction, and opcode needs mapping out and verifying at multiple stages to ensure correctness.
+				<p>I have been following the majority of these decompilation projects for a long time, most since inception, but the progress is a long and arduous one, and not one that most game-enjoyers can commit to, even if they REALLY want to see their favourite games get a fancy new up-rezzed PC port. It's usually left to those in the know, but with N64Recomp; it could become very convenient for anyone to run any game.
+				<p>By incorporating tools such as Rabbitizer, which is a MIPs decoder that can convert ASM (machine code) to C, ELFIO, TOML11 and FMTLIB, then directly piping it all to RT64; you will have the ability to easily build your own ROMs into playable PC ports in minutes.
+				<p>At least, that's the aim, because currently, without Mr-Wiseguy's tools being made public yet, it takes even the most well versed in coding a couple of hours to get their head around the process of linking and building, let alone fixing errors and residual problems, such as game specific microcode, you will undoubtedly face when starting each game from scratch.</p>
+				<details>
+				<summary class="smalltitle" title="Click to reveal">Spoiler: Current Decomp Projects</summary>
+				<ul>
+					<li><a target="_blank" href="https://github.com/blackgamma7/Aidyn">Aidyn Chronicles: The First Mage</a>
+					<li><a target="_blank" href="https://gitlab.com/banjo.decomp/banjo-kazooie">Banjo Kazooie</a>
+					<li><a target="_blank" href="https://github.com/retroplastic/blastcorps">Blast Corps</a>
+					<li><a target="_blank" href="https://github.com/MarioMaster96/bomberman-64">Bomber Man 64</a>
+					<li><a target="_blank" href="https://github.com/jaytheham/body-harvest-decompilation">Body Harvest</a>
+					<li><a target="_blank" href="https://github.com/mkst/conker">Conkers Bad Fur Day</a>
+					<li><a target="_blank" href="https://github.com/DavidSM64/Diddy-Kong-Racing">Diddy Kong Racing</a>
+					<li><a target="_blank" href="https://github.com/zestydevy/dinosaur-planet">Dinosaur Planet</a>
+					<li><a target="_blank" href="https://gitlab.com/kholdfuzion/goldeneye_src">GoldenEye 007</a>
+					<li><a target="_blank" href="https://github.com/farisawan-2000/kirby64">Kirby 64: The Crystal Shards</a>
+					<li><a target="_blank" href="https://github.com/gamemasterplc/mpsource">Mario Party</a>
+					<li><a target="_blank" href="https://github.com/PartyPlanner64/mp3">Mario Party 3</a>
+					<li><a target="_blank" href="https://github.com/n64decomp/mk64">Mario Kart 64</a>
+					<li><a target="_blank" href="https://github.com/Drahsid/mischief-makers">Mischief Makers</a>
+					<li><a target="_blank" href="https://github.com/Fluvian/mnsg">Mystical Ninja Starring Goemon</a>
+					<li><a target="_blank" href="https://github.com/farisawan-2000/evangelion">Neon Genesis Evangelion</a>
+					<li><a target="_blank" href="https://github.com/ethteck/pokemonsnap">Pokemon Snap</a>
+					<li><a target="_blank" href="https://github.com/ethteck/pokemonstadium">Pokemon Stadium</a>
+					<li><a target="_blank" href="https://github.com/mallos31/quest64">Quest 64</a>
+					<li><a target="_blank" href="https://github.com/RocketRet/Rocket-Robot-On-Wheels">Rocket Robot on Wheels</a>
+					<li><a target="_blank" href="https://github.com/tenry92/sbk-decomp">Snowboard Kids</a>
+					<li><a target="_blank" href="https://github.com/mkst/sssv">Space Station Silicon Valley</a>
+					<li><a target="_blank" href="https://github.com/farisawan-2000/superman">Superman 64</a>
+					<li><a target="_blank" href="https://github.com/Drahsid/turok3">Turok 3</a>
+					<li><a target="_blank" href="https://github.com/Decompollaborate/n64dd">Ura Zelda</a>
+					<li><a target="_blank" href="https://github.com/LLONSIT/Wave-Race-64">Wave Race 64</a>
+					<li><a target="_blank" href="https://github.com/decompals/yoshis-story">Yoshi's Story</a>
+					<li><a target="_blank" href="https://github.com/zeldaret/mm">Zelda Majoras Mask</a>
+				</ul>
+				</details>
+				</p>
+				<iframe class="video" src="https://www.youtube.com/embed/ywWwUuWRgsM"></iframe>
+				<h4>What's in the Pipeline?</h4><hr>
+				<p>With incredible features such as ray tracing and HD texture support coming to the RT64 engine, N64 ports could look like fresh games, and with <i>Banjo Kazooie, Rocket: Robot on Wheels</i>, and <i>Superman 64</i> being immediately worked on by Mr-Wiseguy, the future of N64 gaming is very bright!
+				<p>The ability to recompile our own games is a feature I'm massively looking forward to. <i>Wave Race 64, Lylat Wars, Diddy Kong Racing</i>, and <i>Conkers Bad Fur Day</i>, to name but a few! Can you imagine <i>Wave Race 64</i> with Ray Tracing?! There are so many gems in the N64 library that could benefit from just the enhanced framerates and increased resolutions, that I'm extremely excited to get my hands on the toolset when they drop.
+				<p>Thankfully, as mentioned before, Mr-Wiseguy is in the process of building tools that can load, translate, and read any N64 ROM for recompilation in next to no time. Extra touches like modern controller mapping, gyro support, increased FPS, and widescreen culling will come as configuration files and executable revisions, because each game needs individual care and attention to port features to offsets, but the overall time reduction, compared to standard decompilation, is astounding. As an example; <i>Majoras Mask</i> was recompiled to a playable state with RT64 upgrades and full console-accurate effects in under 2 days!
+				<p>If any of this still sounds like too much work, then rest assured that others will jump at the opportunity to provide the final executables we need to play the games, we will just have to shove a ROM into a directory, the same way the <i>Majoras Mask</i> works right now.
+				<p>You may be asking yourself if N64Recomp will make emulators redundant; I don't think so. Emulation is a more universal approach to faithfully, and cycle-accurately, play ROMs, but N64Recomp adds a lot more by way of modernising the games with features that emulators don't currently offer if you have the time and inclination to put into it. Emulators, because of their maturity, are instantly more compatible, and are way more convenient for the end user across a variety of platforms. This may change depending on N64Recomp advancements, but that remains to be seen at the time of writing.
+				<p>I do wonder though: can these principals be used to recompile games from other systems, such as 3DS or GameCube? 
+				<p>I hope we might find out in the not-so-distant future!
+				<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://github.com/N64Recomp/N64Recomp" target="_blank">Click here to check out N64Recomp</a></p>
+				<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://github.com/Zelda64Recomp/Zelda64Recomp/releases/latest" target="_blank">Click here to get Zelda64 Recomp</a></p>
+				<p class="subtitle"><i class="fa-solid fa-user-plus"></i>&nbsp;<a href="https://twitter.com/dariosamo" target="_blank">@dariosamo (RT64 developer)</a></p>
+					<span class="alignright">Share this post on: 
+					<a class="fa-brands fa-x-twitter" id="tb3" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦" onclick="sharePost(this.id);" target="_blank"></a>
+					</span>
+		</div>
 		
 		<div id="r4" class="card">
 			<h2><span class="badge new">NEW</span> <span class="title">ReCollect64 Reviews: #4</span></h2>
@@ -26,8 +88,8 @@
 			<h4>Far From Plane, Wheely Weird</h4><hr>
 			<p>Let me guess; you just looked at the banner image and said to yourself, "What the $&%# is that thing?!". I did too when I first saw the InterAct Vortex controller for N64, but it didn't stop my hunting one down and bagging one, for the insanely low price of just £10!
 			<p>The Vortex is an enigma, even to those who know about it. It's half steering wheel, half flight stick, and half controller, making it 150% insane. Starting with the controller aspect, you have to un-dock the controller portion from the mounting bracket via a square metal peg, and once you have just the controller in your hands, you will be quite disgusted at its chunky, unflattering and un-ergonomic form.
-			<p>It is quite literally horrible to hold, and to make things worse, its vastness and unweildly edges make it uncomfortable to grab on to for long periods of time. The button placement is good, and the shoulder buttons are there, but where is the Z-Trigger and the actual analogue stick? Well, I'll get to those gripes later. The whole thing feels plasticy, it has squared-off sides, and it's far too burley to grip. It reminds me of the OG Xbox controller, the Duke, it's far too big, but at least the Duke had comfortable curves.
-			<p>Connecting it back to its mount you get an idea for its steering pedigree. While the mount has ZERO buttons or functions, the square metal peg pushes into the back of the controller, and the device regains its analogue abilities. The switch on the front right controls the analogue modes, and you have the option to use it as a wheel or as a flight stick, the latter meaning if you tilt the whole thing towards you or away from you, you will rise or fall, just like a planes yoke. Back in the 1990s this must have seemed so space-age, but today it's a stark reminder of how NOT to make a hybrid controller, I mean; how many things like this have you seen for modern consoles?</p>
+			<p>It is quite literally horrible to hold, and to make things worse, its vastness and unweildly edges make it uncomfortable to grab on to for long periods of time. The button placement is good, and the shoulder buttons are there, but where is the Z-Trigger and the actual analog stick? Well, I'll get to those gripes later. The whole thing feels plasticy, it has squared-off sides, and it's far too burley to grip. It reminds me of the OG Xbox controller, the Duke, it's far too big, but at least the Duke had comfortable curves.
+			<p>Connecting it back to its mount you get an idea for its steering pedigree. While the mount has ZERO buttons or functions, the square metal peg pushes into the back of the controller, and the device regains its analog abilities. The switch on the front right controls the analog modes, and you have the option to use it as a wheel or as a flight stick, the latter meaning if you tilt the whole thing towards you or away from you, you will rise or fall, just like a planes yoke. Back in the 1990s this must have seemed so space-age, but today it's a stark reminder of how NOT to make a hybrid controller, I mean; how many things like this have you seen for modern consoles?</p>
 			<span align="center" width="100%">
 				<a target="_blank" href="Blog/Reviews/InterActVortex/IV1.JPG"><img class="thumbnail" src="Blog/Reviews/InterActVortex/IV1.JPG" width="32%" style="padding:auto"/></a>
 				<a target="_blank" href="Blog/Reviews/InterActVortex/IV2.JPG"><img class="thumbnail" src="Blog/Reviews/InterActVortex/IV2.JPG" width="32%" style="padding:auto"/></a>
@@ -35,8 +97,9 @@
 			</span>
 			<h4>It's no Yoke: It's Bad!</h4><hr>
 			<p>The Vortex is a jack of all trades but the master of none. Not one. It offers so much and looks fantastically "90s-modern", but it squanders its potential in every direction.
-			<p>Using the controller, most games control ok, but you're missing the analogue stick and an L/R or Z-trigger depending on what position the switch on the bottom left is set to. Not to worry because the J button acts as a surrogate for whichever button you misplace, but that button is rock solid.
-			<p>To give it a varied test I fired up <i>Knife Edge Nosegunner</i>, <i>Mario Kart 64</i>, and <i>Hexen</i> using the three available setups. <i>Mario Kart 64</i> admittedly controlled well in steering mode, and using the toggle on the top right I could adjust sensitivity on the V-Axis. <i>Knife Edge</i> was a mixed bag, with the sensitivity and inversion throwing me right off, however, in-game you can alter the settings to make it far more controllable and enjoyable. <i>Hexen</i>, on the other hand, was hilarious to, essentially, drive around with the flight controls. Pushing forward moves the analogue stick forward to walk, while tilting to the left or right turns the protagonist, so for a hot minute it was quite fun! The auto-fire and slow-motion buttons worked fine; however, I found that the "Direction Control Knob", or D-Pad, was very quick to rapidly fire off when even so much as slightly held down in any direction, and I could not seem to turn that off or prevent it from happening.
+			<p>Using the controller, most games control ok, but you're missing the analog stick and an L/R or Z-trigger depending on what position the switch on the bottom left is set to. Not to worry because the J button acts as a surrogate for whichever button you misplace, but that button is rock solid.
+			<p>To give it a varied test I fired up <i>Knife Edge Nosegunner</i>, <i>Mario Kart 64</i>, and <i>Hexen</i> using the three available setups. <i>Mario Kart 64</i> admittedly controlled well in steering mode, and using the toggle on the top right I could adjust sensitivity on the V-Axis. <i>Knife Edge</i> was a mixed bag, with the sensitivity and inversion throwing me right off, however, in-game you can alter the settings to make it far more controllable and enjoyable.
+			<p><i>Hexen</i>, on the other hand, was hilarious to essentially drive around, with flight controls. Pushing forward moves the analog stick forward to walk, while tilting to the left or right turns the protagonist, so for a hot minute it was quite fun! The auto-fire and slow-motion buttons worked fine; however, I found that the "Direction Control Knob", or D-Pad, was very quick to rapidly fire off when even so much as slightly held down in any direction, and I could not seem to turn that off or prevent it from happening.
 			<p>Finally, it's worth mentioning that the Vortex also features its very own rumble mechanism, which requires 2xAA batteries inserted into the rear. It has a small switch on the back of the pad to select rumble mode or save mode, though why it can't rumble whilst saving to a memory card in the slot is beyond me. Another swing, and another miss!
 			<div class="col-container">
 			<div class="pro"><strong> The Pros:</strong>
@@ -420,7 +483,7 @@
 			<p>QuickShot made a few accessories in their time and this was perhaps their most specialised piece of input equipment for the N64, specifically having been made for the controlling of aircraft. 
 			I dont know if you know this but there are only a handful of "flight-sim" games on the Nintendo 64 including <i>Buck Bumble, Lylat Wars (Star Fox), Star Wars Rogue Squadron, AeroFighters Assault</i> and <i>Pilotwings</i>, so there isn't much to pick from!
 			<p>The NitroStick has the Z-Trigger on the rear as you would imagine, the A and B buttons are up on the top of the stick along with a hat-switch that acts as the D-Pad. On your left-hand side are the C-buttons, the L/R triggers in button form and the start/turbo/reset buttons too. 
-			Lastly, on the underside resides a switch that converts the input from analogue to digital, so if a game requires D-pad input instead of stick input, you're sorted!
+			Lastly, on the underside resides a switch that converts the input from analog to digital, so if a game requires D-pad input instead of stick input, you're sorted!
 			<h4>It's Good, But Not Perfect</h4><hr>
 			<p>QuickShot sadly didn't build this thing with games like <i>Lylat Wars</i> in mind, because the pew-pew button is not in the correct pace as you would hope, the Z-Trigger, its on the A button. You cant re-map the buttons either so it feels a little off, but on the other hand games like AeroFighters and even <i>Knife Edge Nosegunner</i> utilise the Z-Trigger for your main guns and it feels superb!
 			<p>Handling in-game feels nice, really nice, and the pitch and yaw of this stick really builds the immersion when playing games that best suit this equipment. In actual fact ANY game could theoretically be played with this controller, including <i>Mario Kart 64, Goldeneye,</i> or even <i>Zelda</i> if you REALLY wanted to, but I wouldn't. 
@@ -486,7 +549,7 @@
 				<a target="_blank" href="Screens/IQUE/Star Fox 64 IQUE S1.png"><img class="thumbnail" src="Screens/IQUE/Star Fox 64 IQUE S1.png" width="32%" style="padding:auto"/></a>
 				</span>
 				<p>The iQue could be the ultimate way to play N64 games, for its simplicity and form factor. Nintendo sound definitely revisit this system-on-a-chip model if they ever make an N64 "classic" because it is ideal 
-				for pick up and play and the analogue stick feels really nice too! The only caveat is lack of multiplayer without an additional device, but these days Nintendo could implement online instead, HDMI out, and possibly let you use your 
+				for pick up and play and the analog stick feels really nice too! The only caveat is lack of multiplayer without an additional device, but these days Nintendo could implement online instead, HDMI out, and possibly let you use your 
 				Bluetooth N64 controllers for the Nintendo switch on it for local multiplayer.
 				<p>The 64-bit possibilities are endless!
 				<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="index.html" onclick="setIQUE();" target="_blank">Click here to check out iQue section on ReCollect64</a></p>
@@ -560,7 +623,8 @@
 			<details>
 			<summary class="smalltitle" title="Click to reveal">Features</summary>
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b1">Welcome to ReCollect64</a><br>
-			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b2">iQue Player</a><br>
+			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b2">The iQue Player</a><br>
+			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b3">N64Recomp</a><br>
 			</details>
 			<details>
 			<summary class="smalltitle" title="Click to reveal">More</summary>
