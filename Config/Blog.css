@@ -228,10 +228,22 @@ body {
 .hot {
 	background-image: linear-gradient(to bottom, red, orange);
 }
+.fresh {
+	background-image: linear-gradient(to bottom, mediumseagreen, greenyellow);
+}
+.tech {
+	background-image: linear-gradient(to bottom, navy, cyan);
+}
+.review {
+	background-image: linear-gradient(to bottom, red, purple);
+}
 .cool {
 	background: -webkit-linear-gradient(Navy, White);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+.coolrev {
+	background-image: linear-gradient(to bottom, navy, silver);
 }
 .overlaytext {
   background-color: white;
