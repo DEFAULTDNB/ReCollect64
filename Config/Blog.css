@@ -294,6 +294,10 @@ body {
 	-webkit-transform: scale(1.05); /* Safari 3-8 */
 	transform: scale(1.05);
 }
+.img-row {
+  font-size: 0px;
+  vertical-align: bottom;
+}
 table {
 	font-family: "Homenaje", sans-serif;
 	border-collapse: collapse;
