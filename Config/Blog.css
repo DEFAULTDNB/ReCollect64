@@ -298,6 +298,11 @@ body {
   font-size: 0px;
   vertical-align: bottom;
 }
+div.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 20px;
+}
 table {
 	font-family: "Homenaje", sans-serif;
 	border-collapse: collapse;

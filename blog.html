@@ -17,9 +17,97 @@
 		
 <div class="row">
 
-	<div class="leftcolumn">
+	<div id="latest" class="leftcolumn">
 	
-			<div id="b4" class="card">
+		<div id="r6" class="card">
+			<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews: #6</span></h2>
+			<h5 class="subtitle">JoeyN64 Dumper/Flasher ~ June 20, 2024</h5>
+			<div class="bgBanner"><img src="Blog/Reviews/JoeyN64/Joey.png" alt="JoeyN64" class="center"/><div class="overlaytext">JoeyN64</div></div>
+			<h4>A Ripping Good Time</h4><hr>
+			<p>As a collector of variants, I want to know that I'm getting a legit game and that I will have the freedom to dump, preserve, examine, modify, and emulate them should I wish to.
+			<p>The JoeyN64 by BennVenn is a device that I have had in my arsenal for a while. It's operation is so simple that all you have to do is connect a USB-C cable to your PC and drag and drop the ROM off of an N64 cartridge to back it up.
+			<p>If you want to play your backups in an emulator, or on another flash cart, just dump them in a ROMs folder and away you go. Want to play through <a href="https://www.pj64-emu.com/" target="_blank">Project64</a>? Simply connect the JoeyN64 to your PC, load up PJ64, and select the ROM from the cartridge once the drive pops up. In order to use your saves with the cart, copy them off first and put them in the PJ64 saves folder.
+			<p>At the time of writing, the JoeyN64 is $55 AUD (£29) from BennVenn's Shopify store, and it is supported by a discord group where the other main feature is a very lively chat: the ability to reflash repro carts!
+			<p>Reflashing clone carts means that if you were to be in posession of a Smash Remix cart, you could simply update it at any time by dragging and dropping a more recent version ROM onto the cart, overwriting the previous version. 
+			<p>The only issues you may face are those of the CIC regioning, and as such, you must flash a compatible ROM to the installed hardware CIC, or you can try to convert the ROM.
+			<p>JoeyN64 main features:
+			<ul>
+				<li>Fast, easy, reliable access to all your N64 ROM's and Save files - EEPROM (4/16K), Flash (All types), SRAM, Memory Pak.
+				<li>Supports reflashing the latest chinese bootleg N64 games. 
+				<li>Supports reading/writing save files from these Chinese carts where other N64 cart dumpers cannot. 
+				<li>Drag and Drop ROMs to write to the cart.
+				<li>Enjoy some of the best ROM hacks and remakes on real hardware! 
+				<li>You cannot rewrite original Nintendo carts.
+				<li>Can detect if a cart is fake or genuine. (Connect to a smartphone for easy cart identification when you're out hunting for games).
+				<li>Supports N64 and Z64 ROM's, can automatically byteswap (Write in mode.txt which file format you prefer).
+				<li>Can load directly from cart into Project64 emulator.
+				<li>Drag and Drop Firmware updates over USB-C
+				<li>New firmware files will be available as we discover new Chinese bootleg types
+				<li>~750kbytes/second dump speed, ~310kbytes/second flash speed.
+				<li>Official N64 Dev Carts NOT supported without external 12 volt supply modification.
+			</ul>
+			</p>
+			<span align="center" width="100%">
+				<a target="_blank" href="Blog/Reviews/JoeyN64/JoeyN641.JPG"><img class="thumbnail" src="Blog/Reviews/JoeyN64/JoeyN641.JPG" width="32%" style="padding:auto"/></a>
+				<a target="_blank" href="Blog/Reviews/JoeyN64/JoeyN642.JPG"><img class="thumbnail" src="Blog/Reviews/JoeyN64/JoeyN642.JPG" width="32%" style="padding:auto"/></a>
+				<a target="_blank" href="Blog/Reviews/JoeyN64/JoeyN643.JPG"><img class="thumbnail" src="Blog/Reviews/JoeyN64/JoeyN643.JPG" width="32%" style="padding:auto"/></a>
+			</span>
+			<h4>Easy to Upgrade, Easy to use!</h4><hr>
+			<p>I recently used my JoeyN64 to dump some Taiwanese and Malaysian cartridges, and it took mere seconds to achieve this. Inserting the cartridge, and dragging the ROM off is incredibly intuitive, and it's so quick in comparison to older, less stable methods of dumping with a Game Shark and parallel a port!
+			<p>Updating the JoeyN64 to the latest firmware is as simple as plugging it into your PC, dragging across the "mode.txt" file first, and then dragging the "firmware.jr" file afterwards. The "mode.txt" file is editable in several ways, and for flashing an update it must have the word "UPDATE" in the first line. After this you can change the modes as you wish:
+			<ul>
+				<li>PAK - Access Controller Pak saves (controller port)
+				<li>FCE0-FCE4 - erase sectors of the flashcart
+				<li>FCE or NOERASE - if the cart cannot be read/written to
+				<li>UPDATE - update Firmware
+				<li>N64 - Set file format to N64 
+				<li>Z64 - Set file format to Z64 (Byteswapped)
+				<li>BANK0 - First 64mbytes of MultiCart access (Z64 Format)
+				<li>BANK1 - Second 64mbytes of MultiCart access (Z64 format) 
+			</ul>
+			<p>Changing modes is as easy as editing the txt file, which is simple, but it feels a little clunky, and what if you have it on the wrong mode? Thankfully the JoeyN64 is pretty smart for the most part, and I haven't experienced any issues using mine to dump or reflash repros.
+			<p>As alluded to above, there are software CIC commands (softCIC) you can use too, such as "61052" for converting a 6105 ROM to run on a 6102 cartridge. It's by no means foolproof and more often than not, it won't work due to compatibility of the CIC in your repro hardware. Luckily there is a fantastic flashing guide and reference by Gent over on his <a href="https://github.com/TheGent/Gents-N64-xdelta-Patches/blob/main/Gent's%20Joey64%20Clone%20Cart%20-%20CIC%20%26%20Save%20Type%20Guide.md2" target="_blank">github page</a> that untangles softCIC quandries, and <a href="https://bennvenn.myshopify.com/pages/n64-bootleg-carts" target="_blank">BennVenns Bootleg Guide</a> lets you see which repro carts are the most compatible for flashing ROMs to.
+			<p>There are <a href="http://n64.icequake.net/mirror/64scener.parodius.com/tools.htm" target="_blank">other resources too</a>, such as <a href="http://micro-64.com/database/patches/S-Paladin.zip" target="_blank">Paladin</a> or <a href="http://n64.icequake.net/mirror/64scener.parodius.com/tools/obs-mot3.zip" target="_blank">MotetIII</a>, that can convert the CIC and <a href="https://github.com/StarHack/n64reflashing" target="_blank">patch the CRC</a> to run again.
+			<p>The ability to copy saves from the cartridge or dump them from the Memory Pak, also opens up the possibility to use modded saves, because not only are they readable, they're writable too!
+			<p>An upcoming feature for the firmware includes 900k/sec transfer speed, which is over twice that of the current JoeyN64 MCU speed. This will make dumping and flashing so much quicker than it already is, and I for one will be updating the second it becomes available. Another upcoming piece of software, that BennVenn has hinted at is a GUI for these tools, which will begin with the Joey JR GBA flasher/dumper and will eventually make it to the JoeyN64 someday. This could be incredibly useful and would negate the need to manually edit a txt file each time you want to swap modes.
+			<p>The JoeyN64 is a dream come true for verification and backing up ROMs as a collector, but also as a reflashing tool for hobbyists. The one downside to the JoeyN64 is that it cannot dump development carts, the tombstone-like prototype cartridges we see people finding in random places that miraculously contain a fully playable build of <a href="https://n64squid.com/rev-limit-unreleased-n64-game/" target="_blank">Rev Limit</a>, for example. 
+			</p>
+			<div class="col-container">
+			<div class="pro"><strong> The Pros:</strong>
+			<p>
+			<i class="fa-solid fa-check">&nbsp;</i>Incredibly easy to use<br>
+			<i class="fa-solid fa-check">&nbsp;</i>Compatible with PJ64 plug-and-play<br>
+			<i class="fa-solid fa-check">&nbsp;</i>Supports multigame flashcarts<br>
+			<i class="fa-solid fa-check">&nbsp;</i>Works on smartphone too</div>
+			<div class="con"><strong> The Cons:</strong>
+			<p>
+			<i class="fa-solid fa-xmark">&nbsp;</i>Prototype carts need a 12v mod to dump</br>
+			<i class="fa-solid fa-xmark">&nbsp;</i>Needs a GUI to usability</div>
+			</div>
+			<div class="verdict"><strong>Conclusion:</strong>
+			<p>I'm a huge fan of this device because this is the perfect way to verify, dump, and preserve your own ROMs with zero fuss and minimal effort. You can even drill into the other available features to do a heck of a lot more if you need to. Overall it is effortless to use and well supported through the discord channel, and I cannot wait to see what updates and features come next!
+			<p><center title="8/10">
+			<span class="fa-solid fa-star checked"></span>
+			<span class="fa-solid fa-star checked"></span>
+			<span class="fa-solid fa-star checked"></span>
+			<span class="fa-solid fa-star checked"></span>
+			<span class="fa-solid fa-star checked"></span>
+			<span class="fa-solid fa-star checked"></span>
+			<span class="fa-solid fa-star checked"></span>
+			<span class="fa-solid fa-star checked"></span>
+			<span class="fa-solid fa-star"></span>
+			<span class="fa-solid fa-star"></span>
+			</center>
+			</div>
+			<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://bennvenn.myshopify.com/products/joeyn64-cart-flasher" target="_blank">Click here for BennVenn's shop</a></p>
+			<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://cdn.shopify.com/s/files/1/0804/0095/files/V_0_29.zip?v=1694131902" target="_blank">Click here for v0.29 Firmware</a></p>
+			<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://discord.gg/F5ckxM2" target="_blank">Join BennVenn's Discord server</a></p>
+			<span class="alignright">Share this post on: 
+				<a class="fa-brands fa-x-twitter" id="tr5" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦" onclick="sharePost(this.id);" target="_blank"></a>
+				</span>			
+		</div>
+	
+		<div id="b4" class="card">
 			<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64 Expansion Pak</span></h2>
 			<h5 class="subtitle">Joanna and Joshua show up! ~ Jun 19, 2024</h5>
 				<div class="bgBanner" style="background: rgba(231,0,18,255)"><img src="Blog/Features/NSOJune24/NSO.png" alt="NSO N64" class="center"/><div class="overlaytext">N64 on NSO</div></div>
@@ -72,7 +160,7 @@
 				<p>Nintendo is the keeper of the games, and also the ones DMCA'ing anyone who attempts to enjoy games that aren't even on their shaky platform. Why is N64 emulation on NSO so broken, and why is it acceptable for them to leave it in such a state?
 				<p>The internal name for the N64 emulator is "Hovercraft" and it is based on the Wii U N64 emulator developed by Nintendo and iQue. It is used as a blanket emulator, in tandem with LUA config files, to operate with every ROM. While the emulator does bring a few features such as JIT real-time code compilation, RPT for texture replacement, and online multiplayer, it also brings a lot of game-breaking bugs thanks to this blanket approach and no game specific optimisations. Rather, they use LUA to bodge the games into running on an all-for-one emulator. 
 				<p>How on Earth does this even pass QA??
-				<p>Nintendo has seen fit to included suspend points, upped resolutions, and enhanced frame rates to play these games, though all we see is broken or missing effects, performance issues across the catalogue of games, and horrible input lag. Thats not to mention a complete lack of a proper remapping function for the Joy-Cons or the N64 controller. The way the buttons are laid out, or worse, require you to switch configurations on the fly, is heartbreaking.</p>
+				<p>Nintendo has seen fit to included suspend points, upped resolutions, and enhanced frame rates to play these games, though all we see is broken or missing effects, performance issues across the catalogue of games, and horrible input lag. That's not to mention a complete lack of a proper remapping function for the Joy-Cons or the N64 controller. The way the buttons are laid out, or worse, the requirement for you to switch configurations on the fly on a Joy-Con, is heartbreaking.</p>
 				<span align="center" width="100%">
 					<a target="_blank" href="Carts/U/Perfect Dark U.png"><img class="thumbnail" src="Carts/U/Perfect Dark U.png" width="32%" style="padding:auto"/></a>
 					<a target="_blank" href="Carts/U/Turok Dinosaur Hunter U.png"><img class="thumbnail" src="Carts/U/Turok Dinosaur Hunter U.png" width="32%" style="padding:auto"/></a>
@@ -94,7 +182,7 @@
 					</span>
 		</div>
 
-			<div id="c4" class="card">
+		<div id="c4" class="card">
 			<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats: #4</span></h2>
 			<h5 class="subtitle">Engaging with Emu_kidid ~ June 18, 2024</h5>
 				<div class="bgChat" style="background-image:url('Covers/U/Body Harvest U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Emu_kidid</div></div>
@@ -797,13 +885,41 @@
 	</div>
 	
 	<div class="rightcolumn">
-	
-		<!--div class="card" title="Scroll to the bottom">
-			<span class="title">Start at the beginning:</span>
-			<center><a href="blog.html#b1"><img class="button" src="Config/Images/CDOWN.png"></a></center>
-		</div-->
 
 		<div class="card">
+		<div class="badge fresh">JUNE</div>
+		<center><h3 class="smalltitle"><span>Games to check:</span></h3></center>
+			<a title="Quest 64" href="index.html#Quest_64" target="_blank" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Quest 64.png')"></div></a>
+			<a title="Wave Race 64" href="index.html#Wave_Race_64" target="_blank" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Wave Race 64.png')"></div></a>
+			<a title="Space Station Silicon Valley" href="index.html#Space_Station_Silicon_Valley" target="_blank" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Space Station Silicon Valley.png')"></div></a>
+			<a title="GoldenEye 007" href="index.html#GoldenEye_007" target="_blank" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/GoldenEye 007.png')"></div></a>
+			<a title="Turok 2: Seeds of Evil" href="index.html#Turok_2_Seeds_of_Evil" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Turok 2.png')"></div></a>
+		</div>
+		
+		<div class="card">
+			<div class="badge hot">CHAT CONTEST</div>
+			<center><h3 class="smalltitle">Consoles owned:</h3></center>
+			<div style="overflow-x:auto;">
+				<table>
+					<tr><th>#</th><th>Name</th><th>No:</th></tr>
+					<tr><td>01</td><td>Emu_Kidid</td><td>68</td></tr>
+					<tr><td>02</td><td>Quest64</td><td>45</td></tr>
+					<tr><td>03</td><td>Graslu00</td><td>38</td></tr>
+					<tr><td>04</td><td>Toadfan5</td><td>27</td></tr>
+					<tr><td>05</td><td></td><td></td></tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="card">
+		<h3 class="smalltitle">Follow Me on Twitter:</h3><center>
+		<p class="subtitle"><i class="fa-solid fa-user-plus"></i>&nbsp;<a href="https://twitter.com/DefaultDNB" target="_blank">@DefaultDNB</a></p>
+			<img src="Blog/Avatars/Me.png" alt="Avatar" class="aboutcenter" style="width:50%;height:auto;">
+		<p><i class="fa-regular fa-envelope"></i>&nbsp;<a href="https://twitter.com/messages/compose?recipient_id=170775741" target="_blank">Message me</a></p>
+			</center>
+		</div>
+		
+		<div class="card sticky">
 		<div class="badge coolrev">SITE MAP</div>
 		<center><h3 class="smalltitle">Quick links:</h3></center>
 			<details>
@@ -826,45 +942,17 @@
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r2">SummerCart64</a><br>
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r3">InterAct V3 Wheel</a><br>
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r4">InterAct Vortex</a><br>
-			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r3">UltraRacer64</a><br>
+			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r5">UltraRacer64</a><br>
+			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r6">JoeyN64</a><br>
 			</details>
 			<details>
 			<summary class="smalltitle" title="Click to reveal">More</summary>
-			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a>Coming Soon</a>
+			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b1">View Oldest Post</a><br>
+			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#latest">View Latest Post</a><br>
 			</details>
 		</div>
 		
-		<div class="card">
-			<div class="badge hot">CHAT CONTEST</div>
-			<center><h3 class="smalltitle">Consoles owned:</h3></center>
-			<div style="overflow-x:auto;">
-				<table>
-					<tr><th>#</th><th>Name</th><th>No:</th></tr>
-					<tr><td>01</td><td>Emu_Kidid</td><td>68</td></tr>
-					<tr><td>02</td><td>Quest64</td><td>45</td></tr>
-					<tr><td>03</td><td>Graslu00</td><td>38</td></tr>
-					<tr><td>04</td><td>Toadfan5</td><td>27</td></tr>
-					<tr><td>05</td><td></td><td></td></tr>
-				</table>
-			</div>
-		</div>
-			
-		<div class="card">
-		<div class="badge fresh">JUNE</div>
-		<center><h3 class="smalltitle"><span>Games to check:</span></h3></center>
-			<a title="Quest 64" href="index.html#Quest_64" target="_blank" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Quest 64.png')"></div></a>
-			<a title="Wave Race 64" href="index.html#Wave_Race_64" target="_blank" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Wave Race 64.png')"></div></a>
-			<a title="Space Station Silicon Valley" href="index.html#Space_Station_Silicon_Valley" target="_blank" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Space Station Silicon Valley.png')"></div></a>
-			<a title="GoldenEye 007" href="index.html#GoldenEye_007" target="_blank" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/GoldenEye 007.png')"></div></a>
-			<a title="Turok 2: Seeds of Evil" href="index.html#Turok_2_Seeds_of_Evil" onclick="setFULL();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Turok 2.png')"></div></a>
-		</div>
-		
-		<div class="card">
-		<h3 class="smalltitle">Follow Me on Twitter:</h3><center>
-		<p class="subtitle"><i class="fa-solid fa-user-plus"></i>&nbsp;<a href="https://twitter.com/DefaultDNB" target="_blank">@DefaultDNB</a></p>
-			<img src="Blog/Avatars/Me.png" alt="Avatar" class="aboutcenter" style="width:50%;height:auto;">
-		<p><i class="fa-regular fa-envelope"></i>&nbsp;<a href="https://twitter.com/messages/compose?recipient_id=170775741" target="_blank">Message me</a></p>
-			</center>
+		<div id="stuck">
 		</div>
 				
 	</div>
@@ -882,7 +970,8 @@ let headerTitle = document.getElementById(parentId).children[0].children[1].inne
 let subTitle = document.getElementById(parentId).children[1].innerText;
 window.open('https://twitter.com/share?text='+encodeURIComponent(headerTitle)+'%0A'+encodeURIComponent(subTitle)+'%0A&url='+encodeURIComponent(site)+'%23'+parentId+'%0A%0A%23N64+%23ReCollect64');
 }
+document.getElementById("stuck").style.height = document.getElementById("b1").getBoundingClientRect().top+"px";
 </script>
-<!--div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=170958&s=16' border='0' alt='Free Website Hit Counter'></a><br/></div-->
+<div align='center'><a href='https://www.free-website-hit-counter.com'><img src='https://www.free-website-hit-counter.com/c.php?d=9&id=170958&s=16' border='0' alt='Free Website Hit Counter'></a><br/></div>
 </body>
 </html>
