@@ -219,6 +219,11 @@ body {
 	font-style: normal;
 	font-size: xx-large;
 }
+.score {
+	background: MediumSeaGreen;
+	padding: 1px 2px;
+	font-size: small;
+}
 .new {
 	background: red;
 }
@@ -288,6 +293,7 @@ body {
 }
 .thumbnail {
 	transition: transform .2s;
+	position: relative;
 }
 .thumbnail:hover {
 	-ms-transform: scale(1.05); /* IE 9 */
