@@ -325,6 +325,27 @@ tr:nth-child(even) {
 }
 tr:nth-child(odd) {
 }
+.thintable table {
+	font-family: "Homenaje", sans-serif;
+	border-collapse: collapse;
+	width: fit-content;
+	block-size: fit-content;
+}
+.thintable td {
+	border: 1px solid grey;
+	text-align: center;
+	color: #303030;
+	background-color: #F8F8F8;
+	width: fit-content;
+	padding: 0px;
+}
+.thintable th{
+	border: 1px solid grey;
+	color: #303030;
+	background-color: #F8F8F8;
+	width: fit-content;
+	padding: 0px;
+}
 .video {
 	display: block;
 	width: 95%;
@@ -355,6 +376,45 @@ details[open] > summary {
 }
 .button:hover {
 	opacity: 1.0;
+}
+.accordion {
+	--background-color: #eee;
+	--color: #444;
+	color: white;
+	background-image: linear-gradient(to bottom, navy, silver);
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	border-radius: 10px;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.6s;
+}
+
+.accordion:after {
+	content: '\002B';
+	color: #777;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+
+.active:after {
+	content: "\2212";
+}
+
+.active, .accordion:hover {
+	background-color: #ccc; 
+}
+
+.panel {
+	padding: 0 18px;
+	display: none;
+	background-color: white;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
 }
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
