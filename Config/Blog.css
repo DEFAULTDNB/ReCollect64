@@ -273,9 +273,6 @@ body {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 4px;
-	font-size: 22px;
-	width: 32px;
 	text-align: center;
 }
 .fa-brands:hover {
@@ -289,6 +286,7 @@ body {
 	vertical-align: middle;
 	font-size: 34px;
 	width: 50px;
+	padding: 4px;
 }
 .alignright {
 	display: block;
