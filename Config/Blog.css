@@ -188,14 +188,15 @@ body {
 	background-color: #ddffdd;
 	border-left: 6px solid #04AA6D;
 	border-right: 5px solid white;
-	--height: 100%;
 	display: table-cell;
+	width: 50%;
 }
 .con {
 	padding: 10px 10px;
 	background-color: #ffdddd;
 	border-left: 6px solid #f44336;
 	display: table-cell;
+	width: 50%;
 }
 .verdict {
 	clear: both;
