@@ -1295,10 +1295,10 @@ function reply_click(clicked_id){
 	const elements = document.getElementsByClassName("thumbs2");
 		while(elements.length > 0){
 			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
-		}
-
+		}		
 		if (guideURL) {
-			for (let m = 1; m < guideLineNo.length+1; m++){
+			//for (let m = 1; m < guideLineNo.length+1; m++){
+			for (let m = 1; m < 5; m++){ //arbitrary number
 				const simg = document.createElement("img");
 				simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
 				simg.setAttribute('class', 'thumbs2');
@@ -1314,6 +1314,9 @@ function reply_click(clicked_id){
 				gcounter = gcounter + 1;
 			}
 		} else {
+			while(elements.length > 0){
+				elements[0].parentNode.removeChild(elements[0]);//remove extra elements
+			}
 		}
 	}
 	//Specific for Micro Machines SEU
