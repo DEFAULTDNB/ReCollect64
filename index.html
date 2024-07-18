@@ -980,6 +980,7 @@ var gametoline;
 var cartValue, boxValue, sealedValue;
 var gcounter;
 function reply_click(clicked_id){
+	gcounter = 0;
 	const regions = ["A","AV1","AV2","AV3","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","BR","BRB","BRS","CAN","CH","D","DD","E","EV1","EV2","EV3","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","JS","JV1","JV2","JV3","KO","LRG","LRGC","LRGS","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV","UV1","UV2","UV3"];
 	const things = ["cartridge","boxed","manual","sealed"];
 	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 A","Pokemon Stadium 2 BR","Pokemon Stadium 2 D","Pokemon Stadium 2 E","Pokemon Stadium 2 F","Pokemon Stadium 2 I","Pokemon Stadium 2 S","Pokemon Stadium 2 U","Pokemon Stadium 2 NFR","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
@@ -1292,25 +1293,24 @@ function reply_click(clicked_id){
 		while(elements.length > 0){
 			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
 		}
-		gcounter = 0;
-		for (let m = 1; m < guideLineNo.length+1; m++){
-			const simg = document.createElement("img");
-			simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
-			simg.setAttribute('class', 'thumbs2');
-			simg.setAttribute('title', '𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝗚𝘂𝗶𝗱𝗲');
-			simg.setAttribute('id', "thumbG"+m); //try this for simplicity
-			simg.setAttribute('width', "24%");
-			simg.setAttribute('height', "auto");
-			simg.style.display = 'inline-block';
-			simg.setAttribute('onclick', 'thumbFunct(this.id)');
-			//simg.setAttribute('onload', 'alert(this.id)'); //add one to the carousel.
-			simgBox.appendChild(simg);
-			gcounter = gcounter + 1;
-			//alert(gcounter)
-		}		
+		
+		if (guideLinks.length > 0) {
+			for (let m = 1; m < guideLineNo.length+1; m++){
+				const simg = document.createElement("img");
+				simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
+				simg.setAttribute('class', 'thumbs2');
+				simg.setAttribute('title', '𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝗚𝘂𝗶𝗱𝗲');
+				simg.setAttribute('id', "thumbG"+m); //try this for simplicity
+				simg.setAttribute('width', "24%");
+				simg.setAttribute('height', "auto");
+				simg.style.display = 'inline-block';
+				simg.setAttribute('onclick', 'thumbFunct(this.id)');
+				simgBox.appendChild(simg);
+				gcounter = gcounter + 1;
+			}
+		} else {
+		}
 	}
-
-	
 	//Specific for Micro Machines SEU
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
 		const simgBox = document.getElementById("art");
@@ -1409,13 +1409,6 @@ function reply_click(clicked_id){
 		[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲 𝗼𝗿 𝗹𝗲𝘀𝘀 𝗳𝗼𝗿 𝗮 𝘀𝗲𝗮𝗹𝗲𝗱 𝗰𝗼𝗽𝘆';});
 		} //NOT WORKING - SEALED PAID vs SEALED VALUE!!
 	}
-	
-	//TESTING getting DISPLAYED children in art section only.
-	//const collection = document.getElementById("art").children;
-	//get children count that ARE displaying images.
-	
-	//use this number for carousel.
-
 }
 function check_click(clicked_id){
 	let rMatch = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
@@ -1681,9 +1674,9 @@ document.getElementById("imgzoom").src = document.getElementById(clicked_id).src
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
 	//slideSelection = ["Micro Machines 64 Turbo SEU","1","2","3","4","5","6","7","8","9","10","11","12","13","14"]; //15 known versions
 	slideSelection = [];
-	for (let i = 1; i <= 14; i++) {
-        slideSelection.push(i);
-    }
+		for (let i = 1; i <= 14; i++) {
+			slideSelection.push(i);
+		}
 		if (clicked_id == "thumb"){
 		//pos = slideSelection.indexOf("Micro Machines 64 Turbo SEU"); //works!
 		pos = 0;
@@ -1692,19 +1685,21 @@ document.getElementById("imgzoom").src = document.getElementById(clicked_id).src
 		}
 	} else {
 	thumbCarousel = [];
-	thumbSelection = ["thumb","thumbBB","thumbRC","thumbDI","thumbMA","thumbA1","thumbA2","thumbA3", "thumbS1","thumbO1", "thumbO2"]; //known values
+	thumbSelection = ["thumb","thumbBB","thumbRC","thumbDI","thumbMA","thumbA1","thumbA2","thumbA3", "thumbS1","thumbO1","thumbO2"]; //known values
 		//inject guides here.
 		for (let g = 1; g <= gcounter; g++) {
 			thumbSelection.push("thumbG"+g);
 		}
+		//working if you click on anything BUT the guides....
 		for (a = 0; a < document.getElementById("art").childElementCount; a++){
 			if (document.getElementById("art").childNodes[a].nodeType = "1"){
 				if (document.getElementById(document.getElementById(thumbSelection[a]).id).style.display == "inline-block"){
 				thumbCarousel.push(document.getElementById(thumbSelection[a]).id);
 				}
 			}
-		}	
-	pos = thumbSelection.indexOf(clicked_id);
+		}
+		//alert(thumbSelection)
+		pos = thumbSelection.indexOf(clicked_id);
 	}	
 }
 window.onload = function () {
