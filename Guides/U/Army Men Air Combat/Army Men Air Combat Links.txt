@@ -1,1 +1,1 @@
-Config/Images/404.png
+raw.githubusercontent.com/DEFAULTDNB/ReCollect64/main/Config/Images/404.png
