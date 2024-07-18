@@ -1661,7 +1661,6 @@ var guideNumber;
 function thumbFunct(clicked_id) {
 document.getElementById("canvas").style.display = "block";
 document.getElementById("imgzoom").src = document.getElementById(clicked_id).src;
-
 	//GUIDE LINKAGE
 	if (imgzoom.src.match(/Guides/)){
 	document.getElementById("dlGuide").style.display = "block";
@@ -1678,7 +1677,6 @@ document.getElementById("imgzoom").src = document.getElementById(clicked_id).src
 	} else {
 	document.getElementById("dlGuide").style.display = "none";
 	}
-	
 	//THIS WILL NEED FIXING FOR MANUAL/ACCESSORY/BACK etc etc
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
 	//slideSelection = ["Micro Machines 64 Turbo SEU","1","2","3","4","5","6","7","8","9","10","11","12","13","14"]; //15 known versions
@@ -1694,7 +1692,11 @@ document.getElementById("imgzoom").src = document.getElementById(clicked_id).src
 		}
 	} else {
 	thumbCarousel = [];
-	thumbSelection = ["thumb","thumbBB","thumbRC","thumbDI","thumbMA","thumbA1","thumbA2","thumbA3", "thumbS1","thumbO1", "thumbO2","thumbG1","thumbG2","thumbG3","thumbG4","thumbG5","thumbG6"]; //known values - expanded for guides
+	thumbSelection = ["thumb","thumbBB","thumbRC","thumbDI","thumbMA","thumbA1","thumbA2","thumbA3", "thumbS1","thumbO1", "thumbO2"]; //known values
+		//inject guides here.
+		for (let g = 1; g <= gcounter; g++) {
+			thumbSelection.push("thumbG"+g);
+		}
 		for (a = 0; a < document.getElementById("art").childElementCount; a++){
 			if (document.getElementById("art").childNodes[a].nodeType = "1"){
 				if (document.getElementById(document.getElementById(thumbSelection[a]).id).style.display == "inline-block"){
