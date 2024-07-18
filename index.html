@@ -462,6 +462,9 @@ function spitFacts() {
 }
 document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto' });
 var gRegion, gTitle, gYear, gGenre, gScore, cValue, bValue, sValue, pos, tPos;
+var guideURL;
+var guideLineNo;
+var guideNumber;
 var currencyList = {USD:1.26, YEN:183.94, EUR:1.17, BRL:6.23, CHN:9.14, AUD:1.95, GBP:1.00};
 document.getElementById("overlay").style.display = "block";
 document.getElementById("overlaytext").innerHTML = "Loading..";
@@ -1274,7 +1277,6 @@ function reply_click(clicked_id){
 	document.getElementById("thumbO2").style.width = "62%";
 	document.getElementById("thumbO2").style.height = "auto";
 	}
-	
 	//Guides
 	let guideLinks = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'Links.txt';
 	document.getElementById("guideFrame").src = guideLinks;
@@ -1288,13 +1290,14 @@ function reply_click(clicked_id){
 	guideLink.send();
 	guideURL = guideLink.responseText;
 	guideLineNo = guideURL.split("\n");
+	//alert(guideLineNo.length)
 	const simgBox = document.getElementById("art");
 	const elements = document.getElementsByClassName("thumbs2");
 		while(elements.length > 0){
 			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
 		}
-		
-		if (guideLinks.length > 0) {
+
+		if (guideURL) {
 			for (let m = 1; m < guideLineNo.length+1; m++){
 				const simg = document.createElement("img");
 				simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
@@ -1305,6 +1308,8 @@ function reply_click(clicked_id){
 				simg.setAttribute('height', "auto");
 				simg.style.display = 'inline-block';
 				simg.setAttribute('onclick', 'thumbFunct(this.id)');
+				simg.setAttribute('onload', 'this.style.display = "inline-block"');
+				simg.setAttribute('onerror', 'this.style.display = "none"');
 				simgBox.appendChild(simg);
 				gcounter = gcounter + 1;
 			}
@@ -1648,9 +1653,6 @@ function search(str) {
 	}	
 	return;
 }
-var guideURL;
-var guideLineNo;
-var guideNumber;
 function thumbFunct(clicked_id) {
 document.getElementById("canvas").style.display = "block";
 document.getElementById("imgzoom").src = document.getElementById(clicked_id).src;
@@ -2197,15 +2199,13 @@ function letsDance(){
 window.open("blog.html");
 }
 function dlGuide() {
-window.open(guideLineNo[guideNumber]); //Allows for multiple links
-
-//MISSING LINKS: Config/Images/404.png
+var myURL = String(guideLineNo[guideNumber]);//Allows for multiple links
+window.open(myURL);
+//not working when site is online.
 }
-
 var nVarGot = [];
 var nVarNot = [];
 var gotNotSwitch = "all";
-
 function readNdisplay() {
 	let nfileName = "Config/Lists/"+localStorage.regKey;
 	var nxmlFile = new XMLHttpRequest;
@@ -2216,16 +2216,11 @@ function readNdisplay() {
 	let ntitleCount = nlines.length;
 	if (gotNotSwitch == "all") {
 	var element = document.getElementById("main");
-	
 	//alert(myCollectionList)
-	
 		for (i = 0; i < ntitleCount; i++){
 		let test0 = nlines[i].slice(0, nlines[i].length); //the line in current .cfg
-		
 			for (n = 0; n < myCollectionList.length; n++) {
-			
 			//alert(n)
-			
 			//let test1 = myCollectionList[n][0].slice(0,(myCollectionList[n][0].lastIndexOf(" "))); //game name
 			//let test2 = myCollectionList[n][0].slice((myCollectionList[n][0].lastIndexOf(" ")+1), (myCollectionList[n][0].length)); //game region
 				/*
@@ -2237,9 +2232,7 @@ function readNdisplay() {
 				*/
 			}
 		}
-		
 		alert(nVarGot);
-		
 		/*
 		for (i=0; i < element.children.length; i++){
 			if (element.children[i].style.backgroundColor) { //need to be actual collection based not just visible...
