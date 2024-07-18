@@ -248,10 +248,15 @@ select {
 }
 #canvas {
 	position: fixed;
-	top: 15px;
-	right: 25vw;
-	width: natural;
-	height: natural;
+	--top: 15px;
+	--right: 25vw;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	--width: natural;
+	--height: natural;
+	max-width: 75vw;
+	max-height: 90vh;
 	border: 3px solid var(--light-tone);
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -260,6 +265,10 @@ select {
 	background: var(--primary-color);
 	z-index: 1000;
 	display: none;
+}
+#imgzoom {
+	max-width: 75vw;
+	max-height: 85vh;
 }
 #frametitle2 {
 	background-color: var(--primary-color);

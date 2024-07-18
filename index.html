@@ -15,17 +15,10 @@
 <div id="cake" onclick="cake();" title="𝗧𝗼𝗴𝗴𝗹𝗲 𝗯𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝗼𝗱𝗲"></div>
 <label id="debugL" title="𝗧𝗼𝗴𝗴𝗹𝗲 𝗱𝗲𝗯𝘂𝗴" class="switch"><input type="checkbox" onClick="toggleDebug();" id="debugC"><span class="slider round yellow"></span></label>
 <label id="muteL" title="𝗧𝗼𝗴𝗴𝗹𝗲 𝗺𝘂𝘁𝗲" class="switch"><input type="checkbox" onClick="toggleMute();" id="muteC"><span class="slider round"></span></label>
-<input type="text" value="" id="searcher" placeholder="𝗦𝗲𝗮𝗿𝗰𝗵 (ctrl+f)" onclick="this.value='';" style='font-size: 25px;' autofocus />
+<input type="text" value="" id="searcher" placeholder="𝗦𝗲𝗮𝗿𝗰𝗵 (ctrl+f)" onclick="this.value='';document.getElementById('canvas').style.display = 'none';document.getElementById('frame').style.display = 'none';" style='font-size: 25px;' autofocus />
 <script>
 	var cPaid, bPaid, mPaid, sPaid, dPaid, gCurrency;
-	var result1,result2,result3,result4,result5,result6 = 0;
-	/*var axmlFile = new XMLHttpRequest;
-	axmlFile.open('get', "Config/Lists/ALL.cfg", false);
-	axmlFile.send();
-	var axmlDoc = axmlFile.responseText;
-	var alines = axmlDoc.split("\n");
-	let atitleCount = alines.length;
-	var skullkid = atitleCount;*/
+	var result1,result2,result3,result4,result5,result6;
 	var myCollectionList = [];
 	var firstCount;
 	var cartsCounted = colourCounted = boxesCounted = manualsCounted = sealedCounted = tally = 0;
@@ -73,7 +66,7 @@
 <div id="canvas" onmouseup="document.getElementById('canvas').style.display = 'none';">
 <div class="card-header" id="frametitle2">𝗖𝗹𝗶𝗰𝗸 𝗶𝗺𝗮𝗴𝗲 𝘁𝗼 𝗰𝗹𝗼𝘀𝗲</div>
 <img class="closebtn" src="Config/Images/DDOWN.png" onclick="grabImage();" id="dlImage" title="𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗶𝗺𝗮𝗴𝗲" />
-<img class="closebtn" src="Config/Images/DOWNLOAD.png" onclick="dlGuide();" id="dlGuide" title="𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 guide" style="display:none"/>
+<img class="closebtn" src="Config/Images/DOWNLOAD.png" onclick="dlGuide();" id="dlGuide" title="𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗴𝘂𝗶𝗱𝗲" style="display:none"/>
 <span class="closebtn"><img id="navL" src="Config/Images/CLEFT.png" title="𝗣𝗿𝗲𝘃𝗶𝗼𝘂𝘀 𝗶𝗺𝗮𝗴𝗲" onclick="prevThumb();"/><img id="navD" src="Config/Images/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗶𝗺𝗮𝗴𝗲𝘀" onclick="document.getElementById('canvas').style.display = 'none';"/><img id="navR" src="Config/Images/CRIGHT.png" title="𝗡𝗲𝘅𝘁 𝗶𝗺𝗮𝗴𝗲" onclick="nextThumb();"/></span>
 <img id="imgzoom" src="" title="𝗖𝗹𝗶𝗰𝗸 𝘁𝗼 𝗰𝗹𝗼𝘀𝗲" />
 </div>
@@ -123,6 +116,7 @@
 	<option value="COLS" title="𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲𝘀">🎨🌎 CCV</option>
 	<option value="GREY" title="𝗚𝗿𝗲𝘆 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀">🎨🌎 GREY</option>
 	<option value="NFR" title="𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲">‍🚫🌎 NFR</option>
+	<option value="JS" title="JPN Samples">‍🚫🌏 JPN</option>
 	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗">🇯🇵 🌏 64DD</option>
 	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻">🇨🇳 🌏 IQUE</option>	
 	<option value="LRG" title="𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀">‍🛑🌎 LRG</option>
@@ -147,20 +141,21 @@
 <div class="frame" id="frame" onmouseleave="" style="display:none">
 <div class="card-header" title="𝗗𝗼𝘂𝗯𝗹𝗲 𝗖𝗹𝗶𝗰𝗸 𝘁𝗼 𝗦𝗲𝗮𝗿𝗰𝗵 𝗲𝗕𝗮𝘆" id="frametitle" ondblclick="ineedthis();" oncontextmenu="javascript:copyToClippy();return false;">𝗚𝗔𝗠𝗘 𝗧𝗜𝗧𝗟𝗘 </div><span style="display: inline" id="frametext"> more info</span>
 	<img class="closebtn" title="𝗘𝘅𝗽𝗮𝗻𝘀𝗶𝗼𝗻 𝗽𝗮𝗸 𝗲𝗻𝗵𝗮𝗻𝗰𝗲𝗱 𝘁𝗶𝘁𝗹𝗲!" id="expak" src='Config/Images/EXPAK.png' /><img class="closebtn" title="𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗼𝗻 𝗡𝗦𝗢!" id="NSO" src='Config/Images/NSO.png' onclick="nsoInfo();"/>
-	<span class="closebtn"><img id="navL" src="Config/Images/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();"/><img id="navD" src="Config/Images/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();"/><img id="navR" src="Config/Images/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();"/></span>
+	<span class="closebtn"><img id="navL" src="Config/Images/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();"/><img id="navD" src="Config/Images/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();document.getElementById('canvas').style.display = 'none';"/><img id="navR" src="Config/Images/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();"/></span>
 	<div class="grid-container" id="grid-container">
 	<div class="grid-item1">
 				<div id="art" style="background: none;" title="𝗧𝗮𝗸𝗲 𝗮 𝗰𝗹𝗼𝘀𝗲𝗿 𝗹𝗼𝗼𝗸">
 					<img id="thumb" title="𝗕𝗼𝘅 𝗔𝗿𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbBB" title="𝗕𝗼𝘅 𝗕𝗮𝗰𝗸" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-					<img id="thumbRC" title="𝗚𝗮𝗺𝗲 𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbRC" title="𝗚𝗮𝗺𝗲 𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲" class="thumbs" src='' onload="this.style.display = 'inline-block'" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbDI" title="𝗚𝗮𝗺𝗲 𝗗𝗶𝘀𝗸" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbMA" title="𝗚𝗮𝗺𝗲 𝗠𝗮𝗻𝘂𝗮𝗹" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA1" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA2" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA3" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbS1" title="𝗦𝗰𝗿𝗲𝗲𝗻𝘀𝗵𝗼𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-					<img id="thumbG1" title="𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝗚𝘂𝗶𝗱𝗲" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbO1" title="𝗖𝗮𝗿𝗱 𝗙𝗿𝗼𝗻𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbO2" title="𝗖𝗮𝗿𝗱 𝗕𝗮𝗰𝗸" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				</div>
 			</div>
 		<div class="grid-item2">
@@ -210,11 +205,6 @@
 				<span title="Boxed?"><div id="BOXPNG"></div><input id="ASboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="ASboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
 				<span title="Manual?"><div id="MANPNG"></div><input id="ASmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="ASmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
 				<span title="Sealed?"><div id="SLDPNG"></div><input id="ASsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="ASsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
-				</div>
-				<div id="Bcart"><span class="flag" title="BELGIUM">🇧🇪</span><span><input id="Bcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="BcartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
-				<span title="Boxed?"><div id="BOXPNG"></div><input id="Bboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="BboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="Bmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="BmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
-				<span title="Sealed?"><div id="SLDPNG"></div><input id="Bsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="BsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
 				</div>
 				<div id="BRcart"><span class="flag" title="BRAZILIAN">🇧🇷</span><span><input id="BRcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="BRcartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
 				<span title="Boxed?"><div id="BOXPNG"></div><input id="BRboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="BRboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
@@ -310,6 +300,11 @@
 				<span title="Boxed?"><div id="BOXPNG"></div><input id="Jboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="JboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
 				<span title="Manual?"><div id="MANPNG"></div><input id="Jmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="JmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
 				<span title="Sealed?"><div id="SLDPNG"></div><input id="Jsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="JsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
+				</div>
+				<div id="JScart"><span class="flag" title="JAPANESE SAMPLE">🇯🇵</span><span><input id="JScartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="JScartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="JSboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="JSboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="JSmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="JSmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="JSsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="JSsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
 				</div>
 				<div id="JV1cart"><span title="JPN VERSION 1.1"><div id="ALTPNG"></div></span><span><input id="JV1cartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="JV1cartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
 				<span title="Boxed?"><div id="BOXPNG"></div><input id="JV1boxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="JV1boxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
@@ -658,6 +653,7 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 	if (document.getElementById("Region").value == "JPNX") {var myToast = Toastify({text: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to Japan.", style: {background: 'white', color: "crimson"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "USAX") {var myToast = Toastify({text: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to America.", style: {background: 'MediumBlue', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "PCX") {var myToast = Toastify({text: "𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲:\n\nMillion Seller/Players Choice variants.", style: {background: 'black', color: "white"}, avatar: "Config/Images/PCU.png", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "JS") {var myToast = Toastify({text: "𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀:\n\nJapanese store demos.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/Sample.png", close: true, duration: 5000}); myToast.showToast();}
 }
 function readFile2(e) {
 	document.getElementById("frame").style.display = "none";
@@ -670,7 +666,7 @@ function readFile2(e) {
 			cfgSource = "CUST.cfg";
 		}
 		reader.readAsText(file, "UTF-8");
-		alert("Opening: "+file.name+" (games not added to virtual list)");
+		alert("Opening: "+file.name+" (games not added to virtual list)");//required
 		lines = localStorage.getItem("customSource").split("\r");
 		titleCount = lines.length;
 		document.getElementById("multichoice").style.display = "none";
@@ -683,27 +679,29 @@ function readFile2(e) {
 function readFile3(e) {
 	document.getElementById("frame").style.display = "none";
 		var file = e.target.files[0];
+		//import text
 		if (!file) return;
 		var reader = new FileReader();
 		reader.onload = function(e) {
 		importVar = e.target.result;
 		lines = importVar.split("\r");
 		titleCount = lines.length;
+			//store in variable
 			for (let i = 0; i < titleCount; i++) {
 			quickList.push(lines[i]);
 			}
-		localStorage.setItem("customSourceName", file.name);
+			localStorage.setItem("customSourceName", file.name);
 			localStorage.setItem("customSource", e.target.result);
 			cfgSource = "CUST.cfg";
 		}
 		reader.readAsText(file, "UTF-8");
-		alert("Importing: "+file.name+" to virtual list");//makes it work?!!??
+		alert("Importing: "+file.name+" to virtual list");//required
 		hideMyToasts();hideMyToastsV();
 		document.getElementById("multichoice").style.display = "none";
 		document.getElementById("overlay").style.display = "none";
 		document.getElementById('VirtualCFG').click();
 		var myToast = Toastify({className: "bday", text: file.name + " imported!", onClick: function(){hideMyToasts()}, style: {background: 'rgb(50,153,0)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
-}	
+}
 if (localStorage.moneyKey==null) {
 	localStorage.moneyKey = document.getElementById("Currency").value;
 	} else {
@@ -776,19 +774,18 @@ let MIBvalue = [];
 var coverFlow;
 var info;
 populatethepage();
-function populatethepage() {
+function populatethepage() {		
 myNeedList = [];
 myCount = 0;
-var element = document.getElementById("main");
+	var element = document.getElementById("main");
 	while (element.firstChild) { 
 		element.firstChild.remove(); 
 	}
-coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
+	coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
 	for (i=0; i < titleCount; i++){
 		var div = document.createElement("div");
 		var a = document.createElement("div");
 		document.getElementById("main").appendChild(div);
-		
 		div.setAttribute('id', "card"+coverFlow[i]);
 		div.setAttribute('class', 'thumbnail');
 		div.setAttribute('title', coverFlow[i]+"/"+titleCount);
@@ -934,7 +931,8 @@ coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
 		} else if (lines[info].match("REGION=IQUE ")){
 		document.getElementById(coverFlow[i]).style.width = "100px"; document.getElementById(coverFlow[i]).style.left = "80px";
-		} else if (lines[info].match("REGION=J ")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")||lines[info].match("REGION=JV1 ")||lines[info].match("REGION=JV2 ")||lines[info].match("REGION=JV3 ")){
+		//} else if (lines[info].match("REGION=J ")||lines[info].match("REGION=JS ")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")||lines[info].match("REGION=JV1 ")||lines[info].match("REGION=JV2 ")||lines[info].match("REGION=JV3 ")){
+		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/J/'+gTitle+' J.png"');
 		document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
 		} else if (lines[info].match("REGION=LRGC ")){
@@ -967,7 +965,11 @@ coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
 		}
 	}
 	document.getElementById("searcher").value = "";
-document.getElementById("searcher").focus();
+	document.getElementById("searcher").focus();
+	/*
+	gotNotSwitch = "all";
+	var myToast = Toastify({text: "Showing: All", style:{background: 'rgb(0,0,0)'}, avatar: "Config/Images/N64.gif", gravity: "top", position: "center", close: true, duration: 5000}); myToast.showToast();
+	*/
 }
 var prevCard;
 var nextCard;
@@ -976,8 +978,9 @@ var slideSelection = [];
 var gameTitle, gameRegions;
 var gametoline;
 var cartValue, boxValue, sealedValue;
+var gcounter;
 function reply_click(clicked_id){
-	const regions = ["A","AV1","AV2","AV3","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","B","BR","BRB","BRS","CAN","CH","D","DD","E","EV1","EV2","EV3","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","JV1","JV2","JV3","KO","LRG","LRGC","LRGS","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV","UV1","UV2","UV3"];
+	const regions = ["A","AV1","AV2","AV3","AS","ALTB","ALTE","ALTJ","ALTN","ALTU","BR","BRB","BRS","CAN","CH","D","DD","E","EV1","EV2","EV3","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","JS","JV1","JV2","JV3","KO","LRG","LRGC","LRGS","MSA","NFR","PCA","PCE","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV","UV1","UV2","UV3"];
 	const things = ["cartridge","boxed","manual","sealed"];
 	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 A","Pokemon Stadium 2 BR","Pokemon Stadium 2 D","Pokemon Stadium 2 E","Pokemon Stadium 2 F","Pokemon Stadium 2 I","Pokemon Stadium 2 S","Pokemon Stadium 2 U","Pokemon Stadium 2 NFR","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
 	firstCount = myCollectionList.flat().filter(x => x.match(/cartridge|boxed|manual|sealed|Paid/gi)).length; //maybe hash it?
@@ -1125,14 +1128,14 @@ function reply_click(clicked_id){
 	gameRegions = "Brazil (Bundle)";
 	} else if (gameRegions.match("BR")||gameRegions.match("BRS")){
 	gameRegions = "Brazil (MPAL)";
-	} else if (gameRegions.match("B")){
-	gameRegions = "Belgium (PAL)";
 	} else if (gameRegions.match("DD")){
 	gameRegions = "Japan for N64DD";
 	} else if (gameRegions.match("D")||gameRegions.match("SED")){
 	gameRegions = "Germany (PAL)";
 	} else if (gameRegions.match("NFR")||gameRegions.match("ALTN")){
-	gameRegions = "store kiosks (DEMO)";
+	gameRegions = "Store kiosks (DEMO)";
+	} else if (gameRegions.match("JS")){
+	gameRegions = "Japanese sample (DEMO)";
 	} else if (gameRegions.match("F")){
 	gameRegions = "France (PAL)";
 	} else if (gameRegions.match("I")){
@@ -1172,24 +1175,31 @@ function reply_click(clicked_id){
 	document.getElementById("thumbBB").src = 'Backs/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	if (pReg === "NFR" || pReg === "ALTN") {
 	document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
-
-	document.getElementById("thumb").style.width = "0px" //hide thumb (box art) to only show cart (thumbRC).
+	//document.getElementById("thumb").style.width = "0px" //hide thumb (box art) to only show cart (thumbRC).
+	//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
+		if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //quick fix.
+		document.getElementById("thumb").style.height = "auto"
+		document.getElementById("thumb").style.width = "48%"
+		} else {
+		document.getElementById("thumb").style.width = "0px"
+		}
 	} else {
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
-		if (pReg.includes("J")){ //Portrait box fix
+		if (pReg.includes("J") || pReg.includes("JS")){ //Portrait box fix
 		document.getElementById("thumb").style.height = "auto"
-		document.getElementById("thumb").style.width = "210px"
+		document.getElementById("thumb").style.width = "48%"
 		document.getElementById("thumbBB").style.height = "auto"
-		document.getElementById("thumbBB").style.width = "210px"
+		document.getElementById("thumbBB").style.width = "48%"
 		} else { //Revert to landscape
-		document.getElementById("thumb").style.height = "210px"
-		document.getElementById("thumb").style.width = "auto"
-		document.getElementById("thumbBB").style.height = "210px"
-		document.getElementById("thumbBB").style.width = "auto"
+		document.getElementById("thumb").style.height = "auto"
+		document.getElementById("thumb").style.width = "48%"
+		document.getElementById("thumbBB").style.height = "auto"
+		document.getElementById("thumbBB").style.width = "48%" //try 48 needs auto padding or something....
 		}
 	}
 	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
-	document.getElementById("thumbRC").style.width = "290px";
+	document.getElementById("thumbRC").style.width = "48%";
+	document.getElementById("thumbRC").style.height = "auto";
 	if (gCode.includes("UKV")){
 	document.getElementById("thumbRC").src = 'Carts/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
 	} else if (gCode.includes("EUR")){
@@ -1199,14 +1209,23 @@ function reply_click(clicked_id){
 		} else {
 		document.getElementById("thumbRC").src = 'Carts/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		}
+	} else if (pReg === "JS") { //Add back additional components.
+	document.getElementById("thumbRC").src = 'Carts/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
+	document.getElementById("thumbBB").src = 'Backs/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
+	}  else if (pReg === "BRB" || pReg === "BRS"){
+	document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 	}
 	if (frametitle.innerHTML.includes("40 Winks E")){
 	document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 	} else if (frametitle.innerHTML.includes("40 Winks SEE")){
 	document.getElementById("thumbRC").src = 'Carts/SEU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SEU.png';
 	}
-	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';	
+	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
+	document.getElementById("thumbDI").style.width = "48%";
+	document.getElementById("thumbDI").style.height = "auto";
 	document.getElementById("thumbMA").src = 'Manuals/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
+	document.getElementById("thumbMA").style.width = "23%";
+	document.getElementById("thumbMA").style.height = "auto";
 	if (gFeatures.match("VRU")){
 	document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
 	} else if (gFeatures.match("Transfer")){
@@ -1215,18 +1234,84 @@ function reply_click(clicked_id){
 	} else if (gFeatures.match("Rumble")){
 	document.getElementById("thumbA1").src = 'Accessories/Rumble Pak A1.png';
 	} else if (frametitle.innerHTML.includes("IQUE")){
+	
+	document.getElementById("thumb").style.height = "auto";
+	document.getElementById("thumb").style.width = "30%";
+	
 	document.getElementById("thumbA1").src = 'Accessories/iQue A1.png';
 	document.getElementById("thumbA2").src = 'Accessories/iQue A2.png';
+	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
 	} else {
 	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
+	document.getElementById("thumbA1").style.width = "32%";
+	document.getElementById("thumbA1").style.height = "auto";
 	document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
-	}
-	//Poster
+	document.getElementById("thumbA2").style.width = "32%";
+	document.getElementById("thumbA2").style.height = "auto";
 	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
-	//Guides
-	document.getElementById("thumbG1").src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+' G1.png';
+	document.getElementById("thumbA3").style.width = "32%";
+	document.getElementById("thumbA3").style.height = "auto";
+	}
+	//Poster - KEEP THIS IDEA OPEN
+	//document.getElementById("thumbP1").src = 'Poster/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' P1.png';
+	
 	//Screenshot 800x600
-	document.getElementById("thumbS1").src = 'Screens/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' S1.png';	
+	document.getElementById("thumbS1").src = 'Screens/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' S1.png';
+	//Operation Cards	
+	document.getElementById("thumbO1").src = 'Operations/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' O1.png';
+	document.getElementById("thumbO1").style.width = "49%";
+	document.getElementById("thumbO1").style.height = "auto";
+	document.getElementById("thumbO2").src = 'Operations/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' O2.png';
+	document.getElementById("thumbO2").style.width = "49%";
+	document.getElementById("thumbO2").style.height = "auto";
+	
+	if (frametitle.innerHTML.includes("DD")){
+	document.getElementById("thumbMA").style.height = "auto";
+	document.getElementById("thumbMA").style.width = "32%";
+	document.getElementById("thumbO1").style.width = "62%";
+	document.getElementById("thumbO1").style.height = "auto";
+	document.getElementById("thumbO2").style.width = "62%";
+	document.getElementById("thumbO2").style.height = "auto";
+	}
+	
+	//Guides
+	let guideLinks = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'Links.txt';
+	document.getElementById("guideFrame").src = guideLinks;
+	elements = document.getElementsByClassName("thumbs2");
+		while(elements.length > 0){
+			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
+		}
+	document.getElementById("guideFrame").onload = function() {
+	var guideLink = new XMLHttpRequest;
+	guideLink.open('get', guideLinks, false);
+	guideLink.send();
+	guideURL = guideLink.responseText;
+	guideLineNo = guideURL.split("\n");
+	const simgBox = document.getElementById("art");
+	const elements = document.getElementsByClassName("thumbs2");
+		while(elements.length > 0){
+			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
+		}
+		gcounter = 0;
+		for (let m = 1; m < guideLineNo.length+1; m++){
+			const simg = document.createElement("img");
+			simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
+			simg.setAttribute('class', 'thumbs2');
+			simg.setAttribute('title', '𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝗚𝘂𝗶𝗱𝗲');
+			simg.setAttribute('id', "thumbG"+m); //try this for simplicity
+			simg.setAttribute('width', "24%");
+			simg.setAttribute('height', "auto");
+			simg.style.display = 'inline-block';
+			simg.setAttribute('onclick', 'thumbFunct(this.id)');
+			//simg.setAttribute('onload', 'alert(this.id)'); //add one to the carousel.
+			simgBox.appendChild(simg);
+			gcounter = gcounter + 1;
+			//alert(gcounter)
+		}		
+	}
+
+	
+	//Specific for Micro Machines SEU
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
 		const simgBox = document.getElementById("art");
 		const elements = document.getElementsByClassName("thumbs2");
@@ -1238,17 +1323,12 @@ function reply_click(clicked_id){
 				simg.src = 'Slideshow/Micro Machines 64 Turbo SEU/'+m+'.png';
 				simg.setAttribute('class', 'thumbs2');
 				simg.setAttribute('id', simg.src);
+				simg.setAttribute('width', "49%");
+				simg.setAttribute('height', "auto");
 				simg.style.display = 'inline-block';
-				//simg.style.height = "210px" //bring it back
-				//simg.style.width = "auto" //bring it back
 				simg.setAttribute('onclick', 'thumbFunct(this.id)');
 				simgBox.appendChild(simg);
 			}
-	} else {
-	elements = document.getElementsByClassName("thumbs2");
-		while(elements.length > 0){
-			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
-		}
 	}
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
@@ -1328,7 +1408,14 @@ function reply_click(clicked_id){
 		} else {
 		[...document.getElementsByClassName('sPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲 𝗼𝗿 𝗹𝗲𝘀𝘀 𝗳𝗼𝗿 𝗮 𝘀𝗲𝗮𝗹𝗲𝗱 𝗰𝗼𝗽𝘆';});
 		} //NOT WORKING - SEALED PAID vs SEALED VALUE!!
-	}	
+	}
+	
+	//TESTING getting DISPLAYED children in art section only.
+	//const collection = document.getElementById("art").children;
+	//get children count that ARE displaying images.
+	
+	//use this number for carousel.
+
 }
 function check_click(clicked_id){
 	let rMatch = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
@@ -1391,7 +1478,7 @@ function check_click(clicked_id){
 	roundUp();
 }
 function prev() {
-roundUp();
+//roundUp();
 	if (document.getElementById("Region").value == "CUST") {
 	}
 	if (prevCard > 0){
@@ -1401,10 +1488,9 @@ roundUp();
 	document.getElementById(titleCount).click();
 	document.getElementById('card'+(titleCount)).scrollIntoView({behavior: 'auto' });	
 	}
-	
 }
 function next() {
-roundUp();
+//roundUp();
 	if (document.getElementById("Region").value == "CUST") {
 	}
 	if (nextCard < titleCount+1){
@@ -1414,7 +1500,6 @@ roundUp();
 	document.getElementById("1").click();
 	document.getElementById('card1').scrollIntoView({behavior: 'auto' });
 	}
-	
 }
 var thumbCarousel = [];
 function prevThumb() {
@@ -1436,6 +1521,22 @@ function prevThumb() {
 		}
 		document.getElementById("imgzoom").src = document.getElementById(thumbCarousel[pos]).src;
 	}
+	//GUIDE LINKAGE
+	if (imgzoom.src.match(/Guides/)){
+	document.getElementById("dlGuide").style.display = "block";
+	let gReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
+	let guideGame = frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "));
+	let gType = imgzoom.src.slice(imgzoom.src.lastIndexOf("G"), imgzoom.src.lastIndexOf("."));
+	guideNumber = imgzoom.src.slice(imgzoom.src.lastIndexOf("G")+1, imgzoom.src.lastIndexOf("."))-1;
+	let guideSrc = "Guides/"+gReg+"/"+guideGame+"/"+frametitle.innerHTML+" Links.txt";
+	var guideLink = new XMLHttpRequest;
+	guideLink.open('get', guideSrc, false);
+	guideLink.send();
+	guideURL = guideLink.responseText;
+	guideLineNo = guideURL.split("\n");
+	} else {
+	document.getElementById("dlGuide").style.display = "none";
+	}
 }
 function nextThumb() {
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
@@ -1454,6 +1555,22 @@ function nextThumb() {
 			pos = 0;
 		}
 		document.getElementById("imgzoom").src = document.getElementById(thumbCarousel[pos]).src;
+	}
+	//GUIDE LINKAGE
+	if (imgzoom.src.match(/Guides/)){
+	document.getElementById("dlGuide").style.display = "block";
+	let gReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
+	let guideGame = frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "));
+	let gType = imgzoom.src.slice(imgzoom.src.lastIndexOf("G"), imgzoom.src.lastIndexOf("."));
+	guideNumber = imgzoom.src.slice(imgzoom.src.lastIndexOf("G")+1, imgzoom.src.lastIndexOf("."))-1;
+	let guideSrc = "Guides/"+gReg+"/"+guideGame+"/"+frametitle.innerHTML+" Links.txt";
+	var guideLink = new XMLHttpRequest;
+	guideLink.open('get', guideSrc, false);
+	guideLink.send();
+	guideURL = guideLink.responseText;
+	guideLineNo = guideURL.split("\n");
+	} else {
+	document.getElementById("dlGuide").style.display = "none";
 	}
 }
 function closeCard() {
@@ -1544,16 +1661,40 @@ var guideNumber;
 function thumbFunct(clicked_id) {
 document.getElementById("canvas").style.display = "block";
 document.getElementById("imgzoom").src = document.getElementById(clicked_id).src;
+
+	//GUIDE LINKAGE
+	if (imgzoom.src.match(/Guides/)){
+	document.getElementById("dlGuide").style.display = "block";
+	let gReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
+	let guideGame = frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "));
+	let gType = imgzoom.src.slice(imgzoom.src.lastIndexOf("G"), imgzoom.src.lastIndexOf("."));
+	guideNumber = imgzoom.src.slice(imgzoom.src.lastIndexOf("G")+1, imgzoom.src.lastIndexOf("."))-1;
+	let guideSrc = "Guides/"+gReg+"/"+guideGame+"/"+frametitle.innerHTML+" Links.txt";
+	var guideLink = new XMLHttpRequest;
+	guideLink.open('get', guideSrc, false);
+	guideLink.send();
+	guideURL = guideLink.responseText;
+	guideLineNo = guideURL.split("\n");
+	} else {
+	document.getElementById("dlGuide").style.display = "none";
+	}
+	
+	//THIS WILL NEED FIXING FOR MANUAL/ACCESSORY/BACK etc etc
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
-	slideSelection = ["Micro Machines 64 Turbo SEU","1","2","3","4","5","6","7","8","9","10","11","12","13","14"]; //15 known versions
+	//slideSelection = ["Micro Machines 64 Turbo SEU","1","2","3","4","5","6","7","8","9","10","11","12","13","14"]; //15 known versions
+	slideSelection = [];
+	for (let i = 1; i <= 14; i++) {
+        slideSelection.push(i);
+    }
 		if (clicked_id == "thumb"){
-		pos = slideSelection.indexOf("Micro Machines 64 Turbo SEU"); //works!
+		//pos = slideSelection.indexOf("Micro Machines 64 Turbo SEU"); //works!
+		pos = 0;
 		} else {
 		pos = slideSelection[clicked_id.slice(clicked_id.lastIndexOf("/")+1, clicked_id.indexOf(".png"))];
 		}
 	} else {
 	thumbCarousel = [];
-	thumbSelection = ["thumb","thumbBB","thumbRC","thumbDI","thumbMA","thumbA1","thumbA2","thumbA3", "thumbS1", "thumbG1"]; //known values
+	thumbSelection = ["thumb","thumbBB","thumbRC","thumbDI","thumbMA","thumbA1","thumbA2","thumbA3", "thumbS1","thumbO1", "thumbO2","thumbG1","thumbG2","thumbG3","thumbG4","thumbG5","thumbG6"]; //known values - expanded for guides
 		for (a = 0; a < document.getElementById("art").childElementCount; a++){
 			if (document.getElementById("art").childNodes[a].nodeType = "1"){
 				if (document.getElementById(document.getElementById(thumbSelection[a]).id).style.display == "inline-block"){
@@ -1562,28 +1703,6 @@ document.getElementById("imgzoom").src = document.getElementById(clicked_id).src
 			}
 		}	
 	pos = thumbSelection.indexOf(clicked_id);
-	}
-	//GUIDE LINKAGE
-	if (imgzoom.src.match(/Guides/)){
-	document.getElementById("dlGuide").style.display = "block";
-	let gReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
-	let guideGame = frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "));
-	let gType = imgzoom.src.slice(imgzoom.src.lastIndexOf("G"), imgzoom.src.lastIndexOf("."));
-	guideNumber = imgzoom.src.slice(imgzoom.src.lastIndexOf("G")+1, imgzoom.src.lastIndexOf("."))-1;
-	//Make one text file with all links?
-	//eg: line 0 = G1, line 1 = G2
-	let guideSrc = "Guides/"+gReg+"/"+frametitle.innerHTML+" "+gType+".txt";
-	//let guideSrc = "Guides/"+guideGame+" Links.txt";
-	
-	
-	var guideLink = new XMLHttpRequest;
-	guideLink.open('get', guideSrc, false);
-	guideLink.send();
-	guideURL = guideLink.responseText;
-	guideLineNo = guideURL.split("\n");
-	
-	} else {
-	document.getElementById("dlGuide").style.display = "none";
 	}	
 }
 window.onload = function () {
@@ -1960,6 +2079,7 @@ function hideOverlay() {
 document.getElementsByClassName("stop")[0].style.display = 'none';
 document.getElementsByClassName("addAll")[0].style.display = 'none';
 document.getElementById("overlay").style.display = "none";
+document.body.style.overflow = "auto";
 populatethepage();
 roundUp();
 }
@@ -1990,23 +2110,29 @@ if (localStorage.debug=="true"){
 	}
 }
 function grabImage() {
-let imgDesc = "";
+var imgDesc, iNum = "";
 fetch(imgzoom.src)
   .then(response => response.blob())
   .then(blob => {
-	  //if (String(imgzoom.src).match(/Carts/gi)) {
-	  if (String(imgzoom.src).includes("Carts")) {
+	  if (String(imgzoom.src).match(/Carts/gi)) {
 	  imgDesc = "Cartridge";
 	  } else if (String(imgzoom.src).match(/Covers/gi)) {
 	  imgDesc = "Cover Art";
 	  } else if (String(imgzoom.src).match(/Manuals/gi)) {
 	  imgDesc = "Manual";
 	  } else if (String(imgzoom.src).match(/Accessories/gi)) {
-	  imgDesc = "Accessory";
+	  iNum = imgzoom.src.slice(imgzoom.src.lastIndexOf("%20A")+3, imgzoom.src.lastIndexOf(".png"));
+	  imgDesc = "Accessory "+iNum;
 	  } else if (String(imgzoom.src).match(/Backs/gi)) {
 	  imgDesc = "Box Back";
 	  } else if (String(imgzoom.src).match(/Disk/gi)) {
 	  imgDesc = "Disk";
+	  } else if (String(imgzoom.src).match(/Operations/gi)) {
+	  iNum = imgzoom.src.slice(imgzoom.src.lastIndexOf("%20O")+3, imgzoom.src.lastIndexOf(".png"));
+	  imgDesc = "Operation Card "+iNum;
+	  } else if (String(imgzoom.src).match(/Guides/gi)) {
+	  iNum = imgzoom.src.slice(imgzoom.src.lastIndexOf("%20G")+3, imgzoom.src.lastIndexOf(".png"));
+	  imgDesc = "Guide " + iNum;
 	  }
     const url = URL.createObjectURL(blob);
 	var b = document.createElement('a');
@@ -2073,15 +2199,103 @@ function updateCurrency() {
 function letsDance(){
 window.open("blog.html");
 }
-
 function dlGuide() {
-//window.open(guideURL); //single links.
-window.open(guideLineNo[guideNumber]); //multiple links.
+window.open(guideLineNo[guideNumber]); //Allows for multiple links
+
+//MISSING LINKS: Config/Images/404.png
+}
+
+var nVarGot = [];
+var nVarNot = [];
+var gotNotSwitch = "all";
+
+function readNdisplay() {
+	let nfileName = "Config/Lists/"+localStorage.regKey;
+	var nxmlFile = new XMLHttpRequest;
+	nxmlFile.open('get', nfileName, false);
+	nxmlFile.send();
+	var nxmlDoc = nxmlFile.responseText;
+	var nlines = nxmlDoc.split("\n");
+	let ntitleCount = nlines.length;
+	if (gotNotSwitch == "all") {
+	var element = document.getElementById("main");
+	
+	//alert(myCollectionList)
+	
+		for (i = 0; i < ntitleCount; i++){
+		let test0 = nlines[i].slice(0, nlines[i].length); //the line in current .cfg
+		
+			for (n = 0; n < myCollectionList.length; n++) {
+			
+			//alert(n)
+			
+			//let test1 = myCollectionList[n][0].slice(0,(myCollectionList[n][0].lastIndexOf(" "))); //game name
+			//let test2 = myCollectionList[n][0].slice((myCollectionList[n][0].lastIndexOf(" ")+1), (myCollectionList[n][0].length)); //game region
+				/*
+				if (test0.includes(test1) && test0.includes("REGION="+test2)){
+					nVarGot.push(nlines[i].trimEnd());
+				} else {
+					nVarNot.push(nlines[i].trimEnd());
+				}
+				*/
+			}
+		}
+		
+		alert(nVarGot);
+		
+		/*
+		for (i=0; i < element.children.length; i++){
+			if (element.children[i].style.backgroundColor) { //need to be actual collection based not just visible...
+			nVarGot.push(nlines[i].trimEnd());
+			} else {
+			nVarNot.push(nlines[i].trimEnd());
+			}
+		}
+		*/
+	GotText="";
+	nVarGot.sort();
+	let dupG = [...new Set(nVarGot)];
+	for (let i = 0; i < dupG.length; i++) {
+	GotText += dupG[i] + "\r";
+	}
+	NeedText="";
+	nVarNot.sort();
+	let dupN = [...new Set(nVarNot)];
+	for (let i = 0; i < dupN.length; i++) {
+	NeedText += dupN[i] + "\r";
+	}
+	gotNotSwitch = "got";
+	var myToast = Toastify({text: "Filter: Got", style:{background: 'rgb(0,0,0)'}, avatar: "Config/Images/N64.gif", gravity: "top", position: "center", close: true, duration: 5000}); myToast.showToast();
+		lines = GotText.split("\r");
+		titleCount = lines.length-1;
+		populatethepage();
+	} else if (gotNotSwitch == "got") {
+		gotNotSwitch = "need";
+		var myToast = Toastify({text: "Filter: Need", style:{background: 'rgb(0,0,0)'}, avatar: "Config/Images/N64.gif", gravity: "top", position: "center", close: true, duration: 5000}); myToast.showToast();
+		lines = NeedText.split("\r");
+		titleCount = lines.length-1;
+		populatethepage();		
+	} else if (gotNotSwitch == "need") {
+		gotNotSwitch = "all";
+		var myToast = Toastify({text: "Filter: All", style:{background: 'rgb(0,0,0)'}, avatar: "Config/Images/N64.gif", gravity: "top", position: "center", close: true, duration: 5000}); myToast.showToast();
+		var xmlFile = new XMLHttpRequest;
+		xmlFile.open('get', nfileName, false);
+		xmlFile.send();
+		let xmlDoc = xmlFile.responseText;
+		lines = xmlDoc.split("\n")
+		titleCount = lines.length;
+		populatethepage();
+	}		
+	//TO FIX: Round up issues on cleft cright when in these curated lists....
+	//PROBLEM: adding or removing games in got or need mode doesnt update the lists.
 }
 spitFacts(); document.getElementsByClassName('marquee-child')[0].addEventListener("animationiteration", function() {spitFacts();}, false);
 </script>
+<iframe id="guideFrame" style="position: absolute;width:0;height:0;border:0;" src=""></iframe>
 <img id="top" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝘁𝗼𝗽" onclick="document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto' });" src="Config/Images/CUP.png" class="buttonU"/>
-<img id="cLists" title="𝗨𝗽𝗱𝗮𝘁𝗲 𝗖𝘂𝗿𝗿𝗲𝗻𝗰𝘆 𝗩𝗮𝗹𝘂𝗲𝘀" src="Config/Images/CLEFT.png" class="buttonL"/>
+<!--img id="cLists" title="𝗨𝗽𝗱𝗮𝘁𝗲 𝗖𝘂𝗿𝗿𝗲𝗻𝗰𝘆 𝗩𝗮𝗹𝘂𝗲𝘀" src="Config/Images/CLEFT.png" class="buttonL"/-->
+<!--img id="cLists" title="" src="Config/Images/CLEFT.png" onclick="showGOTonly();" class="buttonL"/-->
+<img id="cLists" title="NOT READY YET" src="Config/Images/CLEFT.png" onclick="XreadNdisplay();" class="buttonL"/>
 <img id="" title="𝗖𝘆𝗰𝗹𝗲 𝗧𝗵𝗲𝗺𝗲𝘀" onclick="themeSwap();" src="Config/Images/CRIGHT.png" class="buttonR"/>
 <img id="bottom" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝘁𝗼 𝗯𝗼𝘁𝘁𝗼𝗺" onclick="document.getElementById('footer').scrollIntoView({behavior: 'auto' });" src="Config/Images/CDOWN.png" class="buttonD"/>
 <div class="flip-box" style="outline:0" tabindex="-1"><div class="flip-box-inner">
@@ -2094,6 +2308,6 @@ spitFacts(); document.getElementsByClassName('marquee-child')[0].addEventListene
 <div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀"></div>
 <div id="blog" onclick="letsDance();" title="𝗩𝗶𝘀𝗶𝘁 𝘁𝗵𝗲 𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗕𝗹𝗼𝗴"><span class="masked" style="-webkit-mask-image: url('Config/Images/BLOG.png');"><img id="blogicon" src="Config/Images/BLOG.png" /></span></div>
 <img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/>
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB 2024 (APP VER: 3.0)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB 2024 (APP VER: 3.1)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
