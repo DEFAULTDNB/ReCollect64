@@ -2202,8 +2202,7 @@ function letsDance(){
 window.open("blog.html");
 }
 function dlGuide() {
-var PDFlinks = window.open('', '_blank');
-PDFlinks.location = "https://"+guideLineNo[guideNumber];
+var PDFlinks = window.open("https://" + String(guideLineNo[guideNumber]), '_blank', "width=300,height=300");
 /*
 var myURL = "https://" + guideLineNo[guideNumber];//Allows for multiple links
 window.open(myURL);
