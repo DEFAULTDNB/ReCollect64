@@ -2203,7 +2203,7 @@ window.open("blog.html");
 }
 function dlGuide() {
 var PDFlinks = window.open('', '_blank');
-PDFlinks.location.replace("https://"+guideLineNo[guideNumber]);
+PDFlinks.location = "https://"+guideLineNo[guideNumber];
 /*
 var myURL = "https://" + guideLineNo[guideNumber];//Allows for multiple links
 window.open(myURL);
