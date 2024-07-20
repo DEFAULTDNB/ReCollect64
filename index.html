@@ -1277,20 +1277,11 @@ function reply_click(clicked_id){
 	document.getElementById("thumbO2").style.width = "62%";
 	document.getElementById("thumbO2").style.height = "auto";
 	}
+	
 	//Guides
 	let guideLinks = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'Links.txt';
-	document.getElementById("guideFrame").src = guideLinks;
-	elements = document.getElementsByClassName("thumbs2");
-		while(elements.length > 0){
-			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
-		}	
 	
-	document.getElementById("guideFrame").onload = function() {
-	const guideLink = new XMLHttpRequest;
-	guideLink.open('get', guideLinks, false);
-	guideLink.send();
-	guideURL = guideLink.responseText;
-	guideLineNo = guideURL.split("\n");
+    document.getElementById("guideFrame").src = guideLinks;
 	
 	const simgBox = document.getElementById("art");
 	const elements = document.getElementsByClassName("thumbs2");
@@ -1298,39 +1289,20 @@ function reply_click(clicked_id){
 			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
 		}	
 	
-    fetch(guideLinks,
-          { method: "HEAD" }
-    ).then((res) => {
-      if (res.ok) {
-          
-		  for (let m = 1; m < guideLineNo.length; m++){ //arbitrary number
-				const simg = document.createElement("img");
-				simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
-				simg.setAttribute('class', 'thumbs2');
-				simg.setAttribute('title', '𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝗚𝘂𝗶𝗱𝗲');
-				simg.setAttribute('id', "thumbG"+m); //try this for simplicity
-				simg.setAttribute('width', "24%");
-				simg.setAttribute('height', "auto");
-				simg.style.display = 'inline-block';
-				simg.setAttribute('onclick', 'thumbFunct(this.id)');
-				simg.setAttribute('onload', 'this.style.display = "inline-block"');
-				simg.setAttribute('onerror', 'this.style.display = "none"');
-				simg.setAttribute('data', guideLineNo[m-1]);
-				simgBox.appendChild(simg);
-				gcounter = gcounter + 1;
-			}
-		  
-      } else {
-      }
-    });
-		
+	document.getElementById("guideFrame").onload = function() {
+	
+	const guideLink = new XMLHttpRequest;
+	guideLink.open('get', guideLinks, false);
+	guideLink.send();
+	guideURL = guideLink.responseText;
+	guideLineNo = guideURL.split("\n");
 
-		
 		//alert("frame content : " + frameContent);
 		
 		//alert(guideLineNo.length) //number of guides for game
-		
-		/*if (guideURL) {
+	
+	
+		if (guideURL) {
 			//for (let m = 1; m < guideLineNo.length; m++){
 			for (let m = 1; m < 5; m++){ //arbitrary number
 				const simg = document.createElement("img");
@@ -1348,7 +1320,7 @@ function reply_click(clicked_id){
 				simgBox.appendChild(simg);
 				gcounter = gcounter + 1;
 			}
-		}*/
+		}
 		
 		
 	}	
@@ -1356,9 +1328,6 @@ function reply_click(clicked_id){
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
 		const simgBox = document.getElementById("art");
 		const elements = document.getElementsByClassName("thumbs2");
-		while(elements.length > 0){
-			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
-		}
 			for (let m = 1; m < 15; m++){
 				const simg = document.createElement("img");
 				simg.src = 'Slideshow/Micro Machines 64 Turbo SEU/'+m+'.png';
