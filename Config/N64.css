@@ -284,6 +284,12 @@ select {
 	font-weight: bolder;
 	text-shadow: 1px 1px var(--dark-textshadow);
 }
+#subframeinfo {
+	color: gold;
+	font-size: 12px;
+	font-weight: normal;
+	text-shadow: 1px 1px var(--dark-textshadow);
+}
 #frametext {
 	color: var(--title-color);
 }
