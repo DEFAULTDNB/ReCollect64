@@ -235,7 +235,7 @@ select {
 #frametitle {
 	color: var(--title-color);
 	text-align: center;
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: bold;
 	text-shadow: 1px 1px grey;
 }
@@ -277,7 +277,7 @@ select {
 	text-shadow: 1px 1px var(--light-textshadow);
 	text-align: left;
 	text-align: center;
-	font-size: 22px;
+	font-size: 20px;
 }
 #frameinfo {
 	color: cyan;
