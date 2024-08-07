@@ -30,7 +30,7 @@ body {
 }
 .masked {
 	display: inline-block;
-	background-image: linear-gradient(to bottom, silver, white);
+	background-image: linear-gradient(to bottom, navy, white);
 	--background-image: linear-gradient(to bottom, silver, white);
 	-webkit-mask-size: 95%; /* edges might get cut off if you use 100% */
 	-webkit-mask-repeat: no-repeat;
@@ -289,6 +289,15 @@ body {
 	width: 50px;
 	padding: 4px;
 }
+.fa-facebook {
+	background: rgb(24, 119, 242);
+	color: white;
+	border-radius:10px;
+	vertical-align: middle;
+	font-size: 34px;
+	width: 50px;
+	padding: 4px;
+}
 .alignright {
 	display: block;
 	margin-left: auto;
@@ -361,7 +370,6 @@ details {
 	border: 1px solid black;
 	color: black;
 	background-image: linear-gradient(to bottom, silver, white);
-	--border-radius: 10px;
 	cursor: pointer;
 }
 summary::marker {
@@ -419,6 +427,12 @@ button {
 	padding: 4px 12px;
 	background-color: #e7f3fe;
 	border-left: 6px solid #2196F3;
+}
+.warn {
+	margin-bottom: 15px;
+	padding: 4px 12px;
+	background-color: #ffdddd;
+	border-left: 6px solid #f44336;
 }
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
