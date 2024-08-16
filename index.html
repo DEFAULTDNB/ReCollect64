@@ -61,7 +61,9 @@
 <button class="button" title="𝗜𝗺𝗽𝗼𝗿𝘁 𝗮 𝗖𝗙𝗚 𝗳𝗶𝗹𝗲 𝗶𝗻𝘁𝗼 𝘁𝗵𝗲 𝗲𝗱𝗶𝘁𝗮𝗯𝗹𝗲 𝗹𝗶𝘀𝘁" id="ImportVCFG">🔄 𝗜𝗺𝗽𝗼𝗿𝘁 𝗙𝗶𝗹𝗲 𝘁𝗼 𝗩𝗶𝗿𝘁𝘂𝗮𝗹</button><br>
 <button class="button" title="𝗕𝗮𝗰𝗸-𝘂𝗽 𝘁𝗵𝗲 𝘁𝗲𝗺𝗽𝗼𝗿𝗮𝗿𝘆 𝗹𝗶𝘀𝘁 𝘁𝗼 𝗮 𝗖𝗙𝗚 𝗳𝗶𝗹𝗲" id="SaveVCFG">💾 𝗘𝘅𝗽𝗼𝗿𝘁 𝗩𝗶𝗿𝘁𝘂𝗮𝗹 𝘁𝗼 𝗙𝗶𝗹𝗲</button><br>
 <button class="button" title="𝗟𝗼𝗼𝗸-𝘂𝗽 𝗮𝗻 𝗶𝗻𝗱𝗶𝘃𝗶𝗱𝘂𝗮𝗹 𝘁𝗶𝘁𝗹𝗲 𝗼𝗿 𝘂𝘀𝗲 𝗮 𝗱𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻 (𝗘𝗫: '𝗕𝗹𝘂𝗲 𝗰𝗮𝗿𝘁')" id="MakeCFG">✏️ 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲 𝗦𝗶𝗺𝗽𝗹𝗲 𝗟𝗶𝘀𝘁</button><br>
-<button class="button" id="ClearCFG">❌ 𝗖𝗹𝗲𝗮𝗿 𝗩𝗶𝗿𝘁𝘂𝗮𝗹 𝗟𝗶𝘀𝘁</button><br><button class="button" id="ExitCFG">✖️ 𝗘𝗫𝗜𝗧</button>
+<button class="button" id="ClearCFG">❌ 𝗖𝗹𝗲𝗮𝗿 𝗩𝗶𝗿𝘁𝘂𝗮𝗹 𝗟𝗶𝘀𝘁</button><br>
+<button class="button" id="64JS">⚙️ 𝟲𝟰𝗝𝗦 𝗥𝗢𝗠 𝗧𝗼𝗼𝗹</button><br>
+<button class="button" id="ExitCFG">✖️ 𝗘𝗫𝗜𝗧</button>
 </center></div>
 <div id="canvas" onmouseup="document.getElementById('canvas').style.display = 'none';">
 <div class="card-header" id="frametitle2">𝗖𝗹𝗶𝗰𝗸 𝗶𝗺𝗮𝗴𝗲 𝘁𝗼 𝗰𝗹𝗼𝘀𝗲</div>
@@ -191,6 +193,11 @@
 				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTBboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="ALTBboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
 				<span title="Manual?"><div id="MANPNG"></div><input id="ALTBmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="ALTBmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
 				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTBsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="ALTBsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
+				</div>
+				<div id="ALTDcart"><span title="ALT NOE VERSION"><div id="ALTPNG"></div></span><span><input id="ALTDcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="ALTDcartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
+				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTDboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="ALTDboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="ALTDmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="ALTDmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
+				<span title="Sealed?"><div id="SLDPNG"></div><input id="ALTDsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="ALTDsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
 				</div>
 				<div id="ALTEcart"><span title="ALT EUR VERSION"><div id="ALTPNG"></div></span><span><input id="ALTEcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="ALTEcartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
 				<span title="Boxed?"><div id="BOXPNG"></div><input id="ALTEboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="ALTEboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
@@ -502,8 +509,8 @@ if (localStorage.regKey==null){
 	document.getElementById("Currency").value = "$AUD";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Africa"||"Etc"||"Europe"||"Indian"){
 	document.getElementById("Region").value = "EUR";
-	//document.getElementById("Currency").value = "€EUR";
-	document.getElementById("Currency").value = "£GBP";
+	document.getElementById("Currency").value = "€EUR";
+	//document.getElementById("Currency").value = "£GBP";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Antarctica"||"America"||"Atlantic"||"Canada"||"Pacific"||"US"){
 	document.getElementById("Region").value = "USA";
 	document.getElementById("Currency").value = "$USD";
@@ -640,6 +647,9 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 			var myToast = Toastify({text: "𝗧𝗛𝗔𝗧 𝗪𝗔𝗦 𝗖𝗟𝗢𝗦𝗘!\n\nRemember to export your virtual list regularly!", avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
 			}
 			document.getElementById('VirtualCFG').click();
+		}
+		document.getElementById('64JS').onclick = function() {
+		window.open("64JS.html");
 		}
 		//EXIT
 		document.getElementById('ExitCFG').onclick = function() {
@@ -939,7 +949,7 @@ myCount = 0;
 		}
 		if (lines[info].match("REGION=ALTA ")) {
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/A/'+gTitle+' A.png"');
-		} else if (lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
+		} else if (lines[info].match("REGION=ALTU ")||lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/U/'+gTitle+' U.png"');
 		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/BR/'+gTitle+' BR.png"');
@@ -1012,7 +1022,7 @@ var cartValue, boxValue, sealedValue;
 var gcounter;
 function reply_click(clicked_id){
 	gcounter = 0;
-	const regions = ["A","AV1","AV2","AV3","AS","ALTA","ALTB","ALTE","ALTJ","ALTN","ALTU","BR","BRB","BRS","CAN","CH","D","DD","E","EV1","EV2","EV3","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","JS","JV1","JV2","JV3","KO","LRG","LRGC","LRGS","MSA","NFR","PCA","PCD","PCE","PCF","PCH","PCI","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV","UV1","UV2","UV3"];
+	const regions = ["A","AV1","AV2","AV3","AS","ALTA","ALTB","ALTD","ALTE","ALTJ","ALTN","ALTU","BR","BRB","BRS","CAN","CH","D","DD","E","EV1","EV2","EV3","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","JS","JV1","JV2","JV3","KO","LRG","LRGC","LRGS","MSA","NFR","PCA","PCD","PCE","PCF","PCH","PCI","PCU","S","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV","UV1","UV2","UV3"];
 	const things = ["cartridge","boxed","manual","sealed"];
 	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 A","Pokemon Stadium 2 BR","Pokemon Stadium 2 D","Pokemon Stadium 2 E","Pokemon Stadium 2 F","Pokemon Stadium 2 I","Pokemon Stadium 2 S","Pokemon Stadium 2 U","Pokemon Stadium 2 NFR","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
 	firstCount = myCollectionList.flat().filter(x => x.match(/cartridge|boxed|manual|sealed|Paid/gi)).length; //maybe hash it?
@@ -1130,7 +1140,7 @@ function reply_click(clicked_id){
 	document.getElementById("value").innerHTML = "<center><span id='panelinfo'>VALUATION:</span><br>" + cValue+"<br>"+bValue+"<br>"+sValue+"</center>";
 	//TO DO: gFeatures/sPages
 	document.getElementById(gameRegions+"cart").style.display = "inline-block";
-	if (gameRegions.match("J")||gameRegions.match("SEJ")||gameRegions.match("JV1")||gameRegions.match("JV2")||gameRegions.match("JV3")){
+	if (gameRegions.match("J")||gameRegions.match("SEJ")||gameRegions.match("JV1")||gameRegions.match("JV2")||gameRegions.match("JV3")||gameRegions.match("ALTJ")){
 	gameRegions = "Japan (NTSC-J)";
 	} else if (gameRegions.match("UKV")){
 	gameRegions = "the United Kingdom (PAL)";
@@ -1138,9 +1148,9 @@ function reply_click(clicked_id){
 	gameRegions = "China (Digital Download)";
 	} else if (gameRegions.match("EUU")){
 	gameRegions = "the European Union (PAL)";
-	} else if (gameRegions.match("PCU")||gameRegions.match("U")||gameRegions.match("SEU")||gameRegions.match("UV1")||gameRegions.match("UV2")||gameRegions.match("UV3")){
+	} else if (gameRegions.match("PCU")||gameRegions.match("U")||gameRegions.match("ALTU")||gameRegions.match("SEU")||gameRegions.match("UV1")||gameRegions.match("UV2")||gameRegions.match("UV3")){
 	gameRegions = "USA (NTSC-U)";
-	} else if (gameRegions.match("PCE")||gameRegions.match("E")||gameRegions.match("SEE")||gameRegions.match("EV1")||gameRegions.match("EV2")||gameRegions.match("EV3")){
+	} else if (gameRegions.match("PCE")||gameRegions.match("E")||gameRegions.match("ALTE")||gameRegions.match("SEE")||gameRegions.match("EV1")||gameRegions.match("EV2")||gameRegions.match("EV3")){
 	gameRegions = "Europe (PAL)";
 	} else if (gameRegions.match("FAH")){
 	gameRegions = "France/Holland (PAL)";
@@ -1154,23 +1164,21 @@ function reply_click(clicked_id){
 	gameRegions = "Asia (NTSC)";
 	} else if (gameRegions.match("SEA")||gameRegions.match("PCA")||gameRegions.match("A")||gameRegions.match("AV1")||gameRegions.match("AV2")||gameRegions.match("AV3")){
 	gameRegions = "Australia (PAL)";
-	} else if (gameRegions.match("ALTE")||gameRegions.match("ALTJ")||gameRegions.match("ALTU")){
-	gameRegions = "ALT (TEST)";
 	} else if (gameRegions.match("BRB")){
 	gameRegions = "Brazil (Bundle)";
 	} else if (gameRegions.match("BR")||gameRegions.match("BRS")){
 	gameRegions = "Brazil (MPAL)";
 	} else if (gameRegions.match("DD")){
 	gameRegions = "Japan for N64DD";
-	} else if (gameRegions.match("D")||gameRegions.match("SED")){
+	} else if (gameRegions.match("D")||gameRegions.match("ALTD")||gameRegions.match("SED")||gameRegions.match("PCD")){
 	gameRegions = "Germany (PAL)";
 	} else if (gameRegions.match("NFR")||gameRegions.match("ALTN")){
 	gameRegions = "Store kiosks (DEMO)";
 	} else if (gameRegions.match("JS")){
 	gameRegions = "Japanese sample (DEMO)";
-	} else if (gameRegions.match("F")){
+	} else if (gameRegions.match("F")||gameRegions.match("PCF")){
 	gameRegions = "France (PAL)";
-	} else if (gameRegions.match("I")){
+	} else if (gameRegions.match("I")||gameRegions.match("PCI")){
 	gameRegions = "Italy (PAL)";
 	} else if (gameRegions.match("LRGC")){
 	gameRegions = "limited quantities as a Limited Run Games Classic Edition";
@@ -1204,6 +1212,7 @@ function reply_click(clicked_id){
 	document.getElementById('grid-container').style.backgroundRepeat = 'no-repeat';
 	document.getElementById('grid-container').style.backgroundSize = 'cover';
 	document.getElementById("thumb").src = document.getElementById(coverFlow[clicked_id-1]).src;
+	
 	document.getElementById("thumbBB").src = 'Backs/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	
 	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
@@ -1212,7 +1221,6 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA").src = 'Manuals/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbMA").style.width = "23%";
 	document.getElementById("thumbMA").style.height = "auto";
-	
 	if (pReg === "NFR" || pReg === "ALTN") {
 	document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
 	//document.getElementById("thumb").style.width = "0px" //hide thumb (box art) to only show cart (thumbRC).
@@ -1244,6 +1252,10 @@ function reply_click(clicked_id){
 	document.getElementById("thumbRC").src = 'Carts/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
 	} else if (gCode.includes("EUR")){
 	document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+	
+	} else if (pReg === "PCD"){
+	document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png'; //not working
+	
 	} else if (pReg === "SEJ"){
 		if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){ //bespoke fix.
 		} else {
@@ -1257,7 +1269,11 @@ function reply_click(clicked_id){
 	document.getElementById("thumbBB").src = 'Backs/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 	document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 	} else if (pReg === "ALTU") { //Add back additional components.
-	document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		if (frametitle.innerHTML === "Buck Bumble ALTU"||frametitle.innerHTML === "Fighters Destiny ALTU"||frametitle.innerHTML === "S.C.A.R.S. ALTU"){ //bespoke fix.
+		document.getElementById("thumbBB").src = 'Backs/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';
+		} else {
+		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		}
 	document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 	}  else if (pReg === "BRB" || pReg === "BRS"){
 	document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
@@ -2345,7 +2361,6 @@ spitFacts(); document.getElementsByClassName('marquee-child')[0].addEventListene
 <div class="flip-box-back" style="outline:0" tabindex="-2"><div id="values" title="𝗧𝗿𝗮𝗰𝗸𝗶𝗻𝗴 𝘁𝗼𝘁𝗮𝗹 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗰𝗼𝘀𝘁"></div></div></div></div>
 <img id="backup" title="𝗕𝗮𝗰𝗸𝘂𝗽 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝗳𝗶𝗹𝗲." onclick="copyOutCollection();" src="Config/Images/BBUT.png" />
 <img id="restore" title="𝗔𝗱𝗱-𝗶𝗻 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗳𝗿𝗼𝗺 𝗳𝗶𝗹𝗲." onclick="openFile()" src="Config/Images/ABUT.png" />
-<input id="inp" type='file' style="visibility:hidden;" accept=".R64, .P64" onchange="readFile(event)" />
 <img id="nuke" title="𝗣𝘂𝗹𝗹 𝘁𝗵𝗲 𝘁𝗿𝗶𝗴𝗴𝗲𝗿: 𝗱𝗲𝗹𝗲𝘁𝗲 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻." onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' });" src="Config/Images/ZBUT.png" />
 <div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀"></div>
 <div id="blog" onclick="letsDance();" title="𝗩𝗶𝘀𝗶𝘁 𝘁𝗵𝗲 𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗕𝗹𝗼𝗴"><span class="masked" style="-webkit-mask-image: url('Config/Images/BLOG.png');"><img id="blogicon" src="Config/Images/BLOG.png" /></span></div>

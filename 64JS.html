@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>64JS</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<style>
+body {background-color: black;color: cyan;}
+#label1 {color: magenta;}
+#label2 {color: yellow;}
+#label3 {color: silver;}
+</style>
+</head>
+<body>
+<center>
+<p id="result"></p>
+<input type="file" id="fileInput" onchange="analyzeROM();" accept=".v64, .z64, .n64"/>
+</center>
+<script>
+function analyzeROM() {
+	const fileInput = document.getElementById('fileInput');
+	const file = fileInput.files[0];
+	var SizeMB = (file.size / (1024*1024)).toFixed(0);
+	document.getElementById("result").innerHTML += "<span id='label1'>[FILE]:</span> "+file.name.toUpperCase()+"<br>";
+	document.getElementById("result").innerHTML += "<span id='label2'>[ANALYSING]:</span> "+SizeMB+"MB ("+file.size+" BYTES) ~"+SizeMB/2+"s<br>";
+	if (file) {
+	var start = Date.now();
+		const reader = new FileReader();
+		reader.readAsBinaryString(file);
+		reader.onload = function(event) {
+			var fileData = event.target.result;
+			const checksum = crc32(fileData);
+			document.getElementById("result").innerHTML += "<span id='label1'>[CRC]:</span> "+checksum.toString(16).toUpperCase()+"<br>";
+			const hash1 = CryptoJS.SHA1(CryptoJS.enc.Latin1.parse(fileData)).toString();
+			document.getElementById("result").innerHTML += "<span id='label1'>[SHA1]:</span> " + hash1.toUpperCase()+"<br>";
+			const hash2 = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(fileData)).toString();
+			document.getElementById("result").innerHTML += "<span id='label1'>[MD5]:</span> " + hash2.toUpperCase()+"<br>";
+			if (stringToHex(fileData.slice(0,4)) == 80371240) { 
+				boot = "BIG ENDIAN (*.Z64)";
+			} else if (stringToHex(fileData.slice(0,4)) == 37804012) {
+				boot = "BYTE SWAPPED (*.V64)";
+				const swappedArray = [];
+					for (let i = 0; i < fileData.length; i += 2) {
+						if (i + 1 < fileData.length) {
+							swappedArray.push(fileData[i + 1], fileData[i]);
+						} else {
+							swappedArray.push(fileData[i]);
+						}
+					}
+					fileData = swappedArray.join("");
+			} else {
+			boot = "REVERSED (*.N64)";
+			//alert(stringToHex(fileData.slice(0,4)))
+			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";
+			var firstmbhash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(fileData.slice(0x40, 0x1000))).toString();
+			const name = fileData.slice(32, 59);
+			const encodedString = name;
+			const decodedString = decodeShiftJIS(encodedString);
+			document.getElementById("result").innerHTML += "<span id='label1'>[NAME]:</span> "+decodedString.toUpperCase()+"<br>";
+			const cid = fileData.slice(59,63);
+			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> "+cid.toUpperCase()+"<br>";
+			var media;
+			switch (fileData[59]) {
+				case 'N': media = "CARTRIDGE"; break;
+				case 'D': media = "64DD DISK"; break;
+				case 'C': media = "CART EXPANSION"; break;
+				case 'E': media = "64DD EXPANSION"; break;
+				case 'Z': media = "ALECK64 GAME"; break;
+				default: media = "UNKNOWN";
+			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[MEDIA]:</span> "+media+"<br>";
+			switch (true)  {
+				case (/955894C2E40A698BF98A67B78A4E28FA/i.test(firstmbhash.toUpperCase())):
+						switch (fileData[62]){
+						case "A": case "E": case "J": cic = "6101"; break;//Star Fox 64 NTSC
+						default:
+						cic = "7102";//Lylat Wars PAL
+					}
+				break;
+				case (/E24DD796B2FA16511521139D28C8356B/i.test(firstmbhash.toUpperCase())):
+					switch (fileData[62]){
+						case "A": case "E": case "J": cic = "6102"; break;
+						default:
+						cic = "7101";
+					}
+				break;
+				case (/319038097346E12C26C3C21B56F86F23/i.test(firstmbhash.toUpperCase())):
+					switch (fileData[62]){
+						case "A": case "E": case "J": cic = "6103"; break;
+						default:
+						cic = "7103";
+					}
+				break;
+				case (/FF22A296E55D34AB0A077DC2BA5F5796/i.test(firstmbhash.toUpperCase())):
+					switch (fileData[62]){
+						case "A": case "E": case "J": cic = "6105"; break;
+						default:
+						cic = "7105";
+					}
+				break;
+				case (/6460387749AC0BD925AA5430BC7864FE/i.test(firstmbhash.toUpperCase())):
+					switch (fileData[62]){
+						case "A": case "E": case "J": cic = "6106"; break;
+						default:
+						cic = "7106";
+					}
+				break;
+				case (/ALECK64 GAME/i.test(media)): cic = "ARCADE";
+				break;
+				default:
+				cic = "UNKNOWN";
+			};
+			var region;
+			switch (fileData[62]) {
+				case '7': region = "BETA"; break;
+				case 'A': region = "ASIAN"; break;
+				case 'B': region = "BRAZIL"; break;
+				case 'C': region = "CHINA"; break;
+				case 'D': region = "GERMANY"; break;
+				case 'E': region = "NORTH AMERICA"; break;
+				case 'F': region = "FRANCE"; break;
+				case 'G': region = "GATEWAY 64 (NTSC)"; break;
+				case 'H': region = "NETHERLANDS"; break;
+				case 'I': region = "ITALY"; break;
+				case 'J': region = "JAPAN"; break;
+				case 'K': region = "KOREA"; break;
+				case 'L': region = "GATEWAY 64 (PAL)"; break;
+				case 'N': region = "CANADA"; break;
+				case 'P': region = "EUROPE"; break;
+				case 'S': region = "SPAIN"; break;
+				case 'U': region = "AUSTRALIA"; break;
+				case 'W': region = "SCANDINAVIA"; break;
+				case 'X': region = "EUROPE (X)"; break;
+				case 'Y': region = "EUROPE (Y)"; break;
+				case 'Z': region = "EUROPE (Z)"; break;
+				default: region = "UNKNOWN";
+			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[REGION]:</span> "+region+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> "+cic+"<br>";
+			switch (stringToHex(fileData.slice(63,64))) {
+				case '1': rev = "1 (REV A)";break;
+				case '2': rev = "2 (REV B)";break;
+				case '3': rev = "3 (REV C)";break;
+				default: rev = "0";
+			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[ROM]:</span> V1."+rev+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label2'>[ANALYSIS TIME]:</span> "+Math.floor((Date.now()-start)/1000)+"s<br>";
+			document.getElementById("result").innerHTML += "<br><span id='label3'>--------- LOAD ANOTHER ROM ---------</span><br><br>";
+			//save file out (z64 format)
+			//downloadBinaryString(ID+'.z64', convertedbinary);
+			document.getElementById('footer').scrollIntoView({behavior: 'auto' });
+			
+				};
+			} else {
+				alert('Please select a file to examine.');
+			}
+}
+function downloadBinaryString(filename, binaryString) {
+    const blob = new Blob([binaryString], { type: 'application/octet-stream' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+function crc32(file) {
+    const table = new Uint32Array(256);
+    for (let i = 0; i < 256; i++) {
+        let crc = i;
+        for (let j = 0; j < 8; j++) {
+            crc = (crc & 1) ? (0xEDB88320 ^ (crc >>> 1)) : (crc >>> 1);
+        }
+        table[i] = crc >>> 0;
+    }
+    let crc = 0xFFFFFFFF;
+    for (let i = 0; i < file.length; i++) {
+        const byte = file.charCodeAt(i) & 0xFF;
+        crc = (crc >>> 8) ^ table[(crc ^ byte) & 0xFF];
+    }
+    return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+function stringToHex(str) {
+    let hex = '';
+    for (let i = 0; i < str.length; i++) {
+        hex += str.charCodeAt(i).toString(16);
+    }
+    return hex;
+}
+function decodeShiftJIS(encodedString) {
+    const decoder = new TextDecoder('shift-jis');
+    const bytes = new Uint8Array(encodedString.split('').map(char => char.charCodeAt(0)));
+    return decoder.decode(bytes);
+}
+</script>
+<center>
+<div id="footer" class="footer" style="color:silver;">[DEFAULTDNB 2024 (APP V1.5)]</div>
+</center>
+</body>
+</html>
