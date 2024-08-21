@@ -981,8 +981,12 @@ myCount = 0;
 		} else if (lines[info].match("REGION=LRGS ")){
 		document.getElementById(coverFlow[i]).style.width = "140px"; document.getElementById(coverFlow[i]).style.left = "50px";
 		} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
-		document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
-		document.getElementById(coverFlow[i]).style.height = "160px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
+			if (gTitle.match("Doshin")){ //bespoke fix	
+			document.getElementById(coverFlow[i]).style.width = "200px"; document.getElementById(coverFlow[i]).style.left = "25px";
+			} else {
+			document.getElementById(coverFlow[i]).style.height = "160px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
+			}
+			document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 		} else if (lines[info].match("REGION=SCN ")){
 			if (gTitle == "FIFA 99"){	
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
@@ -1223,11 +1227,13 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA").style.height = "auto";
 	if (pReg === "NFR" || pReg === "ALTN") {
 	document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
-	//document.getElementById("thumb").style.width = "0px" //hide thumb (box art) to only show cart (thumbRC).
 	//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
 		if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //quick fix.
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
+		} else if (frametitle.innerHTML === "Doshin the Giant NFR"){
+		document.getElementById("thumb").style.width = "0px"
+		document.getElementById("thumbDI").style.width = "0px"
 		} else {
 		document.getElementById("thumb").style.width = "0px"
 		}
@@ -1262,7 +1268,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		}
 	} else if (pReg === "JS") { //Add back additional components.
-	if (frametitle.innerHTML === "Chou Kuukan Night Pro Yakyuu King JS"||frametitle.innerHTML === "Turok Jikuu Senshi JS"){ //bespoke fix.
+	if (frametitle.innerHTML === "Chou Kuukan Night Pro Yakyuu King JS"||frametitle.innerHTML === "Turok Jikuu Senshi JS"||frametitle.innerHTML === "Famista 64 JS"){ //bespoke fix.
 		} else {
 		document.getElementById("thumbRC").src = 'Carts/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		}
@@ -1325,6 +1331,7 @@ function reply_click(clicked_id){
 	//document.getElementById("thumbP1").src = 'Poster/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' P1.png';
 	
 	//Screenshot 800x600
+
 	document.getElementById("thumbS1").src = 'Screens/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' S1.png';
 	//Operation Cards	
 	document.getElementById("thumbO1").src = 'Operations/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' O1.png';
