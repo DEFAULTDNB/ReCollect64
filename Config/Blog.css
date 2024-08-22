@@ -366,7 +366,7 @@ tr:nth-child(odd) {
 	margin: auto; 
 }
 details {
-	padding: 3px; 
+	padding: 1px; 
 	border: 1px solid black;
 	color: black;
 	background-image: linear-gradient(to bottom, silver, white);
@@ -374,7 +374,7 @@ details {
 }
 summary::marker {
 	color: black;
-	font-size: 1.1em;
+	font-size: 0.8em;
 }
 summary {
 	list-style-type: '🠺 ';
