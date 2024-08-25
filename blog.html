@@ -22,6 +22,97 @@
 <div class="row">
 	<div id="latest" class="leftcolumn">
 	
+	<div id="r12" class="card">
+		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews: #12</span></h2>
+		<h5 class="subtitle">N64 Cart Dumper ~ Aug 25, 2024</h5>
+		<div class="bgBanner"><img src="Blog/Reviews/CartDumper/Dumper.png" alt="CartDumper" class="center"/><div class="overlaytext">N64 Cart Dumper</div></div>
+		<h4>Dumps like a Truck</h4><hr>
+		<p>As you know, I have the <a href="blog.html#r6">JoeyN64</a> Cart Flasher already, but I wanted to checkout any potential alternatives and put them through their paces. As a result, I happened upon an incredibly generic and unbranded N64 Cart Dumper on eBay that would dump a legitimate cartridge or re-flash a reproduction cart for the low price of just £12.12 delivered. While it seems too good to be true, the big questions are: what do you get, and how does it work?
+		<p>After a short hop from China to the UK, the dumper landed on my doormat and I finally got to have a good look at what was going on. The main body of the device is effectively an extremely simplified PCB that connects a 50-pin cartridge reader slot to a Raspberry Pi Pico, with a USB-C interface for plug-and-play action.
+		<p>Plugging the device in raw does nothing, but that's correct, as you need to have a cartridge connected in order to complete the device ready for use. I connected a succession of cartridges to the device, and one after the other I dumped them to check integrity and read speed. Happily every single one came back perfect and was reable in Mupen on my PC in next to no time.
+		</p>
+		<center>
+		<span align="center" width="100%">
+			<a target="_blank" href="Blog/Reviews/CartDumper/Dumper1.jpg"><img class="thumbnail" src="Blog/Reviews/CartDumper/Dumper1.jpg" width="32%" style="padding:auto"/></a>
+			<a target="_blank" href="Blog/Reviews/CartDumper/Dumper2.jpg"><img class="thumbnail" src="Blog/Reviews/CartDumper/Dumper2.jpg" width="32%" style="padding:auto"/></a>
+			<a target="_blank" href="Blog/Reviews/CartDumper/Dumper3.jpg"><img class="thumbnail" src="Blog/Reviews/CartDumper/Dumper3.jpg" width="32%" style="padding:auto"/></a>
+		</span>
+		</center>
+		<h4>Bargain Backups</h4><hr>
+		<p>On average, the dumper managed bursts of up to 695 kbps and took roughly two full minutes to dump a 64 MB cartridge. These speeds are not mind-blowing and demonstrate that it's a slow process to back up ROMs compared to the blisteringly fast USB and SSD/NVME devices we take for granted today.
+		<p>Once plugged in, the cartridge acts as if it were a USB storage device, only this time it allows you to drag and drop the ROM directly off of it in either N64 (little endian) or Z64 (big endian) formats.
+		<p>If the cartridge contains a save file, you can copy those off, or you could even overwrite them with ones you have to hand. And if you have a reproduction game, you can actively overwrite the ROM onboard, turning your repro into a flashable flashcart as long as the CIC and region match the original ROM/hardware!
+		<p>I found this device simple to use, reliable, and sturdy. The cartridge connector wasn't too tight, and getting your games on and off was a sinch. The only downside is the lack of controller hookup (see the <a href="blog.html#r6">JoeyN64</a> review) and having no form of protective casing to keep the dust out and your dumper fresh.
+		</p>
+		<div class="col-container">
+		<div class="pro"><strong> The Pros:</strong>
+		<p>
+		<i class="fa-solid fa-check">&nbsp;</i>Does what it says on the tin<br>
+		<i class="fa-solid fa-check">&nbsp;</i>N64/Z64 filetype dumping<br>
+		<i class="fa-solid fa-check">&nbsp;</i>Identifies CIC in use<br>
+		<i class="fa-solid fa-check">&nbsp;</i>Re-writes reproduction carts (slowly)</div>
+		<div class="con"><strong> The Cons:</strong>
+		<p>
+		<i class="fa-solid fa-xmark">&nbsp;</i>Slow dumping speeds</br>
+		<i class="fa-solid fa-xmark">&nbsp;</i>No protective casing</br>
+		<i class="fa-solid fa-xmark">&nbsp;</i>No pad connector for Memory Pak saves</div>
+		</div>
+		<div class="verdict"><strong>Conclusion:</strong>
+		<p>Honestly, for £12 I did not expect much, but as it turns out, this little dumper is very straightforward and extremely easy to use. The biggest downside is the relatively slow speeds, but all things considered, it's a great value alternative to the JoeyN64, sans a couple of features and a lot of dedicated support.
+		</p>
+		<center title="7/10">
+		<span class="fa-solid fa-star checked"></span>
+		<span class="fa-solid fa-star checked"></span>
+		<span class="fa-solid fa-star checked"></span>
+		<span class="fa-solid fa-star checked"></span>
+		<span class="fa-solid fa-star checked"></span>
+		<span class="fa-solid fa-star checked"></span>
+		<span class="fa-solid fa-star checked"></span>
+		<span class="fa-solid fa-star"></span>
+		<span class="fa-solid fa-star"></span>
+		<span class="fa-solid fa-star"></span>
+		</center>
+		</div>
+		<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="https://twitter.com/messages/compose?recipient_id=170775741" target="_blank">Want to see something reviewed? Contact me!</a></p>
+		<span class="alignright">Share on: 
+			<a class="fa-brands fa-x-twitter" id="tr12" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦" onclick="sharePost(this.id);" target="_blank"></a>
+			</span>			
+	</div>
+	
+	<div id="b25" class="card">
+		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">TYR Modular controller</span></h2>
+		<h5 class="subtitle">Gaming for Everyone! ~ Aug 25, 2024</h5>
+		<div class="bgBanner"><img src="Blog/Features/TYR/TYR.png" alt="64JS" class="center"/><div class="overlaytext">TYR Modular Controller</div></div>
+		<h4>Willing and Able</h4><hr>
+		<p>It came to my attention last week, over on Facebook, that a team from Craven Community College (N. Carolina, USA) has been engineering controllers for people with limited movement or disabilities, for N64, SNES, and NES. Here's what Spencer Ryan-Higgs had to say in his post: 
+		<div class="quote">
+		<i class="fa-solid fa-quote-left"></i> 
+			<p>Recently, my team from college won a national engineering design competition with a video game controller. This controller is designed for individuals with disabilities that limit or remove mobility in one of their hands. As we all know, most controllers require 2 functioning hands to play a game.</p>
+			<p>The controller's name is TYR (after a god from Norse mythology who lost one of his hands). Currently, it works on NES, SNES, and N64. We are working on the GameCube attachments next. This controller needs 3 components to function, an attachable/removable top control configuration, the attachable/removable circuit board cartridge, and the handle that everything attaches to.</p>
+			<p>The handle has rotating button cylinders to adjust for finger length and left/right handed use. The benefit of this design is that control and board attachments can be made for any console, meaning a gamer can buy a handle and whatever attachments are needed for their consoles. This saves a ton of manufacturing cost not needing to design separate controllers for each system, making it cheaper for the end user. Since the controller circuit board is not integrated into the rest of the controller, this will also allow us to design circuit board cartridges for other devices, such as drones, etc.</p>
+			<p>Now that our patents are pending, I can share this with you all.</p>
+			<p>I've included pictures of the NES, SNES, and N64 configurations, as well as the docking stations that aid in attachment swapping with one hand. Our dream is for a company to pick this design up and put it out on the market. We've created 2 sets with every configuration so far. That being said, we don't have the manufacturing capability to produce these on a scale that would make a difference.</p>
+			<i class="fa-solid fa-quote-right"></i>
+		</div>
+		</p>
+		<center>
+			<span align="center" width="100%">
+				<a target="_blank" href="Blog/Features/TYR/TYR1.png"><img class="thumbnail" src="Blog/Features/TYR/TYR1.png" width="32%" style="padding:auto"/></a>
+				<a target="_blank" href="Blog/Features/TYR/TYR2.png"><img class="thumbnail" src="Blog/Features/TYR/TYR2.png" width="32%" style="padding:auto"/></a>
+				<a target="_blank" href="Blog/Features/TYR/TYR3.png"><img class="thumbnail" src="Blog/Features/TYR/TYR3.png" width="32%" style="padding:auto"/></a>
+			</span>
+		</center>
+		<h4>Promising Prototypes</h4><hr>
+		<p>As you can see, this project is inspirational, with a lot of care and attention taken to allow people of all abilities to enjoy classic consoles that otherwise have not had many disability-friendly peripherals.
+		<p>The combination of stock parts with bigger, better-positioned buttons, blended with the modular design and one-handed ease of use, certainly makes the TYR project one to watch in the future.
+		<p>I want to wish Spencer and his team all the best with their endeavours, I cannot wait to see how this project pans out, along with any future projects they embark on!
+		</p>
+		<p class="subtitle"><i class="fa-brands fa-facebook"></i>&nbsp;<a href="https://www.facebook.com/groups/888801488357060/permalink/1675295219707679/" target="_blank">Source</a></p>
+		<span class="alignright">Share on: 
+			<a class="fa-brands fa-x-twitter" id="tb25" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦" onclick="sharePost(this.id);" target="_blank"></a>
+			</span>			
+	</div>
+	
 	<div id="b24" class="card">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Hyperkin Hall Effect Joystick Module</span></h2>
 		<h5 class="subtitle">Rejuvenate the N64 pad ~ Aug 17, 2024</h5>
@@ -31,7 +122,7 @@
 		<p>Previously, companies such as <a href="https://retro-bit.com/n64-stick/" target="_blank">Retro-Bit</a> have offered similar replacement parts, but to absolutely slaughtering critique from fans, who reported that their product was laggy, imprecise, and overly sensitive.
 		<p>I'm a big fan of the Game Cube stick, having used a few controllers with GC style sticks for N64. My thoughts are that as long as the sensitivity and input lag can match or better that of the original, Hyperkin are on to a winner!
 		</p>
-				<center>
+		<center>
 			<span align="center" width="100%">
 				<a target="_blank" href="Blog/Features/HyperkinHEJ/HEJ1.png"><img class="thumbnail" src="Blog/Features/HyperkinHEJ/HEJ1.png" width="32%" style="padding:auto"/></a>
 				<a target="_blank" href="Blog/Features/HyperkinHEJ/HEJ2.png"><img class="thumbnail" src="Blog/Features/HyperkinHEJ/HEJ2.png" width="32%" style="padding:auto"/></a>
@@ -267,7 +358,6 @@
 		<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="https://twitter.com/messages/compose?recipient_id=170775741" target="_blank">Want to see something reviewed? Contact me!</a></p>
 		<span class="alignright">Share on: 
 			<a class="fa-brands fa-x-twitter" id="tr11" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦" onclick="sharePost(this.id);" target="_blank"></a>
-			<!--a class="fa-brands fa-facebook" id="fr11" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦" onclick="shareFB(this.id);" target="_blank"></a-->
 			</span>			
 	</div>
 	
@@ -922,7 +1012,7 @@
 		</div>
 	
 		<div id="b11" class="card">
-			<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Mystical Ninja Recomp</span></h2>
+			<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Mystical Ninja Recomp <span class="badge new">UPDATED</span></span></h2>
 			<h5 class="subtitle">Goemon's looking great! ~ July 11, 2024</h5>
 			<div class="bgBanner"><img src="Blog/Features/MNSGRecomp/MNSG2.jpg" alt="MNSG Recomp" class="center"/><div class="overlaytext">Mystical Ninja Recomp</div></div>
 			<h4>Bring Your Own ROM</h4><hr>
@@ -942,9 +1032,13 @@
 			</span>
 			<p>As you can see, the game looks stunning, but it is still lacking a few touches, such as HD textures, a proper widescreen HUD, and various performance/effects fixes before it can be considered a full-fledged release. Regardless, it is hugely encouraging to see more decompiled games getting a modern treatment.
 			<p>One thing you should bear in mind is that it is currently all presented in Japanese, so it might be a little tougher to play through if you aren't well versed in the language. I'm sure an English version of the Recomp will follow soon enough.
+				<div class="info">
+					<p><strong>UPDATE:</strong> 11/08/2024 - 0.0.2 has been released with audio fixes, graphics fixes, and now supports the english version of the game!</p>
+				</div>
 			<p class="subtitle"><i class="fa-solid fa-user-plus"></i>&nbsp;<a href="https://twitter.com/rondleman" target="_blank">@Rondleman Twitter</a></p>
 			<p class="subtitle"><i class="fa-brands fa-discord"></i>&nbsp;<a href="https://discord.com/invite/KzaXHwh" target="_blank">Discord</a></p>
-			<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://drive.google.com/file/d/1sBM9AmbFOyW7-6rjcU7oZFbTiLNEkFpr/view?usp=sharing" target="_blank">Initial Release</a></p>
+			<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://drive.google.com/file/d/1sBM9AmbFOyW7-6rjcU7oZFbTiLNEkFpr/view?usp=sharing" target="_blank">Initial Release 0.0.1</a></p>
+			<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://drive.google.com/file/d/1IAuuv0JY8GVDwDxhJflhCDhBLuhgPs5B/view?usp=sharing" target="_blank">Updated Release 0.0.2</a></p>
 			<span class="alignright">Share on: 
 				<a class="fa-brands fa-x-twitter" id="tb11" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦" onclick="sharePost(this.id);" target="_blank"></a>
 				</span>			
@@ -2583,6 +2677,7 @@
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b22">ROM Patching</a><br>
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b23">64JS ROM INFO TOOL</a><br>
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b24">Hyperkin Hall Effect Stick</a><br>
+			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#b25">TYR Modular Controller</a><br>
 			</details>
 			<details>
 			<summary class="smalltitle" title="Click to reveal">Q&As</summary>
@@ -2624,6 +2719,7 @@
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r10">Bear Waker DX</a><br>
 			</details>
 			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r11">Hori Mini Pad</a><br>
+			<i class="fa-solid fa-caret-right"></i>&nbsp;&nbsp;<a href="blog.html#r12">N64 Cart Dumper</a><br>
 			</details>
 			<details>
 			<summary class="smalltitle" title="Click to reveal">More</summary>
@@ -2651,14 +2747,6 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 function setRegion() {localStorage.regKey = flag+".cfg";}
-function shareFB (clicked_id){
-let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
-let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
-let headerTitle = document.getElementById(parentId).children[0].children[1].innerText;
-let subTitle = document.getElementById(parentId).children[1].innerText;
-//https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdefaultdnb.github.io%2FReCollect64%2Fblog.html%23b20 // seems to be one out for #b20 links to #b19
-window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdefaultdnb.github.io%2FReCollect64%2Fblog.html%23b20');
-}
 function sharePost(clicked_id) {
 let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
 let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;

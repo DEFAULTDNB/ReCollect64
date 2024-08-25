@@ -289,7 +289,7 @@ body {
 	width: 50px;
 	padding: 4px;
 }
-.fa-facebook {
+/*.fa-facebook {
 	background: rgb(24, 119, 242);
 	color: white;
 	border-radius:10px;
@@ -297,7 +297,7 @@ body {
 	font-size: 34px;
 	width: 50px;
 	padding: 4px;
-}
+}*/
 .alignright {
 	display: block;
 	margin-left: auto;
@@ -434,6 +434,17 @@ button {
 	background-color: #ffdddd;
 	border-left: 6px solid #f44336;
 }
+.quote {
+	position: relative;
+	margin-bottom: 15px;
+	padding: 12px 12px;
+	background-color: #ededed;
+}
+.fa-quote-right{
+	float: right;
+	margin: 0 5px;
+}
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {   
