@@ -131,12 +131,22 @@ body {
 	font-size: large;
 	margin: 10px 0px;
 }
+.smalltitle0 {
+	font-family: "Homenaje", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: x-large;
+	margin: 2px 0px;
+}
 .smalltitle {
 	font-family: "Homenaje", sans-serif;
 	font-weight: 400;
 	font-style: normal;
 	font-size: x-large;
 	margin: 2px 0px;
+	background-color: white;
+	color: black;
+	border: 2px silver;
 }
 /* Clear floats after the columns */
 .row:after {
@@ -366,7 +376,7 @@ tr:nth-child(odd) {
 	margin: auto; 
 }
 details {
-	padding: 1px; 
+	padding: 0px; 
 	border: 1px solid black;
 	color: black;
 	background-image: linear-gradient(to bottom, silver, white);
