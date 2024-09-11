@@ -1,7 +1,6 @@
 * {
 	box-sizing: border-box;
 }
-/* Add a gray background color with some padding */
 body {
 	font-family: Arial;
 	padding: 20px;
@@ -17,7 +16,6 @@ body {
 	padding: 0px 10px;
 	background-color: white;
 }
-/* Header/Blog Title */
 .header {
 	padding: 0px;
 	font-size: 40px;
@@ -26,7 +24,7 @@ body {
 }
 #logo {
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
-	width: 350px;
+	width: 333px;
 }
 .masked {
 	display: inline-block;
@@ -45,13 +43,10 @@ body {
 	font-family: "Homenaje", sans-serif;
 	font-size: xxx-large;
 }
-/* Create two unequal columns that floats next to each other */
-/* Left column */
 .leftcolumn {   
 	float: left;
 	width: 75%;
 }
-/* Right column */
 .rightcolumn {
 	float: left;
 	width: 25%;
@@ -109,7 +104,6 @@ body {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-/* Add a card effect for articles */
 .card {
 	background-color: white;
 	padding: 20px;
@@ -148,13 +142,11 @@ body {
 	color: black;
 	border: 2px silver;
 }
-/* Clear floats after the columns */
 .row:after {
 	content: "";
 	display: table;
 	clear: both;
 }
-/* Chat containers */
 .container {
 	border: 2px solid #dedede;
 	background-color: #f1f1f1;
@@ -163,18 +155,15 @@ body {
 	margin: 10px 0;
 	width:100%
 }
-/* Darker chat container */
 .darker {
 	border-color: #ccc;
 	background-color: #ddd;
 }
-/* Clear floats */
 .container::after {
 	content: "";
 	clear: both;
 	display: table;
 }
-/* Style images */
 .container img {
 	float: left;
 	max-width: 50px;
@@ -182,7 +171,6 @@ body {
 	margin-right: 20px;
 	border-radius: 50%;
 }
-/* Style the right image */
 .container img.right {
 	float: right;
 	margin-left: 20px;
@@ -278,41 +266,18 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  --mix-blend-mode: screen;
 }
-.fa-brands {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-.fa-brands:hover {
-    opacity: 0.7;
-	cursor: pointer;
-}
-.fa-x-twitter {
-	background: black;
-	color: white;
-	border-radius:10px;
-	vertical-align: middle;
-	font-size: 34px;
-	width: 50px;
-	padding: 4px;
-}
-/*.fa-facebook {
-	background: rgb(24, 119, 242);
-	color: white;
-	border-radius:10px;
-	vertical-align: middle;
-	font-size: 34px;
-	width: 50px;
-	padding: 4px;
-}*/
 .alignright {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: right;
+}
+.alignleft {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
 }
 .thumbnail {
 	transition: transform .2s;
@@ -404,34 +369,6 @@ button {
 	margin:0 auto;
     display:block
 }
-.accordion {
-	color: white;
-	background-image: linear-gradient(to bottom, navy, silver);
-	cursor: pointer;
-	padding: 18px;
-	border: none;
-	border-radius: 10px;
-	text-align: left;
-	outline: none;
-	font-size: 15px;
-	transition: 0.5s;
-}
-.accordion:after {
-	color: #777;
-	font-weight: bold;
-	float: right;
-	margin-left: 5px;
-}
-.active, .accordion:hover {
-	background-color: #ccc; 
-}
-.panel {
-	padding: 0 18px;
-	display: none;
-	background-color: white;
-	overflow: hidden;
-	transition: max-height 0.2s ease-out;
-}
 .info {
 	margin-bottom: 15px;
 	padding: 4px 12px;
@@ -454,10 +391,137 @@ button {
 	float: right;
 	margin: 0 5px;
 }
-
+.titleUnderline {
+	height: 3px;
+	margin: auto;
+	background: linear-gradient(90deg, rgba(128,128,128,0.7) 0%, rgba(128,128,128,0.2) 50%, rgba(128,128,128,0.7) 100%);
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+ /* The navigation menu */
+#nav-placeholder {
+	top: 5px;
+	position: sticky;
+	position: -webkit-sticky;
+	z-index:1000;
+}
+.navbar {
+	width: 98%;
+	margin: auto;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(10,10,10,1) 50%, rgba(128,128,128,1) 100%);
+}
+.navbar a {
+	padding: 14px 20px;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	font-size: 16px;
+}
+@media screen and (max-width: 480px) {
+	
+	.navbar a {
+		padding: 7px 10px;
+		text-decoration: none;
+		text-align: center;
+		display: block;
+		font-size: 1em;
+	}
+	
+}
+.navbar a:hover {
+	background-color: #575757;
+}
+.dropdown {
+	position: relative;
+	display: inline-block;
+}
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	width: 100%;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index:1000;
+}
+.dropdown-content a {
+	color: black;
+	padding: 10px 6px;
+	text-decoration: none;
+	display: block;
+}
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+.nested-dropdown {
+	position: relative;
+}
+.nested-dropdown-content {
+	display: none;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	background-color: #f9f9f9;
+	width: 100%;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+.nested-dropdown:hover .nested-dropdown-content {
+	display: block;
+}
+#navhome {
+	width: auto;
+}
+#navfeat {
+	width: auto;
+}
+#navrevs {
+	width: auto;
+}
+#navchat {
+	width: auto;
+}
+#navtool {
+	width: auto;
+}
+#navcont {
+	width: auto;
+}
+.btn {
+	background-color: silver;
+	color: black;
+	vertical-align: middle;
+	font-size: 30px;
+	height: 50px;
+	width: auto;
+	padding: 4px;
+	font-family: "Homenaje", sans-serif;
+}
+.btn:hover {
+	opacity: 0.7;
+	cursor: pointer;
+}
+.btnx {
+	background-color: black;
+	color: white;
+	--border-radius:10px;
+	vertical-align: middle;
+	font-size: 30px;
+	height: 50px;
+	width: auto;
+	padding: 4px;
+	font-family: "Homenaje", sans-serif;
+}
+.btnx:hover {
+	opacity: 0.7;
+	cursor: pointer;
+}
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
+  .leftcolumn, .rightcolumn {
     width: 100%;
     padding: 0;
   }

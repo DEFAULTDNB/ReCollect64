@@ -1,0 +1,88 @@
+<div id="r6" class="card">
+	<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews: #6</span></h2>
+	<h5 class="subtitle">JoeyN64 Dumper/Flasher ~ June 20, 2024</h5>
+	<div class="bgBanner"><img src="Blog/Reviews/JoeyN64/Joey.png" alt="JoeyN64" class="center"/><div class="overlaytext">JoeyN64</div></div>
+	<h4>A Ripping Good Time</h4><hr>
+	<p>As a collector of variants, I want to know that I'm getting a legit game and that I will have the freedom to dump, preserve, examine, modify, and emulate them should I wish to.
+	<p>The JoeyN64 by BennVenn is a device that I have had in my arsenal for a while. It's operation is so simple that all you have to do is connect a USB-C cable to your PC and drag and drop the ROM off of an N64 cartridge to back it up.
+	<p>If you want to play your backups in an emulator, or on another flash cart, just dump them in a ROMs folder and away you go. Want to play through <a href="https://www.pj64-emu.com/" target="_blank">Project64</a>? Simply connect the JoeyN64 to your PC, load up PJ64, and select the ROM from the cartridge once the drive pops up. In order to use your saves with the cart, copy them off first and put them in the PJ64 saves folder.
+	<p>At the time of writing, the JoeyN64 is $55 AUD (£29) from BennVenn's Shopify store, and it is supported by a discord group where the other main feature is a very lively chat: the ability to reflash repro carts!
+	<p>Reflashing clone carts means that if you were to be in posession of a Smash Remix cart, you could simply update it at any time by dragging and dropping a more recent version ROM onto the cart, overwriting the previous version. 
+	<p>The only issues you may face are those of the CIC regioning, and as such, you must flash a compatible ROM to the installed hardware CIC, or you can try to convert the ROM.
+	<p>JoeyN64 main features:
+	<ul>
+		<li>Fast, easy, reliable access to all your N64 ROM's and Save files - EEPROM (4/16K), Flash (All types), SRAM, Memory Pak.
+		<li>Supports reflashing the latest chinese bootleg N64 games. 
+		<li>Supports reading/writing save files from these Chinese carts where other N64 cart dumpers cannot. 
+		<li>Drag and Drop ROMs to write to the cart.
+		<li>Enjoy some of the best ROM hacks and remakes on real hardware! 
+		<li>You cannot rewrite original Nintendo carts.
+		<li>Can detect if a cart is fake or genuine. (Connect to a smartphone for easy cart identification when you're out hunting for games).
+		<li>Supports N64 and Z64 ROM's, can automatically byteswap (Write in mode.txt which file format you prefer).
+		<li>Can load directly from cart into Project64 emulator.
+		<li>Drag and Drop Firmware updates over USB-C
+		<li>New firmware files will be available as we discover new Chinese bootleg types
+		<li>~750kbytes/second dump speed, ~310kbytes/second flash speed.
+		<li>Official N64 Dev Carts NOT supported without external 12 volt supply modification.
+	</ul>
+	</p>
+	<span align="center" width="100%">
+		<a target="_blank" href="Blog/Reviews/JoeyN64/JoeyN641.JPG"><img class="thumbnail" src="Blog/Reviews/JoeyN64/JoeyN641.JPG" width="32%" style="padding:auto"/></a>
+		<a target="_blank" href="Blog/Reviews/JoeyN64/JoeyN642.JPG"><img class="thumbnail" src="Blog/Reviews/JoeyN64/JoeyN642.JPG" width="32%" style="padding:auto"/></a>
+		<a target="_blank" href="Blog/Reviews/JoeyN64/JoeyN643.JPG"><img class="thumbnail" src="Blog/Reviews/JoeyN64/JoeyN643.JPG" width="32%" style="padding:auto"/></a>
+	</span>
+	<h4>Easy to Upgrade, Easy to use!</h4><hr>
+	<p>I recently used my JoeyN64 to dump some Taiwanese and Malaysian cartridges, and it took mere seconds to achieve this. Inserting the cartridge, and dragging the ROM off is incredibly intuitive, and it's so quick in comparison to older, less stable methods of dumping with a Game Shark and parallel a port!
+	<p>Updating the JoeyN64 to the latest firmware is as simple as plugging it into your PC, dragging across the "mode.txt" file first, and then dragging the "firmware.jr" file afterwards. The "mode.txt" file is editable in several ways, and for flashing an update it must have the word "UPDATE" in the first line. After this you can change the modes as you wish:
+	<ul>
+		<li>PAK - Access Controller Pak saves (controller port)
+		<li>FCE0-FCE4 - erase sectors of the flashcart
+		<li>FCE or NOERASE - if the cart cannot be read/written to
+		<li>UPDATE - update Firmware
+		<li>N64 - Set file format to N64 
+		<li>Z64 - Set file format to Z64 (Byteswapped)
+		<li>BANK0 - First 64mbytes of MultiCart access (Z64 Format)
+		<li>BANK1 - Second 64mbytes of MultiCart access (Z64 format) 
+	</ul>
+	<p>Changing modes is as easy as editing the txt file, which is simple, but it feels a little clunky, and what if you have it on the wrong mode? Thankfully the JoeyN64 is pretty smart for the most part, and I haven't experienced any issues using mine to dump or reflash repros.
+	<p>As alluded to above, there are software CIC commands (softCIC) you can use too, such as "61052" for converting a 6105 ROM to run on a 6102 cartridge. It's by no means foolproof and more often than not, it won't work due to compatibility of the CIC in your repro hardware. Luckily there is a fantastic flashing guide and reference by Gent over on his <a href="https://github.com/TheGent/Gents-N64-xdelta-Patches/blob/main/Gent's%20Joey64%20Clone%20Cart%20-%20CIC%20%26%20Save%20Type%20Guide.md2" target="_blank">github page</a> that untangles softCIC quandries, and <a href="https://bennvenn.myshopify.com/pages/n64-bootleg-carts" target="_blank">BennVenns Bootleg Guide</a> lets you see which repro carts are the most compatible for flashing ROMs to.
+	<p>There are <a href="http://n64.icequake.net/mirror/64scener.parodius.com/tools.htm" target="_blank">other resources too</a>, such as <a href="http://micro-64.com/database/patches/S-Paladin.zip" target="_blank">Paladin</a> or <a href="http://n64.icequake.net/mirror/64scener.parodius.com/tools/obs-mot3.zip" target="_blank">MotetIII</a>, that can convert the CIC and <a href="https://github.com/StarHack/n64reflashing" target="_blank">patch the CRC</a> to run again.
+	<p>The ability to copy saves from the cartridge or dump them from the Memory Pak, also opens up the possibility to use modded saves, because not only are they readable, they're writable too!
+	<p>An upcoming feature for the firmware includes 900k/sec transfer speed, which is over twice that of the current JoeyN64 MCU speed. This will make dumping and flashing so much quicker than it already is, and I for one will be updating the second it becomes available. Another upcoming piece of software, that BennVenn has hinted at is a GUI for these tools, which will begin with the Joey JR GBA flasher/dumper and will eventually make it to the JoeyN64 someday. This could be incredibly useful and would negate the need to manually edit a txt file each time you want to swap modes.
+	<p>The JoeyN64 is a dream come true for verification and backing up ROMs as a collector, but also as a reflashing tool for hobbyists. The one downside to the JoeyN64 is that it cannot dump development carts, the tombstone-like prototype cartridges we see people finding in random places that miraculously contain a fully playable build of <a href="https://n64squid.com/rev-limit-unreleased-n64-game/" target="_blank">Rev Limit</a>, for example. 
+	</p>
+	<div class="col-container">
+	<div class="pro"><strong> The Pros:</strong>
+	<p>
+	<i class="fa-solid fa-check">&nbsp;</i>Incredibly easy to use<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Compatible with PJ64 plug-and-play<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Supports multigame flashcarts<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Works on smartphone too</div>
+	<div class="con"><strong> The Cons:</strong>
+	<p>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Prototype carts need a 12v mod to dump</br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Needs a GUI to further enhance usability</div>
+	</div>
+	<div class="verdict"><strong>Conclusion:</strong>
+	<p>I'm a huge fan of this device because this is the perfect way to verify, dump, and preserve your own ROMs with zero fuss and minimal effort. You can even drill into the other available features to do a heck of a lot more if you need to. Overall it is effortless to use and well supported through the discord channel, and I cannot wait to see what updates and features come next!
+	<p><center title="8/10">
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star"></span>
+	<span class="fa-solid fa-star"></span>
+	</center>
+	</div>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://bennvenn.myshopify.com/products/joeyn64-cart-flasher" target="_blank">Click here for BennVenn's shop</a></p>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://cdn.shopify.com/s/files/1/0804/0095/files/V_0_29.zip?v=1694131902" target="_blank">Click here for v0.29 Firmware</a></p>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://discord.gg/F5ckxM2" target="_blank">Join BennVenn's Discord server</a></p>
+	<span class="alignright">	
+	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="tr6" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦"><i class="fa-brands fa-x-twitter"></i> SHARE</a>
+	<a class="btn"  href="#top" onclick="$(function(){$('#content-placeholder').load('postLinks.html');});" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-chevron-left"></i> HOME</a>
+	</span>
+</div>

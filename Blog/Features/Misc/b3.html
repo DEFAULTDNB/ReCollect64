@@ -1,0 +1,62 @@
+<div id="b3" class="card">
+	<h2><span class="badge hot"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64Recomp</span></h2>
+	<h5 class="subtitle">Playing ROMs is getting spicy ~ Jun 14, 2024</h5>
+	<div class="bgBanner"><img src="Carts/ALTU/The Legend of Zelda Majoras Mask ALTU.png" alt="N64Recomp" class="center"/><div class="overlaytext">N64Recomp</div></div>
+		<h4>Recomp Fast, Decomp Slow</h4><hr>
+		<p>Mr-Wiseguy's N64Recomp project came to light at the beginning of May, bursting out the gates with a promise of statically recompiling N64 binaries into C code for use on other platforms. With one demonstration provided; <i>The Legend of Zelda Majoras Mask</i> has seen an incredible resurgence in the last 4 weeks, with virtually everyone I know enjoying the game at 60fps, with gyro aiming, in wide/ultrawide screen, and with a rejuvenated analog camera system.
+		<p>The way the <i>Majoras Mask</i> port was built using the <a href="https://github.com/rt64/rt64" target="_blank">RT64 graphic renderer</a>, means modern APIs such as Vulkan, can be deployed for maximum compatibility across more platforms and with massive resolutions compared to N64's native 320×240, or 640×480 with an Expansion Pak.
+		<p>Recompilation aims to immediately recompile binaries without the need for lengthy (upwards of years) decompilation beforehand, followed by months of porting to other platforms via their respective SDKs. Some decompilation projects have been running for years, with only <i><a href="https://github.com/n64decomp/sm64" target="_blank">Super Mario 64</a>, <a href="https://github.com/zeldaret/oot" target="_blank">The Legend of Zelda Ocarina of Time</a>, <a href="https://github.com/Erick194/DOOM64-RE" target="_blank">Doom 64</a>, <a href="https://github.com/n64decomp/perfect_dark" target="_blank">Perfect Dark</a></i>, and most recently, <i><a href="https://github.com/pmret/papermario" target="_blank">Paper Mario</a></i> taking the limelight. The problem with decompilation is that to get a perfect one-to-one replica of a game's source code takes a long time because each function, instruction, and opcode needs mapping out and verifying at multiple stages to ensure correctness.
+		<p>I have been following the majority of these decompilation projects for a long time, most since inception, but the progress is a long and arduous one, and not one that most game-enjoyers can commit to, even if they REALLY want to see their favourite games get a fancy new up-rezzed PC port. It's usually left to those in the know, but with N64Recomp; it could become very convenient for anyone to run any game.
+		<p>By incorporating tools such as Rabbitizer, which is a MIPs decoder that can convert ASM (machine code) to C, ELFIO, TOML11 and FMTLIB, then directly piping it all to RT64; you will have the ability to easily build your own ROMs into playable PC ports in minutes.
+		<p>At least, that's the aim, because currently, without Mr-Wiseguy's tools being made public yet, it takes even the most well versed in coding a couple of hours to get their head around the process of linking and building, let alone fixing errors and residual problems, such as game specific microcode, you will undoubtedly face when starting each game from scratch.</p>
+		<details>
+		<summary class="smalltitle" title="Click to reveal">Spoiler: Current Decomp Projects</summary>
+		<ul>
+			<li><a target="_blank" href="https://github.com/blackgamma7/Aidyn">Aidyn Chronicles: The First Mage</a>
+			<li><a target="_blank" href="https://gitlab.com/banjo.decomp/banjo-kazooie">Banjo Kazooie</a>
+			<li><a target="_blank" href="https://github.com/retroplastic/blastcorps">Blast Corps</a>
+			<li><a target="_blank" href="https://github.com/MarioMaster96/bomberman-64">Bomber Man 64</a>
+			<li><a target="_blank" href="https://github.com/jaytheham/body-harvest-decompilation">Body Harvest</a>
+			<li><a target="_blank" href="https://github.com/mkst/conker">Conkers Bad Fur Day</a>
+			<li><a target="_blank" href="https://github.com/DavidSM64/Diddy-Kong-Racing">Diddy Kong Racing</a>
+			<li><a target="_blank" href="https://github.com/zestydevy/dinosaur-planet">Dinosaur Planet</a>
+			<li><a target="_blank" href="https://gitlab.com/kholdfuzion/goldeneye_src">GoldenEye 007</a>
+			<li><a target="_blank" href="https://github.com/farisawan-2000/kirby64">Kirby 64: The Crystal Shards</a>
+			<li><a target="_blank" href="https://github.com/gamemasterplc/mpsource">Mario Party</a>
+			<li><a target="_blank" href="https://github.com/PartyPlanner64/mp3">Mario Party 3</a>
+			<li><a target="_blank" href="https://github.com/n64decomp/mk64">Mario Kart 64</a>
+			<li><a target="_blank" href="https://github.com/Drahsid/mischief-makers">Mischief Makers</a>
+			<li><a target="_blank" href="https://github.com/Fluvian/mnsg">Mystical Ninja Starring Goemon</a>
+			<li><a target="_blank" href="https://github.com/farisawan-2000/evangelion">Neon Genesis Evangelion</a>
+			<li><a target="_blank" href="https://github.com/ethteck/pokemonsnap">Pokemon Snap</a>
+			<li><a target="_blank" href="https://github.com/ethteck/pokemonstadium">Pokemon Stadium</a>
+			<li><a target="_blank" href="https://github.com/mallos31/quest64">Quest 64</a>
+			<li><a target="_blank" href="https://github.com/RocketRet/Rocket-Robot-On-Wheels">Rocket Robot on Wheels</a>
+			<li><a target="_blank" href="https://github.com/tenry92/sbk-decomp">Snowboard Kids</a>
+			<li><a target="_blank" href="https://github.com/mkst/sssv">Space Station Silicon Valley</a>
+			<li><a target="_blank" href="https://github.com/farisawan-2000/superman">Superman 64</a>
+			<li><a target="_blank" href="https://github.com/Drahsid/turok3">Turok 3</a>
+			<li><a target="_blank" href="https://github.com/Decompollaborate/n64dd">Ura Zelda</a>
+			<li><a target="_blank" href="https://github.com/LLONSIT/Wave-Race-64">Wave Race 64</a>
+			<li><a target="_blank" href="https://github.com/decompals/yoshis-story">Yoshi's Story</a>
+			<li><a target="_blank" href="https://github.com/zeldaret/mm">Zelda Majoras Mask</a>
+		</ul>
+		</details>
+		</p>
+		<iframe class="video" src="https://www.youtube.com/embed/ywWwUuWRgsM"></iframe>
+		<h4>What's in the Pipeline?</h4><hr>
+		<p>With incredible features such as ray tracing and HD texture support coming to the RT64 engine, N64 ports could look like fresh games, and with <i>Banjo Kazooie, Rocket: Robot on Wheels</i>, and <i>Superman 64</i> being immediately worked on by Mr-Wiseguy, the future of N64 gaming is very bright!
+		<p>The ability to recompile our own games is a feature I'm massively looking forward to. <i>Wave Race 64, Lylat Wars, Diddy Kong Racing</i>, and <i>Conkers Bad Fur Day</i>, to name but a few! Can you imagine <i>Wave Race 64</i> with Ray Tracing?! There are so many gems in the N64 library that could benefit from just the enhanced framerates and increased resolutions, that I'm extremely excited to get my hands on the toolset when they drop.
+		<p>Thankfully, as mentioned before, Mr-Wiseguy is in the process of building tools that can load, translate, and read any N64 ROM for recompilation in next to no time. Extra touches like modern controller mapping, gyro support, increased FPS, and widescreen culling will come as configuration files and executable revisions, because each game needs individual care and attention to port features to offsets, but the overall time reduction, compared to standard decompilation, is astounding. As an example; <i>Majoras Mask</i> was recompiled to a playable state with RT64 upgrades and full console-accurate effects in under 2 days!
+		<p>If any of this still sounds like too much work, then rest assured that others will jump at the opportunity to provide the final executables we need to play the games, we will just have to shove a ROM into a directory, the same way the <i>Majoras Mask</i> works right now.
+		<p>You may be asking yourself if N64Recomp will make emulators redundant; I don't think so. Emulation is a more universal approach to faithfully, and cycle-accurately, play ROMs, but N64Recomp adds a lot more by way of modernising the games with features that emulators don't currently offer if you have the time and inclination to put into it. Emulators, because of their maturity, are instantly more compatible, and are way more convenient for the end user across a variety of platforms. This may change depending on N64Recomp advancements, but that remains to be seen at the time of writing.
+		<p>I do wonder though: can these principals be used to recompile games from other systems, such as 3DS or GameCube? 
+		<p>I hope we might find out in the not-so-distant future!
+		<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://github.com/N64Recomp/N64Recomp" target="_blank">Click here to check out N64Recomp</a></p>
+		<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://github.com/Zelda64Recomp/Zelda64Recomp/releases/latest" target="_blank">Click here to get Zelda64 Recomp</a></p>
+		<p class="subtitle"><i class="fa-solid fa-user-plus"></i>&nbsp;<a href="https://twitter.com/dariosamo" target="_blank">@dariosamo (RT64 developer)</a></p>
+		<span class="alignright">	
+		<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="tb3" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦"><i class="fa-brands fa-x-twitter"></i> SHARE</a>
+		<a class="btn"  href="#top" onclick="$(function(){$('#content-placeholder').load('postLinks.html');});" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-chevron-left"></i> HOME</a>
+		</span>
+</div>

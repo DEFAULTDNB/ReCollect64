@@ -1,0 +1,47 @@
+<div id="b23" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">64JS ROM INFO TOOL</span></h2>
+	<h5 class="subtitle">Information in one click! ~ Aug 16, 2024</h5>
+	<div class="bgBanner"><img src="Blog/Features/64JS/64JS1.png" alt="64JS" class="center"/><div class="overlaytext">64JS ROM INFO TOOL</div></div>
+	<h4>New Tool on the Block</h4><hr>
+	<p>In my quest for ease of information, I noticed that most ROM tools, for N64 at least, were outdated, won't run, or didn't even have a GUI.
+	<p>As a challenge to myself and in an effort to provide something else for the N64 scene, I have built a light-weight, web-based ROM information extraction tool, which I have named 64JS (for now).
+	<p>My first attempt at this was a bloated script that didn't gather enough information (no CIC verification), relied on external data to reference, and took way too long (2.5 minutes for 64 MB), so after four rewrites I feel that I have achieved a good balance of speed paired with accuracy!
+	<h4>Features:</h4><hr>
+		<ul>
+			<li>Under 8 kb, written in JS with Crypto-JS.
+			<li>Simple, readable, decluttered interface.
+			<li>Browse for a ROM, load it, and wait for info.
+			<li>Typical 16 MB ROM takes ~8 seconds to analyse fully (ROM hacks take longer).
+			<li>Hashes CRC32, SHA-1, and MD5 for completeness.
+			<li>Detects file type, name, ID, media, region, CIC, and ROM version.
+			<li>CIC detection based on 0x40 - 0x1000 MD5 hash.
+			<li>Shift JIS support for JPN ROMS.
+			<li>Preliminary ALECK 64 support.
+		</ul>
+	<center>
+		<span align="center" width="100%">
+			<a target="_blank" href="Blog/Features/64JS/64JS1.png"><img class="thumbnail" src="Blog/Features/64JS/64JS1.png" width="32%" style="padding:auto"/></a>
+			<a target="_blank" href="Blog/Features/64JS/64JS2.png"><img class="thumbnail" src="Blog/Features/64JS/64JS2.png" width="32%" style="padding:auto"/></a>
+			<a target="_blank" href="Blog/Features/64JS/64JS3.png"><img class="thumbnail" src="Blog/Features/64JS/64JS3.png" width="32%" style="padding:auto"/></a>
+		</span>
+	</center>		
+	<h4>The Future of 64JS</h4><hr>
+	<p>This is the first release, so I expect some issues and fringe-case things I have probably missed. I am aiming to complete *.NDD and proper *.N64 support in the near future, then add ROM conversion (from *.V64/*.N64) to *.Z64 in due time.
+	<p>It's all too enticing to try to add everything at once, and feature creep could derail this whole thing, so my ethos is that it's best to focus on one characteristic at a time and make it work reliably.
+	<p>I have added the 64JS ROM inforation tool to my repository, and linked it on the <a href="index.html">ReCollect64 Collection App</a> under I/O in the dropdown.
+	<center>
+		<span align="center" width="100%">
+			<a target="_blank" href="Blog/Features/64JS/64JS4.png"><img class="thumbnail" src="Blog/Features/64JS/64JS4.png" height="250px" style="padding:auto"/></a>
+		</span>
+	</center>
+	<p>I hope it will find its way to being useful to some people out there so if you do happen to use it, please be sure to let me know if you encounter any hiccups.
+	<p>If there are any features you wish to see, please don't hesitate to contact me and let me know!
+	<p>Special thanks to <a href="https://twitter.com/DerekTurtleRoe" target="_blank">@DerekTurtleRoe</a> for his helpful knowledge and patience!
+	</p>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="64JS.html" target="_blank">64JS ROM Tool</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="https://twitter.com/messages/compose?recipient_id=170775741" target="_blank">Have an issue or suggestion? Contact me!</a></p>
+	<span class="alignright">	
+	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="tb23" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦"><i class="fa-brands fa-x-twitter"></i> SHARE</a>
+	<a class="btn"  href="#top" onclick="$(function(){$('#content-placeholder').load('postLinks.html');});" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-chevron-left"></i> HOME</a>
+	</span>		
+</div>
