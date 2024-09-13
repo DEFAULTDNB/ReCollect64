@@ -284,16 +284,17 @@ body {
 	position: relative;
 }
 .thumbnail:hover {
-	-ms-transform: scale(1.05); /* IE 9 */
-	-webkit-transform: scale(1.05); /* Safari 3-8 */
-	transform: scale(1.05);
+	-ms-transform: scale(1.50);
+	-webkit-transform: scale(1.50);
+	transform: scale(1.50);
+	z-index:1000;
 }
 .img-row {
   font-size: 0px;
   vertical-align: bottom;
 }
 div.sticky {
-  position: -webkit-sticky; /* Safari */
+  position: -webkit-sticky;
   position: sticky;
   top: 20px;
 }
@@ -380,6 +381,12 @@ button {
 	padding: 4px 12px;
 	background-color: #ffdddd;
 	border-left: 6px solid #f44336;
+}
+.good {
+	margin-bottom: 15px;
+	padding: 4px 12px;
+	background-color: #ddffdd;
+	border-left: 6px solid #04AA6D;
 }
 .quote {
 	position: relative;
