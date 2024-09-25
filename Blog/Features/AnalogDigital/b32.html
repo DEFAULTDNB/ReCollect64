@@ -1,0 +1,35 @@
+<div id="b32" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Analog or Digital?</span></h2>
+	<h5 class="subtitle">N64 Joy Stick Tech ~ Sep 26 2024</h5>
+	<div class="bgBanner"><img src="Blog/Features/AnalogDigital/AD.png" alt="AD" class="center"/><div class="overlaytext">ANALOG OR DIGITAL?</div></div>
+	<h4>Mass Debate</h4>
+	<div class="titleUnderline"></div>
+	<p>Here's a modern quandary: was the N64 control stick analog (analogue) or digital? I've seen quite a few people heatedly debating this recently, so I wanted to delve into the inner workings and come to my own, definitive solution, one way or another.</p>
+	<p>The N64 stick is quite the technological enigma, and to understand it we need to define what the difference between a digital and analog input is. Once we can agree on this, we can move forward with defining the N64's implementation and discovering just how it does what it does and why the sticks inevitably deteriorate and fail.</p>
+	<p>Wikipedia states:
+	<div class="quote">
+		<i class="fa-solid fa-quote-left"></i>
+		"While digital sticks rely on single electrical connections for movement (using internal digital electrical contacts for up, down, left, and right), analog sticks use continuous electrical activity running through potentiometers to measure the exact position of the stick within its full range of motion."
+		<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p>Other sources (such as <a href="https://electronics.howstuffworks.com/n64.html" target="_blank">https://electronics.howstuffworks.com/n64.html</a>) state the method the N64 uses to translate movement to signals, yet still describe the component itself as an "analog stick". Because the way stick data is captured is not simply I or O, like a D-Pad, this probably gives rise to the term "analog stick" for any stick on a controller that can convey 360 degrees of movement and has a range of pressures in terms of how far the stick is pushed from centre, regardless of its actual inner workings.</p>
+	<p>While mechanical in appearance, the stick on an OG N64 controller uses optical encoders to pinpoint its exact position within its housing, effectively translating analog movement into digital signals.
+	<center><img src="Blog/Features/AnalogDigital/AD.gif" width="25%" style="padding:auto"/><br></br>(Gif found on <a href="https://www.reddit.com/r/gaminggifs/comments/9hrsvc/how_an_n64_analog_stick_works/" target="_blank">Reddit</a>)</center>
+	<p>We also know from extensive teardowns and recent projects to reinvigorate or replace the stick altogether, that the N64 never used potentiometers because there are simply no contacts for voltage to flow through.</p>
+	<p>Instead, the stick itself drags around a bowl (more about that later), and the integrated gear-arms surrounding it each turn a wheel, allowing light from an LED to pass through a small hole. Each time the beam of light is broken, the controllers photocell optical encoder registers how many times the beam of light blinks through the wheel and outputs a value.</p>
+	<p>When you use the controller test tools, these values (+/- 83-85) indicate the number of beam breaks in each direction. This is why third-party controllers have different values, they either turn too many times, too few times, or don't have the same range of movement (gate) that the N64 stick characterised.</p>
+	<p></p>
+	<center><img src="Blog/Features/AnalogDigital/OGPad.jpg" width="25%" style="padding:auto"/>
+	<img src="Blog/Features/AnalogDigital/mimi.png" width="25%" style="padding:auto"/><br></br>(Images from <a href="http://micro-64.com/features/ctrl-hipgear/oem.jpg" target="_blank">Micro64</a> and <a href="https://github.com/wermipls/mimi" target="_blank">Mimi Controller Tester</a>)</center>	
+	<h4>Sticky Business</h4>
+	<div class="titleUnderline"></div>
+	<p>So there you have it. The stick on an N64 controller is definitively digital by nature because they do not measure adjustable voltages, current, or resistence to convey movement.</p>
+	<p>Regardless of this new scintilating fact, why do they lose their stiffness?</p>
+	<p>N64 sticks inevitably become less responsive and flop around over time. This is for several reasons, but the main one is that the plastic parts that the stick guides around simply deteriorate. The X and Y rails the stick moves through wear away and become looser fitting over time, and worsen the once sturdy sticks ability to stand upright. The sticks inner tip grinds against the bowl, also causing wear, both contribute to generating debris particles that can clog up the inner working mechanism, which also deadens the sensor/emmitter pairs ability to accurately read inputs.</p>
+	<p>Another sticking point is who came up with the concept of a stick on a controller first, Sony or Nintendo? Well Sony's dual analog controller came out in April 1997, sometime after Super Mario 64 and the N64 debuted in 1996; however, we know that the N64 started life in around 1994, and the first Super Mario 64 production was from September 7th 1994, so I think Nintendo had quite the jump on Sony as Super Mario 64 was built around the controller to show off its capabilities!</p>
+	<p>What do you think of this article? Do you have a contrary opinion? I would love to hear it! Please comment on this shared post on twitter, or feel free to DM me at any time!</p>
+	<span class="alignright">	
+	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="tb32" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦"><i class="fa-brands fa-x-twitter"></i> SHARE</a>
+	<a class="btn"  href="#top" onclick="$(function(){$('#content-placeholder').load('postLinks.html');});" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-chevron-left"></i> HOME</a>
+	</span>		
+</div>
