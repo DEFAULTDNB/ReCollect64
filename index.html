@@ -156,7 +156,9 @@
 					<img id="thumbA1" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA2" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA3" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-					<img id="thumbS1" title="𝗦𝗰𝗿𝗲𝗲𝗻𝘀𝗵𝗼𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbS1" title="𝗧𝗶𝘁𝗹𝗲 𝗦𝗰𝗿𝗲𝗲𝗻" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbS2" title="𝗦𝗰𝗿𝗲𝗲𝗻𝘀𝗵𝗼𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbS3" title="𝗙𝗲𝗮𝘁𝘂𝗿𝗲" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbO1" title="𝗖𝗮𝗿𝗱 𝗙𝗿𝗼𝗻𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbO2" title="𝗖𝗮𝗿𝗱 𝗕𝗮𝗰𝗸" class="thumbs" src='' onload="this.style.display = 'inline-block';" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 				</div>
@@ -953,8 +955,7 @@ myCount = 0;
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/U/'+gTitle+' U.png"');
 		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/BR/'+gTitle+' BR.png"');
-		} else if (lines[info].match("REGION=DD ")){
-		document.getElementById(coverFlow[i]).style.width = "200px"; document.getElementById(coverFlow[i]).style.left = "25px";
+		document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "25px";
 		} else if (lines[info].match("REGION=E ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
 		} else if (lines[info].match("REGION=S ")){
@@ -982,7 +983,7 @@ myCount = 0;
 		document.getElementById(coverFlow[i]).style.width = "140px"; document.getElementById(coverFlow[i]).style.left = "50px";
 		} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
 			if (gTitle.match("Doshin")){ //bespoke fix	
-			document.getElementById(coverFlow[i]).style.width = "200px"; document.getElementById(coverFlow[i]).style.left = "25px";
+			document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "25px";
 			} else {
 			document.getElementById(coverFlow[i]).style.height = "160px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
@@ -1216,16 +1217,16 @@ function reply_click(clicked_id){
 	document.getElementById('grid-container').style.backgroundRepeat = 'no-repeat';
 	document.getElementById('grid-container').style.backgroundSize = 'cover';
 	document.getElementById("thumb").src = document.getElementById(coverFlow[clicked_id-1]).src;
-	
 	document.getElementById("thumbBB").src = 'Backs/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
-	
 	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
 	document.getElementById("thumbDI").style.width = "48%";
 	document.getElementById("thumbDI").style.height = "auto";
 	document.getElementById("thumbMA").src = 'Manuals/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbMA").style.width = "23%";
 	document.getElementById("thumbMA").style.height = "auto";
-	if (pReg === "NFR" || pReg === "ALTN") {
+	if (pReg === "DD"){
+	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
+	} else if (pReg === "NFR" || pReg === "ALTN") {
 	document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
 	//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
 		if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //quick fix.
