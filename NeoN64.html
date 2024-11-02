@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" async src="https://kit.fontawesome.com/2655e13631.js" crossorigin="anonymous"></script>
     <title>NeoN64</title>
     <style>
         body {
@@ -34,18 +35,30 @@
 			font-size: 25px;
 			font-weight: bold;
 		}
+		#controls {
+			position:absolute;
+			bottom: 60px;
+			z-index:100;
+			color: white;
+			font-size: 45px;
+			font-weight: bold;
+		}
         .carousel {
             display: flex;
             width: 90%;
             position: relative;
+			justify-content: space-between;
         }
         .box {
             background-color: white;
             margin: 0 10px;
             transition: transform 0.3s;
-			filter: drop-shadow(0px 0px 10px purple);
+			filter: drop-shadow(0px 0px 15px purple);
 			border: 1px solid purple;
 			font-size: 0;
+			width: 25vw;
+			max-height: 50vh;
+			aspect-ratio: 498/680;
         }
 		.box:hover {
 			z-index: 9999;
@@ -93,13 +106,14 @@
 				box.style.backgroundImage=coverURL;
             });
             box.addEventListener('dblclick', () => {
-                box.style.transform = 'scale(1.5) rotateY(180deg) scaleX(-1)';
+                //box.style.transform = 'scale(1.5) rotateY(180deg) scaleX(-1)';
+                box.style.transform = 'scale(1) rotateY(0deg)';
+				coverURL = box.style.backgroundImage.replace("Backs", 'Covers');
+				box.style.backgroundImage=coverURL;
             });
 			box.addEventListener('click', () => {
                 box.style.transform = 'scale(2) rotateY(180deg) scaleX(-1)';
-            });			
-			box.style.width="220px"; //jpn
-            box.style.height="300px";//jpn
+            });
             box.textContent = i;
 			box.style.color = "rgba(0,0,0,0)";
 			coverURL = "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png";
@@ -115,18 +129,25 @@
                 box.classList.toggle('hidden', index < currentIndex || index >= currentIndex + 5); //no of boxes on screen
             });
             boxes[currentIndex].scrollIntoView({ block: 'center', behavior: 'smooth', inline: 'center' });
-        }
+        };
+		function scrollLeft() {
+			currentIndex = (currentIndex + 1) % totalBoxes;
+            updateCarousel();
+		};
+		function scrollRight() {
+            currentIndex = (currentIndex - 1 + totalBoxes) % totalBoxes;
+            updateCarousel();
+		};
         document.addEventListener('keydown', (event) => {
             if (event.key === 'ArrowRight') {
-                currentIndex = (currentIndex + 1) % totalBoxes;
-                updateCarousel();
+                scrollLeft();
             } else if (event.key === 'ArrowLeft') {
-                currentIndex = (currentIndex - 1 + totalBoxes) % totalBoxes;
-                updateCarousel();
+                scrollRight();
             }
         });
         updateCarousel();
     </script>
+<div id="controls"><span id="left" onClick="scrollLeft();"><i class="fa-solid fa-caret-left"></i></span>&nbsp;&nbsp;&nbsp;<span id="right" onClick="scrollRight();"><i class="fa-solid fa-caret-right"></i></span><br></div>
 <div id="gameInfo">GAME INFORMATION</div>
 </body>
 </html>
