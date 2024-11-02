@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoN64</title>
+    <style>
+        body {
+			position:relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: auto;
+            overflow: hidden;
+			background-image: url("Config/Images/background.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+        }
+		#gameTitle {
+			position:absolute;
+			top: 50px;
+			z-index:100;
+			color: white;
+			font-size: 35px;
+			font-weight: bolder;
+		}
+		#gameInfo {
+			position:absolute;
+			bottom: 30px;
+			z-index:100;
+			color: white;
+			font-size: 25px;
+			font-weight: bold;
+		}
+        .carousel {
+            display: flex;
+            width: 90%;
+            position: relative;
+        }
+        .box {
+            background-color: white;
+            margin: 0 10px;
+            transition: transform 0.3s;
+			filter: drop-shadow(0px 0px 10px purple);
+			border: 1px solid purple;
+			font-size: 0;
+        }
+		.box:hover {
+			z-index: 9999;
+		}
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="gameTitle">SELECT A GAME</div>
+    <div class="carousel" id="carousel"></div>
+    <script>
+        const carousel = document.getElementById('carousel');
+        const boxes = [];
+		var lines;
+		var xmlFile = new XMLHttpRequest;
+		xmlFile.open('get', "Config/Lists/JPN.cfg", false); //jpn
+		xmlFile.send();
+		let xmlDoc = xmlFile.responseText;
+		lines = xmlDoc.split("\n");
+		var titleCount = lines.length;
+		const totalBoxes = titleCount;
+		var coverFlow =(function(a,b){while(a--)b[a]=a+1;return b})(titleCount,[]);
+        for (let i = 0; i < totalBoxes; i++) {
+			gTitle = lines[i].slice((lines[i]),(lines[i].indexOf("PLAYERS=")-1));
+			gRegion = lines[i].slice((lines[i].indexOf("REGION=")+7),(lines[i].indexOf("SIZE=")-1));
+			gYear = lines[i].slice((lines[i].indexOf("DATE=")+5), (lines[i].indexOf("SCORE=")-1));
+			gGenre = lines[i].slice((lines[i].indexOf("GENRE=")+6), (lines[i].indexOf("PUB=")-1));
+			gScore = lines[i].slice((lines[i].indexOf("SCORE=")+6), (lines[i].indexOf("REGION=")-1));
+            const box = document.createElement('div');
+            box.className = 'box';
+			box.addEventListener('mouseover', () => {
+                box.style.transform = 'scale(1.5) rotateY(180deg) scaleX(-1)';
+				backURL = box.style.backgroundImage.replace("Covers", 'Backs');
+				box.style.backgroundImage=backURL;
+				boxID = box.textContent; 
+				//document.getElementById("gameTitle").textContent = lines[boxID].slice((lines[boxID]),(lines[boxID].indexOf("PLAYERS=")-1)).toUpperCase();
+				document.getElementById("gameTitle").textContent = lines[boxID].slice((lines[boxID]),(lines[boxID].indexOf("PLAYERS=")-1));
+				document.getElementById("gameInfo").innerHTML = "DATE: " + lines[boxID].slice((lines[boxID].indexOf("DATE=")+5), (lines[boxID].indexOf("SCORE=")-1)).toUpperCase() + ", GENRE: " + lines[boxID].slice((lines[boxID].indexOf("GENRE=")+6), (lines[boxID].indexOf("PUB=")-1)).toUpperCase() + ", SCORE: " + lines[boxID].slice((lines[boxID].indexOf("SCORE=")+6), (lines[boxID].indexOf("REGION=")-1)).toUpperCase() + "/100";
+            });
+            box.addEventListener('mouseout', () => {
+                box.style.transform = 'scale(1) rotateY(0deg)';
+				coverURL = box.style.backgroundImage.replace("Backs", 'Covers');
+				box.style.backgroundImage=coverURL;
+            });
+            box.addEventListener('dblclick', () => {
+                box.style.transform = 'scale(1.5) rotateY(180deg) scaleX(-1)';
+            });
+			box.addEventListener('click', () => {
+                box.style.transform = 'scale(2) rotateY(180deg) scaleX(-1)';
+            });			
+			box.style.width="220px"; //jpn
+            box.style.height="300px";//jpn
+            box.textContent = i;
+			box.style.color = "rgba(0,0,0,0)";
+			coverURL = "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png";
+			box.style.backgroundImage="url('"+coverURL+"')";
+			box.style.backgroundSize="cover";
+			box.style.backgroundRepeat="no-repeat";
+            boxes.push(box);
+            carousel.appendChild(box);
+        }
+        let currentIndex = 0;
+        function updateCarousel() {
+            boxes.forEach((box, index) => {
+                box.classList.toggle('hidden', index < currentIndex || index >= currentIndex + 5); //no of boxes on screen
+            });
+            boxes[currentIndex].scrollIntoView({ block: 'center', behavior: 'smooth', inline: 'center' });
+        }
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % totalBoxes;
+                updateCarousel();
+            } else if (event.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + totalBoxes) % totalBoxes;
+                updateCarousel();
+            }
+        });
+        updateCarousel();
+    </script>
+<div id="gameInfo">GAME INFORMATION</div>
+</body>
+</html>
