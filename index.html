@@ -15,7 +15,7 @@
 <div id="cake" onclick="cake();" title="𝗧𝗼𝗴𝗴𝗹𝗲 𝗯𝗶𝗿𝘁𝗵𝗱𝗮𝘆 𝗺𝗼𝗱𝗲"></div>
 <label id="debugL" title="𝗧𝗼𝗴𝗴𝗹𝗲 𝗱𝗲𝗯𝘂𝗴" class="switch"><input type="checkbox" onClick="toggleDebug();" id="debugC"><span class="slider round yellow"></span></label>
 <label id="muteL" title="𝗧𝗼𝗴𝗴𝗹𝗲 𝗺𝘂𝘁𝗲" class="switch"><input type="checkbox" onClick="toggleMute();" id="muteC"><span class="slider round"></span></label>
-<input type="text" value="" id="searcher" placeholder="𝗦𝗲𝗮𝗿𝗰𝗵 (ctrl+f)" onclick="this.value='';document.getElementById('canvas').style.display = 'none';document.getElementById('frame').style.display = 'none';" style='font-size: 25px;' autofocus />
+<input type="text" value="" id="searcher" placeholder="𝗦𝗲𝗮𝗿𝗰𝗵 (ctrl+f)" onClick="this.value='';document.getElementById('canvas').style.display = 'none';document.getElementById('frame').style.display = 'none';" style='font-size: 25px;' autofocus />
 <script>
 	var cPaid, bPaid, mPaid, sPaid, dPaid, gCurrency;
 	var result1,result2,result3,result4,result5,result6;
@@ -955,7 +955,6 @@ myCount = 0;
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/U/'+gTitle+' U.png"');
 		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/BR/'+gTitle+' BR.png"');
-		document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "25px";
 		} else if (lines[info].match("REGION=E ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
 		} else if (lines[info].match("REGION=S ")){
