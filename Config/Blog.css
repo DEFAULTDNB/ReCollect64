@@ -28,8 +28,8 @@ body {
 }
 .masked {
 	display: inline-block;
+	--background-image: linear-gradient(to bottom, red, lime);
 	background-image: linear-gradient(to bottom, navy, white);
-	--background-image: linear-gradient(to bottom, silver, white);
 	-webkit-mask-size: 95%; /* edges might get cut off if you use 100% */
 	-webkit-mask-repeat: no-repeat;
 	-webkit-mask-position: center;
@@ -39,6 +39,7 @@ body {
 	display:block;
 }
 .strapline {
+	--color: purple;
 	color: white;
 	font-family: "Homenaje", sans-serif;
 	font-size: xxx-large;
@@ -287,7 +288,7 @@ body {
 	-ms-transform: scale(1.30);
 	-webkit-transform: scale(1.30);
 	transform: scale(1.30);
-	z-index:1000;
+	z-index:999;
 }
 .img-row {
   font-size: 0px;
@@ -453,12 +454,12 @@ button {
 }
 .dropdown-content a {
 	color: black;
-	padding: 10px 6px;
+	padding: 8px 6px;
 	text-decoration: none;
 	display: block;
 }
 .dropdown-content a:hover {
-	background-color: #f1f1f1;
+	background-color: #e1e1e1;
 }
 .dropdown:hover .dropdown-content {
 	display: block;
@@ -472,7 +473,7 @@ button {
 	left: 100%;
 	top: 0;
 	background-color: #f9f9f9;
-	width: 100%;
+	white-space: nowrap;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 }
