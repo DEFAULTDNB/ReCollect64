@@ -39,6 +39,19 @@ let headerTitle = document.getElementById(parentId).children[0].children[1].inne
 let subTitle = document.getElementById(parentId).children[1].innerText;
 window.open('https://twitter.com/share?text='+encodeURIComponent(headerTitle)+'%0A'+encodeURIComponent(subTitle)+'%0A&url='+encodeURIComponent(site)+'%23'+parentId+'%0A%0A%23N64+%23ReCollect64');
 }
+function sharePostBS(clicked_id) {
+let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
+let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
+let headerTitle = document.getElementById(parentId).children[0].children[1].innerText;
+let subTitle = document.getElementById(parentId).children[1].innerText;
+window.open('https://bsky.app/intent/compose?text='+headerTitle+': '+subTitle+' '+site+'%23'+parentId+' %23N64 %23ReCollect64');
+}
+function copyLink(clicked_id) {
+let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
+let copied = "https://defaultdnb.github.io/ReCollect64/blog.html#"+parentId;
+navigator.clipboard.writeText(copied)
+}
+
 /*
 if (window.location.href.match("#")){
 	const a = document.createElement('a')
@@ -48,6 +61,9 @@ if (window.location.href.match("#")){
 	document.body.removeChild(a)
 } else {
 }
+*/
+/*
+alert(document.URL)
 */
 window.addEventListener("click", function myFunction(e) {
 $("#nav-placeholder").load("nav.html");

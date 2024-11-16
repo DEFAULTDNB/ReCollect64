@@ -527,6 +527,21 @@ button {
 	opacity: 0.7;
 	cursor: pointer;
 }
+.btnbs {
+	background-color: WhiteSmoke;
+	color: rgba(8,134,254,255);
+	--border-radius:10px;
+	vertical-align: middle;
+	font-size: 30px;
+	height: 50px;
+	width: auto;
+	padding: 4px;
+	font-family: "Homenaje", sans-serif;
+}
+.btnbs:hover {
+	opacity: 0.7;
+	cursor: pointer;
+}
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {
