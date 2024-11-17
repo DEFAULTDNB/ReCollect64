@@ -1,0 +1,25 @@
+<div id="b49" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Bluesky Integration</span></h2>
+	<h5 class="subtitle">New Ways to Share ReCollect64! ~ Nov 17, 2024</h5>
+	<div class="bgBanner"><img src="Blog/Features/BlueskyAdded/BS.png" alt="BSa" class="center"/><div class="overlaytext">Bluesky Integration</div></div>
+	<h4>Sharing is Caring</h4>
+	<div class="titleUnderline"></div>
+	<p>You might have noticed a few tinkerings going on over the site in the last week. This is because I have decided to open a dedicated Bluesky account for ReCollect64, and I wanted to get some integration done on the site to roll it out properly.</p>
+	<p>The Bluesky account, <a href="https://bsky.app/profile/recollect64.bsky.social" target="_blank">@recollect64.bsky.social</a>, will handle all of the site updates and share all the latest articles with you as and when they happen!</p>
+	<p>I have redesigned the share links at the bottom-right of the page to incorporate: copy to clipboard, share to Twitter/X, share to Bluesky, and a button to take you swiftly back to the home page.</p>
+	<center>
+		<a target="_blank" href="Blog/Features/BlueskyAdded/BS1.png"><img class="thumbnail" src="Blog/Features/BlueskyAdded/BS1.png" width="23%" style="padding:auto"/></a>
+	</center>
+	<p>I will be adding this format retroactively to all pages on the site, so be prepared for slight changes and updates regularly.</p>
+	<p>Clicking on the share button is functionally the same as Twitter, using "intent" to form a precomposed message based on the ReCollect64 article, Q&A, or review that you're reading currently. All you have to do is click share!</p>
+	<center>
+		<a target="_blank" href="Blog/Features/BlueskyAdded/BS2.png"><img class="thumbnail" src="Blog/Features/BlueskyAdded/BS2.png" width="32%" style="padding:auto"/></a>
+	</center>
+	<p>More features will be rolling out soon, and improvements will be made at every stage to ensure the user experience is as smooth as possible for you to use, so please, use that share button and help spread the word of ReCollect64!</p>
+	<span class="alignright">	
+	<a class="btn" onclick="copyLink(this.id);" target="_blank" id="copy" title="𝗖𝗢𝗣𝗬 𝗟𝗜𝗡𝗞"><i class="fa-solid fa-link"></i></a>
+	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="X" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗧𝗪𝗜𝗧𝗧𝗘𝗥"><i class="fa-brands fa-x-twitter"></i></a>
+	<a class="btnbs" onclick="sharePostBS(this.id);" target="_blank" id="BS" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗕𝗟𝗨𝗘𝗦𝗞𝗬"><i class="fa-brands fa-bluesky"></i></a>
+	<a class="btn"  href="#top" onclick="$(function(){$('#content-placeholder').load('postLinks.html');});" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-house"></i></a>
+	</span>		
+</div>

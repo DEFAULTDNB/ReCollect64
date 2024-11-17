@@ -1,30 +1,34 @@
 <div id="b6" class="card">
 	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Super Mario 64 GBA Port</span></h2>
 	<h5 class="subtitle">Portable Plumber Power! ~ June 29, 2024</h5>
-		<div class="bgBanner"><img src="Blog/Features/SM64GBA/SM64GBA.png" alt="N64 Stats" class="center"/><div class="overlaytext">SM64 GBA Port</div></div>
-		<h4>Super Mario 64 Advancing</h4><hr>
-		<p>Less than a month ago, Joshua Barretto set the GBA and N64 scenes ablaze with news of something we all thought would be impossible: Super Mario 64 was being ported to the Game Boy Advance.
-		<p>Since early May, the visuals have gone from a primative red triangle to a rudimentary silver model of the plumber to a bendable, animatable facsimile of the main man himself. The progress is wonderful to behold, and the coder behind it is doing some very impressive work in delivering an instantly recognisable version of the original for the 2001 handheld.
-		<p>The gravity of this statement is unimaginable, probably even for Nintendo, who no doubt will want to stomp all over this and DMCA the heck out of it. Hopefully this will fly under their radar and continue undetected.
-		<p>The word "Port" implies that Joshua is taking the <a href="https://github.com/n64decomp/sm64" target="_blank">decompiled code</a> and recompiling it for GBA, but this doesn't appear to be the case. He is not taking the 64-bit binaries and simply converting them to 32-bit. Rather, there is a lot of custom code, no pre-built engines in use, and what appears to be a lot of trial and error in getting the game to render. Understandably, performing this feat is going to be extremely challenging, and there has to be a heck of a lot of optimisations and specific techniques to get a version anywhere close to the original, so it may be more accurate to consider this a de-make, rather than a port.
-		<center><span align="center" width="100%">
-		<a target="_blank" href="Blog/Features/SM64GBA/SM64GBA1.png"><img class="thumbnail" src="Blog/Features/SM64GBA/SM64GBA1.png" width="23%" style="padding:auto"/></a>
-		<a target="_blank" href="Blog/Features/SM64GBA/SM64GBA2.png"><img class="thumbnail" src="Blog/Features/SM64GBA/SM64GBA2.png" width="23%" style="padding:auto"/></a>
-		<a target="_blank" href="Blog/Features/SM64GBA/SM64GBA3.png"><img class="thumbnail" src="Blog/Features/SM64GBA/SM64GBA3.png" width="23%" style="padding:auto"/></a>
-		<a target="_blank" href="Blog/Features/SM64GBA/SM64GBA4.png"><img class="thumbnail" src="Blog/Features/SM64GBA/SM64GBA4.png" width="23%" style="padding:auto"/></a>
-		</span></center>
-		<h4>Improvement in Movement </h4><hr>
-		<p>The latest iteration of this project sees Mario regain some of his distinguishing acrobatics, with flipping, crouching, sliding, and jumping looking extremely recognisable. What's impressive is how the developer is gradually adding features that gave the game its distinctive look and feel, and he's attempting to rebuild every element within the restrictions of the 240 × 160 aperture.
-		<p>The Game Boy Advance was limited to just 288 KB RAM and 98 KB VRAM, whereas the N64 has access to 4 MB (or 8 MB for games that were created to take advantage of the Expansion Pak when inserted). The SOC design of the GBA means that onboard was an ARM7TDMI running 16.78 MHz and a Sharp SM83 running 4 / 8 MHz, whereas the N64 housed a dedicated 64-bit NEC VR4300 CPU running at 93.75 MHz, paired with a dedicated SGI RCP GPU running 62.5 MHz. A huge difference in technology, and a vast difference in architecture, all of which would make directly porting a 3D 64-bit home console game to a traditionally 2D 32-bit handheld extremely challenging.
-		<p>The fully bespoke approach taken, to effectively recreate the entire game from scratch with only graphic resources to hand and an understanding of how SM64 looks, feels, and plays, will be no doubt tougher, but is already yielding visible results at a lot faster rate than a traditional port would see.</p>
-		<iframe class="video" src="https://www.youtube.com/embed/c8QWjQ5RLQw"></iframe>
-		<p>Hopefully this game will flourish and allow yet another console to enjoy the 1996 platformer, and that's what matters at the core of this: that everyone can enjoy their favourite games any way they like.
-		<p>I will be continuing to follow this project as it evolves and will be sure to keep you up to date on any significant updates going forward!
-		<p class="subtitle"><i class="fa-brands fa-square-youtube"></i>&nbsp;<a href="https://www.youtube.com/@JoshuaBarretto/videos" target="_blank">Joshua Barretto's YouTube Channel</a></p>
-		<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/zesterer" target="_blank">Zesterer Github</a></p>
-		<p class="subtitle"><i class="fa-brands fa-mastodon"></i>&nbsp;<a href="https://social.coop/@jsbarretto" target="_blank">jsbaretto on Mastodon</a></p>
-		<span class="alignright">	
-		<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="tb6" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦"><i class="fa-brands fa-x-twitter"></i> SHARE</a>
-		<a class="btn"  href="#top" onclick="$(function(){$('#content-placeholder').load('postLinks.html');});" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-chevron-left"></i> HOME</a>
-		</span>
+	<div class="bgBanner"><img src="Blog/Features/SM64GBA/SM64GBA.png" alt="N64 Stats" class="center"/><div class="overlaytext">SM64 GBA Port</div></div>
+	<h4>Super Mario 64 Advancing</h4>
+	<div class="titleUnderline"></div>
+	<p>Less than a month ago, Joshua Barretto set the GBA and N64 scenes ablaze with news of something we all thought would be impossible: Super Mario 64 was being ported to the Game Boy Advance.
+	<p>Since early May, the visuals have gone from a primative red triangle to a rudimentary silver model of the plumber to a bendable, animatable facsimile of the main man himself. The progress is wonderful to behold, and the coder behind it is doing some very impressive work in delivering an instantly recognisable version of the original for the 2001 handheld.
+	<p>The gravity of this statement is unimaginable, probably even for Nintendo, who no doubt will want to stomp all over this and DMCA the heck out of it. Hopefully this will fly under their radar and continue undetected.
+	<p>The word "Port" implies that Joshua is taking the <a href="https://github.com/n64decomp/sm64" target="_blank">decompiled code</a> and recompiling it for GBA, but this doesn't appear to be the case. He is not taking the 64-bit binaries and simply converting them to 32-bit. Rather, there is a lot of custom code, no pre-built engines in use, and what appears to be a lot of trial and error in getting the game to render. Understandably, performing this feat is going to be extremely challenging, and there has to be a heck of a lot of optimisations and specific techniques to get a version anywhere close to the original, so it may be more accurate to consider this a de-make, rather than a port.
+	<center><span align="center" width="100%">
+	<a target="_blank" href="Blog/Features/SM64GBA/SM64GBA1.png"><img class="thumbnail" src="Blog/Features/SM64GBA/SM64GBA1.png" width="23%" style="padding:auto"/></a>
+	<a target="_blank" href="Blog/Features/SM64GBA/SM64GBA2.png"><img class="thumbnail" src="Blog/Features/SM64GBA/SM64GBA2.png" width="23%" style="padding:auto"/></a>
+	<a target="_blank" href="Blog/Features/SM64GBA/SM64GBA3.png"><img class="thumbnail" src="Blog/Features/SM64GBA/SM64GBA3.png" width="23%" style="padding:auto"/></a>
+	<a target="_blank" href="Blog/Features/SM64GBA/SM64GBA4.png"><img class="thumbnail" src="Blog/Features/SM64GBA/SM64GBA4.png" width="23%" style="padding:auto"/></a>
+	</span></center>
+	<h4>Improvement in Movement</h4>
+	<div class="titleUnderline"></div>
+	<p>The latest iteration of this project sees Mario regain some of his distinguishing acrobatics, with flipping, crouching, sliding, and jumping looking extremely recognisable. What's impressive is how the developer is gradually adding features that gave the game its distinctive look and feel, and he's attempting to rebuild every element within the restrictions of the 240 × 160 aperture.
+	<p>The Game Boy Advance was limited to just 288 KB RAM and 98 KB VRAM, whereas the N64 has access to 4 MB (or 8 MB for games that were created to take advantage of the Expansion Pak when inserted). The SOC design of the GBA means that onboard was an ARM7TDMI running 16.78 MHz and a Sharp SM83 running 4 / 8 MHz, whereas the N64 housed a dedicated 64-bit NEC VR4300 CPU running at 93.75 MHz, paired with a dedicated SGI RCP GPU running 62.5 MHz. A huge difference in technology, and a vast difference in architecture, all of which would make directly porting a 3D 64-bit home console game to a traditionally 2D 32-bit handheld extremely challenging.
+	<p>The fully bespoke approach taken, to effectively recreate the entire game from scratch with only graphic resources to hand and an understanding of how SM64 looks, feels, and plays, will be no doubt tougher, but is already yielding visible results at a lot faster rate than a traditional port would see.</p>
+	<iframe class="video" src="https://www.youtube.com/embed/c8QWjQ5RLQw"></iframe>
+	<p>Hopefully this game will flourish and allow yet another console to enjoy the 1996 platformer, and that's what matters at the core of this: that everyone can enjoy their favourite games any way they like.
+	<p>I will be continuing to follow this project as it evolves and will be sure to keep you up to date on any significant updates going forward!
+	<p class="subtitle"><i class="fa-brands fa-square-youtube"></i>&nbsp;<a href="https://www.youtube.com/@JoshuaBarretto/videos" target="_blank">Joshua Barretto's YouTube Channel</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/zesterer" target="_blank">Zesterer Github</a></p>
+	<p class="subtitle"><i class="fa-brands fa-mastodon"></i>&nbsp;<a href="https://social.coop/@jsbarretto" target="_blank">jsbaretto on Mastodon</a></p>
+	<span class="alignright">	
+	<a class="btn" onclick="copyLink(this.id);" target="_blank" id="copy" title="𝗖𝗢𝗣𝗬 𝗟𝗜𝗡𝗞"><i class="fa-solid fa-link"></i></a>
+	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="X" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗧𝗪𝗜𝗧𝗧𝗘𝗥"><i class="fa-brands fa-x-twitter"></i></a>
+	<a class="btnbs" onclick="sharePostBS(this.id);" target="_blank" id="BS" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗕𝗟𝗨𝗘𝗦𝗞𝗬"><i class="fa-brands fa-bluesky"></i></a>
+	<a class="btn"  href="#top" onclick="$(function(){$('#content-placeholder').load('postLinks.html');});" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-chevron-left"></i> HOME</a>
+	</span>	
 </div>
