@@ -1,8 +1,9 @@
 <div id="r12" class="card">
-	<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews: #12</span></h2>
+	<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 12</span></h2>
 	<h5 class="subtitle">N64 Cart Dumper ~ Aug 25, 2024</h5>
 	<div class="bgBanner"><img src="Blog/Reviews/CartDumper/Dumper.png" alt="CartDumper" class="center"/><div class="overlaytext">N64 Cart Dumper</div></div>
-	<h4>Dumps like a Truck</h4><hr>
+	<h4>Dumps like a Truck</h4>
+	<div class="titleUnderline"></div>
 	<p>As you know, I have the <a href="blog.html#r6">JoeyN64</a> Cart Flasher already, but I wanted to checkout any potential alternatives and put them through their paces. As a result, I happened upon an incredibly generic and unbranded N64 Cart Dumper on eBay that would dump a legitimate cartridge or re-flash a reproduction cart for the low price of just £12.12 delivered. While it seems too good to be true, the big questions are: what do you get, and how does it work?
 	<p>After a short hop from China to the UK, the dumper landed on my doormat and I finally got to have a good look at what was going on. The main body of the device is effectively an extremely simplified PCB that connects a 50-pin cartridge reader slot to a Raspberry Pi Pico, with a USB-C interface for plug-and-play action.
 	<p>Plugging the device in raw does nothing, but that's correct, as you need to have a cartridge connected in order to complete the device ready for use. I connected a succession of cartridges to the device, and one after the other I dumped them to check integrity and read speed. Happily every single one came back perfect and was reable in Mupen on my PC in next to no time.
@@ -14,7 +15,8 @@
 		<a target="_blank" href="Blog/Reviews/CartDumper/Dumper3.jpg"><img class="thumbnail" src="Blog/Reviews/CartDumper/Dumper3.jpg" width="32%" style="padding:auto"/></a>
 	</span>
 	</center>
-	<h4>Bargain Backups</h4><hr>
+	<h4>Bargain Backups</h4>
+	<div class="titleUnderline"></div>
 	<p>On average, the dumper managed bursts of up to 695 kbps and took roughly two full minutes to dump a 64 MB cartridge. These speeds are not mind-blowing and demonstrate that it's a slow process to back up ROMs compared to the blisteringly fast USB and SSD/NVME devices we take for granted today.
 	<p>Once plugged in, the cartridge acts as if it were a USB storage device, only this time it allows you to drag and drop the ROM directly off of it in either N64 (little endian) or Z64 (big endian) formats.
 	<p>If the cartridge contains a save file, you can copy those off, or you could even overwrite them with ones you have to hand. And if you have a reproduction game, you can actively overwrite the ROM onboard, turning your repro into a flashable flashcart as long as the CIC and region match the original ROM/hardware!
@@ -29,13 +31,12 @@
 	<i class="fa-solid fa-check">&nbsp;</i>Re-writes reproduction carts (slowly)</div>
 	<div class="con"><strong> The Cons:</strong>
 	<p>
-	<i class="fa-solid fa-xmark">&nbsp;</i>Slow dumping speeds</br>
-	<i class="fa-solid fa-xmark">&nbsp;</i>No protective casing</br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Slow dumping speeds<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>No protective casing<br>
 	<i class="fa-solid fa-xmark">&nbsp;</i>No pad connector for Memory Pak saves</div>
 	</div>
 	<div class="verdict"><strong>Conclusion:</strong>
-	<p>Honestly, for £12 I did not expect much, but as it turns out, this little dumper is very straightforward and extremely easy to use. The biggest downside is the relatively slow speeds, but all things considered, it's a great value alternative to the JoeyN64, sans a couple of features and a lot of dedicated support.
-	</p>
+	<p>Honestly, for £12 I did not expect much, but as it turns out, this little dumper is very straightforward and extremely easy to use. The biggest downside is the relatively slow speeds, but all things considered, it's a great value alternative to the JoeyN64, sans a couple of features and a lot of dedicated support.</p>
 	<center title="7/10">
 	<span class="fa-solid fa-star checked"></span>
 	<span class="fa-solid fa-star checked"></span>
@@ -51,7 +52,9 @@
 	</div>
 	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="https://twitter.com/messages/compose?recipient_id=170775741" target="_blank">Want to see something reviewed? Contact me!</a></p>
 	<span class="alignright">	
-	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="tr12" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗛𝗜𝗦"><i class="fa-brands fa-x-twitter"></i> SHARE</a>
+	<a class="btn" onclick="copyLink(this.id);" target="_blank" id="copy" title="𝗖𝗢𝗣𝗬 𝗟𝗜𝗡𝗞"><i class="fa-solid fa-link"></i></a>
+	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="X" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗧𝗪𝗜𝗧𝗧𝗘𝗥"><i class="fa-brands fa-x-twitter"></i></a>
+	<a class="btnbs" onclick="sharePostBS(this.id);" target="_blank" id="BS" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗕𝗟𝗨𝗘𝗦𝗞𝗬"><i class="fa-brands fa-bluesky"></i></a>
 	<a class="btn"  href="#top" onclick="$(function(){$('#content-placeholder').load('postLinks.html');});" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-chevron-left"></i> HOME</a>
-	</span>	
+	</span>
 </div>
