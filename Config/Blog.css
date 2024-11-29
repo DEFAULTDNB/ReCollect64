@@ -111,6 +111,20 @@ body {
 	margin-top: 20px;
 	border-radius: 10px;
 }
+.rcard {
+	background-color: white;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 10px;
+}
+.control {
+	background-color: white;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 10px;
+	text-align: center;
+	cursor: pointer;
+}
 .title {
 	font-family: "Homenaje", sans-serif;
 	font-weight: 900;
@@ -253,6 +267,13 @@ body {
 .coolrev {
 	background-image: linear-gradient(to bottom, navy, silver);
 }
+.controls {
+	background-image: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(10,10,10,1) 50%, rgba(128,128,128,1) 100%);
+	opacity: 0.8;
+}
+.controls:hover {
+	opacity: 1.0;
+}
 .overlaytext {
   background-color: white;
   color: black;
@@ -293,6 +314,9 @@ body {
 .img-row {
   font-size: 0px;
   vertical-align: bottom;
+}
+div.hide {
+	display: none;
 }
 div.sticky {
   position: -webkit-sticky;
