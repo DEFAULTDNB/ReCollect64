@@ -918,13 +918,14 @@
 	
 	<div class="rightcolumn">
 		<div class="rcard">
-		<div class="badge fresh">November</div>
+		<div class="badge fresh">December</div>
 		<center><h3 class="smalltitle"><span>Games to check:</span></h3></center>
-			<a title="Castlevania" href="index.html#Castlevania" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Castlevania.png')"></div></a>
-			<a title="Glover" href="index.html#Glover" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Glover.png')"></div></a>
-			<a title="The Legend of Zelda Majoras Mask" href="index.html#The_Legend_of_Zelda_Majoras_Mask" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/The Legend of Zelda Majoras Mask.png')"></div></a>
-			<a title="The Legend of Zelda Ocarina of Time" href="index.html#The_Legend_of_Zelda_Ocarina_of_Time" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/The Legend of Zelda Ocarina of Time.png')"></div></a>
-			<a title="StarCraft 64" href="index.html#Starcraft_64" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/StarCraft 64.png')"></div></a>
+		
+			<a title="1080° Snowboarding" href="index.html#1080°_Snowboarding" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/1080° Snowboarding.png')"></div></a>
+			<a title="Banjo-Kazooie" href="index.html#Banjo-Kazooie" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Banjo-Kazooie.png')"></div></a>
+			<a title="Diddy Kong Racing" href="index.html#Diddy_Kong_Racing" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Diddy Kong Racing.png')"></div></a>
+			<a title="Gex 3 Deep Cover Gecko" href="index.html#Gex_3_Deep_Cover_Gecko" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Gex 3 Deep Cover Gecko.png')"></div></a>
+			<a title="Super Mario 64" href="index.html#Super_Mario_64" target="_blank" onclick="flag='ALL'; setRegion();"><div class="bgSmall thumbnail" style="background-image:url('Blog/Spines/Super Mario 64.png')"></div></a>
 		</div>
 		<div class="rcard">
 			<div class="badge hot">CHAT CONTEST</div>
@@ -970,18 +971,16 @@
 	</div>
 	
 	<script>
-
 	$('div[class^="card"]').hide();
-	
 	$(function(){
-    $('div[class^="card"]').slice(0, 10).show(); // select the first ten
-    $("#load").click(function(e){ // click event for load more
-        e.preventDefault();
-        $('div[class^="card"]:hidden').slice(0, 10).show(); // select next 10 hidden divs and show them
-        if($('div[class^="card"]:hidden').length == 0){ // check if any hidden divs still exist
-            alert("All Articles Loaded!"); // alert if there are none left
-        }
-    });
+    $('div[class^="card"]').slice(0, 10).show();
+		$("#load").click(function(e){
+			e.preventDefault();
+			$('div[class^="card"]:hidden').slice(0, 10).show();
+				if($('div[class^="card"]:hidden').length == 0){
+					alert("All Articles Loaded!");
+				}
+		});
 	});
 	</script>
 	
