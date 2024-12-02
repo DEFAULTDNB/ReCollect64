@@ -5,6 +5,13 @@
     <div id="navfeat" class="dropdown">
         <a><i class="fa-solid fa-pen-to-square"></i> FEATURES</a>
         <div class="dropdown-content">
+		
+		<div class="nested-dropdown">
+			<a onclick="$(function(){$('#content-placeholder').load('Blog/Roundup/2024/DECFEATURES.html');});" href="#top">Dec 2024</a>
+                <div class="nested-dropdown-content">
+				<a onclick="$(function(){$('#content-placeholder').load('Blog/Features/Prototypes2024/b53.html');});" href="#top">Prototype Games</a>
+				</div>
+        </div>
 
 		<div class="nested-dropdown">
 			<a onclick="$(function(){$('#content-placeholder').load('Blog/Roundup/2024/NOVFEATURES.html');});" href="#top">Nov 2024</a>
@@ -21,7 +28,7 @@
 				<a onclick="$(function(){$('#content-placeholder').load('Blog/Features/Glover2025/b43.html');});" href="#top">Glover Coming 2025</a>
 				<a onclick="$(function(){$('#content-placeholder').load('Blog/Features/NintendoMusicApp/b42.html');});" href="#top">Nintendo Music App Released</a>
                 </div>
-            </div>
+        </div>
 
 		<div class="nested-dropdown">
 			<a onclick="$(function(){$('#content-placeholder').load('Blog/Roundup/2024/OCTFEATURES.html');});" href="#top">Oct 2024</a>
@@ -34,9 +41,9 @@
 				<a onclick="$(function(){$('#content-placeholder').load('Blog/Features/OSExPak/b36.html');});" href="#top">Open Source Expansion Pak</a>
 				<a onclick="$(function(){$('#content-placeholder').load('Blog/Features/SM643DPrint/b35.html');});" href="#top">3D Printable SM64</a>
                 </div>
-            </div>
+        </div>
 			
-            <div class="nested-dropdown">
+        <div class="nested-dropdown">
 			<a onclick="$(function(){$('#content-placeholder').load('Blog/Roundup/2024/SEPFEATURES.html');});" href="#top">Sep 2024</a>
                 <div class="nested-dropdown-content">
 					<a onclick="$(function(){$('#content-placeholder').load('Blog/Features/N6428TH/b34.html');});" href="#top">N64 is 28 in NA!</a>
@@ -158,7 +165,7 @@
         </div>
     </div>
     <div id="navchat" class="dropdown">
-        <a><i class="fa-solid fa-comments"></i> Q&A CHATS</a>
+        <a><i class="fa-solid fa-comments"></i> Q&AS</a>
         <div class="dropdown-content">
 	
 			<div class="nested-dropdown">
@@ -219,31 +226,38 @@
  
         </div>
     </div>
-	<div title="TOOLS" id="navtool" class="dropdown">
-		<a><i class="fa-solid fa-gear"></i> TOOLSET</a>
-		<div class="dropdown-content">
-			<a title="64JS ROM TOOL" href="64JS.html" target="_blank">64JS</a>
-			<a title="RECOLLECT64 APP" href="index.html" target="_blank">RC64 App</a>
-			<!--a title="64JS ROM TOOL" onclick="$(function(){$('#content-placeholder').load('64JS.html');});" href="#top">64JS</a-->
-			<a title="𝗧𝗢𝗣 𝗢𝗙 𝗣𝗔𝗚𝗘" href="blog.html#top"><i class="fa-solid fa-arrow-up"></i> TOP OF PAGE</a>
-			<a title="𝗕𝗢𝗧𝗧𝗢𝗠 𝗢𝗙 𝗣𝗔𝗚𝗘" href="blog.html#bottom" onclick=""><i class="fa-solid fa-arrow-down"></i> END OF PAGE</a>
-		</div>
-	</div>
+	
 	<!--div class="dropdown">
 	<a title="𝗖𝗢𝗠𝗜𝗡𝗚 𝗦𝗢𝗢𝗡"><i class="fa-solid fa-cart-shopping"></i> STORE</a>
 		<div class="dropdown-content">
-			<a title="Buy Swag" onclick="$(function(){$('#content-placeholder').load('Store/gallery.html');});" href="#top">Frames</a>
-			<div class="nested-dropdown">
-                <a>N64 Games</a>
+			<a title="𝗚𝗔𝗠𝗘𝗦 𝗜𝗡 𝗙𝗥𝗔𝗠𝗘𝗦" onclick="$(function(){$('#content-placeholder').load('Blog/Store/Frames/s1.html');});" href="#top">Frames</a>
+			<!--div class="nested-dropdown">
+                <a>Games</a>
                 <div class="nested-dropdown-content">
-                    <a>USA</a>
-                    <a>JPN</a>
-                    <a>PAL</a>
+                    <a title="𝗖𝗢𝗠𝗜𝗡𝗚 𝗦𝗢𝗢𝗡">PAL CARTS</a>
+					<a title="𝗖𝗢𝗠𝗜𝗡𝗚 𝗦𝗢𝗢𝗡">USA CARTS</a>
+                    <a title="𝗖𝗢𝗠𝗜𝗡𝗚 𝗦𝗢𝗢𝗡">JPN CARTS</a>
+					<a title="𝗖𝗢𝗠𝗜𝗡𝗚 𝗦𝗢𝗢𝗡">OTHER MISC</a>
                 </div>
 			</div>
-		</div>
+			
+			<a title="𝗖𝗢𝗠𝗜𝗡𝗚 𝗦𝗢𝗢𝗡" onclick="$(function(){$('#content-placeholder').load('');});" href="#top">Partners</a-->
+			
+		<!--/div>
 	</div-->
-	<div title="𝗖𝗢𝗡𝗧𝗔𝗖𝗧" id="navcont" style="float:right" class="dropdown">
+	
+	<div title="TOOLS" id="navtool" class="dropdown">
+		<a><i class="fa-solid fa-gear"></i> TOOLS</a>
+		<div class="dropdown-content">
+			<a title="𝟲𝟰𝗝𝗦 𝗥𝗢𝗠 𝗧𝗢𝗢𝗟" href="64JS.html" target="_blank">64JS</a>
+			<!--a title="64JS ROM TOOL" onclick="$(function(){$('#content-placeholder').load('64JS.html');});" href="#top">64JS</a-->
+			<a title="𝗥𝗘𝗖𝗢𝗟𝗟𝗘𝗖𝗧𝟲𝟰 𝗔𝗣𝗣" href="index.html" target="_blank">RC64 App</a>
+			<a title="𝗧𝗢𝗣 𝗢𝗙 𝗣𝗔𝗚𝗘" href="blog.html#top"><i class="fa-solid fa-arrow-up"></i> TOP</a>
+			<a title="𝗘𝗡𝗗 𝗢𝗙 𝗣𝗔𝗚𝗘" href="blog.html#bottom" onclick=""><i class="fa-solid fa-arrow-down"></i> END</a>
+		</div>
+	</div>
+	
+	<div title="𝗖𝗢𝗡𝗧𝗔𝗖𝗧 𝗠𝗘" id="navcont" style="float:right" class="dropdown">
 	<!--a href="https://twitter.com/messages/compose?recipient_id=170775741" target="_blank"><i class="fa-solid fa-paper-plane"></i> CONTACT</a-->
 	<a href="mailto:recollect64official@gmail.com" target="_blank"><i class="fa-solid fa-paper-plane"></i></a>
 	</div>
