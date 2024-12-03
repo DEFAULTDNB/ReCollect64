@@ -51,3 +51,4 @@ Blog/Features/BlueskyAdded/b49.html
 Blog/Features/PDSwitch/b50.html
 Blog/Features/StarFoxPCPort/b51.html
 Blog/Features/TripsVoyageBK/b52.html
+Blog/Features/Prototypes2024/b53.html
