@@ -19,7 +19,7 @@
 var flag;
 $(function(){
   $("#nav-placeholder").load("nav.html");
-  $("#content-placeholder").load("postLinks.html");
+  //$("#content-placeholder").load("postLinks.html");
 });
 </script>
 </head>
@@ -50,21 +50,22 @@ window.open('https://bsky.app/intent/compose?text='+headerTitle+': '+subTitle+' 
 function copyLink(clicked_id) {
 let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
 let copied = "https://defaultdnb.github.io/ReCollect64/blog.html#"+parentId;
-navigator.clipboard.writeText(copied)
+navigator.clipboard.writeText(copied);
 }
-/*
-if (window.location.href.match("#")){
-	const a = document.createElement('a')
-	a.href = window.location.href.slice(window.location.href.indexOf("#"),window.location.href.length)
-	document.body.appendChild(a)
-	a.click()
-	document.body.removeChild(a)
+if (window.location.href.match("#")) {
+	const prefix = window.location.href.slice(window.location.href.indexOf("#")+1,window.location.href.indexOf("#")+2);
+	const linktoget = window.location.href.slice(window.location.href.lastIndexOf(prefix)+1,window.location.href.length);
+	let rSource = 'Config/JumpLinks/'+prefix.toUpperCase()+'LINKS.txt';
+	var rFile = new XMLHttpRequest;
+	rFile.open('get', rSource, false);
+	rFile.send();
+	let rDoc = rFile.responseText;
+	let rlines = rDoc.split("\n");
+	let rCount = rlines.length;
+	$(function(){$('#content-placeholder').load(rlines[linktoget]);});
 } else {
+	$(function(){$("#content-placeholder").load("postLinks.html");});
 }
-*/
-/*
-alert(document.URL)
-*/
 window.addEventListener("click", function myFunction(e) {
 $("#nav-placeholder").load("nav.html");
 });
