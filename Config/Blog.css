@@ -604,4 +604,12 @@ button {
     width: 100%;
     padding: 0;
   }
+  .storecard {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.7);
+  max-width: 80%;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  --display: inline-block;
+}
 }
