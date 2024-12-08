@@ -21,7 +21,7 @@ $(function(){$("#nav-placeholder").load("nav.html");});
 </script>
 </head>
 <body>
-<div class="header" ><span class="masked" style="-webkit-mask-image: url('Config/Images/ReCollect64.png');"><img id="logo" src="Config/Images/ReCollect64.png" /></span>
+<div class="header" ><span class="masked" style="-webkit-mask-image: url('Config/Images/ReCollect64.png');"><img id="logo" src="Config/Images/ReCollect64.png" onclick="location.reload();"/></span>
 <div class="titleUnderline" style="width: 333px;"></div>
 <span class="strapline">Share. Inspire. Discuss.</span>
 </div>
@@ -31,44 +31,44 @@ $(function(){$("#nav-placeholder").load("nav.html");});
 <script>
 function setRegion() {localStorage.regKey = flag+".cfg";}
 function sharePost(clicked_id) {
-let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
-let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
-let headerTitle = document.getElementById(parentId).children[0].children[1].innerText;
-let subTitle = document.getElementById(parentId).children[1].innerText;
-window.open('https://twitter.com/share?text='+encodeURIComponent(headerTitle)+'%0A'+encodeURIComponent(subTitle)+'%0A&url='+encodeURIComponent(site)+'%23'+parentId+'%0A%0A%23N64+%23ReCollect64');
+	let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
+	let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
+	let headerTitle = document.getElementById(parentId).children[0].children[1].innerText;
+	let subTitle = document.getElementById(parentId).children[1].innerText;
+	window.open('https://twitter.com/share?text='+encodeURIComponent(headerTitle)+'%0A'+encodeURIComponent(subTitle)+'%0A&url='+encodeURIComponent(site)+'%23'+parentId+'%0A%0A%23N64+%23ReCollect64');
 }
 function sharePostBS(clicked_id) {
-let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
-let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
-let headerTitle = document.getElementById(parentId).children[0].children[1].innerText;
-let subTitle = document.getElementById(parentId).children[1].innerText;
-window.open('https://bsky.app/intent/compose?text='+headerTitle+': '+subTitle+' '+site+'%23'+parentId+' %23N64 %23ReCollect64');
+	let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
+	let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
+	let headerTitle = document.getElementById(parentId).children[0].children[1].innerText;
+	let subTitle = document.getElementById(parentId).children[1].innerText;
+	window.open('https://bsky.app/intent/compose?text='+headerTitle+': '+subTitle+' '+site+'%23'+parentId+' %23N64 %23ReCollect64');
 }
 function copyLink(clicked_id) {
-let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
-let copied = "https://defaultdnb.github.io/ReCollect64/blog.html#"+parentId;
-navigator.clipboard.writeText(copied);
+	let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
+	let copied = "https://defaultdnb.github.io/ReCollect64/blog.html#"+parentId;
+	navigator.clipboard.writeText(copied);
 }
-//if (window.location.href.match("#")) {
-if (window.location.href.match("#top")||window.location.href.match("#logo")) {
-	$(function(){$("#content-placeholder").load("postLinks.html");});
-} else if (window.location.href.match("#")){
-	const prefix = window.location.href.slice(window.location.href.indexOf("#")+1,window.location.href.indexOf("#")+2);
-	const linktoget = window.location.href.slice(window.location.href.lastIndexOf(prefix)+1,window.location.href.length);
-	let rSource = 'Config/JumpLinks/'+prefix.toUpperCase()+'LINKS.txt';
-	var rFile = new XMLHttpRequest;
-	rFile.open('get', rSource, false);
-	rFile.send();
-	let rDoc = rFile.responseText;
-	let rlines = rDoc.split("\n");
-	let rCount = rlines.length;
-	$(function(){$('#content-placeholder').load(rlines[linktoget]);});	
-} else {
-	$(function(){$("#content-placeholder").load("postLinks.html");});
-}
-//TO DO: fix #top/#logo issues.
+document.addEventListener('DOMContentLoaded', function() {
+	if (window.location.href.match("#top")||window.location.href.match("#logo")) {
+		$(function(){$("#content-placeholder").load("postLinks.html");});
+	} else if (window.location.href.match("#")){
+		const prefix = window.location.href.slice(window.location.href.indexOf("#")+1,window.location.href.indexOf("#")+2);
+		const linktoget = window.location.href.slice(window.location.href.lastIndexOf(prefix)+1,window.location.href.length);
+		let rSource = 'Config/JumpLinks/'+prefix.toUpperCase()+'LINKS.txt';
+		var rFile = new XMLHttpRequest;
+		rFile.open('get', rSource, false);
+		rFile.send();
+		let rDoc = rFile.responseText;
+		let rlines = rDoc.split("\n");
+		let rCount = rlines.length;
+		$(function(){$('#content-placeholder').load(rlines[linktoget]);});	
+	} else {
+		$(function(){$("#content-placeholder").load("postLinks.html");});
+	}
+}, false);
 window.addEventListener("click", function myFunction(e) {
-$("#nav-placeholder").load("nav.html");
+	$("#nav-placeholder").load("nav.html");
 });
 </script>
 <span id="bottom"></span>
