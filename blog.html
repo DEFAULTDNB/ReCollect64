@@ -17,6 +17,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 var flag;
+//$(function(){$("#nav-placeholder").load("nav.html");});
 $(function(){$("#nav-placeholder").load("nav.html");});
 </script>
 </head>
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	} else if (window.location.href.match("#")){
 		const prefix = window.location.href.slice(window.location.href.indexOf("#")+1,window.location.href.indexOf("#")+2);
 		const linktoget = window.location.href.slice(window.location.href.lastIndexOf(prefix)+1,window.location.href.length);
-		let rSource = 'Config/JumpLinks/'+prefix.toUpperCase()+'LINKS.txt';
+		let rSource = 'Blog/JumpLinks/'+prefix.toUpperCase()+'LINKS.txt';
 		var rFile = new XMLHttpRequest;
 		rFile.open('get', rSource, false);
 		rFile.send();
@@ -68,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 }, false);
 window.addEventListener("click", function myFunction(e) {
+	//$("#nav-placeholder").load("nav.html");
 	$("#nav-placeholder").load("nav.html");
 });
 </script>
