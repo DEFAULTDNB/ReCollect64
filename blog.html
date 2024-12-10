@@ -17,7 +17,6 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 var flag;
-//$(function(){$("#nav-placeholder").load("nav.html");});
 $(function(){$("#nav-placeholder").load("nav.html");});
 </script>
 </head>
@@ -50,8 +49,20 @@ function copyLink(clicked_id) {
 	let copied = "https://defaultdnb.github.io/ReCollect64/blog.html#"+parentId;
 	navigator.clipboard.writeText(copied);
 }
+function gotoend() {
+  const element = document.getElementById("bottom");
+  element.scrollIntoView({ behavior: "smooth" });
+}
+function gototop() {
+  const element = document.getElementById("top");
+  element.scrollIntoView({ behavior: "smooth" });
+}
+function gotologo() {
+  const element = document.getElementById("logo");
+  element.scrollIntoView({ behavior: "smooth" });
+}
 document.addEventListener('DOMContentLoaded', function() {
-	if (window.location.href.match("#top")||window.location.href.match("#logo")) {
+	if (window.location.href.match("#top")||window.location.href.match("#logo")||window.location.href.match("#bottom")) {
 		$(function(){$("#content-placeholder").load("postLinks.html");});
 	} else if (window.location.href.match("#")){
 		const prefix = window.location.href.slice(window.location.href.indexOf("#")+1,window.location.href.indexOf("#")+2);
@@ -69,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 }, false);
 window.addEventListener("click", function myFunction(e) {
-	//$("#nav-placeholder").load("nav.html");
 	$("#nav-placeholder").load("nav.html");
 });
 </script>

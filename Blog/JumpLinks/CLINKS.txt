@@ -19,3 +19,4 @@ Blog/Avatars/Rem64.html
 Blog/Avatars/KodeZ.html
 Blog/Avatars/MrTalida.html
 Blog/Avatars/DerekTurtleRoe.html
+Blog/Avatars/SuperPod.html
