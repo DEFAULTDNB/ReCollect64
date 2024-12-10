@@ -54,3 +54,4 @@ Blog/Features/TripsVoyageBK/b52.html
 Blog/Features/Prototypes2024/b53.html
 Blog/Features/JezMMCartArt/b54.html
 Blog/Features/Superman64VR/b55.html
+Blog/Features/YouTooz/b56.html
