@@ -57,3 +57,4 @@ Blog/Features/Superman64VR/b55.html
 Blog/Features/YouTooz/b56.html
 Blog/Features/EVArtwork/b57.html
 Blog/Features/Wormaversary/b58.html
+Blog/Features/ProjectRenaissance/b59.html
