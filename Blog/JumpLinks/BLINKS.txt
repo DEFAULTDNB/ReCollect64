@@ -59,3 +59,4 @@ Blog/Features/EVArtwork/b57.html
 Blog/Features/Wormaversary/b58.html
 Blog/Features/ProjectRenaissance/b59.html
 Blog/Features/MMDecomp/b60.html
+Blog/Features/TurokOrigins/b61.html
