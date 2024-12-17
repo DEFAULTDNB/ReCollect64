@@ -61,3 +61,4 @@ Blog/Features/ProjectRenaissance/b59.html
 Blog/Features/MMDecomp/b60.html
 Blog/Features/TurokOrigins/b61.html
 Blog/Features/TurokTrophies/b62.html
+Blog/Features/WM2KUpdate/b63.html
