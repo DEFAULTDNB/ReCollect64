@@ -29,6 +29,7 @@ body {
 .masked {
 	display: inline-block;
 	--background-image: linear-gradient(to bottom, navy, white);
+	--background-image: conic-gradient(from 0.5turn at 50% 65%, cyan , dodgerblue, purple, dodgerblue, cyan);
 	background-image: linear-gradient(45deg, blue, red);
 	-webkit-mask-size: 95%; /* edges might get cut off if you use 100% */
 	-webkit-mask-repeat: no-repeat;
@@ -501,8 +502,11 @@ button {
 	top: 0;
 	background-color: #f9f9f9;
 	white-space: nowrap;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
 	z-index: 1;
+}
+.splitcols {
+	column-count: 2;
 }
 .nested-dropdown:hover .nested-dropdown-content {
 	display: block;
@@ -577,12 +581,10 @@ button {
   font-family: arial;
   --display: inline-block;
 }
-
 .price {
   color: grey;
   font-size: 22px;
 }
-
 .storecard button {
   border: none;
   outline: 0;
@@ -594,7 +596,6 @@ button {
   width: 100%;
   font-size: 18px;
 }
-
 .storecard button:hover {
   opacity: 0.7;
 }
