@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N64 PAD TESTER</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            background-color: #f0f0f0;
+        }
+        .button {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            margin: 5px;
+            background-color: silver;
+            border-radius: 50px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+        }
+        .active {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <div id="buttons"></div>
+    <canvas id="radar" width="400" height="400"></canvas>
+    <table id="maxRanges">
+        <tr><th>Direction</th><th>Max Range</th></tr>
+        <tr><td>Up</td><td id="upRange">0</td></tr>
+        <tr><td>Down</td><td id="downRange">0</td></tr>
+        <tr><td>Left</td><td id="leftRange">0</td></tr>
+        <tr><td>Right</td><td id="rightRange">0</td></tr>
+    </table>
+    <script>
+        const buttons = [
+            "C▼", "C⯈", "C⯇", "C▲", 
+            "L", "R", "A", "B", 
+            "A-", "⬤", "B-", "Z", 
+            "D▲", "D▼", "D⯇", "D⯈"
+        ];
+        const buttonContainer = document.getElementById('buttons');
+        buttons.forEach((label, index) => {
+            const buttonDiv = document.createElement('div');
+            buttonDiv.className = 'button';
+            buttonDiv.id = 'button' + index;
+            buttonDiv.innerText = label;
+            buttonContainer.appendChild(buttonDiv);
+        });
+
+        const canvas = document.getElementById('radar');
+        const ctx = canvas.getContext('2d');
+        let maxRanges = { up: 0, down: 0, left: 0, right: 0 };
+        let trail = [];
+
+        function drawRadar(x, y) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.moveTo(200, 200);
+            ctx.lineTo(200 + x * 200, 200 - y * 200);
+            ctx.strokeStyle = 'red';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            trail.push({ x: 200 + x * 200, y: 200 - y * 200 });
+            trail.forEach(point => {
+                ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        function updateButtonState(index, pressed) {
+            const buttonDiv = document.getElementById('button' + index);
+            if (pressed) {
+                buttonDiv.classList.add('active');
+            } else {
+                buttonDiv.classList.remove('active');
+            }
+        }
+
+        function updateMaxRanges(x, y) {
+            maxRanges.up = Math.max(maxRanges.up, y);
+            maxRanges.down = Math.max(maxRanges.down, -y);
+            maxRanges.left = Math.max(maxRanges.left, -x);
+            maxRanges.right = Math.max(maxRanges.right, x);
+            document.getElementById('upRange').innerText = maxRanges.up.toFixed(2);
+            document.getElementById('downRange').innerText = maxRanges.down.toFixed(2);
+            document.getElementById('leftRange').innerText = maxRanges.left.toFixed(2);
+            document.getElementById('rightRange').innerText = maxRanges.right.toFixed(2);
+        }
+
+        function gameLoop() {
+            const gamepads = navigator.getGamepads();
+            if (gamepads[0]) {
+                const gp = gamepads[0];
+                for (let i = 0; i < gp.buttons.length; i++) {
+                    updateButtonState(i, gp.buttons[i].pressed);
+                }
+                const x = gp.axes[0];
+                const y = gp.axes[1];
+                drawRadar(x, -y);
+                updateMaxRanges(x, -y);
+            }
+            requestAnimationFrame(gameLoop);
+        }
+
+        window.addEventListener("gamepadconnected", gameLoop);
+		
+		document.getElementById("button8").style.display = 'none';
+		document.getElementById("button10").style.display = 'none';
+		
+		document.getElementById("button0").style.color = 'yellow';
+		document.getElementById("button1").style.color = 'yellow';
+		document.getElementById("button2").style.color = 'yellow';
+		document.getElementById("button3").style.color = 'yellow';
+		document.getElementById("button6").style.color = 'blue';
+		document.getElementById("button7").style.color = 'green';
+		document.getElementById("button9").style.color = 'red';
+    </script>
+	</center>
+</body>
+</html>
