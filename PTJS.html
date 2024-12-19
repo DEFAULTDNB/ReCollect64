@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N64 PAD TESTER</title>
+    <title>𝗣𝗔𝗗 𝗧𝗘𝗦𝗧 𝟲𝟰</title>
     <style>
+		body {
+			background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(10,10,10,1) 50%, rgba(128,128,128,1) 100%);
+		}
         canvas {
             border: 1px solid black;
             background-color: #f0f0f0;
@@ -23,6 +26,9 @@
         .active {
             background-color: green;
         }
+		#maxRanges{
+			color: white;
+		}
     </style>
 </head>
 <body>
@@ -30,18 +36,22 @@
     <div id="buttons"></div>
     <canvas id="radar" width="400" height="400"></canvas>
     <table id="maxRanges">
-        <tr><th>Direction</th><th>Max Range</th></tr>
+		<tr><td id="padInfo"></td></tr>
         <tr><td>Up</td><td id="upRange">0</td></tr>
         <tr><td>Down</td><td id="downRange">0</td></tr>
         <tr><td>Left</td><td id="leftRange">0</td></tr>
         <tr><td>Right</td><td id="rightRange">0</td></tr>
+        <tr><td>Up Left</td><td id="uleftRange">0</td></tr>
+        <tr><td>Up Right</td><td id="urightRange">0</td></tr>
+        <tr><td>Down Left</td><td id="dleftRange">0</td></tr>
+        <tr><td>Down Right</td><td id="drightRange">0</td></tr>
     </table>
     <script>
         const buttons = [
-            "C▼", "C⯈", "C⯇", "C▲", 
+            "C▼", "C▶", "C◀", "C▲", 
             "L", "R", "A", "B", 
             "A-", "⬤", "B-", "Z", 
-            "D▲", "D▼", "D⯇", "D⯈"
+            "D▲", "D▼", "D◀", "D▶"
         ];
         const buttonContainer = document.getElementById('buttons');
         buttons.forEach((label, index) => {
@@ -54,7 +64,7 @@
 
         const canvas = document.getElementById('radar');
         const ctx = canvas.getContext('2d');
-        let maxRanges = { up: 0, down: 0, left: 0, right: 0 };
+        let maxRanges = { up: 0, down: 0, left: 0, right: 0, upleft: 0, upright: 0, downleft: 0, downright: 0 };
         let trail = [];
 
         function drawRadar(x, y) {
@@ -85,17 +95,36 @@
 
         function updateMaxRanges(x, y) {
             maxRanges.up = Math.max(maxRanges.up, y);
+			document.getElementById('upRange').innerText = maxRanges.up.toFixed(2);
             maxRanges.down = Math.max(maxRanges.down, -y);
+			document.getElementById('downRange').innerText = maxRanges.down.toFixed(2);
             maxRanges.left = Math.max(maxRanges.left, -x);
+			document.getElementById('leftRange').innerText = maxRanges.left.toFixed(2);
             maxRanges.right = Math.max(maxRanges.right, x);
-            document.getElementById('upRange').innerText = maxRanges.up.toFixed(2);
-            document.getElementById('downRange').innerText = maxRanges.down.toFixed(2);
-            document.getElementById('leftRange').innerText = maxRanges.left.toFixed(2);
-            document.getElementById('rightRange').innerText = maxRanges.right.toFixed(2);
+			document.getElementById('rightRange').innerText = maxRanges.right.toFixed(2);
+			maxRanges.upleft = Math.max(maxRanges.upleft, y - x);
+			document.getElementById('uleftRange').innerText = ((maxRanges.upleft/2).toFixed(2));
+			maxRanges.upright = Math.max(maxRanges.upright, y + x);
+			document.getElementById('urightRange').innerText = ((maxRanges.upright/2).toFixed(2));
+			maxRanges.downleft = Math.max(maxRanges.downleft, -y - x);
+			document.getElementById('dleftRange').innerText = ((maxRanges.downleft/2).toFixed(2));
+			maxRanges.downright = Math.max(maxRanges.downright, -y + x);
+			document.getElementById('drightRange').innerText = ((maxRanges.downright/2).toFixed(2));
         }
+		/*
+		OEM PADS = 0-80 AVG.
+		HEJ outputs 0.62 - 0.63 in web.
+		HEJ outputs 08 on console.
+		0 = center.
+		128 = max.
+		
+		62 = 80
+		128 = 100
+		*/
 
         function gameLoop() {
             const gamepads = navigator.getGamepads();
+			
             if (gamepads[0]) {
                 const gp = gamepads[0];
                 for (let i = 0; i < gp.buttons.length; i++) {
@@ -105,10 +134,11 @@
                 const y = gp.axes[1];
                 drawRadar(x, -y);
                 updateMaxRanges(x, -y);
+				document.getElementById('padInfo').innerText = gp.id;
             }
             requestAnimationFrame(gameLoop);
         }
-
+		
         window.addEventListener("gamepadconnected", gameLoop);
 		
 		document.getElementById("button8").style.display = 'none';
