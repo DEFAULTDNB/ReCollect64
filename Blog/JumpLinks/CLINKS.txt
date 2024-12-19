@@ -20,3 +20,4 @@ Blog/Avatars/KodeZ.html
 Blog/Avatars/MrTalida.html
 Blog/Avatars/DerekTurtleRoe.html
 Blog/Avatars/SuperPod.html
+Blog/Avatars/Flashback64.html
