@@ -48,10 +48,10 @@
     </table>
     <script>
         const buttons = [
-            "C▼", "C▶", "C◀", "C▲", 
+            "CD", "CR", "CL", "CU", 
             "L", "R", "A", "B", 
             "A-", "⬤", "B-", "Z", 
-            "D▲", "D▼", "D◀", "D▶"
+            "DU", "DD", "DL", "DR"
         ];
         const buttonContainer = document.getElementById('buttons');
         buttons.forEach((label, index) => {
@@ -115,11 +115,15 @@
 		OEM PADS = 0-80 AVG.
 		HEJ outputs 0.62 - 0.63 in web.
 		HEJ outputs 08 on console.
-		0 = center.
-		128 = max.
 		
-		62 = 80
-		128 = 100
+		0 = center or 0.0
+		
+		80 on n64 = 62 on web
+		
+		128 = max or 1.0
+		
+		Device HID\VID_6666&PID_0667\6&22ef35e5&0&0000
+		
 		*/
 
         function gameLoop() {
