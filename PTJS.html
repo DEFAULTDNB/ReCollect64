@@ -95,21 +95,21 @@
 
         function updateMaxRanges(x, y) {
             maxRanges.up = Math.max(maxRanges.up, y);
-			document.getElementById('upRange').innerText = maxRanges.up.toFixed(2);
+			document.getElementById('upRange').innerText = ((maxRanges.up)*1.28).toFixed(2);
             maxRanges.down = Math.max(maxRanges.down, -y);
-			document.getElementById('downRange').innerText = maxRanges.down.toFixed(2);
+			document.getElementById('downRange').innerText = ((maxRanges.down)*1.28).toFixed(2);
             maxRanges.left = Math.max(maxRanges.left, -x);
-			document.getElementById('leftRange').innerText = maxRanges.left.toFixed(2);
+			document.getElementById('leftRange').innerText = ((maxRanges.left)*1.28).toFixed(2);
             maxRanges.right = Math.max(maxRanges.right, x);
-			document.getElementById('rightRange').innerText = maxRanges.right.toFixed(2);
+			document.getElementById('rightRange').innerText = ((maxRanges.right)*1.28).toFixed(2);
 			maxRanges.upleft = Math.max(maxRanges.upleft, y - x);
-			document.getElementById('uleftRange').innerText = ((maxRanges.upleft/2).toFixed(2));
+			document.getElementById('uleftRange').innerText = ((maxRanges.upleft/2)*1.28).toFixed(2);
 			maxRanges.upright = Math.max(maxRanges.upright, y + x);
-			document.getElementById('urightRange').innerText = ((maxRanges.upright/2).toFixed(2));
+			document.getElementById('urightRange').innerText = ((maxRanges.upright/2)*1.28).toFixed(2);
 			maxRanges.downleft = Math.max(maxRanges.downleft, -y - x);
-			document.getElementById('dleftRange').innerText = ((maxRanges.downleft/2).toFixed(2));
+			document.getElementById('dleftRange').innerText = ((maxRanges.downleft/2)*1.28).toFixed(2);
 			maxRanges.downright = Math.max(maxRanges.downright, -y + x);
-			document.getElementById('drightRange').innerText = ((maxRanges.downright/2).toFixed(2));
+			document.getElementById('drightRange').innerText = ((maxRanges.downright/2)*1.28).toFixed(2);
         }
 		/*
 		OEM PADS = 0-80 AVG.
@@ -121,6 +121,8 @@
 		80 on n64 = 62 on web
 		
 		128 = max or 1.0
+		
+		100/128 = 1.28
 		
 		Device HID\VID_6666&PID_0667\6&22ef35e5&0&0000
 		
