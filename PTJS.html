@@ -33,8 +33,16 @@
 </head>
 <body>
 <center>
+	<select id="PADS" onchange="location.reload()">
+		<option value="OEM">OEM</option>
+		<option value="OEMHEJ">OEM HEJ</option>
+		<option value="RETROBIT">RETROBIT</option>
+		<option value="HORIMINI">HORIMINI</option>
+	</select>
+	
     <div id="buttons"></div>
-    <canvas id="radar" width="400" height="400"></canvas>
+    <span style="display: flex;	justify-content: center;">
+	<canvas id="radar" width="400" height="400"></canvas>
     <table id="maxRanges">
 		<tr><td id="padInfo"></td></tr>
         <tr><td>Up</td><td id="upRange">0</td></tr>
@@ -46,6 +54,7 @@
         <tr><td>Down Left</td><td id="dleftRange">0</td></tr>
         <tr><td>Down Right</td><td id="drightRange">0</td></tr>
     </table>
+	</span>
     <script>
         const buttons = [
             "CD", "CR", "CL", "CU", 
@@ -61,6 +70,22 @@
             buttonDiv.innerText = label;
             buttonContainer.appendChild(buttonDiv);
         });
+		
+		for (n = 0; n < 16; n++) {
+			if (document.getElementById("button"+n).textContent.match("C")){
+			document.getElementById("button"+n).style.color = 'yellow';
+			} else if (document.getElementById("button"+n).textContent.match("-")){
+			document.getElementById("button"+n).style.display = 'none';
+			} else if (document.getElementById("button"+n).textContent.match("A")){
+			document.getElementById("button"+n).style.color = 'blue';
+			} else if (document.getElementById("button"+n).textContent.match("B")){
+			document.getElementById("button"+n).style.color = 'green';
+			} else if (document.getElementById("button"+n).textContent.match("⬤")){
+			document.getElementById("button"+n).style.color = 'red';
+			} else {
+			document.getElementById("button"+n).style.color = "black";
+			}
+		}
 
         const canvas = document.getElementById('radar');
         const ctx = canvas.getContext('2d');
@@ -122,10 +147,7 @@
 		
 		128 = max or 1.0
 		
-		100/128 = 1.28
-		
 		Device HID\VID_6666&PID_0667\6&22ef35e5&0&0000
-		
 		*/
 
         function gameLoop() {
@@ -146,17 +168,7 @@
         }
 		
         window.addEventListener("gamepadconnected", gameLoop);
-		
-		document.getElementById("button8").style.display = 'none';
-		document.getElementById("button10").style.display = 'none';
-		
-		document.getElementById("button0").style.color = 'yellow';
-		document.getElementById("button1").style.color = 'yellow';
-		document.getElementById("button2").style.color = 'yellow';
-		document.getElementById("button3").style.color = 'yellow';
-		document.getElementById("button6").style.color = 'blue';
-		document.getElementById("button7").style.color = 'green';
-		document.getElementById("button9").style.color = 'red';
+
     </script>
 	</center>
 </body>
