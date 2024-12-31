@@ -65,3 +65,4 @@ Blog/Features/WM2KUpdate/b63.html
 Blog/Features/N64OS/b64.html
 Blog/Features/CentauriAlfa/b65.html
 Blog/Features/MarioMultiverse/b66.html
+Blog/Features/GameJam5/b67.html
