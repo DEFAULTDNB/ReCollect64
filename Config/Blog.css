@@ -2,13 +2,16 @@
 	box-sizing: border-box;
 }
 body {
-	font-family: Arial;
-	padding: 20px;
+	padding: 11px;
 	background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(10,10,10,1) 50%, rgba(128,128,128,1) 100%);
 	content-visibility: auto;
 	font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	overflow-x: visible;
 	width: 100%;
+	margin:0 auto;
+}
+a .btn {
+	text-decoration: none;
 }
 .border {
 	margin: 10px 0px;
@@ -41,7 +44,6 @@ body {
 	display:block;
 }
 .strapline {
-	--color: purple;
 	color: white;
 	font-family: "Homenaje", sans-serif;
 	font-size: xxx-large;
@@ -53,9 +55,8 @@ body {
 .rightcolumn {
 	float: left;
 	width: 25%;
-	padding-left: 20px;
+	padding-left: 10px;
 }
-
 .bgChat {
 	position: relative;
 	background-color: grey;
@@ -93,10 +94,10 @@ body {
     margin: auto;
 }
 .blankBanner {
-  background-color: grey;
-  height: 300px;
-  width: 100%;
-  padding: 20px;
+	background-color: grey;
+	height: 300px;
+	width: 100%;
+	padding: 20px;
 }
 .bgSmall {
 	display: block;
@@ -126,6 +127,13 @@ body {
 	border-radius: 10px;
 	text-align: center;
 	cursor: pointer;
+}
+.roundup {
+	background-color: white;
+	padding: 20px;
+	margin-top: 20px;
+	border-radius: 10px;
+	text-align: center;
 }
 .title {
 	font-family: "Homenaje", sans-serif;
@@ -280,19 +288,19 @@ body {
 	opacity: 1.0;
 }
 .overlaytext {
-  background-color: white;
-  color: black;
-  font-family: "Homenaje", sans-serif;
-  font-size: 6vw;
-  font-weight: bold;
-  margin: 0 auto;
-  padding: 0px;
-  width: 98%;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	background-color: white;
+	color: black;
+	font-family: "Homenaje", sans-serif;
+	font-size: 6vw;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 0px;
+	width: 98%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 .alignright {
 	display: block;
@@ -397,8 +405,8 @@ details[open] > summary {
 }
 button {
 	cursor: pointer;
-	margin:0 auto;
-    display:block
+	margin: 0 auto;
+    display: block
 }
 .info {
 	margin-bottom: 15px;
@@ -456,7 +464,6 @@ button {
 	font-size: 16px;
 }
 @media screen and (max-width: 480px) {
-	
 	.navbar a {
 		padding: 7px 10px;
 		text-decoration: none;
@@ -464,7 +471,6 @@ button {
 		display: block;
 		font-size: 1em;
 	}
-	
 }
 .navbar a:hover {
 	background-color: #575757;
@@ -531,6 +537,7 @@ button {
 	width: auto;
 }
 .btn {
+	text-decoration: none !important;
 	background-color: silver;
 	color: black;
 	vertical-align: middle;
