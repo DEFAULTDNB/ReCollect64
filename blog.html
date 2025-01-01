@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗕𝗹𝗼𝗴</title>
-<meta charset="UTF-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Homenaje&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="Config/Blog.css">
-<link rel="shortcut icon" href="Blog/Icons/favicon.ico" type="image/x-icon">
-<link rel="icon" href="Blog/Icons/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="Blog/Icons/icon.png" />
-<script type="text/javascript" async src="https://kit.fontawesome.com/2655e13631.js" crossorigin="anonymous"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script>
-var flag;
-$(function(){$("#nav-placeholder").load("nav.html");});
-</script>
+	<head>
+		<title>𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗕𝗹𝗼𝗴</title>
+			<meta charset="UTF-8">
+			<link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Homenaje&display=swap" rel="stylesheet">
+			<link rel="stylesheet" href="Config/Blog.css">
+			<link rel="shortcut icon" href="Blog/Icons/favicon.ico" type="image/x-icon">
+			<link rel="icon" href="Blog/Icons/favicon.ico" type="image/x-icon">
+			<link rel="apple-touch-icon" href="Blog/Icons/icon.png" />
+			<script type="text/javascript" async src="https://kit.fontawesome.com/2655e13631.js" crossorigin="anonymous"></script>
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://www.gstatic.com/charts/loader.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script>
+		var flag;
+		$(function(){$("#nav-placeholder").load("nav2.html");});
+		</script>
 </head>
 <body>
+<br></br>
 <div class="header" ><span class="masked" style="-webkit-mask-image: url('Config/Images/ReCollect64.png');"><img id="logo" src="Config/Images/ReCollect64.png" onclick="location.reload();"/></span>
 <div class="titleUnderline" style="width: 333px;"></div>
-<span class="strapline">Share. Inspire. Discuss.</span>
+<span class="strapline">Share. Inspire. Discuss.</span><br></br>
 </div>
-<div id="nav-placeholder" name="navph"></div>
 <span id="top"></span>
+<div id="nav-placeholder" name="navph"></div>
 <div id="content-placeholder" name="contph" onload=""></div>
 <script>
 function setRegion() {localStorage.regKey = flag+".cfg";}
@@ -48,6 +49,7 @@ function copyLink(clicked_id) {
 	let parentId = document.getElementById(clicked_id).parentNode.parentNode.id;
 	let copied = "https://defaultdnb.github.io/ReCollect64/blog.html#"+parentId;
 	navigator.clipboard.writeText(copied);
+	alert("𝗟𝗜𝗡𝗞 𝗖𝗢𝗣𝗜𝗘𝗗");
 }
 function gotoend() {
   const element = document.getElementById("bottom");
@@ -63,7 +65,7 @@ function gotologo() {
 }
 document.addEventListener('DOMContentLoaded', function() {
 	if (window.location.href.match("#top")||window.location.href.match("#logo")||window.location.href.match("#bottom")) {
-		$(function(){$("#content-placeholder").load("postLinks.html");});
+		$(function(){$("#content-placeholder").load("postLinks.html");}); gototop();
 	} else if (window.location.href.match("#")){
 		const prefix = window.location.href.slice(window.location.href.indexOf("#")+1,window.location.href.indexOf("#")+2);
 		const linktoget = window.location.href.slice(window.location.href.lastIndexOf(prefix)+1,window.location.href.length);
@@ -80,7 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 }, false);
 window.addEventListener("click", function myFunction(e) {
-	$("#nav-placeholder").load("nav.html");
+window.history.pushState({page: "reset"}, "reset URL", "blog.html");
+	$("#nav-placeholder").load("nav2.html");
 });
 </script>
 <span id="bottom"></span>
