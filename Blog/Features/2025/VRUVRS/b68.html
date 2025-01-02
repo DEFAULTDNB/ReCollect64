@@ -1,0 +1,71 @@
+<div id="b68" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">The Voice Recognition Unit</span></h2>
+	<h5 class="subtitle">Hey! Listen! ~ Jan 3, 2024</h5>
+	<div class="bgBanner"><img src="Blog/Features/2025/VRUVRS/VRU.png" alt="VRU" class="center"/><div class="overlaytext">Voice Recognition Unit</div></div>
+	<h4>Retro Recognition</h4>
+	<div class="titleUnderline"></div>
+	<p>The Nintendo 64 had a wild array of peripherals, 23 of which I have reviewed up to this point in time, but the wildest and most underutilised has to be the NUS-020 voice recognition unit, or VRU (voice recognition system VRS in Japan) for short.</p>
+	<p><i>Pikachu Genki Dechu</i> and <i>Densha de Go! 2 Kōsoku-hen</i> were the only two games to release in Japan with VRS compatibility, and the only singular game to release in the USA was <i>Hey You Pikachu</i>, which was an English-language localised version of <i>Pikachu Genki Dechu</i>. Sadly, none of those games were released in Europe, and they were cross-regionally incompatible, so I was unable to play any of these growing up.</p>
+	<p>I do remember hearing various rumours about it, such as having to talk in a high-pitched voice, like a child, for it to register your voice, or that saying things like "PlayStation" or "Sony" caused Pikachu to react and pull faces.</p>
+	<p><i>Densha de Go! 2 Kōsoku-hen</i> allowed the device to be used optionally. With the VRS, you could announce the train stations to your departing passengers.</p>
+	<p>All games require the device to be inserted into the fourth player socket on the front of the N64 system in order for it to operate.</p>
+	<center>
+		<a target="_blank" href="Covers/J/Zelda no Densetsu Mujura no Kamen J.png"><img class="thumbnail" src="Covers/J/Zelda no Densetsu Mujura no Kamen J.png" width="23%" style="padding:auto"/></a>
+		<a target="_blank" href="Covers/J/Pikachu Genki Dechu J.png"><img class="thumbnail" src="Covers/J/Pikachu Genki Dechu J.png" width="23%" style="padding:auto"/></a>
+		<a target="_blank" href="Covers/J/Densha de Go! 64 J.png"><img class="thumbnail" src="Covers/J/Densha de Go! 64 J.png" width="23%" style="padding:auto"/></a>
+	</center>
+	<h4>Hack 'n' Patch</h4>
+	<div class="titleUnderline"></div>
+	<p>Back in <b>2018</b>, skilled N64 specialist and ROM hacker, Zoinkity, posted a video of a modified ROM for <i>The Legend of Zelda: Majora's Mask</i> that demonstrated that Nintendo had not only implemented spoken interactivities into the game, but they had also blanked it out prior to release.</p>
+	<p>Notably, the game running is the USA version of <i>Majora's Mask</i>, due to the ROM being nearly identical between the USA and JPN releases; just the languages are changed. That's why Japanese commands work on the USA version of the game, because the VRU/VRS features were not localised to use the English language.</p>
+	<p>By patching back in debug features, Zoinkity managed to demonstrate the feature in full working order. Lately, this topic has resurfaced by various people looking through the recent <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b60" target="_blank">Majora's Mask decompilation</a> code and piecing it back together.</p>
+	<center><iframe id="" class="video" src="https://www.youtube.com/embed/VxK8XqYecSg"></iframe></center>
+	<h4>Japanese Inflection</h4>
+	<div class="titleUnderline"></div>
+	<p>As you would expect, the language you need to speak into these devices is predominantly Japanese for the Japanese releases, and therefore also for the <i>Majora's Mask</i> mod, reguardless of the NTSC ROM you patch to try it out. Even the GameCube ROM from <i>The Legend Of Zelda - Collector's Edition</i> disc is patchable!</p>
+	<p>There are just five voice commands documented, including "osuwari" to ask the local dogs to sit, "miruku" to get milk from a cow, "haichīzu" to take a picture with the picto box, "atonanjikan" to ask a gossip stone how much time remains, "okirō" to wake up a Deku salesman, and "haiya" to give Epona a carrot whilst riding.</p>
+	<p>All of those commands were demonstrated recently by Skawo using the information shared on The Cutting Room Floor:</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<pre>
+	OSVoiceDictionary sVoiceDictionary = {
+    {
+        // "atonanjikan" -  "How many hours"
+        { 'ア', 'ト', 'ナ', 'ン', 'ジ', 'カ', 'ン' },
+
+        // "haichīzu" - "say cheese"
+        { 'ハ', 'イ', 'チ', 'ー', 'ズ' },
+
+        // "okirō" - "wake up"
+        { 'オ', 'キ', 'ロ', 'ー' },
+
+        // "osuwari" - "sit"
+        { 'オ', 'ス', 'ワ', 'リ' },
+
+        // "miruku" - "milk"
+        { 'ミ', 'ル', 'ク' },
+
+        // "haiyā" - "hiya!"
+        { 'ハ', 'イ', 'ヤ', 'ー' },
+    },
+
+    VOICE_WORD_ID_MAX, // number of words
+	};
+	</pre>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center><iframe id="" class="video" src="https://www.youtube.com/embed/W1x6XnTaN28"></iframe></center>
+	<p>Interestingly, the 64DD game <i>Mario Artist Talent Studio</i> comes with the microphone but not the VRU/VRS. Instead, the NUS-028 capture cassette is used to interface with the NUS-021 microphone, though any 3.5mm microphone will work!</p>
+	<p>It's sad to think that more games could have benefitted from this feature, but either the idea for such functionality was too futuristic or just not conceptualised for the games at hand.</p>
+	<p>I personally think that strategy games like <i>StarCraft 64, Command & Conquer</i>, or <i>Ogre Battle 64 Person of Lordly Caliber</i>, or perhaps party games like the <i>Mario Party</i> series or even <i>South Park Chef's Luv Shack</i> could have incorporated the VRU/VRS to best effect!</p>
+	<p>What do you think? Which games would you have liked to see feature voice commands?</p>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://tcrf.net/Proto:The_Legend_of_Zelda:_Majora%27s_Mask/Debug_Version/Audio_Debugger#Page_7_.E2.80.94_VRS_Info" target="_blank">The Cutting Room Floor</a></p>
+	<p class="subtitle"><i class="fa-brands fa-youtube"></i>&nbsp;<a href="https://www.youtube.com/@Zoinkity" target="_blank">Zoinkity YouTube</a></p>
+	<p class="subtitle"><i class="fa-brands fa-youtube"></i>&nbsp;<a href="https://www.youtube.com/@Skawo" target="_blank">Skawo YouTube</a></p>
+	<span class="alignright">	
+	<a class="btn" onclick="copyLink(this.id);" target="_blank" id="copy" title="𝗖𝗢𝗣𝗬 𝗟𝗜𝗡𝗞"><i class="fa-solid fa-link"></i></a>
+	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="X" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗧𝗪𝗜𝗧𝗧𝗘𝗥"><i class="fa-brands fa-x-twitter"></i></a>
+	<a class="btnbs" onclick="sharePostBS(this.id);" target="_blank" id="BS" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗕𝗟𝗨𝗘𝗦𝗞𝗬"><i class="fa-brands fa-bluesky"></i></a>
+	<a class="btn" onclick="$(function(){$('#content-placeholder').load('postLinks.html');}); gototop();" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-house"></i></a>
+	</span>		
+</div>
