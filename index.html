@@ -268,7 +268,7 @@
 				</div>
 				<div id="EV2cart"><span title="EUR VERSION 1.2"><div id="ALTPNG"></div></span><span><input id="EV2cartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="EV2cartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
 				<span title="Boxed?"><div id="BOXPNG"></div><input id="EV2boxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="EV2boxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
-				<span title="Manual?"><div id="MANPNG"></div><input id="EV2manual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="EV2VmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
+				<span title="Manual?"><div id="MANPNG"></div><input id="EV2manual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="EV2manualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
 				<span title="Sealed?"><div id="SLDPNG"></div><input id="EV2sealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="EV2sealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
 				</div>
 				<div id="EV3cart"><span title="EUR VERSION 1.3"><div id="ALTPNG"></div></span><span><input id="EV3cartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="EV3cartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
@@ -1405,7 +1405,7 @@ function reply_click(clicked_id){
 				simg.src = 'Slideshow/Micro Machines 64 Turbo SEU/'+m+'.png';
 				simg.setAttribute('class', 'thumbs2');
 				simg.setAttribute('id', simg.src);
-				simg.setAttribute('width', "49%");
+				simg.setAttribute('width', "48%");
 				simg.setAttribute('height', "auto");
 				simg.style.display = 'inline-block';
 				simg.setAttribute('onclick', 'thumbFunct(this.id)');
@@ -2053,7 +2053,7 @@ var gamepad = navigator.getGamepads()[0]; //controller 1
 	var axes = gamepad.axes;
 	for (var i in axes) {//ANALOGUE
 	    if (axes[i] != 0) { 
-		var myToast = Toastify({text: i + " : "+ axes[i], style: {background: 'rgb(50,153,0)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
+		//var myToast = Toastify({text: i + " : "+ axes[i], style: {background: 'rgb(50,153,0)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
 		}
 		//retro-bit: L:0 -0 | R:0 0 | U:1 -0 | D:1 1
 	}
@@ -2063,6 +2063,7 @@ var gamepad = navigator.getGamepads()[0]; //controller 1
 		//gamepad.vibrationActuator.playEffect('vibration', {startDelay: 0, duration: 5000, weakMagnitude: 0.5, strongMagnitude: 1});
 		var myToast = Toastify({text: i, style: {background: 'rgb(50,153,0)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
 		}
+		/*
 		if (buttons[0].pressed == true) {openFile();break;}
 		if (buttons[1].pressed == true) {copyOutCollection();break;}
 		if (buttons[2].pressed == true) {closeCard();break;}
@@ -2072,7 +2073,9 @@ var gamepad = navigator.getGamepads()[0]; //controller 1
 		if (buttons[7].pressed == true) {nuke();break;}
 		if (buttons[9].pressed == true) { break;}//confirm/check/tick
 		if (buttons[10].pressed == true) {next();break;}
-		//retro-bit L:4 | R:5 | B:1 | A:0 | CL:3 | CU:11 | CR:10 | CD:2 | ZL/ZR: 6/7 | DL:14 | DU:12 | DR:15 | DD:13 | START:9 | SELECT:8
+		*/
+		//retro-bit Pad L:4 | R:5 | B:1 | A:0 | CL:3 | CU:11 | CR:10 | CD:2 | ZL/ZR: 6/7 | DL:14 | DU:12 | DR:15 | DD:13 | START:9 | SELECT:8
+		//-OEM- N64 Pad L:4 | R:5 | B:7/10 | A:6/8 | CL:2 | CU:3 | CR:1 | CD:0 | Z:11 | DL:14 | DU:12 | DR:15 | DD:13 | START:9
 		}
 	}
 }
