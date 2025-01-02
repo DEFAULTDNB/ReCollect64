@@ -21,3 +21,4 @@ Blog/Reviews/GamesterEvolution/r19.html
 Blog/Reviews/RaceLeader64/r20.html
 Blog/Reviews/HDTVAdaptor/r21.html
 Blog/Reviews/GamesterLX4/r22.html
+Blog/Reviews/Brawler64/r23.html
