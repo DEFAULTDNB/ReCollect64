@@ -944,38 +944,43 @@ myCount = 0;
 		}
 		if (div.style.backgroundColor) {
 		myCount = myCount + 1;
-			div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(10%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
+			//div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(10%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
+			
+			div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(10%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
 			div.className = "thumbnail";
 		} else {
-			div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
+			//div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
+			
+			//try thumbnails here
+			div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
 			div.className = "thumbnail";
 		}
 		if (lines[info].match("REGION=ALTA ")) {
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/A/'+gTitle+' A.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/A/'+gTitle+' A.jpg"');
 		} else if (lines[info].match("REGION=ALTU ")||lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/U/'+gTitle+' U.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
 		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/BR/'+gTitle+' BR.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
 		} else if (lines[info].match("REGION=E ")){
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 		} else if (lines[info].match("REGION=S ")){
 		if (gTitle.match("Super Mario")||gTitle.match("Forsaken")){
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 		} else {
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 		}
 		} else if (lines[info].match("REGION=EUU ")){
 			if (gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Gex")||gTitle.match("GT 64")||gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Ready")||gTitle.match("Robotron")||gTitle.match("2049")||gTitle.match("Silicon")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wetrix")||gTitle.match("Wipeout")){
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			} else {
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			}
 		} else if (lines[info].match("REGION=EV1 ")||lines[info].match("REGION=EV2 ")||lines[info].match("REGION=EV3 ")){
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 		} else if (lines[info].match("REGION=IQUE ")){
 		document.getElementById(coverFlow[i]).style.width = "100px"; document.getElementById(coverFlow[i]).style.left = "80px";
 		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/J/'+gTitle+' J.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/'+gTitle+' J.jpg"');
 		document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
 		} else if (lines[info].match("REGION=LRGC ")){
 		document.getElementById(coverFlow[i]).style.width = "120px"; document.getElementById(coverFlow[i]).style.left = "60px";
@@ -985,29 +990,29 @@ myCount = 0;
 			if (gTitle.match("Doshin")){ //bespoke fix	
 			document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "25px";
 			} else {
-			document.getElementById(coverFlow[i]).style.height = "160px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
+			document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
-			document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 		} else if (lines[info].match("REGION=SCN ")){
 			if (gTitle == "FIFA 99"||gTitle == "Forsaken"){	
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else {
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
 		} else if (lines[info].match("REGION=SED ")){
 		document.getElementById(coverFlow[i]).style.width = "115px"; document.getElementById(coverFlow[i]).style.left = "70px";
 		} else if (lines[info].match("REGION=TW ")){
-		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/HK/'+gTitle+' HK.png"');
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/HK/'+gTitle+' HK.jpg"');
 		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=AV1 ")||lines[info].match("REGION=AV2 ")||lines[info].match("REGION=AV3 ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
 			if (gTitle.match("Forsaken")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/UKV/'+gTitle+' UKV.png"');
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else if (gTitle.match("Tony")) {
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/EUU/'+gTitle+' EUU.png"');
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/EUU/'+gTitle+' EUU.jpg"');
 			} else {
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Covers/E/'+gTitle+' E.png"');
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
 		} else {
-		document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png"); //default fallback
+		document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg"); //default fallback
 		}
 	}
 	document.getElementById("searcher").value = "";
@@ -1213,10 +1218,11 @@ function reply_click(clicked_id){
 	}
 	document.getElementById("frame").style.display = "block";
 	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
-	document.getElementById('grid-container').style.backgroundImage = 'url('+document.getElementById(coverFlow[clicked_id-1]).src+')';
+	let convertthumbtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers").replace("jpg", "png");
+	document.getElementById('grid-container').style.backgroundImage = 'url('+convertthumbtopng+')';
 	document.getElementById('grid-container').style.backgroundRepeat = 'no-repeat';
 	document.getElementById('grid-container').style.backgroundSize = 'cover';
-	document.getElementById("thumb").src = document.getElementById(coverFlow[clicked_id-1]).src;
+	document.getElementById("thumb").src = convertthumbtopng; //Fix for JPG>PNG
 	document.getElementById("thumbBB").src = 'Backs/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
 	document.getElementById("thumbDI").style.width = "48%";
@@ -1227,11 +1233,16 @@ function reply_click(clicked_id){
 	if (pReg === "DD"){
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 	} else if (pReg === "NFR" || pReg === "ALTN") {
+	
+	let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
+	document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
+	
 	document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
 	//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
-		if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //quick fix.
+		if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //Fixed again
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
+		thumb.src = 'Carts/ALTN/Turok 2 Seeds of Evil ALTN.png';
 		} else if (frametitle.innerHTML === "Doshin the Giant NFR"){
 		document.getElementById("thumb").style.width = "0px"
 		document.getElementById("thumbDI").style.width = "0px"
@@ -2376,6 +2387,6 @@ spitFacts(); document.getElementsByClassName('marquee-child')[0].addEventListene
 <div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀"></div>
 <div id="blog" onclick="letsDance();" title="𝗩𝗶𝘀𝗶𝘁 𝘁𝗵𝗲 𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗕𝗹𝗼𝗴"><span class="masked" style="-webkit-mask-image: url('Config/Images/BLOG.png');"><img id="blogicon" src="Config/Images/BLOG.png" /></span></div>
 <img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/>
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB 2025 (APP VER: 3.3)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB 2025 (APP VER: 3.4)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
