@@ -68,3 +68,4 @@ Blog/Features/MarioMultiverse/b66.html
 Blog/Features/GameJam5/b67.html
 Blog/Features/2025/VRUVRS/b68.html
 Blog/Features/2025/SM64RTYID2/b69.html
+Blog/Features/2025/WR64BETA/b70.html
