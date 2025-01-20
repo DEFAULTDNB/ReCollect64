@@ -65,6 +65,7 @@ a .btn {
 	padding: 0px;
 	background-repeat: no-repeat;
 	background-size: cover;
+	border: 1px solid black;
 }
 .bgBanner {
 	position: relative;

@@ -23,3 +23,4 @@ Blog/Reviews/HDTVAdaptor/r21.html
 Blog/Reviews/GamesterLX4/r22.html
 Blog/Reviews/Brawler64/r23.html
 Blog/Reviews/Games/007TWINE/r24.html
+Blog/Reviews/Games/1080/r25.html
