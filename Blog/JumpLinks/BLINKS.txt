@@ -73,3 +73,4 @@ Blog/Features/2025/GLOVERLEAK/b71.html
 Blog/Features/GameJam5/b72.html
 Blog/Features/2025/GENetplayCup/b73.html
 Blog/Features/2025/GoldenEyeX6a/b74.html
+Blog/Features/2025/GoemonRedub/b75.html
