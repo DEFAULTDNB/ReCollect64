@@ -66,6 +66,8 @@ function gotologo() {
 document.addEventListener('DOMContentLoaded', function() {
 	if (window.location.href.match("#top")||window.location.href.match("#logo")||window.location.href.match("#bottom")) {
 		$(function(){$("#content-placeholder").load("postLinks.html");}); gototop();
+	} else if (window.location.href.match("#HallOfFame")) {
+	$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/SCORES.html");});	
 	} else if (window.location.href.match("#")){
 		const prefix = window.location.href.slice(window.location.href.indexOf("#")+1,window.location.href.indexOf("#")+2);
 		const linktoget = window.location.href.slice(window.location.href.lastIndexOf(prefix)+1,window.location.href.length);
@@ -83,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 window.addEventListener("click", function myFunction(e) {
 window.history.pushState({page: "reset"}, "reset URL", "blog.html");
-	//$("#nav-placeholder").load("nav.html");
 });
 </script>
 <span id="bottom"></span>
