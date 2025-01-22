@@ -1,0 +1,85 @@
+<div id="b76" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">ISSEditor 0.61b Released</span></h2>
+	<h5 class="subtitle">Stylable Soccer ~ Jan 22, 2025</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2025/ISSEditor/ISSE6.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">ISSEditor 0.61b Released</div></div>
+	<h4>Football Fanatics</h4>
+	<div class="titleUnderline"></div>
+	<p>A couple of months ago I contacted Nicola Cusano and Pedro Seidel over at the <a href="https://www.facebook.com/groups/InternationalSuperstarSoccer2000/" target="_blank">International Superstar Soccer Fans (Nintendo 64) Facebook group</a> regarding work on an editor they have been working on for <i>ISS 2000</i>. Now, they have updated the editor to version <a href="https://www.facebook.com/groups/InternationalSuperstarSoccer2000/permalink/4123135414587243/" target="_blank">0.61b</a>, a small bug fix for 0.60b, which was released in December.</p> 
+	<p>This wonderfully intuitive editor can easily modify a staggering number of options, including formations, tactics, and even your character's various skill attributes, temperament, ability in adverse weather conditions, balance, footwork, faces, hair colour, shirt number, name, shoes, and much more besides!</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>### Release BETA 0.61 Changelog ### 20/01/2025</b></p>
+	<p>Fixed Weak Foot Ability for right foot.</p>
+	<p>Little bug fixed</p>
+	<p><b>### Release BETA 0.6 Changelog ### 22/12/2024</b></p>
+	<p>Fixed bug on value editing. In some circumstances the editor reloaded the old values.</p>
+	<p>Fixed Yes-No-Cancel and a problem on change player/team selection. Now every button do the right things. Even if you change team.</p>
+	<p>Fixed Update of Set Piecer selection after editing. I forgot to do before first release.</p>
+	<p>Fixed a bug in Formation that didn't apply the correct color when changing the dot. Refactoring on certain rules and preloaded formation.</p>
+	<p>Re-added ROM name editing under the Text tab.</p>
+	<p>Full physical appareance editing!</p>
+	<p>You need to use a bit of "imagination" to understand the pairing, because I have only mapped one case (white skin/white hair). It would be impossible to map them all, as there are more than 200,000 images (400000 if consider J-League...)! They would also be unmanageable.</p>
+	<p>For the JPN version, there will still be some waiting. There are many difference compared to the International version regarding pictures, shoes and physical appearance. I'll have to start over with Cheat Engine!</p>
+	<p>I take this opportunity to wish you all happy holidays, I'm stopping for now with editing! Holidays!</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p>Using the editor, Nicola and Pedro have also painstakingly updated <i>International Superstar Soccer 2000</i> into "REAL International Superstar Soccer 2000 (USA) (En,Es) (Rev 1) v0.28" (at the time of writing) to feature real names, updated rosters, and 29 teams from the following places: EURO 2000 - All 16 Teams, Euro Qualification - Croatia, Ukraine, Russia, Copa America 1999 - Brazil, Argentina, Colombia, Uruguay, African Nations Cup 2000 - Cameroon, Nigeria, Confederations Cup 1999 - U.S.A., Mexico, Asian Nation Cup 2000 - Japan, Oceania Nation Cup 2000 - Australia. They have also crafted "ISS 2022", which features massively updated rosters and groups (63 in total), including Oceania: Australia, Fiji, Asia B: Saudi Arabia, Iraq, Qatar, Asia A: Japan, S.Korea, China, Concacaf: U.S.A., Canada, Mexico, Costa Rica, South America: Brazil, Argentina, Colombia, Uruguay, Paraguay   Bolivia, Chile, Peru, Venezuela, Ecuador, Africa: Cameroon, Nigeria, S.Africa, Tunisia, Morocco, Egypt, Liberia (Senegal), Algeria, Mali, Ghana, Europe A: Germany, France, Italy, Spain, Holland, Switzerland, Austria, Denmark , Belgium, Portugal, Luxembourg, Andorra, Liechtenstein, Europe B: England, Scotland, Wales, N.Ireland, Ireland, Sweden, Norway, Finland, Europe C: Yugoslavia, Croatia, Greece, Poland, Czech Rep., Slovakia, Macedonia, Europe D: Russia, Turkey, Ukraine.</p>
+	<p>Each version of the editor adds more features and tweaks to make the process easier and more granular. Just take a look at the level of detail the guys have gone to to build this incredible toolset:</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p>The famous byte 11 has been decrypted.</p>
+	<p>In ISS 2000, I can confirm that it does not serve any purpose, or rather, it would probably have been useful if they had acquired the licenses for the players. Here's how.</p>
+	<p>Byte 11 is used with byte 12 (which we know is also the jersey number byte). In the J-League version, they identify (together with byte 21, which relates to the photos) the pointer to the player's photo. I give you an example to explain how it works.</p>
+	<p>The first player of the first team has values 00 and 85 (55 in hexadecimal). Consider that the section reserved for the jersey number consists of 64 values, ranging from 0 to 63, although visually, the game only allows us to use numbers from 1 to 40 (+ for 0).</p>
+	<p>Therefore, for the jersey number, only the remainder of byte 12 is considered, specifically 85 mod 64. The first player actually has jersey number 21.</p>
+	<p>The rest is managed entirely for the player's photo. Thus, byte 11 is 00, and byte 12 should be considered as the integer division of 85 by 64, which results in 1.</p>
+	<p>The first pointer is 00 1X.</p>
+	<p>Examples:</p>
+	<p>1. Player 00 85 -> 00 (85/64 integer = 1) (85 mod 64 = 21) -> Photo pointer 00 1X - Jersey number 21</p>
+	<p>2. Player 00 130 -> 00 (130/64 integer = 2) (130 mod 64 = 2) -> Photo pointer 00 2X - Jersey number 2</p>
+	<p>3. Player 00 195 -> 00 (195/64 integer = 3) (195 mod 64 = 3) -> Photo pointer 00 3X - Jersey number 3</p>
+	<p>4. Player 01 04 -> 01 (4/64 integer = 0) (4 mod 64 = 4) -> Photo pointer 01 0X - Jersey number 4</p>
+	<p>and so on.</p>
+	<p>For this functionality, byte 21 must be set to 79; otherwise, it will use the classic photos we know from ISS 2000.</p>
+	<p>This feature will slightly delay the release of the editor. In fact, a version will be released very soon, but it will not yet include the J-League version.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+	<span align="center" width="100%">
+		<a target="_blank" href="Blog/Features/2025/ISSEditor/ISSE1.png"><img class="thumbnail" src="Blog/Features/2025/ISSEditor/ISSE1.png" width="32%" style="padding:auto"/></a>
+		<a target="_blank" href="Blog/Features/2025/ISSEditor/ISSE2.png"><img class="thumbnail" src="Blog/Features/2025/ISSEditor/ISSE2.png" width="32%" style="padding:auto"/></a>
+		<a target="_blank" href="Blog/Features/2025/ISSEditor/ISSE3.png"><img class="thumbnail" src="Blog/Features/2025/ISSEditor/ISSE3.png" width="32%" style="padding:auto"/></a>
+	</span>
+	</center>
+	<h4>Tactical Tweaking</h4>
+	<div class="titleUnderline"></div>
+	<p>Microsoft.NETCore.App version 8.0.0 or higher is required to run the editor, but once you have it up and running, you can open your ROM and get editing everything, including formations, tactics, and scenarios. The editor also automatically creates a backup (*.bak) of your ROM, should you make any changes you wish to revert to the stock settings.</p>
+	<p>Compatible ROMS:</p>
+	<ul>
+		<li>International Superstar Soccer 2000 (Europe) (En, De).z64 
+		<li>International Superstar Soccer 2000 (Europe) (Fr, It).z64 
+		<li>International Superstar Soccer 2000 (USA) (En, Es).z64 
+		<li>International Superstar Soccer 2000 (USA) (En, Es) (Rev 1).z64 
+		<li>Jikkyou J.League 1999 - Perfect Striker 2 (Japan).z64 - Coming Soon
+		<li>Jikkyou J.League 1999 - Perfect Striker 2 (Japan) (Rev 1).z64 - Coming Soon
+	</ul>
+		<center>
+	<span align="center" width="100%">
+		<a target="_blank" href="Blog/Features/2025/ISSEditor/ISSE4.png"><img class="thumbnail" src="Blog/Features/2025/ISSEditor/ISSE4.png" width="32%" style="padding:auto"/></a>
+		<a target="_blank" href="Blog/Features/2025/ISSEditor/ISSE5.png"><img class="thumbnail" src="Blog/Features/2025/ISSEditor/ISSE5.png" width="32%" style="padding:auto"/></a>
+		<a target="_blank" href="Blog/Features/2025/ISSEditor/ISSE6.png"><img class="thumbnail" src="Blog/Features/2025/ISSEditor/ISSE6.png" width="32%" style="padding:auto"/></a>
+	</span>
+	</center>
+	<p>Once you have your ROM tweaks in place, simply go to the TEXT option and name your ROM according to your changes; for example, every group and player could be edited to form the teams from the 1986 World Cup, with all their traits. Yeah, that was the one where Diego Maradona *cough* cheated *cough* (so set his handballing skills to the max) and then you could name the file "ISS2K: Mexico 86 Edition", and export the modded ROM, ready to play!</p>
+	<p>Notably, the Japanese equivalent of the game has not been granted compatibility yet, but it's only a matter of time, as Nicola and Pedro are making strides with each revision, so please check out the group if you want to follow their progress!</p>
+	<p class="subtitle"><i class="fa-brands fa-facebook"></i>&nbsp;<a href="https://www.facebook.com/groups/InternationalSuperstarSoccer2000/" target="_blank">ISS Fans (N64) Facebook Group</a>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://www.mediafire.com/file/t9ipsk3xeb0n2z5/ISSEditor_0.61.rar/file" target="_blank">ISSEditor 0.61 Beta</a></p>
+	<!--p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://www.mediafire.com/file/8xquawn8pv955pb/ISSEditor_0.6.rar/file" target="_blank">ISSEditor 0.60 Beta</a></p>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://www.mediafire.com/file/qbhs93soa0ce8uf/ISSEditor_0.5.rar/file" target="_blank">ISSEditor 0.50 Alpha</a></p-->
+	<span class="alignright">	
+	<a class="btn" onclick="copyLink(this.id);" target="_blank" id="copy" title="𝗖𝗢𝗣𝗬 𝗟𝗜𝗡𝗞"><i class="fa-solid fa-link"></i></a>
+	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="X" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗧𝗪𝗜𝗧𝗧𝗘𝗥"><i class="fa-brands fa-x-twitter"></i></a>
+	<a class="btnbs" onclick="sharePostBS(this.id);" target="_blank" id="BS" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗕𝗟𝗨𝗘𝗦𝗞𝗬"><i class="fa-brands fa-bluesky"></i></a>
+	<a class="btn" onclick="$(function(){$('#content-placeholder').load('postLinks.html');}); gototop();" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-house"></i></a>
+	</span>	
+</div>
