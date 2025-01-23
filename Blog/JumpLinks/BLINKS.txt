@@ -75,3 +75,4 @@ Blog/Features/2025/GENetplayCup/b73.html
 Blog/Features/2025/GoldenEyeX6a/b74.html
 Blog/Features/2025/GoemonRedub/b75.html
 Blog/Features/2025/ISSEditor/b76.html
+Blog/Features/2025/DidntRealise64/b77.html
