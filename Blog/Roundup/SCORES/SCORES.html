@@ -10,25 +10,31 @@
 	<p>The sole purpose of this page is to collate all reviews on this site into an easily readable tabular format, with a link to each review and a "X/10" overview of how they scored!</p>
 	<p>I've sorted them in the order of first down to worst, and hope that you enjoy them and feel compelled to share some of these with your friends and peers online too.</p>
 	<div class="bgChat" style="background-image:url('Blog/Roundup/SCORES/GAB.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">GAMES & BREW</div></div>
-	<br></br>
 	<center>
-	<table class="thintable">
+	<p></p>
+	<div style="width: 50%;text-align: center;"><button title="𝗦𝗢𝗥𝗧 𝗔-𝗭" style="display: inline-block;" onclick="sortGameTable();"><i class="fa-solid fa-arrow-down-a-z"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗦𝗖𝗢𝗥𝗘" style="display: inline-block;" onclick="sortGameTableScore();"><i class="fa-solid fa-arrow-down-9-1"></i></button></div>
+	<p></p>	
+	<table id="gametable" class="thintable">
 		<tr><th style="width:70%">GAME TITLE<th style="width:15%">LINK</th><th style="width:15%">SCORE</th></tr>
 		<tr><td>007 The World is Not Enough</td>									<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r24" target="_blank">HERE</a></td><td>8/10</td></tr>
 		<tr><td>1080° Snowboarding</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r25" target="_blank">HERE</a></td><td>7/10</td></tr>
 		<tr><td>64 Hanafuda Tenshi no Yakusoku</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r28" target="_blank">HERE</a></td><td>2/10</td></tr>
+		<tr><td>Zesticles</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r28" target="_blank">HERE</a></td><td>9.9/10</td></tr>
 	</table>
 	<p></p>
-	<table class="thintable">
+	<div style="width: 50%;text-align: center;"><button title="𝗦𝗢𝗥𝗧 𝗔-𝗭" style="display: inline-block;" onclick="sortBrewTable();"><i class="fa-solid fa-arrow-down-a-z"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗦𝗖𝗢𝗥𝗘" style="display: inline-block;" onclick="sortBrewTableScore();"><i class="fa-solid fa-arrow-down-9-1"></i></button></div>
+	<p></p>
+	<table id="brewtable" class="thintable">
 		<tr><th style="width:70%">BREW TITLE<th style="width:15%">LINK</th><th style="width:15%">SCORE</th></tr>
 		<tr><td>The Legend of Banjo-Kazooie The Bear Waker Deluxe</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r10" target="_blank">HERE</a></td><td>8/10</td></tr>
 		<tr><td>The Spy Who Loved Me 64 Demo V1</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r26" target="_blank">HERE</a></td><td>6/10</td></tr>
 		<tr><td>Tomorrow Never Dies Expanded</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r27" target="_blank">HERE</a></td><td>5/10</td></tr>
+		<tr><td>ZOLLOCKS</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r27" target="_blank">HERE</a></td><td>9.9/10</td></tr>
 	</table>	
 	<br></br>
 	<div class="bgChat" style="background-image:url('Blog/Roundup/SCORES/APS.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">ACCESSORIES</div></div>
-	<br></br>
-	<div style="width: 50%;text-align: center;"><button title="𝗦𝗢𝗥𝗧 𝗔-𝗭" style="display: inline-block;" onclick="sortTable();"><i class="fa-solid fa-arrow-down-a-z"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗦𝗖𝗢𝗥𝗘" style="display: inline-block;" onclick="sortTableScore();"><i class="fa-solid fa-arrow-down-9-1"></i></button></div>
+	<p></p>
+	<div style="width: 50%;text-align: center;"><button title="𝗦𝗢𝗥𝗧 𝗔-𝗭" style="display: inline-block;" onclick="table=document.getElementById('acctable'); sortTable();"><i class="fa-solid fa-arrow-down-a-z"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗦𝗖𝗢𝗥𝗘" style="display: inline-block;" onclick="table=document.getElementById('acctable'); sortTableScore();"><i class="fa-solid fa-arrow-down-9-1"></i></button></div>
 	<p></p>
 	<table id="acctable" class="thintable">
 		<tr><th style="width:70%">TITLE	<th style="width:15%">Link</th><th style="width:15%">Score</th></tr>
@@ -81,7 +87,7 @@
 	</span>
 	<script>
 	function sortTable() {
-	  var table, rows, switching, i, x, y, shouldSwitch;
+	var table, rows, switching, i, x, y, shouldSwitch;
 	  table = document.getElementById("acctable");
 	  switching = true;
 	  while (switching) {
@@ -102,8 +108,52 @@
 		}
 	  }
 	}
+	function sortGameTable() {
+	var tableg, rowsg, switchingg, ig, xg, yg, shouldSwitchg;
+	  tableg = document.getElementById("gametable");
+	  switchingg = true;
+	  while (switchingg) {
+		switchingg = false;
+		rowsg = tableg.rows;
+		for (ig = 1; ig < (rowsg.length - 1); ig++) {
+		  shouldSwitchg = false;
+		  xg = rowsg[ig].getElementsByTagName("TD")[0];
+		  yg = rowsg[ig + 1].getElementsByTagName("TD")[0];
+		  if (xg.innerHTML.toLowerCase() > yg.innerHTML.toLowerCase()) {
+			shouldSwitchg = true;
+			break;
+		  }
+		}
+		if (shouldSwitchg) {
+		  rowsg[ig].parentNode.insertBefore(rowsg[ig + 1], rowsg[ig]);
+		  switchingg = true;
+		}
+	  }
+	}
+	function sortBrewTable() {
+	var tableb, rowsb, switchingb, ib, xb, yb, shouldSwitchb;
+	  tableb = document.getElementById("brewtable");
+	  switchingb = true;
+	  while (switchingb) {
+		switchingb = false;
+		rowsb = tableb.rows;
+		for (ib = 1; ib < (rowsb.length - 1); ib++) {
+		  shouldSwitchb = false;
+		  xb = rowsb[ib].getElementsByTagName("TD")[0];
+		  yb = rowsb[ib + 1].getElementsByTagName("TD")[0];
+		  if (xb.innerHTML.toLowerCase() > yb.innerHTML.toLowerCase()) {
+			shouldSwitchb = true;
+			break;
+		  }
+		}
+		if (shouldSwitchb) {
+		  rowsb[ib].parentNode.insertBefore(rowsb[ib + 1], rowsb[ib]);
+		  switchingb = true;
+		}
+	  }
+	}
 	function sortTableScore() {
-	  var table, rows, switching, i, x, y, shouldSwitch;
+	var table, rows, switching, i, x, y, shouldSwitch;
 	  table = document.getElementById("acctable");
 	  switching = true;
 	  while (switching) {
@@ -121,6 +171,50 @@
 		if (shouldSwitch) {
 		  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 		  switching = true;
+		}
+	  }
+	}
+	function sortGameTableScore() {
+	var tableg, rowsg, switchingg, ig, xg, yg, shouldSwitchg;
+	  tableg = document.getElementById("gametable");
+	  switchingg = true;
+	  while (switchingg) {
+		switchingg = false;
+		rowsg = tableg.rows;
+		for (ig = 1; ig < (rowsg.length - 1); ig++) {
+		  shouldSwitchg = false;
+		  xg = rowsg[ig].getElementsByTagName("TD")[2];
+		  yg = rowsg[ig + 1].getElementsByTagName("TD")[2];
+		  if (xg.innerHTML.toLowerCase() < yg.innerHTML.toLowerCase()) {
+			shouldSwitchg = true;
+			break;
+		  }
+		}
+		if (shouldSwitchg) {
+		  rowsg[ig].parentNode.insertBefore(rowsg[ig + 1], rowsg[ig]);
+		  switchingg = true;
+		}
+	  }
+	}
+	function sortBrewTableScore() {
+	var tableb, rowsb, switchingb, ib, xb, yb, shouldSwitchb;
+	  tableb = document.getElementById("brewtable");
+	  switchingb = true;
+	  while (switchingb) {
+		switchingb = false;
+		rowsb = tableb.rows;
+		for (ib = 1; ib < (rowsb.length - 1); ib++) {
+		  shouldSwitchb = false;
+		  xb = rowsb[ib].getElementsByTagName("TD")[2];
+		  yb = rowsb[ib + 1].getElementsByTagName("TD")[2];
+		  if (xb.innerHTML.toLowerCase() < yb.innerHTML.toLowerCase()) {
+			shouldSwitchb = true;
+			break;
+		  }
+		}
+		if (shouldSwitchb) {
+		  rowsb[ib].parentNode.insertBefore(rowsb[ib + 1], rowsb[ib]);
+		  switchingb = true;
 		}
 	  }
 	}
