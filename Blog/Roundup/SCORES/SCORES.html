@@ -13,11 +13,14 @@
 	<br></br>
 	<center>
 	<table class="thintable">
-		<tr><th>GAME TITLE<th>LINK</th><th>SCORE</th></tr>
+		<tr><th style="width:70%">GAME TITLE<th style="width:15%">LINK</th><th style="width:15%">SCORE</th></tr>
 		<tr><td>007 The World is Not Enough</td>									<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r24" target="_blank">HERE</a></td><td>8/10</td></tr>
-		<tr><td>1080° Snowboarding</td>												<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r25" target="_blank">HERE</a></td><td>7/10</td></tr>
-		<tr><th>&nbsp;<th>&nbsp;</th><th>&nbsp;</th></tr>
-		<tr><th>HOMEBREW TITLE<th>LINK</th><th>SCORE</th></tr>
+		<tr><td>1080° Snowboarding</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r25" target="_blank">HERE</a></td><td>7/10</td></tr>
+		<tr><td>64 Hanafuda Tenshi no Yakusoku</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r28" target="_blank">HERE</a></td><td>2/10</td></tr>
+	</table>
+	<p></p>
+	<table class="thintable">
+		<tr><th style="width:70%">BREW TITLE<th style="width:15%">LINK</th><th style="width:15%">SCORE</th></tr>
 		<tr><td>The Legend of Banjo-Kazooie The Bear Waker Deluxe</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r10" target="_blank">HERE</a></td><td>8/10</td></tr>
 		<tr><td>The Spy Who Loved Me 64 Demo V1</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r26" target="_blank">HERE</a></td><td>6/10</td></tr>
 		<tr><td>Tomorrow Never Dies Expanded</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r27" target="_blank">HERE</a></td><td>5/10</td></tr>
@@ -25,8 +28,10 @@
 	<br></br>
 	<div class="bgChat" style="background-image:url('Blog/Roundup/SCORES/APS.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">ACCESSORIES</div></div>
 	<br></br>
-	<table class="thintable">
-		<tr><th>TITLE	<th>Link</th><th>Score</th></tr>
+	<div style="width: 50%;text-align: center;"><button title="𝗦𝗢𝗥𝗧 𝗔-𝗭" style="display: inline-block;" onclick="sortTable();"><i class="fa-solid fa-arrow-down-a-z"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗦𝗖𝗢𝗥𝗘" style="display: inline-block;" onclick="sortTableScore();"><i class="fa-solid fa-arrow-down-9-1"></i></button></div>
+	<p></p>
+	<table id="acctable" class="thintable">
+		<tr><th style="width:70%">TITLE	<th style="width:15%">Link</th><th style="width:15%">Score</th></tr>
 		<tr><td>SummerCart64</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r2" target="_blank">HERE</a></td><td>9/10</td></tr>
 		<tr><td>Ascii Tsuricon</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r15" target="_blank">HERE</a></td><td>9/10</td></tr>
 		<tr><td>Hyperkin Hall Effect Joystick</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r18" target="_blank">HERE</a></td><td>9/10</td></tr>
@@ -73,5 +78,51 @@
 	<a class="btnx" onclick="sharePost(this.id);" target="_blank" id="X" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗧𝗪𝗜𝗧𝗧𝗘𝗥"><i class="fa-brands fa-x-twitter"></i></a>
 	<a class="btnbs" onclick="sharePostBS(this.id);" target="_blank" id="BS" title="𝗦𝗛𝗔𝗥𝗘 𝗧𝗢 𝗕𝗟𝗨𝗘𝗦𝗞𝗬"><i class="fa-brands fa-bluesky"></i></a>
 	<a class="btn" onclick="$(function(){$('#content-placeholder').load('postLinks.html');}); gototop();" title="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗢𝗠𝗘"><i class="fa-solid fa-house"></i></a>
-	</span>		
+	</span>
+	<script>
+	function sortTable() {
+	  var table, rows, switching, i, x, y, shouldSwitch;
+	  table = document.getElementById("acctable");
+	  switching = true;
+	  while (switching) {
+		switching = false;
+		rows = table.rows;
+		for (i = 1; i < (rows.length - 1); i++) {
+		  shouldSwitch = false;
+		  x = rows[i].getElementsByTagName("TD")[0];
+		  y = rows[i + 1].getElementsByTagName("TD")[0];
+		  if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+			shouldSwitch = true;
+			break;
+		  }
+		}
+		if (shouldSwitch) {
+		  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		  switching = true;
+		}
+	  }
+	}
+	function sortTableScore() {
+	  var table, rows, switching, i, x, y, shouldSwitch;
+	  table = document.getElementById("acctable");
+	  switching = true;
+	  while (switching) {
+		switching = false;
+		rows = table.rows;
+		for (i = 1; i < (rows.length - 1); i++) {
+		  shouldSwitch = false;
+		  x = rows[i].getElementsByTagName("TD")[2];
+		  y = rows[i + 1].getElementsByTagName("TD")[2];
+		  if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+			shouldSwitch = true;
+			break;
+		  }
+		}
+		if (shouldSwitch) {
+		  rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		  switching = true;
+		}
+	  }
+	}
+	</script>
 </div>
