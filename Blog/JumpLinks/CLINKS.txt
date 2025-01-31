@@ -22,3 +22,4 @@ Blog/Avatars/DerekTurtleRoe.html
 Blog/Avatars/SuperPod.html
 Blog/Avatars/Flashback64.html
 Blog/Avatars/Syncoplay.html
+Blog/Avatars/Elarix.html
