@@ -78,3 +78,4 @@ Blog/Features/2025/ISSEditor/b76.html
 Blog/Features/2025/DidntRealise64/b77.html
 Blog/Features/2025/GE007BETA/b78.html
 Blog/Features/2025/RR64NSO/b79.html
+Blog/Features/2025/8BitDo64Delayed/b80.html
