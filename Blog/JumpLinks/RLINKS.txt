@@ -28,3 +28,4 @@ Blog/Reviews/Games/TSWLM/r26.html
 Blog/Reviews/Games/TNDE/r27.html
 Blog/Reviews/Games/64HANAFUDA/r28.html
 Blog/Reviews/GamesterG64/r29.html
+Blog/Reviews/Games/64SUMO/r30.html
