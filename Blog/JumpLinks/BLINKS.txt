@@ -82,3 +82,4 @@ Blog/Features/2025/8BitDo64Delay/b80.html
 Blog/Features/2025/GENetplayCup/b81.html
 Blog/Features/2025/POTWHandheldN64/b82.html
 Blog/Features/2025/MariosModules/b83.html
+Blog/Features/2025/KazooiePuppet/b84.html
