@@ -607,6 +607,19 @@ button {
 .storecard button:hover {
   opacity: 0.7;
 }
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #04AA6D;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
 /* if screen is < 800px wide columns stack */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {

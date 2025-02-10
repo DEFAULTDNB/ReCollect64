@@ -1,5 +1,21 @@
+<script>
+	var played = 5;
+	recentReview.src = "Carts/J/64 Oozumou 2 J.png";
+	recentReview.title = "Oozumou 2";
+	recentReview.style.width = "100%";
+</script>
 <div class="row">
 	<div id="latest" class="leftcolumn">
+	
+	<div id="r33" class="card">
+		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 33</span></h2>
+		<h5 class="subtitle">Portal 64 V0.15.0 (DEMO) ~ Feb 10, 2025</h5>
+		<div class="bgChat" style="background-image:url('Blog/Reviews/Games/PORTAL64/P64.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">PORTAL 64</div></div>
+		<p>Portal is one of my all-time favourite games, encompassing puzzle elements within a first-person shooter/platformer.</p>
+		<span class="alignright">
+		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Reviews/Games/PORTAL64/r33.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
+		</span>
+	</div>
 	
 	<div id="b84" class="card">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Kazooie Puppet Found!</span></h2>
@@ -1430,12 +1446,42 @@
 	<script>
 	var f = Math.floor(Math.random() * 9) + 1;
 	document.getElementById("recentFrameGame").src="Blog/Store/Frames/F"+f+".png";
+	var playedpercent = 100/388;
+	let pcalculated = Number(playedpercent * played);	
+	var i = 0;
+	if (i == 0) {
+		i = 1;
+		var elem = document.getElementById("myBar");
+		var width = 0;
+		var id = setInterval(frame, 10);
+		function frame() {
+		  if (width >= pcalculated) { //here
+			clearInterval(id);
+			i = 0;
+		  } else {
+			width++;
+			elem.style.width = width + "%";
+			elem.innerHTML = played + "/388";
+		  }
+		}
+	}
 	</script>
+		<div class="rcard" >
+			<div class="badge audio"><i class="fa-solid fa-gamepad"></i> REVIEWED</div>
+			<center><h3 class="smalltitle"><span>RECENTLY REVIEWED:</span></h3>
+			<img id="recentReview"/></center>
+			<div title="𝗚𝗔𝗠𝗘𝗦 𝗥𝗘𝗩𝗜𝗘𝗪𝗘𝗗 𝗙𝗥𝗢𝗠 𝗧𝗛𝗘 𝟯𝟴𝟴 𝗪𝗢𝗥𝗟𝗗 𝗦𝗘𝗧" id="myProgress"><div id="myBar">0/388</div></div>
+			<center><div class="badge controls control"  title="𝗥𝗘𝗔𝗗 𝗥𝗘𝗩𝗜𝗘𝗪𝗦" onclick="$(function(){$('#content-placeholder').load('Blog/Roundup/SCORES/SCORES.html');}); gototop();"><i class="fa-solid fa-magnifying-glass-plus"></i> REVIEWS</div></center>
+		</div>
+	
 		<div class="rcard">
 			<div class="badge store"><i class="fa-solid fa-cart-shopping"></i> STORE</div>
 			<center><h3 class="smalltitle"><span>RECENTLY ADDED:</span></h3></center>
-				<a title="𝗩𝗜𝗦𝗜𝗧 𝗧𝗛𝗘 𝗦𝗧𝗢𝗥𝗘" href="blog.html#s1" target="_blank"><img id="recentFrameGame" width="100%" src="Blog/Store/Frames/F5.png" /></a>
-			</div>
+			<img id="recentFrameGame" width="100%" src="Blog/Store/Frames/F5.png" />
+			<center>
+			<p><div  class="badge controls control"  title="𝗩𝗜𝗦𝗜𝗧 𝗧𝗛𝗘 𝗦𝗧𝗢𝗥𝗘" onclick="$(function(){$('#content-placeholder').load('Blog/Store/Frames/s1.html');}); gototop();"><i class="fa-solid fa-cart-shopping"></i> STORE</div></p>
+			</center>
+		</div>
 		
 		<div class="rcard">
 			<div class="badge hot"><i class="fa-solid fa-calendar-days"></i> FEBRUARY</div>
