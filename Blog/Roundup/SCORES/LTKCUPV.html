@@ -10,89 +10,177 @@
 	<div style="width: 50%;text-align: center;"><button title="𝗦𝗢𝗥𝗧 𝗡𝗔𝗠𝗘" style="display: inline-block;" onclick="sortTable();"><i class="fa-solid fa-arrow-down-a-z"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗖𝗢𝗨𝗡𝗧𝗥𝗬" style="display: inline-block;" onclick="sortTableCountry();"><i class="fa-solid fa-globe"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗖𝗛𝗔𝗥𝗔𝗖𝗧𝗘𝗥" style="display: inline-block;" onclick="sortTableCharacter();"><i class="fa-solid fa-user-plus"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗦𝗧𝗬𝗟𝗘" style="display: inline-block;" onclick="sortTableStyle();"><i class="fa-solid fa-gamepad"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗪𝗜𝗡𝗦" style="display: inline-block;" onclick="sortTableScore();"><i class="fa-solid fa-arrow-down-9-1"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗞𝗜𝗟𝗟𝗦" style="display: inline-block;" onclick="sortTableKills();"><i class="fa-solid fa-crosshairs"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗗𝗘𝗔𝗧𝗛𝗦" style="display: inline-block;" onclick="sortTableDeaths();"><i class="fa-solid fa-skull"></i></button></div>
 	<p></p>	
 	<table id="LTKtable" class="thintable">
-		<tr><th style="width:10%">Seed</th><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Draw</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
-		<tr><td>1</td><td>Graslu00</td><td>🇪🇸</td><td>Ourumov</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>2</td><td>Robbie</td><td>🇺🇸</td><td>Mishkin</td><td>1.1 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>3</td><td>TH126</td><td>🇺🇸</td><td>Trevelyan</td><td>1.2 Inverted</td><td>1</td><td>0</td><td>0</td><td>20</td><td>7</td></tr>
-		<tr><td>4</td><td>AXDOOMER</td><td>🇨🇦</td><td>Janus Special Forces</td><td>1.2 Upright</td><td>1</td><td>0</td><td>0</td><td>20</td><td>3</td></tr>
-		<tr><td>5</td><td>David Skedar Warrior</td><td>🇨🇴</td><td>Moonraker Elite Male</td><td>1.2 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>6</td><td>EternallyAries</td><td>🇺🇸</td><td>Trevelyan</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>0</td><td>11</td><td>13</td></tr>
-		<tr><td>7</td><td>Giller</td><td>🇺🇸</td><td>Trevelyan</td><td>1.1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>8</td><td>CptLima</td><td>🇺🇸</td><td>St. Petersburg Guard</td><td>1.1 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>9</td><td>WilmerWaves 64</td><td>🇨🇴</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>10</td><td>JCR</td><td>🇬🇧</td><td>Natalya</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>0</td><td>2</td><td>15</td></tr>
-		<tr><td>11</td><td>Justase</td><td>🇺🇸</td><td>Xenia</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>0</td><td>9</td><td>14</td></tr>
-		<tr><td>12</td><td>ChechoL002</td><td>🇨🇴</td><td>Bond</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>13</td><td>Sumbigboi</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>14</td><td>ShootersForever64</td><td>🇬🇧</td><td>Trevelyan</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>15</td><td>Horse</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>1</td><td>0</td><td>2</td><td>11</td></tr>
-		<tr><td>16</td><td>TurboChickenMan</td><td>🇨🇦</td><td>Syberian Special Forces</td><td>1.1 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td></td><td>Timtamz</td><td>🇸🇪</td><td>Trevelyan</td><td>1.2 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td></td><td>Scott</td><td>🇺🇸</td><td>Natalya</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>0</td><td>7</td><td>15</td></tr>
-		<tr><td></td><td>Adzyln3D</td><td>🇦🇺</td><td>Syberian Special Forces</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td></td><td>Cagt</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>1</td><td>0</td><td>0</td><td>20</td><td>7</td></tr>
-		<tr><td></td><td>brandonlooneytunesfan2000</td><td>🇺🇸</td><td>Jungle Commando</td><td>1.1 Upright</td><td>0</td><td>1</td><td>0</td><td>3</td><td>11</td></tr>
-		<tr><td></td><td>Metalhero Forever</td><td>🇨🇴</td><td>Bond</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><th style="width:10%">Seed</th><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>1</td><td>Graslu00</td><td>🇪🇸</td><td>Ourumov</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td>2</td><td>Robbie</td><td>🇺🇸</td><td>Mishkin</td><td>1.1 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td>3</td><td>TH126</td><td>🇺🇸</td><td>Trevelyan</td><td>1.2 Inverted</td><td>1</td><td>0</td><td>20</td><td>7</td></tr>
+		<tr><td>4</td><td>AXDOOMER</td><td>🇨🇦</td><td>Janus Special Forces</td><td>1.2 Upright</td><td>1</td><td>0</td><td>20</td><td>3</td></tr>
+		<tr><td>5</td><td>David Skedar Warrior</td><td>🇨🇴</td><td>Moonraker Elite Male</td><td>1.2 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td>6</td><td>EternallyAries</td><td>🇺🇸</td><td>Trevelyan</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>11</td><td>13</td></tr>
+		<tr><td>7</td><td>Giller</td><td>🇺🇸</td><td>Trevelyan</td><td>1.1 (Unknown)</td><td>0</td><td>1</td><td>12</td><td>19</td></tr>
+		<tr><td>8</td><td>CptLima</td><td>🇺🇸</td><td>St. Petersburg Guard</td><td>1.1 Upright</td><td>0</td><td>1</td><td>16</td><td>14</td></tr>
+		<tr><td>9</td><td>WilmerWaves 64</td><td>🇨🇴</td><td>Boris</td><td>1.2 Upright</td><td>1</td><td>0</td><td>20</td><td>11</td></tr>
+		<tr><td>10</td><td>JCR</td><td>🇬🇧</td><td>Natalya</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>2</td><td>15</td></tr>
+		<tr><td>11</td><td>Justase</td><td>🇺🇸</td><td>Xenia</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>9</td><td>14</td></tr>
+		<tr><td>12</td><td>ChechoL002</td><td>🇨🇴</td><td>Bond</td><td>1.2 Upright</td><td>0</td><td>1</td><td>14</td><td>15</td></tr>
+		<tr><td>13</td><td>Sumbigboi</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>1</td><td>13</td><td>16</td></tr>
+		<tr><td>14</td><td>ShootersForever64</td><td>🇬🇧</td><td>Trevelyan</td><td>1.2 Upright</td><td>0</td><td>1</td><td>9</td><td>17</td></tr>
+		<tr><td>15</td><td>Horse</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>1</td><td>2</td><td>11</td></tr>
+		<tr><td>16</td><td>TurboChickenMan</td><td>🇨🇦</td><td>Syberian Special Forces</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>9</td><td>17</td></tr>
+		<tr><td>17</td><td>Timtamz</td><td>🇸🇪</td><td>Trevelyan</td><td>1.2 Inverted</td><td>1</td><td>0</td><td>20</td><td>14</td></tr>
+		<tr><td>18</td><td>Scott</td><td>🇺🇸</td><td>Natalya</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>7</td><td>15</td></tr>
+		<tr><td>19</td><td>AdzyIn3D</td><td>🇦🇺</td><td>Syberian Special Forces</td><td>1.2 Upright</td><td>1</td><td>0</td><td>20</td><td>10</td></tr>
+		<tr><td>20</td><td>Cagt</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>1</td><td>0</td><td>20</td><td>7</td></tr>
+		<tr><td>21</td><td>brandonlooneytunesfan2000</td><td>🇺🇸</td><td>Jungle Commando</td><td>1.1 Upright</td><td>0</td><td>1</td><td>3</td><td>11</td></tr>
+		<tr><td>22</td><td>Grim</td><td>🇺🇸</td><td>Syberian Special Forces</td><td>1.2 (Unknown)</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
 	</table>
+	<p>Note: Metalhero Forever replaced by Grim as 22nd seed (due to eligibility).</p>
 	<p></p>
+	<h4>GROUP STAGES:</h4>
+	<div class="titleUnderline"></div>
 	<h5 class="subtitle">GROUP A: (CAVES)</h5>
 	<table>
-	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Draw</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
-		<tr><td>AXDOOMER (1st)</td><td>🇨🇦</td><td>Janus Special Forces</td><td>1.2 Upright</td><td>1</td><td>0</td><td>0</td><td>20</td><td>3</td></tr>
-		<tr><td>Horse (3rd)</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>1</td><td>0</td><td>2</td><td>11</td></tr>
-		<tr><td>brandonlooneytunesfan2000 (2nd)</td><td>🇺🇸</td><td>Jungle Commando</td><td>1.1 Upright</td><td>0</td><td>1</td><td>0</td><td>3</td><td>11</td></tr>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td style="background-color: lime;">AXDOOMER (1st)</td><td>🇨🇦</td><td>Janus Special Forces</td><td>1.2 Upright</td><td>1</td><td>0</td><td>20</td><td>3</td></tr>
+		<tr><td>Horse (3rd)</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>1</td><td>2</td><td>11</td></tr>
+		<tr><td>brandonlooneytunesfan2000 (2nd)</td><td>🇺🇸</td><td>Jungle Commando</td><td>1.1 Upright</td><td>0</td><td>1</td><td>3</td><td>11</td></tr>
 	</table>
 	<p></p>
-	<h5 class="subtitle">GROUP B:</h5>
+	<h5 class="subtitle">GROUP B: (LIBRARY)</h5>
 	<table>
-	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Draw</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
-		<tr><td>CptLima</td><td>🇺🇸</td><td>St. Petersburg Guard</td><td>1.1 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>Timtamz</td><td>🇸🇪</td><td>Trevelyan</td><td>1.2 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>ShootersForever64</td><td>🇬🇧</td><td>Trevelyan</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>CptLima (2nd)</td><td>🇺🇸</td><td>St. Petersburg Guard</td><td>1.1 Upright</td><td>0</td><td>1</td><td>16</td><td>14</td></tr>
+		<tr><td style="background-color: lime;">Timtamz</td><td>🇸🇪</td><td>Trevelyan</td><td>1.2 Inverted</td><td>1</td><td>0</td><td>20</td><td>14</td></tr>
+		<tr><td>ShootersForever64 (3rd)</td><td>🇬🇧</td><td>Trevelyan</td><td>1.2 Upright</td><td>0</td><td>1</td><td>9</td><td>17</td></tr>
 	</table>
 	<p></p>
-	<h5 class="subtitle">GROUP C:</h5>
+	<h5 class="subtitle">GROUP C: (BUNKER)</h5>
 	<table>
-	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Draw</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
-		<tr><td>Giller</td><td>🇺🇸</td><td>Trevelyan</td><td>1.1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>Adzyln3D</td><td>🇦🇺</td><td>Syberian Special Forces</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>Sumbigboi</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>Giller (3rd)</td><td>🇺🇸</td><td>Trevelyan</td><td>1.1 (Unknown)</td><td>0</td><td>1</td><td>12</td><td>19</td></tr>
+		<tr><td style="background-color: lime;">AdzyIn3D (1st)</td><td>🇦🇺</td><td>Syberian Special Forces</td><td>1.2 Upright</td><td>1</td><td>0</td><td>20</td><td>10</td></tr>
+		<tr><td>Sumbigboi (2nd)</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>1</td><td>13</td><td>16</td></tr>
 	</table>
 	<p></p>
 	<h5 class="subtitle">GROUP D: (ARCHIVES)</h5>
 	<table>
-	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Draw</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
-		<tr><td>EternallyAries  (2nd)</td><td>🇺🇸</td><td>Trevelyan</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>0</td><td>11</td><td>13</td></tr>
-		<tr><td>JCR (3rd)</td><td>🇬🇧</td><td>Natalya</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>0</td><td>2</td><td>15</td></tr>
-		<tr><td>Cagt (1st)</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>1</td><td>0</td><td>0</td><td>20</td><td>7</td></tr>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>EternallyAries  (2nd)</td><td>🇺🇸</td><td>Trevelyan</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>11</td><td>13</td></tr>
+		<tr><td>JCR (3rd)</td><td>🇬🇧</td><td>Natalya</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>2</td><td>15</td></tr>
+		<tr><td style="background-color: lime;">Cagt (1st)</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>1</td><td>0</td><td>20</td><td>7</td></tr>
 	</table>
 	<p></p>
 	<h5 class="subtitle">GROUP E: (FACILITY)</h5>
 	<table>
-	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Draw</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
-		<tr><td>TH126 (1st)</td><td>🇺🇸</td><td>Trevelyan</td><td>1.2 Inverted</td><td>1</td><td>0</td><td>0</td><td>20</td><td>7</td></tr>
-		<tr><td>Scott (2nd)</td><td>🇺🇸</td><td>Natalya</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>0</td><td>9</td><td>14</td></tr>
-		<tr><td>Justase (3rd)</td><td>🇺🇸</td><td>Xenia</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>0</td><td>7</td><td>15</td></tr>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td style="background-color: lime;">TH126 (1st)</td><td>🇺🇸</td><td>Trevelyan</td><td>1.2 Inverted</td><td>1</td><td>0</td><td>20</td><td>7</td></tr>
+		<tr><td>Scott (2nd)</td><td>🇺🇸</td><td>Natalya</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>9</td><td>14</td></tr>
+		<tr><td>Justase (3rd)</td><td>🇺🇸</td><td>Xenia</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>7</td><td>15</td></tr>
 	</table>
 	<p></p>
-	<h5 class="subtitle">GROUP F:</h5>
+	<h5 class="subtitle">GROUP F: (BASEMENT)</h5>
 	<table>
-	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Draw</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
-		<tr><td>WilmerWaves 64</td><td>🇨🇴</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>ChechoL002</td><td>🇨🇴</td><td>Bond</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>TurboChickenMan</td><td>🇨🇦</td><td>Syberian Special Forces</td><td>1.1 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td style="background-color: lime;">WilmerWaves 64 (1st)</td><td>🇨🇴</td><td>Boris</td><td>1.2 Upright</td><td>1</td><td>0</td><td>20</td><td>11</td></tr>
+		<tr><td>ChechoL002 (2nd)</td><td>🇨🇴</td><td>Bond</td><td>1.2 Upright</td><td>0</td><td>1</td><td>14</td><td>15</td></tr>
+		<tr><td>TurboChickenMan (3rd)</td><td>🇨🇦</td><td>Syberian Special Forces</td><td>1.1 Inverted</td><td>0</td><td>1</td><td>9</td><td>17</td></tr>
 	</table>
 	<p></p>
-	<h5 class="subtitle">BYES:</h5>
+	<h5 class="subtitle">BYES:</h5>	
+	<table class="thintable">
+		<tr><th style="width:10%">Seed</th><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th></tr>
+		<tr><td>1</td><td>Graslu00</td><td>🇪🇸</td><td>Ourumov</td><td>1.2 Upright</td></tr>
+		<tr><td>2</td><td>Robbie</td><td>🇺🇸</td><td>Mishkin</td><td>1.1 Inverted</td></tr>
+		<tr><td>5</td><td>David Skedar Warrior</td><td>🇨🇴</td><td>Moonraker Elite Male</td><td>1.2 Inverted</td></tr>
+		<tr><td>22</td><td>Grim</td><td>🇺🇸</td><td>Syberian Special Forces</td><td>1.2 (Unknown)</td></tr>
+	</table>
+	<h4>ROUND 16</h4>
+	<div class="titleUnderline"></div>
+	<h5 class="subtitle">R1: </h5>
 	<table>
-	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Draw</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
-		<tr><td>Graslu00</td><td>🇪🇸</td><td>Ourumov</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>Robbie</td><td>🇺🇸</td><td>Mishkin</td><td>1.1 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-		<tr><td>David Skedar Warrior</td><td>🇨🇴</td><td>Moonraker Elite Male</td><td>1.2 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>Graslu00</td><td>🇪🇸</td><td>Ourumov</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h5 class="subtitle">R2: </h5>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>AdzyIn3D</td><td>🇦🇺</td><td>Syberian Special Forces</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td>WilmerWaves 64</td><td>🇨🇴</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h5 class="subtitle">R3: </h5>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>Grim</td><td>🇺🇸</td><td>Siberian Special Forces</td><td>1.2 (Unknown)</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h5 class="subtitle">R4: </h5>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>AXDOOMER</td><td>🇨🇦</td><td>Janus Special Forces</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h5 class="subtitle">R5: </h5>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>Robbie</td><td>🇺🇸</td><td>Mishkin</td><td>1.1 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h5 class="subtitle">R6: </h5>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>TH126</td><td>🇺🇸</td><td>Trevelyan</td><td>1.2 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td>Timtamz</td><td>🇸🇪</td><td>Trevelyan</td><td>1.2 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h5 class="subtitle">R7: </h5>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>David Skedar Warrior</td><td>🇨🇴</td><td>Moonraker Elite Male</td><td>1.2 Inverted</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h5 class="subtitle">R8: </h5>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td>Cagt</td><td>🇺🇸</td><td>Boris</td><td>1.2 Upright</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h4>QUATER FINALS:</h4>
+	<div class="titleUnderline"></div>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h4>SEMI FINALS</h4>
+	<div class="titleUnderline"></div>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h4>GRAND FINAL</h4>
+	<div class="titleUnderline"></div>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+	</table>
+	<h4>3RD PLACE MATCH</h4>
+	<div class="titleUnderline"></div>
+	<table>
+	<tr><th style="width:15%">NAME<th style="width:5%">Country</th><th style="width:10%">Character</th><th style="width:10%">Style</th><th style="width:5%">Win</th><th style="width:5%">Lose</th><th style="width:5%">Kills</th><th style="width:5%">Deaths</th></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+		<tr><td> </td><td></td><td> </td><td> </td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
 	</table>
 	</center>
-	<p>Note: Metalhero Forever will be 22nd seed if eligibility is determined.</p>
 	<p>Stats will be updated frequently, please check back regularly or consult TH126 on twitter for more information.</p>
+	<div class="info">
+	<p><strong>UPDATE 1:</strong> Metalhero Forever has been replaced by Grim as 22 seed.</p>
+	</div>
+	<div class="info">
+	<p><strong>UPDATE 2:</strong> TH126 has now added an official Challonge.com link, see below!</p>
+	</div>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://challonge.com/ltkcup5" target="_blank">TH126 on Challonge.com</a></p>
 	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com" target="_blank">Have I missed something? Let me know!</a></p>
 	<span class="alignright">	
 	<a class="btn" onclick="copyLink(this.id);" target="_blank" id="copy" title="𝗖𝗢𝗣𝗬 𝗟𝗜𝗡𝗞"><i class="fa-solid fa-link"></i></a>
@@ -221,8 +309,8 @@
 		rows = table.rows;
 		for (i = 1; i < (rows.length - 1); i++) {
 		  shouldSwitch = false;
-		  x = rows[i].getElementsByTagName("TD")[8];
-		  y = rows[i + 1].getElementsByTagName("TD")[8];
+		  x = rows[i].getElementsByTagName("TD")[7];
+		  y = rows[i + 1].getElementsByTagName("TD")[7];
 		  if (Number(x.innerHTML) < Number(y.innerHTML)) {
 			shouldSwitch = true;
 			break;
@@ -243,8 +331,8 @@
 		rows = table.rows;
 		for (i = 1; i < (rows.length - 1); i++) {
 		  shouldSwitch = false;
-		  x = rows[i].getElementsByTagName("TD")[9];
-		  y = rows[i + 1].getElementsByTagName("TD")[9];
+		  x = rows[i].getElementsByTagName("TD")[8];
+		  y = rows[i + 1].getElementsByTagName("TD")[8];
 		  if (Number(x.innerHTML) < Number(y.innerHTML)) {
 			shouldSwitch = true;
 			break;
