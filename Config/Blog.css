@@ -121,6 +121,14 @@ a .btn {
 	margin-top: 20px;
 	border-radius: 10px;
 }
+.scard {
+	float: right;
+	width: 217px;
+	background-color: white;
+	padding: 20px;
+	margin-top: 10px;
+	border-radius: 10px;
+}
 .control {
 	background-color: white;
 	padding: 20px;
@@ -376,7 +384,7 @@ tr:nth-child(odd) {
 }
 .video {
 	display: block;
-	width: 95%;
+	width: 80%;
 	height: 450px;
 	margin: auto; 
 }
