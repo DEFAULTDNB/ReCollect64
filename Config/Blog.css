@@ -147,7 +147,8 @@ a .btn {
 }
 .scard {
 	float: right;
-	width: 217px;
+	width: fit-content;
+    height: fit-content;
 	background-color: white;
 	padding: 20px;
 	margin-top: 10px;
@@ -517,6 +518,7 @@ button {
 	padding: 4px;
 	font-family: "Homenaje", sans-serif;
 	border-radius: 5px;
+	border: 1px solid black;
 }
 .btn:hover {
 	opacity: 0.7;
@@ -525,7 +527,7 @@ button {
 .btnx {
 	background-color: black;
 	color: white;
-	--border-radius:10px;
+	border-radius: 5px;
 	vertical-align: middle;
 	font-size: 30px;
 	height: 50px;
@@ -540,7 +542,8 @@ button {
 .btnbs {
 	background-color: WhiteSmoke;
 	color: rgba(8,134,254,255);
-	--border-radius:10px;
+	border-radius: 5px;
+	border: 1px solid black;
 	vertical-align: middle;
 	font-size: 30px;
 	height: 50px;
