@@ -4,9 +4,10 @@
 	overflow: hidden;
   	width: 100%;
 	margin: auto;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 10px 10px 5px rgba(0,0,0,0.5);
 	background: linear-gradient(90deg, rgba(128,128,128,1) 0%, rgba(10,10,10,1) 50%, rgba(128,128,128,1) 100%);
 	cursor: pointer;
+	--border-radius: 5px;
 }
 .navbar a {
 	float: left;
@@ -30,13 +31,14 @@
 }
 .subsubsubnav {
 	position: relative;
-	display: inline-block;
+	display: block; /* fixes gaps */
+	float: left; /* fixes gaps */
 	width: auto;
 	border: none;
 	outline: none;
 }
 .subnav .subnavbtn {
-	font-size: 16px;  
+	font-size: 1em;  
 	border: none;
 	outline: none;
 	color: white;
@@ -46,7 +48,7 @@
 	margin: 0;
 }
 .subsubnav .subsubnavbtn {
-	font-size: 16px;  
+	font-size: 1em;  
 	border: none;
 	outline: none;
 	color: white;
@@ -55,8 +57,7 @@
 	font-family: inherit;
 	margin: 0;
 }
-.subsubsubnav .subsubsubnavbtn { /*why do these have borders???*/
-	font-size: 1em;  
+.subsubsubnav .subsubsubnavbtn {
 	border: none;
 	outline: none;
 	color: white;
@@ -173,7 +174,7 @@
 							<a onclick="$(function(){$('#content-placeholder').load('Blog/Features/2025/8BitDo64Delay/b80.html');}); gototop();">8BitDo 64 Delayed</a>
 						</div>
 					</div>
-
+					
 				<div class="subsubsubnav">
 					<div class="subsubsubnavbtn" title="𝗖𝗟𝗜𝗖𝗞 𝗙𝗢𝗥 𝗥𝗢𝗨𝗡𝗗𝗨𝗣" onclick="$(function(){$('#content-placeholder').load('Blog/Roundup/2025/JANFEATURES.html');}); gototop();">JAN</div>
 						<div class="subsubsubnav-content splitcols">
@@ -549,8 +550,8 @@
 			<a title="𝗘𝗡𝗗 𝗢𝗙 𝗣𝗔𝗚𝗘" onclick="gotoend();"><i class="fa-solid fa-arrow-down"></i> END</a>
 		</div>
 	</div>
-  <!--a title="SEARCH" href="" target="_blank" style=""><i class="fa-solid fa-magnifying-glass"></i></a-->
-  <a title="𝗖𝗢𝗡𝗧𝗔𝗖𝗧" href="mailto:recollect64official@gmail.com" target="_blank" style="float:right"><i class="fa-solid fa-paper-plane"></i></a>
+    <a title="𝗖𝗢𝗡𝗧𝗔𝗖𝗧" href="mailto:recollect64official@gmail.com" target="_blank" style="float:right"><i class="fa-solid fa-paper-plane"></i></a>
+	<!--a title="𝗦𝗘𝗔𝗥𝗖𝗛" href="" target="_blank" style="float:right" onclick="window.prompt();"><i class="fa-solid fa-magnifying-glass"></i></a-->
 </div>
 <script>
 var searchArr = [];
