@@ -2,11 +2,41 @@
 	var played = 7;
 	recentReview.src = "Carts/J/64 de Hakken! Tamagotchi Minna de Tamagotchi World J.png";
 	recentReview.title = "64 Tamagotchi World";
+	var keyword = "";
+	var allCards = document.getElementsByClassName("card");
+	var arrayKeywords = [];
+	var lookupWords = [];
+	for (var i = 0; i < allCards.length; i++) {
+		if (allCards[i].getAttribute("data-keywords") == null) {
+		} else {
+			let linker = String(allCards[i].childNodes[9].children[0].onclick);
+			//(Keywords, ID, Article Name, Blog Link)
+			arrayKeywords.push(allCards[i].getAttribute("data-keywords"), "#"+allCards[i].id, allCards[i].childNodes[1].children[1].innerHTML, linker.slice(linker.indexOf("Blog"), linker.lastIndexOf("html")+4));
+		}
+	}
+	//alert(arrayKeywords)
+	function keywordSearch() {
+		lookupWords.length = 0; //clear array
+		keyword = prompt("Please enter a keyword (ex: Banjo, Emulator, Recomp)", "");
+			if (keyword == null || keyword == "") {
+			lookupWords.push(["Please enter keyword"]);
+			} else {
+			if (keyword != null) {
+				lookupWords.push(["POST ID","ARTICLE TITLE","PAGE LINK", "MATCHES"]);
+				for (var i = 0; i < arrayKeywords.length; i+=4) { //check against keywords only
+					if (arrayKeywords[i].match(RegExp(keyword, "gi"))){
+					lookupWords.push([arrayKeywords[i+1], arrayKeywords[i+2], arrayKeywords[i+3], arrayKeywords[i]]);
+					}
+				}
+			}
+			}
+		$(function(){$('#content-placeholder').load('results.html');}); gototop();
+		}
 </script>
 <div class="row" id="postlinkscheck">
 	<div id="latest" class="leftcolumn">
 	
-	<div id="b86" class="card">
+	<div id="b86" class="card" data-keywords="Project 64 Mupen Emulation">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Emulation Recommendations</span></h2>
 		<h5 class="subtitle">The Best Right Now ~ Feb 14, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/Emulation2025/E2025.png" alt="LN" class="center"/><div class="overlaytext">Emulation Recommendations</div></div>
@@ -16,7 +46,7 @@
 		</span>
 	</div>
 	
-	<div id="r35" class="card">
+	<div id="r35" class="card" data-keywords="Tamagotchi World Virtual Pet">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 35</span></h2>
 		<h5 class="subtitle">64 Tamagotchi World ~ Feb 12, 2025</h5>
 		<div class="bgChat" style="background-image:url('Covers/J/64 de Hakken! Tamagotchi Minna de Tamagotchi World J.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">64 Tamagotchi World</div></div>
@@ -26,7 +56,7 @@
 		</span>
 	</div>
 	
-	<div id="b85" class="card">
+	<div id="b85" class="card" data-keywords="Lodgenet Hotel Gateway">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">LodgeNet N64 System</span></h2>
 		<h5 class="subtitle">Room Service! ~ Feb 11, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/Lodgenet/LN.png" alt="LN" class="center"/><div class="overlaytext">LodgeNet N64 System</div></div>
@@ -36,7 +66,7 @@
 		</span>
 	</div>
 	
-	<div id="r34" class="card">
+	<div id="r34" class="card" data-keywords="Card Trump Alice">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 34</span></h2>
 		<h5 class="subtitle">64 Trump Collection ~ Feb 11, 2025</h5>
 		<div class="bgChat" style="background-image:url('Covers/J/64 Trump Collection Alice no Wakuwaku Trump World J.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">64 Trump Collection</div></div>
@@ -46,7 +76,7 @@
 		</span>
 	</div>
 	
-	<div id="r33" class="card">
+	<div id="r33" class="card" data-keywords="Portal 64 Demo Cancelled">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 33</span></h2>
 		<h5 class="subtitle">Portal 64 V0.15.0 (DEMO) ~ Feb 10, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Reviews/Games/PORTAL64/P64.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">PORTAL 64</div></div>
@@ -56,7 +86,7 @@
 		</span>
 	</div>
 	
-	<div id="b84" class="card">
+	<div id="b84" class="card" data-keywords="Banjo-Kazooie Puppet">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Kazooie Puppet Found!</span></h2>
 		<h5 class="subtitle">It's Been Squawkioned Off Too! ~ Feb 10, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/KazooiePuppet/KP.png" alt="KP" class="center"/><div class="overlaytext">Kazooie Puppet Found!</div></div>
@@ -66,7 +96,7 @@
 		</span>
 	</div>
 		
-	<div id="r32" class="card">
+	<div id="r32" class="card" data-keywords="The Legend of Zelda Ocarina of Time OOT ROM Hack The Legend of Peach Demo Melonspeedruns">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 32</span></h2>
 		<h5 class="subtitle">The Legend of Peach (DEMO) ~ Feb 9, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Reviews/Games/TLOZLOP/TLOZLOP1.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">The Legend of Peach</div></div>
@@ -76,7 +106,7 @@
 		</span>
 	</div>
 	
-	<div id="b83" class="card">
+	<div id="b83" class="card" data-keywords="Super Mario 64 SM64 ROM Hack Rovertronic">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Marios Modules Released!</span></h2>
 		<h5 class="subtitle">Old Plumber, New Tricks ~ Feb 8, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/MariosModules/MMs.png" alt="MM" class="center"/></div>
@@ -86,17 +116,17 @@
 		</span>
 	</div>
 	
-	<div id="c25" class="card">
+	<div id="c25" class="card" data-keywords="Eupholace Chat Q&A Tripps Voyage Dreams">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 25</span></h2>
 		<h5 class="subtitle">Eupholace! ~ Feb 8, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Banners/EupholaceBanner.png'); background-position: center; image-rendering: smooth;"></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Eupholace.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="r31" class="card">
+	<div id="r31" class="card" data-keywords="64 Sumo 64 2 64 Oozumou 2">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 31</span></h2>
 		<h5 class="subtitle">64 Oozumou 2 ~ Feb 7, 2025</h5>
 		<div class="bgChat" style="background-image:url('Covers/J/64 Oozumou 2 J.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">64 Oozumou 2</div></div>
@@ -106,7 +136,7 @@
 		</span>
 	</div>
 	
-	<div id="r30" class="card">
+	<div id="r30" class="card" data-keywords="64 Sumo 64 Oozumou">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 30</span></h2>
 		<h5 class="subtitle">64 Oozumou ~ Feb 6, 2025</h5>
 		<div class="bgChat" style="background-image:url('Covers/SEJ/64 Oozumou SEJ.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">64 Oozumou</div></div>
@@ -116,7 +146,7 @@
 		</span>
 	</div>
 	
-	<div id="r29" class="card">
+	<div id="r29" class="card" data-keywords="Gamester G64 Steering Wheel">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 29</span></h2>
 		<h5 class="subtitle">Gamester G64 Wheel ~ Feb 5, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/GamesterG64/G64.png" alt="GG64" class="center"/><div class="overlaytext">Gamester G64 Wheel</div></div>
@@ -126,7 +156,7 @@
 		</span>
 	</div>
 	
-	<div id="b82" class="card">
+	<div id="b82" class="card" data-keywords="Handheld Portable ProjectOfTheWeek">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Handheld N64 Spotted</span></h2>
 		<h5 class="subtitle">N-Sixty-Phwoar! ~ Feb 5, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/POTWHandheldN64/POTW.png" alt="POTW" class="center"/><div class="overlaytext">Handheld N64 Spotted</div></div>
@@ -136,7 +166,7 @@
 		</span>
 	</div>
 		
-	<div id="b81" class="card">
+	<div id="b81" class="card" data-keywords="GoldenEye 007 LTK CUP V Competition Graslu00 TH126 Updated">
 		<h2><span class="badge new">UPDATED</span> <span class="title">GE LTK Cup Draws</span></h2>
 		<h5 class="subtitle">Things are Heating up ~ Feb 4, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/GENetplayCup/LTKCV.png" alt="GENC" class="center"/></div>
@@ -146,7 +176,7 @@
 		</span>
 	</div>
 	
-	<div id="b80" class="card">
+	<div id="b80" class="card" data-keywords="8BitDo Delayed Analogue 3D FPGA">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">8BitDo 64 Delayed</span></h2>
 		<h5 class="subtitle">What's The Hold up? ~ Feb 1, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/8BitDo64Delay/A3D.png" alt="8BD64" class="center"/><div class="overlaytext">8BitDo 64 Delayed</div></div>
@@ -156,17 +186,17 @@
 		</span>
 	</div>
 	
-	<div id="c24" class="card">
+	<div id="c24" class="card" data-keywords="Elarix Star Fox Chat Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 24</span></h2>
 		<h5 class="subtitle">Elarix! ~ Jan 31, 2025</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Star Fox 64 U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Elarix</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Elarix.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b79" class="card">
+	<div id="b79" class="card" data-keywords="Ridge Racer 64 NSO Nintendo Switch Online">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Ridge Racer 64 Joins NSO!</span></h2>
 		<h5 class="subtitle">Start Your Engines! ~ Jan 31, 2025</h5>
 		<div class="bgBanner"><img src="Carts/U/RR64 Ridge Racer 64 U.png" alt="RR64NSO" class="center"/><div class="overlaytext">Ridge Racer 64 Joins NSO!</div></div>
@@ -176,7 +206,7 @@
 		</span>
 	</div>
 	
-	<div id="r28" class="card">
+	<div id="r28" class="card" data-keywords="64 Hanafuda Card">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 28</span></h2>
 		<h5 class="subtitle">64 Hanafuda Tenshi no Yakusoku ~ Jan 30, 2025</h5>
 		<div class="bgChat" style="background-image:url('Covers/J/64 Hanafuda Tenshi no Yakusoku J.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">64 Hanafuda: Tenshi no Yakusoku</div></div>
@@ -186,7 +216,7 @@
 		</span>
 	</div>
 	
-	<div id="b78" class="card">
+	<div id="b78" class="card" data-keywords="GoldenEye 007 Betas">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">GoldenEye 007 Betas</span> </h2>
 		<h5 class="subtitle">The Evolution of a Classic ~ Jan 28, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Features/2025/GE007BETA/GE64B.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">GoldenEye 007 Betas</div></div>
@@ -196,7 +226,7 @@
 		</span>
 	</div>
 	
-	<div id="r27" class="card">
+	<div id="r27" class="card" data-keywords="Tomorrow Never Dies 64 Expanded GoldenEye 007 ROM Hack">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 27</span></h2>
 		<h5 class="subtitle">Tomorrow Never Dies 64 Expanded ~ Jan 24, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Reviews/Games/TNDE/TNDE.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Tomorrow Never Dies 64</div></div>
@@ -206,7 +236,7 @@
 		</span>
 	</div>
 	
-	<div id="b77" class="card">
+	<div id="b77" class="card" data-keywords="Unknown">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Did You Know These Were on N64?</span></h2>
 		<h5 class="subtitle">Under the Radar Gaming ~ Jan 23, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Banners/QB.png" alt="DKNG" class="center"/><div class="overlaytext">Lesser Known N64 Games</div></div>
@@ -216,7 +246,7 @@
 		</span>
 	</div>
 	
-	<div id="b76" class="card">
+	<div id="b76" class="card" data-keywords="ISS International Superstar Soccer Editor">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">ISSEditor 0.61b Released</span></h2>
 		<h5 class="subtitle">Styleable Soccer ~ Jan 22, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Features/2025/ISSEditor/ISSE6.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">ISSEditor 0.61b Released</div></div>
@@ -226,7 +256,7 @@
 		</span>
 	</div>
 	
-	<div id="r26" class="card">
+	<div id="r26" class="card" data-keywords="The Spy Who Loved Me 64 Demo GoldenEye 007 ROM Hack">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 26</span></h2>
 		<h5 class="subtitle">The Spy Who Loved Me 64 (V1 DEMO) ~ Jan 21, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Reviews/Games/TSWLM/TSWLM.jpg'); background-position: center; image-rendering: smooth;"><div class="overlaytext">The Spy Who Loved Me 64</div></div>
@@ -236,7 +266,7 @@
 		</span>
 	</div>
 	
-	<div id="b75" class="card">
+	<div id="b75" class="card" data-keywords="Mystical Ninja Starring Goemon Redub Dub Patch">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Goemon Redub Released</span></h2>
 		<h5 class="subtitle">Regional Restoration ~ Jan 20, 2025</h5>
 		<div class="bgBanner"><img src="Covers/U/Mystical Ninja Starring Goemon U.png" alt="GRR" class="center"/><div class="overlaytext">Goemon Redub Released</div></div>
@@ -246,7 +276,7 @@
 		</span>
 	</div>
 	
-	<div id="r25" class="card">
+	<div id="r25" class="card" data-keywords="1080 Snowboarding">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 25</span></h2>
 		<h5 class="subtitle">1080 Snowboarding ~ Jan 20, 2025</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/1080° Snowboarding U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">1080° Snowboarding</div></div>
@@ -256,7 +286,7 @@
 		</span>
 	</div>
 	
-	<div id="b74" class="card">
+	<div id="b74" class="card" data-keywords="GoldenEye X 6a GoldenEye 007 ROM Hack">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">GoldenEye X 6a Released</span></h2>
 		<h5 class="subtitle">Features Galore ~ Jan 19, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/GoldenEyeX6a/GEX6A.png" alt="GEX6A" class="center"/></div>
@@ -266,7 +296,7 @@
 		</span>
 	</div>
 	
-	<div id="b73" class="card">
+	<div id="b73" class="card" data-keywords="GoldenEye 007 GoldenEye LTK Netplay Cup V Competition">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">GoldenEye Netplay Cup!</span></h2>
 		<h5 class="subtitle">Competition Time ~ Jan 19, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/GENetplayCup/GENC.png" alt="GENC" class="center"/></div>
@@ -276,7 +306,7 @@
 		</span>
 	</div>
 	
-	<div id="b72" class="card">
+	<div id="b72" class="card" data-keywords="N64Brew Game Jam 5 Competition Homebrew Winners Updated">
 		<h2><span class="badge new">UPDATE</span> <span class="title">N64brew Game Jam No. 5</span></h2>
 		<h5 class="subtitle">The Winners! ~ Jan 18, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/GameJam5/GAMEJAM.png" alt="GJ5" class="center"/></div>
@@ -286,7 +316,7 @@
 		</span>
 	</div>
 	
-	<div id="b71" class="card">
+	<div id="b71" class="card" data-keywords="Glover Leaked Piko Interactive">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Glover 1+2 Source Code Leaked</span></h2>
 		<h5 class="subtitle">Palmed From Piko ~ Jan 18, 2025</h5>
 		<div class="bgBanner"><img src="Covers/U/Glover U.png" alt="G12LEAK" class="center"/><div class="overlaytext">Glover 1 & 2 Source Code Leaked</div></div>
@@ -296,7 +326,7 @@
 		</span>
 	</div>
 	
-	<div id="r24" class="card">
+	<div id="r24" class="card" data-keywords="007 The World is Not Enough">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 24</span></h2>
 		<h5 class="subtitle">007 The World is Not Enough ~ Jan 16, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/007 The World is Not Enough U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">007 The World is Not Enough</div></div>
@@ -306,17 +336,17 @@
 		</span>
 	</div>
 	
-	<div id="c23" class="card">
+	<div id="c23" class="card" data-keywords="Syncoplay Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 23</span></h2>
-		<h5 class="subtitle">Synchoplay! ~ Jan 14, 2025</h5>
+		<h5 class="subtitle">Syncoplay! ~ Jan 14, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Banners/SyncoplayBanner.jpg'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Syncoplay</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Syncoplay.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b70" class="card">
+	<div id="b70" class="card" data-keywords="Wave Race 64 Betas">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Wave Race 64 Betas</span> </h2>
 		<h5 class="subtitle">Alpha, Beta, Racer ~ Jan 10, 2025</h5>
 		<div class="bgChat" style="background-image:url('Blog/Features/2025/WR64BETA/WR64B.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Wave Race 64 Betas</div></div>
@@ -326,7 +356,7 @@
 		</span>
 	</div>
 	
-	<div id="b69" class="card">
+	<div id="b69" class="card" data-keywords="Return to Yoshis Island Demo Super Mario 64 SM64 ROM Hack Kaze Emanuar Updated">
 		<h2><span class="badge new">UPDATED</span> <span class="title">Return to Yoshis Island Demo 2</span></h2>
 		<h5 class="subtitle">Super Mario Sixty-More! ~ Jan 4, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/SM64RTYID2/RTYI.png" alt="GEX6A" class="center"/><div class="overlaytext">Return to Yoshi's Island Demo 2</div></div>
@@ -336,7 +366,7 @@
 		</span>
 	</div>
 	
-	<div id="b68" class="card">
+	<div id="b68" class="card" data-keywords="VRU VRS Voice Recognition Unit Voice Recognition System">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">The Voice Recognition Unit</span></h2>
 		<h5 class="subtitle">Hey! Listen! ~ Jan 3, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/2025/VRUVRS/VRU.png" alt="VRU" class="center"/><div class="overlaytext">Voice Recognition Unit</div></div>
@@ -346,7 +376,7 @@
 		</span>
 	</div>
 	
-	<div id="r23" class="card">
+	<div id="r23" class="card" data-keywords="Retro Fighters Brawler 64 Controller">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 23</span></h2>
 		<h5 class="subtitle">Brawler64 ~ Jan 2, 2025</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/Brawler64/B64.png" alt="BR64" class="center"/><div class="overlaytext">Retro Fighters Brawler64</div></div>
@@ -356,7 +386,7 @@
 		</span>
 	</div>
 	
-	<div id="b67" class="card">
+	<div id="b67" class="card" data-keywords="N64Brew Game Jam 5 Competition Homebrew Submissions Updated">
 		<h2><span class="badge new">UPDATE</span> <span class="title">N64brew Game Jam No. 5</span></h2>
 		<h5 class="subtitle">Submissions Update ~ Dec 31, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/GameJam5/GAMEJAM.png" alt="GJ5" class="center"/></div>
@@ -366,7 +396,7 @@
 		</span>
 	</div>
 	
-	<div id="b66" class="card">
+	<div id="b66" class="card" data-keywords="Super Mario 64 ROM Hack SM64 Mario in the Multiverse Rovertronic">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Mario in the Multiverse Released!</span></h2>
 		<h5 class="subtitle">It's a Meme, Mario! ~ Dec 24, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/MarioMultiverse/MM.png" alt="MITM" class="center"/><div class="overlaytext">Mario in the Multiverse</div></div>
@@ -376,8 +406,8 @@
 		</span>
 	</div>
 	
-	<div id="b65" class="card">
-		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">SF64 PC Port Released<span></h2>
+	<div id="b65" class="card" data-keywords="Star Fox 64 PC Port Centauri Alfa Recomp">
+		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">SF64 PC Port Released</span></h2>
 		<h5 class="subtitle">Welcome to Centauri Alfa! ~ Dec 23, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/CentauriAlfa/SFCA.png" alt="SFCA" class="center"/></div>
 		<p>The Star Fox 64 PC port, now known as Starship Centauri Alfa, is available to play on Windows PC!</p>
@@ -386,7 +416,7 @@
 		</span>
 	</div>
 	
-	<div id="r22" class="card">
+	<div id="r22" class="card" data-keywords="Gamester LX4 Steering Wheel">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 22</span></h2>
 		<h5 class="subtitle">Gamester LX4 ~ Dec 20, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/GamesterLX4/GLX.png" alt="GLX4" class="center"/><div class="overlaytext">Gamester LX4 Wheel</div></div>
@@ -396,17 +426,17 @@
 		</span>
 	</div>
 	
-	<div id="c22" class="card">
+	<div id="c22" class="card" data-keywords="Gooey and McKenna Chats Q&A Gooey & McKenna">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 22</span></h2>
 		<h5 class="subtitle">It's Gooey and McKenna! ~ Dec 19, 2024</h5>
 		<div class="bgChat" style="background-image:url('Blog/Banners/Flashback64Banner.jpg'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Flashback64</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Flashback64.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b64" class="card">
+	<div id="b64" class="card" data-keywords="N64OS OS64 Operating System UNIX IRIX">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64 OS Conjecture</span></h2>
 		<h5 class="subtitle">What Would it Look Like? ~ Dec 18, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/N64OS/OS.png" alt="N64OS" class="center"/><div class="overlaytext">N64 OS Conjecture</div></div>
@@ -416,7 +446,7 @@
 		</span>
 	</div>
 	
-	<div id="b63" class="card">
+	<div id="b63" class="card" data-keywords="WWF WrestleMania 2000 ROM Hack WM2000 AKI Club">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">WrestleMania 2000 V1.1</span></h2>
 		<h5 class="subtitle">Wrestling Refinements ~ Dec 17, 2024</h5>
 		<div class="bgBanner"><img src="Covers/U/WWF WrestleMania 2000 U.png" alt="WM2K11" class="center"/><div class="overlaytext">WrestleMania 2000 V1.1</div></div>
@@ -426,7 +456,7 @@
 		</span>
 	</div>
 	
-	<div id="b62" class="card">
+	<div id="b62" class="card" data-keywords="Turok Rage Wars Trophies Trophy">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Turok Trophies</span></h2>
 		<h5 class="subtitle">Rage Wars Did it First ~ Dec 16, 2024</h5>
 		<div class="bgBanner"><img src="Covers/U/Turok Rage Wars U.png" alt="RWTrophies" class="center"/><div class="overlaytext">Turok's Trophies</div></div>
@@ -436,7 +466,7 @@
 		</span>
 	</div>
 	
-	<div id="b61" class="card">
+	<div id="b61" class="card" data-keywords="Turok Origins Saber Interactive">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Turok Origins Announced</span></h2>
 		<h5 class="subtitle">Dinosaur Decimation ~ Dec 13, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/TurokOrigins/TO.png" alt="TurokO" class="center"/><div class="overlaytext">Turok Origins Announced</div></div>
@@ -446,7 +476,7 @@
 		</span>
 	</div>
 	
-	<div id="b60" class="card">
+	<div id="b60" class="card" data-keywords="The Legend of Zelda Majoras Mask Decompiled Decompilation">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Majora's Mask Decomplied</span></h2>
 		<h5 class="subtitle">Completely Unmasked ~ Dec 12, 2024</h5>
 		<div class="bgBanner"><img src="Carts/U/The Legend of Zelda Majoras Mask U.png" alt="MMDecomp" class="center"/><div class="overlaytext">Majora's Mask Decompiled</div></div>
@@ -456,7 +486,7 @@
 		</span>
 	</div>
 	
-	<div id="b59" class="card">
+	<div id="b59" class="card" data-keywords="Rockergaming Analogue Stick Project Renaissance">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Project Renaissance</span></h2>
 		<h5 class="subtitle">Stick Tech Upgrades ~ Dec 12, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/ProjectRenaissance/PR.png" alt="PR" class="center"/><div class="overlaytext">Project Renaissance</div></div>
@@ -466,7 +496,7 @@
 		</span>
 	</div>
 	
-	<div id="b58" class="card">
+	<div id="b58" class="card" data-keywords="Worms Armageddon Anniversary">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Happy Wormaversary!</span></h2>
 		<h5 class="subtitle">Worms Armageddon ~ Dec 11, 2024</h5>
 		<div class="bgBanner"><img src="Covers/U/Worms Armageddon U.png" alt="Wormaversary" class="center"/><div class="overlaytext">Worms Armageddon Anniversary</div></div>
@@ -476,7 +506,7 @@
 		</span>
 	</div>
 	
-	<div id="b57" class="card">
+	<div id="b57" class="card" data-keywords="Rare Banjo-Kazooie Emily Victorious Artwork">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Rare Characters Spotted!</span></h2>
 		<h5 class="subtitle">Tiny Transformations! ~ Dec 11, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/EVArtwork/EVA.png" alt="YTZ" class="center"/><div class="overlaytext">Emily Victorious Artwork</div></div>
@@ -486,7 +516,7 @@
 		</span>
 	</div>
 	
-	<div id="b56" class="card">
+	<div id="b56" class="card" data-keywords="Banjo-Kazooie Conker YouTooz Plushies">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Banjo/Conker Spotted!</span></h2>
 		<h5 class="subtitle">YouTooz Incoming! ~ Dec 10, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/YouTooz/YTZ.png" alt="YTZ" class="center"/><div class="overlaytext">Banjo-Kazooie & Conker YouTooz</div></div>
@@ -496,29 +526,29 @@
 		</span>
 	</div>
 	
-	<div id="c21" class="card">
+	<div id="c21" class="card" data-keywords="Aaron SuperPod Saga Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 21</span></h2>
 		<h5 class="subtitle">Aaron from SuperPod Saga ~ Dec 10, 2024</h5>
 		<div class="bgChat" style="background-image:url('Blog/Banners/SuperPodBanner.jpg'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@SuperPodSaga</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/SuperPod.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="r21" class="card">
+	<div id="r21" class="card" data-keywords="720p HDTV Cable">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 21</span></h2>
 		<h5 class="subtitle">720p HDTV Cable ~ Dec 9, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/HDTVAdaptor/HA.JPG" alt="HDTV" class="center"/><div class="overlaytext">720p HDTV Cable</div></div>
-		<p>As a connoisseur of the 64-bit console, I want to know the best way to connect my retro gear to my TV.
+		<p>As a connoisseur of the 64-bit console, I want to know the best way to connect my retro gear to my TV.</p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Reviews/HDTVAdaptor/r21.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b55" class="card">
-		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Is It a Bird?</span></h2>
-		<h5 class="subtitle">Is It a Plane? ~ Dec 8, 2024</h5>
+	<div id="b55" class="card" data-keywords="Superman 64 The New Superman Adventures VR Wackomedia">
+		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Is it a Bird?</span></h2>
+		<h5 class="subtitle">Is it a Plane? ~ Dec 8, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/Superman64VR/S64VR.png" alt="S64VR" class="center"/><div class="overlaytext">Superman 64 VR</div></div>
 		<p>What if I told you that you could play a recreation of the game through a first-person perspective in virtual reality?</p>
 		<span class="alignright">
@@ -526,7 +556,7 @@
 		</span>
 	</div>
 	
-	<div id="b54" class="card">
+	<div id="b54" class="card" data-keywords="N64vember Cartridge JezMM Artwork">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Incredible N64 Art Spotted!</span></h2>
 		<h5 class="subtitle">N64VEMBER Rocked! ~ Dec 7, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/JezMMCartArt/CMM.png" alt="JZMM" class="center"/><div class="overlaytext">JezMM's Cart Art</div></div>
@@ -536,7 +566,7 @@
 		</span>
 	</div>
 	
-	<div id="r20" class="card">
+	<div id="r20" class="card" data-keywords="Guillemot Race Leader 64 Steering Wheel">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 20</span></h2>
 		<h5 class="subtitle">Race Leader 64 ~ Dec 6, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/RaceLeader64/RL.png" alt="RL64" class="center"/><div class="overlaytext">Race Leader 64</div></div>
@@ -546,7 +576,7 @@
 		</span>
 	</div>
 	
-	<div id="s1" class="card">
+	<div id="s1" class="card" data-keywords="Store Merchandise Games in Frames Sale">
 		<h2><span class="badge store"><i class="fa-solid fa-cart-shopping" style="color:white;"></i></span> <span class="title">ReCollect64 Store</span></h2>
 		<h5 class="subtitle">N64 Frames! ~ Dec 3, 2024</h5>
 		<div class="bgChat" style="background-image:url('Blog/Store/Frames/F2.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">ReCollect64 Store</div></div>
@@ -556,7 +586,7 @@
 		</span>
 	</div>
 	
-	<div id="b53" class="card">
+	<div id="b53" class="card" data-keywords="Prototype Games Unreleased">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Prototype Games</span></h2>
 		<h5 class="subtitle">Games that Never Released ~ Dec 3, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/Prototypes2024/PT2024.png" alt="PT2024" class="center"/><div class="overlaytext">Prototype Games</div></div>
@@ -566,27 +596,27 @@
 		</span>
 	</div>
 	
-	<div id="c20" class="card">
+	<div id="c20" class="card" data-keywords="Derek Turtle Roe Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 20</span></h2>
 		<h5 class="subtitle">Derek Turtle Roe ~ Nov 29, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Vigilante 8 2nd Offense U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@DerekTurtleRoe</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/DerekTurtleRoe.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b52" class="card">
+	<div id="b52" class="card" data-keywords="Banjo-Kazooie Eupholace Tripps Voyage">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">BK Spotted in Trips Voyage!</span></h2>
 		<h5 class="subtitle">Cartoony Cameos! ~ Nov 27, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/TripsVoyageBK/TVBK.png" alt="TVBK" class="center"/><div class="overlaytext">BK Spotted in Trips Voyage!</div></div>
-		<p>It's not often I cover something PS4 or PS5 related on ReCollect64, but for this I wanted to make an exception because I spotted a captivating cameo from a double act from the N64 era: Banjo & Kazooie!</p>
+		<p>It's not often I cover something PS4/PS5 related on ReCollect64, but for this I wanted to make an exception because I spotted a captivating cameo from a double act from the N64 era: Banjo & Kazooie!</p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Features/TripsVoyageBK/b52.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b51" class="card">
+	<div id="b51" class="card" data-keywords="Star Fox PC Port Decompilation Recompilation 64Recomp">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Star Fox 64 PC Port Announced</span></h2>
 		<h5 class="subtitle">Ready The Arwings! ~ Nov 25, 2024</h5>
 		<div class="bgBanner"><img src="Carts/U/Star Fox 64 U.png" alt="SFPC" class="center"/><div class="overlaytext">Star Fox 64 PC Port Announced</div></div>
@@ -596,17 +626,17 @@
 		</span>
 	</div>
 	
-	<div id="c19" class="card">
+	<div id="c19" class="card" data-keywords="Mr Talida Keshi Corner">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 19</span></h2>
 		<h5 class="subtitle">Mr Talida ~ Nov 21, 2024</h5>
 		<div class="bgChat" style="background-image:url('Blog/Banners/MrTalidaBanner.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@MrTalida</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/MrTalida.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b50" class="card">
+	<div id="b50" class="card" data-keywords="Perfect Dark Nintendo Switch Port Decompilation">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Perfect Dark Switch Port</span></h2>
 		<h5 class="subtitle">Portable Perfection! ~ Nov 20, 2024</h5>
 		<div class="bgBanner"><img src="Carts/U/Perfect Dark U.png" alt="PDSwitch" class="center"/><div class="overlaytext">Perfect Dark Switch Port</div></div>
@@ -615,7 +645,7 @@
 		</span>
 	</div>
 	
-	<div id="r19" class="card">
+	<div id="r19" class="card" data-keywords="Gamester Evolution Controller Motion Controls">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 19</span></h2>
 		<h5 class="subtitle">Gamester Evolution Controller ~ Nov 19, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/GamesterEvolution/GEC.png" alt="GEC" class="center"/><div class="overlaytext">Gamester Evolution Controller</div></div>
@@ -625,7 +655,7 @@
 		</span>
 	</div>
 
-	<div id="b49" class="card">
+	<div id="b49" class="card" data-keywords="Bluesky Integration Social Media Site Upgrade">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Bluesky Integration</span></h2>
 		<h5 class="subtitle">New Ways to Share ReCollect64! ~ Nov 17, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/BlueskyAdded/BS.png" alt="BSa" class="center"/><div class="overlaytext">Bluesky Integration</div></div>
@@ -635,7 +665,7 @@
 		</span>
 	</div>
 	
-	<div id="b48" class="card">
+	<div id="b48" class="card" data-keywords="BattleTanx Global Assault Limited Run Games LTDRUN">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">BattleTanx on Limited Run</span></h2>
 		<h5 class="subtitle">Save the Queenlords again! ~ Nov 16, 2024</h5>
 		<div class="bgBanner"><img src="Carts/LRG/BattleTanx Global Assault LRG.png" alt="BTLRG" class="center"/><div class="overlaytext">BattleTanx on Limited Run</div></div>
@@ -645,7 +675,7 @@
 		</span>
 	</div>
 	
-	<div id="b47" class="card">
+	<div id="b47" class="card" data-keywords="Alternative Hardware Analogue 3D FPGA Warrior 64 Hyperkin Mister Polymega iQue Ultra FP64 Ultra Retron">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Alternative N64s</span></h2>
 		<h5 class="subtitle">Bizarro Creations! ~ Nov 15, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/AlternativeN64s/Alt64s.png" alt="alt64s" class="center"/><div class="overlaytext">Alternative N64s</div></div>
@@ -655,7 +685,7 @@
 		</span>
 	</div>
 	
-	<div id="b46" class="card">
+	<div id="b46" class="card" data-keywords="NFL Blitz 2025 ROM Hack NFL Blitz Resurrection">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">NFL Blitz 2025 V2 Released</span></h2>
 		<h5 class="subtitle">Roster Updates! ~ Nov 11, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/NFLB2025V2/NFLB25V2.jpg" alt="NFLB25V2" class="center"/><div class="overlaytext">NFL Blitz 2025 V2 Released</div></div>
@@ -665,7 +695,7 @@
 		</span>
 	</div>
 	
-	<div id="b45" class="card">
+	<div id="b45" class="card" data-keywords="Virtual Pro Wrestling 64 ROM Hack nWo Mark">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">New VPW64 Mod!</span></h2>
 		<h5 class="subtitle">"Sh!t We Wanted to Add Vol. 1" ~ Nov 7, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/VPWVol1/VPWVol1.jpg" alt="VPWV1" class="center"/><div class="overlaytext">New VPW64 Mod!</div></div>
@@ -675,7 +705,7 @@
 		</span>
 	</div>
 	
-	<div id="r18" class="card">
+	<div id="r18" class="card" data-keywords="Hyperkin Hall Effect Joystick Analogue Stick">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 18</span></h2>
 		<h5 class="subtitle">Hyperkin Hall Effect Joystick  ~ Nov 5, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/HyperkinHEJ/HEJ.png" alt="HEJR" class="center"/><div class="overlaytext">Hyperkin Hall Effect Joystick</div></div>
@@ -685,17 +715,17 @@
 		</span>
 	</div>
 	
-	<div id="c18" class="card">
+	<div id="c18" class="card" data-keywords="Kode-Z Music Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 18</span></h2>
 		<h5 class="subtitle">Kode-Z ~ Nov 4, 2024</h5>
 		<div class="bgChat" style="background-image:url('Blog/Banners/KodeZBanner.jpg'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Kode-Z</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/KodeZ.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b44" class="card">
+	<div id="b44" class="card" data-keywords="Star Fox 64 Mode Restored Elarix">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Star Fox 64 Mode Restored</span></h2>
 		<h5 class="subtitle">The Great Fox Rises ~ Nov 3, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/StarFox64Restored/SF64R.png" alt="SF64R" class="center"/><div class="overlaytext">Star Fox 64 Mode Restored</div></div>
@@ -705,7 +735,7 @@
 		</span>
 	</div>
 	
-	<div id="b43" class="card">
+	<div id="b43" class="card" data-keywords="Glover Qubit Piko">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Glover Coming 2025</span></h2>
 		<h5 class="subtitle">An N64 Classic Returns! ~ Nov 1, 2024</h5>
 		<div class="bgBanner"><img src="Covers/U/Glover U.png" alt="G2025" class="center"/><div class="overlaytext">Glover Coming 2025</div></div>
@@ -715,7 +745,7 @@
 		</span>
 	</div>
 	
-	<div id="b42" class="card">
+	<div id="b42" class="card" data-keywords="Nintendo Music App Updated">
 		<h2><span class="badge new">UPDATED</span> <span class="title">Nintendo Music App Released</span></h2>
 		<h5 class="subtitle">N64 Mentioned! ~ Nov 1, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/NintendoMusicApp/NM.png" alt="NMAR" class="center"/><div class="overlaytext">Nintendo Music App Released</div></div>
@@ -725,7 +755,7 @@
 		</span>
 	</div>
 	
-	<div id="b41" class="card">
+	<div id="b41" class="card" data-keywords="Shadow Man Turok 2 Nintendo Switch Online Expansion Pak">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Shadow Man & Turok 2 on NSO!</span></h2>
 		<h5 class="subtitle">Hunt Souls and Dinosaurs Again! ~ Oct 29, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/Turok2ShadowManNSO/SMT2NSO.png" alt="SMT2NSO" class="center"/><div class="overlaytext">Shadow Man & Turok 2 on NSO!</div></div>
@@ -735,7 +765,7 @@
 		</span>
 	</div>
 	
-	<div id="r17" class="card">
+	<div id="r17" class="card" data-keywords="Logic 3 6T4 Pad Controller Logic3">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 17</span></h2>
 		<h5 class="subtitle">Logic 3 6T4 Pad ~ Oct 28, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/Logic36T4Pad/6T4Pad.png" alt="MakoPad64" class="center"/><div class="overlaytext">Logic 3 6T4 Pad</div></div>
@@ -745,7 +775,7 @@
 		</span>
 	</div>
 
-	<div id="b40" class="card">
+	<div id="b40" class="card" data-keywords="Clay Fighter Sculptors Cut Heritage Auctions Rare Factory Sealed Updated">
 		<h2><span class="badge new">UPDATED</span> <span class="title">Sculptors Cut Found Sealed!</span></h2>
 		<h5 class="subtitle">The Rarest of Rare ~ Oct 24, 2024</h5>
 		<div class="bgBanner"><img src="Covers/U/Clay Fighter Sculptors Cut U.png" alt="SC24" class="center"/><div class="overlaytext">Sculptors Cut Found Sealed!</div></div>
@@ -755,7 +785,7 @@
 		</span>
 	</div>
 
-	<div id="b39" class="card">
+	<div id="b39" class="card" data-keywords="N64Brew Game Jam 5 Competition Homebrew">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64brew Game Jam  No. 5</span></h2>
 		<h5 class="subtitle">Let's Get Competitive! ~ Oct 23, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/GameJam5/GAMEJAM.png" alt="GJ5" class="center"/></div>
@@ -765,17 +795,17 @@
 		</span>
 	</div>
 	
-	<div id="c17" class="card">
+	<div id="c17" class="card" data-keywords="Daily_Vinci64 REM64 Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 17</span></h2>
 		<h5 class="subtitle">Daily_Vinci64 aka Rem64! ~ Oct 21, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Diddy Kong Racing U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Daily_Vinci64</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Rem64.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b38" class="card">
+	<div id="b38" class="card" data-keywords="Banjo-Tooie Nintendo Switch Online Banjo-Kazooie">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Banjo-Tooie on NSO</span></h2>
 		<h5 class="subtitle">Bear & Bird are Back Again! ~ Oct 20, 2024</h5>
 		<div class="bgBanner"><img src="Carts/U/Banjo-Tooie U.png" alt="BTNSO" class="center"/><div class="overlaytext">Banjo-Tooie on NSO!</div></div>
@@ -785,7 +815,7 @@
 		</span>
 	</div>
 	
-	<div id="r16" class="card">
+	<div id="r16" class="card" data-keywords="InterAct Mako Pad 64 Controller">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 16</span></h2>
 		<h5 class="subtitle">InterAct Mako Pad 64 ~ Oct 12, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/MakoPad/MakoPad.png" alt="MakoPad64" class="center"/><div class="overlaytext">InterAct Mako Pad 64</div></div>
@@ -795,7 +825,7 @@
 		</span>
 	</div>
 	
-	<div id="b37" class="card">
+	<div id="b37" class="card" data-keywords="Analogue 3D FPGA">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Analogue 3D Announced</span></h2>
 		<h5 class="subtitle">FPGA N64 ~ Oct 16, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/Analogue3DAnnounce/A3DA.png" alt="A3DA" class="center"/><div class="overlaytext">Analogue 3D Announced</div></div>
@@ -805,7 +835,7 @@
 		</span>
 	</div>
 	
-	<div id="b36" class="card">
+	<div id="b36" class="card" data-keywords="Open Source Expansion Pak Mason Stookbury">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Open Source Expansion Pak</span></h2>
 		<h5 class="subtitle">DIY Paks! ~ Oct 7, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/OSExPak/OSExPak.png" alt="OSExPak" class="center"/><div class="overlaytext">Open-Source Expansion Pak</div></div>
@@ -815,17 +845,17 @@
 		</span>
 	</div>
 	
-	<div id="c16" class="card">
+	<div id="c16" class="card" data-keywords="MightyAndross64 Star Fox 64 Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 16</span></h2>
 		<h5 class="subtitle">Bow before the great MightyAndross64! ~ Oct 5, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Star Fox 64 U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@AndrossSF0</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/MightyAndross.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 
-	<div id="b35" class="card">
+	<div id="b35" class="card" data-keywords="SM64 3D Printing Peaches Castle Diorama">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">3D Printable SM64</span></h2>
 		<h5 class="subtitle">Peach's Castle Diorama! ~ Oct 2, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/SM643DPrint/SM643DP.png" alt="SM643DPRINT" class="center"/><div class="overlaytext">3D Printable SM64</div></div>
@@ -835,7 +865,7 @@
 		</span>
 	</div>
 	
-	<div id="b34" class="card">
+	<div id="b34" class="card" data-keywords="Anniversary Birthday N64 28th North America">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">The N64 is 28 in NA!</span></h2>
 		<h5 class="subtitle">Party in the USA! ~ Sep 30 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/N6428TH/N64NA.png" alt="N6428" class="center"/><div class="overlaytext">The N64 is 28 in NA!</div></div>
@@ -845,7 +875,7 @@
 		</span>
 	</div>
 	
-	<div id="b33" class="card">
+	<div id="b33" class="card" data-keywords="Nintendo Museum Merchandise">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Nintendo Museum</span></h2>
 		<h5 class="subtitle">N64 Spotted! ~ Sep 29 2024</h5>
 		<div class="bgBanner" style="background: rgba(119,115,139,255)"><img src="Blog/Features/NintendoMuseum/NM.png" alt="Nintendo Museum" class="center"/><div class="overlaytext"></div></div>
@@ -855,27 +885,27 @@
 		</span>
 	</div>
 	
-	<div id="b32" class="card">
+	<div id="b32" class="card" data-keywords="Analogue or Digital Analog Stick Joystick">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Analog or Digital?</span></h2>
 		<h5 class="subtitle">N64 Stick Tech ~ Sep 25, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/AnalogDigital/AD.png" alt="AD" class="center"/><div class="overlaytext">ANALOG OR DIGITAL?</div></div>
-		<p>Here's a quandary: was the N64 control stick analog or digital?
+		<p>Here's a quandary: was the N64 control stick analog or digital?</p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Features/AnalogDigital/b32.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="c15" class="card">
+	<div id="c15" class="card" data-keywords="OgreBattleUnit OgreBattle64 Ogre Battle 64 Person of Lordly Caliber Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 15</span></h2>
 		<h5 class="subtitle">OgreBattle64! ~ Sep 23, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Ogre Battle 64 Person of Lordly Caliber U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@OgreBattle64</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/OgreBattle64.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="r15" class="card">
+	<div id="r15" class="card" data-keywords="Ascii Tsurikon Fishing Controller Itoi Shigesato">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 15</span></h2>
 		<h5 class="subtitle">Tsurikon Fishing Controller ~ Sep 22, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/Tsuricon/Tsuricon.png" alt="CartDumper" class="center"><div class="overlaytext">Ascii Tsurikon 64</div></div>
@@ -885,27 +915,27 @@
 		</span>
 	</div>
 	
-	<div id="r14" class="card">
+	<div id="r14" class="card" data-keywords="Competiton Pro NS Controller Pad">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 14</span></h2>
 		<h5 class="subtitle">Competition Pro NS 64 ~ Sep 18, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/CompetitionPro/CompPro.png" alt="CartDumper" class="center"><div class="overlaytext">Competition Pro NS 64</div></div>
-		<p>Back in 1996, the third-party peripheral world was like the wild west!<p>
+		<p>Back in 1996, the third-party peripheral world was like the wild west!</p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Reviews/CompetitionPro/r14.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="c14" class="card">
+	<div id="c14" class="card" data-keywords="AllN64Games Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 14</span></h2>
 		<h5 class="subtitle">Asking AllN64Games! ~ Sep 16, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Star Wars Rogue Squadron U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@AllN64Games</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/AllN64Games.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b31" class="card">
+	<div id="b31" class="card" data-keywords="The Legend of Zelda Ocarina of Time Lego OOT Super Brick Dude">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">The Lego of Zelda OOT</span></h2>
 		<h5 class="subtitle">Miniature Hyrule! ~ Sep 14, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/LegoOOT/LegoOOT2.png" alt="N642GC" class="center"/><div class="overlaytext">The Lego of Zelda OOT</div></div>
@@ -915,7 +945,7 @@
 		</span>
 	</div>
 	
-	<div id="b30" class="card">
+	<div id="b30" class="card" data-keywords="GameCube Doubutsu Banchou Eternal Darkness Resident Evil Zero Dinosaur Planet">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">From N64 to GC</span></h2>
 		<h5 class="subtitle">Generation Hopping Games ~ Sep 13, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/N642GC/N642GC.png" alt="N642GC" class="center"/><div class="overlaytext">From N64 to GC</div></div>
@@ -925,7 +955,7 @@
 		</span>
 	</div>
 	
-	<div id="b29" class="card">
+	<div id="b29" class="card" data-keywords="Site Upgrades">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">ReCollect Blog Upgrades!</span></h2>
 		<h5 class="subtitle">Quicker and More Useful ~ Sep 11, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/SiteUpgradeSep24/SUS24.png" alt="SUS24" class="center"/><div class="overlaytext">BLOG UPGRADES</div></div>
@@ -935,7 +965,7 @@
 		</span>
 	</div>
 	
-	<div id="b28" class="card">
+	<div id="b28" class="card" data-keywords="Top Gear Rally 2 TG Rally 2">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">TG or not TG?</span></h2>
 		<h5 class="subtitle">That is the question! ~ Sep 1, 2024</h5>
 		<div class="bgBanner"><img src="Covers/UKV/Top Gear Rally 2 UKV.png" alt="TG2UKV" class="center"/><div class="overlaytext">TG Rally 2 Variants</div></div>
@@ -945,7 +975,7 @@
 		</span>
 	</div>
 	
-	<div id="b27" class="card">
+	<div id="b27" class="card" data-keywords="Banjo-Kazooie Decompiled Decompilation">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Banjo-Kazooie Decompiled</span></h2>
 		<h5 class="subtitle">Bear and Bird are free! ~ Aug 29, 2024</h5>
 		<div class="bgBanner"><img src="Covers/U/Banjo-Kazooie U.png" alt="BK100" class="center"/><div class="overlaytext">Banjo-Kazooie Decompiled!</div></div>
@@ -955,7 +985,7 @@
 		</span>
 	</div>
 	
-	<div id="r13" class="card">
+	<div id="r13" class="card" data-keywords="InterAct Super Pad 64 Controller">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 13</span></h2>
 		<h5 class="subtitle">InterAct Super Pad 64 ~ Aug 28, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/SuperPad/SuperPad.png" alt="CartDumper" class="center"/><div class="overlaytext">InterAct Super Pad 64</div></div>
@@ -965,17 +995,17 @@
 		</span>
 	</div>
 	
-	<div id="c13" class="card">
+	<div id="c13" class="card" data-keywords="JosetteTrinkets Chats Q&A Wonder Project J2">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 13</span></h2>
 		<h5 class="subtitle">Jawing with JosetteTrinkets ~ Aug 28, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/J/Wonder Project J2 Koruro no Mori no Jozetto J.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@JosetteTrinkets</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/JosetteTrinkets.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b26" class="card">
+	<div id="b26" class="card" data-keywords="Rockergaming Pad Test Rig">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64 Pad Test Rig</span></h2>
 		<h5 class="subtitle">Testing on the Go! ~ Aug 27, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/PadTester/PNPTR.png" alt="PNPTR" class="center"/><div class="overlaytext">N64 Pad Test Rig</div></div>
@@ -985,7 +1015,7 @@
 		</span>
 	</div>
 	
-	<div id="r12" class="card">
+	<div id="r12" class="card" data-keywords="Cart Dumper Cartridge Dumper Dumping">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 12</span></h2>
 		<h5 class="subtitle">N64 Cart Dumper ~ Aug 25, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/CartDumper/Dumper.png" alt="CartDumper" class="center"/><div class="overlaytext">N64 Cart Dumper</div></div>
@@ -995,7 +1025,7 @@
 		</span>
 	</div>
 	
-	<div id="b25" class="card">
+	<div id="b25" class="card" data-keywords="TYR Modular Controller Engineering">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">TYR Modular controller</span></h2>
 		<h5 class="subtitle">Gaming for Everyone! ~ Aug 25, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/TYR/TYR.png" alt="64JS" class="center"/><div class="overlaytext">TYR Modular Controller</div></div>
@@ -1005,7 +1035,7 @@
 		</span>
 	</div>
 	
-	<div id="b24" class="card">
+	<div id="b24" class="card" data-keywords="Hyperkin Hall Effect Joystick Module">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Hyperkin Hall Effect Joystick Module</span></h2>
 		<h5 class="subtitle">Rejuvenate the N64 pad ~ Aug 17, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/HyperkinHEJ/HEJ.png" alt="64JS" class="center"/><div class="overlaytext">Hall Effect Module</div></div>
@@ -1015,7 +1045,7 @@
 		</span>
 	</div>
 
-	<div id="b23" class="card">
+	<div id="b23" class="card" data-keywords="64JS ROM Information Tools">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">64JS ROM INFO TOOL</span></h2>
 		<h5 class="subtitle">Information in one click! ~ Aug 16, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/64JS/64JS1.png" alt="64JS" class="center"/><div class="overlaytext">64JS ROM INFO TOOL</div></div>
@@ -1025,17 +1055,17 @@
 		</span>
 	</div>
 	
-	<div id="c12" class="card">
+	<div id="c12" class="card" data-keywords="LuigiBlood Chats Q&A 64DD">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 12</span></h2>
 		<h5 class="subtitle">It's LuigiBlood! ~ Aug 13, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/DD/Mario Artist Paint Studio DD.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@LuigiBlood</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/LuigiBlood.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b22" class="card">
+	<div id="b22" class="card" data-keywords="ROM Patching Cheats Mods Tools">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">ROM Patching</span></h2>
 		<h5 class="subtitle">Hackz, Crackz and Modz ~ Aug 7, 2024</h5>
 		<div class="bgBanner"><img src="Carts/U/GoldenEye 007 U.png" alt="ROMPatchers" class="center"/><div class="overlaytext">ROM Patching</div></div>
@@ -1045,7 +1075,7 @@
 		</span>
 	</div>
 		
-	<div id="r11" class="card">
+	<div id="r11" class="card" data-keywords="Hori Mini Pad Controller">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 11</span></h2>
 		<h5 class="subtitle">Hori Mini Pad ~ Aug 7, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/HoriMiniPad/HMP.png" alt="HoriMiniPad" class="center"/><div class="overlaytext">Hori Mini Pad</div></div>
@@ -1055,7 +1085,7 @@
 		</span>
 	</div>
 	
-	<div id="b21" class="card">
+	<div id="b21" class="card" data-keywords="Rampage World Tour Variant SCN Scandinavian">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">New Variant Found!</span></h2>
 		<h5 class="subtitle">Modern Archeology ~ Aug 4, 2024</h5>
 		<div class="bgBanner"><img src="Carts/SCN/Rampage World Tour SCN.png" alt="RWTSCN" class="center"/><div class="overlaytext">New Variant Found!</div></div>
@@ -1065,7 +1095,7 @@
 		</span>
 	</div>
 	
-	<div id="b20" class="card">
+	<div id="b20" class="card" data-keywords="Super Mario 64 Dreamcast SM64">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Super Mario 64 on DC</span></h2>
 		<h5 class="subtitle">Plumbing New Depths ~ Aug 1, 2024</h5>
 		<div class="bgBanner"><img src="Covers/U/Super Mario 64 U.png" alt="SM64DC" class="center"/><div class="overlaytext">Super Mario 64 on DC</div></div>
@@ -1075,7 +1105,7 @@
 		</span>
 	</div>
 	
-	<div id="b19" class="card">
+	<div id="b19" class="card" data-keywords="RA RetroAchievements Achievements Trophies RCheevos">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">RetroAchievements</span></h2>
 		<h5 class="subtitle">For N64 and More! ~ Aug 1, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/RetroAchievements/RAIcon.png" alt="RAN64" class="center"/><div class="overlaytext">RetroAchievements</div></div>
@@ -1085,7 +1115,7 @@
 		</span>
 	</div>
 	
-	<div id="r10" class="card">
+	<div id="r10" class="card" data-keywords="The Legend Banjo-Kazooie The Bear Waker Deluxe The Legend of Zelda Ocarina of Time ROM Hack KurkoMods Kurko Mods">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 10</span></h2>
 		<h5 class="subtitle">The Legend of Banjo-Kazooie The Bear Waker Deluxe ~ July 31, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/BearWakerDX/BearWakerDX.png" alt="BearWakerDX" class="center"/></div>
@@ -1095,17 +1125,17 @@
 		</span>
 	</div>
 
-	<div id="c11" class="card">
+	<div id="c11" class="card" data-keywords="KurkoMods Murko Mods Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 11</span></h2>
 		<h5 class="subtitle">It's Kurko Mods! ~ Jul 27, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Banjo-Kazooie U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Kurko Mods</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/KurkoMods.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b18" class="card">
+	<div id="b18" class="card" data-keywords="Facebook Scammers Scams Information">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Facebook Scammers</span></h2>
 		<h5 class="subtitle">It's easy to get duped ~ July 26, 2024</h5>
 		<div class="bgBanner"><img src="Carts/U/Hydro Thunder U.png" alt="scammers" class="center"/><div class="overlaytext">Facebook Scammers</div></div>
@@ -1115,7 +1145,7 @@
 		</span>
 	</div>
 		
-	<div id="r9" class="card">
+	<div id="r9" class="card" data-keywords="BlueRetro Adaptor Receiver BlueTooth Controller Pad Dongle">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 9</span></h2>
 		<h5 class="subtitle">BlueRetro N64 Adaptor ~ July 25, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/BlueRetroN64/RTN64.png" alt="BlueRetroN64" class="center"/><div class="overlaytext">BlueRetro N64 Adaptor</div></div>
@@ -1125,7 +1155,7 @@
 		</span>
 	</div>
 	
-	<div id="b17" class="card">
+	<div id="b17" class="card" data-keywords="Japanese Sample JPN Sample Orange Sticker">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">JPN Sample Games</span></h2>
 		<h5 class="subtitle">Surprisingly Unknown ~ July 25, 2024</h5>
 		<div class="bgBanner"><img src="Covers/JS/Blast Dozer JS.png" alt="Samples" class="center"/><div class="overlaytext">JPN Sample Games</div></div>
@@ -1135,17 +1165,17 @@
 		</span>
 	</div>
 	
-	<div id="c10" class="card">
+	<div id="c10" class="card" data-keywords="N64Ever Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 10</span></h2>
 		<h5 class="subtitle">N64Ever ~ July 22, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Jet Force Gemini U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@N64Ever</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/N64Ever.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b16" class="card">
+	<div id="b16" class="card" data-keywords="Brett Jones GoldenEye Rare">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Brett Jones Has Passed Away</span></h2>
 		<h5 class="subtitle">Gone But Never Forgotten ~ July 18, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/BJ2024/BJ2024.jpg" alt="BJ2024" class="center"/><div class="overlaytext"></div></div>
@@ -1155,7 +1185,7 @@
 		</span>
 	</div>
 	
-	<div id="b15" class="card">
+	<div id="b15" class="card" data-keywords="Operations Card New JosetteTrinkets">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">New Card Found!</span></h2>
 		<h5 class="subtitle">Fishing for Cards ~ July 17, 2024</h5>
 		<div class="bgBanner"><img src="Covers/J/Itoi Shigesato no Bass Tsuri No. 1 Kettei Ban! J.png" alt="NOCF" class="center"/><div class="overlaytext">New Card Found!</div></div>
@@ -1165,7 +1195,7 @@
 		</span>
 	</div>
 	
-	<div id="b14" class="card">
+	<div id="b14" class="card" data-keywords="Doom 64 Dreamcast DC jnmartin84">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">DOOM 64 on DC</span></h2>
 		<h5 class="subtitle">Sega DoomCast ~ July 17, 2024</h5>
 		<div class="bgBanner"><img src="Covers/U/Doom 64 U.png" alt="DOOM64DC" class="center"/><div class="overlaytext">DOOM 64 on DC</div></div>
@@ -1175,7 +1205,7 @@
 		</span>
 	</div>
 	
-	<div id="b13" class="card">
+	<div id="b13" class="card" data-keywords="SM64VR Super Mario 64 VR James Lambert">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64 VR / Mario64VR!</span></h2>
 		<h5 class="subtitle">Ultra Reality ~ July 15, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/N64VR/N64VR4.jpg" alt="N64VR" class="center"/><div class="overlaytext">N64 VR / Mario64VR</div></div>
@@ -1185,17 +1215,17 @@
 		</span>
 	</div>
 	
-	<div id="c9" class="card">
+	<div id="c9" class="card" data-keywords="SpaceStationSV Chats Q&A Space Station Silicon Valley">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 9</span></h2>
 		<h5 class="subtitle">SpaceStationSV ~ July 12, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Space Station Silicon Valley U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@SpaceStationSV</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/SpaceStationSV.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b12" class="card">
+	<div id="b12" class="card"  data-keywords="ShadPS4 Emulator Turok">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">ShadPS4 Emulator runs Turok!</span></h2>
 		<h5 class="subtitle">Time to Hunt! ~ July 11, 2024</h5>
 		<div class="bgBanner"><img src="Covers/E/Turok Dinosaur Hunter E.png" alt="ShadPS4" class="center"/><div class="overlaytext">Turok on ShadPS4</div></div>
@@ -1205,7 +1235,7 @@
 		</span>
 	</div>
 	
-	<div id="b11" class="card">
+	<div id="b11" class="card"  data-keywords="Mystical Ninja Starring Goemon Recomp MSNG Recompilation Klorfmorf Updated">
 		<h2><span class="badge new">UPDATED</span> <span class="title">Mystical Ninja Recomp</span></h2>
 		<h5 class="subtitle">Goemon's looking great! ~ July 11, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/MNSGRecomp/MNSG2.jpg" alt="MNSG Recomp" class="center"/><div class="overlaytext">Mystical Ninja Recomp</div></div>
@@ -1215,7 +1245,7 @@
 		</span>
 	</div>
 	
-	<div id="b10" class="card">
+	<div id="b10" class="card" data-keywords="Multiplayer Memories GoldeneEye 007 Recollect Kontrapshun">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Multiplayer Memories</span></h2>
 		<h5 class="subtitle">I was on to something! ~ July 10, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/MultiplayerMemories/Memes.jpg" alt="Multiplayer Memes" class="center"/><div class="overlaytext">Multiplayer Memories</div></div>
@@ -1225,17 +1255,17 @@
 		</span>
 	</div>
 	
-	<div id="c8" class="card">
+	<div id="c8" class="card" data-keywords="Kaze Emanuar KazeEmanuar Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 8</span></h2>
 		<h5 class="subtitle">KazeEmanuar ~ July 9, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/J/Super Mario 64 J.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@KazeEmanuar</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/KazeEmanuar.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="r8" class="card">
+	<div id="r8" class="card" data-keywords="InterAct Arcade Shark Controller">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 8</span></h2>
 		<h5 class="subtitle">InterAct Arcade Shark ~ July 5, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/ArcadeShark/ArcadeShark.png" alt="ArcadeShark" class="center"/><div class="overlaytext">Arcade Shark</div></div>
@@ -1245,7 +1275,7 @@
 		</span>
 	</div>
 		
-	<div id="b9" class="card">
+	<div id="b9" class="card" data-keywords="SM64 Coop Deluxe Super Mario 64 Cooperative Decompilation Hack">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">SM64 Coop Deluxe</span></h2>
 		<h5 class="subtitle">V1.0 Released! ~ July 4, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/SM64CDX/SM64CDX.png" alt="SM64 Coop Deluxe" class="center"/><div class="overlaytext">SM64 Coop Deluxe</div></div>
@@ -1255,17 +1285,17 @@
 		</span>
 	</div>
 			
-	<div id="c7" class="card">
+	<div id="c7" class="card" data-keywords="Vocetubeia Artur Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 7</span></h2>
 		<h5 class="subtitle">Vocetubeia ~ July 4, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/J/Ganbare Goemon Mononoke Sugoroku J.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Vocetubeia</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Vocetubeia.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b8" class="card">
+	<div id="b8" class="card" data-keywords="SuperPod Saga ReCollect64">
 		<h2><span class="badge audio"><i class="fa-regular fa-circle-play"></i></span> <span class="title">ReCollect64 Recognition!</span></h2>
 		<h5 class="subtitle">SuperPod Saga ~ July 3, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/SuperPodSaga101/SPS101.png" alt="SuperPod Saga" class="center"/><div class="overlaytext">SuperPod Saga #101</div></div>
@@ -1275,7 +1305,7 @@
 		</span>
 	</div>
 	
-	<div id="r7" class="card">
+	<div id="r7" class="card" data-keywords="PicoCart64 Lite Flashcarts Flash Card Konrad Beckmann">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 7</span></h2>
 		<h5 class="subtitle">PicoCart64 Lite V1.4 ~ July 3, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/PicoCart64/PicoCart64.png" alt="PicoCart64" class="center"/><div class="overlaytext">PicoCart64 Lite V1.4</div></div>
@@ -1285,7 +1315,7 @@
 		</span>
 	</div>
 
-	<div id="b7" class="card">
+	<div id="b7" class="card" data-keywords="Operations Cards JosetteTrinkets">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Operation Cards</span></h2>
 		<h5 class="subtitle">Lost Treasures ~ July 3, 2024</h5>
 		<div class="bgBanner"><img src="Operations/J/Zelda no Densetsu Mujura no Kamen J O1.png" alt="OP Cards" class="center"/><div class="overlaytext">Operation Cards</div></div>
@@ -1295,7 +1325,7 @@
 		</span>
 	</div>
 	
-	<div id="b6" class="card">
+	<div id="b6" class="card" data-keywords="Super Mario 64 GBA Port GameBoy Advance Joshua Barretto">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Super Mario 64 GBA Port</span></h2>
 		<h5 class="subtitle">Portable Plumber Power! ~ June 29, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/SM64GBA/SM64GBA.png" alt="N64 Stats" class="center"/><div class="overlaytext">SM64 GBA Port</div></div>
@@ -1305,17 +1335,17 @@
 		</span>
 	</div>
 
-	<div id="c6" class="card">
+	<div id="c6" class="card" data-keywords="Foslerfer The Perfect Dark Girl Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 6</span></h2>
 		<h5 class="subtitle">The Perfect Dark Girl ~ June 28, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Perfect Dark U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Foslerfer</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Foslerfer.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="b5" class="card">
+	<div id="b5" class="card" data-keywords="Back Catalogue Games">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64s Catalogue</span></h2>
 		<h5 class="subtitle">Quality over Quantity ~ June 27, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Features/NoGames/N64Console.png" alt="N64 Stats" class="center"/><div class="overlaytext">N64 Game Info</div></div>
@@ -1325,17 +1355,17 @@
 		</span>
 	</div>
 	
-	<div id="c5" class="card">
+	<div id="c5" class="card" data-keywords="Litronom Chats Q&A Mario Kart 64 Amped Up ROM Hack">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 5</span></h2>
 		<h5 class="subtitle">Lamenting with Litronom ~ June 21, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/E/Mario Kart 64 E.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Litronom</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Litronom.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="r6" class="card">
+	<div id="r6" class="card" data-keywords="JoeyN64 Game Dumper Benn Venn BennVenn">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 6</span></h2>
 		<h5 class="subtitle">JoeyN64 Dumper/Flasher ~ June 20, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/JoeyN64/Joey.png" alt="JoeyN64" class="center"/><div class="overlaytext">JoeyN64</div></div>
@@ -1345,27 +1375,27 @@
 		</span>
 	</div>
 	
-	<div id="b4" class="card">
+	<div id="b4" class="card" data-keywords="Perfect Dark Turok Dinosaur Hunter Nintendo Switch Online Expansion Pak">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64 Expansion Pak</span></h2>
 		<h5 class="subtitle">Joanna and Joshua show up! ~ Jun 19, 2024</h5>
 		<div class="bgBanner" style="background: rgba(231,0,18,255)"><img src="Blog/Features/NSOJune24/NSO.png" alt="NSO N64" class="center"/><div class="overlaytext">N64 on NSO</div></div>
-		<p>It's a shocking statistic; less than 10% of the N64 catalogue is represented <a href="https://www.nintendo.com/us/store/products/nintendo-64-nintendo-switch-online-switch/" target="_blank">officially on Nintendo's NSO online platform</a>. This week <i>Perfect Dark</i> and <i>Turok Dinosaur Hunter</i> join the ranks of replayable games, but how do they fare?</p>
+		<p>This week <i>Perfect Dark</i> and <i>Turok Dinosaur Hunter</i> join the ranks of replayable games, but how do they fare?</p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Features/NSOJune24/b4.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 
-	<div id="c4" class="card">
+	<div id="c4" class="card" data-keywords="EmuKidid Emu_Kidid Emu Kidid Chats Q&A">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 4</span></h2>
 		<h5 class="subtitle">Engaging with Emu Kidid ~ June 18, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Body Harvest U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Emu_kidid</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/EmuKidid.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="r5" class="card">
+	<div id="r5" class="card" data-keywords="Performance Ultra Racer 64 Controller Pad">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 5</span></h2>
 		<h5 class="subtitle">Performance UltraRacer 64 ~ June 15, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/UltraRacer64/UR64.png" alt="UltraRacer 64" class="center"/><div class="overlaytext">UltraRacer 64</div></div>
@@ -1375,7 +1405,7 @@
 		</span>
 	</div>
 	
-	<div id="b3" class="card">
+	<div id="b3" class="card" data-keywords="N64Recompilation Mr-Wiseguy Dario Samo RT64 The Legend of Zelda Majoras Mask the Legend of Zelda Ocarina of Time Decompilation">
 		<h2><span class="badge hot"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64Recomp</span></h2>
 		<h5 class="subtitle">Playing ROMs is getting spicy ~ Jun 14, 2024</h5>
 		<div class="bgBanner"><img src="Carts/ALTU/The Legend of Zelda Majoras Mask ALTU.png" alt="N64Recomp" class="center"/><div class="overlaytext">N64Recomp</div></div>
@@ -1385,7 +1415,7 @@
 		</span>
 	</div>
 		
-	<div id="r4" class="card">
+	<div id="r4" class="card" data-keywords="InterAct Vortex Controller Pad Flight Stick">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 4</span></h2>
 		<h5 class="subtitle">InterAct Vortex ~ June 13, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/InterActVortex/Vortex.png" alt="Vortex" class="center"/><div class="overlaytext">InterAct Vortex</div></div>
@@ -1395,17 +1425,17 @@
 		</span>
 	</div>
 	
-	<div id="c3" class="card">
+	<div id="c3" class="card" data-keywords="Toadfan5 Chats Q&As">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 3</span></h2>
 		<h5 class="subtitle">Talking with Toadfan5 ~ June 12, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Mario Party 2 U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Toadfan5</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Toadfan5.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="r3" class="card">
+	<div id="r3" class="card" data-keywords="InterAct Racing Wheel V3 Steering Wheel Controller">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 3</span></h2>
 		<h5 class="subtitle">InterAct Racing Wheel V3 ~ June 8, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/InterActV3Wheel/IV3W.png" alt="V3Wheel" class="center"/><div class="overlaytext">InterAct V3 Wheel</div></div>
@@ -1415,17 +1445,17 @@
 		</span>
 	</div>
 	
-	<div id="c2" class="card">
+	<div id="c2" class="card" data-keywords="Graslu00 Chats Q&As GoldenEye 007">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 2</span></h2>
 		<h5 class="subtitle">Shooting the breeze with Graslu00 ~ June 5, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/J/GoldenEye 007 J.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Graslu00</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Graslu00.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 	
-	<div id="r2" class="card">
+	<div id="r2" class="card" data-keywords="SummerCart64 Flash Cart Flashcarts Korgeaux SC64MENU N64FlashcartMenu 64DD Aleck64 iQue">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">SummerCart64</span></h2>  
 		<h5 class="subtitle">The Freshest Flashcart ~ Jun 04, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/SummerCart64/SummerCart64.png" alt="SummerCart64" class="center"/><div class="overlaytext">SummerCart64</div></div>
@@ -1435,17 +1465,17 @@
 		</span>
 	</div>
 	
-	<div id="c1" class="card">
+	<div id="c1" class="card" data-keywords="Quest64 Mike Fink Chats Q&As Quest 64 Eltale Monsters Holy Magic Century">
 		<h2><span class="badge fresh"><i class="fa-solid fa-comments"></i></span> <span class="title">ReCollect64 Chats No. 1</span></h2>
 		<h5 class="subtitle">Quick Q&A with Quest64 ~ May 29, 2024</h5>
 		<div class="bgChat" style="background-image:url('Covers/U/Quest 64 U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">@Quest64Official</div></div>
-		<br></br>
+		<p></p>
 		<span class="alignright">
 		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Avatars/Quest64.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
 		</span>
 	</div>
 		
-	<div id="r1" class="card">
+	<div id="r1" class="card" data-keywords="QuickShot NitroStick Flight Stick Controller">
 		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 1</span></h2>
 		<h5 class="subtitle">QuickShot NitroStick ~ May 29, 2024</h5>
 		<div class="bgBanner"><img src="Blog/Reviews/QuickShotNitroStick/NitroStick.png" alt="NitroStick" class="center"/><div class="overlaytext">QuickShot NitroStick</div></div>
@@ -1455,7 +1485,7 @@
 		</span>
 	</div>
 		
-	<div id="b2" class="card">
+	<div id="b2" class="card" data-keywords="iQues Player Chinese China">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">The iQue Player</span></h2>
 		<h5 class="subtitle">A plug-and-play N64 ~ May 29, 2024</h5>
 		<div class="bgBanner"><img src="Accessories/iQue A1.png" alt="iQue" class="center"/><div class="overlaytext">iQue Player</div></div>
@@ -1465,7 +1495,7 @@
 		</span>
 	</div>
 		
-	<div id="b1" class="card">
+	<div id="b1" class="card" data-keywords="Welcome to ReCollect64 Hello World First Post">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Welcome to ReCollect64</span></h2>
 		<h5 class="subtitle">Hello World! ~ May 29, 2024</h5>
 		<div class="bgBanner"><span class="masked center" style="-webkit-mask-image: url('Config/Images/ReCollect64.png'); width: 300px; object-fit: contain;"><img id="logo" src="Config/Images/ReCollect64.png" alt="HelloWorld" class="center" /></span></div>

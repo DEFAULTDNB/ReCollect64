@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div id="results" class="card">
+	<center>
+	<h2><span class="badge audio"><i class="fa-solid fa-magnifying-glass"></i></span> <span id="title" class="title"> </span></h2>
+	<span id="hint"></span>
+	<p id="here"></p>
+	<script>
+	function createTable(tableData) {
+		var table = document.createElement('table');
+		table.classList.add("thintable");
+		table.setAttribute("id", "resultstable");
+		var tableBody = document.createElement('tbody');
+		tableData.forEach(function(rowData) {
+		var row = document.createElement('tr');
+		rowData.forEach(function(cellData) {
+			var cell = document.createElement('td');
+			cell.appendChild(document.createTextNode(cellData));
+			row.appendChild(cell);
+		});
+		tableBody.appendChild(row);
+		});
+		table.appendChild(tableBody);
+		here.appendChild(table);
+	}
+	createTable(lookupWords);
+	//bold titles
+	for(i = 0; i < 4; i++){
+	let titles = resultstable.rows[0].getElementsByTagName("TD")[i].innerHTML;
+	resultstable.rows[0].getElementsByTagName("TD")[i].innerHTML = '<b>'+titles+'<b>';
+	}
+	for(i = 1; i < resultstable.rows.length; i++){
+	//get contents of cell
+	let goodLink = resultstable.rows[i].getElementsByTagName("TD")[0].innerHTML;
+	//replace with hyperlink
+	resultstable.rows[i].getElementsByTagName("TD")[2].innerHTML = '<a href="https://defaultdnb.github.io/ReCollect64/blog.html'+goodLink+'" target="_blank"> CLICK HERE </a>' ;
+	}
+	title.innerHTML = resultstable.rows.length-1 + ' RESULTS FOR "' + keyword.toUpperCase()+'"';
+	if (resultstable.rows.length == 1){
+		hint.innerHTML = "HINT: Try single words & be specific"
+		} else {
+		hint.innerHTML = "";
+	}	
+	</script>
+	<div style="width: fit-content;">
+	<div id="ctrl1">
+		<div id="again" onclick="keywordSearch();" title="𝗖𝗟𝗜𝗖𝗞 𝗧𝗢 𝗦𝗘𝗔𝗥𝗖𝗛 𝗔𝗚𝗔𝗜𝗡" class="badge search"><i class="fa-solid fa-magnifying-glass"></i> SEARCH AGAIN </div>
+		<p></p>		
+		<div id="home" onclick="$(function(){$('#content-placeholder').load('postLinks.html');}); gototop();" title="𝗖𝗟𝗜𝗖𝗞 𝗧𝗢 𝗚𝗢 𝗛𝗢𝗠𝗘" class="badge controls"><i class="fa-solid fa-house"></i> BACK TO HOME</div>
+	</div>
+	</div>
+	</center>
+</div>
+</body>
+</html>

@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+<head>
 <style>
 .navbar {
 	font-family: "Homenaje", sans-serif;
@@ -148,7 +151,6 @@
 </style>
 </head>
 <body>
-
 <div class="navbar">
 	
 	<div class="subnav">
@@ -552,16 +554,11 @@
 		</div>
 	</div>
     <a title="𝗖𝗢𝗡𝗧𝗔𝗖𝗧" href="mailto:recollect64official@gmail.com" target="_blank" style="float:right"><i class="fa-solid fa-paper-plane"></i></a>
-	<!--a title="𝗦𝗘𝗔𝗥𝗖𝗛" href="" target="_blank" style="float:right" onclick="window.prompt();"><i class="fa-solid fa-magnifying-glass"></i></a-->
+	
+	<div class="subnav" style="">
+	<div title="𝗦𝗘𝗔𝗥𝗖𝗛" class="subnavbtn"  onclick="keywordSearch();"><i class="fa-solid fa-magnifying-glass"></i> SEARCH</div>
+	</div>
+	
 </div>
-<script>
-var searchArr = [];
-$('a').each(function() {
-  var text = $(this).text();
-  if (text.match("more")){
-  } else {
-  searchArr.push(text);
-  }
-})
-//alert(searchArr);
-</script>
+</body>
+</html>
