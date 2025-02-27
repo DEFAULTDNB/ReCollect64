@@ -27,12 +27,15 @@ h4 {
 a .btn {
 	text-decoration: none;
 }
+
 .border {
-	margin: 10px 0px;
+	border: double 3px transparent;
 	border-radius: 10px;
-	border: 3px solid silver;
-	padding: 0px 10px;
-	background-color: white;
+	background-image: linear-gradient(white, white), radial-gradient(circle at top right, #f00, #3020ff);
+	--background-image: linear-gradient(white, white), radial-gradient(circle at top left, blue, red);
+	background-origin: border-box;
+	background-clip: content-box, border-box;
+	margin: 10px 0px;
 }
 .header {
 	padding: 0px;
@@ -215,8 +218,8 @@ a .btn {
 	background-color: #f1f1f1;
 	border-radius: 10px;
 	padding: 3px;
-	margin: 10px 0;
-	width:100%
+	margin: 10px auto;
+	width: 99%
 }
 .darker {
 	border-color: #ccc;
@@ -407,13 +410,13 @@ tr:nth-child(even) {
 }
 tr:nth-child(odd) {
 }
-.thintable table {
+.thintable table{
 	font-family: "Homenaje", sans-serif;
 	border-collapse: collapse;
 	width: fit-content;
 	block-size: fit-content;
 }
-.thintable td {
+.thintable td{
 	border: 1px solid grey;
 	text-align: center;
 	color: #303030;
@@ -427,6 +430,12 @@ tr:nth-child(odd) {
 	background-color: #F8F8F8;
 	width: fit-content;
 	padding: 0px;
+}
+.controller, th, td {
+	font-family: "Homenaje", sans-serif;
+	border-collapse: collapse;
+	width: 60%;
+	border: 2px solid black;
 }
 .video {
 	display: block;
@@ -607,6 +616,14 @@ button {
   color: white;
   border-radius: 5px;
 }
+/* buttons */
+.padbut {
+display:inline-block;
+vertical-align:middle;
+width:30px;
+margin-left: 5px;
+margin-right: 5px;
+}
 /* if screen is < 800px wide columns stack */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {
@@ -620,4 +637,10 @@ button {
   text-align: center;
   font-family: arial;
   }
+  .controller, th, td {
+	font-family: "Homenaje", sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	border: 2px solid black;
+	}
 }

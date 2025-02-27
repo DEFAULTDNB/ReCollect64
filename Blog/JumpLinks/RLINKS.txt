@@ -35,3 +35,4 @@ Blog/Reviews/Games/PORTAL64/r33.html
 Blog/Reviews/Games/64TRUMP/r34.html
 Blog/Reviews/Games/TAMAGOTCHI/r35.html
 Blog/Reviews/Games/TACOSTAND/r36.html
+Blog/Reviews/Games/GOLDENEYEX6A/r37.html

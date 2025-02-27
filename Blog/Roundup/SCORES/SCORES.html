@@ -15,7 +15,7 @@
 	<div style="width: 50%;text-align: center;"><button title="𝗦𝗢𝗥𝗧 𝗔-𝗭" style="display: inline-block;" onclick="sortGameTable();"><i class="fa-solid fa-arrow-down-a-z"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗦𝗖𝗢𝗥𝗘" style="display: inline-block;" onclick="sortGameTableScore();"><i class="fa-solid fa-arrow-down-9-1"></i></button></div>
 	<p></p>	
 	<table id="gametable" class="thintable">
-		<tr><th style="width:10%">REGION</th><th style="width:60%">GAME TITLE<th style="width:15%">LINK</th><th style="width:15%">SCORE /10</th></tr>
+		<tr><th style="width:10%">REGION</th><th style="width:60%">GAME TITLE</th><th style="width:15%">LINK</th><th style="width:15%">SCORE /10</th></tr>
 		<tr><th>🇪🇺/🇺🇸</th>							<td>007 The World is Not Enough</td>							<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r24" target="_blank">HERE</a></td><td>8</td></tr>
 		<tr><th>🇪🇺/🇯🇵/🇺🇸</th>						<td>1080° Snowboarding</td>										<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r25" target="_blank">HERE</a></td><td>7</td></tr>
 		<tr><th title="JP Exclusive">🇯🇵⭐</th>		<td>64 de Hakken! Tamagotchi Minna de Tamagotchi World</td>		<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r35" target="_blank">HERE</a></td><td>7</td></tr>
@@ -28,7 +28,8 @@
 	<div id="brew" style="width: 50%;text-align: center;"><button title="𝗦𝗢𝗥𝗧 𝗔-𝗭" style="display: inline-block;" onclick="sortBrewTable();"><i class="fa-solid fa-arrow-down-a-z"></i></button>&nbsp;<button title="𝗦𝗢𝗥𝗧 𝗦𝗖𝗢𝗥𝗘" style="display: inline-block;" onclick="sortBrewTableScore();"><i class="fa-solid fa-arrow-down-9-1"></i></button></div>
 	<p></p>
 	<table id="brewtable" class="thintable">
-		<tr><th style="width:10%">AUTHOR</th><th style="width:60%">BREW TITLE<th style="width:15%">LINK</th><th style="width:15%">SCORE /10</th></tr>
+		<tr><th style="width:10%">AUTHOR</th><th style="width:60%">BREW TITLE</th><th style="width:15%">LINK</th><th style="width:15%">SCORE /10</th></tr>
+		<tr><td>GoldenEyeMods</td><td>GoldenEye X (V6a)</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r37" target="_blank">HERE</a></td><td>9</td></tr>
 		<tr><td>James Lambert</td><td>Portal 64 (V0.15.0)</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r33" target="_blank">HERE</a></td><td>9</td></tr>
 		<tr><td>Kurko Mods</td><td>The Legend of Banjo-Kazooie The Bear Waker Deluxe</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r10" target="_blank">HERE</a></td><td>8</td></tr>
 		<tr><td>MelonSpeedruns</td><td>The Legend of Peach (DEMO)</td>				<td><a href="https://defaultdnb.github.io/ReCollect64/blog.html#r32" target="_blank">HERE</a></td><td>7</td></tr>
@@ -142,8 +143,8 @@
 		rowsb = tableb.rows;
 		for (ib = 1; ib < (rowsb.length - 1); ib++) {
 		  shouldSwitchb = false;
-		  xb = rowsb[ib].getElementsByTagName("TD")[0];
-		  yb = rowsb[ib + 1].getElementsByTagName("TD")[0];
+		  xb = rowsb[ib].getElementsByTagName("TD")[1];
+		  yb = rowsb[ib + 1].getElementsByTagName("TD")[1];
 		  if (xb.innerHTML.toLowerCase() > yb.innerHTML.toLowerCase()) {
 			shouldSwitchb = true;
 			break;
@@ -208,8 +209,8 @@
 		rowsb = tableb.rows;
 		for (ib = 1; ib < (rowsb.length - 1); ib++) {
 		  shouldSwitchb = false;
-		  xb = rowsb[ib].getElementsByTagName("TD")[3];
-		  yb = rowsb[ib + 1].getElementsByTagName("TD")[3];
+		  xb = rowsb[ib].getElementsByTagName("TD")[4];
+		  yb = rowsb[ib + 1].getElementsByTagName("TD")[4];
 		  if (xb.innerHTML < yb.innerHTML) {
 			shouldSwitchb = true;
 			break;
