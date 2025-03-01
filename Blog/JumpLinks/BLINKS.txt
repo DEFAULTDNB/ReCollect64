@@ -94,3 +94,4 @@ Blog/Features/LegoOOT/b92.html
 Blog/Features/2025/Q64BETA/b93.html
 Blog/Features/2025/GexTrilogy/b94.html
 Blog/Features/2025/TurokNEXTGEN/b95.html
+Blog/Features/2025/N6428TH/b96.html
