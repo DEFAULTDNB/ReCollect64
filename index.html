@@ -855,7 +855,6 @@ myCount = 0;
 			let thatYear = gYear.slice(7,12);
 			let age = Number(thisYear - thatYear);
 			let tColor='rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
-			//var myToast = Toastify({className: "bday", text: "'"+gTitle+"' ("+gRegion+") " + " released "+age+" years ago today!\n\n("+gYear+")", onClick: function(){hideMyToasts()}, style: {background: tColor}, avatar: "Config/Images/N64.gif", close: true, stopOnFocus: true, oldestFirst: false, duration: 8000}); myToast.showToast();
 			var myToast = Toastify({className: "bday", text: "'"+gTitle+"' ("+gRegion+") " + " released "+age+" years ago today!\n\n("+gYear+")", onClick: function(){hideMyToasts()}, style: {background: tColor}, avatar: "Config/Images/N64.gif", close: true, stopOnFocus: true, oldestFirst: false, duration: 8000}); myToast.showToast();
 			}
 			document.getElementById('cake').style.backgroundImage="url(Config/Images/CAKEON.png)";
@@ -2382,6 +2381,7 @@ spitFacts(); document.getElementsByClassName('marquee-child')[0].addEventListene
 <img id="backup" title="𝗕𝗮𝗰𝗸𝘂𝗽 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗼 𝗳𝗶𝗹𝗲." onclick="copyOutCollection();" src="Config/Images/BBUT.png" />
 <img id="restore" title="𝗔𝗱𝗱-𝗶𝗻 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗳𝗿𝗼𝗺 𝗳𝗶𝗹𝗲." onclick="openFile()" src="Config/Images/ABUT.png" />
 <img id="nuke" title="𝗣𝘂𝗹𝗹 𝘁𝗵𝗲 𝘁𝗿𝗶𝗴𝗴𝗲𝗿: 𝗱𝗲𝗹𝗲𝘁𝗲 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻." onclick="nuke();document.getElementById('logo').scrollIntoView({behavior: 'auto' });" src="Config/Images/ZBUT.png" />
+<img id="gitH" title="𝗚𝗶𝘁𝗛𝘂𝗯 𝗦𝗼𝘂𝗿𝗰𝗲" onclick="window.open('https://github.com/DEFAULTDNB/ReCollect64');" src="Config/Images/GITHUB.png" />
 <div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀"></div>
 <div id="blog" onclick="letsDance();" title="𝗩𝗶𝘀𝗶𝘁 𝘁𝗵𝗲 𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗕𝗹𝗼𝗴"><span class="masked" style="-webkit-mask-image: url('Config/Images/BLOG.png');"><img id="blogicon" src="Config/Images/BLOG.png" /></span></div>
 <img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/>

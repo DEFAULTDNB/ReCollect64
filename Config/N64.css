@@ -162,6 +162,7 @@ select {
   display:block;
 }
 .thumbnail {
+	margin: 2px;
 	width: 400px;
 	height: 180px;
 	background-size: 225px;
@@ -696,16 +697,13 @@ hr.type2 {
 	top: 190px;
 	left: 5px;
 	display: inline-block;
-	width: 85px;
+	width: 175px;
 	border-radius: 10px;
 	border: 3px solid var(--light-tone);
 	box-shadow: -1px 1px 5px 7px var(--secondary-color);
 	transition: 0.2s ease-in-out;
 	z-index: 1;
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
-}
-#searcher:hover {
-	width: 175px;
 }
 ::placeholder {
   color: black;
@@ -872,6 +870,21 @@ input[type="checkbox"] {
 	z-index: 1000;
 }
 #muteL:hover {
+	opacity: 1;
+}
+#gitH {
+	position: fixed;
+	top: 350px;
+	right: 15px;
+	height: 40px;
+	width: auto;
+	opacity: 0.2;
+	display: inline-block;
+    cursor: pointer;
+	z-index: 1000;
+	filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);
+}
+#gitH:hover {
 	opacity: 1;
 }
 #tweet {

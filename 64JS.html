@@ -55,14 +55,14 @@ function analyzeROM() {
 			boot = "REVERSED (*.N64)";
 			//alert(stringToHex(fileData.slice(0,4)))
 			}
-			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[ROM TYPE]:</span> "+boot+"<br>";
 			var firstmbhash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(fileData.slice(0x40, 0x1000))).toString();
 			const name = fileData.slice(32, 59);
 			const encodedString = name;
 			const decodedString = decodeShiftJIS(encodedString);
-			document.getElementById("result").innerHTML += "<span id='label1'>[NAME]:</span> "+decodedString.toUpperCase()+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[INTERNAL NAME]:</span> "+decodedString.toUpperCase()+"<br>";
 			const cid = fileData.slice(59,63);
-			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> "+cid.toUpperCase()+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[ROM ID]:</span> "+cid.toUpperCase()+"<br>";
 			var media;
 			switch (fileData[59]) {
 				case 'N': media = "CARTRIDGE"; break;
@@ -140,14 +140,14 @@ function analyzeROM() {
 				default: region = "UNKNOWN";
 			}
 			document.getElementById("result").innerHTML += "<span id='label1'>[REGION]:</span> "+region+"<br>";
-			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> "+cic+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[CIC BOOT]:</span> "+cic+"<br>";
 			switch (stringToHex(fileData.slice(63,64))) {
 				case '1': rev = "1 (REV A)";break;
 				case '2': rev = "2 (REV B)";break;
 				case '3': rev = "3 (REV C)";break;
 				default: rev = "0";
 			}
-			document.getElementById("result").innerHTML += "<span id='label1'>[ROM]:</span> V1."+rev+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[VERSION]:</span> V1."+rev+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label2'>[ANALYSIS TIME]:</span> "+Math.floor((Date.now()-start)/1000)+"s<br>";
 			document.getElementById("result").innerHTML += "<br><span id='label3'>--------- LOAD ANOTHER ROM ---------</span><br><br>";
 			//save file out (z64 format)
@@ -198,7 +198,7 @@ function decodeShiftJIS(encodedString) {
 }
 </script>
 <center>
-<div id="footer" class="footer" style="color:silver;">[DEFAULTDNB 2024 (APP V1.5)]</div>
+<div id="footer" class="footer" style="color:silver;">[DEFAULTDNB 2024 (APP V1.6)]</div>
 </center>
 </body>
 </html>
