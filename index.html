@@ -62,8 +62,8 @@
 <button class="button" title="𝗜𝗺𝗽𝗼𝗿𝘁 𝗮 𝗖𝗙𝗚 𝗳𝗶𝗹𝗲 𝗶𝗻𝘁𝗼 𝘁𝗵𝗲 𝗲𝗱𝗶𝘁𝗮𝗯𝗹𝗲 𝗹𝗶𝘀𝘁" id="ImportVCFG">🔄 𝗜𝗺𝗽𝗼𝗿𝘁 𝗙𝗶𝗹𝗲 𝘁𝗼 𝗩𝗶𝗿𝘁𝘂𝗮𝗹</button><br>
 <button class="button" title="𝗕𝗮𝗰𝗸-𝘂𝗽 𝘁𝗵𝗲 𝘁𝗲𝗺𝗽𝗼𝗿𝗮𝗿𝘆 𝗹𝗶𝘀𝘁 𝘁𝗼 𝗮 𝗖𝗙𝗚 𝗳𝗶𝗹𝗲" id="SaveVCFG">💾 𝗘𝘅𝗽𝗼𝗿𝘁 𝗩𝗶𝗿𝘁𝘂𝗮𝗹 𝘁𝗼 𝗙𝗶𝗹𝗲</button><br>
 <button class="button" title="𝗟𝗼𝗼𝗸-𝘂𝗽 𝗮𝗻 𝗶𝗻𝗱𝗶𝘃𝗶𝗱𝘂𝗮𝗹 𝘁𝗶𝘁𝗹𝗲 𝗼𝗿 𝘂𝘀𝗲 𝗮 𝗱𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻 (𝗘𝗫: '𝗕𝗹𝘂𝗲 𝗰𝗮𝗿𝘁')" id="MakeCFG">✏️ 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲 𝗦𝗶𝗺𝗽𝗹𝗲 𝗟𝗶𝘀𝘁</button><br>
+<button class="button" id="ghLists">📥 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱 𝗖𝗙𝗚 𝗹𝗶𝘀𝘁𝘀</button><br>
 <button class="button" id="ClearCFG">❌ 𝗖𝗹𝗲𝗮𝗿 𝗩𝗶𝗿𝘁𝘂𝗮𝗹 𝗟𝗶𝘀𝘁</button><br>
-<button class="button" id="64JS">⚙️ 𝟲𝟰𝗝𝗦 𝗥𝗢𝗠 𝗧𝗼𝗼𝗹</button><br>
 <button class="button" id="ExitCFG">✖️ 𝗘𝗫𝗜𝗧</button>
 </center></div>
 <div id="canvas" onmouseup="document.getElementById('canvas').style.display = 'none';">
@@ -654,8 +654,8 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 			}
 			document.getElementById('VirtualCFG').click();
 		}
-		document.getElementById('64JS').onclick = function() {
-		window.open("64JS.html");
+		document.getElementById('ghLists').onclick = function() {
+		window.open("https://github.com/DEFAULTDNB/ReCollect64/tree/main/Config/Lists");
 		}
 		//EXIT
 		document.getElementById('ExitCFG').onclick = function() {

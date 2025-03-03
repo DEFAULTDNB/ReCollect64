@@ -188,6 +188,9 @@ select {
 	border: 3px solid var(--light-tone);
 	z-index: 500;
 }
+.thumbnail img {
+	border-radius: 10px;
+}
 #main {
 	display: flex;
 	flex-wrap: wrap;
@@ -882,7 +885,7 @@ input[type="checkbox"] {
 	display: inline-block;
     cursor: pointer;
 	z-index: 1000;
-	filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);
+	filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%) drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 }
 #gitH:hover {
 	opacity: 1;
