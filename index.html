@@ -83,12 +83,15 @@
 <select name="Region" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗼𝗿 𝗖𝗮𝘁𝗲𝗴𝗼𝗿𝘆" id="Region" onchange="changeRegion()">
 <optgroup label="Customise:">
 	<option value="CUST" title="𝗢𝗽𝗲𝗻 𝗖𝘂𝘀𝘁𝗼𝗺 𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂" onclick="clickonregion();">ℹ️/🅾️</option>
-<optgroup label="Collections:">
+<optgroup label="World Sets:">
 	<option value="FULE" title="𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿𝘀 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇪🇺🏆 𝟭𝟬𝟬%</option>	
-	<option value="FULA" title="𝗡𝗧𝗦𝗖 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿𝘀 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇺🇸🏆 𝟭𝟬𝟬%</option>
+	<option value="FULA" title="𝗡𝗧𝗦𝗖-𝗨 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿𝘀 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇺🇸🏆 𝟭𝟬𝟬%</option>
+	<option value="FULJ" title="𝗡𝗧𝗦𝗖-𝗝 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿𝘀 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇯🇵🏆 𝟭𝟬𝟬%</option>
+<optgroup label="Collections:">
 	<option value="PAL" title="𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟰𝟯)">🇪🇺 🌍 EUR</option>
-	<option value="USA" title="𝗡𝗧𝗦𝗖-𝗨 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟵𝟳)">🇺🇸 🌎 USA</option>
+	<option value="USA" title="𝗡𝗧𝗦𝗖-𝗨 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟵𝟲)">🇺🇸 🌎 USA</option>
 	<option value="JPN" title="𝗡𝗧𝗦𝗖-𝗝 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟵𝟴)">🇯🇵 🌏 JPN</option>
+	<option value="AUSR" title="𝗔𝗨𝗦-𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟭𝟭)">🇦🇺 🌏 AUS</option>
 	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟱𝟳𝟭)">⚠️🌐 FULL</option>
 <optgroup label="Cart Variants:">
 	<option value="ASI" title="𝗔𝘀𝗶𝗮𝗻">🇹🇼 🌏 ASI</option>
@@ -682,8 +685,10 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 	document.getElementById("start").style.display = "none";
 	var myToast = Toastify({text: '𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗛𝗶𝗱𝗱𝗲𝗻:\n\nToo many games to list in this section!', avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
 	}
-	if (document.getElementById("Region").value == "FULA") {var myToast = Toastify({text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full world 388 game set!\n\nFor American collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "FULE") {var myToast = Toastify({text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full world 388 game set!\n\nFor European collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "FULJ") {var myToast = Toastify({text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor Japanese collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "FULA") {var myToast = Toastify({text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor American collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "FULE") {var myToast = Toastify({text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor European collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	
 	if (document.getElementById("Region").value == "LRG") {var myToast = Toastify({text: "𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nN64 releases by Limited Run Games.", style: {background: 'Black', color: "#ED008D"}, avatar: "Config/Images/LRG.png", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "NFR") {var myToast = Toastify({text: "𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲:\n\nRare N64 kiosk cartridges.", style: {background: 'MidnightBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "COLS") {var myToast = Toastify({text: "𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nColoured cart collection.", style: {background: 'indigo'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
@@ -850,6 +855,7 @@ myCount = 0;
 			let thatYear = gYear.slice(7,12);
 			let age = Number(thisYear - thatYear);
 			let tColor='rgb('+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+','+Math.round(Math.random()*255)+')';
+			//var myToast = Toastify({className: "bday", text: "'"+gTitle+"' ("+gRegion+") " + " released "+age+" years ago today!\n\n("+gYear+")", onClick: function(){hideMyToasts()}, style: {background: tColor}, avatar: "Config/Images/N64.gif", close: true, stopOnFocus: true, oldestFirst: false, duration: 8000}); myToast.showToast();
 			var myToast = Toastify({className: "bday", text: "'"+gTitle+"' ("+gRegion+") " + " released "+age+" years ago today!\n\n("+gYear+")", onClick: function(){hideMyToasts()}, style: {background: tColor}, avatar: "Config/Images/N64.gif", close: true, stopOnFocus: true, oldestFirst: false, duration: 8000}); myToast.showToast();
 			}
 			document.getElementById('cake').style.backgroundImage="url(Config/Images/CAKEON.png)";
@@ -942,16 +948,12 @@ myCount = 0;
 				}
 			}
 		}
+		//THUMBNAILS
 		if (div.style.backgroundColor) {
 		myCount = myCount + 1;
-			//div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(10%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
-			
 			div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(10%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
 			div.className = "thumbnail";
 		} else {
-			//div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
-			
-			//try thumbnails here
 			div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' onclick='reply_click(this.id); return false;' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
 			div.className = "thumbnail";
 		}
@@ -1014,6 +1016,7 @@ myCount = 0;
 		} else {
 		document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg"); //default fallback
 		}
+		//END OF THUMBNAILS
 	}
 	document.getElementById("searcher").value = "";
 	document.getElementById("searcher").focus();
@@ -1233,16 +1236,15 @@ function reply_click(clicked_id){
 	if (pReg === "DD"){
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 	} else if (pReg === "NFR" || pReg === "ALTN") {
-	
 	let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
 	document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
-	
 	document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
 	//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
 		if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //Fixed again
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
-		thumb.src = 'Carts/ALTN/Turok 2 Seeds of Evil ALTN.png';
+		//thumb.src = 'Carts/ALTN/Turok 2 Seeds of Evil ALTN.png';
+		thumb.src = convertnfrtopng;
 		} else if (frametitle.innerHTML === "Doshin the Giant NFR"){
 		document.getElementById("thumb").style.width = "0px"
 		document.getElementById("thumbDI").style.width = "0px"
@@ -1370,44 +1372,40 @@ function reply_click(clicked_id){
 	const simgBox = document.getElementById("art");
 	const elements = document.getElementsByClassName("thumbs2");
 		while(elements.length > 0){
-			elements[0].parentNode.removeChild(elements[0]);//remove extra elements
+			elements[0].parentNode.removeChild(elements[0]);//remove already populated guide elements
 		}	
-	
+
 	document.getElementById("guideFrame").onload = function() {
+	
+	
+	
 	
 	const guideLink = new XMLHttpRequest;
 	guideLink.open('get', guideLinks, false);
-	guideLink.send();
+	guideLink.send();	
 	guideURL = guideLink.responseText;
 	guideLineNo = guideURL.split("\n");
-
-		//alert("frame content : " + frameContent);
-		
-		//alert(guideLineNo.length) //number of guides for game
-	
 	
 		if (guideURL) {
-			//for (let m = 1; m < guideLineNo.length; m++){
-			for (let m = 1; m < 5; m++){ //arbitrary number
+			for (let m = 1; m < guideLineNo.length+1; m++){
 				const simg = document.createElement("img");
 				simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
+				simg.setAttribute('onload', 'this.style.display = "inline-block"');
+				simg.setAttribute('onerror', 'this.style.display = "none"'); //IMPROVE THIS
 				simg.setAttribute('class', 'thumbs2');
 				simg.setAttribute('title', '𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝗚𝘂𝗶𝗱𝗲');
-				simg.setAttribute('id', "thumbG"+m); //try this for simplicity
+				simg.setAttribute('id', "thumbG"+m);
 				simg.setAttribute('width', "24%");
 				simg.setAttribute('height', "auto");
 				simg.style.display = 'inline-block';
 				simg.setAttribute('onclick', 'thumbFunct(this.id)');
-				simg.setAttribute('onload', 'this.style.display = "inline-block"');
-				simg.setAttribute('onerror', 'this.style.display = "none"');
 				simg.setAttribute('data', guideLineNo[m-1]);
 				simgBox.appendChild(simg);
 				gcounter = gcounter + 1;
 			}
 		}
-		
-		
-	}	
+	}
+	
 	//Specific for Micro Machines SEU
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
 		const simgBox = document.getElementById("art");
@@ -2387,6 +2385,6 @@ spitFacts(); document.getElementsByClassName('marquee-child')[0].addEventListene
 <div id="tweet" onclick="share();" title="𝗦𝗵𝗮𝗿𝗲 𝘆𝗼𝘂𝗿 𝗽𝗿𝗼𝗴𝗿𝗲𝘀𝘀"></div>
 <div id="blog" onclick="letsDance();" title="𝗩𝗶𝘀𝗶𝘁 𝘁𝗵𝗲 𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗕𝗹𝗼𝗴"><span class="masked" style="-webkit-mask-image: url('Config/Images/BLOG.png');"><img id="blogicon" src="Config/Images/BLOG.png" /></span></div>
 <img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/>
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB 2025 (APP VER: 3.4)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB 2025 (APP VER: 3.5)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
