@@ -25,3 +25,4 @@ Blog/Avatars/Syncoplay.html
 Blog/Avatars/Elarix.html
 Blog/Avatars/Eupholace.html
 Blog/Avatars/Hard4Games.html
+Blog/Avatars/BehindTheCode.html
