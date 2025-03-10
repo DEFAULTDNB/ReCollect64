@@ -38,3 +38,4 @@ Blog/Reviews/Games/TACOSTAND/r36.html
 Blog/Reviews/Games/GOLDENEYEX6A/r37.html
 Blog/Reviews/Games/TRACKNFIELD/r38.html
 Blog/Reviews/Gashapon1/r39.html
+Blog/Reviews/Games/40WINKS/r40.html
