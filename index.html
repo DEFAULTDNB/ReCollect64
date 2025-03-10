@@ -1254,13 +1254,16 @@ function reply_click(clicked_id){
 	document.getElementById("thumb").src = convertthumbtopng; //Fix for JPG>PNG
 	document.getElementById("thumbBB").src = 'Backs/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbDI").src = 'Disks/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DI.png';
-	document.getElementById("thumbDI").style.width = "48%";
-	document.getElementById("thumbDI").style.height = "auto";
 	document.getElementById("thumbMA").src = 'Manuals/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbMA").style.width = "23%";
 	document.getElementById("thumbMA").style.height = "auto";
-	if (pReg === "DD"){
+	
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
+
+	if (pReg === "A"){
+	
+	//document.getElementById("thumbMA").src = 'Manuals/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
+	
 	} else if (pReg === "NFR" || pReg === "ALTN") {
 	let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
 	document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
@@ -1278,7 +1281,6 @@ function reply_click(clicked_id){
 		document.getElementById("thumb").style.width = "0px"
 		}
 	} else {
-	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 		if (pReg.includes("J") || pReg.includes("JS")){ //Portrait box fix
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
@@ -1298,10 +1300,8 @@ function reply_click(clicked_id){
 	document.getElementById("thumbRC").src = 'Carts/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
 	} else if (gCode.includes("EUR")){
 	document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
-	
 	} else if (pReg === "PCD"){
-	document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png'; //not working
-	
+	document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
 	} else if (pReg === "SEJ"){
 		if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){ //bespoke fix.
 		} else {
@@ -1350,9 +1350,7 @@ function reply_click(clicked_id){
 	document.getElementById("thumbA1").style.height = "auto";
 	document.getElementById("thumbA1").style.width = "30%";
 	document.getElementById("thumbA2").src = 'Accessories/iQue A1.png';
-	
 	document.getElementById("thumbA3").src = 'Accessories/iQue A2.png';
-
 	document.getElementById("thumbMA").style.width = "32%";
 	document.getElementById("thumbMA").style.height = "auto";
 	
@@ -1371,22 +1369,31 @@ function reply_click(clicked_id){
 	//document.getElementById("thumbP1").src = 'Poster/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' P1.png';
 	
 	//Screenshot 800x600
-
 	document.getElementById("thumbS1").src = 'Screens/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' S1.png';
+	document.getElementById("thumbS1").style.width = "48%";
 	//Operation Cards	
 	document.getElementById("thumbO1").src = 'Operations/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' O1.png';
-	document.getElementById("thumbO1").style.width = "49%";
+	document.getElementById("thumbO1").style.width = "48%";
 	document.getElementById("thumbO1").style.height = "auto";
 	document.getElementById("thumbO2").src = 'Operations/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' O2.png';
-	document.getElementById("thumbO2").style.width = "49%";
+	document.getElementById("thumbO2").style.width = "48%";
 	document.getElementById("thumbO2").style.height = "auto";
 	
 	if (frametitle.innerHTML.includes("DD")){
+	
+	document.getElementById("thumb").style.height = "auto"
+	document.getElementById("thumb").style.width = "48%"
+	document.getElementById("thumbBB").style.height = "auto"
+	document.getElementById("thumbBB").style.width = "48%"
+		
+	document.getElementById("thumbDI").style.width = "48%";
+	document.getElementById("thumbDI").style.height = "auto";
 	document.getElementById("thumbMA").style.height = "auto";
-	document.getElementById("thumbMA").style.width = "32%";
-	document.getElementById("thumbO1").style.width = "62%";
+	document.getElementById("thumbMA").style.width = "48%";
+	
+	document.getElementById("thumbO1").style.width = "98%"; //62%
 	document.getElementById("thumbO1").style.height = "auto";
-	document.getElementById("thumbO2").style.width = "62%";
+	document.getElementById("thumbO2").style.width = "98%";
 	document.getElementById("thumbO2").style.height = "auto";
 	}
 	
@@ -1402,9 +1409,6 @@ function reply_click(clicked_id){
 		}	
 
 	document.getElementById("guideFrame").onload = function() {
-	
-	
-	
 	
 	const guideLink = new XMLHttpRequest;
 	guideLink.open('get', guideLinks, false);
@@ -1699,7 +1703,6 @@ document.addEventListener('keydown', e => {
 	document.getElementById("searcher").focus();
 	}
 	if (e.key === "Enter") {
-	//document.getAnimations().forEach((animation) => animation.finish());
 	search();
 	const str = window.getSelection().anchorNode.parentElement.id;
 	const str1 = str.slice(0,str.indexOf("S"));
