@@ -40,3 +40,4 @@ Blog/Reviews/Games/TRACKNFIELD/r38.html
 Blog/Reviews/Gashapon1/r39.html
 Blog/Reviews/Games/40WINKS/r40.html
 Blog/Reviews/40WinksPad/r41.html
+Blog/Reviews/Games/SMASHREMIX152/r42.html
