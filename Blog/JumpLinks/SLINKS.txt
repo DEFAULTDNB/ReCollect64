@@ -1,2 +1,5 @@
 STORE LINKS
 Blog/Store/Frames/s1.html
+Blog/Store/Games/s2.html
+Blog/Store/Games/s3.html
+Blog/Store/Games/s4.html
