@@ -42,3 +42,4 @@ Blog/Reviews/Games/40WINKS/r40.html
 Blog/Reviews/40WinksPad/r41.html
 Blog/Reviews/Games/SMASHREMIX152/r42.html
 Blog/Reviews/Games/MARIOSMODULES/r43.html
+Blog/Reviews/Games/NFLBLITZ2025V2/r44.html
