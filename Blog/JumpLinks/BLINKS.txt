@@ -104,3 +104,4 @@ Blog/Features/2025/SFSwitchPort/b102.html
 Blog/Features/2025/ModRetro/b103.html
 Blog/Features/2025/IBrickedItUp/b104.html
 Blog/Features/2025/MarioBAZR/b105.html
+Blog/Features/2025/DiddyKongBETA/b106.html
