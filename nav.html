@@ -158,7 +158,7 @@
 <div class="navbar">
 	
 	<div class="subnav">
-		<div title="𝗛𝗢𝗠𝗘" class="subnavbtn" onclick="$(function(){$('#content-placeholder').load('postLinks.html');}); gototop();"><i class="fa-solid fa-house"></i></div>
+		<div title="𝗛𝗢𝗠𝗘" class="subnavbtn" onclick="$(function(){$('#content-placeholder').load('postLinks.html');}); gototop(); tally();"><i class="fa-solid fa-house"></i></div>
 	</div>
 	
 	<div class="subnav">
@@ -360,6 +360,7 @@
 				<div class="subsubsubnav">
 					<div class="subsubsubnavbtn" title="𝗖𝗟𝗜𝗖𝗞 𝗙𝗢𝗥 𝗥𝗢𝗨𝗡𝗗𝗨𝗣" onclick="$(function(){$('#content-placeholder').load('Blog/Roundup/2025/MARREVIEWS.html');}); gototop();">MAR</div>
 						<div class="subsubsubnav-content">
+							<a onclick="$(function(){$('#content-placeholder').load('Blog/Reviews/Games/BODYHARVEST/r46.html');}); gototop();">Body Harvest</a>
 							<a onclick="$(function(){$('#content-placeholder').load('Blog/Reviews/Games/XENOCRISIS/r45.html');}); gototop();">Xeno Crisis</a>
 							<a onclick="$(function(){$('#content-placeholder').load('Blog/Reviews/Games/NFLBLITZ2025V2/r44.html');}); gototop();">NFL Blitz 2025 V2</a>
 							<a onclick="$(function(){$('#content-placeholder').load('Blog/Reviews/Games/MARIOSMODULES/r43.html');}); gototop();">Mario's Modules</a>
@@ -619,5 +620,26 @@
 	<a title="𝗦𝗘𝗔𝗥𝗖𝗛" onclick="keywordSearch();" style="float:right"><i class="fa-solid fa-magnifying-glass"></i></a>
 	
 </div>
+<script>
+	function keywordSearch() {
+	document.getElementById("content-placeholder").src = 'postLinks.html'; //reload main page to get keywords
+		lookupWords.length = 0; //clear array
+		keyword = prompt("Please enter a keyword (ex: Banjo, Emulator, Recomp)", "");
+			if (keyword == null || keyword == "") {
+			lookupWords.push(["Please enter keyword"]);
+			} else {
+			if (keyword != null) {
+				lookupWords.push(["POST ID","ARTICLE TITLE","PAGE LINK", "MATCHES"]);
+				for (var i = 0; i < arrayKeywords.length; i+=4) { //check against keywords only
+					if (arrayKeywords[i].match(RegExp(keyword, "gi"))){
+					lookupWords.push([arrayKeywords[i+1], arrayKeywords[i+2], arrayKeywords[i+3], arrayKeywords[i]]);
+					}
+				}
+			}
+			}
+		$(function(){$('#content-placeholder').load('results.html');}); gototop();
+	}
+
+</script>
 </body>
 </html>

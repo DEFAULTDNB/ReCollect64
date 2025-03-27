@@ -1,7 +1,28 @@
 <script>
-	var played = 8;
-	recentReview.src = "Carts/E/International Track and Field Summer Games E.png";
-	recentReview.title = "Ganbare! Nippon! Olympic 2000 / International Track & Field 2000 / International Track and Field Summer Games";
+	var played = 9;
+	recentReview.src = "Carts/E/Body Harvest E.png";
+	recentReview.title = "Body Harvest";
+	function tally(){
+		var playedpercent = 100/388;
+		let pcalculated = Number(playedpercent * played);	
+		var i = 0;
+		if (i == 0) {
+			i = 1;
+			var elem = document.getElementById("myBar");
+			var width = 0;
+			var id = setInterval(frame, 10);
+			function frame() {
+			  if (width >= pcalculated) {
+				clearInterval(id);
+				i = 0;
+			  } else {
+				width++;
+				elem.style.width = width + "%";
+				elem.innerHTML = played + "/388";
+			  }
+			}
+		}
+	}
 	var keyword = "";
 	var allCards = document.getElementsByClassName("card");
 	var arrayKeywords = [];
@@ -15,7 +36,7 @@
 		}
 	}
 	//alert(arrayKeywords)
-	function keywordSearch() {
+	/*function keywordSearch() {
 		lookupWords.length = 0; //clear array
 		keyword = prompt("Please enter a keyword (ex: Banjo, Emulator, Recomp)", "");
 			if (keyword == null || keyword == "") {
@@ -31,13 +52,20 @@
 			}
 			}
 		$(function(){$('#content-placeholder').load('results.html');}); gototop();
-		}
-		//decoding='async' role='presentation' loading='lazy'
+	}*/
 </script>
 <div class="row" id="postlinkscheck">
 	<div id="latest" class="leftcolumn">
 	
-	
+	<div id="r46" class="card" data-keywords="Body Harvest Midway Gremlin Adam Drake">
+		<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 46</span></h2>
+		<h5 class="subtitle">Body Harvest ~ Mar 27, 2025</h5>
+		<div decoding='async' role='presentation' loading='lazy' class="bgChat" style="background-image:url('Covers/E/Body Harvest E.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Body Harvest</div></div>
+		<p>Body Harvest is a bug crushing, vehicle driving explor-a-thon where you must prevent mankind's extinction through any method possible.</p>
+		<span class="alignright">
+		<a title="𝗥𝗘𝗔𝗗 𝗔𝗥𝗧𝗜𝗖𝗟𝗘" class="btn" onclick="$(function(){$('#content-placeholder').load('Blog/Reviews/Games/BODYHARVEST/r46.html');}); gototop();">MORE <i class="fa-solid fa-chevron-right"></i></a>
+		</span>
+	</div>
 	
 	<div id="b106" class="card" data-keywords="Diddy Kong Racing Betas Adventure Racing Wild Cartoon Kingdom Timber 64 Dinosaur Planet">
 		<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Diddy Kong Racing Betas</span></h2>
@@ -1838,27 +1866,9 @@
 	<script>
 	var f = Math.floor(Math.random() * 9) + 1;
 	document.getElementById("recentFrameGame").src="Blog/Store/Frames/F"+f+".png";
-	var playedpercent = 100/388;
-	let pcalculated = Number(playedpercent * played);	
-	var i = 0;
-	if (i == 0) {
-		i = 1;
-		var elem = document.getElementById("myBar");
-		var width = 0;
-		var id = setInterval(frame, 10);
-		function frame() {
-		  if (width >= pcalculated) {
-			clearInterval(id);
-			i = 0;
-		  } else {
-			width++;
-			elem.style.width = width + "%";
-			elem.innerHTML = played + "/388";
-		  }
-		}
-	}
+	tally();
 	</script>
-		<div class="rcard" >
+		<div class="rcard">
 			<div class="badge audio"><span class="rtitle"><i class="fa-solid fa-gamepad"></i>  REVIEWS</span></div>
 			<center><h3 class="smalltitle"><span>MOST RECENT:</span></h3>
 			<img id="recentReview" class="" width="100%" /></center>
