@@ -46,3 +46,4 @@ Blog/Reviews/Games/NFLBLITZ2025V2/r44.html
 Blog/Reviews/Games/XENOCRISIS/r45.html
 Blog/Reviews/Games/BODYHARVEST/r46.html
 Blog/Reviews/RockerCase/r47.html
+Blog/Reviews/Games/NIGHTSHIFT/r48.html
