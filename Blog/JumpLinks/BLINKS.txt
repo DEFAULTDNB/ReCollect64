@@ -116,3 +116,4 @@ Blog/Features/2025/Graslu00PDHero/b114.html
 Blog/Features/2025/PortableN64Kit/b115.html
 Blog/Features/2025/Misc/b116.html
 Blog/Features/2025/BKNostalgiaMay/b117.html
+Blog/Features/2025/Misc/b118.html
