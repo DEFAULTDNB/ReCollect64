@@ -49,3 +49,4 @@ Blog/Reviews/RockerCase/r47.html
 Blog/Reviews/Games/NIGHTSHIFT/r48.html
 Blog/Reviews/Games/BUCKBUMBLE/r49.html
 Blog/Reviews/GamesterLX4Pad/r50.html
+Blog/Reviews/GamesterG64Pad/r51.html
