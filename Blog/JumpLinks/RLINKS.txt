@@ -51,3 +51,4 @@ Blog/Reviews/Games/BUCKBUMBLE/r49.html
 Blog/Reviews/GamesterLX4Pad/r50.html
 Blog/Reviews/GamesterG64Pad/r51.html
 Blog/Reviews/Games/RAKUGA/r52.html
+Blog/Reviews/Games/PUZZLEDAMA/r53.html
