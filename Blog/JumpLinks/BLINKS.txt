@@ -124,3 +124,4 @@ Blog/Features/2025/GERecompProg/b122.html
 Blog/Features/2025/Metroid64/b123.html
 Blog/Features/2025/NoMercy9799/b124.html
 Blog/Features/2025/ROMPatcherJS32/b125.html
+Blog/Features/2025/ProjectDream64/b126.html
