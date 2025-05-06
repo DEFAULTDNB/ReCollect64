@@ -1,0 +1,44 @@
+<div id="b128" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Dinosaur Planet Recomp Released</span></h2>
+	<h5 class="subtitle">V0.1.0 by Francessco121 ~ May 6, 2025</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2025/DPRecomp/DP.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Dinosaur Planet Recomp Released</div></div>
+	<h4>Prehistoric Prototypes</h4>
+	<div class="titleUnderline"></div>
+	<p>Following yesterday's news about the fantastic progress surrounding <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b127">Zelda 64 Recompiled</a>, Ethan Lafrenais has released their first version of the <i>Dinosaur Planet</i> recompilation.</p>
+	<p><i>Dinosaur Planet</i> was set to be an action-adventure game that would rival <i>The Legend of Zelda: Ocarina of Time</i>, which was developed around 1999-2000 by Rare for the Nintendo 64. The title was famously cancelled in 64-bit form, and it was retooled as <i>Star Fox Adventures</i>, Rare's only release for the GameCube, in 2002.</p>
+	<p>As with all recompilation projects, you will need an unmodified <i>Dinosaur Planet</i> prototype *.Z64 ROM (MD5: 49F7BB346ADE39D1915C22E090FFD748) that was leaked in 2021 by Forrest of Illusion. Please note that patched or "Dino Enhanced" ROMs will not work for this release, so ensure that you have the unmodified "rom.z64" file and not the "rom_crack.z64" ROM. The result of this is that the gameplay is in an extremeley unfinished and unstable state, so for now, you should temper your expectations and expect a lot of crashes until the modified ROM is supported.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>Welcome to the first release of Dinosaur Planet: Recompiled!</p>
+	<p>This version brings the vanilla beta ROM experience to recomp along with support for:</p>
+	<p>Modding!</p>
+	<p>Remapping controls.</p>
+	<p>Changing the game's resolution.</p>
+	<p>Widescreen (partial support).</p>
+	<p>MSAA (anti-aliasing).</p>
+	<p>Downsampling.</p>
+	<p>A debug UI (accessible via the `/~ key).</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/DPRecomp/DP1.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Features/2025/DPRecomp/DP1.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/DPRecomp/DP2.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Features/2025/DPRecomp/DP2.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/DPRecomp/DP3.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Features/2025/DPRecomp/DP3.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<p>
+	<h4>Recompilation Reinvigorated</h4>
+	<div class="titleUnderline"></div>
+	<p>The project, which is based on <a href="https://github.com/zestydevy/dinosaur-planet">ZestyDev's decompilation of the leaked <i>Dinosaur Planet</i> ROM</a>, has been worked on in relative secrecy since the game leaked in 2021. The developers have used a method they have dubbed "<a href="https://github.com/zestydevy/dinosaur-planet-precomp">Precomp</a>" that is essentially using the in-progress decompilation project as a source of symbols for traditional binary hacking.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>The process involves taking the elf file generated from an in-progress decomp and using it in conjunction with ld to be able to write assembly and C (and C++ for the especially brave) that references symbols from the decomp.</p>
+	<p>It also allows you to write jump hooks that reference offsets from decomp symbols/segments, allowing you to specify instructions to overwrite without needing to deal with converting between RAM and ROM addresses.</p>
+	<p>Using ld also ensures that source files are linked against the correct RAM address.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p>The <i>Dinosaur Planet</i> recomp is based on the as-yet-unreleased <i>Rocket Robot on Wheels</i> recomp known as "<a href="https://github.com/RocketRet/Rocket-Robot-On-Wheels">RockRet</a>", which was started by Mr-Wiseguy as early as 2020. Using Wiseguy's frameworks, this and many more recompilation projects should soon see the light of day, as previously mentioned in <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b127">yesterday's article</a>.</p>
+	<p>Incidentally, the recompilation for <i>Super Smash Bros.</i> is also held on <a href="https://github.com/zestydevy/smash64r">ZestyDev's GitHub pages</a>, which is an exciting project to look forward to, and though there has been a little <a href="https://www.youtube.com/watch?v=NtSDwwZqJ5A">gameplay footage of Super Smash Bros: Recompiled</a> released by Nerrel, there is currently no public release date for this project.</p>
+	<p>If you wish to try out <i>Dinosaur Planet</i>, then please follow the links below and let us know how you get on!</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/Francessco121/dino-recomp/releases/tag/v0.1.0">Dinosaur Planet Recomp GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Got any N64-related news? Let me know!</a></p>
+</div>
