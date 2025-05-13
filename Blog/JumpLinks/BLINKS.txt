@@ -130,3 +130,4 @@ Blog/Features/2025/DPRecomp/b128.html
 Blog/Features/2025/MultiSystem2/b129.html
 Blog/Features/2025/Agent07/b130.html
 Blog/Features/2025/MK64Decomp/b131.html
+Blog/Features/2025/CartLabels/b132.html
