@@ -1,0 +1,45 @@
+<div id="b133" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Decomp Vs Recomp Vs Ports</span></h2>
+	<h5 class="subtitle">Clarity on the Subject ~ May 14, 2025</h5>
+	<div class="bgChat" style="background-image:url('Blog/Banners/QB.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Decomp Vs Recomp Vs Ports</div></div>
+	<h4>An Introduction</h4>
+	<div class="titleUnderline"></div>
+	<p>Because it's a confusing subject for those who aren't in the know, I wanted to produce a post that clarifies and rectifies some information regarding the differences between a decompilation, a recompilation and a port.</p>
+	<p>I recently fell into the trap of joining the dots between various projects and came a cropper by speculating far too much on things presented online. This post aims to pin down the crucial nuances for both myself and anyone else reading my content.</p>
+	<h4>Decompilation</h4>
+	<div class="titleUnderline"></div>
+	<p>Firstly, decompilation is the process of creating a source code base in a high-level programming language directly from the assembly code found within a game's ROM. The primary goal of this is so that the game can be preserved, modified and studied in greater detail.</p>
+	<p>Speedrunners and modders can use this codebase to extract copious amounts of intricate information, using it to produce new strategies or even control features and functions to enhance the game or change it entirely.</p>
+	<p><i>Super Mario 64</i> and <i>The Legend of Zelda: Ocarina of Time</i> are prime examples of games that have countless mods and fixes applied to them now that they have been decompiled to a point where information is easily editable.</p>
+	<p>The process of manually decompiling can take years, but as mentioned, a full decompilation is not strictly required to produce a working effigy of the original. On the contrary, <i>GoldenEye 007</i> is actually only decompiled to around 60%, yet SonicDcer and KholdFuzion were able to construct a working game from the code base using N64Recomp.</p>
+	<p><b>Fundamentally: The decompilation of a game does not guarantee that a PC port will be produced.</b></p>
+	<p>Most communities who are decompiling ROMs are not doing it with that goal in mind. Porting is a fantastic byproduct of the process, but it is something that we should never take for granted.</p>
+	<p></p>
+	<h4>Recompilation</h4>
+	<div class="titleUnderline"></div>
+	<p>Nintendo 64: Recompiled, known as "Static Recompilation", is a radical project, led by Mr-Wiseguy, that can essentially generate C programming language from a disassembly of a game ROM, ready to be compiled for any platform. The recompiled code runs on a reimplementation of the SDKs used by the game called <a href="https://github.com/N64Recomp/N64ModernRuntime">N64ModernRuntime</a>, which is comprised of two libraries, ultramodern and librecomp.</p>
+	<p>From there a port creator can choose a graphics renderer to translate 3D data into a 2D display on the end user's screen. To date, all public recompilation projects have incorporated Dario's <a href="https://github.com/rt64/rt64">RT64</a> renderer, which offers a range of enhancements, such as widescreen and high framerate support, and it will eventually include ray tracing too! Wiseguy recently demonstrated that the general framework for utilising a recompilation's output has been improved to run on lower-spec hardware and with modern controller support, and it is linked to a host that facilitates the downloading of cheats and mods within the final executable.</p>
+	<p><b>Recompilation projects can take advantage of game decompilations to produce mods or improve the chosen game, but the two are quintessentially unrelated.</b></p>
+	<p>The performance accuracy is reportedly comparable to the paraLLEl-RDP project, which itself aims to emulate the Nintendo 64's RDP graphics chip as accurately as possible using Vulkan compute.</p>
+	<p>Each recompilation requires manual fixes per game to iron out any wrinkles in the translation process, and as a result, each game requires its own executable. All end users will have to do is provide the ROM to start the game.</p>
+	<p>The best examples of public recomps available today include <i><a href="https://github.com/Francessco121/dino-recomp">Dinosaur Planet</a></i>, <i><a href="https://github.com/klorfmorf/Goemon64Recomp">Goemon</a></i> and <a href="https://github.com/Zelda64Recomp/Zelda64Recomp">Majora's Mask</a>, though other games such as <i>Super Smash Bros., Kirby 64: The Crystal Shards, Chameleon Twist, Banjo-Kazooie, Rocket: Robot on Wheels, Superman 64</i> and <i>Quest 64</i> are in the works!.</p>
+	<p>While N64Recomp games are technically ports, the term "recompiled" was chosen to make the distinction between the exact processes used in crafting them.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/DECRECPORT/RC.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black" class="thumbnail" src="Blog/Features/2025/DECRECPORT/RC.png" width="40%" style="padding:auto"/></a>
+	</center>
+	<center><i>(Image credit: danatheelf from the HM64 Discord)</i></center>
+	<h4>Porting</h4>
+	<div class="titleUnderline"></div>
+	<p>Using a decompilation's codebase, it is possible for games to be ported to other platforms such as PC, Vita, Android, 3DS, Nintendo Switch and even the PlayStation 2 and Dreamcast!</p>
+	<p>As witnessed through the efforts of <a href="https://github.com/HarbourMasters">The Harbour Masters</a>, <a href="https://github.com/HarbourMasters/Shipwright">Ship of Harkinian</a>, <a href="https://github.com/HarbourMasters/2ship2harkinian">2 Ship 2 Harkinian</a>, and most recently <a href="https://github.com/HarbourMasters/Starship">Starship</a> have given <i>The Legend of Zelda: Ocarina of Time</i>, <i>The Legend of Zelda: Majora's Mask</i> and <i>Star Fox 64</i> fresh leases of life by way of PC ports. These ports offer faithful renditions of the games but also allow for features such as randomisation, asset swapping and advanced statistical tracking.</p>
+	<p>The core library that facilitates the ports listed above is known as Libultraship by <a href="https://github.com/Kenix3/libultraship/">Kenix3</a> and over 80 contributors. Other ports, such as <i>Super Mario 64</i> and <i>Perfect Dark</i>, make use of alternative SDK libraries, but essentially, <b>all ports use a compiler such as <a href="https://gcc.gnu.org/">GCC</a>, <a href="https://visualstudio.microsoft.com/vs/features/cplusplus/">MSVC</a> or <a href="https://clang.llvm.org/">Clang</a>, for example (programmer's choice), to build the executable from the raw decompiled code base, incomplete or otherwise</b>, as shown in the handy diagram above.</p>
+	<p></p>
+	<h4>Thanks</h4>
+	<div class="titleUnderline"></div>
+	<p>Hopefully, this brings some clarity on the subject. I would like to thank <a href="https://x.com/Alejand56879654">SonicDcer</a> and <a href="https://x.com/dariosamo">Dario</a> for their detailed explanations and unwavering patience with my questions.</p>
+	<p>ReCollect64 is a personal project run by one hobbyist with an overwhelming enthusiasm for anything N64-related. I wish only to share factual information; however, sometimes I make mistakes, so I have taken note of the subject and strive to avoid making the same mistakes again.</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/n64decomp">N64 Decomp</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/N64Recomp">N64 Recomp</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/HarbourMasters">Harbour Masters 64</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Let me know!</a></p>
+</div>
