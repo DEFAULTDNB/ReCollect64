@@ -1,0 +1,33 @@
+<div id="b138" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Minecraft Engine in SM64!</span></h2>
+	<h5 class="subtitle">Voxel Demo by Arthurtilly ~ May 19, 2025</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2025/Minecraft64/MC64.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Minecraft Engine in SM64!</div></div>
+	<h4>Built Different</h4>
+	<div class="titleUnderline"></div>
+	<p>ROM hacker and modder Arthurtilly has today released a demonstration of his voxel engine running within <i>Super Mario 64</i>. Unbelievably, the engine runs within the 8 MB RAM of the Nintendo 64, albeit at a slightly lower draw distance, and it also works emulators.</p>
+	<p>As an active member of the SM64 ROM hacking community, he has hosted three hacking contests as well as creating twelve ROM hacks, including <a href="https://mario64hacks.fandom.com/wiki/SM64_The_Green_Comet:_Green_Comet"><i>SM64 The Green Comet: Green Comet</i></a> and <a href="https://mario64hacks.fandom.com/wiki/Gravity_Swap_64"></i>Gravity Swap 64</i></a>, and has co-authored at least seven projects, such as <a href="https://mario64hacks.fandom.com/wiki/Mario_Builder_64"><i>Mario Builder 64</i></a> with Rovertronic and <a href="https://mario64hacks.fandom.com/wiki/Serene_Fusion"><i>Serene Fusion</i></a> with authors including BroDute, scuttlebug_raiser, usernamesarespiders, Luigiman04, and TheGael95.
+	<center><iframe id="" class="video" src="https://www.youtube.com/embed/Fo1_-UalrmY"></iframe></center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>This is a showcase of a Minecraft voxel engine I developed completely within the SM64 engine and can run on a real Nintendo 64 console. It uses multithreading to be able to seamlessly generate terrain and meshes over multiple frames without causing any lag.</p>
+	<p>It currently supports an infinite world, multiple block types and shapes (easily extensible), multiple biomes with unique noise parameters and smooth blending together, the beginning of support for fluids like water and lava, and can support smooth lighting and ambient occlusion.</p>
+	<p>In the future I hope to support more features such as:</p>
+    <p>+ Flowing water and lava</p>
+    <p>+ A proper lighting system and day/night cycle</p>
+    <p>+ Saving and loading of worlds (even on console)</p>
+    <p>+ Terrain features such as trees and vegetation to make the world more lively</p>
+    <p>+ An inventory system</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<h4>Crafty Creations</h4>
+	<div class="titleUnderline"></div>
+	<p>The video showcases infinitely procedurally generated terrain, placement and destruction of blocks, ambient occlusion with lighting, half-height blocks (slabs), basic material cycling (grass, stone, brick, water, sand, lava, ice, etc), water blocks that you can swim through, smooth transitioning textures, alternating music per biome (like <i>Banjo-Kazooie</i>), the ability to make massive-scale mountains, valleys and canyons, and to top it off, it has a debugger built in!</p>
+	<p>With a separate CPU thread handling terrain generation from the chunk (block) loading, the only bottleneck for creating lag on real hardware stands with the rendering. Arthurtilly's engine prioritises generating optimised meshes, rather than calculating the meshes, to reduce stutter and prevent too much lag from loading/generating blocks.</p>
+	<p>Using the full featured debugger that's also been built in, you can also see detailed statistics from the RDP (the Reality Display Processor for 2D and polygon rendering), RSP (the Reality Signal Processor for graphic/audio data transform), the current CPU load stress and a nifty FPS readout.</p>
+	<p>There has also been a custom memory allocator designed especially for this project, which oversees chunks, lightmaps, GFX and VTX management, allowing it all to run impressively smoothly while generating literally thousands of chunks at any one time!</p>
+	<p>With features planned such as trees and vegetation, enemies and objects, an item inventory system, SD card support for more expansive worlds on flashcarts, and the ability to save and load your worlds, this project is extremely ambitious and already very impressive.</p>
+	<p>There is no planned release date yet, but you'd better be sure that I'll be all over this whenever it eventually drops!</p>
+	<p class="subtitle"><i class="fa-brands fa-youtube"></i>&nbsp;<a href="https://www.youtube.com/@Arthurtilly">@Arthurtilly YouTube</a></p>
+	<p class="subtitle"><i class="fa-solid fa-user-plus"></i>&nbsp;Arthurtilly:&nbsp;<a href="https://x.com/arthurtilly413/">Twitter</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Let me know!</a></p>
+</div>
