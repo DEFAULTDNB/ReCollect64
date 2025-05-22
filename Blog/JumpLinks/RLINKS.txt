@@ -54,3 +54,4 @@ Blog/Reviews/Games/RAKUGA/r52.html
 Blog/Reviews/Games/PUZZLEDAMA/r53.html
 Blog/Reviews/Games/BKNOSTALGIA/r54.html
 Blog/Reviews/SharkPadPro642/r55.html
+Blog/Reviews/Games/DRVSTRK64/r56.html
