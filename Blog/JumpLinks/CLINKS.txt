@@ -30,3 +30,4 @@ Blog/Avatars/GamerJerome.html
 Blog/Avatars/N64Magazine.html
 Blog/Avatars/RemnantControllers.html
 Blog/Avatars/VideoGameHistory.html
+Blog/Avatars/Oakieland.html
