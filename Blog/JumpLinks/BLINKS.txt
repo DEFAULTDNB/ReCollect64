@@ -143,3 +143,4 @@ Blog/Features/2025/Misc/b141.html
 Blog/Features/2025/BKGRR/b142.html
 Blog/Features/2025/Pickle64/b143.html
 Blog/Features/2025/N64NSOUpdate/b144.html
+Blog/Features/2025/Patchmaker/b145.html
