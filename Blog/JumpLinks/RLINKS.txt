@@ -56,3 +56,4 @@ Blog/Reviews/Games/BKNOSTALGIA/r54.html
 Blog/Reviews/SharkPadPro642/r55.html
 Blog/Reviews/Games/DRVSTRK64/r56.html
 Blog/Reviews/Games/BATTLETANX/r57.html
+Blog/Reviews/Games/BATTLETANXGA/r58.html
