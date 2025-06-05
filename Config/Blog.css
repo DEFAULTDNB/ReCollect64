@@ -32,7 +32,6 @@ h4 {
 a .btn {
 	text-decoration: none;
 }
-
 .border {
 	border: double 3px transparent;
 	border-radius: 10px;
@@ -66,10 +65,20 @@ a .btn {
 	opacity: 0;
 	display:block;
 }
+.maskedspec {
+	display: inline-block;
+	background-image: conic-gradient(from 0.5turn at 50% 65%, purple, red, gold, blue, purple);
+	-webkit-mask-size: 95%; /* edges might get cut off if you use 100% */
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+.maskedspec > img {
+	opacity: 0;
+	display:block;
+}
 .strapline {
 	color: white;
 	font-family: "Homenaje", sans-serif;
-	--font-size: xxx-large;
 	font-size: 3em;
 }
 .leftcolumn {   
@@ -181,7 +190,6 @@ a .btn {
 	font-family: "Homenaje", sans-serif;
 	font-weight: 900;
 	font-style: bolder;
-	--font-size: xx-large;
 	font-size: 1.5em;
 	margin: 2px 0px;
 	text-align: center;
@@ -190,7 +198,6 @@ a .btn {
 	font-family: "Homenaje", sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	--font-size: large;
 	font-size: 1.2em;
 	margin: 10px 0px;
 }
@@ -198,7 +205,6 @@ a .btn {
 	font-family: "Homenaje", sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	--font-size: x-large;
 	font-size: 1.5em;
 	margin: 2px 0px;
 	background-color: white;
@@ -208,7 +214,6 @@ a .btn {
 	font-family: "Homenaje", sans-serif;
 	font-weight: 900;
 	font-style: bolder;
-	--font-size: xx-large;
 	font-size: 1.3em;
 	margin: 2px 0px;
 	text-align: center;
@@ -293,7 +298,6 @@ a .btn {
 	font-family: "Homenaje", sans-serif;
 	font-weight: 400;
 	font-style: normal;
-	--font-size: xx-large;
 	font-size: 1.3em;
 }
 .score {
@@ -352,6 +356,21 @@ a .btn {
 .overlaytext {
 	background-color: white;
 	color: black;
+	font-family: "Homenaje", sans-serif;
+	font-size: 6vw;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 0px;
+	width: 98%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.overlayspec {
+	background-color: purple;
+	color: white;
 	font-family: "Homenaje", sans-serif;
 	font-size: 6vw;
 	font-weight: bold;
@@ -524,7 +543,6 @@ button {
 		font-family: "Homenaje", sans-serif;
 		font-weight: 900;
 		font-style: bolder;
-		--font-size: xx-large;
 		font-size: 1.2em;
 		margin: 2px 0px;
 		text-align: center;
@@ -587,7 +605,6 @@ button {
 }
 .price {
   color: grey;
-  --font-size: 22px;
   font-size: 1.5em;
 }
 .storecard button {
@@ -599,7 +616,6 @@ button {
   text-align: center;
   cursor: pointer;
   width: 100%;
-  --font-size: 18px;
   font-size: 1.2em;
 }
 .storecard button:hover {
@@ -614,7 +630,6 @@ button {
 #myBar {
   width: 10%;
   height: 30px;
-  --background-color: lime;
   background-image: linear-gradient(90deg, blue, red);
   text-align: center;
   line-height: 30px;
