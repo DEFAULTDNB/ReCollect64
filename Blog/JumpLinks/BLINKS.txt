@@ -152,3 +152,4 @@ Blog/Features/2025/Bitsticks64/b150.html
 Blog/Features/2025/GEGUNS/b151.html
 Blog/Features/2025/WP64/b152.html
 Blog/Features/2025/OKSE/b153.html
+Blog/Features/2025/MB64U11/b154.html
