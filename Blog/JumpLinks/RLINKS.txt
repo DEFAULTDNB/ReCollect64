@@ -61,3 +61,4 @@ Blog/Reviews/PelicanTiltPak/r59.html
 Blog/Reviews/Games/TUROKPS5/r60.html
 Blog/Reviews/Games/THPS3/r61.html
 Blog/Reviews/Gashapon2/r62.html
+Blog/Reviews/ED64PLUS/r63.html

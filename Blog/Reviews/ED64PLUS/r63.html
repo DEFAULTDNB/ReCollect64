@@ -1,0 +1,111 @@
+<div id="r63" class="card">
+	<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 63</span></h2>
+	<h5 class="subtitle">ED64 Plus ~ Jun 23, 2025</h5>
+	<div class="bgBanner"><img src="Blog/Reviews/ED64PLUS/ED64P.png" alt="ED64P" class="center"/><div class="overlaytext">ED64 Plus</div></div>
+	<h4>Frugal Flashcarts</h4>
+	<div class="titleUnderline"></div>
+	<p>Considering I'm fast approaching my 64th review for ReCollect64, I haven't gotten around to reviewing many of my flashcarts. Back in June last year I reviewed the then brand-spanking new <a href="https://defaultdnb.github.io/ReCollect64/blog.html#r2">SummerCart64</a>, giving it a stellar 9 out of 10 in what was only the second review on the site at the time!</p>
+	<p>A year later, I am still adding flashcarts and games to my collection, and this week I found an ED64 Plus for just £20, which is a bargain considering it typically costs £50. I quickly purchased it as these items are often sold quickly on my local selling sites and usually fetch prices above £35.</p>
+	<p>For those who are unaware, the ED64 Plus is effectively a modified knockoff of <a href="https://krikzz.com/our-products/cartridges/">Krikzz Everdrive 64</a> units, and the OS is forked from the original Everdrive 64 1.0 OS. This means that essentially you're running a Chinese clone with cloned software that has not been meaningfully updated or improved much since 2011.</p>
+	<p>These devices are usually sold on AliExpress or Esty, and the manufacturers are largely unknown. The compatibility, reliability and build quality is usually where the device fails against its more expensive peers, so let's put it through its paces!</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P5.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P5.JPG" width="30%" style="padding:auto"/></a>
+	</center>
+	<h4>Clone Collective</h4>
+	<div class="titleUnderline"></div>
+	<p>There have been a few revisions in the ED64 Plus hardware; this variant has the N/P selector switch for the universal CIC, a full-size SD card slot and no USB port. Prior to this version, there was a version that you had to seat a donor game on top of to pass through the CIC information; thankfully that is no longer required.</p>
+	<p>Other revisions incorporate a micro SD slot and a USB port for debugging, though interestingly this model came pre-packaged with the Loader64 software and the USB drivers, though it's impossible to use in its current form because there is no USB socket soldered internally.</p>
+	<p>Clone units often come "preloaded" or "fully loaded" with every game on the system, and so my first port of call was to insert the SD card into my laptop and inspect the selection. As expected, there are hundreds of ROMs and, sadly, a terrible order to things. I like to have everything in the right place, in the right format and complete, and this was an absolute state. There was a PAL folder that contained a mixture of PAL and JPN ROMs, as well as *.v64 and *.n64 versions of the already included *.z64 games.</p>
+	<p>In the end I simply kept ROM revisions, removed duplicate entries, deleted any *.v64 or *n64 versions as well as any beta and proto ROMs (for now), and sorted the lot into the correct order, ensuring every title was accounted for in each region. I thinned the number of games down to 786 ROMs, with 12 GB of the 16 GB card used, leaving plenty room for ROM hacks!</p>
+	<p>The provided 16 GB SD card contains everything you need to get going, including a folder full of 640x480 wallpapers to customise the background and a 12-page PDF manual (linked below), which is handy because the controls and functions are otherwise entirely unknown when you fire up the cartridge.</p>
+	<p>Using my NTSC-J console as a test rig, I swapped the selector over to N for NTSC (rather than P for PAL) and powered the ED64 Plus on only to find that the wallpaper was hideously corrupted. Not a major issue, as navigating to the wallpaper folder and pressing C-Down, not A, will install the selected image to your OS.</p>
+	<p>With little of note to say or show about the stock OS, controls are quite minimal, with only one menu to alter SD speed, font size, TV mode, add ROM to the favourites list and an option to display device information:</p>
+	<pre>
+		[B] - Back
+		[A] - Apply
+		[R] - Format
+		[Z] - Menu Screens
+		[START] - Start Last ROM
+		[C-Up] - Reload Last ROM
+		[C-Down] - File Functions
+		[L/R] - Force Save Type
+	</pre>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P1.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P1.JPG" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P4.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P4.JPG" width="30%" style="padding:auto"/></a>
+	</center>
+	<h4>Quality Qualms</h4>
+	<div class="titleUnderline"></div>
+	<p>Selecting an NTSC-J game to begin with, I opted for <i>1080° Snowboarding</i>, a small, quick game to load, and a classic. It loaded and crashed to a black screen. I then decided to try the USA version of the ROM and it loaded up just fine. I can only assume that the ROM in the JPN folder was corrupted, as the NTSC-U version is in fact the exact same byte-for-byte ROM that the NTSC-J cart would hold, so it can only be attributed to corruption. This seems to be a running theme with the ED64 Plus.</p>
+	<p>As mentioned above, the stock OS is servicable but bland and has very few of the modern features that you would expect of a flashcart. For those who are happy to plug and play, that's fine, but for modders and tinkerers who want the most out of their tech, the next section is worth a read!</p>
+	<p>Looking around for an alternative, I knew that <a href="https://krikzz.com/forum/index.php?topic=816.0">ALT64 OS</a> existed, but I also remember reading about ALTRA64 OS was a more up to date fork of that. As far as I can tell, <b><i>ALT64</i></b> by Saturnuu was modified by <a href="https://github.com/parasyte/alt64">Parasyte</a> and was originally forked and improved into <b><i>Altra64</i></b> by <a href="https://github.com/networkfusion/altra64">Networkfusion</a> then forked by <a href="https://github.com/gameblabla/altra64">Gameblabla</a> and then <a href="https://github.com/ariahiro64/altra64">Ariahirose64</a>, then <a href="https://github.com/Xalusc/altra64">Xalusc</a> and finally <a href="https://github.com/Suprapote/Altra64">Suprapote</a>. There have also been notable alteration in between by people like <a href="https://github.com/moparisthebest/altra64">Moparisthebest</a>, who aimed to address save issues too.</p>
+	<p>Each fork improves on the last; however, each in turn contains their own individual issues. The last update I could track was from November 2023, and while it still has a couple of issues, it cumulatively restores a lot of functionality to the OS and adds things like box art and cheats as well as support for more emulators, such as <a href="https://github.com/Hydr8gon/sodium64">Sodium64<a/>, ROM conversions and superior menu controls. Perhaps one unified team effort would have nailed it?</p>
+	<pre>
+		[L] - Opens MEMPAK menu
+		[R] - Format
+		[Z] - View Information Screens
+		[A] - Start ROM / Backup / Open Directory / View MEMPAK
+		[B] - Abort / Back / Cancel
+		[START] - Start Last ROM
+		[C-Left] - ROM Info / MEMPAK Content View
+		[C-Right] - ROM Config Screen
+		[C-Up] - View Full Filename
+		[C-Down] - TOP 15 List
+		[L+R] - Delete File
+	</pre>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P3.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P3.JPG" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P2.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P2.JPG" width="30%" style="padding:auto"/></a>
+	</center>
+	<h4>Myths and Issues</h4>
+	<div class="titleUnderline"></div>
+	<p>Contrary to popular belief, this clone runs games fine. The ROMs don't run slow or exhibit input lag, a rumour I have heard a few times when people compare flashcarts. The only issue it does have is that it cannot save <i>Doubutsu No Mori,</i> aka <i>Animal Forest</i>, due to having no RTC (real-time clock) onboard, and certain games such as <i>Banjo-Tooie</i> and <i>Jet Force Gemini</i> need cracked copies of the ROM to defeat the copy protection.</p>
+	<p>Using Altra64 OS, you will find that though 64DD ROM conversions (*.ndd to *.z64) now work, they don't save, and games like <i>Pokemon Snap</i> wont save properly, and applying cheats makes the games crash. It's swings and roundabouts for each OS, but I have to say that while the stock OS does a decent job at running everything out of the box for simplicity's sake, updating to Altra64 exponentially improves and extends functionality but brings its own caveats.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P6.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P6.JPG" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P7.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P7.JPG" width="30%" style="padding:auto"/></a>
+	</center>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P8.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P8.JPG" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PLUS/ED64P9.JPG','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PLUS/ED64P9.JPG" width="30%" style="padding:auto"/></a>
+	</center>
+	<p>In summary, the stock experience is good but can easily be improved even with very basic knowledge of how the device works by dragging and dropping the Altra64 OS files (linked below) onto your SD card.</p>
+	<p>I could not get cheats or APS patches to work at all. I'm not sure how they're meant to function, but I gave up. Honestly, if there isn't an easy or obvious way of enabling them, like on official Everdrive 64 OS software, then it's not worth the hassle; <a href="https://www.romhacking.net/utilities/1659">inject GameShark codes directly into your ROMs</a> on an ED64 Plus for best results.</p>
+	<p>I was pleasantly surprised that all games tested worked as expected, even on the stock OS, including the big ones like <i>Conker's Bad Fur Day</i> and <i>Resident Evil 2</i> and even ROM hacks like <i>Gold Finger 64</i> too! Regardless of OS, loading times are long, very long in comparison to the SummerCart64/Everdrive 64 X7, and this is because the components are cheap, cheerful and severely dated.</p>
+	<p>I hope that in the future the <a href="https://menu.summercart64.dev/">N64 Flashcart Menu</a> that is in use on the SummerCart64 will make its way to supporting these clones, because barring some hardware hurdles, the ability to use modern OS-based features easily and cleanly is what is quintessentially lacking on a stock ED64 Plus regardless of the community effort to improve on its shortcomings and prolong its life.</p>
+	<div class="col-container">
+	<div class="pro"><strong> The Pros:</strong>
+	<p></p>
+	<i class="fa-solid fa-check">&nbsp;</i>Easy to use, plug and play.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Supports emulators & ROM hacks<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Compatible with ALT64/ALTRA64 OS<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Works fine, give or take corruption issues</div>
+	<div class="con"><strong> The Cons:</strong>
+	<p></p>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Basic functionality, outdated stock OS<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>No native Aleck/64DD or cheat support<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>No RTC, long load times for big ROMs<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Incompatible with my microSD adaptors<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Requires precracked/cheat-injected ROMs</div>
+	</div>
+	<div class="verdict"><strong>Conclusion:</strong>
+	<p>There is no doubt in my mind that the Everdrive 64 X5/X7 and SummerCart64's are far superior to this flashcart in terms of hardware, but in fairness, once you have Altra64 on the SD card, the experience is much more palatable.</p>
+	<p>With a few minor corruption issues aside, if you can get one on the cheap it's worth it for ease of use. Just chuck it in and enjoy Nintendo 64's library with minimal frills.</p>
+	<center title="7/10">
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star "></span>
+	<span class="fa-solid fa-star"></span>
+	<span class="fa-solid fa-star"></span>
+	</center>
+	</div>
+	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://archive.org/download/ED64P-Firmware">ED64 Plus OS</a></p>	
+	<p class="subtitle"><i class="fa-solid fa-file-pdf"></i>&nbsp;<a href="https://www.slideshare.net/slideshow/manual-ed64-plus-nintendo-64-everdrive-flashcart/29032842">ED64 Plus Manual</a></p>	
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/Suprapote/Altra64/releases/tag/3.8.1">Altra64 OS 3.8.1 (Nov 2023)</a></p>	
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64@gmail.com">Want to see something reviewed? Contact me!</a></p>	
+</div>
