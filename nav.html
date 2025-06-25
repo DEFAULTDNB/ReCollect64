@@ -765,20 +765,25 @@
 </div>
 <script>
 	function keywordSearch() {
+	if (typeof arrayKeywords == 'undefined'){
+	alert("Page will be reloaded so that a search can be performed.\n\n(Arrived from a specified URL link)")
+	window.history.pushState({page: "reset"}, "reset URL", "blog.html");
+	location.reload();
+	}
 	document.getElementById("content-placeholder").src = 'postLinks.html'; //reload main page to get keywords
 		lookupWords.length = 0; //clear array
 		keyword = prompt("Please enter a keyword (ex: Banjo, Emulator, Recomp)", "");
 			if (keyword == null || keyword == "") {
 			lookupWords.push(["Please enter keyword"]);
 			} else {
-			if (keyword != null) {
-				lookupWords.push(["POST ID","ARTICLE TITLE","PAGE LINK", "MATCHES"]);
-				for (var i = 0; i < arrayKeywords.length; i+=4) { //check against keywords only
-					if (arrayKeywords[i].match(RegExp(keyword, "gi"))){
-					lookupWords.push([arrayKeywords[i+1], arrayKeywords[i+2], arrayKeywords[i+3], arrayKeywords[i]]);
+				if (keyword != null) {
+					lookupWords.push(["POST ID","ARTICLE TITLE","SUBTITLE ~ DATE","PAGE LINK", "MATCHES"]);
+					for (var i = 0; i < arrayKeywords.length; i+=5) { //check against keywords only
+						if (arrayKeywords[i].match(RegExp(keyword, "gi"))){
+						lookupWords.push([arrayKeywords[i+1], arrayKeywords[i+2], arrayKeywords[i+3], arrayKeywords[i+4], arrayKeywords[i]]);
+						}
 					}
 				}
-			}
 			}
 		$(function(){$('#content-placeholder').load('results.html');}); gototop();
 	}

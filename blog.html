@@ -26,10 +26,10 @@
 		</script>
 </head>
 <body>
-<br></br>
+<br>
 <div class="header" ><span class="masked" style="-webkit-mask-image: url('Config/Images/ReCollect64.png');"><img id="logo" src="Config/Images/ReCollect64.png" onclick="location.reload();"/></span>
 <div class="titleUnderline" style="width: 333px;"></div>
-<span class="strapline">Share. Inspire. Discuss.</span><br></br>
+<span class="strapline">Share. Inspire. Discuss.</span><br>
 </div>
 <span id="top"></span>
 <div id="nav-placeholder" name="navph"></div>
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	$(function(){$("#content-placeholder").load("postLinks.html");}); gototop();
 	} else if (window.location.href.match("#HallOfFame")) {
 	$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/SCORES.html");});
-	} else if (window.location.href.match("#Hist")) {
+	} else if (window.location.href.match("#Hist")||window.location.href.match("#hist")) {
 	$(function(){$('#content-placeholder').load("Blog/Roundup/N64History/HISTORY.html");});
 	} else if (window.location.href.match("#LTKCupV")) {
 	$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/LTKCUPV.html");});

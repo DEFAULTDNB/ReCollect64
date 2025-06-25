@@ -32,7 +32,7 @@
 		} else {
 			let linker = String(allCards[i].childNodes[9].children[0].onclick);
 			//(Keywords, ID, Article Name, Blog Link)
-			arrayKeywords.push(allCards[i].getAttribute("data-keywords"), "#"+allCards[i].id, allCards[i].childNodes[1].children[1].innerHTML, linker.slice(linker.indexOf("Blog"), linker.lastIndexOf("html")+4));
+			arrayKeywords.push(allCards[i].getAttribute("data-keywords"), "#"+allCards[i].id, allCards[i].childNodes[1].children[1].innerHTML, allCards[i].childNodes[3].textContent, linker.slice(linker.indexOf("Blog"), linker.lastIndexOf("html")+4));
 		}
 	}
 	//alert(arrayKeywords)

@@ -4,7 +4,6 @@
 </head>
 <body>
 <div class="row" id="postlinkscheck">
-
 <div id="results" class="card">
 	<center>
 	<h2><span class="badge audio"><i class="fa-solid fa-magnifying-glass"></i></span> <span id="title" class="title"> </span></h2>
@@ -38,7 +37,7 @@
 	//get contents of cell
 	let goodLink = resultstable.rows[i].getElementsByTagName("TD")[0].innerHTML;
 	//replace with hyperlink
-	resultstable.rows[i].getElementsByTagName("TD")[2].innerHTML = '<a href="https://defaultdnb.github.io/ReCollect64/blog.html'+goodLink+'" target="_blank"> CLICK HERE </a>' ;
+	resultstable.rows[i].getElementsByTagName("TD")[3].innerHTML = '<a href="https://defaultdnb.github.io/ReCollect64/blog.html'+goodLink+'" target="_blank"> HERE </a>' ;
 	}
 	title.innerHTML = resultstable.rows.length-1 + ' RESULTS FOR "' + keyword.toUpperCase()+'"';
 	if (resultstable.rows.length == 1){
