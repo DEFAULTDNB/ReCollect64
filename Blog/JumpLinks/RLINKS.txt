@@ -63,3 +63,4 @@ Blog/Reviews/Games/THPS3/r61.html
 Blog/Reviews/Gashapon2/r62.html
 Blog/Reviews/ED64PLUS/r63.html
 Blog/Reviews/Games/SM64/r64.html
+Blog/Reviews/Games/BAM2AE/r65.html
