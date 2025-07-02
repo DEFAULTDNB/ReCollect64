@@ -76,7 +76,9 @@
         const boxes = [];
 		var lines;
 		var xmlFile = new XMLHttpRequest;
-		xmlFile.open('get', "Config/Lists/JPN.cfg", false); //jpn
+		//xmlFile.open('get', "Config/Lists/JPN.cfg", false); //jpn
+		//xmlFile.open('get', "Config/Lists/USA.cfg", false); //usa
+		xmlFile.open('get', "Config/Lists/EUR.cfg", false); //eur
 		xmlFile.send();
 		let xmlDoc = xmlFile.responseText;
 		lines = xmlDoc.split("\n");
@@ -96,7 +98,6 @@
 				backURL = box.style.backgroundImage.replace("Covers", 'Backs');
 				box.style.backgroundImage=backURL;
 				boxID = box.textContent; 
-				//document.getElementById("gameTitle").textContent = lines[boxID].slice((lines[boxID]),(lines[boxID].indexOf("PLAYERS=")-1)).toUpperCase();
 				document.getElementById("gameTitle").textContent = lines[boxID].slice((lines[boxID]),(lines[boxID].indexOf("PLAYERS=")-1));
 				document.getElementById("gameInfo").innerHTML = "DATE: " + lines[boxID].slice((lines[boxID].indexOf("DATE=")+5), (lines[boxID].indexOf("SCORE=")-1)).toUpperCase() + ", GENRE: " + lines[boxID].slice((lines[boxID].indexOf("GENRE=")+6), (lines[boxID].indexOf("PUB=")-1)).toUpperCase() + ", SCORE: " + lines[boxID].slice((lines[boxID].indexOf("SCORE=")+6), (lines[boxID].indexOf("REGION=")-1)).toUpperCase() + "/100";
             });
@@ -106,7 +107,6 @@
 				box.style.backgroundImage=coverURL;
             });
             box.addEventListener('dblclick', () => {
-                //box.style.transform = 'scale(1.5) rotateY(180deg) scaleX(-1)';
                 box.style.transform = 'scale(1) rotateY(0deg)';
 				coverURL = box.style.backgroundImage.replace("Backs", 'Covers');
 				box.style.backgroundImage=coverURL;
@@ -116,6 +116,15 @@
             });
             box.textContent = i;
 			box.style.color = "rgba(0,0,0,0)";
+			
+			//////////////////////////////////
+			
+			box.style.width="25vw";
+			box.style.maxHeight="50vh";
+			box.style.aspectRatio="680/498";
+			
+			/////////////////////////////////
+			
 			coverURL = "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png";
 			box.style.backgroundImage="url('"+coverURL+"')";
 			box.style.backgroundSize="cover";

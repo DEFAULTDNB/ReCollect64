@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>64JS</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<style>
+body {background-color: black; color: cyan;}
+#label1 {color: magenta;}
+#label2 {color: yellow;}
+#label3 {color: silver;}
+</style>
+</head>
+<body>
+<center>
+<br></br>
+<span id="label1">SELECT A ROM TO ANALYSE:</span>
+<p id="result"></p>
+<input type="file" id="fileInput" onchange="analyzeROM();" accept=".v64, .z64, .n64"/>
+</center>
+<script>
+function analyzeROM() {
+	const fileInput = document.getElementById('fileInput');
+	const file = fileInput.files[0];
+	document.getElementById("result").innerHTML += "<span id='label1'>[FILE]</span> "+file.name.toUpperCase()+"<br>";
+	document.getElementById("result").innerHTML += "<span id='label2'>[CHECKING]</span> ...<br>";
+	if (file) {
+	var start = Date.now();
+		const reader = new FileReader();
+		reader.readAsArrayBuffer(file);
+		reader.onloadend = function(event) {
+			var fileData = event.target.result;
+			readData = new Uint8Array(fileData);
+			const ABtoHEX = new Uint8Array(readData).buffer;
+			//alert(buf2hex(romDataView)); //hex info of rom WORKING
+			var SizeMB = (readData.byteLength / (1024*1024)).toFixed(0);
+			document.getElementById("result").innerHTML += "<span id='label1'>[SIZE]</span> "+SizeMB+"MB ("+file.size+" BYTES)<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[BYTE ORDER]</span> "+buf2hex(ABtoHEX).slice(0,8)+"<br>";
+			
+			//1 detect byteorder
+			//2 convert to Z64
+			//3 extract data
+			//3 finish
+			
+			if (buf2hex(ABtoHEX).slice(0,2) == 80) { //80371240 
+				boot = "BIG ENDIAN (*.Z64)";
+
+
+			} else if (buf2hex(ABtoHEX).slice(0,2) == 40){ //40123780
+				boot = "LITTLE ENDIAN (*.N64)";
+				
+				
+			} else if (buf2hex(ABtoHEX).slice(0,2) == 37) { //37804012
+				boot = "BYTE SWAPPED (*.V64)";
+				
+				const swappedArray = [];
+					for (let i = 0; i < buf2hex(ABtoHEX).length; i += 2) {
+						if (i + 1 < buf2hex(ABtoHEX).length) {
+							swappedArray.push(buf2hex(ABtoHEX)[i + 1], buf2hex(ABtoHEX)[i]);
+						} else {
+							swappedArray.push(buf2hex(ABtoHEX)[i]);
+						}
+					}
+					buf2hex(ABtoHEX) = swappedArray.join("");
+					
+					alert("swapped");
+
+			
+			} else if (buf2hex(ABtoHEX).slice(0,2) == 12) { //12408037
+			boot = "BYTE+WORD SWAPPED (*.???)";
+			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]</span> "+boot+"<br>";
+
+			const decoder = new TextDecoder("windows-1252");
+			//const str = decoder.decode(ABtoHEX); // String
+			const str = decoder.decode(reader.result); // String
+			
+			//alert(str)
+			
+			/*
+			--DWORD formats--
+			Big Endian - 0123
+			Byteswapped - 1032
+			Little Endian - 3210
+			*Wordswapped - 2301
+			*/
+			
+			/*
+			function swapAndSaveRom(romdv)
+			{
+				var word = romdv.getUint32(0x00000000);
+				var domProgressBar = document.querySelector('#progress-bar');
+
+				switch(word)
+				{
+				case 0x37804012:
+					for(var i = 0; i < romdv.byteLength; i += 2)
+					{
+						romdv.setUint16(i, romdv.getUint16(i, true));
+					}
+					break;
+				case 0x40123780:
+					for(var i = 0; i < romdv.byteLength; i+= 4)
+					{
+						romdv.setUint32(i, romdv.getUint32(i, true));
+					}
+					break;
+				case 0x80371240:
+					alert("ROM already uses Z64 byte ordering");
+					return;
+				default:
+					alert("Error: Format identification failed");
+					return;
+				}
+
+				var outputFileName = inputFileName.replace(/\.[a-zA-Z\d]+$/, ".z64");
+				saveAs(outputFileName, romdv.buffer);
+				domProgressBar.style.width = "0px";
+			}
+			*/
+			
+
+			
+			/*
+			//DO NOT SAVE FILE BUF2HEX()'d //ROMDATAVIEW/READDATA work + correct hashes!
+			const blob = new Blob([readData], { type: 'application/octet-stream' }); 
+			const link = document.createElement('a');
+			link.href = window.URL.createObjectURL(blob);
+			link.download = filename+".z64";
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+			*/
+			
+			/*
+			[FILE]: 64 HANAFUDA.Z64
+			[ANALYSING]: 8MB (8388608 BYTES) ~4s
+			[CRC]: 60A680E7
+			[SHA1]: 36D1B4EF15CDA8139FACE7E118CB34727C30BF29
+			[MD5]: 66335F4DC6AB27034398BC26F263B897
+			[BOOT]: BIG ENDIAN (*.Z64)
+			[NAME]: 64ﾊﾅﾌﾀﾞ ~ﾃﾝｼﾉﾔｸｿｸ~
+			[ID]: NHFJ
+			[MEDIA]: CARTRIDGE
+			[REGION]: JAPAN
+			[CIC]: 6102
+			[ROM]: V1.0
+			[ANALYSIS TIME]: 3s
+
+			[FILE]: SM64.Z64
+			[ANALYSING]: 8MB (8388608 BYTES) ~4s
+			[CRC]: 3CE60709
+			[SHA1]: 9BEF1128717F958171A4AFAC3ED78EE2BB4E86CE
+			[MD5]: 20B854B239203BAF6C961B850A4A51A2
+			[BOOT]: BIG ENDIAN (*.Z64)
+			[NAME]: SUPER MARIO 64
+			[ID]: NSME
+			[MEDIA]: CARTRIDGE
+			[REGION]: NORTH AMERICA
+			[CIC]: 6102
+			[ROM]: V1.0
+			[ANALYSIS TIME]: 3s
+			*/
+			
+			
+			//const checksum = crc32(str);
+			
+			//document.getElementById("result").innerHTML += "<span id='label1'>[CRC]:</span> "+checksum.toString(16).toUpperCase()+"<br>";
+			
+			//const hash1 = CryptoJS.SHA1(CryptoJS.enc.Latin1.parse(str)).toString();
+			//document.getElementById("result").innerHTML += "<span id='label1'>[SHA1]:</span> " + hash1.toUpperCase()+"<br>";
+			//const hash2 = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(str)).toString();
+			//document.getElementById("result").innerHTML += "<span id='label1'>[MD5]:</span> " + hash2.toUpperCase()+"<br>";			
+			
+			
+			//var firstmbhash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(fileData.slice(0x40, 0x1000))).toString();
+			//var firstmbhash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(fileData.slice(0x40, 0x1000))).toString();
+			const name = str.slice(32, 59);			
+			const encodedString = name;
+			const decodedString = decodeShiftJIS(encodedString);
+			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]</span> "+decodedString.toUpperCase()+"<br>";
+			
+			const cid = str.slice(59,63);
+			document.getElementById("result").innerHTML += "<span id='label1'>[GAME ID]</span> "+cid.toUpperCase()+"<br>";
+			var media;
+			switch (str[59]) {
+				case 'N': media = "CARTRIDGE"; break;
+				case 'D': media = "64DD DISK"; break;
+				case 'C': media = "CART EXPANSION"; break;
+				case 'E': media = "64DD EXPANSION"; break;
+				case 'Z': media = "ALECK64 GAME"; break;
+				default: media = "UNKNOWN";
+			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[MEDIA]</span> "+media+"<br>";
+			/*
+			switch (true)  {
+				case (/955894C2E40A698BF98A67B78A4E28FA/i.test(firstmbhash.toUpperCase())):
+						switch (str[62]){
+						case "A": case "E": case "J": cic = "6101"; break;//Star Fox 64 NTSC
+						default:
+						cic = "7102";//Lylat Wars PAL
+					}
+				break;
+				case (/E24DD796B2FA16511521139D28C8356B/i.test(firstmbhash.toUpperCase())):
+					switch (str[62]){
+						case "A": case "E": case "J": cic = "6102"; break;
+						default:
+						cic = "7101";
+					}
+				break;
+				case (/319038097346E12C26C3C21B56F86F23/i.test(firstmbhash.toUpperCase())):
+					switch (str[62]){
+						case "A": case "E": case "J": cic = "6103"; break;
+						default:
+						cic = "7103";
+					}
+				break;
+				case (/FF22A296E55D34AB0A077DC2BA5F5796/i.test(firstmbhash.toUpperCase())):
+					switch (str[62]){
+						case "A": case "E": case "J": cic = "6105"; break;
+						default:
+						cic = "7105";
+					}
+				break;
+				case (/6460387749AC0BD925AA5430BC7864FE/i.test(firstmbhash.toUpperCase())):
+					switch (str[62]){
+						case "A": case "E": case "J": cic = "6106"; break;
+						default:
+						cic = "7106";
+					}
+					
+					//3F875C16800422333C370B4646D771B9 - Brazilian
+					
+				break;
+				case (/ALECK64 GAME/i.test(media)): cic = "ARCADE";
+				break;
+				default:
+				cic = "UNKNOWN";
+			};
+			*/
+			var region;
+			switch (str[62]) {
+				case '7': region = "BETA"; break;
+				case 'A': region = "ASIAN"; break;
+				case 'B': region = "BRAZIL"; break;
+				case 'C': region = "CHINA"; break;
+				case 'D': region = "GERMANY"; break;
+				case 'E': region = "NORTH AMERICA"; break;
+				case 'F': region = "FRANCE"; break;
+				case 'G': region = "GATEWAY 64 (NTSC)"; break;
+				case 'H': region = "NETHERLANDS"; break;
+				case 'I': region = "ITALY"; break;
+				case 'J': region = "JAPAN"; break;
+				case 'K': region = "KOREA"; break;
+				case 'L': region = "GATEWAY 64 (PAL)"; break;
+				case 'N': region = "CANADA"; break;
+				case 'P': region = "EUROPE"; break;
+				case 'S': region = "SPAIN"; break;
+				case 'U': region = "AUSTRALIA"; break;
+				case 'W': region = "SCANDINAVIA"; break;
+				case 'X': region = "EUROPE (X)"; break;
+				case 'Y': region = "EUROPE (Y)"; break;
+				case 'Z': region = "EUROPE (Z)"; break;
+				default: region = "UNKNOWN";
+			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[REGION]</span> "+region+"<br>";
+			//document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> "+cic+"<br>";
+			switch (buf2hex(ABtoHEX).slice(63,65)) {
+				case '1': rev = "1 (REV A)";break;
+				case '2': rev = "2 (REV B)";break;
+				case '3': rev = "3 (REV C)";break;
+				default: rev = "0";
+			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[ROM]</span> V1."+rev+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label2'>[ANALYSIS TIME]</span> "+Math.floor((Date.now()-start)/1000)+"s<br>";
+			document.getElementById("result").innerHTML += "<br><span id='label1'>CONVERT YOUR ROM:</span><br>";
+			
+			//alert(file)
+			
+			if (boot.match("Z64")){
+			document.getElementById("result").innerHTML += "<br><button>SAVE AS .N64</button><button>SAVE AS .V64</button><br>";
+			} else if (boot.match("V64")){
+			document.getElementById("result").innerHTML += "<br><button>SAVE AS .N64</button><button>SAVE AS .Z64</button><br>";
+			} else if (boot.match("N64")){
+			document.getElementById("result").innerHTML += "<br><button>SAVE AS .Z64</button><button>SAVE AS .Z64</button><br>";
+			}
+			
+			document.getElementById("result").innerHTML += "<br><span id='label3'>--------- LOAD ANOTHER ROM ---------</span><br>";
+			
+			document.getElementById('footer').scrollIntoView({behavior: 'auto' });
+			
+				};
+			} else {
+				alert('Please select a file.');
+			}
+}
+function downloadZsixtyfour() {
+	const blob = new Blob([readData], { type: 'application/octet-stream' }); //WORKING! correct hashes too!
+	const link = document.createElement('a');
+	link.href = window.URL.createObjectURL(blob);
+	link.download = filename+".z64";
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+}
+function crc32(file) {
+    const table = new Uint32Array(256);
+    for (let i = 0; i < 256; i++) {
+        let crc = i;
+        for (let j = 0; j < 8; j++) {
+            crc = (crc & 1) ? (0xEDB88320 ^ (crc >>> 1)) : (crc >>> 1);
+        }
+        table[i] = crc >>> 0;
+    }
+    let crc = 0xFFFFFFFF;
+    for (let i = 0; i < file.length; i++) {
+        const byte = file.charCodeAt(i) & 0xFF;
+        crc = (crc >>> 8) ^ table[(crc ^ byte) & 0xFF];
+    }
+    return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+function decodeShiftJIS(encodedString) {
+    const decoder = new TextDecoder('shift-jis');
+    const bytes = new Uint8Array(encodedString.split('').map(char => char.charCodeAt(0)));
+    return decoder.decode(bytes);
+}
+function buf2hex(buffer) { // buffer = ArrayBuffer
+	return [...new Uint8Array(buffer)].map(x => x.toString(16).padStart(2, '0')).join('');
+}
+</script>
+<center>
+<p></p>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 <span style="color:lime;">(V2.0)</span><span style="color:red;">]</span></div>
+</center>
+</body>
+</html>
