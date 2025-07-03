@@ -165,3 +165,4 @@ Blog/Features/2025/HeroOfLaw/b163.html
 Blog/Features/2025/SM64SOS/b164.html
 Blog/Features/2025/NFLBSSE/b165.html
 Blog/Features/2025/PDBKCANNED/b166.html
+Blog/Features/2025/8bitdoOdd/b167.html
