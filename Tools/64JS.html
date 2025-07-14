@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>64JS</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.js"></script>
 <style>
 body {background-color: black; color: cyan;}
 #label1 {color: magenta;}
@@ -15,176 +15,58 @@ body {background-color: black; color: cyan;}
 <body>
 <center>
 <br></br>
-<span id="label1">SELECT A ROM TO ANALYSE:</span>
+<span id="label2">SELECT A ROM:</span>
 <p id="result"></p>
-<input type="file" id="fileInput" onchange="analyzeROM();" accept=".v64, .z64, .n64"/>
+<input type="file" id="fileInput" onchange="options.style.display = 'block';" accept=".v64, .z64, .n64"/>
+<div id="options" style="display:none">
+<br>
+<span id="label2">CONVERT:</span>
+<select id="conversionOptions" onchange=""></select>
+<button id="convertButton">Convert</button>
+<button id="resetButton">Reset</button>
+</div>
 </center>
 <script>
-function analyzeROM() {
-	const fileInput = document.getElementById('fileInput');
-	const file = fileInput.files[0];
-	document.getElementById("result").innerHTML += "<span id='label1'>[FILE]</span> "+file.name.toUpperCase()+"<br>";
-	document.getElementById("result").innerHTML += "<span id='label2'>[CHECKING]</span> ...<br>";
-	if (file) {
-	var start = Date.now();
-		const reader = new FileReader();
-		reader.readAsArrayBuffer(file);
-		reader.onloadend = function(event) {
-			var fileData = event.target.result;
-			readData = new Uint8Array(fileData);
-			const ABtoHEX = new Uint8Array(readData).buffer;
-			//alert(buf2hex(romDataView)); //hex info of rom WORKING
-			var SizeMB = (readData.byteLength / (1024*1024)).toFixed(0);
-			document.getElementById("result").innerHTML += "<span id='label1'>[SIZE]</span> "+SizeMB+"MB ("+file.size+" BYTES)<br>";
-			document.getElementById("result").innerHTML += "<span id='label1'>[BYTE ORDER]</span> "+buf2hex(ABtoHEX).slice(0,8)+"<br>";
-			
-			//1 detect byteorder
-			//2 convert to Z64
-			//3 extract data
-			//3 finish
-			
-			if (buf2hex(ABtoHEX).slice(0,2) == 80) { //80371240 
+var newFileName, arrayBuffer, byteArray, file;
+document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+function handleFileSelect(event) {
+	file = event.target.files[0];
+	if (!file) return;
+	var SizeMB = (file.size / (1024*1024)).toFixed(0);
+	document.getElementById("result").innerHTML += "<span id='label1'>[FILE]:</span> "+file.name.toUpperCase()+"<br>";
+	document.getElementById("result").innerHTML += "<span id='label1'>[SIZE]:</span> "+SizeMB+"MB ("+file.size+" BYTES)<br>";
+	const reader = new FileReader();
+	reader.onload = function(event) {
+		arrayBuffer = event.target.result;
+		byteArray = new Uint8Array(arrayBuffer);
+		let convertedBuffer;			
+		decoder = new TextDecoder("windows-1252");
+		str = decoder.decode(reader.result); // String
+		var boot, name, cid, gRev;
+			if (byteArray.slice(0x00, 0x08) == "128,55,18,64,0,0,0,15") {
 				boot = "BIG ENDIAN (*.Z64)";
-
-
-			} else if (buf2hex(ABtoHEX).slice(0,2) == 40){ //40123780
+				name = str.slice(32, 59);
+				cid = str.slice(59,63);
+				gRev = byteArray.slice(0x3F, 0x40);
+			} else if (byteArray.slice(0x00, 0x08) == "55,128,64,18,0,0,15,0") {
+				boot = "BYTE SWAPPED (*.V64)";				
+				name = str[33]+str[32]+str[35]+str[34]+str[37]+str[36]+str[39]+str[38]+str[41]+str[40]+str[43]+str[42]+str[45]+str[44]+str[47]+str[46]+str[49]+str[48]+str[51]+str[50]+str[53]+str[52]+str[55]+str[54]+str[57]+str[55];
+				cid = str[58]+str[61]+str[60]+str[63];
+				gRev = byteArray.slice(0x3E, 0x3F);
+				
+			} else if (byteArray.slice(0x00, 0x08) == "64,18,55,128,15,0,0,0") {
 				boot = "LITTLE ENDIAN (*.N64)";
-				
-				
-			} else if (buf2hex(ABtoHEX).slice(0,2) == 37) { //37804012
-				boot = "BYTE SWAPPED (*.V64)";
-				
-				const swappedArray = [];
-					for (let i = 0; i < buf2hex(ABtoHEX).length; i += 2) {
-						if (i + 1 < buf2hex(ABtoHEX).length) {
-							swappedArray.push(buf2hex(ABtoHEX)[i + 1], buf2hex(ABtoHEX)[i]);
-						} else {
-							swappedArray.push(buf2hex(ABtoHEX)[i]);
-						}
-					}
-					buf2hex(ABtoHEX) = swappedArray.join("");
-					
-					alert("swapped");
-
-			
-			} else if (buf2hex(ABtoHEX).slice(0,2) == 12) { //12408037
-			boot = "BYTE+WORD SWAPPED (*.???)";
+				name = str[35]+str[34]+str[33]+str[32]+str[39]+str[38]+str[37]+str[36]+str[43]+str[42]+str[41]+str[40]+str[47]+str[46]+str[45]+str[44]+str[51]+str[50]+str[49]+str[48];
+				cid = str[56]+str[63]+str[62]+str[61];
+				gRev = byteArray.slice(0x3C, 0x3D);
 			}
-			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]</span> "+boot+"<br>";
-
-			const decoder = new TextDecoder("windows-1252");
-			//const str = decoder.decode(ABtoHEX); // String
-			const str = decoder.decode(reader.result); // String
-			
-			//alert(str)
-			
-			/*
-			--DWORD formats--
-			Big Endian - 0123
-			Byteswapped - 1032
-			Little Endian - 3210
-			*Wordswapped - 2301
-			*/
-			
-			/*
-			function swapAndSaveRom(romdv)
-			{
-				var word = romdv.getUint32(0x00000000);
-				var domProgressBar = document.querySelector('#progress-bar');
-
-				switch(word)
-				{
-				case 0x37804012:
-					for(var i = 0; i < romdv.byteLength; i += 2)
-					{
-						romdv.setUint16(i, romdv.getUint16(i, true));
-					}
-					break;
-				case 0x40123780:
-					for(var i = 0; i < romdv.byteLength; i+= 4)
-					{
-						romdv.setUint32(i, romdv.getUint32(i, true));
-					}
-					break;
-				case 0x80371240:
-					alert("ROM already uses Z64 byte ordering");
-					return;
-				default:
-					alert("Error: Format identification failed");
-					return;
-				}
-
-				var outputFileName = inputFileName.replace(/\.[a-zA-Z\d]+$/, ".z64");
-				saveAs(outputFileName, romdv.buffer);
-				domProgressBar.style.width = "0px";
-			}
-			*/
-			
-
-			
-			/*
-			//DO NOT SAVE FILE BUF2HEX()'d //ROMDATAVIEW/READDATA work + correct hashes!
-			const blob = new Blob([readData], { type: 'application/octet-stream' }); 
-			const link = document.createElement('a');
-			link.href = window.URL.createObjectURL(blob);
-			link.download = filename+".z64";
-			document.body.appendChild(link);
-			link.click();
-			document.body.removeChild(link);
-			*/
-			
-			/*
-			[FILE]: 64 HANAFUDA.Z64
-			[ANALYSING]: 8MB (8388608 BYTES) ~4s
-			[CRC]: 60A680E7
-			[SHA1]: 36D1B4EF15CDA8139FACE7E118CB34727C30BF29
-			[MD5]: 66335F4DC6AB27034398BC26F263B897
-			[BOOT]: BIG ENDIAN (*.Z64)
-			[NAME]: 64ﾊﾅﾌﾀﾞ ~ﾃﾝｼﾉﾔｸｿｸ~
-			[ID]: NHFJ
-			[MEDIA]: CARTRIDGE
-			[REGION]: JAPAN
-			[CIC]: 6102
-			[ROM]: V1.0
-			[ANALYSIS TIME]: 3s
-
-			[FILE]: SM64.Z64
-			[ANALYSING]: 8MB (8388608 BYTES) ~4s
-			[CRC]: 3CE60709
-			[SHA1]: 9BEF1128717F958171A4AFAC3ED78EE2BB4E86CE
-			[MD5]: 20B854B239203BAF6C961B850A4A51A2
-			[BOOT]: BIG ENDIAN (*.Z64)
-			[NAME]: SUPER MARIO 64
-			[ID]: NSME
-			[MEDIA]: CARTRIDGE
-			[REGION]: NORTH AMERICA
-			[CIC]: 6102
-			[ROM]: V1.0
-			[ANALYSIS TIME]: 3s
-			*/
-			
-			
-			//const checksum = crc32(str);
-			
-			//document.getElementById("result").innerHTML += "<span id='label1'>[CRC]:</span> "+checksum.toString(16).toUpperCase()+"<br>";
-			
-			//const hash1 = CryptoJS.SHA1(CryptoJS.enc.Latin1.parse(str)).toString();
-			//document.getElementById("result").innerHTML += "<span id='label1'>[SHA1]:</span> " + hash1.toUpperCase()+"<br>";
-			//const hash2 = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(str)).toString();
-			//document.getElementById("result").innerHTML += "<span id='label1'>[MD5]:</span> " + hash2.toUpperCase()+"<br>";			
-			
-			
-			//var firstmbhash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(fileData.slice(0x40, 0x1000))).toString();
-			//var firstmbhash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(fileData.slice(0x40, 0x1000))).toString();
-			const name = str.slice(32, 59);			
 			const encodedString = name;
-			const decodedString = decodeShiftJIS(encodedString);
-			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]</span> "+decodedString.toUpperCase()+"<br>";
-			
-			const cid = str.slice(59,63);
-			document.getElementById("result").innerHTML += "<span id='label1'>[GAME ID]</span> "+cid.toUpperCase()+"<br>";
-			var media;
-			switch (str[59]) {
+			decodedName = decodeShiftJIS(encodedString);
+			document.getElementById("result").innerHTML += "<img src='LOWRES/"+cid.slice(1,3)+".png'; /><br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";			
+			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]</span> "+decodedName.toUpperCase()+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> "+cid.toUpperCase()+"<br>";
+			switch (cid[0]) {
 				case 'N': media = "CARTRIDGE"; break;
 				case 'D': media = "64DD DISK"; break;
 				case 'C': media = "CART EXPANSION"; break;
@@ -192,55 +74,8 @@ function analyzeROM() {
 				case 'Z': media = "ALECK64 GAME"; break;
 				default: media = "UNKNOWN";
 			}
-			document.getElementById("result").innerHTML += "<span id='label1'>[MEDIA]</span> "+media+"<br>";
-			/*
-			switch (true)  {
-				case (/955894C2E40A698BF98A67B78A4E28FA/i.test(firstmbhash.toUpperCase())):
-						switch (str[62]){
-						case "A": case "E": case "J": cic = "6101"; break;//Star Fox 64 NTSC
-						default:
-						cic = "7102";//Lylat Wars PAL
-					}
-				break;
-				case (/E24DD796B2FA16511521139D28C8356B/i.test(firstmbhash.toUpperCase())):
-					switch (str[62]){
-						case "A": case "E": case "J": cic = "6102"; break;
-						default:
-						cic = "7101";
-					}
-				break;
-				case (/319038097346E12C26C3C21B56F86F23/i.test(firstmbhash.toUpperCase())):
-					switch (str[62]){
-						case "A": case "E": case "J": cic = "6103"; break;
-						default:
-						cic = "7103";
-					}
-				break;
-				case (/FF22A296E55D34AB0A077DC2BA5F5796/i.test(firstmbhash.toUpperCase())):
-					switch (str[62]){
-						case "A": case "E": case "J": cic = "6105"; break;
-						default:
-						cic = "7105";
-					}
-				break;
-				case (/6460387749AC0BD925AA5430BC7864FE/i.test(firstmbhash.toUpperCase())):
-					switch (str[62]){
-						case "A": case "E": case "J": cic = "6106"; break;
-						default:
-						cic = "7106";
-					}
-					
-					//3F875C16800422333C370B4646D771B9 - Brazilian
-					
-				break;
-				case (/ALECK64 GAME/i.test(media)): cic = "ARCADE";
-				break;
-				default:
-				cic = "UNKNOWN";
-			};
-			*/
-			var region;
-			switch (str[62]) {
+			document.getElementById("result").innerHTML += "<span id='label1'>[MEDIA]:</span> "+media+"<br>";
+			switch (cid[3]) {
 				case '7': region = "BETA"; break;
 				case 'A': region = "ASIAN"; break;
 				case 'B': region = "BRAZIL"; break;
@@ -264,74 +99,228 @@ function analyzeROM() {
 				case 'Z': region = "EUROPE (Z)"; break;
 				default: region = "UNKNOWN";
 			}
-			document.getElementById("result").innerHTML += "<span id='label1'>[REGION]</span> "+region+"<br>";
-			//document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> "+cic+"<br>";
-			switch (buf2hex(ABtoHEX).slice(63,65)) {
-				case '1': rev = "1 (REV A)";break;
-				case '2': rev = "2 (REV B)";break;
-				case '3': rev = "3 (REV C)";break;
-				default: rev = "0";
-			}
-			document.getElementById("result").innerHTML += "<span id='label1'>[ROM]</span> V1."+rev+"<br>";
-			document.getElementById("result").innerHTML += "<span id='label2'>[ANALYSIS TIME]</span> "+Math.floor((Date.now()-start)/1000)+"s<br>";
-			document.getElementById("result").innerHTML += "<br><span id='label1'>CONVERT YOUR ROM:</span><br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[REGION]:</span> "+region+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[ROM]:</span> V1."+gRev+"<br>";
 			
-			//alert(file)
+			const wordArray = CryptoJS.lib.WordArray.create(arrayBuffer);
+            const wordArray2 = CryptoJS.lib.WordArray.create(arrayBuffer.slice(0x40, 0x1000));
+			const hash = CryptoJS.MD5(wordArray).toString();
+			const hash2 = CryptoJS.SHA1(wordArray).toString();
+			const hash3 = crc32(byteArray);
+            const firstMB = CryptoJS.MD5(wordArray2).toString();
 			
-			if (boot.match("Z64")){
-			document.getElementById("result").innerHTML += "<br><button>SAVE AS .N64</button><button>SAVE AS .V64</button><br>";
-			} else if (boot.match("V64")){
-			document.getElementById("result").innerHTML += "<br><button>SAVE AS .N64</button><button>SAVE AS .Z64</button><br>";
-			} else if (boot.match("N64")){
-			document.getElementById("result").innerHTML += "<br><button>SAVE AS .Z64</button><button>SAVE AS .Z64</button><br>";
-			}
+			document.getElementById("result").innerHTML += "<span id='label1'>[MD5]:</span> " + hash.toUpperCase()+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[SH1]:</span> " + hash2.toUpperCase()+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[CRC]:</span> " + hash3.toString(16).padStart(8, '0').toUpperCase()+"<br>";
+
+			switch (true)  {
+				case ((/955894C2E40A698BF98A67B78A4E28FA/i.test(firstMB.toUpperCase()))||(/e01a02379886f2a90d6d4859e75c4f8a/i.test(firstMB.toUpperCase()))||(/baff2496776653d7952656dc914f52eb/i.test(firstMB.toUpperCase()))):
+						switch (cid[3]){
+						case "A": case "E": case "J": cic = "6101"; break;//Star Fox 64 NTSC
+						default:
+						cic = "7102";//Lylat Wars PAL
+					}
+				break;
+				case ((/E24DD796B2FA16511521139D28C8356B/i.test(firstMB.toUpperCase()))||(/32613b1b4e06617f989d954d9739c5f2/i.test(firstMB.toUpperCase()))||(/6333e486384b7ece2e9454e18658b324/i.test(firstMB.toUpperCase()))):
+					switch (cid[3]){
+						case "A": case "E": case "J": cic = "6102"; break;
+						default:
+						cic = "7101";
+					}
+				break;
+				case ((/319038097346E12C26C3C21B56F86F23/i.test(firstMB.toUpperCase()))||(/8cd619b674e191ea35985ffa6ee42b41/i.test(firstMB.toUpperCase()))||(/0bcf8db0ef73ac69fa31ee965a1df46e/i.test(firstMB.toUpperCase()))):
+					switch (cid[3]){
+						case "A": case "E": case "J": cic = "6103"; break;
+						default:
+						cic = "7103";
+					}
+				break;
+				case ((/FF22A296E55D34AB0A077DC2BA5F5796/i.test(firstMB.toUpperCase()))||(/1bef060def15c2f54f1af1e5d5fb27e7/i.test(firstMB.toUpperCase()))||(/c40a4e0570c8fc0d8d5fc7dbeda1d13b/i.test(firstMB.toUpperCase()))):
+					switch (cid[3]){
+						case "A": case "E": case "J": cic = "6105"; break;
+						default:
+						cic = "7105";
+					}
+				break;
+				case ((/6460387749AC0BD925AA5430BC7864FE/i.test(firstMB.toUpperCase()))||(/71ad1287ec3faec9d44d70af4b5ef895/i.test(firstMB.toUpperCase()))||(/7296713c0aab7fc95ce360de5ba6685c/i.test(firstMB.toUpperCase()))):
+					switch (cid[3]){
+						case "A": case "E": case "J": cic = "6106"; break;
+						default:
+						cic = "7106";
+					}
+				break;
+				case (/ALECK64 GAME/i.test(media)): cic = "ARCADE";
+				break;
+				default:
+				cic = "UNKNOWN";
+			};
+
+			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> " + cic.toUpperCase()+"<br>";
+
+
 			
-			document.getElementById("result").innerHTML += "<br><span id='label3'>--------- LOAD ANOTHER ROM ---------</span><br>";
-			
-			document.getElementById('footer').scrollIntoView({behavior: 'auto' });
-			
-				};
-			} else {
-				alert('Please select a file.');
-			}
+			const fileType = file.name.split('.').pop();
+			const options = document.getElementById('conversionOptions');
+			options.innerHTML = '';
+				if (fileType === 'z64') {
+					options.innerHTML += '<option value="bigToLittle">Big-Endian to Little-Endian</option>';
+					options.innerHTML += '<option value="bigToByteSwapped">Big-Endian to Byte-Swapped</option>';
+				} else if (fileType === 'n64') {
+					options.innerHTML += '<option value="littleToBig">Little-Endian to Big-Endian</option>';
+					options.innerHTML += '<option value="littleToByteSwapped">Little-Endian to Byte-Swapped</option>';
+				} else if (fileType === 'v64') {
+					options.innerHTML += '<option value="byteSwappedToBig">Byte-Swapped to Big-Endian</option>';
+					options.innerHTML += '<option value="byteSwappedToLittle">Byte-Swapped to Little-Endian</option>';
+				}
+			document.getElementById('options').style.display = 'block';
+	}
+document.getElementById('convertButton').addEventListener('click', convertFile);
+document.getElementById('resetButton').addEventListener('click', resetPage);
+reader.readAsArrayBuffer(file);
 }
-function downloadZsixtyfour() {
-	const blob = new Blob([readData], { type: 'application/octet-stream' }); //WORKING! correct hashes too!
+function convertFile() {
+	const file = document.getElementById('fileInput').files[0];
+	const conversionType = document.getElementById('conversionOptions').value;
+		switch (conversionType) {
+			case 'bigToLittle':
+				convertedBuffer = convertBigToLittle(arrayBuffer);
+				newFileName = file.name.slice(0, file.name.length-4).toUpperCase()+"(Z64toN64).n64";						
+				break;
+			case 'bigToByteSwapped':
+				convertedBuffer = convertBigToByteSwapped(arrayBuffer);
+				newFileName = file.name.slice(0, file.name.length-4).toUpperCase()+"(Z64toV64).v64";
+				break;
+			case 'littleToBig':
+				convertedBuffer = convertLittleToBig(arrayBuffer);
+				newFileName = file.name.slice(0, file.name.length-4).toUpperCase()+"(N64toZ64).z64";
+				break;
+			case 'littleToByteSwapped':
+				convertedBuffer = convertLittleToByteSwapped(arrayBuffer);
+				newFileName = file.name.slice(0, file.name.length-4).toUpperCase()+"(N64toV64).v64";
+				break;
+			case 'byteSwappedToBig':
+				convertedBuffer = convertByteSwappedToBig(arrayBuffer);
+				newFileName = file.name.slice(0, file.name.length-4).toUpperCase()+"(V64toZ64).z64";
+				break;
+			case 'byteSwappedToLittle':
+				convertedBuffer = convertByteSwappedToLittle(arrayBuffer);
+				newFileName = file.name.slice(0, file.name.length-4).toUpperCase()+"(V64toN64).n64";
+				break;
+		}
+	saveFile(convertedBuffer, file.name);
+};
+function resetPage() {
+	fileInput.value = null;
+	window.location.reload();
+}
+function saveFile(buffer, originalFileName) {
+	const blob = new Blob([buffer]);
+	const fileType = originalFileName.split('.').pop();
 	const link = document.createElement('a');
-	link.href = window.URL.createObjectURL(blob);
-	link.download = filename+".z64";
-	document.body.appendChild(link);
+	link.href = URL.createObjectURL(blob);
+	link.download = newFileName;
 	link.click();
-	document.body.removeChild(link);
 }
-function crc32(file) {
-    const table = new Uint32Array(256);
-    for (let i = 0; i < 256; i++) {
-        let crc = i;
-        for (let j = 0; j < 8; j++) {
-            crc = (crc & 1) ? (0xEDB88320 ^ (crc >>> 1)) : (crc >>> 1);
-        }
-        table[i] = crc >>> 0;
-    }
-    let crc = 0xFFFFFFFF;
-    for (let i = 0; i < file.length; i++) {
-        const byte = file.charCodeAt(i) & 0xFF;
-        crc = (crc >>> 8) ^ table[(crc ^ byte) & 0xFF];
-    }
-    return (crc ^ 0xFFFFFFFF) >>> 0;
+function convertBigToLittle(buffer) {
+	const view = new Uint8Array(buffer);
+	const littleEndianBuffer = new Uint8Array(view.length);
+	for (let i = 0; i < view.length; i += 4) {
+		littleEndianBuffer[i] = view[i + 3];
+		littleEndianBuffer[i + 1] = view[i + 2];
+		littleEndianBuffer[i + 2] = view[i + 1];
+		littleEndianBuffer[i + 3] = view[i];
+	}
+	return littleEndianBuffer;
+}
+function convertBigToByteSwapped(buffer) {
+	const view = new Uint8Array(buffer);
+	const byteswappedBuffer = new Uint8Array(view.length);
+	for (let i = 0; i < view.length; i += 4) {
+		byteswappedBuffer[i] = view[i + 1];
+		byteswappedBuffer[i + 1] = view[i];
+		byteswappedBuffer[i + 2] = view[i + 3];
+		byteswappedBuffer[i + 3] = view[i + 2];
+	}
+	return byteswappedBuffer;
+}
+function convertLittleToBig(buffer) {
+	const view = new Uint8Array(buffer);
+	const bigEndianBuffer = new Uint8Array(view.length);
+	for (let i = 0; i < view.length; i += 4) {
+		bigEndianBuffer[i] = view[i + 3];
+		bigEndianBuffer[i + 1] = view[i + 2];
+		bigEndianBuffer[i + 2] = view[i + 1];
+		bigEndianBuffer[i + 3] = view[i];
+	}
+	return bigEndianBuffer;			
+}
+function convertLittleToByteSwapped(buffer) {
+	const view = new Uint8Array(buffer);
+	const byteswappedBuffer = new Uint8Array(view.length);
+	for (let i = 0; i < view.length; i += 4) {
+		byteswappedBuffer[i] = view[i + 2];
+		byteswappedBuffer[i + 1] = view[i + 3];
+		byteswappedBuffer[i + 2] = view[i];
+		byteswappedBuffer[i + 3] = view[i + 1];
+	}
+	return byteswappedBuffer;
+}
+function convertByteSwappedToBig(buffer) {
+	const view = new Uint8Array(buffer);
+	const bigEndianBuffer = new Uint8Array(view.length);
+	for (let i = 0; i < view.length; i += 4) {
+		bigEndianBuffer[i] = view[i + 1];
+		bigEndianBuffer[i + 1] = view[i];
+		bigEndianBuffer[i + 2] = view[i + 3];
+		bigEndianBuffer[i + 3] = view[i + 2];
+	}
+	return bigEndianBuffer;
+}
+function convertByteSwappedToLittle(buffer) {
+	const view = new Uint8Array(buffer);
+	const littleEndianBuffer = new Uint8Array(view.length);
+	for (let i = 0; i < view.length; i += 4) {
+		littleEndianBuffer[i] = view[i + 2];
+		littleEndianBuffer[i + 1] = view[i + 3];
+		littleEndianBuffer[i + 2] = view[i];
+		littleEndianBuffer[i + 3] = view[i + 1];
+	}
+	return littleEndianBuffer;
+}
+function crc32(buffer) {
+	let crcTable = new Uint32Array(256);
+	for (let i = 0; i < 256; i++) {
+		let crc = i;
+		for (let j = 8; j > 0; j--) {
+			crc = (crc & 1) ? (0xEDB88320 ^ (crc >>> 1)) : (crc >>> 1);
+		}
+		crcTable[i] = crc >>> 0;
+	}
+	let crc = 0xffffffff;
+	for (let i = 0; i < buffer.byteLength; i++) {
+		let byte = buffer[i];
+		crc = (crc >>> 8) ^ crcTable[(crc ^ byte) & 0xff];
+	}
+	return (crc ^ 0xffffffff) >>> 0;
+}
+function decodeName() {
+	const name = str.slice(32, 59);			
+	const encodedString = name;
+	decodedName = decodeShiftJIS(encodedString);
+	document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]</span> "+decodedName.toUpperCase()+"<br>";
 }
 function decodeShiftJIS(encodedString) {
-    const decoder = new TextDecoder('shift-jis');
-    const bytes = new Uint8Array(encodedString.split('').map(char => char.charCodeAt(0)));
-    return decoder.decode(bytes);
+	const decoder = new TextDecoder('shift-jis');
+	const bytes = new Uint8Array(encodedString.split('').map(char => char.charCodeAt(0)));
+	return decoder.decode(bytes);
 }
-function buf2hex(buffer) { // buffer = ArrayBuffer
+function buf2hex(buffer) {
 	return [...new Uint8Array(buffer)].map(x => x.toString(16).padStart(2, '0')).join('');
 }
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 <span style="color:lime;">(V2.0)</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.0</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
