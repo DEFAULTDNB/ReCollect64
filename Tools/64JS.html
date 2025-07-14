@@ -29,6 +29,9 @@ body {background-color: black; color: cyan;}
 <script>
 var newFileName, arrayBuffer, byteArray, file;
 document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+document.getElementById("result").innerHTML += "<img id='boxart' src='LOWRES/00.png'; /><br>";
+
 function handleFileSelect(event) {
 	file = event.target.files[0];
 	if (!file) return;
@@ -62,7 +65,8 @@ function handleFileSelect(event) {
 			}
 			const encodedString = name;
 			decodedName = decodeShiftJIS(encodedString);
-			document.getElementById("result").innerHTML += "<img src='LOWRES/"+cid.slice(1,3)+".png'; /><br>";
+			//document.getElementById("result").innerHTML += "<img id='boxart' src='LOWRES/"+cid.slice(1,3)+".png'; /><br>";
+			boxart.src = "LOWRES/"+cid.slice(1,3)+".png";
 			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";			
 			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]</span> "+decodedName.toUpperCase()+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> "+cid.toUpperCase()+"<br>";
@@ -320,7 +324,7 @@ function buf2hex(buffer) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.0</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.1</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
