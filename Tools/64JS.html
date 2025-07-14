@@ -217,8 +217,44 @@ function resetPage() {
 	fileInput.value = null;
 	window.location.reload();
 }
+/*
 function saveFile(buffer, originalFileName) {
 	const blob = new Blob([buffer]);
+	const fileType = originalFileName.split('.').pop();
+	const link = document.createElement('a');
+	link.href = URL.createObjectURL(blob);
+	link.download = newFileName;
+	link.click();
+}
+*/
+function saveFile(buffer, originalFileName) {
+
+	Blob = (function() {
+	  var nativeBlob = Blob;
+	  if (Blob.prototype.webkitSlice) {
+		Blob.prototype.slice = Blob.prototype.webkitSlice;  
+	  }
+	  else if (Blob.prototype.mozSlice) {
+		Blob.prototype.slice = Blob.prototype.mozSlice;  
+	  }
+	  return function(parts, properties) {
+		try {
+		  Blob = nativeBlob;
+		  return new Blob(parts || [], properties || {});
+		}
+		catch (e) {
+		  Blob = function (parts, properties) {
+			var bb = new (BlobBuilder || WebKitBlobBuilder || MozBlobBuilder || MSBlobBuilder), i;						 		 
+			for (i in parts) {
+			  bb.append(parts[i]);
+			}
+			return bb.getBlob(properties && properties.type ? properties.type : undefined);
+		  };
+		}        
+	  };
+	}());
+
+	const blob = new Blob([buffer]);	
 	const fileType = originalFileName.split('.').pop();
 	const link = document.createElement('a');
 	link.href = URL.createObjectURL(blob);
@@ -324,7 +360,7 @@ function buf2hex(buffer) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.1</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.2</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
