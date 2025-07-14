@@ -244,7 +244,7 @@ function saveFile(buffer, originalFileName) {
 		}
 		catch (e) {
 		  Blob = function (parts, properties) {
-			var bb = new (BlobBuilder || WebKitBlobBuilder || MozBlobBuilder || MSBlobBuilder), i;						 		 
+			var bb = new (WebKitBlobBuilder || MozBlobBuilder), i;						 		 
 			for (i in parts) {
 			  bb.append(parts[i]);
 			}
