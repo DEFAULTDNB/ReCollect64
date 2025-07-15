@@ -23,19 +23,17 @@ body {background-color: black; color: cyan;}
 <span id="label2">CONVERT:</span>
 <select id="conversionOptions" onchange=""></select>
 <button id="convertButton">Convert</button>
-<button id="resetButton">Reset</button>
 </div>
 </center>
 <script>
 var newFileName, arrayBuffer, byteArray, file;
 document.getElementById('fileInput').addEventListener('change', handleFileSelect);
-
 document.getElementById("result").innerHTML += "<img id='boxart' src='LOWRES/00.png'; /><br>";
-
 function handleFileSelect(event) {
 	file = event.target.files[0];
 	if (!file) return;
 	var SizeMB = (file.size / (1024*1024)).toFixed(0);
+	document.getElementById("result").innerHTML = "<img id='boxart' src='LOWRES/00.png'; /><br>";
 	document.getElementById("result").innerHTML += "<span id='label1'>[FILE]:</span> "+file.name.toUpperCase()+"<br>";
 	document.getElementById("result").innerHTML += "<span id='label1'>[SIZE]:</span> "+SizeMB+"MB ("+file.size+" BYTES)<br>";
 	const reader = new FileReader();
@@ -65,11 +63,20 @@ function handleFileSelect(event) {
 			}
 			const encodedString = name;
 			decodedName = decodeShiftJIS(encodedString);
-			//document.getElementById("result").innerHTML += "<img id='boxart' src='LOWRES/"+cid.slice(1,3)+".png'; /><br>";
 			boxart.src = "LOWRES/"+cid.slice(1,3)+".png";
-			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";			
-			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]</span> "+decodedName.toUpperCase()+"<br>";
-			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> "+cid.toUpperCase()+"<br>";
+			boxart.onerror = fixboxart;
+				function fixboxart(){
+				boxart.src = "LOWRES/00.png";
+				}
+			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]:</span> <span id='decname'>"+decodedName.toUpperCase()+"</span><br>";
+				if (decname.innerHTML.length < 1) {
+				decname.innerHTML = "UNKNOWN";
+				}
+			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> <span id='cidID'>"+cid.toUpperCase()+"</span><br>";
+				if (cidID.innerHTML.length < 1) {
+				cidID.innerHTML = "UNKNOWN";
+				}
 			switch (cid[0]) {
 				case 'N': media = "CARTRIDGE"; break;
 				case 'D': media = "64DD DISK"; break;
@@ -105,18 +112,15 @@ function handleFileSelect(event) {
 			}
 			document.getElementById("result").innerHTML += "<span id='label1'>[REGION]:</span> "+region+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label1'>[ROM]:</span> V1."+gRev+"<br>";
-			
 			const wordArray = CryptoJS.lib.WordArray.create(arrayBuffer);
             const wordArray2 = CryptoJS.lib.WordArray.create(arrayBuffer.slice(0x40, 0x1000));
 			const hash = CryptoJS.MD5(wordArray).toString();
 			const hash2 = CryptoJS.SHA1(wordArray).toString();
 			const hash3 = crc32(byteArray);
             const firstMB = CryptoJS.MD5(wordArray2).toString();
-			
 			document.getElementById("result").innerHTML += "<span id='label1'>[MD5]:</span> " + hash.toUpperCase()+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label1'>[SH1]:</span> " + hash2.toUpperCase()+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label1'>[CRC]:</span> " + hash3.toString(16).padStart(8, '0').toUpperCase()+"<br>";
-
 			switch (true)  {
 				case ((/955894C2E40A698BF98A67B78A4E28FA/i.test(firstMB.toUpperCase()))||(/e01a02379886f2a90d6d4859e75c4f8a/i.test(firstMB.toUpperCase()))||(/baff2496776653d7952656dc914f52eb/i.test(firstMB.toUpperCase()))):
 						switch (cid[3]){
@@ -158,12 +162,8 @@ function handleFileSelect(event) {
 				default:
 				cic = "UNKNOWN";
 			};
-
 			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> " + cic.toUpperCase()+"<br>";
-
-
-			
-			const fileType = file.name.split('.').pop();
+			const fileType = file.name.split('.').pop().toLowerCase();
 			const options = document.getElementById('conversionOptions');
 			options.innerHTML = '';
 				if (fileType === 'z64') {
@@ -179,7 +179,6 @@ function handleFileSelect(event) {
 			document.getElementById('options').style.display = 'block';
 	}
 document.getElementById('convertButton').addEventListener('click', convertFile);
-document.getElementById('resetButton').addEventListener('click', resetPage);
 reader.readAsArrayBuffer(file);
 }
 function convertFile() {
@@ -213,22 +212,7 @@ function convertFile() {
 		}
 	saveFile(convertedBuffer, file.name);
 };
-function resetPage() {
-	fileInput.value = null;
-	window.location.reload();
-}
-/*
 function saveFile(buffer, originalFileName) {
-	const blob = new Blob([buffer]);
-	const fileType = originalFileName.split('.').pop();
-	const link = document.createElement('a');
-	link.href = URL.createObjectURL(blob);
-	link.download = newFileName;
-	link.click();
-}
-*/
-function saveFile(buffer, originalFileName) {
-
 	Blob = (function() {
 	  var nativeBlob = Blob;
 	  if (Blob.prototype.webkitSlice) {
@@ -253,7 +237,6 @@ function saveFile(buffer, originalFileName) {
 		}        
 	  };
 	}());
-
 	const blob = new Blob([buffer]);	
 	const fileType = originalFileName.split('.').pop();
 	const link = document.createElement('a');
@@ -343,12 +326,6 @@ function crc32(buffer) {
 	}
 	return (crc ^ 0xffffffff) >>> 0;
 }
-function decodeName() {
-	const name = str.slice(32, 59);			
-	const encodedString = name;
-	decodedName = decodeShiftJIS(encodedString);
-	document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]</span> "+decodedName.toUpperCase()+"<br>";
-}
 function decodeShiftJIS(encodedString) {
 	const decoder = new TextDecoder('shift-jis');
 	const bytes = new Uint8Array(encodedString.split('').map(char => char.charCodeAt(0)));
@@ -360,7 +337,7 @@ function buf2hex(buffer) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.2</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.3</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
