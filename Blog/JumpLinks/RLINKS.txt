@@ -65,3 +65,4 @@ Blog/Reviews/ED64PLUS/r63.html
 Blog/Reviews/Games/SM64/r64.html
 Blog/Reviews/Games/BAM2AE/r65.html
 Blog/Reviews/Games/DK64/r66.html
+Blog/Reviews/LodgeNetPad/r67.html
