@@ -175,3 +175,5 @@ Blog/Features/2025/Q2N64Maps/b173.html
 Blog/Features/2025/SF64Drone/b174.html
 Blog/Features/2025/Misc/b175.html
 Blog/Features/2025/M64Tease/b176.html
+Blog/Features/2025/F32025/b177.html
+Blog/Features/2025/MKAV3/b178.html
