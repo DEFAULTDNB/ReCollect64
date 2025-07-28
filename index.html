@@ -516,6 +516,22 @@
 <center><div id="main" class="main" style="border: none;"></div><center>
 <script charset="utf-8">
 function spitFacts() {
+	fetch('Config/facts.cfg')
+    .then(response => {
+		if (!response.ok) {
+			throw new Error('Network response was not ok');
+		}
+		return response.text();
+	})
+	.then(data => {
+		let factlines = data.split("\n");
+		let factCount = factlines.length;
+		document.getElementById("facts").innerHTML = factlines[Math.floor(Math.random() * factCount)];
+	})
+	.catch(error => {
+		console.error('There was a problem with the fetch operation:', error);
+	});
+	/*
 	var factFile = new XMLHttpRequest;
 	factFile.open('get', 'Config/facts.cfg', false);
 	factFile.send();
@@ -523,6 +539,7 @@ function spitFacts() {
 	factlines = factDoc.split("\n")
 	factCount = factlines.length;
 	document.getElementById("facts").innerHTML = factlines[Math.floor(Math.random() * factCount)];
+	*/
 }
 document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto' });
 var gRegion, gTitle, gYear, gGenre, gScore, cValue, bValue, sValue, pos, tPos;
