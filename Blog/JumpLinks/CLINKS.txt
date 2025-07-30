@@ -34,3 +34,4 @@ Blog/Avatars/Oakieland.html
 Blog/Avatars/MFillaz.html
 Blog/Avatars/JiggyLookBack.html
 Blog/Avatars/BringBackBanjoK.html
+Blog/Avatars/ChameleonTwist1.html
