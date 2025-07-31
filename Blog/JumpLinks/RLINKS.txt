@@ -67,3 +67,4 @@ Blog/Reviews/Games/BAM2AE/r65.html
 Blog/Reviews/Games/DK64/r66.html
 Blog/Reviews/LodgeNetPad/r67.html
 Blog/Reviews/Games/WAVERACE/r68.html
+Blog/Reviews/Games/8BitDo64Pad/r69.html
