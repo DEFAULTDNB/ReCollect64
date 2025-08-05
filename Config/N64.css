@@ -675,7 +675,6 @@ hr.type2 {
 	width: 64px;
 	cursor: pointer;
 	opacity: 0.5;
-	z-index: ;
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 }
 .buttonL:hover {
@@ -688,7 +687,6 @@ hr.type2 {
 	width: 64px;
 	cursor: pointer;
 	opacity: 0.5;
-	z-index: ;
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 }
 .buttonR:hover {
@@ -857,7 +855,7 @@ input[type="checkbox"] {
 	position: fixed;
 	--top: 200px;
 	--right: 10px;
-	top: 245px;
+	top: 250px;
 	left: 135px;
 	height: 50px;
 	width: 50px;
@@ -865,7 +863,6 @@ input[type="checkbox"] {
 	display: inline-block;
     cursor: pointer;
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
-	z-index: 1000;
 }
 #nuke:hover {
 	opacity: 1;
@@ -875,7 +872,7 @@ input[type="checkbox"] {
 	background-image: url('Images/DEBUGON.png');
 	background-size: cover;
 	position: fixed;
-	top: 245px;
+	top: 250px;
 	left: 50px;
 	height: 40px;
 	width: auto;
@@ -894,7 +891,7 @@ input[type="checkbox"] {
 	background-image: url('Images/VOLON.png');
 	background-size: cover;
 	position: fixed;
-	top: 245px;
+	top: 250px;
 	left: 5px;
 	height: 40px;
 	width: auto;
