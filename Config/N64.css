@@ -135,6 +135,11 @@
 	--light-textshadow: black;
 	--dark-textshadow: grey;
 }
+.homenaje-regular {
+  font-family: "Homenaje", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 body {
 background: var(--page-gradient);
 font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -147,8 +152,14 @@ h1 {
 select {
 	width: auto;
 	height: 35px;
-	font-size: 22px;
+	font-size: 20px;
 	background-color: grey;
+}
+select optgroup{
+    background: dimgrey;
+    color: white;
+    font-style: normal;
+    --font-weight: normal;
 }
 .masked {
   display: inline-block;
@@ -710,7 +721,11 @@ hr.type2 {
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 }
 ::placeholder {
-  color: black;
+  color: silver;
+  opacity: 1;
+}
+::-ms-input-placeholder {
+  color: silver;
 }
 input[type="checkbox"] {
     --outline: 5px solid black;
@@ -840,23 +855,33 @@ input[type="checkbox"] {
 }
 #nuke {
 	position: fixed;
-	top: 210px;
-	right: 10px;
+	--top: 200px;
+	--right: 10px;
+	top: 245px;
+	left: 135px;
 	height: 50px;
 	width: 50px;
-	opacity: 0.5;
+	opacity: 0.3;
 	display: inline-block;
     cursor: pointer;
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
+	z-index: 1000;
 }
 #nuke:hover {
 	opacity: 1;
 }
 #debugL {
+	background-color: black;
+	background-image: url('Images/DEBUGON.png');
+	background-size: cover;
 	position: fixed;
-	top: 270px;
-	right: 5px;
-	opacity: 0.2;
+	top: 245px;
+	left: 50px;
+	height: 40px;
+	width: auto;
+	border-radius: 50%;
+	opacity: 0.3;
+	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 	display: inline-block;
     cursor: pointer;
 	z-index: 1000;
@@ -865,10 +890,17 @@ input[type="checkbox"] {
 	opacity: 1;
 }
 #muteL {
+	background-color: black;
+	background-image: url('Images/VOLON.png');
+	background-size: cover;
 	position: fixed;
-	top: 310px;
-	right: 5px;
-	opacity: 0.2;
+	top: 245px;
+	left: 5px;
+	height: 40px;
+	width: auto;
+	border-radius: 50%;
+	opacity: 0.3;
+	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 	display: inline-block;
     cursor: pointer;
 	z-index: 1000;
@@ -877,30 +909,34 @@ input[type="checkbox"] {
 	opacity: 1;
 }
 #gitH {
+	background-color: black;
+	background-image: url('Images/GITHUB.png');
+	background-size: cover;
 	position: fixed;
-	top: 350px;
-	right: 15px;
-	height: 40px;
-	width: auto;
-	opacity: 0.2;
+	bottom: 170px;
+	right: 5px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	opacity: 0.3;
+	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 	display: inline-block;
     cursor: pointer;
-	z-index: 1000;
-	filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%) drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 }
 #gitH:hover {
 	opacity: 1;
 }
 #tweet {
-	background-image: url('Images/TWEET.png');
+	background-color: black;
+	background-image: url('Images/SHARE.png');
 	background-size: cover;
 	position: fixed;
-	bottom: 10px;
-	left: 10px;
+	bottom: 5px;
+	left: 5px;
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	opacity: 0.5;
+	opacity: 0.3;
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 	display: inline-block;
     cursor: pointer;
@@ -908,15 +944,32 @@ input[type="checkbox"] {
 #tweet:hover {
 	opacity: 1;
 }
-#blog {
-	background-color: black;
+#xtwitter {
+	background-image: url('Images/TWEET.png');
+	background-size: cover;
 	position: fixed;
-	bottom: 70px;
-	left: 10px;
+	bottom: 5px;
+	right: 5px;
 	height: 50px;
 	width: 50px;
 	border-radius: 50%;
-	opacity: 0.5;
+	opacity: 0.3;
+	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
+	display: inline-block;
+    cursor: pointer;
+}
+#xtwitter:hover {
+	opacity: 1;
+}
+#blog {
+	background-color: black;
+	position: fixed;
+	bottom: 60px;
+	left: 5px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	opacity: 0.3;
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 	display: inline-block;
     cursor: pointer;
@@ -929,16 +982,53 @@ input[type="checkbox"] {
 	height: 40px;
 	object-fit: contain;
 }
+#bsky {
+	background-color: black;
+	background-image: url('Images/BSKY.png');
+	background-size: cover;
+	position: fixed;
+	bottom: 60px;
+	right: 5px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	opacity: 0.3;
+	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
+	display: inline-block;
+    cursor: pointer;
+}
+#bsky:hover {
+	opacity: 1;
+}
+#insta {
+	background-color: black;
+	background-image: url('Images/INSTA.png');
+	background-size: cover;
+	position: fixed;
+	bottom: 115px;
+	right: 5px;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	opacity: 0.3;
+	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
+	display: inline-block;
+    cursor: pointer;
+}
+#insta:hover {
+	opacity: 1;
+}
 #cake {
+	background-color: black;
 	background-image: url('Images/CAKEON.png');
 	background-size: cover;
 	position: fixed;
-	bottom: 130px;
-	left: 10px;
+	bottom: 115px;
+	left: 5px;
 	height: 50px;
 	width: 50px;
-	--border-radius: 50%;
-	opacity: 0.5;
+	border-radius: 50%;
+	opacity: 0.3;
 	filter: drop-shadow(10px 10px 4px rgba(0,0,0,0.7));
 	display: inline-block;
     cursor: pointer;
@@ -1301,8 +1391,13 @@ input:checked + .slider:before {
 	animation: marquee 15s linear infinite; /* change 5s value to your desired speed */
 }
 .marquee-child:hover {
-  animation-play-state: paused;
-  cursor: pointer;
+	animation-play-state: paused;
+	cursor: pointer;
+}
+.PopStyle {
+	font-family: Tahoma, "Trebuchet MS", sans-serif;
+	font-weight: 800;
+	font-size: 0.9em;
 }
 @keyframes marquee {
   0% {
@@ -1311,9 +1406,4 @@ input:checked + .slider:before {
   100% {
     left: -1500px /* same as marquee-child text width */
   }
-}
-.homenaje-regular {
-  font-family: "Homenaje", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
