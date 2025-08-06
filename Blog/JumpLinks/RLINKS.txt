@@ -69,3 +69,4 @@ Blog/Reviews/LodgeNetPad/r67.html
 Blog/Reviews/Games/WAVERACE/r68.html
 Blog/Reviews/8BitDo64Pad/r69.html
 Blog/Reviews/Games/DOOM64PS5/r70.html
+Blog/Reviews/WildThingsM/r71.html
