@@ -55,7 +55,7 @@
 	var thumbCarousel = []
 	var mmCarousel = [];
 	var cUnits, gMoney, moneyKey;
-	var currencyList = {AUD:1.00,BRL:1.00,CAD:1.00,CHF:1.00,CNY:1.00,EUR:1.00,GBP:1.00,JPY:1.00,USD:1.00};
+	var currencyList = {AUD:1.00,BRL:1.00,CAD:1.00,CHF:1.00,CNY:1.00,EUR:1.00,GBP:1.00,JPY:1.00,TWD:1.00,USD:1.00};
 </script>
 </head>
 <body>
@@ -143,6 +143,7 @@
 <option value="€EUR" title="𝗘𝗨 𝗘𝗨𝗥𝗢">💶 EUR</option>
 <option value="£GBP" title="𝗚𝗕 𝗣𝗢𝗨𝗡𝗗𝗦">💷 GBP</option>
 <option value="¥JPY" title="𝗝𝗣 𝗬𝗘𝗡">💴 JPY</option>
+<option value="$TWD" title="𝗧𝗪 𝗗𝗢𝗟𝗟𝗔𝗥𝗦">💵 TWD</option>
 <option value="$USD" title="𝗨𝗦 𝗗𝗢𝗟𝗟𝗔𝗥𝗦">💵 USD</option>
 </select>
 <img id="reload" title="𝗥𝗲𝗳𝗿𝗲𝘀𝗵 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝗽𝗮𝗴𝗲" onclick="window.location = window.location;" src="Config/Images/RBUT.png" />
@@ -549,7 +550,7 @@ document.getElementById("overlay").style.display = "block";
 document.getElementById("overlaytext").innerHTML = "Loading..";
 localStorage.removeItem("myCollectionList");
 if (localStorage.regKey==null){
-	alert("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰: 𝘁𝗵𝗲 𝗡𝟲𝟰 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗿𝗮𝗰𝗸𝗲𝗿.\n\nYour location has been detected as " + timeZone + " so an approximate region & currency have been set for you, but you can edit them.\n\n𝗕𝗮𝘀𝗶𝗰 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀:\n⚫ Click on the drop-downs to select regions or currency.\n⚫ Click on any game to bring up its information (info view).\n⚫ (START) button starts Speed Run mode to quickly add games.\n⚫ (R) button refreshes the collection page.\n⚫ (L) button generates a physical 'need' list.\n⚫ (B) button will back up your collection.\n⚫ (A) button will import a previously backed up collection.\n⚫ (C-LEFT/RIGHT) buttons cycle games/artwork in info view.\n⚫ (C-LEFT) button is undefined in the main menu.\n⚫ (C-RIGHT) button will cycle themes in the main menu.\n⚫ (C-DOWN) button to close a game/artwork in info view.\n⚫ (C-UP/DOWN) buttons scroll to top/bottom in the main menu.\n⚫ (Z) trigger will delete your entire collection.\n⚫ (CTRL+F) Find specific titles .\n\n(𝗡𝗢𝗧𝗘: 𝗕𝗮𝗰𝗸𝘂𝗽 𝗿𝗲𝗴𝘂𝗹𝗮𝗿𝗹𝘆, 𝗲𝘀𝗽𝗲𝗰𝗶𝗮𝗹𝗹𝘆 𝗼𝗻 𝗺𝗼𝗯𝗶𝗹𝗲 𝗱𝗲𝘃𝗶𝗰𝗲𝘀!)\n\n𝙃𝙖𝙫𝙚 𝙛𝙪𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜! ~ 𝘿𝘿𝙉𝘽");
+	alert("𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰: 𝘁𝗵𝗲 𝗡𝟲𝟰 𝗰𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 𝘁𝗿𝗮𝗰𝗸𝗲𝗿.\n\nYour location has been detected as " + timeZone + " so an approximate region & currency have been set for you, but you can edit them.\n\n𝗕𝗮𝘀𝗶𝗰 𝗶𝗻𝘀𝘁𝗿𝘂𝗰𝘁𝗶𝗼𝗻𝘀:\n⚫ Click on the drop-downs to view regions/convert currency.\n⚫ Click on any game to bring up information (info view).\n⚫ (START) button begins Speed Run mode to quickly add games.\n⚫ (R) button refreshes the collection page.\n⚫ (L) button generates a physical 'need' list.\n⚫ (B) button will back up your collection.\n⚫ (A) button will import a previously backed up collection.\n⚫ (C-LEFT/RIGHT) buttons cycle games/artwork.\n⚫ (C-LEFT) button opens the currency conversion menu.\n⚫ (C-RIGHT) button will cycle through themes.\n⚫ (C-DOWN) button to close a game/artwork in info view.\n⚫ (C-UP/DOWN) buttons scroll to top/bottom in the main menu.\n⚫ (Z) trigger will delete your entire collection.\n⚫ (CTRL+F) Find specific titles .\n\n(𝗡𝗢𝗧𝗘: 𝗕𝗮𝗰𝗸𝘂𝗽 𝗿𝗲𝗴𝘂𝗹𝗮𝗿𝗹𝘆, 𝗲𝘀𝗽𝗲𝗰𝗶𝗮𝗹𝗹𝘆 𝗼𝗻 𝗺𝗼𝗯𝗶𝗹𝗲 𝗱𝗲𝘃𝗶𝗰𝗲𝘀!)\n\n𝙃𝙖𝙫𝙚 𝙛𝙪𝙣 𝙘𝙤𝙡𝙡𝙚𝙘𝙩𝙞𝙣𝙜! ~ 𝘿𝘿𝙉𝘽");
 	if (timeZone.slice(0, timeZone.indexOf("/")) == "Australia"){
 		document.getElementById("Region").value = "EUR";
 		document.getElementById("Currency").value = "$AUD";
@@ -574,8 +575,15 @@ if (localStorage.regKey==null){
 		document.getElementById("Region").value = "JPN";
 		document.getElementById("Currency").value = "¥JPY";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Asia"){
-		document.getElementById("Region").value = "IQUE";
-		document.getElementById("Currency").value = "¥CHY";
+	
+		if (timeZone.slice(timeZone.indexOf("/")+1, timeZone.length) == "Taipei"){ //Fix for NTW
+			document.getElementById("Region").value = "TWD";
+			document.getElementById("Currency").value = "$TWD";
+		} else {
+			document.getElementById("Region").value = "IQUE";
+			document.getElementById("Currency").value = "¥CHY";
+		}
+		
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Brazil"){
 		document.getElementById("Region").value = "BRA";
 		document.getElementById("Currency").value = "$BRL";
@@ -834,7 +842,7 @@ function toggleDebug() {
 	localStorage.debug = "false";
 	document.getElementById("start").style.display = "block";
 		if (document.getElementById("Region").value == "ALL"){
-		var myToast = Toastify({className: "PopStyle", text: 'Debug: Enabled\nSpeed Run: Disabled', style:{background: 'rgb(255,9,22)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000});myToast.showToast();
+		var myToast = Toastify({className: "PopStyle", text: 'Debug: Enabled\nSpeed Run: Disabled', style:{background: 'rgb(50,153,0)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000});myToast.showToast();
 		document.getElementById("debugL").src = 'Config/Images/DEBUGON.png';
 		} else {
 		var myToast = Toastify({className: "PopStyle", text: 'Debug: Disabled\nSpeed Run: Enabled', style:{background: 'rgb(255,9,22)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();	
@@ -2165,7 +2173,7 @@ function cake() {
 	if (localStorage.cake=="true") {
 	localStorage.cake = "false";
 	document.getElementById('cake').style.backgroundImage="url(Config/Images/CAKEOFF.png)";
-	var myToast = Toastify({className: "PopStyle", text: " Birthday Mode Disabled.", style: {background: 'rgb(225,9,22)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
+	var myToast = Toastify({className: "PopStyle", text: " Birthday Mode Disabled.", style: {background: 'rgb(255,9,22)'}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
 	} else if (localStorage.cake == "false") {
 	localStorage.cake = "true";
 	myAudio = new Audio('Config/Sounds/Quest.wav');
@@ -2520,7 +2528,7 @@ cUnits = prompt("Set preferred 3-digit base currency:\n\n (AUD, BRL, CAD, CHF, C
 		gMoney = localStorage.getItem("gMoney", gMoney);
 	}
 localStorage.setItem("cUnits", cUnits);
-	if (cUnits == "AUD" || cUnits =="BRL" || cUnits =="CAD" || cUnits =="USD"){
+	if (cUnits == "AUD" || cUnits =="BRL" || cUnits =="CAD" || cUnits == "TWD" || cUnits =="USD"){
 		localStorage.setItem("gMoney", "$");
 	} else if (cUnits == "GBP"){
 		localStorage.setItem("gMoney", "£");
@@ -2564,6 +2572,9 @@ function cConvert() {
 					break;
 					case 'JPY':
 						currencyList['JPY'] = value;
+					break;
+					case 'TWD':
+						currencyList['TWD'] = value;
 					break;
 					case 'USD':
 						currencyList['USD'] = value;
@@ -2614,6 +2625,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.07.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
