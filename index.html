@@ -559,7 +559,7 @@ if (localStorage.regKey==null){
 			document.getElementById("Region").value = "EUR";
 			document.getElementById("Currency").value = "£GBP";
 		} else if (timeZone.slice(timeZone.indexOf("/")+1, timeZone.length) == "Zurich"){ //Fix for CHF
-			document.getElementById("Region").value = "CHF";
+			document.getElementById("Region").value = "EUR";
 			document.getElementById("Currency").value = "₣CHF";
 		} else {
 			document.getElementById("Region").value = "EUR";
@@ -569,21 +569,19 @@ if (localStorage.regKey==null){
 		document.getElementById("Region").value = "USA";
 		document.getElementById("Currency").value = "$USD";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Canada"){
-		document.getElementById("Region").value = "CAD";
+		document.getElementById("Region").value = "USA";
 		document.getElementById("Currency").value = "$CAD";		
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Japan"){
 		document.getElementById("Region").value = "JPN";
 		document.getElementById("Currency").value = "¥JPY";
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Asia"){
-	
 		if (timeZone.slice(timeZone.indexOf("/")+1, timeZone.length) == "Taipei"){ //Fix for NTW
-			document.getElementById("Region").value = "TWD";
+			document.getElementById("Region").value = "ROC";
 			document.getElementById("Currency").value = "$TWD";
 		} else {
 			document.getElementById("Region").value = "IQUE";
 			document.getElementById("Currency").value = "¥CHY";
 		}
-		
 	} else if (timeZone.slice(0, timeZone.indexOf("/")) == "Brazil"){
 		document.getElementById("Region").value = "BRA";
 		document.getElementById("Currency").value = "$BRL";
@@ -2625,6 +2623,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08-2.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
