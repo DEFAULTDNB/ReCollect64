@@ -345,6 +345,14 @@ a .btn {
 .controls:hover {
 	opacity: 1.0;
 }
+.controls2 {
+	background-image: linear-gradient(90deg,rgba(3, 36, 0, 1) 0%, rgba(35, 121, 9, 1) 35%, rgba(0, 255, 8, 1) 100%);
+	opacity: 0.8;
+	cursor: pointer;
+}
+.controls2:hover {
+	opacity: 1.0;
+}
 .search {
 	background-image: linear-gradient(to bottom, darkviolet, darkmagenta);
 	opacity: 0.8;
