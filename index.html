@@ -1148,8 +1148,6 @@ function reply_click(clicked_id){
 		if (lines[clicked_id-1].charAt(indexOfFirst).match(gCurrency)){
 		cartValue = lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond);
 		
-		//set gMoney as £ for now?
-		
 		//cValue = "<span title='*𝗔𝗣𝗥𝗜𝗟 𝟮𝟬𝟮𝟰'><span title='𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗼𝗻𝗹𝘆'><span style='font-weight: bold'>CO</span> "+gMoney+Math.ceil(lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond) * currencyList[localStorage.moneyKey.slice(1,4)])+"</span></span>"; //currency test
 		cValue = "<span title='*𝗔𝗣𝗥𝗜𝗟 𝟮𝟬𝟮𝟰'><span title='𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗼𝗻𝗹𝘆'><span style='font-weight: bold'>CO</span> "+gMoney+Math.ceil(lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond) * currencyList[localStorage.getItem("cUnits")])+"</span></span>"; //currency test
 		} else {
@@ -1326,13 +1324,20 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA").src = 'Manuals/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbMA").style.width = "23%";
 	document.getElementById("thumbMA").style.height = "auto";
-	
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 
 	if (pReg === "A"){
 	
-	//document.getElementById("thumbMA").src = 'Manuals/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
-	
+	//INDIVDUAL FIXES FOR AUSTRALIAN RE-LABELLED UKV/EUR BOXES:
+		if (frametitle.innerHTML === "007 The World is Not Enough A"){
+		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
+		document.getElementById("thumbMA").src = 'Manuals/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
+		} else if (frametitle.innerHTML === "Aero Fighters Assault A"||frametitle.innerHTML === "All Star Tennis 99 A"||frametitle.innerHTML ==="All-Star Baseball 99 A"){
+		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+		document.getElementById("thumbMA").src = 'Manuals/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+		} else {
+		}
+		
 	} else if (pReg === "NFR" || pReg === "ALTN") {
 	let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
 	document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
@@ -1365,7 +1370,10 @@ function reply_click(clicked_id){
 	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbRC").style.width = "48%";
 	document.getElementById("thumbRC").style.height = "auto";
-	if (gCode.includes("UK")){
+	
+	//Check NUS ID for CARTRIDGE region ie NUS-XXXX-EUR
+
+	if (gCode.includes("UKV")){
 	document.getElementById("thumbRC").src = 'Carts/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
 	} else if (gCode.includes("EUR")){
 	document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
@@ -1376,7 +1384,7 @@ function reply_click(clicked_id){
 		} else {
 		document.getElementById("thumbRC").src = 'Carts/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		}
-	} else if (pReg === "JS") { //Add back additional components.
+	} else if (pReg === "JS"||pReg === "JV1"||pReg === "JV2"||pReg === "JV3") { //Add back additional components.
 	if (frametitle.innerHTML === "Chou Kuukan Night Pro Yakyuu King JS"||frametitle.innerHTML === "Turok Jikuu Senshi JS"||frametitle.innerHTML === "Famista 64 JS"){ //bespoke fix.
 		} else {
 		document.getElementById("thumbRC").src = 'Carts/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
@@ -1390,7 +1398,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
 	document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-	}  else if (pReg === "BRB" || pReg === "BRS"){
+	} else if (pReg === "BRB" || pReg === "BRS"){
 	document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 	}
 
@@ -1401,38 +1409,36 @@ function reply_click(clicked_id){
 	}
 	
 	if (gFeatures.match("VRU")){
-	document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
+		document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
 	} else if (gFeatures.match("Transfer")){
-	document.getElementById("thumbA1").src = 'Accessories/Transfer Pak A1.png';
-	document.getElementById("thumbA2").src = 'Accessories/Transfer Pak A2.png';
+		document.getElementById("thumbA1").src = 'Accessories/Transfer Pak A1.png';
+		document.getElementById("thumbA2").src = 'Accessories/Transfer Pak A2.png';
 	} else if (gFeatures.match("Rumble")){
 		if (frametitle.innerHTML.includes("Cruisn USA")){//Bespoke fix
 		} else {
 		document.getElementById("thumbA1").src = 'Accessories/Rumble Pak A1.png';
 		}
 	} else if (frametitle.innerHTML.includes("IQUE")){
-	
-	document.getElementById("thumb").style.height = "auto";
-	document.getElementById("thumb").style.width = "30%";
-	//fix numbering
-	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
-	document.getElementById("thumbA1").style.height = "auto";
-	document.getElementById("thumbA1").style.width = "30%";
-	document.getElementById("thumbA2").src = 'Accessories/iQue A1.png';
-	document.getElementById("thumbA3").src = 'Accessories/iQue A2.png';
-	document.getElementById("thumbMA").style.width = "32%";
-	document.getElementById("thumbMA").style.height = "auto";
-	
+		document.getElementById("thumb").style.height = "auto";
+		document.getElementById("thumb").style.width = "30%";
+		//fix numbering
+		document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
+		document.getElementById("thumbA1").style.height = "auto";
+		document.getElementById("thumbA1").style.width = "30%";
+		document.getElementById("thumbA2").src = 'Accessories/iQue A1.png';
+		document.getElementById("thumbA3").src = 'Accessories/iQue A2.png';
+		document.getElementById("thumbMA").style.width = "32%";
+		document.getElementById("thumbMA").style.height = "auto";
 	} else {
-	document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
-	document.getElementById("thumbA1").style.width = "32%";
-	document.getElementById("thumbA1").style.height = "auto";
-	document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
-	document.getElementById("thumbA2").style.width = "32%";
-	document.getElementById("thumbA2").style.height = "auto";
-	document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
-	document.getElementById("thumbA3").style.width = "32%";
-	document.getElementById("thumbA3").style.height = "auto";
+		document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
+		document.getElementById("thumbA1").style.width = "32%";
+		document.getElementById("thumbA1").style.height = "auto";
+		document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
+		document.getElementById("thumbA2").style.width = "32%";
+		document.getElementById("thumbA2").style.height = "auto";
+		document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
+		document.getElementById("thumbA3").style.width = "32%";
+		document.getElementById("thumbA3").style.height = "auto";
 	}
 	//Poster - KEEP THIS IDEA OPEN
 	//document.getElementById("thumbP1").src = 'Poster/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' P1.png';
@@ -1449,21 +1455,18 @@ function reply_click(clicked_id){
 	document.getElementById("thumbO2").style.height = "auto";
 	
 	if (frametitle.innerHTML.includes("DD")){
-	
-	document.getElementById("thumb").style.height = "auto"
-	document.getElementById("thumb").style.width = "48%"
-	document.getElementById("thumbBB").style.height = "auto"
-	document.getElementById("thumbBB").style.width = "48%"
-		
-	document.getElementById("thumbDI").style.width = "48%";
-	document.getElementById("thumbDI").style.height = "auto";
-	document.getElementById("thumbMA").style.height = "auto";
-	document.getElementById("thumbMA").style.width = "48%";
-	
-	document.getElementById("thumbO1").style.width = "98%"; //62%
-	document.getElementById("thumbO1").style.height = "auto";
-	document.getElementById("thumbO2").style.width = "98%";
-	document.getElementById("thumbO2").style.height = "auto";
+		document.getElementById("thumb").style.height = "auto"
+		document.getElementById("thumb").style.width = "48%"
+		document.getElementById("thumbBB").style.height = "auto"
+		document.getElementById("thumbBB").style.width = "48%"
+		document.getElementById("thumbDI").style.width = "48%";
+		document.getElementById("thumbDI").style.height = "auto";
+		document.getElementById("thumbMA").style.height = "auto";
+		document.getElementById("thumbMA").style.width = "48%";
+		document.getElementById("thumbO1").style.width = "98%"; //62%
+		document.getElementById("thumbO1").style.height = "auto";
+		document.getElementById("thumbO2").style.width = "98%";
+		document.getElementById("thumbO2").style.height = "auto";
 	}
 	//GUIDES
 	let guideLinks = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'Links.txt';
@@ -2623,6 +2626,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08-2.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08-3.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
