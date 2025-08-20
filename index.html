@@ -1148,7 +1148,6 @@ function reply_click(clicked_id){
 	let indexOfThird = lines[clicked_id-1].indexOf(gCurrency, (indexOfSecond + 1));
 		if (lines[clicked_id-1].charAt(indexOfFirst).match(gCurrency)){
 		cartValue = lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond);
-		
 		//cValue = "<span title='*𝗔𝗣𝗥𝗜𝗟 𝟮𝟬𝟮𝟰'><span title='𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗼𝗻𝗹𝘆'><span style='font-weight: bold'>CO</span> "+gMoney+Math.ceil(lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond) * currencyList[localStorage.moneyKey.slice(1,4)])+"</span></span>"; //currency test
 		cValue = "<span title='*𝗔𝗣𝗥𝗜𝗟 𝟮𝟬𝟮𝟰'><span title='𝗖𝗮𝗿𝘁𝗿𝗶𝗱𝗴𝗲 𝗼𝗻𝗹𝘆'><span style='font-weight: bold'>CO</span> "+gMoney+Math.ceil(lines[clicked_id-1].slice(indexOfFirst+1, indexOfSecond) * currencyList[localStorage.getItem("cUnits")])+"</span></span>"; //currency test
 		} else {
@@ -1328,9 +1327,22 @@ function reply_click(clicked_id){
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 
 	//alert(gFeatures)
-
-	//TRY A CATCH ALL APPROACH:
 	
+	//BESPOKE GAME FIXES\\
+	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
+		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
+	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
+		document.getElementById("thumbMA").src = 'Manuals/J/Densha de Go! 64 J.png';//Alternate title.
+		document.getElementById("thumbA2").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A2.png';
+		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';
+	} else { //CLEAR ELEMENTS (can be performed at start of this function)
+		//document.getElementById("thumbMA").src = '';
+		document.getElementById("thumbA1").src = '';
+		document.getElementById("thumbA2").src = '';
+		document.getElementById("thumbA3").src = '';
+	}
+	
+	//TRY A CATCH ALL APPROACH:	
 	//BOX BACK\\ - AUS logic: temp until all entered
 	if (gFeatures.includes("AUS sticker")){
 		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
@@ -1379,16 +1391,13 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
 	} else if (gFeatures.includes("JPN manual")){
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
+	} else if (gFeatures.includes("ASM manual")){
+		document.getElementById("thumbMA").src = 'Manuals/AS/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ASM.png';
+	} else if (gFeatures.includes("ASI manual")){
+		document.getElementById("thumbMA").src = 'Manuals/AS/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ASI.png';
 	}
 	
-	//BESPOKE GAME FIXES\\
-	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
-		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
-	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
-		document.getElementById("thumbMA").src = 'Manuals/J/Densha de Go! 64 J.png';//Alternate title.
-		document.getElementById("thumbA2").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A2.png';
-		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';
-	}
+	
 
 	//BESPOKE FIXES PER REGION\\
 	if (pReg === "A"){
@@ -1443,11 +1452,6 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
 	} else if (pReg === "PCD"){
 		document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
-	} else if (pReg === "SEJ"){
-		if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){ //bespoke fix.
-		} else {
-		document.getElementById("thumbRC").src = 'Carts/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
-		}
 	} else if (pReg === "JS"||pReg === "JV1"||pReg === "JV2"||pReg === "JV3") { //Add back additional components.
 		if (frametitle.innerHTML === "Chou Kuukan Night Pro Yakyuu King JS"||frametitle.innerHTML === "Turok Jikuu Senshi JS"||frametitle.innerHTML === "Famista 64 JS"){ //bespoke fix.
 		} else {
@@ -1545,7 +1549,7 @@ function reply_click(clicked_id){
 	const simgBox = document.getElementById("art");
 	const elements = document.getElementsByClassName("thumbs2");
 		while(elements.length > 0){
-			elements[0].parentNode.removeChild(elements[0]); //remove already populated guide/micromachine image elements
+			elements[0].parentNode.removeChild(elements[0]); //remove already populated guide/micro machine image elements
 		}
 	document.getElementById("guideFrame").onload = function() {
 		fetch(guideLinks)
