@@ -1352,6 +1352,8 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gFeatures.includes("USA back")){
 		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	} else if (gFeatures.includes("JPN back")){
+		document.getElementById("thumbBB").src = 'Backs/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 	}
 	
 	//MANUAL\\
@@ -1375,12 +1377,17 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 	} else if (gFeatures.includes("UV1 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+	} else if (gFeatures.includes("JPN manual")){
+		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 	}
 	
-	
-	//BESPOKE GAME FIXES FOR MANUAL/CART/BACK ETC\\
+	//BESPOKE GAME FIXES\\
 	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
-		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';
+		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
+	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
+		document.getElementById("thumbMA").src = 'Manuals/J/Densha de Go! 64 J.png';//Alternate title.
+		document.getElementById("thumbA2").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A2.png';
+		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';
 	}
 
 	//BESPOKE FIXES PER REGION\\
