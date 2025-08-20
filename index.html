@@ -87,6 +87,8 @@
 <select name="Region" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗼𝗿 𝗖𝗮𝘁𝗲𝗴𝗼𝗿𝘆" id="Region" onchange="changeRegion()">
 <optgroup label="Customise:">
 	<option value="CUST" title="𝗢𝗽𝗲𝗻 𝗖𝘂𝘀𝘁𝗼𝗺 𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂" onclick="clickonregion();">ℹ️/🅾️ Custom</option>
+<optgroup label="All Entries:">
+	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟱𝟳𝟭)">⚠️🌐 FULL</option>
 <optgroup label="World Sets:">
 	<option value="FULE" title="𝗣𝗔𝗟 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇪🇺 🏆 100%</option>	
 	<option value="FULA" title="𝗨𝗦𝗔 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇺🇸 🏆 100%</option>
@@ -96,7 +98,6 @@
 	<option value="USA" title="𝗡𝗧𝗦𝗖-𝗨 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟵𝟲)">🇺🇸 🌎 USA</option>
 	<option value="JPN" title="𝗡𝗧𝗦𝗖-𝗝 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟵𝟴)">🇯🇵 🌏 JPN</option>
 	<option value="AUSR" title="𝗔𝗨𝗦-𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟭𝟭)">🇦🇺 🌏 AUS</option>
-	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟱𝟳𝟭)">⚠️🌐 FULL</option>
 <optgroup label="Cart Variants:">
 	<option value="ASI" title="𝗔𝘀𝗶𝗮𝗻">🇹🇼 🌏 ASI</option>
 	<option value="AUS" title="𝗔𝘂𝘀𝘁𝗿𝗮𝗹𝗶𝗮𝗻">🇦🇺 🌏 AUS</option>
@@ -153,7 +154,7 @@
 <div class="frame" id="frame" onmouseleave="" style="display:none">
 <div class="card-header" title="𝗗𝗼𝘂𝗯𝗹𝗲 𝗖𝗹𝗶𝗰𝗸 𝘁𝗼 𝗦𝗲𝗮𝗿𝗰𝗵 𝗲𝗕𝗮𝘆" id="frametitle" ondblclick="ineedthis();" oncontextmenu="javascript:copyToClippy();return false;">𝗚𝗔𝗠𝗘 𝗧𝗜𝗧𝗟𝗘 </div><span style="display: inline" id="frametext"> more info</span>
 	<img class="closebtn" title="𝗘𝘅𝗽𝗮𝗻𝘀𝗶𝗼𝗻 𝗽𝗮𝗸 𝗲𝗻𝗵𝗮𝗻𝗰𝗲𝗱 𝘁𝗶𝘁𝗹𝗲!" id="expak" src='Config/Images/EXPAK.png' /><img class="closebtn" title="𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗼𝗻 𝗡𝗦𝗢!" id="NSO" src='Config/Images/NSO.png' onclick="nsoInfo();"/>
-	<span class="closebtn"><img id="navL" src="Config/Images/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();"/><img id="navD" src="Config/Images/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();document.getElementById('canvas').style.display = 'none';"/><img id="navR" src="Config/Images/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();"/></span>
+	<span class="closebtn"><img id="navL" src="Config/Images/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();document.getElementById('canvas').style.display = 'none';"/><img id="navD" src="Config/Images/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();document.getElementById('canvas').style.display = 'none';"/><img id="navR" src="Config/Images/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();document.getElementById('canvas').style.display = 'none';"/></span>
 	<div class="grid-container" id="grid-container">
 	<div class="grid-item1">
 				<div id="art" style="background: none;" title="𝗧𝗮𝗸𝗲 𝗮 𝗰𝗹𝗼𝘀𝗲𝗿 𝗹𝗼𝗼𝗸">
@@ -1030,7 +1031,7 @@ myCount = 0;
 			div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
 			div.className = "thumbnail";
 		}
-		if (lines[info].match("REGION=ALTA ")) {
+		if (lines[info].match("REGION=ALTA ")||lines[info].match("REGION=AV1 ")) {
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/A/'+gTitle+' A.jpg"');
 		} else if (lines[info].match("REGION=ALTU ")||lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
@@ -1326,21 +1327,75 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA").style.height = "auto";
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 
+	//alert(gFeatures)
+
+	//TRY A CATCH ALL APPROACH:
+	
+	//BOX BACK\\ - AUS logic: temp until all entered
+	if (gFeatures.includes("AUS sticker")){
+		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
+	} 
+	
+	if (gFeatures.includes("EUR box")){ 
+		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+	} else if (gFeatures.includes("EUU box")){
+		document.getElementById("thumbBB").src = 'Backs/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
+	}
+	
+	if (gFeatures.includes("UKV box")){
+		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
+	} else if (gFeatures.includes("EUR box")){
+		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+	} else if (gFeatures.includes("EUU box")){
+		document.getElementById("thumbBB").src = 'Backs/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
+	} else if (gFeatures.includes("AUS back")){
+		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
+	} else if (gFeatures.includes("USA back")){
+		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	}
+	
+	//MANUAL\\
+	if (gFeatures.includes("UKV manual")){
+		document.getElementById("thumbMA").src = 'Manuals/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
+	} else if (gFeatures.includes("NUK4 manual")){ //test specific variant.
+		document.getElementById("thumbMA").src = 'Manuals/NUK4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NUK4.png';
+	} else if (gFeatures.includes("EUR manual")){
+		document.getElementById("thumbMA").src = 'Manuals/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+	} else if (gFeatures.includes("NEU4 manual")){ //test specific variant.
+		document.getElementById("thumbMA").src = 'Manuals/NEU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU4.png';
+	} else if (gFeatures.includes("EV1 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/EV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EV1.png';
+	} else if (gFeatures.includes("EUU manual")){
+		document.getElementById("thumbMA").src = 'Manuals/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
+	} else if (gFeatures.includes("AUS manual")){
+		document.getElementById("thumbMA").src = 'Manuals/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
+	} else if (gFeatures.includes("NOE manual")){
+		document.getElementById("thumbMA").src = 'Manuals/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
+	} else if (gFeatures.includes("USA manual")){
+		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	} else if (gFeatures.includes("UV1 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+	}
+	
+	
+	//BESPOKE GAME FIXES FOR MANUAL/CART/BACK ETC\\
+	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
+		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';
+	}
+
+	//BESPOKE FIXES PER REGION\\
 	if (pReg === "A"){
 	
-	//INDIVDUAL FIXES FOR AUSTRALIAN RE-LABELLED UKV/EUR BOXES:
-		if (frametitle.innerHTML === "007 The World is Not Enough A"){
-		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
-		document.getElementById("thumbMA").src = 'Manuals/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
-		} else if (frametitle.innerHTML === "Aero Fighters Assault A"||frametitle.innerHTML === "All Star Tennis 99 A"||frametitle.innerHTML ==="All-Star Baseball 99 A"){
-		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
-		document.getElementById("thumbMA").src = 'Manuals/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
-		} else {
-		}
+	} else if (pReg === "AV1"){
+	
+		document.getElementById("thumb").src = 'Covers/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
+		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 		
 	} else if (pReg === "NFR" || pReg === "ALTN") {
+	
 	let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
 	document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
+	
 	document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
 	//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
 		if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //Fixed again
@@ -1377,6 +1432,8 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
 	} else if (gCode.includes("EUR")){
 		document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+	} else if (gCode.includes("EUU")){
+		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
 	} else if (pReg === "PCD"){
 		document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
 	} else if (pReg === "SEJ"){
@@ -1410,6 +1467,8 @@ function reply_click(clicked_id){
 	} else if (frametitle.innerHTML.includes("40 Winks SEE")){
 		document.getElementById("thumbRC").src = 'Carts/SEU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SEU.png';
 	}
+	
+	//CHECK ACCESSORIES
 	
 	if (gFeatures.match("VRU")){
 		document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
@@ -1456,6 +1515,8 @@ function reply_click(clicked_id){
 	document.getElementById("thumbO2").src = 'Operations/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' O2.png';
 	document.getElementById("thumbO2").style.width = "48%";
 	document.getElementById("thumbO2").style.height = "auto";
+	
+	//CHECK 64DD COMPONENTS\\
 	
 	if (frametitle.innerHTML.includes("DD")){
 		document.getElementById("thumb").style.height = "auto"
@@ -1508,11 +1569,16 @@ function reply_click(clicked_id){
 	}
 	//Specific for Micro Machines SEU
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
-	mmCarousel = [];
-	mmCarousel.push("Micro Machines 64 Turbo SEU");
-		const simgBox = document.getElementById("art");
-		const elements = document.getElementsByClassName("thumbs2");
-			for (let m = 1; m < 15; m++){ //todo get m from list to make it dynamic
+		fetch('Slideshow/Micro Machines 64 Turbo SEU/Count.txt')
+		.then(response => {
+			return response.text();
+		})
+		.then(data => {	
+			mmCarousel = [];
+			mmCarousel.push("Micro Machines 64 Turbo SEU");
+			const simgBox = document.getElementById("art");
+			const elements = document.getElementsByClassName("thumbs2");
+			for (let m = 1; m < Number(data)+1; m++){ //dynamic from list
 				const simg = document.createElement("img");
 				simg.src = 'Slideshow/Micro Machines 64 Turbo SEU/'+m+'.png';
 				simg.setAttribute('class', 'thumbs2');
@@ -1524,7 +1590,8 @@ function reply_click(clicked_id){
 				simgBox.appendChild(simg);
 				mmCarousel.push(m); //add to mmCarousel
 			}
-	}	
+		});
+	}
 	prevCard = Number(clicked_id)-1;
 	nextCard = Number(clicked_id)+1;
 	myCollectionList.push([frametitle.innerHTML]);
@@ -2629,6 +2696,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08-4.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08-5.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
