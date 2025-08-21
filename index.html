@@ -1334,7 +1334,8 @@ function reply_click(clicked_id){
 	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
 		document.getElementById("thumbMA").src = 'Manuals/J/Densha de Go! 64 J.png';//Alternate title.
 		document.getElementById("thumbA2").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A2.png';
-		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';
+		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';		
+		
 	} else { //CLEAR ELEMENTS (can be performed at start of this function)
 		//document.getElementById("thumbMA").src = '';
 		document.getElementById("thumbA1").src = '';
@@ -1450,6 +1451,20 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gCode.includes("EUU")){
 		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
+	
+	} else if (gCode.includes("ASM")){ //fix for KOR games Aero Fighters
+		document.getElementById("thumbRC").src = 'Carts/AS/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'AS.png';
+	
+	} else if (gCode.includes("ROC")){ //fix for ROC games PW64/SM64/OOT
+		
+		if (frametitle.innerHTML === "Super Mario 64 CH"){
+			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'CH.png';
+		} else if (frametitle.innerHTML === "Super Mario 64 TW"){
+			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'TW.png';
+		} else {
+			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ROC.png';
+		}
+	
 	} else if (pReg === "PCD"){
 		document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
 	} else if (pReg === "JS"||pReg === "JV1"||pReg === "JV2"||pReg === "JV3") { //Add back additional components.
