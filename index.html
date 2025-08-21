@@ -88,7 +88,7 @@
 <optgroup label="Customise:">
 	<option value="CUST" title="𝗢𝗽𝗲𝗻 𝗖𝘂𝘀𝘁𝗼𝗺 𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂" onclick="clickonregion();">ℹ️/🅾️ Custom</option>
 <optgroup label="All Entries:">
-	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟱𝟳𝟭)">⚠️🌐 FULL</option>
+	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟴𝟯𝟬+)">⚠️🌐 FULL</option>
 <optgroup label="World Sets:">
 	<option value="FULE" title="𝗣𝗔𝗟 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇪🇺 🏆 100%</option>	
 	<option value="FULA" title="𝗨𝗦𝗔 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇺🇸 🏆 100%</option>
@@ -153,7 +153,7 @@
 <h1 onclick="var myToast = Toastify({className: 'PopStyle', text: '𝗟𝗼𝗰𝗮𝘁𝗶𝗼𝗻: ' + timeZone.slice(0, timeZone.indexOf('/')), avatar: 'Config/Images/GLOBE.gif', close: true, duration: 5000}); myToast.showToast();"><span class="masked" style="-webkit-mask-image: url('Config/Images/ReCollect64.png');"><img title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗼𝗿𝘀 𝗔𝗽𝗽" id="logo" src="Config/Images/ReCollect64.png" /></h1>
 <div class="frame" id="frame" onmouseleave="" style="display:none">
 <div class="card-header" title="𝗗𝗼𝘂𝗯𝗹𝗲 𝗖𝗹𝗶𝗰𝗸 𝘁𝗼 𝗦𝗲𝗮𝗿𝗰𝗵 𝗲𝗕𝗮𝘆" id="frametitle" ondblclick="ineedthis();" oncontextmenu="javascript:copyToClippy();return false;">𝗚𝗔𝗠𝗘 𝗧𝗜𝗧𝗟𝗘 </div><span style="display: inline" id="frametext"> more info</span>
-	<img class="closebtn" title="𝗘𝘅𝗽𝗮𝗻𝘀𝗶𝗼𝗻 𝗽𝗮𝗸 𝗲𝗻𝗵𝗮𝗻𝗰𝗲𝗱 𝘁𝗶𝘁𝗹𝗲!" id="expak" src='Config/Images/EXPAK.png' /><img class="closebtn" title="𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗼𝗻 𝗡𝗦𝗢!" id="NSO" src='Config/Images/NSO.png' onclick="nsoInfo();"/>
+	<img class="closebtn" title="𝗘𝘅𝗽𝗮𝗻𝘀𝗶𝗼𝗻 𝗽𝗮𝗸 𝗰𝗼𝗺𝗽𝗮𝘁𝗶𝗯𝗹𝗲" id="expak" src='Config/Images/EXPAK.png' /><img class="closebtn" title="𝗔𝘃𝗮𝗶𝗹𝗮𝗯𝗹𝗲 𝗼𝗻 𝗡𝗦𝗢!" id="NSO" src='Config/Images/NSO.png' onclick="nsoInfo();"/>
 	<span class="closebtn"><img id="navL" src="Config/Images/CLEFT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗹𝗲𝗳𝘁" onclick="prev();document.getElementById('canvas').style.display = 'none';"/><img id="navD" src="Config/Images/CDOWN.png" title="𝗖𝗹𝗼𝘀𝗲 𝗽𝗮𝗻𝗲𝗹" onclick="closeCard();document.getElementById('canvas').style.display = 'none';"/><img id="navR" src="Config/Images/CRIGHT.png" title="𝗦𝗰𝗿𝗼𝗹𝗹 𝗿𝗶𝗴𝗵𝘁" onclick="next();document.getElementById('canvas').style.display = 'none';"/></span>
 	<div class="grid-container" id="grid-container">
 	<div class="grid-item1">
@@ -542,6 +542,9 @@ function spitFacts() {
 	});
 }
 document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto'});
+
+var myToast = Toastify({text: "ReCollect64 is currently undergoing maintenance.\n\nIndividual sections may not correctly display data.\n\nOnly the 'FULL' category will display all relevant data.", avatar: "Config/Images/RedStar.gif", close: true, duration: 10000}); myToast.showToast();
+
 var gRegion, gTitle, gYear, gGenre, gScore, cValue, bValue, sValue, pos, tPos;
 var guideURL;
 var guideLineNo;
@@ -1190,21 +1193,25 @@ function reply_click(clicked_id){
 		}
 	let expak = "";
 		if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("EXPAK=")+7)).match("1")){
-		expak = "Required!";
-		document.getElementById("expak").style.display = 'block';
+			expak = "Required!";
+			document.getElementById("expak").src = 'Config/Images/EXPAK.png';
+			document.getElementById("expak").title = '𝗘𝘅𝗽𝗮𝗻𝘀𝗶𝗼𝗻 𝗽𝗮𝗸 𝗰𝗼𝗺𝗽𝗮𝘁𝗶𝗯𝗹𝗲';
 		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("EXPAK=")+7)).match("2")){
-		expak = "Enhanced!";
-		document.getElementById("expak").style.display = 'block';
+			expak = "Enhanced!";
+			document.getElementById("expak").src = 'Config/Images/EXPAK.png';
+			document.getElementById("expak").title = '𝗘𝘅𝗽𝗮𝗻𝘀𝗶𝗼𝗻 𝗽𝗮𝗸 𝗰𝗼𝗺𝗽𝗮𝘁𝗶𝗯𝗹𝗲';
 		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("EXPAK=")+7)).match("3")){
-		expak = "DO NOT USE!";
-		document.getElementById("expak").style.display = 'none';
+			expak = "DO NOT USE!";
+			document.getElementById("expak").src = 'Config/Images/NOPAK.png';
+			document.getElementById("expak").title = '𝗡𝗼𝘁 𝗲𝘅𝗽𝗮𝗻𝘀𝗶𝗼𝗻 𝗽𝗮𝗸 𝗰𝗼𝗺𝗽𝗮𝘁𝗶𝗯𝗹𝗲';
 		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("EXPAK=")+6),(lines[clicked_id-1].indexOf("EXPAK=")+7)).match("0")){
-		expak = "No!";
-		document.getElementById("expak").style.display = 'none';
+			expak = "No!";
+			document.getElementById("expak").src = 'Config/Images/NOPAK.png';
+			document.getElementById("expak").title = '𝗡𝗼𝘁 𝗲𝘅𝗽𝗮𝗻𝘀𝗶𝗼𝗻 𝗽𝗮𝗸 𝗰𝗼𝗺𝗽𝗮𝘁𝗶𝗯𝗹𝗲';
 		}
 	let mpak = "";
 		if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("0")){
-		mpak = "256Kbit Memory Pak SRAM";
+			mpak = "256Kbit Memory Pak SRAM";
 		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("1")){
 		mpak = "4Kbit Game Pak EEPROM";
 		} else if (lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("MEMPAK=")+7), (lines[clicked_id-1].indexOf("MEMPAK=")+8)).match("2")){
@@ -1367,7 +1374,10 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 	} else if (gFeatures.includes("JPN back")){
 		document.getElementById("thumbBB").src = 'Backs/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
+	} else if (gFeatures.includes("ROC back")){
+		document.getElementById("thumbBB").src = 'Backs/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ROC.png';
 	}
+	
 	
 	//MANUAL\\
 	if (gFeatures.includes("UKV manual")){
@@ -1396,6 +1406,8 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/AS/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ASM.png';
 	} else if (gFeatures.includes("ASI manual")){
 		document.getElementById("thumbMA").src = 'Manuals/AS/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ASI.png';
+	} else if (gFeatures.includes("ROC manual")){
+		document.getElementById("thumbMA").src = 'Manuals/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ROC.png';
 	}
 	
 	
@@ -1459,15 +1471,18 @@ function reply_click(clicked_id){
 		
 		if (frametitle.innerHTML === "Super Mario 64 CH"){
 			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'CH.png';
+			document.getElementById("thumbBB").src = 'Backs/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'CH.png';
 		} else if (frametitle.innerHTML === "Super Mario 64 TW"){
 			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'TW.png';
+			document.getElementById("thumbBB").src = 'Backs/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'TW.png';
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ROC.png';
 		}
 	
 	} else if (pReg === "PCD"){
 		document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
-	} else if (pReg === "JS"||pReg === "JV1"||pReg === "JV2"||pReg === "JV3") { //Add back additional components.
+		
+	} else if (pReg === "JS"||pReg === "JV1"||pReg === "JV2"||pReg === "JV3"||pReg === "SEJ") { //Add back additional components.
 		if (frametitle.innerHTML === "Chou Kuukan Night Pro Yakyuu King JS"||frametitle.innerHTML === "Turok Jikuu Senshi JS"||frametitle.innerHTML === "Famista 64 JS"){ //bespoke fix.
 		} else {
 		document.getElementById("thumbRC").src = 'Carts/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
@@ -1518,6 +1533,8 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").style.width = "32%";
 		document.getElementById("thumbMA").style.height = "auto";
 	} else {
+		document.getElementById("thumb").style.height = "auto"
+		document.getElementById("thumb").style.width = "48%"
 		document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
 		document.getElementById("thumbA1").style.width = "32%";
 		document.getElementById("thumbA1").style.height = "auto";
@@ -2722,6 +2739,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08-5.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08-6.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
