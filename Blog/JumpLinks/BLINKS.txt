@@ -192,3 +192,5 @@ Blog/Features/2025/AM64/b190.html
 Blog/Features/2025/Misc/b191.html
 Blog/Features/2025/PikaModels/b192.html
 Blog/Features/2025/NATP/b193.html
+Blog/Features/2025/Misc/b194.html
+Blog/Features/2025/Misc/b195.html
