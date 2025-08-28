@@ -72,3 +72,4 @@ Blog/Reviews/Games/DOOM64PS5/r70.html
 Blog/Reviews/WildThingsM/r71.html
 Blog/Reviews/Games/MK64AUV301/r72.html
 Blog/Reviews/USBAdaptor/r73.html
+Blog/Reviews/Games/TG12/r74.html
