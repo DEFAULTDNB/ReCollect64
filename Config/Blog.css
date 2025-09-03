@@ -364,6 +364,7 @@ a .btn {
 .overlaytext {
 	background-color: white;
 	color: black;
+	border: 1px solid black;
 	font-family: "Homenaje", sans-serif;
 	font-size: 6vw;
 	font-weight: bold;
