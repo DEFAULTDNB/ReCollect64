@@ -74,3 +74,4 @@ Blog/Reviews/Games/MK64AUV301/r72.html
 Blog/Reviews/USBAdaptor/r73.html
 Blog/Reviews/Games/TG12/r74.html
 Blog/Reviews/Games/TUROK2PS5/r75.html
+Blog/Reviews/Games/TARZAN/r76.html
