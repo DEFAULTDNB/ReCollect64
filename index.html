@@ -522,7 +522,7 @@
 			</div>
 		</div>
 		<div class="grid-item3" id="gamelogo">
-		<br><center><span id="builder">𝗕𝘂𝗶𝗹𝗱 𝗮 𝗰𝘂𝘀𝘁𝗼𝗺 𝗹𝗶𝘀𝘁 (ℹ️/🅾️): </span><button title="Add games to your virtual list" class="sbutton" id="addVlist">➕ ADD </button><button title="Remove titles from your virtual list" class="sbutton" id="removeVlist">➖ REM</button></center>
+		<center><span id="builder">𝗕𝘂𝗶𝗹𝗱 𝗮 𝗰𝘂𝘀𝘁𝗼𝗺 𝗹𝗶𝘀𝘁 (ℹ️/🅾️): </span><button title="Add games to your virtual list" class="sbutton" id="addVlist">➕ ADD </button><button title="Remove titles from your virtual list" class="sbutton" id="removeVlist">➖ REM</button></center>
 		</div>
 		<div class="grid-item4">
 		</div>
@@ -1040,6 +1040,8 @@ myCount = 0;
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
 		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
+		} else if (lines[info].match("REGION=PCD ")){
+		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCE/'+gTitle+' PCE.jpg"');
 		} else if (lines[info].match("REGION=E ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 		} else if (lines[info].match("REGION=I ")){
@@ -1066,8 +1068,11 @@ myCount = 0;
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 		} else if (lines[info].match("REGION=DV1 ")||lines[info].match("REGION=DV2 ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/D/'+gTitle+' D.jpg"');
+		
 		} else if (lines[info].match("REGION=IQUE ")){
 		document.getElementById(coverFlow[i]).style.width = "100px"; document.getElementById(coverFlow[i]).style.left = "80px";
+		//Fix for jpg thumbs with no transparency
+		document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");		
 		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/'+gTitle+' J.jpg"');
 		document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
@@ -1351,7 +1356,7 @@ function reply_click(clicked_id){
 	}
 	
 	//TRY A CATCH ALL APPROACH:	
-	//BOX BACK\\ - AUS logic: temp until all entered
+	//BOX\\ - AUS logic: temp until all entered
 	if (gFeatures.includes("AUS sticker")){
 		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
 	} 
@@ -1381,7 +1386,6 @@ function reply_click(clicked_id){
 	} else if (gFeatures.includes("NOE back")){
 		document.getElementById("thumbBB").src = 'Backs/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
 	}
-	
 	
 	//MANUAL\\
 	if (gFeatures.includes("UKV manual")){
@@ -1417,8 +1421,6 @@ function reply_click(clicked_id){
 	} else if (gFeatures.includes("NOE manual")){
 		document.getElementById("thumbMA").src = 'Manuals/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
 	}
-	
-	
 
 	//BESPOKE FIXES PER REGION\\
 	if (pReg === "A"){
@@ -1428,6 +1430,14 @@ function reply_click(clicked_id){
 		document.getElementById("thumb").src = 'Covers/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 		
+	} else if (pReg === "IQUE") {
+	
+	let convertiquetopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers");
+	document.getElementById('grid-container').style.backgroundImage = 'url('+convertiquetopng+')';//Fix for JPG>PNG + IQUE
+	document.getElementById("thumb").style.height = "auto";
+	document.getElementById("thumb").style.width = "30%";	
+	thumb.src = convertiquetopng;
+	
 	} else if (pReg === "NFR" || pReg === "ALTN") {
 	
 	let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
@@ -1471,12 +1481,9 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gCode.includes("EUU")){
 		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
-	
 	} else if (gCode.includes("ASM")){ //fix for KOR games Aero Fighters
 		document.getElementById("thumbRC").src = 'Carts/AS/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'AS.png';
-	
 	} else if (gCode.includes("ROC")){ //fix for ROC games PW64/SM64/OOT
-		
 		if (frametitle.innerHTML === "Super Mario 64 CH"){
 			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'CH.png';
 			document.getElementById("thumbBB").src = 'Backs/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'CH.png';
@@ -1486,10 +1493,8 @@ function reply_click(clicked_id){
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ROC.png';
 		}
-	
 	} else if (pReg === "PCD"){
 		document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
-		
 	} else if (pReg === "JS"||pReg === "JV1"||pReg === "JV2"||pReg === "JV3"||pReg === "SEJ") { //Add back additional components.
 		if (frametitle.innerHTML === "Chou Kuukan Night Pro Yakyuu King JS"||frametitle.innerHTML === "Turok Jikuu Senshi JS"||frametitle.innerHTML === "Famista 64 JS"){ //bespoke fix.
 		} else {
@@ -1517,8 +1522,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/SEU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SEU.png';
 	}
 	
-	//CHECK ACCESSORIES
-	
+	//CHECK ACCESSORIES\\
 	if (gFeatures.match("VRU")){
 		document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
 	} else if (gFeatures.match("Transfer")){
@@ -1529,15 +1533,13 @@ function reply_click(clicked_id){
 		} else {
 		document.getElementById("thumbA1").src = 'Accessories/Rumble Pak A1.png';
 		}
-	} else if (frametitle.innerHTML.includes("IQUE")){
-		document.getElementById("thumb").style.height = "auto";
-		document.getElementById("thumb").style.width = "30%";
+	} else if (frametitle.innerHTML.includes("IQUE")){		
 		//fix numbering
 		document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
 		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").style.width = "30%";
-		document.getElementById("thumbA2").src = 'Accessories/iQue A1.png';
-		document.getElementById("thumbA3").src = 'Accessories/iQue A2.png';
+		document.getElementById("thumbA2").src = 'Accessories/iQue A2.png';
+		document.getElementById("thumbA3").src = 'Accessories/iQue A1.png';
 		document.getElementById("thumbMA").style.width = "32%";
 		document.getElementById("thumbMA").style.height = "auto";
 	} else {
@@ -1568,7 +1570,6 @@ function reply_click(clicked_id){
 	document.getElementById("thumbO2").style.height = "auto";
 	
 	//CHECK 64DD COMPONENTS\\
-	
 	if (frametitle.innerHTML.includes("DD")){
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
@@ -1583,13 +1584,14 @@ function reply_click(clicked_id){
 		document.getElementById("thumbO2").style.width = "98%";
 		document.getElementById("thumbO2").style.height = "auto";
 	}
-	//GUIDES
+	
+	//GUIDES\\
 	let guideLinks = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'Links.txt';
     document.getElementById("guideFrame").src = guideLinks;
 	const simgBox = document.getElementById("art");
 	const elements = document.getElementsByClassName("thumbs2");
 		while(elements.length > 0){
-			elements[0].parentNode.removeChild(elements[0]); //remove already populated guide/micro machine image elements
+			elements[0].parentNode.removeChild(elements[0]); //Clear previously populated image elements
 		}
 	document.getElementById("guideFrame").onload = function() {
 		fetch(guideLinks)
@@ -1603,7 +1605,7 @@ function reply_click(clicked_id){
 					const simg = document.createElement("img");
 					simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
 					simg.setAttribute('onload', 'this.style.display = "inline-block";');
-					simg.setAttribute('onerror', 'this.style.display = "none";'); //IMPROVE THIS
+					//simg.setAttribute('onerror', 'this.style.display = "none";'); //IMPROVE THIS
 					simg.setAttribute('class', 'thumbs2');
 					simg.setAttribute('title', '𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝗚𝘂𝗶𝗱𝗲');
 					simg.setAttribute('id', "thumbG"+m);
@@ -1783,7 +1785,6 @@ function check_click(clicked_id){
 	roundUp();
 }
 function prev() {
-//roundUp();
 	if (document.getElementById("Region").value == "CUST") {
 	}
 	if (prevCard > 0){
@@ -1793,9 +1794,18 @@ function prev() {
 	document.getElementById(titleCount).click();
 	document.getElementById('card'+(titleCount)).scrollIntoView({behavior: 'auto' });	
 	}
+	//try fix order - not working, adds extra clicks beteween imgzoomed items.
+	var presetOrder = ['thumb','thumbBB','thumbRC','thumbDI','thumbMA','thumbA1','thumbA2','thumbA3','thumbS1','thumbS2','thumbS3','thumbO1','thumbO2']; // needn't be hardcoded
+	function sortSpecial(arr) {
+	   var result = [], i, j;
+	   for (i = 0; i < presetOrder.length; i++)
+		  while (-1 != (j = arr.indexOf(presetOrder[i], arr)))
+			 result.push(arr.splice(j, 1)[0]);
+	   return result.concat(arr);
+	}
+	thumbCarousel = sortSpecial(thumbCarousel);
 }
 function next() {
-//roundUp();
 	if (document.getElementById("Region").value == "CUST") {
 	}
 	if (nextCard < titleCount+1){
@@ -1805,6 +1815,16 @@ function next() {
 	document.getElementById("1").click();
 	document.getElementById('card1').scrollIntoView({behavior: 'auto' });
 	}
+	//try fix order - not working, adds extra clicks beteween imgzoomed items.
+	var presetOrder = ['thumb','thumbBB','thumbRC','thumbDI','thumbMA','thumbA1','thumbA2','thumbA3','thumbS1','thumbS2','thumbS3','thumbO1','thumbO2']; // needn't be hardcoded
+	function sortSpecial(arr) {
+	   var result = [], i, j;
+	   for (i = 0; i < presetOrder.length; i++)
+		  while (-1 != (j = arr.indexOf(presetOrder[i], arr)))
+			 result.push(arr.splice(j, 1)[0]);
+	   return result.concat(arr);
+	}
+	thumbCarousel = sortSpecial(thumbCarousel);
 }
 function prevThumb() {
 	if (frametitle.innerHTML.match("Micro Machines 64 Turbo SEU")){
@@ -1825,7 +1845,7 @@ function prevThumb() {
 		}
 		document.getElementById("imgzoom").src = document.getElementById(thumbCarousel[pos]).src;
 	}
-	//GUIDE LINKAGE
+	//GUIDE LINKAGE\\
 	if (imgzoom.src.match(/Guides/)){
 	document.getElementById("dlGuide").style.display = "block";
 	let gReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
@@ -1863,7 +1883,7 @@ function nextThumb() {
 		}
 		document.getElementById("imgzoom").src = document.getElementById(thumbCarousel[pos]).src;
 	}
-	//Guide Linkage
+	//Guide Linkage\\
 	if (imgzoom.src.match(/Guides/)){
 	document.getElementById("dlGuide").style.display = "block";
 	let gReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
@@ -2747,6 +2767,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.08-6.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.09-1.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
