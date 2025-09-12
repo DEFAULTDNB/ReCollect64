@@ -1605,7 +1605,7 @@ function reply_click(clicked_id){
 					const simg = document.createElement("img");
 					simg.src = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'G'+m+'.png';
 					simg.setAttribute('onload', 'this.style.display = "inline-block";');
-					//simg.setAttribute('onerror', 'this.style.display = "none";'); //IMPROVE THIS
+					simg.setAttribute('onerror', 'this.style.display = "none";'); //IMPROVE THIS
 					simg.setAttribute('class', 'thumbs2');
 					simg.setAttribute('title', '𝗦𝘁𝗿𝗮𝘁𝗲𝗴𝘆 𝗚𝘂𝗶𝗱𝗲');
 					simg.setAttribute('id', "thumbG"+m);
