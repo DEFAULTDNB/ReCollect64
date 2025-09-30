@@ -38,3 +38,4 @@ Blog/Avatars/ChameleonTwist1.html
 Blog/Avatars/FalcoGirgis.html
 Blog/Avatars/CptLima.html
 Blog/Avatars/AdzyIn3D.html
+Blog/Avatars/VEsoterica.html
