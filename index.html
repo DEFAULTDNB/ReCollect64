@@ -1340,6 +1340,7 @@ function reply_click(clicked_id){
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 
 	//alert(gFeatures)
+	//alert(gCode)
 	
 	//BESPOKE GAME FIXES\\
 	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
@@ -1360,20 +1361,14 @@ function reply_click(clicked_id){
 	//BOX\\ - AUS logic: temp until all entered
 	if (gFeatures.includes("AUS sticker")){
 		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
-	} 
-	
-	if (gFeatures.includes("EUR box")){ 
-		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
-	} else if (gFeatures.includes("EUU box")){
-		document.getElementById("thumbBB").src = 'Backs/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
 	}
 	
 	if (gFeatures.includes("UKV box")){
 		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
-	} else if (gFeatures.includes("EUR box")){
-		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gFeatures.includes("EUU box")){
 		document.getElementById("thumbBB").src = 'Backs/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
+	} else if (gFeatures.includes("EUR box")){
+		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gFeatures.includes("AUS back")){
 		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gFeatures.includes("USA back")){
@@ -1395,10 +1390,12 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/NUK4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NUK4.png';
 	} else if (gFeatures.includes("EUR manual")){
 		document.getElementById("thumbMA").src = 'Manuals/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+		
+	} else if (gFeatures.includes("NEU4 manual")){ //test specific variant.
+		document.getElementById("thumbMA").src = 'Manuals/NEU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU4.png';		
 	} else if (gFeatures.includes("EU4 manual")){ //test specific variant.
 		document.getElementById("thumbMA").src = 'Manuals/EU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EU4.png';
-	} else if (gFeatures.includes("NEU4 manual")){ //test specific variant.
-		document.getElementById("thumbMA").src = 'Manuals/NEU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU4.png';
+
 	} else if (gFeatures.includes("NEU6 manual")){ //test specific variant.
 		document.getElementById("thumbMA").src = 'Manuals/NEU6/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU6.png';
 	} else if (gFeatures.includes("EV1 manual")){
@@ -1486,9 +1483,9 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
 	} else if (gCode.includes("FRA")){
 		document.getElementById("thumbRC").src = 'Carts/F/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'F.png';
-	} else if (gCode.includes("ASM")){ //fix for KOR games Aero Fighters
+	} else if (gCode.includes("ASM")){
 		document.getElementById("thumbRC").src = 'Carts/AS/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'AS.png';
-	} else if (gCode.includes("ROC")){ //fix for ROC games PW64/SM64/OOT
+	} else if (gCode.includes("ROC")){
 		if (frametitle.innerHTML === "Super Mario 64 CH"){
 			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'CH.png';
 			document.getElementById("thumbBB").src = 'Backs/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'CH.png';
@@ -1497,6 +1494,13 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Backs/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'TW.png';
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ROC.png';
+		}
+	} else if (pReg === "KO"){
+		if (frametitle.innerHTML === "Diddy Kong Racing KO"||frametitle.innerHTML === "Mario Kart 64 KO"||frametitle.innerHTML === "Star Fox 64 KO"||frametitle.innerHTML === "Super Mario 64 KO"){
+		} else {
+		document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
 	} else if (pReg === "PCD"){
 		document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
@@ -1507,20 +1511,24 @@ function reply_click(clicked_id){
 		}
 		document.getElementById("thumbBB").src = 'Backs/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
-	} else if (pReg === "ALTU") { //Add back additional components.
+	} else if (pReg === "ALTU") {
 		if (frametitle.innerHTML === "Buck Bumble ALTU"||frametitle.innerHTML === "Fighters Destiny ALTU"||frametitle.innerHTML === "S.C.A.R.S. ALTU"){ //bespoke fix.
 		document.getElementById("thumbBB").src = 'Backs/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';
 		} else {
 		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
 		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 	} else if (pReg === "UV1"||pReg === "UV2") { //Add usual components to variants.
 		document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	
 	} else if (pReg === "BRB" || pReg === "BRS"){
 		document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
+		document.getElementById("thumbMA").src = 'Manuals/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 	}
+	
 	if (frametitle.innerHTML.includes("40 Winks E")){
 		document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 	} else if (frametitle.innerHTML.includes("40 Winks SEE")){
@@ -2772,6 +2780,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.09-2.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-1.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
