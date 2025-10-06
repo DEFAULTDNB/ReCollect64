@@ -1,0 +1,43 @@
+<div id="b213" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Mario Party Combination</span></h2>
+	<h5 class="subtitle">v0.48 by Rainchus ~ Oct 6, 2025</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2025/MPCombination/4.png'); background-position: top; image-rendering: smooth;"><div class="overlaytext">Mario Party Combination</div></div>
+	<h4>Multicart Multiplayer</h4>
+	<div class="titleUnderline"></div>
+	<p>Over the last couple of years I have become intrigued by compilation carts that sketchy third-party sellers put together on eBay. You know the sort. The 4-in-1 SNES <i>Street Fighter II</i> Collection, or the N64 <i>Turok</i> Collection, which features <i>Turok</i>s 1-3 plus <i>Rage Wars</i> all on one cart. I even spoke to BennVenn about it regarding how multicarts worked and observed his efforts to make a JS-based tool to facilitate the construction of them; sadly, not much progress has been made, and I haven't seen any of these combination carts dumped anywhere for analysis yet.</p>
+	<p>I point-blank refuse to purchase a multicart because, first and foremost, these are priced at $49.99/£40 plus shipping and taxes, and there is no chance I want to outlay that much in an attempt to decompile the methods in which these have been put together, and secondly, these same, unscrupulous sellers are also selling freely available ROM hacks, and the creative tallent behind them sees absolutely zero money of the profit from these sellers' "side hussles".</p>
+	<p>The bottom line is that any true N64 enthusiast and follower of the scene should definitely not buy into this pirate ecosystem; it's simply not fair on hard-working people like <a href="https://x.com/Markus_Kurko">Kurko</a>, <a href="https://x.com/NFL_Blitz_Rez">NFL Blitz Resurrection</a>, <a href="https://x.com/KazeEmanuar">Kaze Emanuar</a>, <a href="https://x.com/Litronom">Litronom</a>, <a href="https://x.com/GoldeneyeMods">GoldenEye Mods</a>, or <a href="https://x.com/Rovertronic">Rovertronic</a>, for example, to have their work taken and be given nothing in return.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/MPCombination/1.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/MPCombination/1.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/MPCombination/2.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/MPCombination/2.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/MPCombination/3.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/MPCombination/3.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<p>This weekend though, I stumbled upon something interesting. Something I had not seen before, and something which could prove to be extremely useful for people to create their own compilation carts if it can be modified. That something is the <i>Mario Party Combination</i> hack by Rainchus!</p>
+	<p>The combination pack aims to simply combine either the first two or all three, <i>Mario Party</i> games into one ROM for use on flash carts or reproduction boards. The purpose is purely to make the experience more streamlined and portable for those with a penchant for the manic board game genre!</p>
+	<p>If you would like to try this out for yourself, and you happen to have a 96 MB (100,663,296 bytes) rewritable cartridge spare and an expansion pak inserted, you will require:</p>
+	<ul>
+		<li>Mario Party 1 (U).z64 MD5: 8BC2712139FBF0C56C8EA835802C52DC (32 MB)
+		<li>Mario Party 2 (U).z64 MD5: 04840612A35ECE222AFDB2DFBF926409 (32 MB)
+		<li>Mario Party 3 (U).z64 MD5: 76A8BBC81BC2060EC99C9645867237CC (32 MB)
+	</ul>
+	<p>Running the patcher will automagically combine the ROMs into one uber-ROM, and depending on which ROMs you include, you will get these files as the output:</p>
+	<p><b>MP3-MP2.z64 MD5: 0A77690FBAE955587ACDB28A58FCB3C3 (64 MB)</b></p>
+	<p><b>MP3-MP2-MP1.z64 MD5: 0CE4B7203ADD1EBE62989318F96C5C1E (96 MB)</b></p>
+	<p>If you don't have a flash cart, you can always run these compilations in an emulator; just be sure to enable the 8 MB expansion pak and add a 16 kbit EEPROM save type to your save config!</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/MPCombination/4.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/MPCombination/4.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<h4>Technical Twist</h4>
+	<div class="titleUnderline"></div>
+	<p>The included method for loading each game is to press either L, R or Z to select your chosen game. The combination pack also allows you to toggle on/off the 190 mini games in a separate menu too, so there is much more added to this than meets the eye. Rainchus has put in a lot of effort to make this as stable as possible, and version 0.48 from December 2024 is the latest and greatest there is right now.</p>
+	<p>Because the patcher is hash-based, you would need to make it generic and recompile it, modifying the relevant lines of code to accept any other ROMs instead of the hard-coded Mario Party ones. You would also need to remove all the other hard work that has been put into making this patcher improve the original games, incorporating the work of the current decompilation and recompilation projects.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/MPCombination/5.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/MPCombination/5.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<p>The best course of action would be to simply ask Rainchus if they could make a version that accepts any 3 or more ROMs, without hash checks. Adding a simple GUI to configure things like a background image and the ability to rename the ROMs and assign them buttons to look neatly presented once loaded on a flashcart, this thing could be universally useful.</p>
+	<p>Having looked around Rainchus' GitHub pages, I noticed several interesting recompilation projects in the works, as well as something pretty cool: the first working version of the Japanese <i>Chameleon Twist</i> recompilation, based on N64: Recompiled. There is also a tentative first release available there, which allows you to try out the humble beginnings of the <a href="https://github.com/Rainchus/ChameleonTwist1-JP-Recomp/releases/tag/v0.1">statically recompiled version of <i>Chameleon Twist</i></a> today!</p> 
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/Rainchus/Mp3-Combination">Rainchus GitHub</a></p>
+	<p class="subtitle"><i class="fa-brands fa-x-twitter"></i>&nbsp;<a href="https://x.com/Rainchus">Rainchus Twitter</a></p>
+	<p class="subtitle"><i class="fa-solid fa-mug-hot"></i>&nbsp;<a href="https://ko-fi.com/rainchus">Rainchus Ko-Fi</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool that's N64-related? Send me a DM and let's share it!</a></p>
+</div>
