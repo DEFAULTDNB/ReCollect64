@@ -1342,20 +1342,7 @@ function reply_click(clicked_id){
 	//alert(gFeatures)
 	//alert(gCode)
 	
-	//BESPOKE GAME FIXES\\
-	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
-		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
-	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
-		document.getElementById("thumbMA").src = 'Manuals/J/Densha de Go! 64 J.png';//Alternate title.
-		document.getElementById("thumbA2").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A2.png';
-		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';		
-		
-	} else { //CLEAR ELEMENTS (can be performed at start of this function)
-		//document.getElementById("thumbMA").src = '';
-		document.getElementById("thumbA1").src = '';
-		document.getElementById("thumbA2").src = '';
-		document.getElementById("thumbA3").src = '';
-	}
+	
 	
 	//TRY A CATCH ALL APPROACH:	
 	//BOX\\ - AUS logic: temp until all entered
@@ -1390,7 +1377,8 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/NUK4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NUK4.png';
 	} else if (gFeatures.includes("EUR manual")){
 		document.getElementById("thumbMA").src = 'Manuals/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
-		
+	} else if (gFeatures.includes("NEXP manual")){ //test specific variant.
+		document.getElementById("thumbMA").src = 'Manuals/NEXP/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEXP.png';	
 	} else if (gFeatures.includes("NEU4 manual")){ //test specific variant.
 		document.getElementById("thumbMA").src = 'Manuals/NEU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU4.png';		
 	} else if (gFeatures.includes("EU4 manual")){ //test specific variant.
@@ -1419,6 +1407,8 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/ROC/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ROC.png';
 	} else if (gFeatures.includes("NOE manual")){
 		document.getElementById("thumbMA").src = 'Manuals/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
+	} else if (gFeatures.includes("AV1 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/AV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'AV1.png';
 	}
 
 	//BESPOKE FIXES PER REGION\\
@@ -1436,6 +1426,9 @@ function reply_click(clicked_id){
 	document.getElementById("thumb").style.height = "auto";
 	document.getElementById("thumb").style.width = "30%";	
 	thumb.src = convertiquetopng;
+	
+	document.getElementById("thumbBB").style.height = "auto";
+	document.getElementById("thumbBB").style.width = "30%";
 	
 	} else if (pReg === "NFR" || pReg === "ALTN") {
 	
@@ -1526,12 +1519,25 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/SEU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SEU.png';
 	}
 	
-	//CHECK CARTS\\
-	if (frametitle.innerHTML.includes("40 Winks E")){
-		document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	//BESPOKE GAME FIXES\\
+	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
+		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
+	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
+		document.getElementById("thumbMA").src = 'Manuals/J/Densha de Go! 64 J.png';//Alternate title.
+		document.getElementById("thumbA2").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A2.png';
+		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';		
+	} else if (frametitle.innerHTML === "Coupe Du Monde 98 F"||frametitle.innerHTML === "Frankreich 98 Die Fußball WM D"){
+		document.getElementById("thumbRC").src = 'Carts/UKV/World Cup 98 UKV.png';//Alternate regional title.
+	} else if (frametitle.innerHTML === "40 Winks E"){
+		document.getElementById("thumbRC").src = 'Carts/U/40 Winks U.png';	
+	} else { //CLEAR ELEMENTS (can be performed at start of this function)
+		//document.getElementById("thumbMA").src = '';
+		document.getElementById("thumbA1").src = '';
+		document.getElementById("thumbA2").src = '';
+		document.getElementById("thumbA3").src = '';
 	}
 	
-	//CHECK ACCESSORIES\\
+	//CHECK ACCESSORIES\\	
 	if (gFeatures.match("VRU")){
 		document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
 	} else if (gFeatures.match("Transfer")){
@@ -1539,6 +1545,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA2").src = 'Accessories/Transfer Pak A2.png';
 	} else if (gFeatures.match("Rumble")){
 		if (frametitle.innerHTML.includes("Cruisn USA")){//Bespoke fix
+		document.getElementById("thumbA1").src = 'Accessories/Cruisn USA A1.png';
 		} else {
 		document.getElementById("thumbA1").src = 'Accessories/Rumble Pak A1.png';
 		}
@@ -2776,6 +2783,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-3.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-4.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
