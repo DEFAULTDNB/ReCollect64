@@ -1281,12 +1281,12 @@ function reply_click(clicked_id){
 	gameRegions = "Mexico & South America (NTSC)";
 	} else if (gameRegions.match("AS")){
 	gameRegions = "Asia (NTSC)";
-	} else if (gameRegions.match("SEA")||gameRegions.match("PCA")||gameRegions.match("A")||gameRegions.match("AV1")||gameRegions.match("AV2")||gameRegions.match("AV3")){
-	gameRegions = "Australia (PAL)";
-	} else if (gameRegions.match("BRB")){
+	} else if (gameRegions.match("ALTB")||gameRegions.match("BRB")){
 	gameRegions = "Brazil (Bundle)";
 	} else if (gameRegions.match("BR")||gameRegions.match("BRS")){
 	gameRegions = "Brazil (MPAL)";
+	} else if (gameRegions.match("SEA")||gameRegions.match("PCA")||gameRegions.match("A")||gameRegions.match("AV1")||gameRegions.match("AV2")||gameRegions.match("AV3")){
+	gameRegions = "Australia (PAL)";
 	} else if (gameRegions.match("DD")){
 	gameRegions = "Japan for N64DD";
 	} else if (gameRegions.match("D")||gameRegions.match("DV1")||gameRegions.match("DV2")||gameRegions.match("ALTD")||gameRegions.match("SED")||gameRegions.match("PCD")){
@@ -1471,6 +1471,11 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gCode.includes("EUU")){
 		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
+	} else if (gCode.includes("AUS-1")) {
+		document.getElementById("thumbRC").src = 'Carts/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
+		document.getElementById("thumbMA").src = 'Manuals/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
+		
+	
 	} else if (gCode.includes("AUS")){
 		document.getElementById("thumbRC").src = 'Carts/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gCode.includes("FRA")){
@@ -1503,6 +1508,11 @@ function reply_click(clicked_id){
 		}
 		document.getElementById("thumbBB").src = 'Backs/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
+	
+	} else if (gCode.includes("USA-1")) {
+		document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+		document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+		
 	} else if (gCode.includes("USA")) {
 		if (gFeatures.includes("Grey cart")){//color cart fix
 			document.getElementById("thumbRC").src = 'Carts/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';	
@@ -1531,6 +1541,8 @@ function reply_click(clicked_id){
 	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
 		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
 	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
+		document.getElementById("thumbBB").src = 'Backs/SEJ/Densha de Go! 64 Engineers Pak SEJ.png';//Alternate title.
+		document.getElementById("thumbRC").src = 'Carts/J/Densha de Go! 64 J.png';//Alternate title.
 		document.getElementById("thumbMA").src = 'Manuals/J/Densha de Go! 64 J.png';//Alternate title.
 		document.getElementById("thumbA2").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A2.png';
 		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';		
@@ -2791,6 +2803,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-5.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-6.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
