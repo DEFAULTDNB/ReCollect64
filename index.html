@@ -1474,8 +1474,6 @@ function reply_click(clicked_id){
 	} else if (gCode.includes("AUS-1")) {
 		document.getElementById("thumbRC").src = 'Carts/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
 		document.getElementById("thumbMA").src = 'Manuals/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
-		
-	
 	} else if (gCode.includes("AUS")){
 		document.getElementById("thumbRC").src = 'Carts/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gCode.includes("FRA")){
@@ -1550,6 +1548,13 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/UKV/World Cup 98 UKV.png';//Alternate regional title.
 	} else if (frametitle.innerHTML === "40 Winks E"){
 		document.getElementById("thumbRC").src = 'Carts/U/40 Winks U.png';	
+	} else if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTB"){
+		document.getElementById("thumbRC").src = 'Carts/ALTB/Turok 2 Seeds of Evil ALTB.png';	
+	} else if (frametitle.innerHTML === "Star Wars Shadows of the Empire BRS"){
+		document.getElementById("thumbRC").src = 'Carts/BRS/Star Wars Shadows of the Empire BRS.png';
+	} else if (frametitle.innerHTML === "Super Mario 64 ALTB"){
+		document.getElementById("thumbRC").src = 'Carts/ALTB/Super Mario 64 ALTB.png';	
+		
 	} else { //CLEAR ELEMENTS (can be performed at start of this function)
 		//document.getElementById("thumbMA").src = '';
 		document.getElementById("thumbA1").src = '';
@@ -2803,6 +2808,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-6.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-7.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
