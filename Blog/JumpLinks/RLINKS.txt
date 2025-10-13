@@ -78,3 +78,4 @@ Blog/Reviews/Games/TARZAN/r76.html
 Blog/Reviews/Games/HEROOFTIME/r77.html
 Blog/Reviews/JoytechJordan/r78.html
 Blog/Reviews/Games/REMUTE/r79.html
+Blog/Reviews/ControllerPlus64/r80.html
