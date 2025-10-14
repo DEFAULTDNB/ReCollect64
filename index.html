@@ -86,7 +86,7 @@
 <img id="list" title="𝗟𝗶𝘀𝘁 𝗡𝗲𝗲𝗱𝗲𝗱 𝗧𝗶𝘁𝗹𝗲𝘀" onclick="PrintElem();" src="Config/Images/LBUT.png" />
 <select name="Region" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗼𝗿 𝗖𝗮𝘁𝗲𝗴𝗼𝗿𝘆" id="Region" onchange="changeRegion()">
 <optgroup label="Customise:">
-	<option value="CUST" title="𝗢𝗽𝗲𝗻 𝗖𝘂𝘀𝘁𝗼𝗺 𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂" onclick="clickonregion();">ℹ️/🅾️ Custom</option>
+	<option value="CUST" title="𝗢𝗽𝗲𝗻 𝗖𝘂𝘀𝘁𝗼𝗺 𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂" onclick="clickonregion();">ℹ️/🅾️ CUST</option>
 <optgroup label="All Entries:">
 	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟴𝟯𝟬+)">⚠️🌐 FULL</option>
 <optgroup label="World Sets:">
@@ -134,6 +134,8 @@
 	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻">🇨🇳 🌏 IQUE</option>	
 	<option value="LRG" title="𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀">‍🛑🌎 LRG</option>
 	<option value="REVS" title="𝗩𝗲𝗿𝘀𝗶𝗼𝗻 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀">🔢🌎 REVS</option>
+	
+	<!--option value="HWR" title="HARDWARE TESTING">⭐ CONSOLES</option-->
 </select>
 <select id="Currency" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗖𝘂𝗿𝗿𝗲𝗻𝗰𝘆" name="Currency" onchange="bureauDeChange();" style="">
 <optgroup label="Convert Currency:">
@@ -512,7 +514,14 @@
 				</div>
 				
 				<!--
-				<div id="PADacc"><span title="Controller"><div id="PADPNG"></div></span><span><input id="PADcontroller" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="PadControllerSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
+				<div id="HWR"><span title="Console"><div id="PADPNG"></div></span><span><input id="HWRconsole" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="HWRconsoleSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
+					<span title="Boxed?"><div id="BOXPNG"></div><input id="HWRboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="PADboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
+					<span title="Sealed?"><div id="SLDPNG"></div><input id="HWRsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="PADsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
+				</div>
+				-->
+				
+				<!--
+				<div id="PAD"><span title="Controller"><div id="PADPNG"></div></span><span><input id="PADcontroller" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="PADcontrollerSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
 					<span title="Boxed?"><div id="BOXPNG"></div><input id="PADboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="PADboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
 					<span title="Sealed?"><div id="SLDPNG"></div><input id="PADsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="PADsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
 				</div>
@@ -544,7 +553,7 @@ function spitFacts() {
 }
 document.getElementsByTagName('*')[0].scrollIntoView({behavior: 'auto'});
 
-var myToast = Toastify({text: "ReCollect64 is currently undergoing maintenance.\n\nIndividual sections may not correctly display data.\n\nOnly the 'FULL' category will display all relevant data.", avatar: "Config/Images/RedStar.gif", close: true, duration: 10000}); myToast.showToast();
+//var myToast = Toastify({text: "ReCollect64 is currently undergoing maintenance.\n\nIndividual sections may not correctly display data.\n\nOnly the 'FULL' category will display all relevant data.", avatar: "Config/Images/RedStar.gif", close: true, duration: 10000}); myToast.showToast();
 
 var gRegion, gTitle, gYear, gGenre, gScore, cValue, bValue, sValue, pos, tPos;
 var guideURL;
@@ -777,6 +786,8 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 	if (document.getElementById("Region").value == "USAX") {var myToast = Toastify({className: "PopStyle", text: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to America.", style: {background: 'MediumBlue', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "PCX") {var myToast = Toastify({className: "PopStyle", text: "𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲:\n\nMillion Seller/Players Choice variants.", style: {background: 'black', color: "white"}, avatar: "Config/Images/PCU.png", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "JS") {var myToast = Toastify({className: "PopStyle", text: "𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀:\n\nJapanese store demos.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/Sample.png", close: true, duration: 5000}); myToast.showToast();}
+	
+	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: "HARDWARE\n\nTESTING.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 }
 function readFile2(e) {
 	document.getElementById("frame").style.display = "none";
@@ -1149,7 +1160,7 @@ function reply_click(clicked_id){
 	let gCode = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("CODE=")+5), (lines[clicked_id-1].indexOf("MEMPAK=")-1));
 	let gCIC = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("CIC=")+4), (lines[clicked_id-1].indexOf("CODE=")-1));
 	let sPages = "";
-	//TO DO: page requirements...
+	//TO DO: memcard page requirements...
 	//let sPages = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PAGES=")+6), (lines[clicked_id-1].indexOf("________=")-1));
 	let aValue,bValue,cValue,dValue,sValue = "";
 	let indexOfFirst = lines[clicked_id-1].indexOf(gCurrency);
@@ -1339,7 +1350,8 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA").style.height = "auto";
 	document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 
-	//TRY A CATCH ALL APPROACH:	
+	//TRY A CATCH ALL APPROACH:
+	
 	//BOX\\ - AUS logic: temp until all entered
 	if (gFeatures.includes("AUS sticker")){
 		document.getElementById("thumbBB").src = 'Backs/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
@@ -1350,6 +1362,7 @@ function reply_click(clicked_id){
 	} else if (gFeatures.includes("EUU box")){
 		document.getElementById("thumbBB").src = 'Backs/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
 	} else if (gFeatures.includes("EUR box")){
+	//change box to back??
 		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gFeatures.includes("AUS back")){
 		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
@@ -1366,32 +1379,47 @@ function reply_click(clicked_id){
 	}
 	
 	//MANUAL\\
-	if (gFeatures.includes("UKV manual")){
+	if (gFeatures.includes("NUKV manual")){
+		document.getElementById("thumbMA").src = 'Manuals/NUKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NUKV.png';
+	} else if (gFeatures.includes("UKV manual")){
 		document.getElementById("thumbMA").src = 'Manuals/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
-	} else if (gFeatures.includes("NUK4 manual")){ //test specific variant.
+	} else if (gFeatures.includes("NUK4 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/NUK4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NUK4.png';
 	} else if (gFeatures.includes("EUR manual")){
 		document.getElementById("thumbMA").src = 'Manuals/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
-	} else if (gFeatures.includes("NEXP manual")){ //test specific variant.
+	} else if (gFeatures.includes("NEXP manual")){
 		document.getElementById("thumbMA").src = 'Manuals/NEXP/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEXP.png';	
-	} else if (gFeatures.includes("NEU4 manual")){ //test specific variant.
-		document.getElementById("thumbMA").src = 'Manuals/NEU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU4.png';		
-	} else if (gFeatures.includes("EU4 manual")){ //test specific variant.
+	} else if (gFeatures.includes("NEU4 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/NEU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU4.png';
+	} else if (gFeatures.includes("NEAG manual")){
+		document.getElementById("thumbMA").src = 'Manuals/NEAG/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEAG.png';
+	} else if (gFeatures.includes("NGAE manual")){
+		document.getElementById("thumbMA").src = 'Manuals/NGAE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU4.png';
+	} else if (gFeatures.includes("DNO manual")){
+		document.getElementById("thumbMA").src = 'Manuals/DNO/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DNO.png';		
+	} else if (gFeatures.includes("EU4 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/EU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EU4.png';
-	} else if (gFeatures.includes("NEU6 manual")){ //test specific variant.
+	} else if (gFeatures.includes("NEU6 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/NEU6/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU6.png';
 	} else if (gFeatures.includes("EV1 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/EV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EV1.png';
 	} else if (gFeatures.includes("EUU manual")){
 		document.getElementById("thumbMA").src = 'Manuals/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
+	} else if (gFeatures.includes("FRA manual")){
+		document.getElementById("thumbMA").src = 'Manuals/F/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'F.png';
+	} else if (gFeatures.includes("FAH manual")){
+		document.getElementById("thumbMA").src = 'Manuals/FAH/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'FAH.png';
+	} else if (gFeatures.includes("ITA manual")){
+		document.getElementById("thumbMA").src = 'Manuals/I/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'I.png';
 	} else if (gFeatures.includes("AUS manual")){
 		document.getElementById("thumbMA").src = 'Manuals/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gFeatures.includes("NOE manual")){
 		document.getElementById("thumbMA").src = 'Manuals/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
+	} else if (gFeatures.includes("UV1 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';	
 	} else if (gFeatures.includes("USA manual")){
 		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-	} else if (gFeatures.includes("UV1 manual")){
-		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+
 	} else if (gFeatures.includes("JPN manual")){
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 	} else if (gFeatures.includes("ASM manual")){
@@ -1558,8 +1586,6 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/BR/The Legend of Zelda Ocarina of Time BR.png';
 		document.getElementById("thumbBB").src = 'Backs/BR/The Legend of Zelda Ocarina of Time BR.png';
 		document.getElementById("thumbMA").src = 'Manuals/BR/The Legend of Zelda Ocarina of Time BR.png';
-		
-		
 		
 	} else { //CLEAR ELEMENTS (can be performed at start of this function)
 		//document.getElementById("thumbMA").src = '';
@@ -2814,6 +2840,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-7.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-8.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
