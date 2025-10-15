@@ -1366,6 +1366,9 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gFeatures.includes("AUS back")){
 		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
+	} else if (gFeatures.includes("PCA box")){
+		document.getElementById("thumb").src = 'Covers/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
+		document.getElementById("thumbBB").src = 'Backs/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
 	} else if (gFeatures.includes("USA back")){
 		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 	} else if (gFeatures.includes("JPN back")){
@@ -1394,9 +1397,11 @@ function reply_click(clicked_id){
 	} else if (gFeatures.includes("NEAG manual")){
 		document.getElementById("thumbMA").src = 'Manuals/NEAG/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEAG.png';
 	} else if (gFeatures.includes("NGAE manual")){
-		document.getElementById("thumbMA").src = 'Manuals/NGAE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NEU4.png';
+		document.getElementById("thumbMA").src = 'Manuals/NGAE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NGAE.png';
 	} else if (gFeatures.includes("DNO manual")){
 		document.getElementById("thumbMA").src = 'Manuals/DNO/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'DNO.png';		
+	} else if (gFeatures.includes("EUB manual")){
+		document.getElementById("thumbMA").src = 'Manuals/ALTE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTE.png';
 	} else if (gFeatures.includes("EU4 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/EU4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EU4.png';
 	} else if (gFeatures.includes("NEU6 manual")){
@@ -1411,8 +1416,18 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/FAH/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'FAH.png';
 	} else if (gFeatures.includes("ITA manual")){
 		document.getElementById("thumbMA").src = 'Manuals/I/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'I.png';
+		
+	} else if (gFeatures.includes("AV1 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/AV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'AV1.png';
+	} else if (gFeatures.includes("AV2 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/AV2/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'AV2.png';
+	} else if (gFeatures.includes("AV3 manual")){
+	
+		document.getElementById("thumbMA").src = 'Manuals/AV3/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'AV3.png';
+
 	} else if (gFeatures.includes("AUS manual")){
 		document.getElementById("thumbMA").src = 'Manuals/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
+		
 	} else if (gFeatures.includes("NOE manual")){
 		document.getElementById("thumbMA").src = 'Manuals/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
 	} else if (gFeatures.includes("UV1 manual")){
@@ -1495,13 +1510,14 @@ function reply_click(clicked_id){
 
 	if (gCode.includes("UKV")){
 		document.getElementById("thumbRC").src = 'Carts/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
+	} else if (gCode.includes("EUR-1")) {
+		document.getElementById("thumbRC").src = 'Carts/EV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EV1.png';
 	} else if (gCode.includes("EUR")){
 		document.getElementById("thumbRC").src = 'Carts/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gCode.includes("EUU")){
 		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
-	} else if (gCode.includes("AUS-1")) {
-		document.getElementById("thumbRC").src = 'Carts/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
-		document.getElementById("thumbMA").src = 'Manuals/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
+	} else if (gCode.includes("EUB")) {
+		document.getElementById("thumbRC").src = 'Carts/ALTE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTE.png';
 	} else if (gCode.includes("AUS")){
 		document.getElementById("thumbRC").src = 'Carts/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gCode.includes("FRA")){
@@ -1592,7 +1608,12 @@ function reply_click(clicked_id){
 		
 	} else if (frametitle.innerHTML === "FIFA 98 En Route Pour La Coup Du Monde F"||frametitle.innerHTML === "FIFA 98 Rumbo Al Mundial S"){
 		document.getElementById("thumbRC").src = 'Carts/UKV/FIFA 98 Road to World Cup UKV.png';
-
+	
+	} else if (frametitle.innerHTML === "Gauntlet Legends Warrior Edition SEU"){
+		document.getElementById("thumbRC").src = 'Carts/U/Gauntlet Legends U.png';
+		document.getElementById("thumbBB").src = 'Backs/U/Gauntlet Legends U.png';
+		document.getElementById("thumbMA").src = 'Manuals/U/Gauntlet Legends U.png';
+		
 		
 		
 	} else { //CLEAR ELEMENTS (can be performed at start of this function)
@@ -2848,6 +2869,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-8.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-9.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
