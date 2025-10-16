@@ -14,32 +14,32 @@ body {background-color: black; color: cyan;}
 </head>
 <body>
 <center>
-<br></br>
-<span id="label2">SELECT A ROM:</span>
+<p><b><span id="label2">ROM INFO & CONVERTER</span></b></p>
 <p id="result"></p>
-<input type="file" id="fileInput" onchange="options.style.display = 'block';" accept=".v64, .z64, .n64"/>
 <div id="options" style="display:none">
-<br>
-<span id="label2">CONVERT:</span>
+<p><span id="label2">CONVERT ROM:</span></p>
 <select id="conversionOptions" onchange=""></select>
 <button id="convertButton">Convert</button>
+<p><span id="label2">LOAD ANOTHER ROM:</span></p>
 </div>
+<input type="file" id="fileInput" onchange="options.style.display = 'block';" accept=".v64, .z64, .n64"/>
 </center>
 <script>
 var newFileName, arrayBuffer, byteArray, file;
 document.getElementById('fileInput').addEventListener('change', handleFileSelect);
-document.getElementById("result").innerHTML += "<img id='boxart' src='LOWRES/00.png'; /><br>";
+document.getElementById("result").innerHTML += "<p><img id='boxart' src='LOWRES/00.png'; /></p>";
 function handleFileSelect(event) {
 	file = event.target.files[0];
 	if (!file) return;
 	var SizeMB = (file.size / (1024*1024)).toFixed(0);
-	document.getElementById("result").innerHTML = "<img id='boxart' src='LOWRES/00.png'; /><br>";
+	document.getElementById("result").innerHTML = "<p><img id='boxart' src='LOWRES/00.png'; /></p>";
 	document.getElementById("result").innerHTML += "<span id='label1'>[FILE]:</span> "+file.name.toUpperCase()+"<br>";
 	document.getElementById("result").innerHTML += "<span id='label1'>[SIZE]:</span> "+SizeMB+"MB ("+file.size+" BYTES)<br>";
+	document.getElementById("result").innerHTML += "<span id='label1'>[ROM]:</span> "+SizeMB*8+" MBit<br>";
 	const reader = new FileReader();
 	reader.onload = function(event) {
 		arrayBuffer = event.target.result;
-		byteArray = new Uint8Array(arrayBuffer);
+		byteArray = new Uint8Array(arrayBuffer);		
 		let convertedBuffer;			
 		decoder = new TextDecoder("windows-1252");
 		str = decoder.decode(reader.result); // String
@@ -66,16 +66,16 @@ function handleFileSelect(event) {
 			boxart.src = "LOWRES/"+cid.slice(1,3)+".png";
 			boxart.onerror = fixboxart;
 				function fixboxart(){
-				boxart.src = "LOWRES/00.png";
+					boxart.src = "LOWRES/00.png";
 				}
 			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]:</span> <span id='decname'>"+decodedName.toUpperCase()+"</span><br>";
 				if (decname.innerHTML.length < 1) {
-				decname.innerHTML = "UNKNOWN";
+					decname.innerHTML = "UNKNOWN";
 				}
 			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> <span id='cidID'>"+cid.toUpperCase()+"</span><br>";
 				if (cidID.innerHTML.length < 1) {
-				cidID.innerHTML = "UNKNOWN";
+					cidID.innerHTML = "UNKNOWN";
 				}
 			switch (cid[0]) {
 				case 'N': media = "CARTRIDGE"; break;
@@ -111,7 +111,7 @@ function handleFileSelect(event) {
 				default: region = "UNKNOWN";
 			}
 			document.getElementById("result").innerHTML += "<span id='label1'>[REGION]:</span> "+region+"<br>";
-			document.getElementById("result").innerHTML += "<span id='label1'>[ROM]:</span> V1."+gRev+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[VER]:</span> V1."+gRev+"<br>";
 			const wordArray = CryptoJS.lib.WordArray.create(arrayBuffer);
             const wordArray2 = CryptoJS.lib.WordArray.create(arrayBuffer.slice(0x40, 0x1000));
 			const hash = CryptoJS.MD5(wordArray).toString();
@@ -167,14 +167,14 @@ function handleFileSelect(event) {
 			const options = document.getElementById('conversionOptions');
 			options.innerHTML = '';
 				if (fileType === 'z64') {
-					options.innerHTML += '<option value="bigToLittle">Big-Endian to Little-Endian</option>';
-					options.innerHTML += '<option value="bigToByteSwapped">Big-Endian to Byte-Swapped</option>';
+					options.innerHTML += '<option value="bigToLittle" title="*.z64 to *.n64">Big-Endian to Little-Endian</option>';
+					options.innerHTML += '<option value="bigToByteSwapped" title="*.z64 to *.v64">Big-Endian to Byte-Swapped</option>';
 				} else if (fileType === 'n64') {
-					options.innerHTML += '<option value="littleToBig">Little-Endian to Big-Endian</option>';
-					options.innerHTML += '<option value="littleToByteSwapped">Little-Endian to Byte-Swapped</option>';
+					options.innerHTML += '<option value="littleToBig" title="*.n64 to *.z64">Little-Endian to Big-Endian</option>';
+					options.innerHTML += '<option value="littleToByteSwapped" title="*.n64 to *.v64">Little-Endian to Byte-Swapped</option>';
 				} else if (fileType === 'v64') {
-					options.innerHTML += '<option value="byteSwappedToBig">Byte-Swapped to Big-Endian</option>';
-					options.innerHTML += '<option value="byteSwappedToLittle">Byte-Swapped to Little-Endian</option>';
+					options.innerHTML += '<option value="byteSwappedToBig" title="*.v64 to *.z64">Byte-Swapped to Big-Endian</option>';
+					options.innerHTML += '<option value="byteSwappedToLittle" title="*.v64 to *.n64">Byte-Swapped to Little-Endian</option>';
 				}
 			document.getElementById('options').style.display = 'block';
 	}
@@ -337,7 +337,7 @@ function buf2hex(buffer) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.3</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.5</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
