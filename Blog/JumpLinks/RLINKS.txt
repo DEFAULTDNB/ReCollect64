@@ -80,3 +80,4 @@ Blog/Reviews/JoytechJordan/r78.html
 Blog/Reviews/Games/REMUTE/r79.html
 Blog/Reviews/ControllerPlus64/r80.html
 Blog/Reviews/Games/AEROGAUGE/r81.html
+Blog/Reviews/Games/KRAKEN64/r82.html
