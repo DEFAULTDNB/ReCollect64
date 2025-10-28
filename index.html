@@ -1109,6 +1109,13 @@ myCount = 0;
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 		} else if (lines[info].match("REGION=SED ")){
 		document.getElementById(coverFlow[i]).style.width = "115px"; document.getElementById(coverFlow[i]).style.left = "70px";
+		
+		} else if (lines[info].match("REGION=SEA ")){
+		
+			if (gTitle.match("Perfect Dark Expanded Edition")||gTitle.match("F-1 Racer Double Play")||gTitle.match("Star Wars Double Play")) {
+			document.getElementById(coverFlow[i]).style.height = "80px"; document.getElementById(coverFlow[i]).style.top = "55px";
+			}
+		
 		} else if (lines[info].match("REGION=TW ")){
 		document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/HK/'+gTitle+' HK.jpg"');
 		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=AV1 ")||lines[info].match("REGION=AV2 ")||lines[info].match("REGION=AV3 ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
@@ -1473,6 +1480,17 @@ function reply_click(clicked_id){
 	document.getElementById("thumbBB").style.height = "auto";
 	document.getElementById("thumbBB").style.width = "30%";
 	
+	} else if (pReg === "SEA") {
+		
+		if (frametitle.innerHTML === "Perfect Dark Expanded Edition SEA" || frametitle.innerHTML === "F-1 Racer Double Play SEA" || frametitle.innerHTML === "Star Wars Double Play SEA"){
+			document.getElementById("thumb").style.height = "auto";
+			document.getElementById("thumb").style.width = "48%";
+			document.getElementById("thumbBB").style.height = "auto";
+			document.getElementById("thumbBB").style.width = "48%";
+			
+			document.getElementById("description").innerHTML = "This is a limited edition bundle exclusive to Australia.<br><br>Double Play/Extended Editions contain two boxes, either two games, or a game and an expansion pak."
+		}
+		
 	} else if (pReg === "NFR" || pReg === "ALTN") {
 	
 	let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
@@ -1616,8 +1634,27 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").src = 'Backs/U/Gauntlet Legends U.png';
 		document.getElementById("thumbMA").src = 'Manuals/U/Gauntlet Legends U.png';
 		
+	} else if (frametitle.innerHTML === "Perfect Dark Expanded Edition SEA"){ 
+		document.getElementById("thumbRC").src = 'Carts/A/Perfect Dark A.png';
+		document.getElementById("thumbMA").src = 'Manuals/A/Perfect Dark A.png';
+		//NEEDS EX PAK BOX ART
+
+	} else if (frametitle.innerHTML === "F-1 Racer Double Play SEA"){ //Sub boxes not showing...
+	
+		document.getElementById("thumbA1").src = 'Covers/A/F-1 World Grand Prix A.png';
+		document.getElementById("thumbA2").src = 'Covers/A/Star Wars Episode I Racer A.png';
 		
+		document.getElementById("thumbO1").src = 'Backs/A/F-1 World Grand Prix A.png';
+		document.getElementById("thumbO2").src = 'Backs/A/Star Wars Episode I Racer A.png';
+	
+	} else if (frametitle.innerHTML === "Star Wars Double Play SEA"){ //Sub boxes not showing...
+	
+		document.getElementById("thumbA1").src = 'Covers/A/Star Wars Rogue Squadron A.png';
+		document.getElementById("thumbA2").src = 'Covers/A/Star Wars Episode I Racer A.png';
 		
+		document.getElementById("thumbO1").src = 'Backs/A/Star Wars Rogue Squadron A.png';
+		document.getElementById("thumbO2").src = 'Backs/A/Star Wars Episode I Racer A.png';
+
 	} else { //CLEAR ELEMENTS (can be performed at start of this function)
 		//document.getElementById("thumbMA").src = '';
 		document.getElementById("thumbA1").src = '';
@@ -1646,6 +1683,12 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").src = 'Accessories/iQue A1.png';
 		document.getElementById("thumbMA").style.width = "32%";
 		document.getElementById("thumbMA").style.height = "auto";
+		
+	//} else if (frametitle.innerHTML.includes("Perfect Dark Expanded Edition SEA")){
+				
+			//document.getElementById("thumbA1").src = "Covers/A/Perfect Dark A.png";
+			//ADD AU EXPANSION PAK BOX ART
+
 	} else {
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
@@ -2871,6 +2914,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-9.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.10-10.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
