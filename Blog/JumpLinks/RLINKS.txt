@@ -84,3 +84,4 @@ Blog/Reviews/Games/KRAKEN64/r82.html
 Blog/Reviews/Games/TETRIS64/r83.html
 Blog/Reviews/Games/BKLAIRWITCH/r84.html
 Blog/Reviews/3D2Controller/r85.html
+Blog/Reviews/Games/DDLC/r86.html
