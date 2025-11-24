@@ -234,3 +234,4 @@ Blog/Features/2025/A3DSHIPPING/b232.html
 Blog/Features/2025/8BDN64/b233.html
 Blog/Features/2025/SM64PSX/b235.html
 Blog/Features/2025/Spyro64/b236.html
+Blog/Features/2025/A3DFI/b237.html
