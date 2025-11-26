@@ -87,3 +87,4 @@ Blog/Reviews/3D2Controller/r85.html
 Blog/Reviews/Games/DDLC/r86.html
 Blog/Reviews/Games/SIMPSONSKART/r87.html
 Blog/Reviews/Games/TUROK3PS5/r88.html
+Blog/Reviews/Games/LUNARASSAULT/r89.html
