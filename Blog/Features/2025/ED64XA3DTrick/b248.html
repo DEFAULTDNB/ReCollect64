@@ -1,0 +1,31 @@
+<div id="b248" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Updating ED64 for A3D</span></h2>
+	<h5 class="subtitle">Without an OG Console! ~ Dec 3, 2025</h5>
+	<div class="bgBanner"><img decoding='async' role='presentation' loading='lazy' src="Blog/Roundup/N64History/img/ED64X7.png" alt="ED64XA3D" class="center"/><div class="overlaytext">Updating ED64 for A3D</div></div>
+	<h4>Hard to Resist</h4>
+	<div class="titleUnderline"></div>
+	<p>When the <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b237">Analogue 3D was released at the end of November</a>, there was a little annoyance that the EverDrive 64 X series of flash carts wouldn't directly work with the FPGA console. Within days Krikzz, designer and owner of the EverDrive products, pushed two updates that first fixed compatibility and then fixed overclocking timings, but it also required a critical bootloader update, which was most easily done <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b241">by inserting it into an OEM Nintendo 64 console and flashing the file</a>.</p>
+	<p>Another method is possible that negates the need for an OG console to be involved and will merely cost you pennies. All you need is a resistor, but don't panic; it's an entirely solderless and completely reversible solution!</p>
+	<p>As Krikzz posted a couple of weeks ago, "Yes, just a resistor connected between AD7 and ground". This is all you need to allow the cartridge bootloader to update. Check out the collated instructions below!</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/ED64XA3DTrick/1.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/ED64XA3DTrick/1.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/ED64XA3DTrick/2.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/ED64XA3DTrick/2.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<h4>Why Resist?</h4>
+	<div class="titleUnderline"></div>	
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>1. Update your SD Card with the <a href="https://krikzz.com/pub/support/everdrive-64/x-series/OS/">latest firmware.</a></p>
+	<p>2. Bend the legs of a 1k resistor, and slot them in next to the AD7 and ground pins (see above image).</p>
+	<p>3. Test to ensure that your ED64 boots on the Analogue 3D, then power off and remove the ED64.</p>
+	<p>4. Copy the <a href="https://krikzz.com/pub/support/everdrive-64/x-series/bootloader/bootrom-v5.04.b64">bootloader</a> to your SD card and run it on the Analogue 3D</p>
+	<p>5. Remove the resistor from your ED64.</p>
+	<p>6. Test again to make sure the ED64 boots on the Analogue 3D.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p>The whole process takes less than 5 minutes, and the cost of a 1k resistor is around £0.10. If you happen to have one lying around then that's a bonus.</p>
+	<p>So there you have it, an extremely simple solution to get your existing EverDrive X series flashcarts working on the Analogue 3D that doesn't require you to own an original Nintendo 64 console and a very cheap and safe way to do it at home with little to no electronics knowledge whatsoever.</p>
+	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://krikzz.com/forum/index.php?topic=13718.msg94788#msg94788">Source</a></p>
+</div>
