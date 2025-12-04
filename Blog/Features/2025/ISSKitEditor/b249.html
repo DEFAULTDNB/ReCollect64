@@ -1,0 +1,117 @@
+<div id="b249" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">ISS2K Graphics Tool Released</span></h2>
+	<h5 class="subtitle">Design Your Own Strip! ~ Dec 4, 2025</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2025/ISSKitEditor/1.jpg'); background-position: center; image-rendering: smooth;"><div class="overlaytext">ISS2K Graphics Tool Released</div></div>
+	<h4>Custom Kits</h4>
+	<div class="titleUnderline"></div>
+	<p>A couple of days ago, Nicola Cusano of <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b230">ISS 2000 25th Anniversary edition</a> fame, as well as the <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b91">ISS 98</a> and <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b76">ISS 2000</a> editors, released a tool which can easily edit and adjust your team's kit with a bit of imagination and just a few clicks.</p>
+	<p>The idea is simple: unpack the graphics from the <i>International Superstar Soccer 2000 En/De Z64</i> ROM (MD5: 9F101B6F6BEF4F267DEB5C6C37A24B97), then edit each panel as you wish, and finally export the modified ROM with your very own customised kit!</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/ISSKitEditor/1.jpg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/ISSKitEditor/1.jpg" width="45%" style="padding:auto"/></a>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>International Superstar Soccer 2000 – Graphics Tool</b></p>
+	<p>Alpha Version by Nicola Cusano</p>
+	<p>This tool is designed to modify the graphics of ISS 2000 Europe En/De (z64 format).</p>
+	<br>
+	<p><b>Release Notes:</b></p>
+	<p>– Fixed the issue that corrupted the ROM when reimporting graphics.</p>
+	<p>– You can now edit graphics freely without risks.</p>
+	<p>– The ROM is expanded to 32MB instead of the usual 16MB. On modern emulators this causes no problems.</p>
+	<p>– On older emulators it *might* cause issues; EverDrive and similar devices cannot be tested, but in theory there should be no incompatibilities.</p>
+	<br>
+	<p><b>Tips:</b></p>
+	<p>– I strongly recommend starting with a clean ROM to understand how the Editor works. If you plan to work on an already modified ROM, make a backup first.</p>
+	<br>
+	<p><b>How to use:</b></p>
+	<p>– Press **"Extract Graphics Files"**. Select a ROM. All graphic files will be extracted and saved inside the "extracted" folder.</p>
+	<p>If you already exported once, the tool will ask whether to overwrite the existing files or work on the ones already in the folder.</p>
+	<p>– To reimport your modified files, press **"Patch ROM!"**.
+	<br>
+	<p><b>**************************</b></p>
+	<p><b>Kits Editor</b></p>
+	<p><b>**************************</b></p>
+	<br>
+	<p>Note: As of today, I have not found the method to assign the primary kit color.</p>
+	<p>So if you edit Brazil Home, you must always make the shirt yellow.</p>
+	<p>For the Away kit, the only risk is ending up with the same color as the Referee.</p>
+	<br>
+	<p>This tool edits kits and their color palettes, letting you work on the 2D texture while immediately previewing the result on the 3D model.</p>
+	<p>Here’s how to use the editor.</p>
+	<br>
+	<p><b>1. Basic Concept: Colors and Indexes</b></p>
+   	<p>The key thing to understand is that you’re **not** coloring the texture directly.</p>
+   	<p>The system works with indexes (0 to 15).</p>
+   	<p>On the left you have a **Grayscale Palette**: each gray tone corresponds to a number.</p>
+   	<p>You draw using these "numbers".</p>
+   	<p>The **Color Palettes** then decide that “index 1 = red”, “index 2 = white”, and so on.</p>
+	<br>
+	<p><b>Quick commands:</b></p>
+	<p>Left Click: Paint on the texture.</p>
+	<p>Right Click: Pick color (Eyedropper).</p>
+	<p>Grid: Enable "Show Grid" to see boundaries of each part (shirt, shorts, socks). Do not draw in the areas marked "DON’T TOUCH".</p>
+	<br>
+	<p><b>2. Color Editing (Palette)</b></p>
+   	<p>In the center you find the color strips for each kit part (Shirt, Shorts, Socks, etc.).</p>
+   	<p>Change color: Left click on a square → choose color → OK.</p>
+   	<p>Copy color: Right click on a square to copy its RGB values.</p>
+   	<p>Color Preview: Enable this to see the left texture in full color instead of grayscale. Useful for understanding what you’re doing.</p>
+   	<p>Number palette with Preview: Use only colors from 2 to 6 — those are the only ones truly used by the palette logic.</p>
+	<br>
+	<p><b>3. Gradient Tool</b></p>
+   	<p>To avoid drawing shading pixel-by-pixel:</p>
+   	<p>Click **Gradient** above the palette you want to edit.</p>
+   	<p>Set **Start Index** (which square to begin from) and **Steps** (how many squares to fill).</p>
+   	<p>Choose a Base Color and use the **Darkness** slider to determine how much it should darken.</p>
+   	<p>Press **Apply**. The tool will calculate all intermediate colors.</p>
+	<br>
+	<p><b>4. Zoom and Details</b></p>
+   	<p>For working on logos or precise details:</p>
+   	<p>Select the area from the dropdown on the top-right (e.g., KIT: 1 or SL: LEFT).</p>
+   	<p>Press **Open Zoom**.</p>
+   	<p>A dedicated window will open. Anything you draw here is instantly reflected on the main texture and the 3D model.</p>
+	<br>
+	<p><b>5. 3D Preview</b></p>
+   	<p>The model on the right updates in real time with every pixel you change.</p>
+	<p>Hold the left mouse button and drag to rotate the model.</p>
+	<br>
+	<p>6. Sleeve Management</b></p>
+   	<p>Left Short → Right: Clones the left short sleeve to the right.</p>
+   	<p>Left Long → Right: Clones the left long sleeve to the right.</p>
+	<br>
+	<p><b>7. Saving and Export</b></p>
+   	<p>Save: Overwrites the game’s .bin files directly. Save often.</p>
+   	<p>Export Kit: Creates a .kit backup file containing both graphics and colors. Useful for sharing or backing up your work.</p>
+   	<p>Copy Kit from…: If you want to start from another team’s base, select it from the top menu and press Copy.</p>
+   	<p>Transparency note: Usually the first color (Index 0) or the last (Index 15) is used by the game as transparency.</p>
+   	<p>If you see “holes” in the 3D model, check that you didn’t use that index to paint solid parts.</p>
+	<br>
+   	<p><b>**************************</b></p>
+   	<p><b>Intro Screen Export/Import</b></p>
+   	<p><b>**************************</b></p>
+   	<p>As the name says, this extracts the file **Intro_screen.jpg** into the “extracted” folder.</p>
+   	<p>You can edit it freely with any graphic editor. Just keep the original filename for correct reimport.</p>
+   	<p><b>**************************</b></p>
+   	<p><b>Other Graphics</b></p>
+   	<p><b>**************************</b></p>
+   	<p>Works like the Intro Screen: it extracts the selected graphic piece and allows reimport.</p>
+   	<p>Do not change filenames if you want the import to work.</p>
+   	<p>I separated it from the Intro graphic because these are grayscale graphics — in some cases (e.g., player cursor) they are colorized by palettes still not found or mapped in the editor.</p>
+	<br>
+   	<p><b>Coming soon:</b></p>
+   	<p>– Flags</p>
+   	<p>– Additional Grayscale and Color graphics with their associated palettes</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/ISSKitEditor/3.jpg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/ISSKitEditor/3.jpg" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2025/ISSKitEditor/4.jpg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2025/ISSKitEditor/4.jpg" width="30%" style="padding:auto"/></a>
+	</center>
+	<h4>Football Crazy</h4>
+	<div class="titleUnderline"></div>
+	<p>Something that always annoyed fans of the series was the inaccurate kits and player names, but now, with tools like these, you can fully tailor your teams with modern emblems or sponsors, brighter coloured strips, and long-or-short-sleeve variants of this season's chic.</p>
+	<p>With these fantastic tools, anyone can also share their modified graphics before packing them back into ROM form. I could see people getting really clever with this tool; perhaps we will even see people making James Bond-style tuxedos! If I find enough time, I might try building a suave black and grey kit of my own, sponsored by ReCollect64, so watch this space for app and kit updates on these pages!</p>
+	<p class="subtitle"><i class="fa-brands fa-facebook"></i>&nbsp;<a href="https://www.facebook.com/groups/InternationalSuperstarSoccer2000/posts/4440885709478877/">Source</a></p>
+	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://www.mediafire.com/file/v9ogny3uxvj3vxo/ISS2000_Graphics_Tool.rar/file">Download</a></p>
+</div>
