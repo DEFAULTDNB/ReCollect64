@@ -136,8 +136,8 @@
 	<option value="REVS" title="𝗩𝗲𝗿𝘀𝗶𝗼𝗻 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀">🔢🌎 REVS</option>
 	
 	<option value="HWR" title="HARDWARE TESTING">🕹️ SYSTEM</option>
-	<option value="CTR" title="CONTROLLERS TESTING">🎮 PADS</option>
-	<option value="ACC" title="ACCESSORIES TESTING">💾 ACCS</option>
+	<!--option value="CTR" title="CONTROLLERS TESTING">🎮 PADS</option>
+	<option value="ACC" title="ACCESSORIES TESTING">💾 ACCS</option-->
 	
 </select>
 <select id="Currency" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗖𝘂𝗿𝗿𝗲𝗻𝗰𝘆" name="Currency" onchange="bureauDeChange();" style="">
@@ -1065,19 +1065,39 @@ myCount = 0;
 		//THUMBNAIL FIXES
 		if (lines[info].match("REGION=A ")) {
 			if (gTitle.includes("Pokemon Pokemaniac Bundle")||gTitle.includes("Pokemon Stadium Battle Set")){ //CONSOLES bespoke fix
-			document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
+			if (gTitle.includes("Vigilante 8")){
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
+			}
+			
 		} else if (lines[info].match("REGION=ALTA ")||lines[info].match("REGION=AV1 ")) {
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/A/'+gTitle+' A.jpg"');
-		} else if (lines[info].match("REGION=ALTU ")||lines[info].match("REGION=BR ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
+			
+		} else if (lines[info].match("REGION=BR ")) {
+			
+			if (gTitle.includes("Console")){ //CONSOLES bespoke fix //too general?
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";
+			} else {
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');//cart fallback
+			}
+			
+		} else if (lines[info].match("REGION=ALTU ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
 		
-		if (gTitle.includes("Hyundai Comboy 64")){
-			document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
-		}
+			if (gTitle.includes("Hyundai Comboy 64")){
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+			}
 		
 		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
+			
+		} else if (lines[info].match("REGION=AS ")){
+		
+			if (gTitle.includes(" Console")){
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+			}
+			
 		} else if (lines[info].match("REGION=PCD ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCE/'+gTitle+' PCE.jpg"');
 		} else if (lines[info].match("REGION=E ")){
@@ -1086,7 +1106,7 @@ myCount = 0;
 			if (gTitle.match("Pokemon Stadium Battle Set")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
-			if (gTitle.includes("Funtastic")){ //CONSOLES bespoke fix //too general?
+			if (gTitle.includes("Funtastic")||gTitle.includes("Sleeved Bundle")){ //CONSOLES bespoke fix //too general?
 				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
 			}
 			
@@ -1123,8 +1143,17 @@ myCount = 0;
 		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/'+gTitle+' J.jpg"');
 			
-			if (gTitle.includes("Charcoal Grey Console")){ //CONSOLES bespoke fix
+			if (gTitle.includes("Console")||gTitle.includes("Smoke Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+			
+			} else if (gTitle.includes("and White")){ // bespoke fix..why
+				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
+			
+			
+			} else if (gTitle.includes("Pikachu Edition")){ // bespoke fix..why
+				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "7px";
+			
+			
 			} else {
 				document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
 			}			
@@ -1141,6 +1170,11 @@ myCount = 0;
 			}
 			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 		} else if (lines[info].match("REGION=SCN ")){
+		
+			if (gTitle.includes("Battle Set")){ //CONSOLES bespoke fix
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+			}
+		
 			if (gTitle == "FIFA 99"||gTitle == "Forsaken"){	
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else {
@@ -1157,7 +1191,7 @@ myCount = 0;
 		} else if (lines[info].match("REGION=TW ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/HK/'+gTitle+' HK.jpg"');
 			
-			if (gTitle.includes("Taiwanese Console")){
+			if (gTitle.includes("Console")||gTitle.includes("Clear Black")){
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
 			
@@ -1174,9 +1208,13 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
-			if (gTitle.includes("Atomic Purple Controller Bundle")||gTitle.includes("Gold Toys R Us Exclusive")||gTitle.includes("Pokemon Pokemaniac Bundle")||gTitle.includes("Pokemon Stadium Battle Set E")){ //CONSOLES bespoke fix
+			if (gTitle.includes("Atomic Purple Controller Bundle")||gTitle.includes("Gold Toys R Us Exclusive")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
+			if (gTitle.includes("Donkey Kong 64 Set")){ //CONSOLES bespoke fix
+				//document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
+			}
+			
 			
 		} else {
 			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg"); //default fallback
@@ -1770,7 +1808,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey.png';
 		
-	} else if (frametitle.innerHTML.includes("Funtastic Ice Blue")||frametitle.innerHTML.includes("Funtastic Ice")||frametitle.innerHTML.includes("Sabores Anis")){
+	} else if (frametitle.innerHTML.includes("Funtastic Ice")||frametitle.innerHTML.includes("Funtastic Blue")||frametitle.innerHTML.includes("Sabores Anis")){
 		document.getElementById("thumbA1").style.width = "48%";
 		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Ice.png';
@@ -1787,7 +1825,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Ice.png';
 		
-	} else if (frametitle.innerHTML.includes("Funtastic Jungle Green")||frametitle.innerHTML.includes("Funtastic Green")||frametitle.innerHTML.includes("Sabores Kiwi")){
+	} else if (frametitle.innerHTML.includes("Funtastic Jungle")||frametitle.innerHTML.includes("Funtastic Green")||frametitle.innerHTML.includes("Sabores Kiwi")){
 		document.getElementById("thumbA1").style.width = "48%";
 		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Green.png';
@@ -1804,7 +1842,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Green.png';
 		
-	} else if (frametitle.innerHTML.includes("Funtastic Watermelon Red")||frametitle.innerHTML.includes("Funtastic Red")||frametitle.innerHTML.includes("Sabores Ceraja")){
+	} else if (frametitle.innerHTML.includes("Funtastic Watermelon")||frametitle.innerHTML.includes("Funtastic Red")||frametitle.innerHTML.includes("Sabores Ceraja")){
 		document.getElementById("thumbA1").style.width = "48%";
 		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Red.png';
@@ -1821,7 +1859,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Red.png';
 		
-	} else if (frametitle.innerHTML.includes("Funtastic Fire Orange")||frametitle.innerHTML.includes("Funtastic Orange")||frametitle.innerHTML.includes("Sabores Tangerina")){
+	} else if (frametitle.innerHTML.includes("Funtastic Fire")||frametitle.innerHTML.includes("Funtastic Orange")||frametitle.innerHTML.includes("Sabores Tangerina")){
 		document.getElementById("thumbA1").style.width = "48%";
 		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Orange.png';
@@ -1838,7 +1876,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Orange.png';
 		
-	} else if (frametitle.innerHTML.includes("Funtastic Grape Purple")||frametitle.innerHTML.includes("Funtastic Purple")||frametitle.innerHTML.includes("Sabores Uva")){
+	} else if (frametitle.innerHTML.includes("Funtastic Grape")||frametitle.innerHTML.includes("Funtastic Purple")||frametitle.innerHTML.includes("Sabores Uva")){
 		document.getElementById("thumbA1").style.width = "48%";
 		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Purple.png';
@@ -1939,7 +1977,6 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA2").style.width = "48%";
 		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "J"){
-
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 			} else if (pReg === "U"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
@@ -1949,6 +1986,31 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.width = "48%";
 		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Grey.png';
+		
+	} else if (frametitle.innerHTML.includes("Pikachu Edition")){
+		document.getElementById("thumbA1").style.width = "48%";
+		document.getElementById("thumbA1").style.height = "auto";
+		document.getElementById("thumbA2").style.width = "48%";
+		document.getElementById("thumbA2").style.height = "auto";
+			if (frametitle.innerHTML.includes("Dark Blue")){
+				document.getElementById("thumbA1").src = 'Consoles/Dark Blue Pikachu.png';
+					if (pReg === "J"){
+						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu J B.png';
+					} else if (pReg === "A"){
+						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu A B.png';
+					} else {
+						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu U B.png';
+					}
+				document.getElementById("thumbA3").src = 'Controllers/Dark Blue Pikachu.png';
+			} else if (frametitle.innerHTML.includes("Light Blue")){
+				document.getElementById("thumbA1").src = 'Consoles/Light Blue Pikachu.png';
+				document.getElementById("thumbA2").src = 'Consoles/Light Blue Pikachu J B.png';
+				document.getElementById("thumbA3").src = 'Controllers/Light Blue Pikachu.png';
+			} else if (frametitle.innerHTML.includes("Orange")){
+				document.getElementById("thumbA1").src = 'Consoles/Orange Pikachu.png';
+				document.getElementById("thumbA2").src = 'Consoles/Orange Pikachu J B.png';
+				document.getElementById("thumbA3").src = 'Controllers/Orange Pikachu.png';
+			}
 		
 		
 	/*} else if (frametitle.innerHTML.includes("Perfect Dark Expanded Edition SEA")){	
@@ -3181,6 +3243,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.11-1.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.12-1.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
