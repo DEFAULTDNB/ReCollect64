@@ -1474,6 +1474,10 @@ function reply_click(clicked_id){
 	} else if (gFeatures.includes("EUR box")){
 	//change box to back??
 		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+	
+	} else if (gFeatures.includes("FAH box")){
+		document.getElementById("thumbBB").src = 'Backs/FAH/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'FAH.png';
+		
 	} else if (gFeatures.includes("AUS back")){
 		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gFeatures.includes("PCA box")){
@@ -1758,6 +1762,10 @@ function reply_click(clicked_id){
 		document.getElementById("thumbO1").src = 'Backs/A/Star Wars Rogue Squadron A.png';
 		document.getElementById("thumbO2").src = 'Backs/A/Star Wars Episode I Racer A.png';
 
+	} else if (frametitle.innerHTML === "Les Razmoket a Paris Le Film F"){
+		document.getElementById("thumbRC").src = 'Carts/E/Rugrats in Paris The Movie E.png';
+		
+
 	} else { //CLEAR ELEMENTS (can be performed at start of this function)
 		//document.getElementById("thumbMA").src = '';
 		document.getElementById("thumbA1").src = '';
@@ -1777,6 +1785,9 @@ function reply_click(clicked_id){
 		} else {
 		document.getElementById("thumbA1").src = 'Accessories/Rumble Pak A1.png';
 		}
+	} else if (frametitle.innerHTML.includes("LEGO")){
+		document.getElementById("thumbA1").src = 'Accessories/LEGO Racers A1.png';
+		
 	} else if (frametitle.innerHTML.includes("IQUE")){		
 		//fix numbering
 		document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
@@ -3243,6 +3254,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.12-1.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.12-2.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
