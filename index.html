@@ -1532,7 +1532,9 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/FAH/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'FAH.png';
 	} else if (gFeatures.includes("ITA manual")){
 		document.getElementById("thumbMA").src = 'Manuals/I/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'I.png';
-		
+	
+	} else if (gFeatures.includes("AUS manual")){
+		document.getElementById("thumbMA").src = 'Manuals/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gFeatures.includes("AV1 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/AV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'AV1.png';
 	} else if (gFeatures.includes("AV2 manual")){
@@ -1645,6 +1647,8 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
 	} else if (gCode.includes("EUB")) {
 		document.getElementById("thumbRC").src = 'Carts/ALTE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTE.png';
+	} else if (gCode.includes("AUS-1")){
+		document.getElementById("thumbRC").src = 'Carts/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
 	} else if (gCode.includes("AUS")){
 		document.getElementById("thumbRC").src = 'Carts/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gCode.includes("FRA")){
@@ -1787,6 +1791,8 @@ function reply_click(clicked_id){
 		}
 	} else if (frametitle.innerHTML.includes("LEGO")){
 		document.getElementById("thumbA1").src = 'Accessories/LEGO Racers A1.png';
+	} else if (frametitle.innerHTML.includes("Road Rash 64")){
+		document.getElementById("thumbA1").src = 'Accessories/Road Rash 64 A1.png';
 		
 	} else if (frametitle.innerHTML.includes("IQUE")){		
 		//fix numbering
@@ -3254,6 +3260,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.12-2.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.12-3.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
