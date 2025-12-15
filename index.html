@@ -1126,7 +1126,7 @@ myCount = 0;
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 		}
 		} else if (lines[info].match("REGION=EUU ")){
-			if (gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Earthworm")||gTitle.match("Gex")||gTitle.match("GT 64")||gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Ready")||gTitle.match("Robotron")||gTitle.match("2049")||gTitle.match("Rush 2 Extreme")||gTitle.match("Silicon")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wetrix")||gTitle.match("Wipeout")){
+			if (gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Earthworm")||gTitle.match("Gex")||gTitle.match("GT 64")||gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("Magical")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Ready")||gTitle.match("Robotron")||gTitle.match("2049")||gTitle.match("Rush 2 Extreme")||gTitle.match("Silicon")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wetrix")||gTitle.match("Wipeout")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
@@ -1195,7 +1195,24 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
 			
-		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=AV1 ")||lines[info].match("REGION=AV2 ")||lines[info].match("REGION=AV3 ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
+		} else if (lines[info].match("REGION=AV1 ")||lines[info].match("REGION=AV2 ")){
+		
+			if (gTitle == "Mario Kart 64"){
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/ALTA/'+gTitle+' ALTA.jpg"');
+			} else {
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/A/'+gTitle+' A.jpg"');
+			}
+			
+		} else if (lines[info].match("REGION=AV3 ")){
+				
+			if (gTitle == "GoldenEye 007"){
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCA/'+gTitle+' PCA.jpg"');
+			} else if (gTitle == "Mario Kart 64"){
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCA/'+gTitle+' PCA.jpg"');
+			}
+				
+			
+		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
 			if (gTitle.match("Forsaken")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else if (gTitle.match("Tony")) {
@@ -1686,8 +1703,12 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 	
 	} else if (gCode.includes("USA-1")) {
+	if (frametitle.innerHTML === "Mario Golf ALTU"){
+		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	} else {
 		document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 		document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+	}
 		
 	} else if (gCode.includes("USA")) {
 		if (gFeatures.includes("Grey cart")){//color cart fix
@@ -3263,6 +3284,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.12-4.2025)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.12-5.2025)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
