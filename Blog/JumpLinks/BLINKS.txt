@@ -262,3 +262,4 @@ Blog/Features/2025/COLDSWAP/b260.html
 Blog/Features/2025/Misc/b261.html
 Blog/Features/2025/Misc/b262.html
 Blog/Features/2025/SF64Recomp/b263.html
+Blog/Features/2025/Misc/b264.html
