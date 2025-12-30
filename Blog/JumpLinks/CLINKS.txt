@@ -44,3 +44,4 @@ Blog/Avatars/Immorpher.html
 Blog/Avatars/Rovertronic.html
 Blog/Avatars/NBrasilWiki.html
 Blog/Avatars/WaveRace64.html
+Blog/Avatars/RC64.html
