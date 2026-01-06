@@ -263,4 +263,4 @@ Blog/Features/2025/Misc/b261.html
 Blog/Features/2025/Misc/b262.html
 Blog/Features/2025/SF64Recomp/b263.html
 Blog/Features/2025/Misc/b264.html
-Blog/Features/2025/Misc/b265.html
+Blog/Features/2026/Misc/b265.html
