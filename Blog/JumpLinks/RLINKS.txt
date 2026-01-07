@@ -90,3 +90,4 @@ Blog/Reviews/Games/TUROK3PS5/r88.html
 Blog/Reviews/Games/LUNARASSAULT/r89.html
 Blog/Reviews/A3DCONSOLE/r90.html
 Blog/Reviews/Games/MUMBOMANIA/r91.html
+Blog/Reviews/Games/DEZAEMON3D/r92.html
