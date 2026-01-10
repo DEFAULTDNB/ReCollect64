@@ -433,6 +433,11 @@
 					<span title="Manual?"><div id="MANPNG"></div><input id="SCNmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="SCNmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
 					<span title="Sealed?"><div id="SLDPNG"></div><input id="SCNsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="SCNsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
 				</div>
+				<div id="SCN1cart"><span class="flag" title="SCANDINAVIA V1"><div id="SCNPNG"></div></span><span><input id="SCN1cartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="SCN1cartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
+					<span title="Boxed?"><div id="BOXPNG"></div><input id="SCN1boxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="SCN1boxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
+					<span title="Manual?"><div id="MANPNG"></div><input id="SCN1manual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="SCN1manualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
+					<span title="Sealed?"><div id="SLDPNG"></div><input id="SCN1sealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="SCN1sealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
+				</div>
 				<div id="SEAcart"><span class="spesh" title="SPECIAL BUNDLE AUS"><img src="Config/Images/SEA.png" style="margin: 2px 0px; vertical-align: middle; width: 35px; height: auto;"/>&nbsp </span><span><input id="SEAcartridge" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="SEAcartridgeSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
 					<span title="Boxed?"><div id="BOXPNG"></div><input id="SEAboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="SEAboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
 					<span title="Manual?"><div id="MANPNG"></div><input id="SEAmanual" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span><span id="SEAmanualSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br>
@@ -1129,17 +1134,17 @@ myCount = 0;
 		} else if (lines[info].match("REGION=I ")){
 			if (gTitle.match("Turok Rage Wars")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/S/'+gTitle+' S.jpg"');
-			} else if (gTitle.match("Twisted Edge")||gTitle.match("Forsaken")||gTitle.match("World Cup 98")){
+			} else if (gTitle.match("Twisted Edge")||gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("World Cup 98")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}			
-		} else if (lines[info].match("REGION=S ")){
-		if (gTitle.match("Super Mario")||gTitle.match("Forsaken")){
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
-		} else {
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
-		}
+		} else if (lines[info].match("REGION=S ")||lines[info].match("REGION=SV1 ")){
+			if (gTitle.match("Super Mario")||gTitle.match("Forsaken")||gTitle.match("Mission Impossible")){
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
+			} else {
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
+			}
 		} else if (lines[info].match("REGION=EUU ")){
 			if (gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Earthworm")||gTitle.match("Gex")||gTitle.match("GT 64")||gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("Magical")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Ready")||gTitle.match("Robotron")||gTitle.match("2049")||gTitle.match("Rush 2 Extreme")||gTitle.match("Silicon")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wetrix")||gTitle.match("Wipeout")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
@@ -1150,7 +1155,7 @@ myCount = 0;
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 		} else if (lines[info].match("REGION=DV1 ")||lines[info].match("REGION=DV2 ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/D/'+gTitle+' D.jpg"');
-		
+				
 		} else if (lines[info].match("REGION=IQUE ")){
 			document.getElementById(coverFlow[i]).style.width = "100px"; document.getElementById(coverFlow[i]).style.left = "80px";
 			//Fix for jpg thumbs with no transparency
@@ -1160,14 +1165,10 @@ myCount = 0;
 			
 			if (gTitle.includes("Console")||gTitle.includes("Smoke Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
-			
 			} else if (gTitle.includes("and White")){ // bespoke fix..why
 				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
-			
-			
 			} else if (gTitle.includes("Pikachu Edition")){ // bespoke fix..why
-				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "7px";
-			
+				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "7px";		
 			} else {
 				document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
 			}			
@@ -1183,17 +1184,19 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
 			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+		
 		} else if (lines[info].match("REGION=SCN ")){
 		
 			if (gTitle.includes("Battle Set")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
-			}
+			} 
 		
-			if (gTitle == "FIFA 99"||gTitle == "Forsaken"){	
+			if (gTitle == "FIFA 99"||gTitle == "Forsaken"||gTitle == "Mission Impossible"){	
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
+			
 		} else if (lines[info].match("REGION=S ")||lines[info].match("REGION=SV1 ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 		} else if (lines[info].match("REGION=SED ")){
@@ -1225,9 +1228,8 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCA/'+gTitle+' PCA.jpg"');
 			}
 				
-			
-		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")){
-			if (gTitle.match("Forsaken")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
+		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")||lines[info].match("REGION=SCN1 ")){
+			if (gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else if (gTitle.match("Tony")) {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/EUU/'+gTitle+' EUU.jpg"');
@@ -1267,7 +1269,7 @@ var cartValue, boxValue, sealedValue;
 var gcounter;
 function reply_click(clicked_id){
 	gcounter = 0;
-	const regions = ["A","AV1","AV2","AV3","AV4","AS","ALTA","ALTB","ALTD","ALTE","ALTJ","ALTN","ALTU","BR","BRB","BRS","CAN","CH","D","DV1","DV2","DD","E","EV1","EV2","EV3","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","JS","JV1","JV2","JV3","KO", "ALTK","LRG","LRGC","LRGS","MSA","NFR","PCA","PCD","PCE","PCF","PCH","PCI","PCU","S","SV1","SCN","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV","UK1","UK2","UV1","UV2","UV3"];
+	const regions = ["A","AV1","AV2","AV3","AV4","AS","ALTA","ALTB","ALTD","ALTE","ALTJ","ALTN","ALTU","BR","BRB","BRS","CAN","CH","D","DV1","DV2","DD","E","EV1","EV2","EV3","EUU","F","FAH","FRG","HK","HOL","I","IQUE","J","JS","JV1","JV2","JV3","KO", "ALTK","LRG","LRGC","LRGS","MSA","NFR","PCA","PCD","PCE","PCF","PCH","PCI","PCU","S","SV1","SCN","SCN1","SEA","SED","SEE","SEU","SEJ","SEO","TW","U","UKV","UK1","UK2","UV1","UV2","UV3"];
 	const things = ["cartridge","boxed","manual","sealed"];
 	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 A","Pokemon Stadium 2 BR","Pokemon Stadium 2 D","Pokemon Stadium 2 E","Pokemon Stadium 2 F","Pokemon Stadium 2 I","Pokemon Stadium 2 S","Pokemon Stadium 2 U","Pokemon Stadium 2 NFR","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
 	firstCount = myCollectionList.flat().filter(x => x.match(/cartridge|boxed|manual|sealed|Paid/gi)).length; //maybe hash it?
@@ -1448,7 +1450,7 @@ function reply_click(clicked_id){
 	gameRegions = "limited quantities as a Limited Run Games Premium Edition";
 	} else if (gameRegions.match("LRG")){
 	gameRegions = "limited quantities via Limited Run Games";
-	} else if (gameRegions.match("SCN")){
+	} else if (gameRegions.match("SCN")||gameRegions.match("SCN1")){
 	gameRegions = "Scandinavia (PAL)";
 	} else if (gameRegions.match("S")||gameRegions.match("SV1")){
 	gameRegions = "Spain (PAL)";
@@ -1504,6 +1506,8 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").src = 'Backs/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
 	} else if (gFeatures.includes("EUR box")){
 		document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+	} else if (gFeatures.includes("ESP back")){
+		document.getElementById("thumbBB").src = 'Backs/S/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'S.png';
 	} else if (gFeatures.includes("FAH box")){
 		document.getElementById("thumbBB").src = 'Backs/FAH/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'FAH.png';
 	} else if (gFeatures.includes("AUS back")){
@@ -1559,13 +1563,18 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/EUU1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU1.png';	
 	} else if (gFeatures.includes("EUU manual")){
 		document.getElementById("thumbMA").src = 'Manuals/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
+	} else if (gFeatures.includes("ESP manual")){
+		document.getElementById("thumbMA").src = 'Manuals/S/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'S.png';
 	} else if (gFeatures.includes("FRA manual")){
 		document.getElementById("thumbMA").src = 'Manuals/F/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'F.png';
 	} else if (gFeatures.includes("FAH manual")){
 		document.getElementById("thumbMA").src = 'Manuals/FAH/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'FAH.png';
 	} else if (gFeatures.includes("ITA manual")){
 		document.getElementById("thumbMA").src = 'Manuals/I/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'I.png';
-	
+	} else if (gFeatures.includes("SCN1 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/SCN1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SCN1.png';
+	} else if (gFeatures.includes("SCN1 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/SCN/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SCN.png';
 	} else if (gFeatures.includes("AUS manual")){
 		document.getElementById("thumbMA").src = 'Manuals/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 	} else if (gFeatures.includes("AV1 manual")){
@@ -1580,7 +1589,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';	
 	} else if (gFeatures.includes("USA manual")){
 		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-	} else if (gFeatures.includes("UV1 manual")){
+	} else if (gFeatures.includes("UV1 manual")){ //not working for MI UV1?
 		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';	
 	} else if (gFeatures.includes("UV2 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/UV2/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV2.png';
@@ -1673,7 +1682,11 @@ function reply_click(clicked_id){
 	} else if (gCode.includes("EUU")){
 		document.getElementById("thumbRC").src = 'Carts/EUU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EUU.png';
 	} else if (gCode.includes("EUB")) {
-		document.getElementById("thumbRC").src = 'Carts/ALTE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTE.png';
+		document.getElementById("thumbRC").src = 'Carts/ALTE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTE.png';	
+	} else if (gCode.includes("ESP")) {
+		document.getElementById("thumbRC").src = 'Carts/S/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'S.png';
+	} else if (gCode.includes("SCN")) {
+		document.getElementById("thumbRC").src = 'Carts/SCN/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SCN.png';
 	} else if (gCode.includes("AUS-1")){
 		document.getElementById("thumbRC").src = 'Carts/PCA/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCA.png';
 	} else if (gCode.includes("AUS")){
@@ -1720,21 +1733,25 @@ function reply_click(clicked_id){
 	}
 		
 	} else if (gCode.includes("USA")) {
-		if (gFeatures.includes("Grey cart")){//color cart fix
+		if (gFeatures.includes("Grey cart")){//colour cart fix
 			document.getElementById("thumbRC").src = 'Carts/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';	
 		} else if (pReg === "NFR") {
 			document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
 		} else if (pReg === "ALTN") {
-		
 			document.getElementById("thumbRC").src = 'Carts/ALTN/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTN.png';
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+			//document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png'; // commented out as a temp fix for UV1 Mission Impossible
 		}
 	} else if (pReg === "UV1"||pReg === "UV2") {
-		document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		if (gTitle.match("Mission Impossible")){//bespoke fix
+			document.getElementById("thumbMA").src = 'Manuals/UV1/'+gTitle+' UV1.png';
+		} else {
+			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		}
+		
 	} else if (pReg === "BRB" || pReg === "BRS" || pReg === "ALTB"){
 		document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 		document.getElementById("thumbBB").src = 'Backs/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
@@ -3265,6 +3282,7 @@ function cConvert() {
 			//getBaseCur();
 		});		
 }
+//Price look up using CEX API, requires ALL barcode info for all games (restricted to PAL region games)
 //https://wss2.cex.uk.webuy.io/v3/boxes/045496870249A/detail //1080 boxed+mint (add A to barcode)
 //https://wss2.cex.uk.webuy.io/v3/boxes/045496870249B/detail //1080 boxed-manual (add B to barcode)
 //https://wss2.cex.uk.webuy.io/v3/boxes/045496870249AB/detail //1080 boxed+manual (add AB to barcode)
@@ -3300,6 +3318,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.1-1.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.1-3.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
