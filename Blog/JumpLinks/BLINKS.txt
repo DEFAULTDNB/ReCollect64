@@ -266,3 +266,4 @@ Blog/Features/2025/Misc/b264.html
 Blog/Features/2026/Misc/b265.html
 Blog/Features/2026/Misc/b266.html
 Blog/Features/2026/Misc/b267.html
+Blog/Features/2026/SW64/b268.html
