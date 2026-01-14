@@ -651,12 +651,43 @@ button {
 }
 /* buttons */
 .padbut {
-display:inline-block;
-vertical-align:middle;
-width:30px;
-margin-left: 5px;
-margin-right: 5px;
+	display:inline-block;
+	vertical-align:middle;
+	width:30px;
+	margin-left: 5px;
+	margin-right: 5px;
 }
+
+.containerRP {
+	display: grid;
+	grid-template-columns: 90% 10%;
+	gap: 3px;
+}
+.containerRP div {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.Dicon {
+	background-color: #f1f1f1;
+	color: black;
+	font-size: 20px;
+	border-radius: 10px;
+}
+.Dicon:hover {
+	background-image: linear-gradient(to bottom, darkviolet, darkmagenta);
+	color: white;
+	cursor: pointer;
+}
+.RDicon:hover {
+	-webkit-filter: drop-shadow(4px 4px 4px black);
+	filter: drop-shadow(4px 4px 4px black);
+	cursor: pointer;
+	border-radius: 10px;
+
+}
+
 /* if screen is < 800px wide columns stack */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {
