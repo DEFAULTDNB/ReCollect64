@@ -1726,11 +1726,21 @@ function reply_click(clicked_id){
 	if (frametitle.innerHTML === "Mario Golf ALTU"){
 		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 	
-	
+	} else if (frametitle.innerHTML === "Mortal Kombat Trilogy UV1"||frametitle.innerHTML === "Mortal Kombat Trilogy UV2"){
+		document.getElementById("thumbRC").src = 'Carts/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+
 	} else {
 		document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 		document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 	}
+	
+	} else if (gCode.includes("USA-2")) { //MK:Trilogy UV2 - need clarification of this rev
+		document.getElementById("thumbRC").src = 'Carts/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	
 		
 	} else if (gCode.includes("USA")) {
 		if (gFeatures.includes("Grey cart")){//colour cart fix
@@ -1743,9 +1753,10 @@ function reply_click(clicked_id){
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			//document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png'; // commented out as a temp fix for UV1 Mission Impossible
 		}
+		
 	} else if (pReg === "UV1"||pReg === "UV2") {
 		if (gTitle.match("Mission Impossible")){//bespoke fix
-			document.getElementById("thumbMA").src = 'Manuals/UV1/'+gTitle+' UV1.png';
+			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
@@ -1763,6 +1774,10 @@ function reply_click(clicked_id){
 	//BESPOKE GAME FIXES\\
 	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
 		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
+	} else if (frametitle.innerHTML === "Monaco Grand Prix Racing Simulation 2 FAH"){
+		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
+
+	
 	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
 		document.getElementById("thumbBB").src = 'Backs/SEJ/Densha de Go! 64 Engineers Pak SEJ.png';//Alternate title.
 		document.getElementById("thumbRC").src = 'Carts/J/Densha de Go! 64 J.png';//Alternate title.
@@ -2551,7 +2566,7 @@ function search(str) {
 		if (strFound) TRange.select();
 		}
 	} else if (navigator.appName=="Opera") {
-	alert ("Opera browsers not supported.")
+	alert ("Opera browser not supported.")
 	return;
 	}	
 	return;
