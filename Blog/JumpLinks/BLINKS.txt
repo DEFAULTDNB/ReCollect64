@@ -269,3 +269,4 @@ Blog/Features/2026/Misc/b267.html
 Blog/Features/2026/SW64/b268.html
 Blog/Features/2026/Misc/b269.html
 Blog/Features/2026/Misc/b270.html
+Blog/Features/2026/OOTFBLego/b271.html
