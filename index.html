@@ -1130,11 +1130,10 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
 			}
 			
-			
 		} else if (lines[info].match("REGION=I ")){
 			if (gTitle.match("Turok Rage Wars")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/S/'+gTitle+' S.jpg"');
-			} else if (gTitle.match("Twisted Edge")||gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("World Cup 98")){
+			} else if (gTitle.match("Twisted Edge")||gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("World Cup 98")||gTitle.match("Worms Armageddon")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
@@ -1227,15 +1226,17 @@ myCount = 0;
 			} else if (gTitle == "Mario Kart 64"){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCA/'+gTitle+' PCA.jpg"');
 			}
-				
+		
+		//blanket fix for odd regions\\
 		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")||lines[info].match("REGION=SCN1 ")){
-			if (gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
+			if (gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("NFL Quarterback Club 2000")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else if (gTitle.match("Tony")) {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/EUU/'+gTitle+' EUU.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
+		//^ blanket fix end ^\\
 		} else if (lines[info].match("REGION=U ")){
 			if (gTitle.match("Remute")){ //bespoke fix
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
@@ -1593,8 +1594,6 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';	
 	} else if (gFeatures.includes("UV2 manual")){
 		document.getElementById("thumbMA").src = 'Manuals/UV2/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV2.png';
-
-
 	} else if (gFeatures.includes("JPN manual")){
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 	} else if (gFeatures.includes("ASM manual")){
@@ -1723,18 +1722,18 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 	
 	} else if (gCode.includes("USA-1")) {
-	if (frametitle.innerHTML === "Mario Golf ALTU"){
-		document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-	
-	} else if (frametitle.innerHTML === "Mortal Kombat Trilogy UV1"||frametitle.innerHTML === "Mortal Kombat Trilogy UV2"){
-		document.getElementById("thumbRC").src = 'Carts/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
-		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
-		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		if (frametitle.innerHTML === "Mario Golf ALTU"){
+			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		
+		} else if (frametitle.innerHTML === "Mortal Kombat Trilogy UV1"||frametitle.innerHTML === "Mortal Kombat Trilogy UV2"){
+			document.getElementById("thumbRC").src = 'Carts/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 
-	} else {
-		document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
-		document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
-	}
+		} else {
+			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+			document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+		}
 	
 	} else if (gCode.includes("USA-2")) { //MK:Trilogy UV2 - need clarification of this rev
 		document.getElementById("thumbRC").src = 'Carts/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
@@ -2180,6 +2179,8 @@ function reply_click(clicked_id){
 					simgBox.appendChild(simg);
 					gcounter = gcounter + 1;
 				}
+			} else {
+			gcounter = 0; //Don't populate anything = no need to erase anything.
 			}
 		});
 	}
@@ -2617,7 +2618,7 @@ document.getElementById("imgzoom").src = document.getElementById(clicked_id).src
 			thumbCarousel.push("thumbG"+g); //working
 		}
 		pos = thumbCarousel.indexOf(clicked_id);
-	}	
+	}
 }
 //USE AFTER RELOAD LOCATION\\
 window.onload = function () {
@@ -3333,6 +3334,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.1-4.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.1-5.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
