@@ -1182,12 +1182,18 @@ myCount = 0;
 		} else if (lines[info].match("REGION=LRGS ")){
 			document.getElementById(coverFlow[i]).style.width = "140px"; document.getElementById(coverFlow[i]).style.left = "50px";
 		} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
+			
 			if (gTitle.match("Doshin")){ //bespoke fix	
 				document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "25px";
 			} else {
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
-			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+			
+			if (gTitle.match("Star Wars Shadows of the Empire")){ //BESPOKE SOTE AUS USA CART NFR - has a rear label image.
+				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/U/Star Wars Shadows of the Empire U.png");
+			} else {
+				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+			}
 		
 		} else if (lines[info].match("REGION=SCN ")){
 		
@@ -3339,6 +3345,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.1-6.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.1-7.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
