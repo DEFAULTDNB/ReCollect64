@@ -1181,6 +1181,7 @@ myCount = 0;
 			document.getElementById(coverFlow[i]).style.width = "120px"; document.getElementById(coverFlow[i]).style.left = "60px";
 		} else if (lines[info].match("REGION=LRGS ")){
 			document.getElementById(coverFlow[i]).style.width = "140px"; document.getElementById(coverFlow[i]).style.left = "50px";
+		
 		} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
 			
 			if (gTitle.match("Doshin")){ //bespoke fix	
@@ -1621,70 +1622,66 @@ function reply_click(clicked_id){
 
 	//BESPOKE FIXES PER REGION\\
 	if (pReg === "A"){
-	
-	} else if (pReg === "AV1"){
-
+		} else if (pReg === "AV1"){
 		//document.getElementById("thumbRC").src = 'Carts/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 		document.getElementById("thumb").src = 'Covers/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
 		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
-		
 	} else if (pReg === "IQUE") {
-	
-	let convertiquetopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers");
-	document.getElementById('grid-container').style.backgroundImage = 'url('+convertiquetopng+')';//Fix for JPG>PNG + IQUE
-	document.getElementById("thumb").style.height = "auto";
-	document.getElementById("thumb").style.width = "30%";	
-	thumb.src = convertiquetopng;
-	
-	document.getElementById("thumbBB").style.height = "auto";
-	document.getElementById("thumbBB").style.width = "30%";
-	
+		let convertiquetopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers");
+		document.getElementById('grid-container').style.backgroundImage = 'url('+convertiquetopng+')';//Fix for JPG>PNG + IQUE
+		document.getElementById("thumb").style.height = "auto";
+		document.getElementById("thumb").style.width = "30%";	
+		thumb.src = convertiquetopng;
+		document.getElementById("thumbBB").style.height = "auto";
+		document.getElementById("thumbBB").style.width = "30%";
 	} else if (pReg === "SEA") {
-		
 		if (frametitle.innerHTML === "Perfect Dark Expanded Edition SEA" || frametitle.innerHTML === "F-1 Racer Double Play SEA" || frametitle.innerHTML === "Star Wars Double Play SEA"){
 			document.getElementById("thumb").style.height = "auto";
 			document.getElementById("thumb").style.width = "48%";
 			document.getElementById("thumbBB").style.height = "auto";
 			document.getElementById("thumbBB").style.width = "48%";
-			
 			document.getElementById("description").innerHTML = "This is a limited edition bundle exclusive to Australia.<br><br>Double Play/Extended Editions contain two boxes, either two games, or a game and an expansion pak."
 		}
-		
 	} else if (pReg === "NFR" || pReg === "ALTN") {
 	
-	let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
-	document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
-	
-	document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
-	//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
-		if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //Fixed again
-		document.getElementById("thumb").style.height = "auto"
-		document.getElementById("thumb").style.width = "48%"
-		//thumb.src = 'Carts/ALTN/Turok 2 Seeds of Evil ALTN.png';
-		thumb.src = convertnfrtopng;
-		} else if (frametitle.innerHTML === "Doshin the Giant NFR"){
-		document.getElementById("thumb").style.width = "0px"
-		document.getElementById("thumbDI").style.width = "0px"
+		let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
+		document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
+		
+		document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
+		//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
+			if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //Fixed again
+			document.getElementById("thumb").style.height = "auto"
+			document.getElementById("thumb").style.width = "48%"
+			//thumb.src = 'Carts/ALTN/Turok 2 Seeds of Evil ALTN.png';
+			thumb.src = convertnfrtopng;
+			} else if (frametitle.innerHTML === "Doshin the Giant NFR"){
+			document.getElementById("thumb").style.width = "0px"
+			document.getElementById("thumbDI").style.width = "0px"
+			} else {
+			document.getElementById("thumb").style.width = "0px"
+			}
 		} else {
-		document.getElementById("thumb").style.width = "0px"
+			if (pReg.includes("J") || pReg.includes("JS")){ //Portrait box fix
+			document.getElementById("thumb").style.height = "auto"
+			document.getElementById("thumb").style.width = "48%"
+			document.getElementById("thumbBB").style.height = "auto"
+			document.getElementById("thumbBB").style.width = "48%"
+			} else { //Revert to landscape			
+			document.getElementById("thumb").style.height = "auto"
+			document.getElementById("thumb").style.width = "48%"
+			document.getElementById("thumbBB").style.height = "auto"
+			document.getElementById("thumbBB").style.width = "48%"
+			}
+		
 		}
-	} else {
-		if (pReg.includes("J") || pReg.includes("JS")){ //Portrait box fix
-		document.getElementById("thumb").style.height = "auto"
-		document.getElementById("thumb").style.width = "48%"
-		document.getElementById("thumbBB").style.height = "auto"
-		document.getElementById("thumbBB").style.width = "48%"
-		} else { //Revert to landscape
-		document.getElementById("thumb").style.height = "auto"
-		document.getElementById("thumb").style.width = "48%"
-		document.getElementById("thumbBB").style.height = "auto"
-		document.getElementById("thumbBB").style.width = "48%"
-		}
-	}
-	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
-	document.getElementById("thumbRC").style.width = "48%";
-	document.getElementById("thumbRC").style.height = "auto";
-	
+		//Switch cart into thumb slot temporarily:
+		document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
+		document.getElementById("thumbRC").style.width = "48%";
+		document.getElementById("thumbRC").style.height = "auto";
+		//Fix for NFR hide:
+		document.getElementById("thumb").style.width = "48%";
+		document.getElementById("thumb").style.height = "auto";
+			
 	//Check NUS ID for CARTRIDGE region ie NUS-XXXX-EUR
 
 	if (gCode.includes("UKV")){
@@ -1735,27 +1732,23 @@ function reply_click(clicked_id){
 		}
 		document.getElementById("thumbBB").src = 'Backs/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
-	
 	} else if (gCode.includes("USA-1")) {
 		if (frametitle.innerHTML === "Mario Golf ALTU"){
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-		
+		} else if (frametitle.innerHTML === "Pokemon Snap PCU"){
+			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		} else if (frametitle.innerHTML === "Mortal Kombat Trilogy UV1"||frametitle.innerHTML === "Mortal Kombat Trilogy UV2"){
 			document.getElementById("thumbRC").src = 'Carts/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
 			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
 			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 			document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 		}
-	
 	} else if (gCode.includes("USA-2")) { //MK:Trilogy UV2 - need clarification of this rev
 		document.getElementById("thumbRC").src = 'Carts/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
 		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
 		document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-	
-		
 	} else if (gCode.includes("USA")) {
 		if (gFeatures.includes("Grey cart")){//colour cart fix
 			document.getElementById("thumbRC").src = 'Carts/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';	
@@ -3349,6 +3342,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-1.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-2.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
