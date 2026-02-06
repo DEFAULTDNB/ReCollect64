@@ -657,7 +657,6 @@ button {
 	margin-left: 5px;
 	margin-right: 5px;
 }
-
 .containerRP {
 	display: grid;
 	grid-template-columns: 90% 10%;
@@ -681,11 +680,9 @@ button {
 	cursor: pointer;
 }
 .RDicon:hover {
-	-webkit-filter: drop-shadow(4px 4px 4px black);
-	filter: drop-shadow(4px 4px 4px black);
 	cursor: pointer;
+	box-shadow: -0px 0px 0px 3px DarkViolet;
 	border-radius: 10px;
-
 }
 
 /* if screen is < 800px wide columns stack */
