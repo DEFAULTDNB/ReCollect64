@@ -1642,6 +1642,13 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").style.width = "48%";
 			document.getElementById("description").innerHTML = "This is a limited edition bundle exclusive to Australia.<br><br>Double Play/Extended Editions contain two boxes, either two games, or a game and an expansion pak."
 		}
+		
+	
+	} else if (pReg === "DD") {
+		if (frametitle.innerHTML === "Randnet (Blue Sticker) DD"){
+		document.getElementById("thumbMA").src = "Manuals/DD/Randnet DD.png";
+		}
+	
 	} else if (pReg === "NFR" || pReg === "ALTN") {
 	
 		let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
@@ -2536,6 +2543,8 @@ function search(str) {
 	var strFound;
 	if (document.getElementById("searcher").value.match(/gasp/gi)){
 	str = "G.A.S.P";
+	} else 	if (document.getElementById("searcher").value.match(/quake 2/gi)){
+	str = "QUAKE II";
 	} else if (document.getElementById("searcher").value.match(/scars/gi)){
 	str = "S.C.A.R.S";
 	} else if (document.getElementById("searcher").value.match(/bio freaks|freaks/gi)){
@@ -3342,6 +3351,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-3.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-4.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
