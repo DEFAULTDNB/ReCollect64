@@ -1394,6 +1394,7 @@ function reply_click(clicked_id){
 		} else {
 		altName = "";
 		}
+		//alert(altName);
 	let cartColour = "";
 		if (lines[clicked_id-1].match(/\[(.*?)\]/)){
 		cartColour = "<br>COLORED CART: " + lines[clicked_id-1].slice( (lines[clicked_id-1].indexOf("[")+1), (lines[clicked_id-1].indexOf("]")));
@@ -2317,7 +2318,7 @@ function reply_click(clicked_id){
 		[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.style.color = 'red';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗼𝗿𝗲 𝘁𝗵𝗮𝗻 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲 𝗳𝗼𝗿 𝗰𝗮𝗿𝘁 𝗼𝗻𝗹𝘆';});
 		} else {
 		[...document.getElementsByClassName('cPaid')].forEach((ele)=>{ele.style.color = 'green';ele.title = '𝗣𝗮𝗶𝗱 𝗺𝗮𝗿𝗸𝗲𝘁 𝘃𝗮𝗹𝘂𝗲 𝗼𝗿 𝗹𝗲𝘀𝘀 𝗳𝗼𝗿 𝗰𝗮𝗿𝘁 𝗼𝗻𝗹𝘆';});
-		} //WORING - CART ONLY
+		} //WORKING - CART ONLY
 	}
 	if (!myCollectionList[h][v]){
 	[...document.getElementsByClassName('bPaid')].forEach((ele)=>{ele.innerHTML = "";});
@@ -2682,6 +2683,9 @@ document.getElementById("imgzoom").src = document.getElementById(clicked_id).src
 }
 //USE AFTER RELOAD LOCATION\\
 window.onload = function () {
+
+	//TO DO: fix start button displaying on ALL after reload
+	
 	//After reload, grab currencies.
 	var reloading = sessionStorage.getItem("reloading");
     if (reloading) {
@@ -2857,7 +2861,7 @@ function PrintElem(elem){
 	}
 }
 function nsoInfo() {
-window.open("https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Nintendo-64-Nintendo-Switch-Online-2067751.html");
+	window.open("https://www.nintendo.co.uk/Games/Nintendo-Switch-download-software/Nintendo-64-Nintendo-Switch-Online-2067751.html");
 }
 let curString = gMoney+gMoney+gMoney+"."+gMoney+gMoney;
 function cMoney() {
@@ -3065,12 +3069,12 @@ function quickAddRemove() {
 	}
 }
 function hideOverlay() {
-document.getElementsByClassName("stop")[0].style.display = 'none';
-document.getElementsByClassName("addAll")[0].style.display = 'none';
-document.getElementById("overlay").style.display = "none";
-document.body.style.overflow = "auto";
-populatethepage();
-roundUp();
+	document.getElementsByClassName("stop")[0].style.display = 'none';
+	document.getElementsByClassName("addAll")[0].style.display = 'none';
+	document.getElementById("overlay").style.display = "none";
+	document.body.style.overflow = "auto";
+	populatethepage();
+	roundUp();
 }
 function hideMyToasts() {
 	document.querySelectorAll('.PopStyle').forEach(function(el) {
@@ -3177,10 +3181,10 @@ let regFix = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1,
 	}
 }
 function letsDance(){
-window.open("blog.html");
+	window.open("blog.html");
 }
 function dlGuide() {
-window.open(document.getElementById("thumbG"+(guideNumber+1)).getAttribute('data')); //WORKING!
+	window.open(document.getElementById("thumbG"+(guideNumber+1)).getAttribute('data')); //WORKING!
 }
 var nVarGot = [];
 var nVarNot = [];
@@ -3394,6 +3398,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-6.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-7.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
