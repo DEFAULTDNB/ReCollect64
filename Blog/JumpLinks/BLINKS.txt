@@ -284,3 +284,4 @@ Blog/Features/2026/Misc/b282.html
 Blog/Features/2026/KurkoinsTease/b283.html
 Blog/Features/2026/Pyrite64/b284.html
 Blog/Features/2026/Misc/b285.html
+Blog/Features/2026/Misc/b286.html
