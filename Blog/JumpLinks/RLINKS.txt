@@ -92,3 +92,4 @@ Blog/Reviews/A3DCONSOLE/r90.html
 Blog/Reviews/Games/MUMBOMANIA/r91.html
 Blog/Reviews/Games/DEZAEMON3D/r92.html
 Blog/Reviews/Games/VIEWPOINT2064/r93.html
+Blog/Reviews/Games/BANGAIOH/r94.html
