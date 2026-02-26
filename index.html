@@ -2154,17 +2154,30 @@ function reply_click(clicked_id){
 	let guideLinks = 'Guides/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'Links.txt';
     document.getElementById("guideFrame").src = guideLinks;
 	const simgBox = document.getElementById("art");
-	const elements = document.getElementsByClassName("thumbs2");
+	
+	//CLEARS GUIDES\\
+	
+	/*
+		const elements = document.getElementsByClassName("thumbs2");
 		while(elements.length > 0){
 			elements[0].parentNode.removeChild(elements[0]); //Clear previously populated image elements
 		}
+	*/
+	var removables = ['thumbG1','thumbG2','thumbG3','thumbG4','thumbG5','thumbG6',];//add more when needed.
+	for (var i = 0; i < removables.length; i++) {
+		var element = document.getElementById(removables[i]);
+		if (element) { 
+		element.parentNode.removeChild(element);
+	}
+}
+	/////////\\\\\\\\\
 	document.getElementById("guideFrame").onload = function() {
 		fetch(guideLinks)
 		.then(response => {
 			return response.text();
 		})
 		.then(data => {
-			guideLineNo = data.split("\n");
+			guideLineNo = data.split("\n");			
 			if (data) {
 				for (let m = 1; m < guideLineNo.length+1; m++){
 					const simg = document.createElement("img");
@@ -2183,7 +2196,7 @@ function reply_click(clicked_id){
 					gcounter = gcounter + 1;
 				}
 			} else {
-			gcounter = 0; //Don't populate anything = no need to erase anything.
+			gcounter = 0; //Don't populate anything = no need to erase anything: NOT WORKING
 			}
 		});
 	}
@@ -3325,6 +3338,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-15.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-16.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
