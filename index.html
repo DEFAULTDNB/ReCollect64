@@ -81,6 +81,7 @@
 <div id="health"><img id="healthbar" src="Config/Images/HEALTH.png" /></div>
 <div id="combo"><img id="combobreaker" src="Config/Images/COMBO.png" /></div>
 <div id="jiggy"><img id="jiggymask" src="Config/Images/JIGGY.png" /></div>
+<div id="mbrasil"><img id="mbrasilian" src="Config/Images/MBrasil.png" /></div>
 <center>
 <span>
 <img id="list" title="𝗟𝗶𝘀𝘁 𝗡𝗲𝗲𝗱𝗲𝗱 𝗧𝗶𝘁𝗹𝗲𝘀" onclick="PrintElem();" src="Config/Images/LBUT.png" />
@@ -102,7 +103,7 @@
 <optgroup label="Cart Variants:">
 	<option value="ASI" title="𝗔𝘀𝗶𝗮𝗻">🇹🇼 🌏 ASI</option>
 	<option value="AUS" title="𝗔𝘂𝘀𝘁𝗿𝗮𝗹𝗶𝗮𝗻">🇦🇺 🌏 AUS</option>
-	<option value="BRA" title="𝗕𝗿𝗮𝘇𝗶𝗹𝗶𝗮𝗻">🇧🇷 🌎 BRA</option>
+	<option value="BRA" title="𝗕𝗿𝗮𝘀𝗶𝗹𝗶𝗮𝗻">🇧🇷 🌎 BRA</option>
 	<option value="CAN" title="𝗖𝗮𝗻𝗮𝗱𝗶𝗮𝗻">🇨🇦 🌎 CAN</option>
 	<option value="ESP" title="𝗦𝗽𝗮𝗻𝗶𝘀𝗵">🇪🇸 🌍 ESP</option>	
 	<option value="EUR" title="𝗡𝗼𝗿𝘁𝗵𝗲𝗿𝗻 𝗘𝘂𝗿𝗼𝗽𝗲">🇪🇺 🌍 EUR</option>
@@ -129,7 +130,7 @@
 	<option value="COLA" title="𝗔𝗹𝗹 𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁𝘀">🎨🌎 ALL</option>
 	<option value="GREY" title="𝗚𝗿𝗲𝘆 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀">🎨🌎 GREY</option>
 	<option value="NFR" title="𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲">‍🚫🌎 NFR</option>
-	<option value="JS" title="𝗝𝗣𝗡 𝗦𝗮𝗺𝗽𝗹𝗲𝘀">🚫🌏 JS</option>
+	<option value="JS" title="𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀">🚫🌏 JS</option>
 	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗 𝗗𝗶𝘀𝗸𝘀">🇯🇵 🌏 64DD</option>
 	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻">🇨🇳 🌏 IQUE</option>	
 	<option value="LRG" title="𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀">‍🛑🌎 LRG</option>
@@ -809,6 +810,7 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 	if (document.getElementById("Region").value == "USAX") {var myToast = Toastify({className: "PopStyle", text: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to America.", style: {background: 'MediumBlue', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "PCX") {var myToast = Toastify({className: "PopStyle", text: "𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲:\n\nMillion Seller/Players Choice variants.", style: {background: 'black', color: "white"}, avatar: "Config/Images/PCU.png", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "JS") {var myToast = Toastify({className: "PopStyle", text: "𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀:\n\nJapanese store demos.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/Sample.png", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "BRA") {var myToast = Toastify({className: "PopStyle", text: "𝗕𝗿𝗮𝘇𝗶𝗹𝗶𝗮𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nPlaytronic/Gradiente releases.", style: {background: '#009C3B ', color: "#FEDF00"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast(); document.getElementById('mbrasil').style.animation="mbrasilfade 2.5s ease-in"; document.getElementById('mbrasil').addEventListener("animationend", (e) => e.target.style.animation = '');}
 	
 	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: "HARDWARE\n\nTESTING.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 }
@@ -1244,7 +1246,7 @@ myCount = 0;
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
 			
-			if (gTitle == "FIFA 98 Road to World Cup"){
+			if (gTitle == "FIFA 98 Road to World Cup"||gTitle == "Super Mario 64"){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			}
 			
@@ -1565,7 +1567,9 @@ function reply_click(clicked_id){
 	} else if (gFeatures.includes("UKV manual")){
 		document.getElementById("thumbMA").src = 'Manuals/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
 	} else if (gFeatures.includes("NUK4 manual")){
-		document.getElementById("thumbMA").src = 'Manuals/NUK4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NUK4.png';
+		document.getElementById("thumbMA").src = 'Manuals/NUK4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NUK4.png';	
+	} else if (gFeatures.includes("UK4 manual")){
+		document.getElementById("thumbMA").src = 'Manuals/UK4/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UK4.png';
 	} else if (gFeatures.includes("EUR manual")){
 		document.getElementById("thumbMA").src = 'Manuals/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 	} else if (gFeatures.includes("NEXP manual")){
@@ -1804,6 +1808,8 @@ function reply_click(clicked_id){
 		}
 		document.getElementById("thumbBB").src = 'Backs/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
 		document.getElementById("thumbMA").src = 'Manuals/J/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'J.png';
+	
+	
 	} else if (gCode.includes("USA-1")) {
 		if (frametitle.innerHTML === "Mario Golf ALTU"){
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
@@ -1840,12 +1846,12 @@ function reply_click(clicked_id){
 			document.getElementById("thumbRC").src = 'Carts/ALTN/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTN.png';
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-			//document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png'; // commented out as a temp fix for UV1 Mission Impossible
 		}
 		
 	} else if (pReg === "UV1"||pReg === "UV2") {
 		if (gTitle.match("Mission Impossible")){//bespoke fix
 			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+		
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
@@ -1865,8 +1871,6 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
 	} else if (frametitle.innerHTML === "Monaco Grand Prix Racing Simulation 2 FAH"){
 		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
-
-	
 	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
 		document.getElementById("thumbBB").src = 'Backs/SEJ/Densha de Go! 64 Engineers Pak SEJ.png';//Alternate title.
 		document.getElementById("thumbRC").src = 'Carts/J/Densha de Go! 64 J.png';//Alternate title.
@@ -1880,7 +1884,7 @@ function reply_click(clicked_id){
 	} else if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTB"){
 		document.getElementById("thumbRC").src = 'Carts/ALTB/Turok 2 Seeds of Evil ALTB.png';	
 	} else if (frametitle.innerHTML === "Star Wars Shadows of the Empire BRS"){
-		document.getElementById("thumbRC").src = 'Carts/BRS/Star Wars Shadows of the Empire BRS.png';
+		document.getElementById("thumbRC").src = 'Carts/BRS/Star Wars Shadows of the Empire BRS.png';	
 	} else if (frametitle.innerHTML === "Super Mario 64 ALTB"){
 		document.getElementById("thumbRC").src = 'Carts/ALTB/Super Mario 64 ALTB.png';
 	} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time Edicao De Colecionador BRB"){
@@ -1929,7 +1933,6 @@ function reply_click(clicked_id){
 	} else if (frametitle.innerHTML === "Mario Kart 64 E PCU"){
 		document.getElementById("thumbMA").src = 'Manuals/UV2/Mario Kart 64 UV2.png';
 		document.getElementById("thumbRC").src = 'Carts/PCU/Mario Kart 64 E PCU.png';
-	
 
 	} else { //CLEAR ELEMENTS (can be performed at start of this function)
 		//document.getElementById("thumbMA").src = '';
@@ -3426,6 +3429,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-10.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-11.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
