@@ -393,10 +393,10 @@ select optgroup{
 	content: " Sealed ";
 }
 #nfrOwn::after {
-	content: " Cart ";
+	content: " Game ";
 }
 #altOwn::after {
-	content: " Cart ";
+	content: " Game ";
 }
 hr.type1 {
   border: 1px solid var(--light-tone);
@@ -1129,6 +1129,33 @@ input[type="checkbox"] {
   50% { transform: translate(-150px, -150px); }
   100% { transform: translate(0px, 0px); }
 }
+#CONSPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('Images/CONS.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	--height:35px;
+	width:35px;
+}
+#CPADPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('Images/CPAD.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
+#CARTPNG{
+	display:inline-block;
+	vertical-align:middle;
+	background:url('Images/CART.png');
+	background-size: contain;
+	background-repeat:no-repeat;
+	height:35px;
+	width:35px;
+}
 #BOXPNG{
 	display:inline-block;
 	vertical-align:middle;
@@ -1172,6 +1199,7 @@ input[type="checkbox"] {
 	width:35px;
 	-webkit-filter: invert(1);
    filter: invert(1);
+   padding-bottom: 2px;
 }
 #IQPNG{
 	display:inline-block;
