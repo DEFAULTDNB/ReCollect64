@@ -740,27 +740,38 @@ myCount = 0;
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/A/'+gTitle+' A.jpg"');
 			}
-		} else if (lines[info].match("REGION=BR ")) {
 			
+		} else if (lines[info].match("REGION=BR ")) {
 			if (gTitle.includes("Console")){ //CONSOLES bespoke fix //too general?
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');//cart fallback
-			}			
-		} else if (lines[info].match("REGION=PCU ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
-			if (gTitle.includes("Hyundai Comboy 64")){
-				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
+		} else if (lines[info].match("REGION=AS ")){
+			if (gTitle.includes(" Console")){
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+			}			
+		
 		} else if (lines[info].match("REGION=BRB ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
 			document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "35px";
 		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
-		} else if (lines[info].match("REGION=AS ")){
-			if (gTitle.includes(" Console")){
-				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+
+		} else if (lines[info].match("REGION=CAN ")){
+			if (gTitle.includes("Super Mario 64")){
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCU/'+gTitle+' E PCU.jpg"');
+			} else {
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
+
 			}
+
+		} else if (lines[info].match("REGION=PCU ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=ALTC ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
+			if (gTitle.includes("Hyundai Comboy 64")){
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+			}	
+			
 		} else if (lines[info].match("REGION=PCE1 ")||lines[info].match("REGION=PCE2 ")||lines[info].match("REGION=PCE3 ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCE/'+gTitle+' PCE.jpg"');
 		} else if (lines[info].match("REGION=PCD ")){
@@ -800,7 +811,9 @@ myCount = 0;
 		} else if (lines[info].match("REGION=IQUE ")){
 			document.getElementById(coverFlow[i]).style.width = "100px"; document.getElementById(coverFlow[i]).style.left = "80px";
 			//Fix to png for jpg thumbs transparency
-			document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");		
+			document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+			
+			
 		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/'+gTitle+' J.jpg"');
 			if (gTitle.includes("Console")||gTitle.includes("Smoke Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")){ //CONSOLES bespoke fix
@@ -814,6 +827,8 @@ myCount = 0;
 			}			
 		} else if (lines[info].match("REGION=LRGC ")){
 			document.getElementById(coverFlow[i]).style.width = "120px"; document.getElementById(coverFlow[i]).style.left = "60px";
+			document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+			
 		} else if (lines[info].match("REGION=LRGS ")){
 			document.getElementById(coverFlow[i]).style.width = "140px"; document.getElementById(coverFlow[i]).style.left = "50px";
 		} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
@@ -1399,7 +1414,12 @@ function reply_click(clicked_id){
 			document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 		}
 	} else if (gCode.includes("USA-2")) { 
-		if (frametitle.innerHTML === "Super Smash Bros PCU"){
+		if (frametitle.innerHTML === "Super Smash Bros CAN"){
+			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+		} else if (frametitle.innerHTML === "Super Mario 64 CAN"){
+			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E PCU.png';
+
+		} else if (frametitle.innerHTML === "Super Smash Bros PCU"){
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
@@ -1427,6 +1447,7 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
+		
 	} else if (pReg === "BRB" || pReg === "BRS" || pReg === "ALTB"){
 		document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 		document.getElementById("thumbBB").src = 'Backs/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
@@ -1517,6 +1538,11 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/UV1/Super Mario 64 UV1.png';
 		document.getElementById("thumbBB").src = 'Backs/PCU/Super Mario 64 KA PCU.png';
 		document.getElementById("thumbRC").src = 'Carts/PCU/Super Mario 64 KA PCU.png';
+		
+	} else if (frametitle.innerHTML === "Super Mario 64 CAN"){
+	
+			document.getElementById("thumbBB").src = 'Backs/PCU/Super Mario 64 KA PCU.png';
+
 		
 	} else { //CLEAR ELEMENTS (SHOULD be performed at START of this function)
 		//document.getElementById("thumbA1").src = '';
@@ -2983,6 +3009,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.2-20.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-1.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
