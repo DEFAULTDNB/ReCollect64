@@ -765,6 +765,13 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
 
 			}
+		} else if (lines[info].match("REGION=ALTC ")){
+			if (gTitle.includes("GoldenEye 007")){
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCU/'+gTitle+' PCU.jpg"');
+			} else {
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
+
+			}
 
 		} else if (lines[info].match("REGION=PCU ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=ALTC ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
@@ -1409,6 +1416,12 @@ function reply_click(clicked_id){
 			document.getElementById("thumbMA").src = 'Manuals/UV2/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV2.png';
 		} else if (frametitle.innerHTML === "Super Smash Bros ALTU"){
 			document.getElementById("thumbRC").src = 'Carts/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';
+		
+		} else if (frametitle.innerHTML === "GoldenEye 007 ALTC"){
+			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+			document.getElementById("thumbBB").src = 'Backs/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+			
+			
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 			document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
