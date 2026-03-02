@@ -866,7 +866,8 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/NFR/The Legend of Zelda Ocarina of Time NFR.png");
 			
 			} else {
-				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+				//document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 			}
 		} else if (lines[info].match("REGION=SCN ")){
 			if (gTitle.includes("Battle Set")){ //CONSOLES bespoke fix
@@ -1335,22 +1336,17 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").style.height = "auto";
 		document.getElementById("thumbBB").style.width = "48%";
 	} else if (pReg === "NFR" || pReg === "ALTN" || pReg === "ANFR"){
-		let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
-		document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
 		document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
-		//ISSUE: turok 2 ALTN not showing up in display, but BG image works fine... huh?
+		//ISSUE: Turok 2 ALTN not showing up in display, but BG image works fine... huh?
 			if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //Fixed again
 				document.getElementById("thumb").style.height = "auto"
 				document.getElementById("thumb").style.width = "48%"
-				//thumb.src = 'Carts/ALTN/Turok 2 Seeds of Evil ALTN.png';
-				thumb.src = convertnfrtopng;
 			} else if (frametitle.innerHTML === "Doshin the Giant NFR"){
-				document.getElementById("thumb").style.width = "0px"
-				document.getElementById("thumbDI").style.width = "0px"
-			
+				document.getElementById("thumb").src = "";
+				document.getElementById("thumbDI").src = "";
 			
 			} else {
-				document.getElementById("thumb").style.width = "0px"
+				document.getElementById("thumb").src = "";
 				//REVERT THIS BELOW.
 			}
 	} else if (pReg === "U"){
@@ -1384,12 +1380,7 @@ function reply_click(clicked_id){
 	
 	document.getElementById("thumbRC2").style.width = "48%";
 	document.getElementById("thumbRC2").style.height = "auto";
-	//Fix for NFR hide:
-	//document.getElementById("thumb").style.width = "48%";
-	//document.getElementById("thumb").style.height = "auto";
-	//document.getElementById("thumbBB").style.height = "auto"
-	//document.getElementById("thumbBB").style.width = "48%"
-	///////////////////////\\\\\\\\\\\\\\\\\\\\\\	
+
 	//Check NUS ID for CARTRIDGE region ie NUS-XXXX-EUR
 	if (gCode.includes("UKV")){
 		document.getElementById("thumbRC").src = 'Carts/UKV/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UKV.png';
@@ -1490,14 +1481,23 @@ function reply_click(clicked_id){
 			document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
 		} else if (pReg === "ALTN") {
 			document.getElementById("thumbRC").src = 'Carts/ALTN/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTN.png';
-		} else if (pReg === "ANFR") { //AUSTRALIAN NFR TEST FIX
-			document.getElementById("thumbBB").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
+		
+		//NOT THE RIGHT WAY AROUND?? BACK then FRONT, should be FRONT then BACK...
+		} else if (pReg === "ANFR") { //AUSTRALIAN NFR (ANFR) FIX
+			if (frametitle.innerHTML === "Star Wars Shadows of the Empire ANFR"){
+				document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+				document.getElementById("thumbBB").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
+			} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time ANFR"){
+				document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
+				document.getElementById("thumbBB").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
+			}
+			
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
 		
 	} else if (pReg === "UV1"||pReg === "UV2") {
-		if (gTitle.match("Mission Impossible")){//bespoke fix - needs improving
+		if (frametitle.innerHTML === "Mission Impossible UV1"){//bespoke fix - needs improving
 			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
@@ -3086,6 +3086,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-3.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-4.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
