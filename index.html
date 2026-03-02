@@ -641,7 +641,7 @@ myCount = 0;
 		for (w = 0; w < myList.length; w++) {
 		let isIt = String(myList[w].flat());
 			if (gTitle + " " + gRegion === myList[w][0]) {
-				if (gRegion.match("NFR")||gRegion.match("ALTN")){
+				if (gRegion.match("NFR")||gRegion.match("ALTN")||gRegion.match("ANFR")){
 					if (isIt.match(/cartridge/gi)) {
 					gotOrNot = "<span class='got' title='𝗢𝘄𝗻𝗲𝗱: 𝗡𝗙𝗥 𝗴𝗮𝗺𝗲'>🏆</span>";
 					div.style.backgroundColor = "rgba(0,255,0,0.3)";
@@ -764,13 +764,15 @@ myCount = 0;
 			if (gTitle.includes(" Console")){
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}			
-		
 		} else if (lines[info].match("REGION=BRB ")){
+			if (gTitle.includes("Tooie")||gTitle.includes("Donald")){ //BIG BOX BUNDLE FIX
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
+				document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "35px";
+			} else {
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
+			}			
+		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRS ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
-			document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "35px";
-		} else if (lines[info].match("REGION=ALTB ")||lines[info].match("REGION=BRB ")||lines[info].match("REGION=BRS ")){
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/BR/'+gTitle+' BR.jpg"');
-
 		} else if (lines[info].match("REGION=CAN ")){
 			if (gTitle.includes("Super Mario 64")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCU/'+gTitle+' E PCU.jpg"');
@@ -785,13 +787,11 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
 
 			}
-
 		} else if (lines[info].match("REGION=PCU ")||lines[info].match("REGION=ALTU ")||lines[info].match("REGION=CAN ")||lines[info].match("REGION=ALTC ")||lines[info].match("REGION=MSA ")||lines[info].match("REGION=HK ")||lines[info].match("REGION=UV1 ")||lines[info].match("REGION=UV2 ")||lines[info].match("REGION=UV3 ")||lines[info].match("REGION=KO ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
 			if (gTitle.includes("Hyundai Comboy 64")){
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
-			}	
-			
+			}
 		} else if (lines[info].match("REGION=PCE1 ")||lines[info].match("REGION=PCE2 ")||lines[info].match("REGION=PCE3 ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCE/'+gTitle+' PCE.jpg"');
 		} else if (lines[info].match("REGION=PCD ")){
@@ -851,14 +851,20 @@ myCount = 0;
 			
 		} else if (lines[info].match("REGION=LRGS ")){
 			document.getElementById(coverFlow[i]).style.width = "140px"; document.getElementById(coverFlow[i]).style.left = "50px";
-		} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")){
-			if (gTitle.match("Doshin")){ //bespoke fix	
+		
+		} else if (lines[info].match("REGION=NFR ")||lines[info].match("REGION=ALTN ")||lines[info].match("REGION=ANFR ")){
+			if (gTitle.match("Doshin")){ //64DD size & placement fix	
 				document.getElementById(coverFlow[i]).style.width = "180px"; document.getElementById(coverFlow[i]).style.left = "25px";
 			} else {
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
+			
 			if (gTitle.match("Star Wars Shadows of the Empire")){ //BESPOKE SOTE AUS USA CART NFR - has a rear label image.
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/U/Star Wars Shadows of the Empire U.png");
+			
+			} else if (gTitle.match("The Legend of Zelda Ocarina of Time")){ //BESPOKE OOT AUS USA CART NFR - has a rear label image.
+				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/NFR/The Legend of Zelda Ocarina of Time NFR.png");
+			
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 			}
@@ -1065,7 +1071,7 @@ function reply_click(clicked_id){
 	
 	//DYNAMICALLY CREATE CONTAINERS\\
 	switch(gameRegions) {
-		case "NFR": case "ALTN":
+		case "NFR": case "ALTN": case "ANFR":
 			if (gameTitle == "Doshin the Giant") {
 				document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="DDDPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="dOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
 			 } else {
@@ -1140,8 +1146,10 @@ function reply_click(clicked_id){
 		gameRegions = "Japan for N64DD";
 	} else if (gameRegions.match("D")||gameRegions.match("DV1")||gameRegions.match("DV2")||gameRegions.match("ALTD")||gameRegions.match("SED")||gameRegions.match("PCD")){
 		gameRegions = "Germany (PAL)";
-	} else if (gameRegions.match("NFR")||gameRegions.match("ALTN")){
-		gameRegions = "Store kiosks (DEMO)";
+	} else if (gameRegions.match("NFR")||gameRegions.match("ALTN")||gameRegions.match("ANFR")){
+		gameRegions = "Store kiosk (DEMO)";
+	} else if (gameRegions.match("ANFR")){
+		gameRegions = "Australian kiosk (DEMO)";
 	} else if (gameRegions.match("JS")){
 		gameRegions = "Japanese sample (DEMO)";
 	} else if (gameRegions.match("F")||gameRegions.match("PCF")){
@@ -1326,7 +1334,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumb").style.width = "48%";
 		document.getElementById("thumbBB").style.height = "auto";
 		document.getElementById("thumbBB").style.width = "48%";
-	} else if (pReg === "NFR" || pReg === "ALTN"){
+	} else if (pReg === "NFR" || pReg === "ALTN" || pReg === "ANFR"){
 		let convertnfrtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Carts");
 		document.getElementById('grid-container').style.backgroundImage = 'url('+convertnfrtopng+')';//Fix for JPG>PNG + NFRs
 		document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
@@ -1339,6 +1347,8 @@ function reply_click(clicked_id){
 			} else if (frametitle.innerHTML === "Doshin the Giant NFR"){
 				document.getElementById("thumb").style.width = "0px"
 				document.getElementById("thumbDI").style.width = "0px"
+			
+			
 			} else {
 				document.getElementById("thumb").style.width = "0px"
 				//REVERT THIS BELOW.
@@ -1480,6 +1490,8 @@ function reply_click(clicked_id){
 			document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
 		} else if (pReg === "ALTN") {
 			document.getElementById("thumbRC").src = 'Carts/ALTN/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTN.png';
+		} else if (pReg === "ANFR") { //AUSTRALIAN NFR TEST FIX
+			document.getElementById("thumbBB").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
@@ -3074,6 +3086,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-2.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-3.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
