@@ -841,8 +841,12 @@ myCount = 0;
 			}
 			if (gTitle.match("Star Wars Shadows of the Empire")){ //BESPOKE SOTE AUS USA CART NFR - has a rear label image.
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/U/Star Wars Shadows of the Empire U.png");
-			} else if (gTitle.match("The Legend of Zelda Ocarina of Time")){ //BESPOKE OOT AUS USA CART NFR - has a rear label image.
-				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/NFR/The Legend of Zelda Ocarina of Time NFR.png");
+			} else if (gTitle.match("The Legend of Zelda Ocarina of Time")){ 
+				if (lines[info].match("REGION=ANFR ")||lines[info].match("REGION=NFR ")){ //BESPOKE OOT AUS USA CART NFR - has a rear label image.
+					document.getElementById(coverFlow[i]).setAttribute('src', "Carts/NFR/The Legend of Zelda Ocarina of Time NFR.png");
+				} else {
+					document.getElementById(coverFlow[i]).setAttribute('src', "Carts/ALTN/The Legend of Zelda Ocarina of Time ALTN.png");
+				}
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 			}
@@ -1319,6 +1323,23 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB2").style.height = "auto";
 			document.getElementById("thumbBB2").style.width = "48%";
 		}
+	} else if (pReg === "SEE") {
+			if (frametitle.innerHTML === "The Legend of Zelda Majoras Mask SEE"){
+			document.getElementById("description").innerHTML = "This is a limited edition bundle exclusive to Europe.<br><br>Only 2000 were produced and they contain the game, 2 pins, a T-shirt (black), a wrist watch and the CD soundtrack."
+			document.getElementById("thumb").style.height = "auto";
+			document.getElementById("thumb").style.width = "48%";
+			document.getElementById("thumbBB").style.height = "auto";
+			document.getElementById("thumbBB").style.width = "48%";
+			document.getElementById("thumb1").style.height = "auto";
+			document.getElementById("thumb1").style.width = "48%";
+			document.getElementById("thumbBB1").style.height = "auto";
+			document.getElementById("thumbBB1").style.width = "48%";
+			document.getElementById("thumb2").style.height = "auto";
+			document.getElementById("thumb2").style.width = "48%";
+			document.getElementById("thumbBB2").style.height = "auto";
+			document.getElementById("thumbBB2").style.width = "48%";
+			}
+				
 	} else if (pReg === "DD") {
 		if (frametitle.innerHTML === "Randnet (Blue Sticker) DD"){
 			document.getElementById("thumbMA").src = "Manuals/DD/Randnet DD.png";
@@ -1564,6 +1585,10 @@ function reply_click(clicked_id){
 	} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time SED"){
 		document.getElementById("thumb1").src = 'Covers/D/The Legend of Zelda Ocarina of Time D.png';
 		document.getElementById("thumbBB1").src = 'Backs/D/The Legend of Zelda Ocarina of Time D.png';
+	} else if (frametitle.innerHTML === "The Legend of Zelda Majoras Mask SEE"){
+		document.getElementById("thumb1").src = 'Covers/E/The Legend of Zelda Majoras Mask E.png';
+		document.getElementById("thumbBB1").src = 'Backs/E/The Legend of Zelda Majoras Mask E.png';
+		document.getElementById("thumbMA").src = 'Manuals/NEU5/The Legend of Zelda Majoras Mask NEU5.png';
 	} else if (frametitle.innerHTML === "Les Razmoket a Paris Le Film F"){
 		document.getElementById("thumbRC").src = 'Carts/E/Rugrats in Paris The Movie E.png';
 	} else if (frametitle.innerHTML === "Mario Kart 64 KA PCU"){
@@ -3043,6 +3068,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-7.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-8.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
