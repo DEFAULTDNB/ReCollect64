@@ -800,7 +800,7 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
 		} else if (lines[info].match("REGION=EUU ")){
-			if (gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Earthworm")||gTitle.match("Gex")||gTitle.match("GT 64")||gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("Magical")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("Paperboy")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Rampage 2 Universal Tour")||gTitle.match("Ready")||gTitle.match("Robotron")||gTitle.match("2049")||gTitle.match("Rush 2 Extreme")||gTitle.match("Silicon")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wetrix")||gTitle.match("Wipeout")){
+			if (gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Earthworm")||gTitle.match("Gex")||gTitle.match("GT 64")||gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("Magical")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("Paperboy")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Rampage 2 Universal Tour")||gTitle.match("Ready")||gTitle.match("Robotron")||gTitle.match("2049")||gTitle.match("Rush 2 Extreme")||gTitle.match("Silicon")||gTitle.match("Tony Hawks")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wetrix")||gTitle.match("Wipeout")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
@@ -895,8 +895,6 @@ myCount = 0;
 		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")||lines[info].match("REGION=SCN1 ")){
 			if (gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("NFL Quarterback Club 2000")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
-			} else if (gTitle.match("Tony")) {
-				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/EUU/'+gTitle+' EUU.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
@@ -1476,7 +1474,6 @@ function reply_click(clicked_id){
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 		} else if (frametitle.innerHTML === "Super Mario 64 CAN"){
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E PCU.png';
-
 		} else if (frametitle.innerHTML === "Super Smash Bros PCU"){
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
@@ -1507,13 +1504,9 @@ function reply_click(clicked_id){
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
 	} else if (pReg === "UV1"||pReg === "UV2") {
-		if (frametitle.innerHTML === "Mission Impossible UV1"){//bespoke fix - needs improving
-			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
-		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-		}
 	} else if (pReg === "BRB" || pReg === "BRS" || pReg === "ALTB"){
 		document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
 		document.getElementById("thumbBB").src = 'Backs/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
@@ -1522,7 +1515,9 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/SEU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SEU.png';
 	}
 	//BESPOKE TITLE-BASED GAME FIXES\\
-	if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
+	if (frametitle.innerHTML === "Mission Impossible UV1"){
+		document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+	} else if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
 		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
 	} else if (frametitle.innerHTML === "Monaco Grand Prix Racing Simulation 2 FAH"){
 		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
@@ -1564,6 +1559,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB2").src = 'Accessories/Expansion Pak A A2.png';
 		document.getElementById("thumbS2").src = 'Accessories/Ex Pak A1.png';
 		document.getElementById("thumbS3").src = 'Accessories/Ex Pak A2.png';
+		//////////////\\\\\\\\\\\\\
 	} else if (frametitle.innerHTML === "F-1 Racer Double Play SEA"){
 		document.getElementById("thumbRC").src = 'Carts/A/F-1 World Grand Prix A.png';
 		document.getElementById("thumbMA").src = 'Manuals/A/F-1 World Grand Prix A.png';
@@ -1610,7 +1606,6 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Backs/PCU/Super Mario 64 KA PCU.png';
 	} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time TW"){
 		document.getElementById("thumbMA").src = 'Manuals/ROC/The Legend of Zelda Ocarina of Time ROC.png';
-
 	} else {
 	}
 	//CHECK ACCESSORIES\\	
