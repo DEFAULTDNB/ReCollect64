@@ -1277,7 +1277,11 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").style.width = "48%";
 	} else if (pReg === "AV1"){
 		document.getElementById("thumb").src = 'Covers/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
-		document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
+		if (frametitle.innerHTML === "Turok Dinosaur Hunter AV1"){
+			document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+		} else {
+			document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
+		}
 		document.getElementById("thumb").style.height = "auto";
 		document.getElementById("thumb").style.width = "48%";
 		document.getElementById("thumbBB").style.height = "auto";
@@ -1442,7 +1446,7 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
-	} else if (pReg === "DV1"){
+	} else if (pReg === "DV1"||pReg === "DV2"){
 		document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
 	
 	} else if (pReg === "PCD"){
@@ -1478,6 +1482,14 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Backs/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 		} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time PCU"){
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		} else if (frametitle.innerHTML === "Turok Dinosaur Hunter ALTU"){
+			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+		
+		} else if (frametitle.innerHTML === "Turok Dinosaur Hunter PCU"){
+			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+		
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 			document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
@@ -1619,6 +1631,9 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Backs/PCU/Super Mario 64 KA PCU.png';
 	} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time TW"){
 		document.getElementById("thumbMA").src = 'Manuals/ROC/The Legend of Zelda Ocarina of Time ROC.png';
+	} else if (frametitle.innerHTML === "Turok Dinosaur Hunter EV2"){
+			document.getElementById("thumbRC").src = 'Carts/EV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EV1.png';
+		
 	} else {
 	}
 	//CHECK ACCESSORIES\\	
