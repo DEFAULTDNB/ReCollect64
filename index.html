@@ -1633,8 +1633,10 @@ function reply_click(clicked_id){
 		document.getElementById("thumbMA").src = 'Manuals/ROC/The Legend of Zelda Ocarina of Time ROC.png';
 	} else if (frametitle.innerHTML === "Turok Dinosaur Hunter EV2"){
 			document.getElementById("thumbRC").src = 'Carts/EV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EV1.png';
+	} else if (frametitle.innerHTML === "Turok 2 Seeds of Evil PCU"){
+			document.getElementById("thumbRC").src = 'Carts/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';
 		
-	} else {
+		} else {
 	}
 	//CHECK ACCESSORIES\\	
 	if (gFeatures.match("VRU")){

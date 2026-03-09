@@ -1,0 +1,449 @@
+<div id="b294" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Smash Remix 2.0.1 Released!</span></h2>
+	<h5 class="subtitle">VS Tug Of War Added! ~ Mar 9, 2025</h5>
+	<div class="bgChat" style="background-image:url('Blog/Reviews/Games/SMASHREMIX152/SR.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Smash Remix 2.0.1 Released!</div></div>
+	<h4>Incremental Improvements</h4>
+	<div class="titleUnderline"></div>
+	<p>Back in June, <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b159"><i>Smash Remix 2.0.0 was released</i></a> with a whopping 5 new characters, new modes and a whole lot more. Today, 2.0.1 has been released to rebalance the game and pile on a load more content for the already expansive ROM hack.</p>
+	<p>2.0.1 includes a massive array of alterations for such a minor update, and the Smash Remix team has once again put together a demonstration of the visual and technical improvements for your viewing pleasure:</p>
+	<center><iframe id="" class="video" src="https://www.youtube.com/embed/VOQdEZDuKYM"></iframe></center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p>
+	<pre>
+	<b>Smash Remix V2.0.1 Patch Notes</b>
+
+[CHARACTERS]
+
+Banjo & Kazooie
+
+    Added new costume
+    Updated FSmash animation
+
+Bowser
+
+    Added new blue team costume
+
+Dark Samus
+
+    Updated DTilt animation
+    Updated match entry animation
+    Updated 1P Human pose
+
+Dr. Luigi
+
+    Traction increased (0.7 → 0.8)
+    Max air speed decreased (34 → 31)
+    Run speed decreased (48 → 42)
+    NAir active frames reduced (35 → 30)
+    NAir strong & weak hitboxes reversed (initial hit is weaker, late hit is stronger)
+    NAir weak hit base knockback increased (0 → 10)
+    DAir angle changed (-80 → -90)
+    FThrow knockback scaling reduced (75 → 70)
+    Updated NSp pill colors
+    Removed black borders from CSS portrait
+
+Dr. Mario
+
+    BThrow knockback growth decreased (75 → 74)
+    Removed black pixels around CSS portrait
+
+Dragon King
+
+    NAir now makes strong hit sound even on late hit
+    Updated Victory 2 animation
+    Fixed issue where Dragon King’s head would sink into his body during certain animations
+
+Ebisumaru
+
+    DTilt now spikes
+    DSp grounded hitbox removed; DSp landing hitbox added
+    Updated DSp landing & recoil animations
+
+Falco
+
+    Updated idle animation to be uncompressed to reduce loading lag when switching to idle anim
+
+Giga Bowser
+
+    Various moves have been slowed down and are more ‘telegraphed’ like a proper boss
+    Many animations updated and/or reworked
+    BThrow is weaker with less base knockback and less knockback growth
+    BThrow no longer makes opponents face away from stage
+    Updated DSmash and FTilt expressions
+
+King Dedede
+
+    Waddle Doo beam damage reduced (3 → 2)
+    NSp absorb hitbox size increased and moved slightly forward
+    Fixed issue where ItemThrowAirSmashF didn’t use the correct animation
+
+Lanky Kong
+
+    Removed black borders from CSS portrait
+
+Marina
+
+    DSp absorbing King Dedede’s Gordo now grants more charges (2 → 3)
+    DSp absorbing Peppy’s Flashbang now grants more charges (1 → 2)
+    Fixed Marina’s last costume when using low-poly model
+    Fixed issue where Marina’s 1P team pose resulted in a crash
+
+Mewtwo
+
+    Added new costume
+    Updated low-poly model
+
+Peach
+
+    Added two new costumes
+    Fixed shadow on entry animation
+
+Peppy
+
+    USp damage decreased (16 → 10)
+    USp knockback scaling decreased (65 → 40)
+    USp hitbox changed
+    Fixed issue where using USp on Sonic’s spring resulted in a death
+    Fixed character skeleton
+
+Roy
+
+    Updated stock icons
+    Fixed character skeleton
+
+Slippy
+
+    Fixed character skeleton
+
+Super Sonic
+
+    Fixed CSS stock icon (visible when hovering over Sonic)
+
+Wario
+
+    Added two new costumes
+    Reimported high-poly model
+    Added low-poly model
+    Fixed character skeleton
+
+Young Link
+
+    Fixed character skeleton
+
+Polygons
+
+    Fixed Poly Ganondorf’s idle animation on CSS and respawn platform
+    Fixed Poly Falco’s entry animation to match Falco’s idle
+    Updated Remix Polygon shield colors to be consistent with vanilla polygons
+
+Pikachu
+
+    Fixed Thunder Jolt (NSp) duration being swapped with J Pikachu variant
+
+NOTE: Pikachu change is to restore vanilla behavior due to an oversight
+
+J Ness
+
+    NSp PK Fire pillar now falls slower
+    Fixed J Ness PKThunderEnd delay
+
+J Falcon
+
+    USp has improved horizontal drift/speed
+
+J Kirby
+
+    DSp aerial can be cancelled 4 frames faster
+    DSp rock flashes rapidly after HP < 25 (was HP < 22)
+
+J Link
+
+    Increased aerial drift during special fall (0.6 → 0.75)
+    LandingSpecial duration decreased (13 → 11)
+
+J Pikachu
+
+    USp collision routine added
+    Kirby will now use J Pikachu’s NSp duration when copying J Pikachu
+
+J Yoshi
+
+    NSp mashing changed to be more accurate
+
+NOTE: J Character Variant changes are for improved accuracy
+
+[STAGES]
+
+Autumn How to Play added as Remix variant of How to Play
+
+Congo Falls
+
+    Hitbox is now applied to players who are shot out of the cannon
+
+Cool Cool Mountain & All Variants
+
+    Massively reworked
+    Updated Blast Zones & camera parameters
+    Updated Stage Select thumbnail
+
+Crateria DL
+
+    Reimported and optimized
+
+Delfino Plaza
+
+    Updated background
+    Updated Stage Select thumbnail
+
+First Destination
+
+    Reimported and optimized
+
+Fray’s Stage
+
+    Reimported and optimized
+    Fixed black spots visible when playing on console
+
+Frosty Village
+
+    Massively reworked
+    Updated background
+    Adjusted clipping
+    Model appears smaller on Stage Select
+    Updated Stage Select thumbnail
+
+Ganon’s Tower
+
+    Updated background
+
+Gerudo Valley
+
+    Updated neutral spawns
+
+Great Bay
+
+    Updated background
+
+Mad Monster Mansion
+
+    Massively reworked
+    Adjusted clipping for safer Ness and Lucas recovery
+    Model appears smaller on Stage Select
+    Updated Stage Select thumbnail
+    Updated background
+
+Metallic Madness
+
+    Fixed left piston ledge clipping issue
+    Reimported
+
+Mt. Dedede
+
+    Neutral spawns updated
+
+Muda Kingdom
+
+    Reimported and optimized
+
+N64
+
+    Reimported and optimized
+
+N64 Remix
+
+    Updated neutral spawns
+
+New Pork City
+
+    Updated background
+    Updated Stage Select thumbnail
+
+Pokemon Stadium
+
+    Updated visuals
+
+Rith Essa
+
+    Massively reworked
+
+Sector Z Remix
+
+    Hit sounds are now centered (previously panned to the right)
+
+Showdown
+
+    Reimported and optimized
+
+Temple
+
+    Massively reworked
+    Updated Stage Select thumbnail
+
+Tower of Heaven
+
+    Massively reworked
+
+WarioWare, Inc.
+
+    Background updated
+    Updated Stage Select thumbnail
+
+Yoshi’s Island II
+
+    Background is no longer static
+
+Yoshi’s Story
+
+    Background is no longer static
+
+[MODES]
+
+Tug of War added to VS Remix Modes
+
+Remix 1P (Remix Modes)
+
+    Stage 2 (Team), Stage 7 (Kirby Team), and Stage 11 (Polygon Team) CPU knockback adjusted
+    Stage 6 (Giant) CPU teammates no longer affected by Friendly Fire
+    Giga Bowser boss fight reworked; moves are now slower and more telegraphed
+
+All-Star (Remix Modes)
+
+    Battles reconfigured (less 1v1 matches, more 1v2 matches, etc)
+    Final battle is a ‘rush’ team battle of final three characters
+
+Remix Race to the Finish (Bonus 3 Practice, Remix 1P)
+
+    Adjusted Camera Mode (Stage Settings): FIXED parameters to show whole stage
+
+12 Character Battle (VS Remix Modes)
+
+    Added ability to copy opponent’s Custom preset roster by holding D-Pad Up for one second
+    Now supports random character slot
+
+Tag Team (VS Remix Modes)
+
+    Fixed crash related to Dragon King’s NSp
+
+Training
+
+    ‘Preserve Menu Selections’ added to Custom Menu
+    Character order has been adjusted in Custom Menu
+    DPad Right and DPad Left are prioritized when multiple directions pressed
+
+[FEATURES]
+
+BlastZone GFX added to Remix Settings
+
+    Options are DEFAULT / OFF / REDUCED
+
+Japanese Stun/Sleep added to Gameplay Settings
+
+    Options are OFF / ON
+
+BGM Volume added to Music Settings
+
+    Volume range from 0-10, with 10 being default
+
+SFX Volume added to Music Settings
+
+    Volume range from 0-10, with 10 being default
+
+Random Select (Remix Settings)
+
+    Adjusted randomness to allow for more diverse selections when choosing ‘?’ on CSS
+
+Disable HUD (Remix Settings)
+
+    ALL option now hides HUD in Training Mode
+
+Punish Failed Z-Cancel (Gameplay Settings)
+
+    SLEEP and TRIP options added
+    These new options may also appear when the RANDOM option is enabled
+
+Charge Smashes (Gameplay Settings)
+
+    Characters now ‘shake’ while charging
+
+Item Containers (Gameplay Settings)
+
+    Fixed issue where containers could still spawn if frequency was non-zero and items were off
+
+Pokemon Announcer (Stage Settings)
+
+    New voice clip will sometimes play when character taunts
+
+Cloaking Device (Item) & Visibility (CSS Debug Panel)
+
+    Fixed various Remix characters’ skeletons while invisible
+
+CPU AI Changes
+
+    Added unique recovery options for most characters (only affects LVL 10 for vanilla characters)
+    Added condition checks to moves with special conditions (e.g. Yoshi won't try using NSP when the opponent is already trapped in an egg, Mewtwo won't DSP if the opponent is facing away from him, etc)
+    Added custom move range configurations for LVL 10 vanilla characters (they now better understand the range of their moves)
+    Added dash attack configurations to LVL 10 vanilla characters and all Remix characters
+    CPU’s will now steal teammate stocks on team battles when defeated
+    CPU’s with multiple double jumps will not wait for AirJump animation to end to use next jump
+    CPU’s now try fast falling more than once when in the air
+    CPU’s can now jump cancel and/or USmash or USp out of dash & run
+    CPU’s are aware they have limited options out of dash & run
+    LVL10 CPU’s movement prediction improved, especially when platforms come into play
+    LVL 10 CPU’s will no longer use aerial moves that cannot come out before they land
+    Fixed issue where CPU’s would use USp in the wrong direction when close to ledge
+    Other miscellaneous CPU AI changes
+
+Item Switch
+
+    Now remembers frequency when all items are turned off
+
+Versus Result Screen Stats
+
+    Page 2 of stats added with assorted match information (Press R to change pages)
+
+[MUSIC/SOUND]
+
+Lost added to Discovery Falls
+
+Final Destination added to Dragon King & Dragon King Remix
+
+Koopa’s Theme reworked
+
+Bubblegum K.K. updated
+
+WarioWare, Inc. updated
+
+Yoshi’s Tale updated
+
+Dr. Mario victory theme updated
+
+Final Destination track now skips intro when playing on demo screen
+
+Fresh Jams music profile updated
+
+Deleted unused Dr. Mario sound
+
+[MISCELLANOUS]
+
+Respawn platform now scales with player size
+
+You Are Proud image updated
+
+Credits updated
+
+Version number updated to V2.0.1
+</pre>
+</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<h4>Fighting Fit</h4>
+	<div class="titleUnderline"></div>
+	<p>As well as gorgeously reimported and optimised levels, character skeleton updates, additional costumes, fresh music added and general tweaking, this update notably includes a rebalanced Remix single-player mode, improved CPU players and background music and SFX volume controls.</p>
+	<p>Tug of war has also been added to the VS Remix modes, making for a new way to play against friends in longer, more tactical battles.</p>
+	<p>To patch your ROM, simply head to the patcher site, upload your legally obtained <i>Super Smash Bros</i> N64 ROM (PAL or NTSC are supported), and hit patch! It's that easy!</p>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-down"></i>&nbsp;<a href="https://smashremix.net/patcher/#category">Online Patcher</a></p>	
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/JSsixtyfour/smashremix/releases">Smash Remix GitHub</a></p>
+	<p class="subtitle"><i class="fa-brands fa-x-twitter"></i>&nbsp;<a href="https://x.com/SmashRemix">Smash Remix Twitter</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something interesting for N64? Let me know!</a></p>
+</div>
