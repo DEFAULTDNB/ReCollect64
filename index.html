@@ -113,7 +113,7 @@
 	<option value="EUR" title="𝗡𝗼𝗿𝘁𝗵𝗲𝗿𝗻 𝗘𝘂𝗿𝗼𝗽𝗲">🇪🇺 🌍 EUR</option>
 	<option value="EUU" title="𝗦𝗼𝘂𝘁𝗵𝗲𝗿𝗻 𝗘𝘂𝗿𝗼𝗽𝗲">🇪🇺 🌍 EUU</option>
 	<option value="FRA" title="𝗙𝗿𝗲𝗻𝗰𝗵">🇫🇷 🌍 FRA</option>
-	<option value="FRG" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗚𝗲𝗿𝗺𝗮𝗻">🇫🇷 🇩🇪 FRG</option>
+	<option value="FRG" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗚𝗲𝗿𝗺𝗮𝗻">🇨🇭 🌍 FRG</option>
 	<option value="FAH" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗛𝗼𝗹𝗹𝗮𝗻𝗱">🇫🇷 🇳🇱 FAH</option>
 	<option value="NOE" title="𝗚𝗲𝗿𝗺𝗮𝗻">🇩🇪 🌍 NOE</option>
 	<option value="HKG" title="𝗛𝗼𝗻𝗴 𝗞𝗼𝗻𝗴">🇭🇰 🌏 HKG</option>
@@ -764,6 +764,9 @@ myCount = 0;
 		} else if (lines[info].match("REGION=CAN ")){
 			if (gTitle.includes("Super Mario 64")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCU/'+gTitle+' E PCU.jpg"');
+			} else if (gTitle.includes("Mario Kart 64")){
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCU/'+gTitle+' E PCU.jpg"');
+
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
 			}
@@ -1617,6 +1620,10 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/PCU/Mario Kart 64 KA PCU.png';
 	} else if (frametitle.innerHTML === "Mario Kart 64 E PCU"){
 		document.getElementById("thumbMA").src = 'Manuals/UV2/Mario Kart 64 UV2.png';
+		document.getElementById("thumbBB").src = 'Backs/PCU/Mario Kart 64 E PCU.png';
+		document.getElementById("thumbRC").src = 'Carts/PCU/Mario Kart 64 E PCU.png';
+	} else if (frametitle.innerHTML === "Mario Kart 64 CAN"){
+		document.getElementById("thumbMA").src = 'Manuals/ALTC/Mario Kart 64 ALTC.png';
 		document.getElementById("thumbBB").src = 'Backs/U/Mario Kart 64 U.png';
 		document.getElementById("thumbRC").src = 'Carts/PCU/Mario Kart 64 E PCU.png';
 	} else if (frametitle.innerHTML === "Super Mario 64 E PCU"){
@@ -3093,6 +3100,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-8.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-9.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
