@@ -1236,6 +1236,7 @@ function reply_click(clicked_id){
 				case "ITA": boxCode = "I"; break;
 				case "NOE": boxCode = "D"; break;
 				case "USA": boxCode = "U"; break;
+				case "NEU6-1": boxCode = "PCE1"; break;
 				default:
 				boxCode = boxDetect;
 			}
@@ -1488,10 +1489,13 @@ function reply_click(clicked_id){
 		} else if (frametitle.innerHTML === "Turok Dinosaur Hunter ALTU"){
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
-		
 		} else if (frametitle.innerHTML === "Turok Dinosaur Hunter PCU"){
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+		} else if (frametitle.innerHTML === "Wave Race 64 PCU"){
+			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
+		
 		
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
@@ -1535,10 +1539,21 @@ function reply_click(clicked_id){
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+	
 	} else if (pReg === "BRB" || pReg === "BRS" || pReg === "ALTB"){
-		document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
-		document.getElementById("thumbBB").src = 'Backs/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
+	
+		if (frametitle.innerHTML === "Wave Race 64 ALTB") {
+			document.getElementById("thumbBB").src = 'Backs/ALTB/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTB.png';
+			document.getElementById("thumbRC").src = 'Carts/ALTB/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTB.png';
+		} else if (frametitle.innerHTML === "Wave Race 64 BRS") {
+			document.getElementById("thumbBB").src = 'Backs/ALTB/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTB.png';
+			document.getElementById("thumbRC").src = 'Carts/ALTB/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTB.png';
+		} else {
+			document.getElementById("thumbBB").src = 'Backs/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
+			document.getElementById("thumbRC").src = 'Carts/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
+		}
 		document.getElementById("thumbMA").src = 'Manuals/BR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'BR.png';
+
 	} else if (gFeatures.match("SEU")){
 		document.getElementById("thumbRC").src = 'Carts/SEU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'SEU.png';
 	}
@@ -3100,6 +3115,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-9.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-10.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
