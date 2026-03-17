@@ -812,7 +812,7 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
 		} else if (lines[info].match("REGION=EUU ")){
-			if (gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Earthworm")||gTitle.match("Gex")||gTitle.match("GT 64")||gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("Magical")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("Paperboy")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Rampage 2 Universal Tour")||gTitle.match("Ready")||gTitle.match("Robotron")||gTitle.match("2049")||gTitle.match("Rush 2 Extreme")||gTitle.match("Silicon")||gTitle.match("Tony Hawks")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wetrix")||gTitle.match("Wipeout")){
+			if (gTitle.match("Castlevania")||gTitle.match("Chameleon")||gTitle.match("Daikatana")||gTitle.match("Donald")||gTitle.match("Earthworm")||gTitle.match("Gex")||gTitle.match("GT 64")||gTitle.match("G.A.S.P")||gTitle.match("Gauntlet")||gTitle.match("Hydro")||gTitle.match("Knife")||gTitle.match("Magical")||gTitle.match("MRC")||gTitle.match("Mystical")||gTitle.match("Nagano")||gTitle.match("NHL")||gTitle.match("Paperboy")||gTitle.match("PGA")||gTitle.match("Rakuga")||gTitle.match("Rampage 2 Universal Tour")||gTitle.match("Ready")||gTitle.match("Robotron")||gTitle.match("2049")||gTitle.match("Rush 2 Extreme")||gTitle.match("Silicon")||gTitle.match("Tony Hawks")||gTitle.match("Top Gear")||gTitle.match("V-Rally")||gTitle.match("WCW vs")||gTitle.match("Wetrix")||gTitle.match("Wipeout")||gTitle.match("World Driver Championship")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
@@ -909,7 +909,7 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			}
 		//blanket fix for odd regions\\
-		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")||lines[info].match("REGION=SCN1 ")){
+		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")||lines[info].match("REGION=SCN1 ")||lines[info].match("REGION=ASCN ")){
 			if (gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("NFL Quarterback Club 2000")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else {
@@ -1659,13 +1659,15 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").src = 'Backs/PCU/Super Mario 64 KA PCU.png';
 		document.getElementById("thumbRC").src = 'Carts/PCU/Super Mario 64 KA PCU.png';
 	} else if (frametitle.innerHTML === "Super Mario 64 CAN"){
-			document.getElementById("thumbBB").src = 'Backs/PCU/Super Mario 64 KA PCU.png';
+		document.getElementById("thumbBB").src = 'Backs/PCU/Super Mario 64 KA PCU.png';
 	} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time TW"){
 		document.getElementById("thumbMA").src = 'Manuals/ROC/The Legend of Zelda Ocarina of Time ROC.png';
 	} else if (frametitle.innerHTML === "Turok Dinosaur Hunter EV2"){
-			document.getElementById("thumbRC").src = 'Carts/EV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EV1.png';
+		document.getElementById("thumbRC").src = 'Carts/EV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'EV1.png';
 	} else if (frametitle.innerHTML === "Turok 2 Seeds of Evil PCU"){
-			document.getElementById("thumbRC").src = 'Carts/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';
+		document.getElementById("thumbRC").src = 'Carts/ALTU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTU.png';
+	} else if (frametitle.innerHTML === "Super Mario 64 ALTE"){
+		document.getElementById("thumbRC").src = 'Carts/ALTE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTE.png';
 		
 		} else {
 	}
@@ -3124,6 +3126,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-11.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-12.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
