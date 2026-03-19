@@ -86,60 +86,62 @@
 <span>
 <img id="list" title="𝗟𝗶𝘀𝘁 𝗡𝗲𝗲𝗱𝗲𝗱 𝗧𝗶𝘁𝗹𝗲𝘀" onclick="PrintElem();" src="Config/Images/LBUT.png" />
 <select name="Region" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗼𝗿 𝗖𝗮𝘁𝗲𝗴𝗼𝗿𝘆" id="Region" onchange="changeRegion()">
-<optgroup label="Customise:">
-	<option value="CUST" title="𝗢𝗽𝗲𝗻 𝗖𝘂𝘀𝘁𝗼𝗺 𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂" onclick="clickonregion();">ℹ️/🅾️ CUST</option>
-<optgroup label="All Entries:">
-	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟵𝟴𝟬+)">⚠️🌐 FULL</option>
-<optgroup label="World Sets:">
-	<option value="FULE" title="𝗣𝗔𝗟 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇪🇺 🏆 100%</option>	
-	<option value="FULA" title="𝗨𝗦𝗔 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇺🇸 🏆 100%</option>
-	<option value="FULJ" title="𝗝𝗣𝗡 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇯🇵 🏆 100%</option>
-<optgroup label="Collections:">
-	<option value="PAL" title="𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟰𝟯)">🇪🇺 🌍 EUR</option>
-	<option value="USA" title="𝗡𝗧𝗦𝗖-𝗨 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟵𝟲)">🇺🇸 🌎 USA</option>
-	<!--option value="USAP" title="𝗡𝗧𝗦𝗖-𝗨+ 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟵7)">🇺🇸 🌎 US+</option-->
-	<option value="JPN" title="𝗡𝗧𝗦𝗖-𝗝 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟵𝟴)">🇯🇵 🌏 JPN</option>
-	<option value="AUSR" title="𝗔𝗨𝗦-𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟭𝟭)">🇦🇺 🌏 AUS</option>
-	<!--option value="ITAR" title="𝗜𝗧𝗔-𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (XX)">🇮🇹 🌍 ITA</option-->
-	<option value="KORR" title="𝗞𝗢𝗥 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟮)">🇰🇷 🌏 KOR</option>
-	<!--option value="ASR" title="𝗔𝗦 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (X)">🇹🇼 🌏 ASX</option-->
-<optgroup label="Cart Codes:">
-	<option value="ASI" title="𝗔𝘀𝗶𝗮𝗻">🇹🇼 🌏 ASI</option>
-	<!--option value="ASM" title="𝗔𝘀𝗶𝗮 𝗠𝗮𝗶𝗻𝗹𝗮𝗻𝗱">🇸🇬 🌏 ASM</option-->
-	<option value="AUS" title="𝗔𝘂𝘀𝘁𝗿𝗮𝗹𝗶𝗮𝗻">🇦🇺 🌏 AUS</option>
-	<option value="BRA" title="𝗕𝗿𝗮𝘀𝗶𝗹𝗶𝗮𝗻">🇧🇷 🌎 BRA</option>
-	<option value="CAN" title="𝗖𝗮𝗻𝗮𝗱𝗶𝗮𝗻">🇨🇦 🌎 CAN</option>
-	<option value="ESP" title="𝗦𝗽𝗮𝗻𝗶𝘀𝗵">🇪🇸 🌍 ESP</option>	
-	<option value="EUR" title="𝗡𝗼𝗿𝘁𝗵𝗲𝗿𝗻 𝗘𝘂𝗿𝗼𝗽𝗲">🇪🇺 🌍 EUR</option>
-	<option value="EUU" title="𝗦𝗼𝘂𝘁𝗵𝗲𝗿𝗻 𝗘𝘂𝗿𝗼𝗽𝗲">🇪🇺 🌍 EUU</option>
-	<option value="FRA" title="𝗙𝗿𝗲𝗻𝗰𝗵">🇫🇷 🌍 FRA</option>
-	<option value="FRG" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗚𝗲𝗿𝗺𝗮𝗻">🇨🇭 🌍 FRG</option>
-	<option value="FAH" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗛𝗼𝗹𝗹𝗮𝗻𝗱">🇫🇷 🇳🇱 FAH</option>
-	<option value="NOE" title="𝗚𝗲𝗿𝗺𝗮𝗻">🇩🇪 🌍 NOE</option>
-	<option value="HKG" title="𝗛𝗼𝗻𝗴 𝗞𝗼𝗻𝗴">🇭🇰 🌏 HKG</option>
-	<option value="HOL" title="𝗛𝗼𝗹𝗹𝗮𝗻𝗱">🇳🇱 🌍 HOL</option>
-	<option value="ITA" title="𝗜𝘁𝗮𝗹𝗶𝗮𝗻">🇮🇹 🌍 ITA</option>
-	<option value="KOR" title="𝗞𝗼𝗿𝗲𝗮𝗻">🇰🇷 🌏 KOR</option>
-	<option value="MSA" title="𝗠𝗲𝘅𝗶𝗰𝗼/𝗦𝗼𝘂𝘁𝗵 𝗔𝗺𝗲𝗿𝗶𝗰𝗮𝗻">🇲🇽 🌎 MSA</option>
-	<option value="ROC" title="𝗧𝗮𝗶𝘄𝗮𝗻𝗲𝘀𝗲">🇨🇳 🌏 ROC</option>
-	<option value="SCN" title="𝗦𝗰𝗮𝗻𝗱𝗶𝗻𝗮𝘃𝗶𝗮𝗻">🇩🇰🇳🇴🇸🇪 SCN</option>
-	<option value="UKV" title="𝗨𝗻𝗶𝘁𝗲𝗱 𝗞𝗶𝗻𝗴𝗱𝗼𝗺">🇬🇧 🌍 UKV</option>
-<optgroup label="Exclusives:">
-	<!--option value="BRAX" title="𝗕𝗥𝗔 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (X)">🇧🇷 ⭐ EXC</option-->
-	<option value="PALX" title="𝗣𝗔𝗟 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟰)">🇪🇺 ⭐ EXC</option>
-	<option value="USAX" title="𝗨𝗦𝗔 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟱𝟬)">🇺🇸 ⭐ EXC</option>
-	<option value="JPNX" title="𝗝𝗣𝗡 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟴𝟲)">🇯🇵 ⭐ EXC</option>
-	<option value="PCX" title="𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲/𝗠𝗶𝗹𝗹𝗶𝗼𝗻 𝗦𝗲𝗹𝗹𝗲𝗿">🌎⭐ SPE</option>	
-<optgroup label="Misc:">
-	<option value="COLS" title="𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀">🎨🌎 COL</option>
-	<option value="COLA" title="𝗔𝗹𝗹 𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁𝘀">🎨🌎 ALL</option>
-	<option value="GREY" title="𝗚𝗿𝗲𝘆 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀">🎨🌎 GREY</option>
-	<option value="NFR" title="𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲">‍🚫🌎 NFR</option>
-	<option value="JS" title="𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀">🚫🌏 JS</option>
-	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗 𝗗𝗶𝘀𝗸𝘀">🇯🇵 🌏 64DD</option>
-	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻">🇨🇳 🌏 IQUE</option>	
-	<option value="LRG" title="𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀">‍🛑🌎 LRG</option>
-	<option value="REVS" title="𝗩𝗲𝗿𝘀𝗶𝗼𝗻 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀">🔢🌎 REVS</option>
+<optgroup label="𝗖𝘂𝘀𝘁𝗼𝗺𝗶𝘀𝗲:">
+	<option value="CUST" title="𝗢𝗽𝗲𝗻 𝗖𝘂𝘀𝘁𝗼𝗺 𝗟𝗶𝘀𝘁 𝗠𝗲𝗻𝘂" onclick="clickonregion();">ℹ️🅾️ 𝗖𝗨𝗦𝗧</option>
+<optgroup label="𝗔𝗹𝗹 𝗘𝗻𝘁𝗿𝗶𝗲𝘀:">
+	<option value="ALL" title="𝗘𝘃𝗲𝗿𝘆𝘁𝗵𝗶𝗻𝗴 (𝟭𝟵𝟴𝟬+)">⚠️🌐 𝗙𝗨𝗟𝗟</option>
+<optgroup label="𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁𝘀:">
+	<option value="FULE" title="𝗣𝗔𝗟 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇪🇺 🏆 𝟭𝟬𝟬%</option>	
+	<option value="FULA" title="𝗨𝗦𝗔 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇺🇸 🏆 𝟭𝟬𝟬%</option>
+	<option value="FULJ" title="𝗝𝗣𝗡 𝗙𝗼𝗿𝘄𝗮𝗿𝗱 𝗪𝗼𝗿𝗹𝗱 𝗦𝗲𝘁 (𝟯𝟴𝟴)">🇯🇵 🏆 𝟭𝟬𝟬%</option>
+<optgroup label="𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻𝘀:">
+	<option value="PAL" title="𝗣𝗔𝗟 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟰𝟯)">🇪🇺 🌍 𝗘𝗨𝗥</option>
+	<option value="USA" title="𝗡𝗧𝗦𝗖-𝗨 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟮𝟵𝟲)">🇺🇸 🌎 𝗨𝗦𝗔</option>
+	<option value="JPN" title="𝗡𝗧𝗦𝗖-𝗝 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻 (𝟭𝟵𝟴)">🇯🇵 🌏 𝗝𝗣𝗡</option>
+<optgroup label="𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀:">
+	<!--option value="USAP" title="𝗡𝗧𝗦𝗖-𝗨 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀 (𝟮𝟵7)">🇺🇸 🌎 𝗨𝗦+</option-->
+	<option value="AUSR" title="𝗔𝗨𝗦-𝗣𝗔𝗟 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀 (𝟮𝟭𝟭)">🇦🇺 🌏 𝗔𝗨𝗦</option>
+	<!--option value="ITAR" title="𝗜𝗧𝗔-𝗣𝗔𝗟 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀 (XX)">🇮🇹 🌍 𝗜𝗧𝗔</option-->
+	<!--option value="CANR" title="𝗖𝗮𝗻𝗮𝗱𝗶𝗮𝗻 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀 (XX)">🇨🇦 🌎 𝗖𝗔𝗡</option-->
+	<option value="KORR" title="𝗞𝗢𝗥 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀 (𝟭𝟮)">🇰🇷 🌏 𝗞𝗢𝗥</option>
+	<!--option value="ASR" title="𝗔𝗦𝗜/𝗔𝗦𝗠 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀 (X)">🇹🇼 🌏 𝗔𝗦𝗫</option-->
+<optgroup label="𝗖𝗮𝗿𝘁 𝗖𝗼𝗱𝗲𝘀:">
+	<option value="ASI" title="𝗔𝘀𝗶𝗮𝗻">🇹🇼 🌏 𝗔𝗦𝗜</option>
+	<!--option value="ASM" title="𝗔𝘀𝗶𝗮 𝗠𝗮𝗶𝗻𝗹𝗮𝗻𝗱">🇸🇬 🌏 𝗔𝗦𝗠</option-->
+	<option value="AUS" title="𝗔𝘂𝘀𝘁𝗿𝗮𝗹𝗶𝗮𝗻">🇦🇺 🌏 𝗔𝗨𝗦</option>
+	<option value="BRA" title="𝗕𝗿𝗮𝘀𝗶𝗹𝗶𝗮𝗻">🇧🇷 🌎 𝗕𝗥𝗔</option>
+	<option value="CAN" title="𝗖𝗮𝗻𝗮𝗱𝗶𝗮𝗻">🇨🇦 🌎 𝗖𝗔𝗡</option>
+	<option value="ESP" title="𝗦𝗽𝗮𝗻𝗶𝘀𝗵">🇪🇸 🌍 𝗘𝗦𝗣</option>	
+	<option value="EUR" title="𝗡𝗼𝗿𝘁𝗵𝗲𝗿𝗻 𝗘𝘂𝗿𝗼𝗽𝗲">🇪🇺 🌍 𝗘𝗨𝗥</option>
+	<option value="EUU" title="𝗦𝗼𝘂𝘁𝗵𝗲𝗿𝗻 𝗘𝘂𝗿𝗼𝗽𝗲">🇪🇺 🌍 𝗘𝗨𝗨</option>
+	<option value="FRA" title="𝗙𝗿𝗲𝗻𝗰𝗵">🇫🇷 🌍 𝗙𝗥𝗔</option>
+	<option value="FRG" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗚𝗲𝗿𝗺𝗮𝗻">🇨🇭 🌍 𝗙𝗥𝗚</option>
+	<option value="FAH" title="𝗙𝗿𝗲𝗻𝗰𝗵/𝗛𝗼𝗹𝗹𝗮𝗻𝗱">🇫🇷 🇳🇱 𝗙𝗔𝗛</option>
+	<option value="NOE" title="𝗚𝗲𝗿𝗺𝗮𝗻">🇩🇪 🌍 𝗡𝗢𝗘</option>
+	<option value="HKG" title="𝗛𝗼𝗻𝗴 𝗞𝗼𝗻𝗴">🇭🇰 🌏 𝗛𝗞𝗚</option>
+	<option value="HOL" title="𝗛𝗼𝗹𝗹𝗮𝗻𝗱">🇳🇱 🌍 𝗛𝗢𝗟</option>
+	<option value="ITA" title="𝗜𝘁𝗮𝗹𝗶𝗮𝗻">🇮🇹 🌍 𝗜𝗧𝗔</option>
+	<option value="KOR" title="𝗞𝗼𝗿𝗲𝗮𝗻">🇰🇷 🌏 𝗞𝗢𝗥</option>
+	<option value="MSA" title="𝗠𝗲𝘅𝗶𝗰𝗼/𝗦𝗼𝘂𝘁𝗵 𝗔𝗺𝗲𝗿𝗶𝗰𝗮𝗻">🇲🇽 🌎 𝗠𝗦𝗔</option>
+	<option value="ROC" title="𝗧𝗮𝗶𝘄𝗮𝗻𝗲𝘀𝗲">🇨🇳 🌏 𝗥𝗢𝗖</option>
+	<option value="SCN" title="𝗦𝗰𝗮𝗻𝗱𝗶𝗻𝗮𝘃𝗶𝗮𝗻">🇩🇰🇳🇴🇸🇪 𝗦𝗖𝗡</option>
+	<option value="UKV" title="𝗨𝗻𝗶𝘁𝗲𝗱 𝗞𝗶𝗻𝗴𝗱𝗼𝗺">🇬🇧 🌍 𝗨𝗞𝗩</option>
+<optgroup label="𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:">
+	<!--option value="BRAX" title="𝗕𝗥𝗔 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (X)">🇧🇷 ⭐ 𝗘𝗫𝗖</option-->
+	<option value="PALX" title="𝗣𝗔𝗟 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟰)">🇪🇺 ⭐ 𝗘𝗫𝗖</option>
+	<option value="USAX" title="𝗨𝗦𝗔 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟱𝟬)">🇺🇸 ⭐ 𝗘𝗫𝗖</option>
+	<option value="JPNX" title="𝗝𝗣𝗡 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟴𝟲)">🇯🇵 ⭐ 𝗘𝗫𝗖</option>
+	<option value="PCX" title="𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲/𝗠𝗶𝗹𝗹𝗶𝗼𝗻 𝗦𝗲𝗹𝗹𝗲𝗿">🌎⭐ 𝗦𝗣𝗘</option>	
+<optgroup label="𝗠𝗶𝘀𝗰:">
+	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗 𝗗𝗶𝘀𝗸𝘀">🇯🇵 🌏 𝟲𝟰𝗗𝗗</option>
+	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗚𝗮𝗺𝗲𝘀">🇨🇳 🌏 𝗜𝗤𝗨𝗘</option>	
+	<option value="LRG" title="𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀">‍🛑🌎 𝗟𝗥𝗚</option>
+	<option value="COLS" title="𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀">🎨🌎 𝗖𝗢𝗟</option>
+	<option value="COLA" title="𝗔𝗹𝗹 𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁𝘀">🎨🌎 𝗔𝗟𝗟</option>
+	<option value="GREY" title="𝗚𝗿𝗲𝘆 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀">🎨🌎 𝗚𝗥𝗬</option>
+	<option value="NFR" title="𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲">🚫🌎 𝗡𝗙𝗥</option>
+	<option value="JS" title="𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀">🚫🌏 𝗝𝗣𝗡𝗦</option>
+	<option value="REVS" title="𝗖𝗮𝗿𝘁 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀">🔢🌎 𝗥𝗘𝗩𝗦</option>
 	
 	<!--option value="HWR" title="HARDWARE TESTING">🕹️ SYSTEM</option>
 	<option value="CTR" title="CONTROLLERS TESTING">🎮 PADS</option>
@@ -3131,6 +3133,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-15.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-16.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
