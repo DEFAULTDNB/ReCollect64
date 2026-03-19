@@ -184,12 +184,12 @@
 					<img id="thumbA1" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆 𝟭" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA2" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆 𝟮" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbA3" title="𝗔𝗰𝗰𝗲𝘀𝘀𝗼𝗿𝘆 𝟯" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbO1" title="𝗖𝗮𝗿𝗱 𝗙𝗿𝗼𝗻𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
+					<img id="thumbO2" title="𝗖𝗮𝗿𝗱 𝗕𝗮𝗰𝗸" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbS1" title="𝗧𝗶𝘁𝗹𝗲 𝗦𝗰𝗿𝗲𝗲𝗻" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbS2" title="𝗦𝗰𝗿𝗲𝗲𝗻𝘀𝗵𝗼𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
 					<img id="thumbS3" title="𝗙𝗲𝗮𝘁𝘂𝗿𝗲" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-					<img id="thumbO1" title="𝗖𝗮𝗿𝗱 𝗙𝗿𝗼𝗻𝘁" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-					<img id="thumbO2" title="𝗖𝗮𝗿𝗱 𝗕𝗮𝗰𝗸" class="thumbs" src='' onload="this.style.display = 'inline-block'; thumbCarousel.push(this.id);" onerror="this.style.display = 'none';" onclick='thumbFunct(this.id)'>
-				</div>
+					</div>
 			</div>
 		<div class="grid-item2">
 		<div id="description"></div><hr class="type2"><center><span id="panelinfo">CHECKLIST:</span></center>
@@ -1506,7 +1506,9 @@ function reply_click(clicked_id){
 		} else if (frametitle.innerHTML === "WWF No Mercy UV1"){
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbRC").src = 'Carts/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
-		
+		} else if (frametitle.innerHTML === "Yoshis Story PCU"){
+			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
+
 		
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
@@ -3129,6 +3131,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-14.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.3-15.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
