@@ -94,3 +94,4 @@ Blog/Reviews/Games/DEZAEMON3D/r92.html
 Blog/Reviews/Games/VIEWPOINT2064/r93.html
 Blog/Reviews/Games/BANGAIOH/r94.html
 Blog/Reviews/BlueRetro4W/r95.html
+Blog/Reviews/Games/STARFOX64/r96.html
