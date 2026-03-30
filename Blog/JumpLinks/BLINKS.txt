@@ -298,3 +298,4 @@ Blog/Features/2026/Misc/b296.html
 Blog/Features/2026/GE007DSE/b297.html
 Blog/Features/2026/B64Recomp/b298.html
 Blog/Features/2026/Misc/b299.html
+Blog/Features/2026/Misc/b300.html
