@@ -301,3 +301,4 @@ Blog/Features/2026/Misc/b299.html
 Blog/Features/2026/Misc/b300.html
 Blog/Features/2026/Screendrive64/b301.html
 Blog/Features/2026/Misc/b302.html
+Blog/Features/2026/OOTTemples/b303.html
