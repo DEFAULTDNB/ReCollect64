@@ -304,3 +304,4 @@ Blog/Features/2026/Misc/b302.html
 Blog/Features/2026/OOTTemples/b303.html
 Blog/Features/2026/Misc/b304.html
 Blog/Features/2026/DonutDodo/b305.html
+Blog/Features/2026/PW64Decomp/b306.html
