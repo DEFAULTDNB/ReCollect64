@@ -1392,35 +1392,24 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").style.width = "48%";
 	} else if (pReg === "NFR" || pReg === "ALTN" || pReg === "ANFR"){
 		document.getElementById("description").innerHTML =  "This was a sample cartridge sent out to retailers with demo kiosks set up.<br><br>Stores were instructed to destroy or return them after a specified period of use, making them very hard to obtain nowadays.";
-		//ISSUE: Turok 2 ALTN/Star Fox 64 ALTN not showing up in display, but BG image works fine.
-			if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTN"){ //Fixed again
+		//Fix front/back cart image order (NOTE: use "thumbRC2" for NFR cart backs)
+		document.getElementById("thumbBB").src = '';		
+		//ISSUE: Turok 2 ALTN/Star Fox 64 ALTN etc not showing up in display, but BG image works fine.
+		switch(frametitle.innerHTML) {
+			case "Turok 2 Seeds of Evil ALTN": case "Star Fox 64 ALTN": case "Star Wars Episode I Racer ALTN": case "WWF War Zone NFR": case "Mario Golf NFR": case "Mario Party NFR":
 				document.getElementById("thumb").style.height = "auto"
 				document.getElementById("thumb").style.width = "48%"
-			} else if (frametitle.innerHTML === "Star Fox 64 ALTN"){ //Fixed
-				document.getElementById("thumb").style.height = "auto"
-				document.getElementById("thumb").style.width = "48%"
-			} else if (frametitle.innerHTML === "Star Wars Episode I Racer ALTN"){ //Fixed
-				document.getElementById("thumb").style.height = "auto"
-				document.getElementById("thumb").style.width = "48%"
-			} else if (frametitle.innerHTML === "WWF War Zone NFR"){ //Fixed
-				document.getElementById("thumb").style.height = "auto"
-				document.getElementById("thumb").style.width = "48%"
-			} else if (frametitle.innerHTML === "Mario Golf NFR"){ //Fixed
-				document.getElementById("thumb").style.height = "auto"
-				document.getElementById("thumb").style.width = "48%"
-			} else if (frametitle.innerHTML === "Mario Party NFR"){ //Fixed
-				document.getElementById("thumb").style.height = "auto"
-				document.getElementById("thumb").style.width = "48%"
-			} else if (frametitle.innerHTML === "Doshin the Giant NFR"){
+			break;
+			case "Doshin the Giant NFR":
 				document.getElementById("thumb").src = "";
 				document.getElementById("thumbDI").src = "";
-			} else {
+			break;
+			default:
 				document.getElementById("thumb").src = "";
-				//REVERT THIS BELOW.
-			}
-			document.getElementById("thumbRC2").src = "";
-			document.getElementById("thumbBB1").src = "";
-			document.getElementById("thumbBB2").src = "";
+		}
+		document.getElementById("thumbRC2").src = "";
+		document.getElementById("thumbBB1").src = "";
+		document.getElementById("thumbBB2").src = "";
 	} else if (pReg === "U"){
 		if (frametitle.innerHTML === "Belushi Speedball What us Worry U"){
 			document.getElementById("description").innerHTML = "Belushi Speedball's 'What us Worry' is a music album on a cartridge.<br><br>You can listen to the tracks available <a href='https://belushispeedball.bandcamp.com/album/what-us-worry' target='_blank'>HERE</a>"
@@ -1573,14 +1562,13 @@ function reply_click(clicked_id){
 			document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
 		} else if (pReg === "ALTN") {
 			document.getElementById("thumbRC").src = 'Carts/ALTN/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTN.png';
-		//NOT THE RIGHT WAY AROUND?? BACK then FRONT, should be FRONT then BACK...
 		} else if (pReg === "ANFR") { //AUSTRALIAN NFR (ANFR) FIX
 			if (frametitle.innerHTML === "Star Wars Shadows of the Empire ANFR"){
 				document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-				document.getElementById("thumbBB").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
+				document.getElementById("thumbRC2").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
 			} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time ANFR"){
 				document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
-				document.getElementById("thumbBB").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
+				document.getElementById("thumbRC2").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
 			}
 			
 		} else {
@@ -3207,6 +3195,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.4-1.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.4-2.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
