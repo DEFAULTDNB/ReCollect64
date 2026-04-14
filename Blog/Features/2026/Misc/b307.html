@@ -1,0 +1,43 @@
+<div id="b307" class="card">
+	<h2><span class="badge new">UPDATED</span> <span class="title">N64 Video Player Released</span></h2>
+	<h5 class="subtitle">Built by Lewilou22 ~ Apr 14, 2026</h5>
+	<div class="bgChat" style="background-image:url('Covers/E/South Park E.png'); background-position: center; image-rendering: smooth; background-size: 170%"><div class="overlaytext">N64 Video Player Released</div></div>
+	<h4>Movies, Games & Videos</h4>
+	<div class="titleUnderline"></div>
+	<p>Did you know that the Nintendo 64 recently had a video player application released? Nor did I, until I stumbled upon the GitHub repository of Lewilou22, a developer who has put together a clever method of playing movies and TV shows from the comfort of their Nintendo 64 thanks to the incredible functionality of the open source <a href="https://github.com/DragonMinded/libdragon">Libdragon SDK</a>.</p>
+	<p>The process generates an <b>M1V</b> file, an MPEG-1 video file that exclusively contains video data using lossy compression, and a <b>WAV64</b> file, which is essentially the audio track. Modern container formats such as MP4 and MKV contain both the video and audio tracks, sometimes with multiple audio tracks for different languages, etc. Sadly the N64 video player app doesn't, and likely won't, support these modern formats.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>V 1.03: Faster + simple setup</b></p>
+	<p>Unzip the main folder > save sdvideo.z64 to your SD card</p>
+	<p>Use the python GUI scripts to make N64 video convertions (and audio GUI if having issues with video GUI)</p>
+	<p>Copy both files to a folder on your flashcart SD card (.M1V and .wav64)</p>
+	<p>Load the ROM, Play movies and Videos on N64</p>
+	<p>For best options, Libdragon should be installed</p>
+	<p></p>
+	<p><b>V1.02: Old method</b></p>
+	<p>HOW TO SET UP: WINDOWS</p>
+	<p>VIDEO/AUDIO:</p>
+	<p>Add FFmpeg to your system path.</p>
+	<p>To do this from the command line, type or paste setx /m PATH "C:\ffmpeg\bin;%PATH%"</p>
+	<p>DOWNLOAD HERE https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z</p>
+	<p>Install Libdragon for windows folow the python script install_libdragon_windows.py</p>
+	<p>Use the GUI to convert your video and audio file at once. Make sure all Paths are lined up (AUDIO REQUIRES LIBDRAGON INSTALLED, SEE AUDIO FOR OTHER OPTION)</p>
+	<p>AUDIO:</p>
+	<p>We have 2 options here, use the precompiled audiocon64.exe and folder I have included and point the GUI to that folder</p>
+	<p>OR</p>
+	<p>Use the main GUI to do both convertions (MUST HAVE LIBDRAGON TOOLCHAIN INSTALLED!!)</p>
+	<p>ROM BUILDING (OPTIONAL FOR OLDER EVERDRIVES OR A PREBUILT ROM)</p>
+	<p>Use the main GUI to build a rom with audio and video emmbeded in the rom (NEEDS LIBDRAGON INSTALLED)</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<iframe id="" class="video" src="https://www.youtube.com/embed/ddS_CBplqi0"></iframe>
+	</center>
+	<h4>Conversion to Cartridge</h4>
+	<div class="titleUnderline"></div>
+	<p>With the latest release's GUI tools (which requires <a href="https://ffmpeg.org/download.html">FFMPEG</a> installed) the possibilities are utterly brilliant, though ultimately extremely limited. From modern blockbusters to entire seasons of your favourite shows, you could potentially cram as much as your blank flashable clone carts can fit, or you can simply bang the files onto the root of your EverDrive 64, SummerCart64 or similar flash carts.</p>
+	<p>According to reports, this player works well on Everdrive 2.5, has some sound issues on the Everdrive X7 (use the D-pad to toggle audio on), can occasionally black screen on the SummerCart64, runs well with either 20 FPS or 30 FPS conversion, but has a slightly laggy menu. It's nice to see alternative homebrew still coming to the system, regardless of the technical limitations regarding output resolution and video compression.</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/lewilou22/N64-Video-Player/releases">GitHub Repository</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
