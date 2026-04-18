@@ -42,7 +42,7 @@ function handleFileSelect(event) {
 		byteArray = new Uint8Array(arrayBuffer);		
 		let convertedBuffer;			
 		decoder = new TextDecoder("windows-1252");
-		str = decoder.decode(reader.result); // String
+		str = decoder.decode(reader.result);
 		var boot, name, cid, gRev;
 			if (byteArray.slice(0x00, 0x08) == "128,55,18,64,0,0,0,15") {
 				boot = "BIG ENDIAN (*.Z64)";
@@ -60,7 +60,13 @@ function handleFileSelect(event) {
 				name = str[35]+str[34]+str[33]+str[32]+str[39]+str[38]+str[37]+str[36]+str[43]+str[42]+str[41]+str[40]+str[47]+str[46]+str[45]+str[44]+str[51]+str[50]+str[49]+str[48];
 				cid = str[56]+str[63]+str[62]+str[61];
 				gRev = byteArray.slice(0x3C, 0x3D);
+			} else if (byteArray.slice(0x00, 0x08) == "128,55,18,64,3,160,127,95") { //LRG SWSOTE REV3
+				boot = "BIG ENDIAN (*.Z64)";
+				name = str.slice(32, 59);
+				cid = str.slice(59,63);
+				gRev = byteArray.slice(0x3F, 0x40);
 			}
+			
 			const encodedString = name;
 			decodedName = decodeShiftJIS(encodedString);
 			boxart.src = "LOWRES/"+cid.slice(1,3)+".png";
@@ -337,7 +343,7 @@ function buf2hex(buffer) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2025 </span><span style="color:lime;">V3.5</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V3.6</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
