@@ -316,3 +316,4 @@ Blog/Features/2026/Misc/b314.html
 Blog/Features/2026/KIMKN64/b315.html
 Blog/Features/2026/M64Update2/b316.html
 Blog/Features/2026/Misc/b317.html
+Blog/Features/2026/MM2Released/b318.html
