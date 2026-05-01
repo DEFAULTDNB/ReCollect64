@@ -296,7 +296,7 @@ Blog/Features/2026/Misc/b294.html
 Blog/Features/2026/Misc/b295.html
 Blog/Features/2026/Misc/b296.html
 Blog/Features/2026/GE007DSE/b297.html
-Blog/Features/2026/B64Recomp/b298.html
+Blog/Features/2026/Misc/b298.html
 Blog/Features/2026/Misc/b299.html
 Blog/Features/2026/Misc/b300.html
 Blog/Features/2026/Screendrive64/b301.html
@@ -319,3 +319,4 @@ Blog/Features/2026/Misc/b317.html
 Blog/Features/2026/MM2Released/b318.html
 Blog/Features/2026/Misc/b319.html
 Blog/Features/2026/Misc/b320.html
+Blog/Features/2026/Misc/b321.html
