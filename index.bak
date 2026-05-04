@@ -58,6 +58,7 @@
 	var currencyList = {AUD:1.00,BRL:1.00,CAD:1.00,CHF:1.00,CNY:1.00,EUR:1.00,GBP:1.00,JPY:1.00,TWD:1.00,USD:1.00};
 	//set up autocomplete list.
 	let AClist = [];
+	//check region drop down here - add or remove speedrun on page detection.
 </script>
 </head>
 <body>
@@ -147,9 +148,9 @@
 	<option value="JS" title="𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀">🚫🌏 𝗝𝗣𝗡𝗦</option>
 	<option value="REVS" title="𝗖𝗮𝗿𝘁 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀">🔢🌎 𝗥𝗘𝗩𝗦</option>
 	
-	<!--option value="HWR" title="HARDWARE TESTING">🕹️ SYSTEM</option>
-	<option value="CTR" title="CONTROLLERS TESTING">🎮 PADS</option>
-	<option value="ACC" title="ACCESSORIES TESTING">💾 ACCS</option-->
+	<!--option value="HWR" title="HARDWARE: CONSOLES">🕹️ CONS</option>
+	<option value="CTR" title="HARDWARE: CONTROLLERS">🎮 PADS</option>
+	<option value="ACC" title="HARDWARE: ACCESSORIES">💾 ACCS</option-->
 	
 </select>
 <select id="Currency" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗖𝘂𝗿𝗿𝗲𝗻𝗰𝘆" name="Currency" onchange="bureauDeChange();" style="">
@@ -221,6 +222,9 @@
 </div>
 <center><div id="main" class="main" style="border: none;"></div><center>
 <script charset="utf-8">
+
+document.getElementById("start").style.display = "block";
+
 function spitFacts() {
 	fetch('Config/facts.cfg')
     .then(response => {
@@ -444,11 +448,15 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 			roundUp();
 		});
 	}
+	
+	document.getElementById("start").style.display = "block";
+	
 	if (document.getElementById("Region").value == "ALL") {
 		document.getElementById("start").style.display = "none";	
 		var myToast = Toastify({className: "PopStyle", text: "𝗘𝘃𝗲𝗿𝘆 𝗩𝗲𝗿𝘀𝗶𝗼𝗻:\n\nEvery game variant found around the globe.", style: {background: 'SlateBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();
 		var myToast = Toastify({className: "PopStyle", text: '𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗛𝗶𝗱𝗱𝗲𝗻:\n\nToo many games to list in this section!', avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
-	}
+	} 
+
 	if (document.getElementById("Region").value == "FULJ") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor Japanese collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "FULA") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor American collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "FULE") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor European collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
@@ -466,7 +474,7 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 	if (document.getElementById("Region").value == "PCX") {var myToast = Toastify({className: "PopStyle", text: "𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲:\n\nMillion Seller/Players Choice variants.", style: {background: 'black', color: "white"}, avatar: "Config/Images/PCU.png", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "JS") {var myToast = Toastify({className: "PopStyle", text: "𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀:\n\nJapanese store demos.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/SAMPLE.png", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "BRA") {var myToast = Toastify({className: "PopStyle", text: "𝗕𝗿𝗮𝘇𝗶𝗹𝗶𝗮𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nPlaytronic/Gradiente releases.", style: {background: '#009C3B ', color: "#FEDF00"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast(); document.getElementById('mbrasil').style.animation="mbrasilfade 2.5s ease-in"; document.getElementById('mbrasil').addEventListener("animationend", (e) => e.target.style.animation = '');}
-	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: "HARDWARE\n\nTESTING.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: "CONSOLES\n\nTESTING.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 }
 function readFile2(e) {
 	document.getElementById("frame").style.display = "none";
@@ -738,8 +746,11 @@ myCount = 0;
 		}
 		//THUMBNAIL FIXES PER REGION\\
 		if (lines[info].match("REGION=A ")) {
-			if (gTitle.includes("Pokemon Pokemaniac Bundle")||gTitle.includes("Pokemon Stadium Battle Set")){ //CONSOLES bespoke fix
+			if (gTitle.includes("Pokemon Pokemaniac Bundle")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+			}
+			if (gTitle.includes("Pokemon Stadium Battle Set")){ //CONSOLES bespoke fix
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "3px";
 			}
 			if (gTitle.includes("Vigilante 8")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
@@ -838,14 +849,18 @@ myCount = 0;
 			//Fix to png for jpg thumbs transparency
 			document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/'+gTitle+' J.jpg"');
-			if (gTitle.includes("Console")||gTitle.includes("Smoke Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")){ //CONSOLES bespoke fix
-				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
-			} else if (gTitle.includes("and White")){ // bespoke fix..why
-				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
-			} else if (gTitle.includes("Pikachu Edition")){ // bespoke fix..why
-				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "7px";		
-			} else {
+			
+			if (document.getElementById("Region").value == "HWR"){
+			
+				if (gTitle.includes("Console")||gTitle.includes("Smoke Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")||gTitle.includes("and White")||gTitle.includes("ANA All Nippon")||gTitle.includes("JUSCO 30th")||gTitle.includes("Lawson Station Exclusive")){ //CONSOLES bespoke fix
+					document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/Charcoal Grey Console J.jpg"');
+					document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "20px";
+				} else if (gTitle.includes("Pikachu Edition")){ // bespoke fix..why
+					document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "7px";		
+				}
+				
+			} else {	
+				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/'+gTitle+' J.jpg"');
 				document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
 			}			
 		} else if (lines[info].match("REGION=LRGC ")){
@@ -1101,12 +1116,7 @@ function reply_click(clicked_id){
 		case "DD":
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Disk?"><div id="DDDPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="dOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
 		break;
-		case "HWR": //change cart to hwr?
-			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CONSPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
-		break;
-		case "PAD": //change cart to cpad?
-			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="dOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
-		break;
+
 		default:
 		//no manual/no box/unsealed
 		if (gameTitle === "Remute R64"){
@@ -1117,6 +1127,15 @@ function reply_click(clicked_id){
 		} else {
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CARTPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
 		}
+		//inject here for hardware/controller/accessories.
+		if (Region.options[Region.selectedIndex].value == "HWR"){
+			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Console?"><div id="CONSPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
+		} else if (Region.options[Region.selectedIndex].value == "CTR"){
+			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
+		//} else if (Region.options[Region.selectedIndex].value == "ACC"){
+			//document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Accessory?"><div id="ACCPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
+		}
+	
 	}
 	//ALWAYS APPEND THIS\\
 	document.getElementById("container").innerHTML = document.getElementById("container").innerHTML + '<hr class="type2"><div id="value"></div>';
@@ -1125,7 +1144,13 @@ function reply_click(clicked_id){
 	document.getElementById("frametitle").innerHTML = gameTitle + " " + gameRegions;
 	if (document.getElementById("Region").value == "HWR"){ //CONSOLES modded
 		document.getElementById("frametext").innerHTML = "<center>&nbsp <span id='frameinfo'>Serial/Revision: </span>" + gCode +"</center>";
-		document.documentElement.style.cssText = "--cOwn-content: ' Console '";		
+		document.documentElement.style.cssText = "--cOwn-content: ' Console '";
+	} else if (document.getElementById("Region").value == "CTR"){ //CONTROLLERS modded
+		document.getElementById("frametext").innerHTML = "<center>CONTROLLER TEST</center>";
+		document.documentElement.style.cssText = "--cOwn-content: ' Controller '";
+	//} else if (document.getElementById("Region").value == "ACC"){ //ACCESSORIES modded
+		//document.getElementById("frametext").innerHTML = "<center>ACCESSORY TEST</center>";
+		//document.documentElement.style.cssText = "--cOwn-content: ' Accessory '";	
 	} else {
 		document.documentElement.style.cssText = "--cOwn-content: ' Cart '";
 		document.getElementById("frametext").innerHTML = "<center>&nbsp <span id='frameinfo'>ID: </span> " + gCode + " <span id='frameinfo'>CIC: </span>" + gCIC + " <span id='frameinfo'>ROM: </span> " + mbSize + " <span id='frameinfo'>SAVE:</span> "+ mpak + " <span id='subframeinfo'>" + gFeatures +"</span><br></center>";
@@ -1748,7 +1773,7 @@ function reply_click(clicked_id){
 		
 	//CONSOLES additional elements\\
 	//TO DO FIX download of console image: naming
-	} else if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
+	} else if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Smoke Black")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
 		document.getElementById("thumbA1").style.width = "48%";
 		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Grey.png';
@@ -1780,7 +1805,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.width = "48%";
 		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Ice.png';
-	} else if (frametitle.innerHTML.includes("Funtastic Jungle")||frametitle.innerHTML.includes("Funtastic Green")||frametitle.innerHTML.includes("Sabores Kiwi")){
+	} else if (frametitle.innerHTML.includes("Funtastic Jungle")||frametitle.innerHTML.includes("Funtastic Green")||frametitle.innerHTML.includes("Sabores Kiwi")||frametitle.innerHTML.includes("Donkey Kong 64 Set")){
 		document.getElementById("thumbA1").style.width = "48%";
 		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Green.png';
@@ -1958,6 +1983,16 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA2").src = 'Consoles/Orange Pikachu J B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Orange Pikachu.png';
 			}
+			
+	} else if (frametitle.innerHTML.includes("Pokemon Stadium Battle Set")||frametitle.innerHTML.includes("Pokemon Pokemaniac Bundle")){
+			if (pReg === "A"){
+				document.getElementById("thumbA1").src = 'Consoles/Pokemon Stadium Console.png';
+			} else {
+				document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';					
+			}
+		
+	
+	
 	} else {
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
@@ -2517,7 +2552,17 @@ window.onload = function () {
 		titleCount = lines.length;
 		populatethepage();
 		roundUp();
-	});	
+	});
+	
+	//alert(Region.options[Region.selectedIndex].value);
+	if (document.getElementById("Region").value === "ALL") {
+		document.getElementById("start").style.display = "none";	
+		var myToast = Toastify({className: "PopStyle", text: "𝗘𝘃𝗲𝗿𝘆 𝗩𝗲𝗿𝘀𝗶𝗼𝗻:\n\nEvery game variant found around the globe.", style: {background: 'SlateBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();
+		var myToast = Toastify({className: "PopStyle", text: '𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗛𝗶𝗱𝗱𝗲𝗻:\n\nToo many games to list in this section!', avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
+	} else {
+		document.getElementById("start").style.display = "block";
+	}
+	
 }
 function copyOutCollection() {
 	document.getElementById("frame").style.display = "none";
@@ -3197,6 +3242,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.4-3.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5-1.2026)</span></div>
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
