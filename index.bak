@@ -145,11 +145,11 @@
 	<option value="COLA" title="𝗔𝗹𝗹 𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁𝘀">🎨🌎 𝗔𝗟𝗟</option>
 	<option value="GREY" title="𝗚𝗿𝗲𝘆 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀">🎨🌎 𝗚𝗥𝗬</option>
 	<option value="NFR" title="𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲">🚫🌎 𝗡𝗙𝗥</option>
-	<option value="JS" title="𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀">🚫🌏 𝗝𝗣𝗡𝗦</option>
-	<option value="REVS" title="𝗖𝗮𝗿𝘁 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀">🔢🌎 𝗥𝗘𝗩𝗦</option>
+	<option value="JS" title="𝗝𝗣𝗡 𝗦𝗮𝗺𝗽𝗹𝗲 𝗖𝗮𝗿𝘁𝘀">🚫🌏 𝗝𝗦𝗖</option>
+	<option value="REVS" title="𝗖𝗮𝗿𝘁 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀">🔢🌎 𝗥𝗘𝗩</option>
 	
 	<!--option value="HWR" title="HARDWARE: CONSOLES">🕹️ CONS</option>
-	<option value="CTR" title="HARDWARE: CONTROLLERS">🎮 PADS</option>
+	<!--option value="CTR" title="HARDWARE: CONTROLLERS">🎮 PADS</option>
 	<option value="ACC" title="HARDWARE: ACCESSORIES">💾 ACCS</option-->
 	
 </select>
@@ -200,18 +200,7 @@
 			</div>
 		<div class="grid-item2">
 		<div id="description"></div><hr class="type2"><center><span id="panelinfo">CHECKLIST:</span></center>
-			<div id="container">
-				<!--
-				<div id="HWR"><span title="Console"><div id="PADPNG"></div></span><span><input id="HWRconsole" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="HWRconsoleSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
-					<span title="Boxed?"><div id="BOXPNG"></div><input id="HWRboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="PADboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
-					<span title="Sealed?"><div id="SLDPNG"></div><input id="HWRsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="PADsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
-				</div>
-				<div id="PAD"><span title="Controller"><div id="PADPNG"></div></span><span><input id="PADcontroller" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span><span id="PADcontrollerSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br>
-					<span title="Boxed?"><div id="BOXPNG"></div><input id="PADboxed" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span><span id="PADboxedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br>
-					<span title="Sealed?"><div id="SLDPNG"></div><input id="PADsealed" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span><span id="PADsealedSpent"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span>
-				</div>
-				-->
-			</div>
+			<div id="container"></div>
 		</div>
 		<div class="grid-item3" id="gamelogo">
 		<center><span id="builder">𝗕𝘂𝗶𝗹𝗱 𝗮 𝗰𝘂𝘀𝘁𝗼𝗺 𝗹𝗶𝘀𝘁 (ℹ️/🅾️): </span><button title="Add games to your virtual list" class="sbutton" id="addVlist">➕ ADD </button><button title="Remove titles from your virtual list" class="sbutton" id="removeVlist">➖ REM</button></center>
@@ -1130,10 +1119,15 @@ function reply_click(clicked_id){
 		//inject here for hardware/controller/accessories.
 		if (Region.options[Region.selectedIndex].value == "HWR"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Console?"><div id="CONSPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
+		
+			document.getElementById("thumbA3").after(document.getElementById("thumbMA"));
+			//change node order to put manual after controller (resize?)
+		
 		} else if (Region.options[Region.selectedIndex].value == "CTR"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
 		//} else if (Region.options[Region.selectedIndex].value == "ACC"){
 			//document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Accessory?"><div id="ACCPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
+		} else {
 		}
 	
 	}
@@ -1278,6 +1272,14 @@ function reply_click(clicked_id){
 		}
 	}
 	if (gFeatures.includes("back")){
+		//CONSOLE HARDWARE BACK - generic polystyrene back
+		if (Region.options[Region.selectedIndex].value === "HWR"){
+			//if (pReg === "AS"||gameRegions === "KO"||pReg === "J"||pReg === "TW"){
+				document.getElementById("thumbBB").src = 'Backs/J/Charcoal Grey Console J.png';
+			//}
+		}
+		//KO region is not working
+	
 	var boxCode;
 	let boxDetect = gFeatures.slice(gFeatures.indexOf("back")-5, gFeatures.indexOf("back")-1).trim();
 		if (boxDetect == boxDetect.toUpperCase()){
@@ -1506,8 +1508,13 @@ function reply_click(clicked_id){
 		if (frametitle.innerHTML === "Diddy Kong Racing KO"||frametitle.innerHTML === "Mario Kart 64 KO"||frametitle.innerHTML === "Star Fox 64 KO"||frametitle.innerHTML === "Super Mario 64 KO"){
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
-			document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+			
+			if (Region.options[Region.selectedIndex].value === "HWR") { //fix for console back not displaying.
+				} else {
+				document.getElementById("thumbBB").src = 'Backs/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+			}
+			
 		}
 	} else if (pReg === "DV1"||pReg === "DV2"){
 		document.getElementById("thumbRC").src = 'Carts/D/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'D.png';
@@ -1770,15 +1777,33 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").src = 'Accessories/iQue A1.png';
 		document.getElementById("thumbMA").style.width = "32%";
 		document.getElementById("thumbMA").style.height = "auto";
-		
-	//CONSOLES additional elements\\
-	//TO DO FIX download of console image: naming
-	} else if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Smoke Black")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
-		document.getElementById("thumbA1").style.width = "48%";
+	
+	} else {
+	
+		document.getElementById("thumb").style.height = "auto"
+		document.getElementById("thumb").style.width = "48%"
+		document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
+		document.getElementById("thumbA1").style.width = "32%";
 		document.getElementById("thumbA1").style.height = "auto";
-		document.getElementById("thumbA1").src = 'Consoles/Funtastic Grey.png';
-		document.getElementById("thumbA2").style.width = "48%";
+		document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
+		document.getElementById("thumbA2").style.width = "32%";
 		document.getElementById("thumbA2").style.height = "auto";
+		document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
+		document.getElementById("thumbA3").style.width = "32%";
+		document.getElementById("thumbA3").style.height = "auto";
+	}
+	
+	//CONSOLES element formatting\\
+	if (Region.options[Region.selectedIndex].value == "HWR"){
+		document.getElementById("thumbA1").style.width = "48%";
+		document.getElementById("thumbA1").style.height = "auto";	
+		document.getElementById("thumbA2").style.width = "48%";
+		document.getElementById("thumbA2").style.height = "auto";	
+		document.getElementById("thumbA3").style.width = "48%";
+		document.getElementById("thumbA3").style.height = "auto";	
+	
+		if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Smoke Black")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
+		document.getElementById("thumbA1").src = 'Consoles/Funtastic Grey.png';
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey E B.png';
 			} else if (pReg === "J"){
@@ -1786,15 +1811,9 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey.png';
 	} else if (frametitle.innerHTML.includes("Funtastic Ice")||frametitle.innerHTML.includes("Funtastic Blue")||frametitle.innerHTML.includes("Sabores Anis")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Ice.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Ice E B.png';
 			} else if (pReg === "J"){
@@ -1802,15 +1821,9 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Ice U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Ice.png';
 	} else if (frametitle.innerHTML.includes("Funtastic Jungle")||frametitle.innerHTML.includes("Funtastic Green")||frametitle.innerHTML.includes("Sabores Kiwi")||frametitle.innerHTML.includes("Donkey Kong 64 Set")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Green.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Green E B.png';
 			} else if (pReg === "J"){
@@ -1818,15 +1831,9 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Green U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Green.png';
 	} else if (frametitle.innerHTML.includes("Funtastic Watermelon")||frametitle.innerHTML.includes("Funtastic Red")||frametitle.innerHTML.includes("Sabores Ceraja")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Red.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Red E B.png';
 			} else if (pReg === "J"){
@@ -1834,15 +1841,9 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Red U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Red.png';
 	} else if (frametitle.innerHTML.includes("Funtastic Fire")||frametitle.innerHTML.includes("Funtastic Orange")||frametitle.innerHTML.includes("Sabores Tangerina")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Orange.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Orange E B.png';
 			} else if (pReg === "J"){
@@ -1850,15 +1851,9 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Orange U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Orange.png';
 	} else if (frametitle.innerHTML.includes("Funtastic Grape")||frametitle.innerHTML.includes("Funtastic Purple")||frametitle.innerHTML.includes("Sabores Uva")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Purple.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Purple E B.png';
 			} else if (pReg === "J"){
@@ -1866,15 +1861,9 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Purple U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Funtastic Purple.png';
 	} else if (frametitle.innerHTML.includes("Atomic Purple")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			} else if (pReg === "J"){
@@ -1882,15 +1871,9 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
 	} else if (frametitle.innerHTML.includes("Extreme Green")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			} else if (pReg === "J"){
@@ -1898,15 +1881,9 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Extreme Green.png';
 	} else if (frametitle.innerHTML.includes("Gold Controller Bundle")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			} else if (pReg === "J"){
@@ -1914,56 +1891,35 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Gold.png';
 	} else if (frametitle.innerHTML.includes("Gold Toys R Us")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/Gold.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Gold J B.png';
 			} else {
 				document.getElementById("thumbA2").src = 'Consoles/Gold U B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Gold.png';
 	} else if (frametitle.innerHTML.includes("ANA All Nippon Airways Exclusive")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA1").src = 'Consoles/ANA All Nippon Airways Exclusive J.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
-		document.getElementById("thumbA2").src = 'Consoles/ANA All Nippon Airways Exclusive J B.png';
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
+		//document.getElementById("thumbA2").src = 'Consoles/ANA All Nippon Airways Exclusive J B.png';
+		document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 		document.getElementById("thumbA3").src = 'Controllers/Grey.png';
-		
-	} else if (frametitle.innerHTML.includes("Charcoal Grey Console")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
+	} else if (frametitle.innerHTML.includes("Daiei Hawks Exclusive")){
+		document.getElementById("thumbA1").src = 'Consoles/Daiei Hawks Exclusive J.png';
+		document.getElementById("thumbA2").src = 'Consoles/Daiei Hawks Exclusive J B.png';
+		document.getElementById("thumbA3").src = 'Controllers/Daiei Hawks Exclusive.png';
+	} else if (frametitle.innerHTML.includes("Charcoal Grey Console")||frametitle.innerHTML.includes("Lawson")||frametitle.innerHTML.includes("Taiwanese Console")||frametitle.innerHTML.includes("Malaysian Console")){
 		document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
-			} else if (pReg === "U"){
+			} else if (pReg === "U"||pReg === "BR"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			} else {
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			}
-		document.getElementById("thumbA3").style.width = "48%";
-		document.getElementById("thumbA3").style.height = "auto";
 		document.getElementById("thumbA3").src = 'Controllers/Grey.png';
-		
 	} else if (frametitle.innerHTML.includes("Pikachu Edition")){
-		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";
-		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";
 			if (frametitle.innerHTML.includes("Dark Blue")){
 				document.getElementById("thumbA1").src = 'Consoles/Dark Blue Pikachu.png';
 					if (pReg === "J"){
@@ -1983,29 +1939,17 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA2").src = 'Consoles/Orange Pikachu J B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Orange Pikachu.png';
 			}
-			
 	} else if (frametitle.innerHTML.includes("Pokemon Stadium Battle Set")||frametitle.innerHTML.includes("Pokemon Pokemaniac Bundle")){
 			if (pReg === "A"){
 				document.getElementById("thumbA1").src = 'Consoles/Pokemon Stadium Console.png';
+				document.getElementById("thumbA2").src = 'Consoles/Pokemon Stadium Console B.png';
 			} else {
-				document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';					
+				document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
+				document.getElementById("thumbA3").src = 'Controllers/Grey.png';			
 			}
-		
-	
-	
-	} else {
-		document.getElementById("thumb").style.height = "auto"
-		document.getElementById("thumb").style.width = "48%"
-		document.getElementById("thumbA1").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A1.png';
-		document.getElementById("thumbA1").style.width = "32%";
-		document.getElementById("thumbA1").style.height = "auto";
-		document.getElementById("thumbA2").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A2.png';
-		document.getElementById("thumbA2").style.width = "32%";
-		document.getElementById("thumbA2").style.height = "auto";
-		document.getElementById("thumbA3").src = 'Accessories/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' A3.png';
-		document.getElementById("thumbA3").style.width = "32%";
-		document.getElementById("thumbA3").style.height = "auto";
-	}
+		}
+	}	
 	//Poster - KEEP THIS IDEA OPEN
 	//document.getElementById("thumbP1").src = 'Poster/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' P1.png';
 	
@@ -3242,6 +3186,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5-1.2026)</span></div>
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.4-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
