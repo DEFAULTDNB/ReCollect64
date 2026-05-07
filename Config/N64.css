@@ -1135,8 +1135,10 @@ input[type="checkbox"] {
 	background:url('Images/CONS.png');
 	background-size: contain;
 	background-repeat:no-repeat;
-	--height:35px;
+	height:35px;
 	width:35px;
+	-webkit-filter: invert(1);
+	filter: invert(1);
 }
 #CPADPNG{
 	display:inline-block;
