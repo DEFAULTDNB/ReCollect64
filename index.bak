@@ -136,7 +136,11 @@
 	<option value="PALX" title="𝗣𝗔𝗟 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟰)">🇪🇺 ⭐ 𝗘𝗫𝗖</option>
 	<option value="USAX" title="𝗨𝗦𝗔 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟱𝟬)">🇺🇸 ⭐ 𝗘𝗫𝗖</option>
 	<option value="JPNX" title="𝗝𝗣𝗡 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀 (𝟴𝟲)">🇯🇵 ⭐ 𝗘𝗫𝗖</option>
-	<option value="PCX" title="𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲/𝗠𝗶𝗹𝗹𝗶𝗼𝗻 𝗦𝗲𝗹𝗹𝗲𝗿">🌎⭐ 𝗦𝗣𝗘</option>	
+	<option value="PCX" title="𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲/𝗠𝗶𝗹𝗹𝗶𝗼𝗻 𝗦𝗲𝗹𝗹𝗲𝗿">🌎⭐ 𝗦𝗣𝗘</option>
+<optgroup label="𝗛𝗮𝗿𝗱𝘄𝗮𝗿𝗲:">
+	<!--option value="HWR" title="𝗖𝗼𝗻𝘀𝗼𝗹𝗲𝘀">🕹️ 𝗖𝗢𝗡𝗦</option>
+	<!--option value="CTR" title="HARDWARE: CONTROLLERS">🎮 PADS</option>
+	<option value="ACC" title="HARDWARE: ACCESSORIES">💾 ACCS</option-->	
 <optgroup label="𝗢𝘁𝗵𝗲𝗿:">
 	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗 𝗗𝗶𝘀𝗸𝘀">🇯🇵 🌏 𝟲𝟰𝗗𝗗</option>
 	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗚𝗮𝗺𝗲𝘀">🇨🇳 🌏 𝗜𝗤𝗨𝗘</option>	
@@ -147,11 +151,6 @@
 	<option value="NFR" title="𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲">🚫🌎 𝗡𝗙𝗥</option>
 	<option value="JS" title="𝗝𝗣𝗡 𝗦𝗮𝗺𝗽𝗹𝗲 𝗖𝗮𝗿𝘁𝘀">🚫🌏 𝗝𝗦𝗖</option>
 	<option value="REVS" title="𝗖𝗮𝗿𝘁 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀">🔢🌎 𝗥𝗘𝗩</option>
-	
-	<!--option value="HWR" title="HARDWARE: CONSOLES">🕹️ CONS</option>
-	<!--option value="CTR" title="HARDWARE: CONTROLLERS">🎮 PADS</option>
-	<option value="ACC" title="HARDWARE: ACCESSORIES">💾 ACCS</option-->
-	
 </select>
 <select id="Currency" title="𝗦𝗲𝗹𝗲𝗰𝘁 𝗖𝘂𝗿𝗿𝗲𝗻𝗰𝘆" name="Currency" onchange="bureauDeChange();" style="">
 <optgroup label="𝗖𝘂𝗿𝗿𝗲𝗻𝗰𝘆:">
@@ -738,9 +737,6 @@ myCount = 0;
 			if (gTitle.includes("Pokemon Pokemaniac Bundle")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
-			if (gTitle.includes("Pokemon Stadium Battle Set")){ //CONSOLES bespoke fix
-				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "3px";
-			}
 			if (gTitle.includes("Vigilante 8")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			}
@@ -832,7 +828,7 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
 		} else if (lines[info].match("REGION=DV1 ")||lines[info].match("REGION=DV2 ")){
-			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/D/'+gTitle+' D.jpg"');
+			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/D/'+gTitle+' D.jpg"');		
 		} else if (lines[info].match("REGION=IQUE ")){
 			document.getElementById(coverFlow[i]).style.width = "100px"; document.getElementById(coverFlow[i]).style.left = "80px";
 			//Fix to png for jpg thumbs transparency
@@ -841,7 +837,7 @@ myCount = 0;
 			
 			if (document.getElementById("Region").value == "HWR"){
 			
-				if (gTitle.includes("Console")||gTitle.includes("Smoke Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")||gTitle.includes("and White")||gTitle.includes("ANA All Nippon")||gTitle.includes("JUSCO 30th")||gTitle.includes("Lawson Station Exclusive")){ //CONSOLES bespoke fix
+				if (gTitle.includes("Console")||gTitle.includes("Clear Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")||gTitle.includes("and White")||gTitle.includes("ANA All Nippon")||gTitle.includes("JUSCO 30th")||gTitle.includes("Lawson Station Exclusive")){ //CONSOLES bespoke fix
 					document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/Charcoal Grey Console J.jpg"');
 					document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "20px";
 				} else if (gTitle.includes("Pikachu Edition")){ // bespoke fix..why
@@ -887,10 +883,7 @@ myCount = 0;
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 			}
-		} else if (lines[info].match("REGION=SCN ")){
-			if (gTitle.includes("Battle Set")){ //CONSOLES bespoke fix
-				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
-			} 
+		} else if (lines[info].match("REGION=SCN ")){ 
 			if (gTitle == "FIFA 99"||gTitle == "Forsaken"||gTitle == "Mission Impossible"){	
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else {
@@ -943,6 +936,15 @@ myCount = 0;
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
+			
+			if (gRegion === "F"||gRegion === "SCN"){
+				if (gTitle.includes("Pokemon Stadium Battle Set")){ //F/SCN bespoke fix
+					document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+				}
+			} else { //UKV fix
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "3px";
+			}
+			
 		//^ blanket fix end ^\\
 		} else if (lines[info].match("REGION=U ")){
 			if (gTitle.match("Remute")){ //bespoke fix
@@ -983,7 +985,8 @@ function reply_click(clicked_id){
 	let gamePlayers = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PLAYERS=")+8), (lines[clicked_id-1].indexOf("GENRE=")-1));
 	let gameGenre = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("GENRE=")+6), (lines[clicked_id-1].indexOf("PUB=")-1));
 	let pubCo = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("PUB=")+4), (lines[clicked_id-1].indexOf("DATE=")-1));
-	let rDate = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SCORE=")-5), (lines[clicked_id-1].indexOf("SCORE=")-1));	
+	//let rDate = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SCORE=")-5), (lines[clicked_id-1].indexOf("SCORE=")-1));	
+	let rDate = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("DATE=")+5), (lines[clicked_id-1].indexOf("SCORE=")-1));	
 	let gameScore = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SCORE=")+6), (lines[clicked_id-1].indexOf("REGION=")-1));
 	let gameRegions = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("REGION=")+7), (lines[clicked_id-1].indexOf("SIZE=")-1));
 	let mbSize = lines[clicked_id-1].slice((lines[clicked_id-1].indexOf("SIZE=")+5), (lines[clicked_id-1].indexOf("EXPAK=")-1));
@@ -1244,11 +1247,13 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA").style.height = "auto";
 	document.getElementById("thumbMA2").style.width = "23%";
 	document.getElementById("thumbMA2").style.height = "auto";
+	
 	if (document.getElementById("Region").value == "HWR") { //CONSOLES mod
-		document.getElementById("description").innerHTML = "The '" + gameTitle + "' console was released by " + pubCo + ", " + gameRegions+ " on " + gYear + ".";
+		document.getElementById("description").innerHTML = "The '" + gameTitle + "' console was released by " + pubCo + ", " + gameRegions+ " on/around " + rDate + ".";
 	} else {
 		document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 	}
+	
 	///////////TRY A CATCH ALL APPROACHES:\\\\\\\\\\\\
 	//AUS logic: temp until all entered
 	if (gFeatures.includes("AUS sticker")){
@@ -1275,10 +1280,13 @@ function reply_click(clicked_id){
 		//CONSOLE HARDWARE BACK - generic polystyrene back
 		if (Region.options[Region.selectedIndex].value === "HWR"){
 			//if (pReg === "AS"||gameRegions === "KO"||pReg === "J"||pReg === "TW"){
+			
+			if (gFeatures.includes("Pikachu poly")){
+				document.getElementById("thumbBB").src = 'Backs/J/Pikachu Console J.png';
+			} else {
 				document.getElementById("thumbBB").src = 'Backs/J/Charcoal Grey Console J.png';
-			//}
+			}
 		}
-		//KO region is not working
 	
 	var boxCode;
 	let boxDetect = gFeatures.slice(gFeatures.indexOf("back")-5, gFeatures.indexOf("back")-1).trim();
@@ -1552,6 +1560,9 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Backs/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 		} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time PCU"){
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
+		} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time CAN"){
+			document.getElementById("thumbMA").src = 'Manuals/CAN/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'CAN.png';
+			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 		} else if (frametitle.innerHTML === "Turok Dinosaur Hunter ALTU"){
 			document.getElementById("thumbMA").src = 'Manuals/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
@@ -1570,7 +1581,6 @@ function reply_click(clicked_id){
 		} else if (frametitle.innerHTML === "Yoshis Story PCU"){
 			document.getElementById("thumbMA").src = 'Manuals/UV1/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'UV1.png';
 
-		
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
 			document.getElementById("thumbMA").src = 'Manuals/PCU/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'PCU.png';
@@ -1636,7 +1646,7 @@ function reply_click(clicked_id){
 	} else if (frametitle.innerHTML === "Racing Simulation Monaco Grand Prix A"||frametitle.innerHTML === "Racing Simulation Monaco Grand Prix UKV"){
 		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
 	} else if (frametitle.innerHTML === "Monaco Grand Prix Racing Simulation 2 FAH"){
-		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.
+		document.getElementById("thumbMA").src = 'Manuals/E/Monaco Grand Prix Racing Simulation 2 E.png';//Alternate regional title.		
 	} else if (frametitle.innerHTML === "Densha de Go! 64 Engineers Pak SEJ"){
 		document.getElementById("thumbBB").src = 'Backs/SEJ/Densha de Go! 64 Engineers Pak SEJ.png';//Alternate title.
 		document.getElementById("thumbRC").src = 'Carts/J/Densha de Go! 64 J.png';//Alternate title.
@@ -1793,124 +1803,123 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.height = "auto";
 	}
 	
-	//CONSOLES element formatting\\
+	//HWR CONSOLES element formatting\\
 	if (Region.options[Region.selectedIndex].value == "HWR"){
 		document.getElementById("thumbA1").style.width = "48%";
 		document.getElementById("thumbA1").style.height = "auto";	
 		document.getElementById("thumbA2").style.width = "48%";
 		document.getElementById("thumbA2").style.height = "auto";	
-		document.getElementById("thumbA3").style.width = "48%";
+		document.getElementById("thumbA3").style.width = "35%"; //testing
 		document.getElementById("thumbA3").style.height = "auto";	
 	
-		if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Smoke Black")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
+		if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Grey.png';
 			if (pReg === "E"){ //SCN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey E B.png';
-			} else if (pReg === "J"){
+			} else if (pReg === "J"||pReg === "TW"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey J B.png';
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey.png';
-	} else if (frametitle.innerHTML.includes("Funtastic Ice")||frametitle.innerHTML.includes("Funtastic Blue")||frametitle.innerHTML.includes("Sabores Anis")){
-		document.getElementById("thumbA1").src = 'Consoles/Funtastic Ice.png';
-			if (pReg === "E"){ //SCN?
-				document.getElementById("thumbA2").src = 'Consoles/Funtastic Ice E B.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey.png';
+		} else if (frametitle.innerHTML.includes("Funtastic Ice")||frametitle.innerHTML.includes("Funtastic Blue")||frametitle.innerHTML.includes("Sabores Anis")){
+			document.getElementById("thumbA1").src = 'Consoles/Funtastic Blue.png';
+			if (pReg === "E"||pReg === "A"){
+				document.getElementById("thumbA2").src = 'Consoles/Funtastic Blue E B.png';
 			} else if (pReg === "J"){
-				document.getElementById("thumbA2").src = 'Consoles/Funtastic Ice J B.png';
+				document.getElementById("thumbA2").src = 'Consoles/Funtastic Blue J B.png';
 			} else {//BR/U/MSA/CAN?
-				document.getElementById("thumbA2").src = 'Consoles/Funtastic Ice U B.png';
+				document.getElementById("thumbA2").src = 'Consoles/Funtastic Blue U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Funtastic Ice.png';
-	} else if (frametitle.innerHTML.includes("Funtastic Jungle")||frametitle.innerHTML.includes("Funtastic Green")||frametitle.innerHTML.includes("Sabores Kiwi")||frametitle.innerHTML.includes("Donkey Kong 64 Set")){
-		document.getElementById("thumbA1").src = 'Consoles/Funtastic Green.png';
-			if (pReg === "E"){ //SCN?
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Blue.png';
+		} else if (frametitle.innerHTML.includes("Funtastic Jungle")||frametitle.innerHTML.includes("Funtastic Green")||frametitle.innerHTML.includes("Sabores Kiwi")||frametitle.innerHTML.includes("Donkey Kong 64 Set")){
+			document.getElementById("thumbA1").src = 'Consoles/Funtastic Green.png';
+			if (pReg === "E"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Green E B.png';
 			} else if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Green J B.png';
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Green U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Funtastic Green.png';
-	} else if (frametitle.innerHTML.includes("Funtastic Watermelon")||frametitle.innerHTML.includes("Funtastic Red")||frametitle.innerHTML.includes("Sabores Ceraja")){
-		document.getElementById("thumbA1").src = 'Consoles/Funtastic Red.png';
-			if (pReg === "E"){ //SCN?
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Green.png';
+		} else if (frametitle.innerHTML.includes("Funtastic Watermelon")||frametitle.innerHTML.includes("Funtastic Red")||frametitle.innerHTML.includes("Sabores Ceraja")){
+			document.getElementById("thumbA1").src = 'Consoles/Funtastic Red.png';
+			if (pReg === "E"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Red E B.png';
 			} else if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Red J B.png';
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Red U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Funtastic Red.png';
-	} else if (frametitle.innerHTML.includes("Funtastic Fire")||frametitle.innerHTML.includes("Funtastic Orange")||frametitle.innerHTML.includes("Sabores Tangerina")){
-		document.getElementById("thumbA1").src = 'Consoles/Funtastic Orange.png';
-			if (pReg === "E"){ //SCN?
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Red.png';
+		} else if (frametitle.innerHTML.includes("Funtastic Fire")||frametitle.innerHTML.includes("Funtastic Orange")||frametitle.innerHTML.includes("Sabores Tangerina")){
+			document.getElementById("thumbA1").src = 'Consoles/Funtastic Orange.png';
+			if (pReg === "E"||pReg ==="A"){ //are also "wave" variants coloured feet/black feet.
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Orange E B.png';
 			} else if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Orange J B.png';
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Orange U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Funtastic Orange.png';
-	} else if (frametitle.innerHTML.includes("Funtastic Grape")||frametitle.innerHTML.includes("Funtastic Purple")||frametitle.innerHTML.includes("Sabores Uva")){
-		document.getElementById("thumbA1").src = 'Consoles/Funtastic Purple.png';
-			if (pReg === "E"){ //SCN?
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Orange.png';
+		} else if (frametitle.innerHTML.includes("Funtastic Grape")||frametitle.innerHTML.includes("Funtastic Purple")||frametitle.innerHTML.includes("Sabores Uva")||frametitle.innerHTML.includes("Midnight Blue")){
+			document.getElementById("thumbA1").src = 'Consoles/Funtastic Purple.png';
+			if (pReg === "E"||pReg === "A"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Purple E B.png';
 			} else if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Purple J B.png';
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Purple U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Funtastic Purple.png';
-	} else if (frametitle.innerHTML.includes("Atomic Purple")){
-		document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-			if (pReg === "E"){ //SCN?
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Purple.png';
+		} else if (frametitle.innerHTML.includes("Atomic Purple")){
+			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+			if (pReg === "E"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			} else if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
-	} else if (frametitle.innerHTML.includes("Extreme Green")){
-		document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-			if (pReg === "E"){ //SCN?
+			document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
+		} else if (frametitle.innerHTML.includes("Extreme Green")){
+			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+			if (pReg === "E"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			} else if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Extreme Green.png';
-	} else if (frametitle.innerHTML.includes("Gold Controller Bundle")){
-		document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-			if (pReg === "E"){ //SCN?
+			document.getElementById("thumbA3").src = 'Controllers/Extreme Green.png';
+		} else if (frametitle.innerHTML.includes("Gold Controller Bundle")){
+			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+			if (pReg === "E"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			} else if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Gold.png';
-	} else if (frametitle.innerHTML.includes("Gold Toys R Us")){
-		document.getElementById("thumbA1").src = 'Consoles/Gold.png';
+			document.getElementById("thumbA3").src = 'Controllers/Gold.png';
+		} else if (frametitle.innerHTML.includes("Gold Toys R Us")){
+			document.getElementById("thumbA1").src = 'Consoles/Gold.png';
 			if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Gold J B.png';
 			} else {
 				document.getElementById("thumbA2").src = 'Consoles/Gold U B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Gold.png';
-	} else if (frametitle.innerHTML.includes("ANA All Nippon Airways Exclusive")){
-		document.getElementById("thumbA1").src = 'Consoles/ANA All Nippon Airways Exclusive J.png';
-		//document.getElementById("thumbA2").src = 'Consoles/ANA All Nippon Airways Exclusive J B.png';
-		document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
-		document.getElementById("thumbA3").src = 'Controllers/Grey.png';
-	} else if (frametitle.innerHTML.includes("Daiei Hawks Exclusive")){
-		document.getElementById("thumbA1").src = 'Consoles/Daiei Hawks Exclusive J.png';
-		document.getElementById("thumbA2").src = 'Consoles/Daiei Hawks Exclusive J B.png';
-		document.getElementById("thumbA3").src = 'Controllers/Daiei Hawks Exclusive.png';
-	} else if (frametitle.innerHTML.includes("Charcoal Grey Console")||frametitle.innerHTML.includes("Lawson")||frametitle.innerHTML.includes("Taiwanese Console")||frametitle.innerHTML.includes("Malaysian Console")){
-		document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+			document.getElementById("thumbA3").src = 'Controllers/Gold.png';
+		} else if (frametitle.innerHTML.includes("ANA All Nippon Airways Exclusive")){
+			document.getElementById("thumbA1").src = 'Consoles/ANA All Nippon Airways Exclusive J.png';
+			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
+			document.getElementById("thumbA3").src = 'Controllers/Grey.png';
+		} else if (frametitle.innerHTML.includes("Daiei Hawks Exclusive")){
+			document.getElementById("thumbA1").src = 'Consoles/Daiei Hawks Exclusive J.png';
+			document.getElementById("thumbA2").src = 'Consoles/Daiei Hawks Exclusive J B.png';
+			document.getElementById("thumbA3").src = 'Controllers/Daiei Hawks Exclusive.png';
+		} else if (frametitle.innerHTML.includes("Charcoal Grey Console")||frametitle.innerHTML.includes("Star Wars")||frametitle.innerHTML.includes("Sleeved")||frametitle.innerHTML.includes("Taiwanese Console")||frametitle.innerHTML.includes("Malaysian Console")){
+			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 			if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 			} else if (pReg === "U"||pReg === "BR"){
@@ -1918,38 +1927,80 @@ function reply_click(clicked_id){
 			} else {
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			}
-		document.getElementById("thumbA3").src = 'Controllers/Grey.png';
-	} else if (frametitle.innerHTML.includes("Pikachu Edition")){
+			document.getElementById("thumbA3").src = 'Controllers/Grey.png';
+			
+		} else if (frametitle.innerHTML.includes("Lawson Station")){
+			document.getElementById("thumbA1").src = 'Consoles/Lawson Station.png';
+			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
+			document.getElementById("thumbA3").src = 'Controllers/Lawson Station.png';
+
+		} else if (frametitle.innerHTML.includes("Pikachu Edition")){
 			if (frametitle.innerHTML.includes("Dark Blue")){
 				document.getElementById("thumbA1").src = 'Consoles/Dark Blue Pikachu.png';
 					if (pReg === "J"){
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu J B.png';
-					} else if (pReg === "A"){
-						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu A B.png';
+					} else if (pReg === "E"){
+						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu E B.png';
 					} else {
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu U B.png';
 					}
 				document.getElementById("thumbA3").src = 'Controllers/Dark Blue Pikachu.png';
-			} else if (frametitle.innerHTML.includes("Light Blue")){
+			} else if (frametitle.innerHTML.includes("Light Blue Pikachu Edition")){
 				document.getElementById("thumbA1").src = 'Consoles/Light Blue Pikachu.png';
 				document.getElementById("thumbA2").src = 'Consoles/Light Blue Pikachu J B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Light Blue Pikachu.png';
-			} else if (frametitle.innerHTML.includes("Orange")){
+			} else if (frametitle.innerHTML.includes("Orange Pikachu Edition")){
 				document.getElementById("thumbA1").src = 'Consoles/Orange Pikachu.png';
 				document.getElementById("thumbA2").src = 'Consoles/Orange Pikachu J B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Orange Pikachu.png';
 			}
-	} else if (frametitle.innerHTML.includes("Pokemon Stadium Battle Set")||frametitle.innerHTML.includes("Pokemon Pokemaniac Bundle")){
-			if (pReg === "A"){
+		} else if (frametitle.innerHTML.includes("Pokemon Stadium Battle Set")||frametitle.innerHTML.includes("Pokemon Pokemaniac Bundle")){
+			if (pReg === "UKV"){
 				document.getElementById("thumbA1").src = 'Consoles/Pokemon Stadium Console.png';
 				document.getElementById("thumbA2").src = 'Consoles/Pokemon Stadium Console B.png';
+				document.getElementById("thumbA3").src = 'Controllers/Yellow Pokemon.png';
 			} else {
 				document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
-				document.getElementById("thumbA3").src = 'Controllers/Grey.png';			
+				document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';			
 			}
+		} else if (frametitle.innerHTML.includes("Futebol 98 Edition BR")){
+			document.getElementById("thumbBB").src = 'Backs/BR/Charcoal Grey Console Gradiente BR.png';
+			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
+			document.getElementById("thumbA3").src = 'Controllers/Gold.png';		
+		} else if (frametitle.innerHTML.includes("Hyundai Comboy 64")){
+			document.getElementById("thumbA1").src = 'Consoles/Hyundai Comboy 64.png';
+			document.getElementById("thumbA2").src = 'Consoles/Hyundai Comboy 64 B.png';
+			document.getElementById("thumbA3").src = 'Controllers/Comboy Grey.png';		
+		} else if (frametitle.innerHTML.includes("Clear Blue and White")) {
+			document.getElementById("thumbA1").src = 'Consoles/Clear Blue and White.png';
+			if (pReg === "J"){
+				document.getElementById("thumbA2").src = 'Consoles/Clear Blue and White J B.png';
+			} else {
+				document.getElementById("thumbA2").src = 'Consoles/Clear Blue and White E B.png';
+			}
+			document.getElementById("thumbA3").src = 'Controllers/Clear Blue and White.png';
+		} else if (frametitle.innerHTML.includes("Clear Red and White")) {
+			document.getElementById("thumbA1").src = 'Consoles/Clear Red and White.png';
+			if (pReg === "J"){
+				document.getElementById("thumbA2").src = 'Consoles/Clear Red and White J B.png';
+			} else {
+				document.getElementById("thumbA2").src = 'Consoles/Clear Red and White E B.png';
+			}
+			document.getElementById("thumbA3").src = 'Controllers/Clear Red and White.png';
+
+		} else if (frametitle.innerHTML.includes("JUSCO 30th Anniversary Exclusive J")) {
+			document.getElementById("thumbA1").src = 'Consoles/JUSCO 30th Anniversary Exclusive.png';
+			document.getElementById("thumbA2").src = 'Consoles/JUSCO 30th Anniversary Exclusive B.png';
+			document.getElementById("thumbA3").src = 'Controllers/JUSCO 30th Anniversary Exclusive.png';
+			
+		} else if (frametitle.innerHTML.includes("Taiwanese Console TW")||frametitle.innerHTML.includes("Singapore Malaysian Console AS")){
+			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 		}
-	}	
+
+	}
+	
 	//Poster - KEEP THIS IDEA OPEN
 	//document.getElementById("thumbP1").src = 'Poster/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' P1.png';
 	
@@ -2129,12 +2180,12 @@ function reply_click(clicked_id){
 		} //NOT WORKING - SEALED PAID vs SEALED VALUE!!
 	}
 }
-function check_click(clicked_id){	
+function check_click(clicked_id){
 	let rMatch = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
 	let gRegions = lines[info].slice((lines[info].indexOf("REGION=")+7),(lines[info].indexOf("SIZE=")-1));
 	let indexOfFirst = lines[info].indexOf(gCurrency);
 	let indexOfSecond = lines[info].indexOf(gCurrency, (indexOfFirst + 1));
-	let indexOfThird = lines[info].indexOf(gCurrency, (indexOfSecond + 1));	
+	let indexOfThird = lines[info].indexOf(gCurrency, (indexOfSecond + 1));
 	let parts = [];
 	if (document.getElementById("frametitle").innerHTML.match("LRGC")){
 		parts = ["cartridge", "boxed"];
@@ -2164,13 +2215,13 @@ function check_click(clicked_id){
 	} else if (!document.getElementById(clicked_id).checked){ //when unchecking
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
-			valPaid = clicked_id.charAt(gRegions.length)+"Paid";
-			myCollectionList[m].splice(myCollectionList[m].indexOf(clicked_id), 1);
-			myCollectionList[m].splice(myCollectionList[m].indexOf(valPaid), 1);
+				valPaid = clicked_id.charAt(gRegions.length)+"Paid";
+				myCollectionList[m].splice(myCollectionList[m].indexOf(clicked_id), 1);
+				myCollectionList[m].splice(myCollectionList[m].indexOf(valPaid), 1);
 			}
 			document.getElementById(clicked_id+"Spent").childNodes[1].innerHTML = "";
 			document.getElementById(clicked_id+"Spent").style.display = "none";
-			document.getElementById(clicked_id+"Spent").style.color = "white";
+			document.getElementById(clicked_id+"Spent").style.color = "white";			
 		}
 		if (document.getElementById("frametitle").innerHTML.match(/NFR|IQUE/g)){
 		} else {
@@ -2180,14 +2231,15 @@ function check_click(clicked_id){
 			}
 		}
 	} else {
-	}	
-	localStorage.myCollection = JSON.stringify(myCollectionList);
-	
+	}
+	//clean empty [] elements
+	const cleanedArray = myCollectionList.filter(subArray => subArray.length > 0);
+	localStorage.myCollection = JSON.stringify(cleanedArray);
+	//localStorage.myCollection = JSON.stringify(myCollectionList); //old
 		if (localStorage.debug=="true"){
 		alert(localStorage.myCollection + "\n\rActual!");
 		}
-		
-	populatethepage(); //this is slowing it down
+	populatethepage(); //this is the slow part
 	roundUp();
 }
 function prev() {
@@ -3186,6 +3238,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.4-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.7-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
