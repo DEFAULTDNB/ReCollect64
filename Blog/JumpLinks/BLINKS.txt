@@ -324,3 +324,4 @@ Blog/Features/2026/Misc/b322.html
 Blog/Features/2026/PMStarNova/b323.html
 Blog/Features/2026/SF64RemakeNS2/b324.html
 Blog/Features/2026/PNeon/b325.html
+Blog/Features/2026/SNAP3DS/b326.html
