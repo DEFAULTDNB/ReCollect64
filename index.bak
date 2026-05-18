@@ -448,7 +448,7 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 	if (document.getElementById("Region").value == "FULJ") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor Japanese collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "FULA") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor American collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "FULE") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor European collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "LRG") {var myToast = Toastify({className: "PopStyle", text: "𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nN64 releases by Limited Run Games.", style: {background: 'Black', color: "#ED008D"}, avatar: "Config/Images/LRG.png", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "LRG") {var myToast = Toastify({className: "PopStyle", text: "𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nN64 releases by LRG.", style: {background: 'Black', color: "#ED008D"}, avatar: "Config/Images/LRG.png", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "NFR") {var myToast = Toastify({className: "PopStyle", text: "𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲:\n\nRare N64 kiosk cartridges.", style: {background: 'MidnightBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "COLS") {var myToast = Toastify({className: "PopStyle", text: "𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nColoured cart collection.", style: {background: 'indigo'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "COLA") {var myToast = Toastify({className: "PopStyle", text: "𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nAll coloured carts.", style: {background: 'indigo'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
@@ -461,8 +461,8 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 	if (document.getElementById("Region").value == "USAX") {var myToast = Toastify({className: "PopStyle", text: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to America.", style: {background: 'MediumBlue', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "PCX") {var myToast = Toastify({className: "PopStyle", text: "𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲:\n\nMillion Seller/Players Choice variants.", style: {background: 'black', color: "white"}, avatar: "Config/Images/PCU.png", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "JS") {var myToast = Toastify({className: "PopStyle", text: "𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀:\n\nJapanese store demos.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/SAMPLE.png", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "BRA") {var myToast = Toastify({className: "PopStyle", text: "𝗕𝗿𝗮𝘇𝗶𝗹𝗶𝗮𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nPlaytronic/Gradiente releases.", style: {background: '#009C3B ', color: "#FEDF00"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast(); document.getElementById('mbrasil').style.animation="mbrasilfade 2.5s ease-in"; document.getElementById('mbrasil').addEventListener("animationend", (e) => e.target.style.animation = '');}
-	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: "CONSOLES\n\nTESTING.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "BRA") {var myToast = Toastify({className: "PopStyle", text: "𝗕𝗿𝗮𝘇𝗶𝗹𝗶𝗮𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nPlaytronic/Gradiente releases.", style: {background: '#009C3B', color: "#FEDF00"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast(); document.getElementById('mbrasil').style.animation="mbrasilfade 2.5s ease-in"; document.getElementById('mbrasil').addEventListener("animationend", (e) => e.target.style.animation = '');}
+	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: "𝗖𝗼𝗻𝘀𝗼𝗹𝗲𝘀 𝗮𝗻𝗱 𝗕𝘂𝗻𝗱𝗹𝗲𝘀", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();}
 }
 function readFile2(e) {
 	document.getElementById("frame").style.display = "none";
@@ -776,8 +776,6 @@ myCount = 0;
 			}
 		} else if (lines[info].match("REGION=ALTD ")){		
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/D/'+gTitle+' D.jpg"');
-
-		
 		} else if (lines[info].match("REGION=ALTC ")){
 			if (gTitle.includes("GoldenEye 007")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCU/'+gTitle+' PCU.jpg"');
@@ -788,7 +786,10 @@ myCount = 0;
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/U/'+gTitle+' U.jpg"');
 			if (gTitle.includes("Hyundai Comboy 64")){
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
+			} else if (gTitle.includes("Console")){
+				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
+			
 		} else if (lines[info].match("REGION=PCE1 ")||lines[info].match("REGION=PCE2 ")||lines[info].match("REGION=PCE3 ")){
 			document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/PCE/'+gTitle+' PCE.jpg"');
 		} else if (lines[info].match("REGION=PCD ")){
@@ -879,7 +880,6 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/U/Mario Golf U.png");
 			} else if (gTitle === "Mario Party"){ 
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/U/Mario Party U.png");
-			
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 			}
@@ -951,12 +951,22 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
+			if (gTitle.includes("Donut Dodo")){ //bespoke fix
+				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/U/Donut Dodo U.jpg");
+			}
 			if (gTitle.includes("Atomic Purple Controller Bundle")||gTitle.includes("Gold Toys R Us Exclusive")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
 			if (gTitle.includes("Donkey Kong 64 Set")){ //CONSOLES bespoke fix
 				//document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
 			}
+			
+			if (gTitle.includes("Analogue 3D")){
+				document.getElementById(coverFlow[i]).setAttribute('src', "Consoles/"+gTitle+".png");
+				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
+			}
+
+			
 		} else {
 			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg"); //default fallback
 		}
@@ -1122,7 +1132,6 @@ function reply_click(clicked_id){
 		//inject here for hardware/controller/accessories.
 		if (Region.options[Region.selectedIndex].value == "HWR"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Console?"><div id="CONSPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
-		
 			document.getElementById("thumbA3").after(document.getElementById("thumbMA"));
 			//change node order to put manual after controller (resize?)
 		
@@ -1209,6 +1218,8 @@ function reply_click(clicked_id){
 		gameRegions = "Spain (PAL)";
 	} else if (gameRegions === "CH"){
 		gameRegions = "China (NTSC)";
+	} else if (gameRegions === "GR"){
+		gameRegions = "Greece (PAL)";
 	} else if (gameRegions === "HK"){
 		gameRegions = "Hong Kong (NTSC)";
 	} else if (gameRegions === "KO"||gameRegions === "ALTK"){
@@ -1249,7 +1260,13 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA2").style.height = "auto";
 	
 	if (document.getElementById("Region").value == "HWR") { //CONSOLES mod
-		document.getElementById("description").innerHTML = "The '" + gameTitle + "' console was released by " + pubCo + ", " + gameRegions+ " on/around " + rDate + ".";
+	
+		if (frametitle.innerHTML.includes("Analogue 3D")) {
+			document.getElementById("description").innerHTML = "The " + gameTitle + " was released worldwide on/around " + rDate + ".<br><br>It is an FPGA-based hardware-accurate recreation console (no controller came supplied with it).";
+		} else {
+			document.getElementById("description").innerHTML = "The " + gameTitle + " console was released by " + pubCo + " in " + gameRegions+ " on/around " + rDate + ".";
+		}
+		
 	} else {
 		document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 	}
@@ -1452,6 +1469,8 @@ function reply_click(clicked_id){
 			document.getElementById("description").innerHTML = "Belushi Speedball's 'What us Worry' is a music album on a cartridge.<br><br>You can listen to the tracks available <a href='https://belushispeedball.bandcamp.com/album/what-us-worry' target='_blank'>HERE</a>"
 		} else if (frametitle.innerHTML === "Remute R64 U"){
 			document.getElementById("description").innerHTML = "Remute's 'R64' is a music album on a cartridge.<br><br>You can listen to the tracks available <a href='https://remute.bandcamp.com/album/r64-nintendo-64-music-album' target='_blank'>HERE</a>"
+		} else if (frametitle.innerHTML === "Donut Dodo U"){
+			document.getElementById("description").innerHTML = "Donut Dodo is an arcade platformer by Pixel Games SARL-S.<br><br>You can check out the Kickstarter <a href='https://www.kickstarter.com/projects/pixelgamessarls/donut-dodo-a-new-nintendo-64-game' target='_blank'>HERE</a>"
 		}
 		document.getElementById("thumb").style.height = "auto";
 		document.getElementById("thumb").style.width = "48%";
@@ -1806,19 +1825,28 @@ function reply_click(clicked_id){
 	//HWR CONSOLES element formatting\\
 	if (Region.options[Region.selectedIndex].value == "HWR"){
 		document.getElementById("thumbA1").style.width = "48%";
-		document.getElementById("thumbA1").style.height = "auto";	
+		document.getElementById("thumbA1").style.height = "auto";
 		document.getElementById("thumbA2").style.width = "48%";
-		document.getElementById("thumbA2").style.height = "auto";	
+		document.getElementById("thumbA2").style.height = "auto";
 		document.getElementById("thumbA3").style.width = "35%"; //testing
-		document.getElementById("thumbA3").style.height = "auto";	
+		document.getElementById("thumbA3").style.height = "auto";
+		
+		document.getElementById("thumbA1").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
+		document.getElementById("thumbA2").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗕𝗼𝘁𝘁𝗼𝗺";
+		document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿";
 	
-		if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
+		if (frametitle.innerHTML.includes("Analogue 3D")){ //Analogue 3D console bespoke fix
+			document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
+			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("3D")+2, frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
+			document.getElementById("thumbA3").style.width = "48%";
+			
+		} else if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
 		document.getElementById("thumbA1").src = 'Consoles/Funtastic Grey.png';
-			if (pReg === "E"){ //SCN?
+			if (pReg === "E"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey E B.png';
 			} else if (pReg === "J"||pReg === "TW"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey J B.png';
-			} else {//BR/U/MSA/CAN?
+			} else {//BR/U/MSA/CAN
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey U B.png';
 			}
 			document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey.png';
@@ -1852,7 +1880,7 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Red U B.png';
 			}
 			document.getElementById("thumbA3").src = 'Controllers/Funtastic Red.png';
-		} else if (frametitle.innerHTML.includes("Funtastic Fire")||frametitle.innerHTML.includes("Funtastic Orange")||frametitle.innerHTML.includes("Sabores Tangerina")){
+		} else if (frametitle.innerHTML.includes("Funtastic Fire")||frametitle.innerHTML.includes("Funtastic Sun")||frametitle.innerHTML.includes("Sabores Tangerina")){
 			document.getElementById("thumbA1").src = 'Consoles/Funtastic Orange.png';
 			if (pReg === "E"||pReg ==="A"){ //are also "wave" variants coloured feet/black feet.
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Orange E B.png';
@@ -1872,16 +1900,7 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Purple U B.png';
 			}
 			document.getElementById("thumbA3").src = 'Controllers/Funtastic Purple.png';
-		} else if (frametitle.innerHTML.includes("Atomic Purple")){
-			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-			if (pReg === "E"){
-				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
-			} else if (pReg === "J"){
-				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
-			} else {//BR/U/MSA/CAN?
-				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
-			}
-			document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
+			
 		} else if (frametitle.innerHTML.includes("Extreme Green")){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 			if (pReg === "E"){
@@ -1892,6 +1911,24 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			}
 			document.getElementById("thumbA3").src = 'Controllers/Extreme Green.png';
+			
+		} else if (frametitle.innerHTML.includes("Atomic Purple Controller Bundle")){
+			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+			if (pReg === "E"){
+				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
+			} else if (pReg === "J"){
+				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
+			} else {//BR/U/MSA/CAN?
+				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
+			}
+			document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
+			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 1";
+			
+			document.getElementById("thumbBB1").src = 'Controllers/Grey.png'; //second controller test
+			document.getElementById("thumbBB1").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝟮";
+			document.getElementById("thumbA3").after(document.getElementById("thumbBB1")); //swap node order
+
+			
 		} else if (frametitle.innerHTML.includes("Gold Controller Bundle")){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 			if (pReg === "E"){
@@ -1908,8 +1945,12 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA2").src = 'Consoles/Gold J B.png';
 			} else {
 				document.getElementById("thumbA2").src = 'Consoles/Gold U B.png';
+				document.getElementById("thumbBB1").src = 'Controllers/Gold.png'; //second controller test
+				document.getElementById("thumbBB1").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝟮";
+				document.getElementById("thumbA3").after(document.getElementById("thumbBB1")); //swap node order
 			}
 			document.getElementById("thumbA3").src = 'Controllers/Gold.png';
+			document.getElementById("thumbA3").title = '𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝟭';
 		} else if (frametitle.innerHTML.includes("ANA All Nippon Airways Exclusive")){
 			document.getElementById("thumbA1").src = 'Consoles/ANA All Nippon Airways Exclusive J.png';
 			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
@@ -1917,17 +1958,52 @@ function reply_click(clicked_id){
 		} else if (frametitle.innerHTML.includes("Daiei Hawks Exclusive")){
 			document.getElementById("thumbA1").src = 'Consoles/Daiei Hawks Exclusive J.png';
 			document.getElementById("thumbA2").src = 'Consoles/Daiei Hawks Exclusive J B.png';
-			document.getElementById("thumbA3").src = 'Controllers/Daiei Hawks Exclusive.png';
-		} else if (frametitle.innerHTML.includes("Charcoal Grey Console")||frametitle.innerHTML.includes("Star Wars")||frametitle.innerHTML.includes("Sleeved")||frametitle.innerHTML.includes("Taiwanese Console")||frametitle.innerHTML.includes("Malaysian Console")){
+			document.getElementById("thumbA3").src = 'Controllers/Daiei Hawks Exclusive.png';			
+		} else if (frametitle.innerHTML.includes("Charcoal Grey Console")||frametitle.innerHTML.includes("Star Wars")||frametitle.innerHTML.includes("Sleeved")||frametitle.innerHTML.includes("Taiwanese Console")||frametitle.innerHTML.includes("Malaysian Console")||frametitle.innerHTML.includes("Bundle")||frametitle.innerHTML.includes("LE Set")||frametitle.innerHTML.includes("Pak")||frametitle.innerHTML.includes("Noire")){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-			if (pReg === "J"){
+			if (pReg === "J"|| pReg === "AS"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
+			} else if (pReg === "TW"){
+				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey TW B.png';
+			//} else if (pReg === "HK"){ //MANI
+				//document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey HK B.png';
+			} else if (pReg === "I"){ //GIG
+				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey I B.png';
 			} else if (pReg === "U"||pReg === "BR"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
+			//} else if (pReg === "CAN"){ //NS6XXXXXXXX
+				//document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey C B.png';
 			} else {
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			}
+			
+				if (frametitle.innerHTML.includes("N64 Mario Pak")){
+					document.getElementById("thumbBB").src = 'Backs/E/N64 Mario Pak E.png';
+				} 
+				if (frametitle.innerHTML.includes("N64 Mario Pak Grey")){
+					document.getElementById("thumbBB").src = 'Backs/E/N64 Mario Pak Grey E.png';
+				}
 			document.getElementById("thumbA3").src = 'Controllers/Grey.png';
+			
+		} else if (frametitle.innerHTML.includes("Perfect Action Set")){
+			
+			document.getElementById("thumbBB").src = 'Backs/E/Perfect Action Set E.png';
+
+			if (frametitle.innerHTML.includes("Atomic")){
+				document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
+				document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
+
+			} else if (frametitle.innerHTML.includes("Jungle")){
+				document.getElementById("thumbA1").src = 'Consoles/Funtastic Green.png';
+				document.getElementById("thumbA2").src = 'Consoles/Funtastic Green E B.png';
+				document.getElementById("thumbA3").src = 'Controllers/Funtastic Green.png';
+				
+			} else if (frametitle.innerHTML.includes("Ocean")){
+				document.getElementById("thumbA1").src = 'Consoles/Funtastic Blue.png';
+				document.getElementById("thumbA2").src = 'Consoles/Funtastic Blue E B.png';
+				document.getElementById("thumbA3").src = 'Controllers/Funtastic Blue.png';
+			}
 			
 		} else if (frametitle.innerHTML.includes("Lawson Station")){
 			document.getElementById("thumbA1").src = 'Consoles/Lawson Station.png';
@@ -1940,6 +2016,9 @@ function reply_click(clicked_id){
 					if (pReg === "J"){
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu J B.png';
 					} else if (pReg === "E"){
+						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu E B.png';
+					} else if (pReg === "D"){
+						document.getElementById("thumbBB").src = 'Backs/E/Dark Blue Pikachu Edition E.png';
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu E B.png';
 					} else {
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu U B.png';
@@ -1994,9 +2073,6 @@ function reply_click(clicked_id){
 			document.getElementById("thumbA1").src = 'Consoles/JUSCO 30th Anniversary Exclusive.png';
 			document.getElementById("thumbA2").src = 'Consoles/JUSCO 30th Anniversary Exclusive B.png';
 			document.getElementById("thumbA3").src = 'Controllers/JUSCO 30th Anniversary Exclusive.png';
-			
-		} else if (frametitle.innerHTML.includes("Taiwanese Console TW")||frametitle.innerHTML.includes("Singapore Malaysian Console AS")){
-			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 		}
 
 	}
@@ -3238,6 +3314,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.11-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.15-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>

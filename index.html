@@ -938,7 +938,7 @@ myCount = 0;
 			}
 			
 			if (gRegion === "F"||gRegion === "SCN"){
-				if (gTitle.includes("Pokemon Stadium Battle Set")){ //F/SCN bespoke fix
+				if (gTitle.includes("Pokemon Stadium Battle Set")|| gTitle.includes("Atomic Purple Controller Bundle")){ //F/SCN bespoke fix
 					document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 				}
 			} else { //UKV fix
@@ -1927,6 +1927,10 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB1").src = 'Controllers/Grey.png'; //second controller test
 			document.getElementById("thumbBB1").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝟮";
 			document.getElementById("thumbA3").after(document.getElementById("thumbBB1")); //swap node order
+		} else if (frametitle.innerHTML.includes("Atomic Purple Special Edition")){
+			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
+			document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
 
 			
 		} else if (frametitle.innerHTML.includes("Gold Controller Bundle")){
