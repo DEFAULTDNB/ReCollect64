@@ -734,10 +734,10 @@ myCount = 0;
 		}
 		//THUMBNAIL FIXES PER REGION\\
 		if (lines[info].match("REGION=A ")) {
-			if (gTitle.includes("Pokemon Pokemaniac Bundle")){ //CONSOLES bespoke fix
+			if (gTitle.includes("Pokemon Pokemaniac Bundle")||gTitle.includes("N64 Twin Controller Pack")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
-			if (gTitle.includes("Vigilante 8")){
+		if (gTitle.includes("Vigilante 8")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			}
 		} else if (lines[info].match("REGION=ALTA ")||lines[info].match("REGION=AV1 ")){
@@ -1912,9 +1912,9 @@ function reply_click(clicked_id){
 			}
 			document.getElementById("thumbA3").src = 'Controllers/Extreme Green.png';
 			
-		} else if (frametitle.innerHTML.includes("Atomic Purple Controller Bundle")){
+		} else if (frametitle.innerHTML.includes("Atomic Purple Controller Bundle")||frametitle.innerHTML.includes("N64 Twin Controller Pack")){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
-			if (pReg === "E"){
+			if (pReg === "E"||pReg === "A"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			} else if (pReg === "J"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
@@ -3318,6 +3318,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.15-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.18-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
