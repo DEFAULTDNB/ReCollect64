@@ -1,0 +1,42 @@
+<div id="b330" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64SwapDumper 0.2</span></h2>
+	<h5 class="subtitle">Released by Mntorankusu ~ May 25, 2026</h5>
+	<div class="bgBanner"><img decoding='async' role='presentation' loading='lazy' src="Blog/Reviews/SummerCart64/SummerCart64.png" alt="WCWS" class="center"/><div class="overlaytext">N64SwapDumper 0.2</div></div>
+	<h4>Swap, Dump, Swap, Dump</h4>
+	<div class="titleUnderline"></div>
+	<p>Did you know that you can dump N64 ROMs directly from a cartridge to a flash cart, without any need for any specialist equipment or even a PC involved?</p>
+	<p>Mntorankusu has recently released an updated version of their homebrew ROM dumping solution named N64-SwapDumper, an application that, once loaded, uses a hot-swap method to load a portion of an inserted cartridge into RAM, then dumps it back to the flash cart once re-inserted.</p>
+	<p>While the method works, it does come with risks for both your hardware and software (including the flash cart), so please check out the information below:</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>N64 SwapDumper</b></p>
+	<p>Cartridge-swap-based cartridge dumper for Nintendo 64, requiring only a flash cart. You can dump saves, ROM, or both. Inspired by and based on sharksaver64 by @Jhynjhiruu @ppcasm @Modman</p></p>
+	<p><b>Disclaimer</b></p>
+	<p><i>THIS SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. BY USING THIS SOFTWARE YOU ACKNOWLEDGE AND AGREE THAT:</i></p>
+    <p>+ Hot-swapping cartridges while the Nintendo 64 console is powered on carries inherent risk and may cause permanent damage to the console, cartridges, accessories, or connected hardware.</p>
+    <p>+ You assume all responsibility and liability for any damage, loss, or impairment to your game console, cartridges, controllers, SD cards, accessories, or any other equipment that may result from use of this software.</p>
+    <p>+ The authors and contributors of this software shall not be held liable for any direct, indirect, incidental, special, exemplary, or consequential damages arising in any way from the use of this software.</p>
+    <p>+ You use this software entirely at your own risk.</p>
+    <p>Human version: While I've tested this repeatedly and caused no damage to any of my hardware or cartridges, it is not recommended that you use this if you are worried about damaging your console. I reckon that it's particularly risky if your system has been modified to remove the region keyed cartridge tray insert, as its absense may make it easier for the cartridge to be inserted out of alignment, causing cartridge pins to connect to the wrong slot pins or bridge them together, etc. It's also not recommended if you use a bare PCB flash cart or game cartridge, or if your situation has any other factors that might allow the cartridge to be inserted crooked, off-center, etc. Use the software at your own risk! You have been warned!</p>
+	<p><b>First Release (v0.1 / Baby SharkSaver) Pre-release</b></p>
+	<p>First release. Based on sharksaver64 by @Jhynjhiruu @ppcasm @Modman</p>
+	<p>Only tested on SummerCart. If you dare to try it, please report any issues you find. To use, run the application on your flash cart and follow the on-screen prompts. While there are two dumping modes available, the hardware for the accessory slot dumping mode does not yet exist, so you must choose SD card mode.</p>
+	<p>Dumping games with this application involves swapping cartridges while the console is powered on. Only use this if you accept that you may damage your console. No warranty is provided. This software is provided as-is. Etc. I have dumped 20+ games with it already with no damage, but I can't guarantee the same success for everyone.</p>
+	<p><b>Incremental Improvements (v0.2 / Shark Week) Latest</b></p>
+	<p>This version has some small but important improvements:</p>
+	<p>+ The cartridge info screen now shows more info, including revision info and the ROM header checksum, so the tool can double as a cartridge identifier even if you are not planning on dumping anything. Different revisions of the same game will receive different filenames now, too, instead of overwriting each other.</p>
+	<p>+ A full CRC32 checksum is calculated before and after dumping to make sure that the ROM on your SD card matches the cartridge exactly.</p>
+	<p>+ If sd:/dump/ and/or sd:/saves/ exist, files will go there now. Otherwise the dumper falls back to the SD root. Save dumping now also warns before overwriting an existing save.</p>
+	<p>+ Compression speed has improved while keeping the compression ratio essentially the same.</p>
+	<p>+ The ROM size selector now includes 40 MB as an option. Not sure if any other ROM sizes are still missing.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<h4>ROM-ifications</h4>
+	<div class="titleUnderline"></div>
+	<p>Interestingly, this method reminds me of the Stop 'N' Swap mechanic Rare wanted to implement in <i>Banjo-Tooie</i>. The idea was that while the game was running and loaded into RAM, you could pull out the game cart, shove in another, and unlock secret characters and items. Nintendo famously nixed this idea partly due to the unnecessary wear and tear put on the console's components while powered on, but also because the Nintendo 64 was going through a process of getting new revisions, which made the amount of time anything was stored in RAM clear considerably quicker.</p>
+	<p>I personally have not tested this method of dumping, because I don't wish to damage my consoles, carts, or flash carts (of which all major carts are supported), and also because I have already dumped my games using the <a href="https://defaultdnb.github.io/ReCollect64/blog.html#r6">JoeyN64</a> and an <a href="https://defaultdnb.github.io/ReCollect64/blog.html#r12">off-brand clone dumper</a>.</p>
+	<p>It would certainly be interesting to know if newer revision consoles were also capable of dumping games. If you happen to use it, please let us know!</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/mntorankusu/N64-SwapDumper">N64-SwapDumper GitHub</a></p>
+	<p class="subtitle"><i class="fa-brands fa-x-twitter"></i>&nbsp;<a href="https://x.com/yoshinokentarou">Source</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
