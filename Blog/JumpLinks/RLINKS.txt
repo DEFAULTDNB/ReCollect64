@@ -99,3 +99,4 @@ Blog/Reviews/Games/GE007DSE/r97.html
 Blog/Reviews/Games/YOSHI/r98.html
 Blog/Reviews/ASCIIPad64/r99.html
 Blog/Reviews/Games/CRUISNUSA/r100.html
+Blog/Reviews/Games/ASTEROIDS/r101.html
