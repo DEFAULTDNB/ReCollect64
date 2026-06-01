@@ -835,8 +835,8 @@ myCount = 0;
 			document.getElementById(coverFlow[i]).style.width = "100px"; document.getElementById(coverFlow[i]).style.left = "80px";
 			//Fix to png for jpg thumbs transparency
 			document.getElementById(coverFlow[i]).setAttribute('src', "Covers/"+gRegion+"/"+gTitle+" "+gRegion+".png");
-		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")){
-			
+		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")||lines[info].match("REGION=M64 ")){
+			//Portrait fix for thumbnails
 			if (document.getElementById("Region").value == "HWR"){
 			
 				if (gTitle.includes("Console")||gTitle.includes("Clear Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")||gTitle.includes("and White")||gTitle.includes("ANA All Nippon")||gTitle.includes("JUSCO 30th")||gTitle.includes("Lawson Station Exclusive")){ //CONSOLES bespoke fix
@@ -938,6 +938,11 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
 			}
 			
+			if (gTitle.match("Foxdata Chrome Console 2017")){
+				document.getElementById(coverFlow[i]).setAttribute('src', "Consoles/Foxdata Chrome Console 2017 UKV.png");
+				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "5px"; document.getElementById(coverFlow[i]).style.top = "10px";
+			}
+			
 			if (gRegion === "F"||gRegion === "SCN"){
 				if (gTitle.includes("Pokemon Stadium Battle Set")|| gTitle.includes("Atomic Purple Controller Bundle")){ //F/SCN bespoke fix
 					document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
@@ -962,7 +967,7 @@ myCount = 0;
 				//document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
 			}
 			
-			if (gTitle.includes("Analogue 3D")){
+			if (gTitle.includes("Analogue 3D")||gTitle.includes("ModRetro M64")){
 				document.getElementById(coverFlow[i]).setAttribute('src', "Consoles/"+gTitle+".png");
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
@@ -990,6 +995,7 @@ function reply_click(clicked_id){
 	gcounter = 0;
 	const things = ["cartridge","boxed","manual","sealed"];
 	const exceptions = ["All-Star Baseball 2001 U","Armorines Project S.W.A.R.M U","Batman Beyond Return of the Joker U","BattleTanx Global Assault U","Battlezone Rise of the Black Dogs U","Donkey Kong 64 A","Donkey Kong 64 U","Donkey Kong 64 BRB","Earthworm Jim 3D U","ECW Hardcore Revolution U","Fighter Destiny 2 U","Jeremy McGrath Supercross 2000 U","Madden NFL 2001 U","Madden NFL 2002 U","Missao Impossivel BR","NBA Jam 2000 U","NFL Quarterback Club 2001 U","Nuclear Strike 64","Pokemon Stadium 2 A","Pokemon Stadium 2 BR","Pokemon Stadium 2 D","Pokemon Stadium 2 E","Pokemon Stadium 2 F","Pokemon Stadium 2 I","Pokemon Stadium 2 S","Pokemon Stadium 2 U","Pokemon Stadium 2 NFR","Power Rangers Lightspeed Rescue U","Rally Challenge 2000 U","Rayman 2 The Great Escape U","Rocket Robot On Wheels U","Spider-Man U","The Legend of Zelda Ocarina of Time A","The Legend of Zelda Majoras Mask A","The Legend of Zelda Majoras Mask BRB","The Legend of Zelda Majoras Mask E","Tony Hawks Pro Skater U","Tony Hawks Pro Skater 2 U","Tony Hawks Pro Skater 3 U","Turok 2 Seeds of Evil ALTB","Turok 2 Seeds of Evil E","Turok 3 Shadow of Oblivion U","WWF No Mercy U","Violence Killer Turok New Generation J","WWF Wrestlemania 2000 U"];
+	//To do: check exceptions.
 	firstCount = myCollectionList.flat().filter(x => x.match(/cartridge|boxed|manual|sealed|Paid/gi)).length; //maybe hash it?
 	gametoline = lines[clicked_id-1];
 	gameTitle = gametoline.slice(gametoline, (gametoline.indexOf("PLAYERS=")-1));
@@ -1472,12 +1478,19 @@ function reply_click(clicked_id){
 			document.getElementById("description").innerHTML = "Remute's 'R64' is a music album on a cartridge.<br><br>You can listen to the tracks available <a href='https://remute.bandcamp.com/album/r64-nintendo-64-music-album' target='_blank'>HERE</a>"
 		} else if (frametitle.innerHTML === "Donut Dodo U"){
 			document.getElementById("description").innerHTML = "Donut Dodo is an arcade platformer by Pixel Games SARL-S.<br><br>You can check out the Kickstarter <a href='https://www.kickstarter.com/projects/pixelgamessarls/donut-dodo-a-new-nintendo-64-game' target='_blank'>HERE</a>"
-		}
+		} //else if (frametitle.innerHTML === "Project Neon U"){
+			//document.getElementById("description").innerHTML = "Project Neon is an arcade platformer by FULLSET.<br><br>You can check out the Kickstarter <a href='https://www.kickstarter.com/projects/pixelgamessarls/donut-dodo-a-new-nintendo-64-game' target='_blank'>HERE</a>"
+		//}
+		
+		
 		document.getElementById("thumb").style.height = "auto";
 		document.getElementById("thumb").style.width = "48%";
 		document.getElementById("thumbBB").style.height = "auto";
 		document.getElementById("thumbBB").style.width = "48%";
-		
+	
+	} else if (pReg === "M64"){ //bespoke per game?
+		document.getElementById("description").innerHTML = gameTitle+" was released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+
 	} else {
 		if (pReg.includes("J") || pReg.includes("JS")){ //Portrait box fix
 			document.getElementById("thumb").style.height = "auto"
@@ -1491,6 +1504,7 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").style.width = "48%"
 		}
 	}
+	
 	//Switch cart into thumb slot temporarily:
 	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbRC").style.width = "48%";
@@ -1739,7 +1753,6 @@ function reply_click(clicked_id){
 		document.getElementById("thumb2").src = 'Accessories/Rumble Pak J A1.png';
 		document.getElementById("thumbBB2").src = 'Accessories/Rumble Pak J A2.png';
 		
-		
 	} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time SED"){
 		document.getElementById("thumb1").src = 'Covers/D/The Legend of Zelda Ocarina of Time D.png';
 		document.getElementById("thumbBB1").src = 'Backs/D/The Legend of Zelda Ocarina of Time D.png';
@@ -1780,6 +1793,12 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/ALTE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTE.png';
 	//} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time S"){
 		////https://inversethought.com/jordi/guia-de-textos-ocarina-of-time.pdf
+		
+	} else if (frametitle.innerHTML === "Project Neon U"||frametitle.innerHTML === "Project Neon J"||frametitle.innerHTML === "Project Neon E"){
+		document.getElementById("description").innerHTML = "Project Neon is a 1-2 player arcade shoot 'em up by FULLSET.IO.<br><br>You can check out the project page <a href='https://fullset.io/collections/nintendo-64/products/project-neon-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Overserved Food Fighters U"||frametitle.innerHTML === "Overserved Food Fighters J"||frametitle.innerHTML === "Overserved Food Fighters E"){
+		document.getElementById("description").innerHTML = "Overserved: Food Fighters is a 1-8 player action arcade game by FULLSET.IO.<br><br>You can check out the project page <a href='https://fullset.io/collections/nintendo-64/products/overserved-food-fighters-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
+		
 		} else {
 	}
 	//CHECK ACCESSORIES\\	
@@ -1832,13 +1851,35 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.width = "35%"; //testing
 		document.getElementById("thumbA3").style.height = "auto";
 		
+		document.getElementById("thumb").title = "𝗕𝗼𝘅 𝗔𝗿𝘁";
 		document.getElementById("thumbA1").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
 		document.getElementById("thumbA2").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗕𝗼𝘁𝘁𝗼𝗺";
 		document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿";
 	
-		if (frametitle.innerHTML.includes("Analogue 3D")){ //Analogue 3D console bespoke fix
+		if (frametitle.innerHTML.includes("Analogue 3D")){ //Analogue 3D console fix
+			
+			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
+		
 			document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
 			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("3D")+2, frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
+			//document.getElementById("thumbA3").style.width = "48%";
+
+			
+		} else if (frametitle.innerHTML.includes("ModRetro M64")){ //M64 console fix
+		
+			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
+			
+			document.getElementById("thumbA2").src = 'Consoles/M64 Underside Generic.png'; //Temporary			
+			//document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
+			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("M64"), frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
+			//document.getElementById("thumbA3").style.width = "48%";
+			
+		} else if (frametitle.innerHTML.includes("Foxdata Chrome Console 2017")){ //Foxdata console fix
+		
+			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
+			
+			document.getElementById("thumbA2").src = 'Consoles/Foxdata Chrome Console 2017 UKV B.png';
+			//document.getElementById("thumbA3").src = 'Controllers/Foxdata Chrome.png';
 			document.getElementById("thumbA3").style.width = "48%";
 			
 		} else if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
@@ -3329,6 +3370,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.18-3.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.31-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
