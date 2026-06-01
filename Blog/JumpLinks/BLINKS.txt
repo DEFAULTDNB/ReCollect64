@@ -332,3 +332,4 @@ Blog/Features/2026/Misc/b330.html
 Blog/Features/2026/PMRecut/b331.html
 Blog/Features/2026/Misc/b332.html
 Blog/Features/2026/M64Leak/b333.html
+Blog/Features/2026/GuitarPedals/b334.html
