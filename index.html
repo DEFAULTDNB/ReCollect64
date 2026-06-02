@@ -3137,7 +3137,7 @@ fetch(imgzoom.src)
   });
 }
 function themeSwap() {
-const themes = ["Ice Blue", "Fire Orange", "Midnight Blue", "Watermelon Red", "Jungle Green", "Smoke Grey", "Pokemon Blue", "Pokemon Orange", "Japan Boxart", "Extreme Green", "Accessible"];
+const themes = ["Ice Blue", "Fire Orange", "Midnight Blue", "Watermelon Red", "Jungle Green", "Smoke Grey", "Pokemon Blue", "Pokemon Orange", "Japan Boxart", "Extreme Green", "Accessible","RetroMod","3D Analogue"];
 	if (localStorage.retroTheme==null){
 		tPos = 0;
 		} else {
@@ -3158,7 +3158,7 @@ function bureauDeChange() {
 	gMoney = Currency.value.slice(0,1);
 	gUnits = Currency.value.slice(1,4);
 	//HARD/SOFT temp naming for CONSOLES
-	document.getElementById("values").innerHTML = "<span style='font-weight:bold;color:white;'>𝗘𝗫𝗣𝗘𝗡𝗗𝗔𝗧𝗨𝗥𝗘:</span><hr class='type1'>Hard/Soft: "+gMoney+Math.round(result1*currencyList[gUnits])+"<br>Boxed: "+gMoney+Math.round(result2*currencyList[gUnits])+"<br>Manuals: "+gMoney+Math.round(result3*currencyList[gUnits])+"<br>Sealed: "+gMoney+Math.round(result4*currencyList[gUnits])+"<br><hr class='type1'>Outlay: "+gMoney+Math.round(result6*currencyList[gUnits]);
+	document.getElementById("values").innerHTML = "<span style='font-weight:bold;'>𝗘𝗫𝗣𝗘𝗡𝗗𝗔𝗧𝗨𝗥𝗘:</span><hr class='type1'>Hard/Soft: "+gMoney+Math.round(result1*currencyList[gUnits])+"<br>Boxed: "+gMoney+Math.round(result2*currencyList[gUnits])+"<br>Manuals: "+gMoney+Math.round(result3*currencyList[gUnits])+"<br>Sealed: "+gMoney+Math.round(result4*currencyList[gUnits])+"<br><hr class='type1'>Outlay: "+gMoney+Math.round(result6*currencyList[gUnits]);
 }
 document.getElementById('addVlist').onclick = function() {
 let regFix = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
@@ -3382,6 +3382,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.1-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.2-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>

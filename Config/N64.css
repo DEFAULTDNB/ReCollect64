@@ -135,6 +135,28 @@
 	--light-textshadow: black;
 	--dark-textshadow: grey;
 }
+[data-theme="RetroMod"] {
+    --primary-color: #ff01a1;
+    --primary-color-soft: #ff01a1;
+    --secondary-color: #ffb400;
+    --dark-tone: rgb(255, 1, 161, 0.5);
+    --light-tone: #ffb400;
+	--logo-tone: linear-gradient(to bottom, #ff01a1, #ff01a1);
+	--title-color: black;
+	--light-textshadow: black;
+	--dark-textshadow: grey;
+}
+[data-theme="3D Analogue"] {
+    --primary-color: black;
+    --primary-color-soft: black;
+    --secondary-color: silver;
+    --dark-tone: rgba(0,0,0,0.5);
+    --light-tone: white;
+	--logo-tone: linear-gradient(to bottom, white, dimgrey);
+	--title-color: white;
+	--light-textshadow: black;
+	--dark-textshadow: black;
+}
 .homenaje-regular {
   font-family: "Homenaje", sans-serif;
   font-weight: 400;
