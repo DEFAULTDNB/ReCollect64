@@ -334,3 +334,4 @@ Blog/Features/2026/Misc/b332.html
 Blog/Features/2026/M64Leak/b333.html
 Blog/Features/2026/GuitarPedals/b334.html
 Blog/Features/2026/SpellCraftWIP/b335.html
+Blog/Features/2026/FinalFight64WIP/b336.html
