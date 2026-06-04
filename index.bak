@@ -145,6 +145,7 @@
 	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗 𝗗𝗶𝘀𝗸𝘀">🇯🇵 🌏 𝟲𝟰𝗗𝗗</option>
 	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗚𝗮𝗺𝗲𝘀">🇨🇳 🌏 𝗜𝗤𝗨𝗘</option>	
 	<option value="AFT" title="𝗔𝗳𝘁𝗲𝗿𝗺𝗮𝗿𝗸𝗲𝘁 𝗚𝗮𝗺𝗲𝘀">🔄🕒 𝗔𝗙𝗧</option>
+	<option value="M64" title="𝗠𝗼𝗱𝗥𝗲𝘁𝗿𝗼 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀">‍👾🌎 𝗠𝟲𝟰</option>
 	<option value="LRG" title="𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀">‍🛑🌎 𝗟𝗥𝗚</option>
 	<option value="COLS" title="𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀">🎨🌎 𝗖𝗢𝗟</option>
 	<option value="COLA" title="𝗔𝗹𝗹 𝗖𝗼𝗹𝗼𝘂𝗿 𝗖𝗮𝗿𝘁𝘀">🎨🌎 𝗔𝗟𝗟</option>
@@ -446,24 +447,27 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 		var myToast = Toastify({className: "PopStyle", text: '𝗦𝗽𝗲𝗲𝗱 𝗥𝘂𝗻 𝗛𝗶𝗱𝗱𝗲𝗻:\n\nToo many games to list in this section!', avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();
 	} 
 
-	if (document.getElementById("Region").value == "FULJ") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor Japanese collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "FULA") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor American collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "FULE") {var myToast = Toastify({className: "PopStyle", text: "𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor European collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "LRG") {var myToast = Toastify({className: "PopStyle", text: "𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nN64 releases by LRG.", style: {background: 'Black', color: "#ED008D"}, avatar: "Config/Images/LRG.png", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "NFR") {var myToast = Toastify({className: "PopStyle", text: "𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲:\n\nRare N64 kiosk cartridges.", style: {background: 'MidnightBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "COLS") {var myToast = Toastify({className: "PopStyle", text: "𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nColoured cart collection.", style: {background: 'indigo'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "COLA") {var myToast = Toastify({className: "PopStyle", text: "𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nAll coloured carts.", style: {background: 'indigo'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "GREY") {var myToast = Toastify({className: "PopStyle", text: "𝗚𝗿𝗲𝘆 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nGrey variants of colour carts.", style: {background: 'grey', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "N64DD") {var myToast = Toastify({className: "PopStyle", text: "𝗡𝗶𝗻𝘁𝗲𝗻𝗱𝗼 𝟲𝟰𝗗𝗗:\n\nN64 disk drive games.", style: {background: 'SlateGrey'}, avatar: "Config/Images/N64DD.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "IQUE") {var myToast = Toastify({className: "PopStyle", text: "𝗶𝗤𝘂𝗲 𝗣𝗹𝗮𝘆𝗲𝗿:\n\niQue downloadable games.", style: {background: 'black', color: "white"}, avatar: "Config/Images/IQUE.png", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "REVS") {var myToast = Toastify({className: "PopStyle", text: "𝗩𝗲𝗿𝘀𝗶𝗼𝗻 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀:\n\nKnown cartridge revisions.", style: {background: 'Teal'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "PALX") {var myToast = Toastify({className: "PopStyle", text: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to Europe.", style: {background: 'navy', color: "gold"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "JPNX") {var myToast = Toastify({className: "PopStyle", text: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to Japan.", style: {background: 'white', color: "crimson"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "USAX") {var myToast = Toastify({className: "PopStyle", text: "𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to America.", style: {background: 'MediumBlue', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "PCX") {var myToast = Toastify({className: "PopStyle", text: "𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲:\n\nMillion Seller/Players Choice variants.", style: {background: 'black', color: "white"}, avatar: "Config/Images/PCU.png", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "JS") {var myToast = Toastify({className: "PopStyle", text: "𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀:\n\nJapanese store demos.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/SAMPLE.png", close: true, duration: 5000}); myToast.showToast();}
-	if (document.getElementById("Region").value == "BRA") {var myToast = Toastify({className: "PopStyle", text: "𝗕𝗿𝗮𝘇𝗶𝗹𝗶𝗮𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nPlaytronic/Gradiente releases.", style: {background: '#009C3B', color: "#FEDF00"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast(); document.getElementById('mbrasil').style.animation="mbrasilfade 2.5s ease-in"; document.getElementById('mbrasil').addEventListener("animationend", (e) => e.target.style.animation = '');}
-	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: "𝗖𝗼𝗻𝘀𝗼𝗹𝗲𝘀 𝗮𝗻𝗱 𝗕𝘂𝗻𝗱𝗹𝗲𝘀", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "FULJ") {var myToast = Toastify({className: "PopStyle", text: " 𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor Japanese collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "FULA") {var myToast = Toastify({className: "PopStyle", text: " 𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor American collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "FULE") {var myToast = Toastify({className: "PopStyle", text: " 𝟭𝟬𝟬% 𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝗶𝗼𝗻:\n\nThe full 388 world game set!\n\nFor European collectors this is a good starting point!", style: {background: 'SteelBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 6000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "LRG") {var myToast = Toastify({className: "PopStyle", text: " 𝗟𝗶𝗺𝗶𝘁𝗲𝗱 𝗥𝘂𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nN64 releases by LRG.", style: {background: 'Black', color: "#ED008D"}, avatar: "Config/Images/LRG.png", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "NFR") {var myToast = Toastify({className: "PopStyle", text: " 𝗡𝗼𝘁 𝗙𝗼𝗿 𝗥𝗲𝘀𝗮𝗹𝗲:\n\nRare N64 kiosk cartridges.", style: {background: 'MidnightBlue'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "COLS") {var myToast = Toastify({className: "PopStyle", text: " 𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nColoured cart collection.", style: {background: 'indigo'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "COLA") {var myToast = Toastify({className: "PopStyle", text: " 𝗖𝗼𝗹𝗼𝘂𝗿 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nAll coloured carts.", style: {background: 'indigo'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "GREY") {var myToast = Toastify({className: "PopStyle", text: " 𝗚𝗿𝗲𝘆 𝗩𝗮𝗿𝗶𝗮𝗻𝘁𝘀:\n\nGrey variants of colour carts.", style: {background: 'grey', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "N64DD") {var myToast = Toastify({className: "PopStyle", text: " 𝗡𝗶𝗻𝘁𝗲𝗻𝗱𝗼 𝟲𝟰𝗗𝗗:\n\nN64 disk drive games.", style: {background: 'SlateGrey'}, avatar: "Config/Images/N64DD.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "IQUE") {var myToast = Toastify({className: "PopStyle", text: " 𝗶𝗤𝘂𝗲 𝗣𝗹𝗮𝘆𝗲𝗿:\n\niQue downloadable games.", style: {background: 'black', color: "white"}, avatar: "Config/Images/IQUE.png", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "REVS") {var myToast = Toastify({className: "PopStyle", text: " 𝗩𝗲𝗿𝘀𝗶𝗼𝗻 𝗥𝗲𝘃𝗶𝘀𝗶𝗼𝗻𝘀:\n\nKnown cartridge revisions.", style: {background: 'Teal'}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "PALX") {var myToast = Toastify({className: "PopStyle", text: " 𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to Europe.", style: {background: 'navy', color: "gold"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "JPNX") {var myToast = Toastify({className: "PopStyle", text: " 𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to Japan.", style: {background: 'white', color: "crimson"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "USAX") {var myToast = Toastify({className: "PopStyle", text: " 𝗥𝗲𝗴𝗶𝗼𝗻𝗮𝗹 𝗘𝘅𝗰𝗹𝘂𝘀𝗶𝘃𝗲𝘀:\n\nExclusive to America.", style: {background: 'MediumBlue', color: "white"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "PCX") {var myToast = Toastify({className: "PopStyle", text: " 𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲:\n\nMillion Seller/Players Choice variants.", style: {background: 'black', color: "white"}, avatar: "Config/Images/PCU.png", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "JS") {var myToast = Toastify({className: "PopStyle", text: " 𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀:\n\nJapanese store demos.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/SAMPLE.png", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "BRA") {var myToast = Toastify({className: "PopStyle", text: " 𝗕𝗿𝗮𝘇𝗶𝗹𝗶𝗮𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nPlaytronic/Gradiente releases.", style: {background: '#009C3B', color: "#FEDF00"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast(); document.getElementById('mbrasil').style.animation="mbrasilfade 2.5s ease-in"; document.getElementById('mbrasil').addEventListener("animationend", (e) => e.target.style.animation = '');}
+	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: " 𝗖𝗼𝗻𝘀𝗼𝗹𝗲𝘀 𝗮𝗻𝗱 𝗕𝘂𝗻𝗱𝗹𝗲𝘀:\n\nGlobal variants & bundles.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "AFT") {var myToast = Toastify({className: "PopStyle", text: " 𝗔𝗳𝘁𝗲𝗿𝗺𝗮𝗿𝗸𝗲𝘁 𝗚𝗮𝗺𝗲𝘀:\n\nGames released after 2002.", style: {background: 'Black', color: "white"}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "M64") {var myToast = Toastify({className: "PopStyle", text: " 𝗠𝗼𝗱𝗥𝗲𝘁𝗿𝗼 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀:\n\nM64 release titles.", style: {background: "#ff01a1", color: "#ffb400"}, avatar: "Config/Images/M64.png", close: true, duration: 5000}); myToast.showToast();}
+
 }
 function readFile2(e) {
 	document.getElementById("frame").style.display = "none";
@@ -1268,7 +1272,7 @@ function reply_click(clicked_id){
 	
 	if (document.getElementById("Region").value == "HWR") { //CONSOLES mod
 	
-		if (frametitle.innerHTML.includes("Analogue 3D")) {
+		if (frametitle.innerHTML.includes("Analogue 3D")||frametitle.innerHTML.includes("ModRetro M64")) {
 			document.getElementById("description").innerHTML = "The " + gameTitle + " was released worldwide on/around " + rDate + ".<br><br>It is an FPGA-based hardware-accurate recreation console (no controller came supplied with it).";
 		} else {
 			document.getElementById("description").innerHTML = "The " + gameTitle + " console was released by " + pubCo + " in " + gameRegions+ " on/around " + rDate + ".";
@@ -1378,10 +1382,6 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").style.height = "auto";
 		document.getElementById("thumbBB").style.width = "48%";
 	} else if (pReg === "E"){
-		if (frametitle.innerHTML === "Party Cannon Subjected to a Partying E"){
-		document.getElementById("description").innerHTML = "Party Cannon's 'Subjected to a Partying' is a music album on a cartridge.<br><br>You can listen to the tracks available <a href='https://party-cannon.com/products/subjected-to-a-partying-n64-bundle' target='_blank'>HERE</a>"
-		//TO DO: no manual component...
-		}
 		document.getElementById("thumb").style.height = "auto";
 		document.getElementById("thumb").style.width = "48%";
 		document.getElementById("thumbBB").style.height = "auto";
@@ -1471,26 +1471,11 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC2").src = "";
 		document.getElementById("thumbBB1").src = "";
 		document.getElementById("thumbBB2").src = "";
-	} else if (pReg === "U"){
-		if (frametitle.innerHTML === "Belushi Speedball What us Worry U"){
-			document.getElementById("description").innerHTML = "Belushi Speedball's 'What us Worry' is a music album on a cartridge.<br><br>You can listen to the tracks available <a href='https://belushispeedball.bandcamp.com/album/what-us-worry' target='_blank'>HERE</a>"
-		} else if (frametitle.innerHTML === "Remute R64 U"){
-			document.getElementById("description").innerHTML = "Remute's 'R64' is a music album on a cartridge.<br><br>You can listen to the tracks available <a href='https://remute.bandcamp.com/album/r64-nintendo-64-music-album' target='_blank'>HERE</a>"
-		} else if (frametitle.innerHTML === "Donut Dodo U"){
-			document.getElementById("description").innerHTML = "Donut Dodo is an arcade platformer by Pixel Games SARL-S.<br><br>You can check out the Kickstarter <a href='https://www.kickstarter.com/projects/pixelgamessarls/donut-dodo-a-new-nintendo-64-game' target='_blank'>HERE</a>"
-		} //else if (frametitle.innerHTML === "Project Neon U"){
-			//document.getElementById("description").innerHTML = "Project Neon is an arcade platformer by FULLSET.<br><br>You can check out the Kickstarter <a href='https://www.kickstarter.com/projects/pixelgamessarls/donut-dodo-a-new-nintendo-64-game' target='_blank'>HERE</a>"
-		//}
-		
-		
+	} else if (pReg === "U"){		
 		document.getElementById("thumb").style.height = "auto";
 		document.getElementById("thumb").style.width = "48%";
 		document.getElementById("thumbBB").style.height = "auto";
 		document.getElementById("thumbBB").style.width = "48%";
-	
-	} else if (pReg === "M64"){ //bespoke per game?
-		document.getElementById("description").innerHTML = gameTitle+" was released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
-
 	} else {
 		if (pReg.includes("J") || pReg.includes("JS")){ //Portrait box fix
 			document.getElementById("thumb").style.height = "auto"
@@ -1688,9 +1673,7 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA2").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A2.png';
 		document.getElementById("thumbA3").src = 'Accessories/Densha de Go! 64 Engineers Pak SEJ A3.png';		
 	} else if (frametitle.innerHTML === "Coupe Du Monde 98 F"||frametitle.innerHTML === "Frankreich 98 Die Fußball WM D"){
-		document.getElementById("thumbRC").src = 'Carts/UKV/World Cup 98 UKV.png';//Alternate regional title.
-	} else if (frametitle.innerHTML === "40 Winks E"){
-		document.getElementById("thumbRC").src = 'Carts/U/40 Winks U.png';	
+		document.getElementById("thumbRC").src = 'Carts/UKV/World Cup 98 UKV.png';//Alternate regional title.	
 	} else if (frametitle.innerHTML === "Turok 2 Seeds of Evil ALTB"){
 		document.getElementById("thumbRC").src = 'Carts/ALTB/Turok 2 Seeds of Evil ALTB.png';	
 	} else if (frametitle.innerHTML === "Star Wars Shadows of the Empire BRS"){
@@ -1793,13 +1776,42 @@ function reply_click(clicked_id){
 		document.getElementById("thumbRC").src = 'Carts/ALTE/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ALTE.png';
 	//} else if (frametitle.innerHTML === "The Legend of Zelda Ocarina of Time S"){
 		////https://inversethought.com/jordi/guia-de-textos-ocarina-of-time.pdf
-		
+	
+	//AFTERMARKET GAMES
+	//Edit 2026 release dates once released
+	} else if (frametitle.innerHTML === "40 Winks E"){
+		document.getElementById("thumbRC").src = 'Carts/U/40 Winks U.png';
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player platformer developed by Eurocom in 1999 and published by Piko Interactive in 2019.<br><br>You can view more information on the official site <a href='https://www.pikointeractive.com/home/40-Winks-N64-NTSC-AVAILABLE-p132666160?ref=readonlymemo.com' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "40 Winks SEE"||frametitle.innerHTML === "40 Winks SEU"||frametitle.innerHTML === "40 Winks U"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player platformer developed by Eurocom in 1999 and published by Piko Interactive in 2019.<br><br>You can view more information on the official site <a href='https://www.pikointeractive.com/home/40-Winks-N64-NTSC-AVAILABLE-p132666160?ref=readonlymemo.com' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Belushi Speedball What us Worry U"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a music album on a cartridge that was released on "+rDate+".<br><br>You can listen to the tracks available <a href='https://belushispeedball.bandcamp.com/album/what-us-worry' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Party Cannon Subjected to a Partying E"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a music album on a cartridge that was released on "+rDate+".<br><br>You can listen to the tracks available <a href='https://party-cannon.com/products/subjected-to-a-partying-n64-bundle' target='_blank'>HERE</a>"	
+	} else if (frametitle.innerHTML === "Remute R64 U"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a music album on a cartridge that was released on "+rDate+".<br><br>You can listen to the tracks available <a href='https://remute.bandcamp.com/album/r64-nintendo-64-music-album' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Telocation Gemini U"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player puzzle platforming game made by "+pubCo+" that was released on "+rDate+".<br><br>You can view more information on the project page <a href='https://teamultrarare.itch.io/telocation-gemini' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Xeno Crisis U"||frametitle.innerHTML === "Xeno Crisis E"||frametitle.innerHTML === "Xeno Crisis J"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player shoot 'em up made by "+pubCo+" that was released on "+rDate+".<br><br>You can view more information on the official site <a href='https://www.bitmapbureau.com/games/xeno-crisis' target='_blank'>HERE</a>"
+	//FULLSET game releases:
 	} else if (frametitle.innerHTML === "Project Neon U"||frametitle.innerHTML === "Project Neon J"||frametitle.innerHTML === "Project Neon E"){
-		document.getElementById("description").innerHTML = "Project Neon is a 1-2 player arcade shoot 'em up by FULLSET.IO.<br><br>You can check out the project page <a href='https://fullset.io/collections/nintendo-64/products/project-neon-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player arcade shoot 'em up by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the project page <a href='https://fullset.io/collections/nintendo-64/products/project-neon-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML === "Overserved Food Fighters U"||frametitle.innerHTML === "Overserved Food Fighters J"||frametitle.innerHTML === "Overserved Food Fighters E"){
-		document.getElementById("description").innerHTML = "Overserved: Food Fighters is a 1-8 player action arcade game by FULLSET.IO.<br><br>You can check out the project page <a href='https://fullset.io/collections/nintendo-64/products/overserved-food-fighters-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
-		
-		} else {
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-8 player action arcade game by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the project page <a href='https://fullset.io/collections/nintendo-64/products/overserved-food-fighters-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Donut Dodo U"||frametitle.innerHTML === "Donut Dodo DODO-RED Edition U"||frametitle.innerHTML === "Donut Dodo Executive Producer Edition U"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is an arcade platformer by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the Kickstarter <a href='https://www.kickstarter.com/projects/pixelgamessarls/donut-dodo-a-new-nintendo-64-game' target='_blank'>HERE</a>"
+	//ModRetro M64 game releases:
+	} else if (frametitle.innerHTML === "Buck Bumble M64"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-releases on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Extreme-G Turbo Fusion M64"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' releases on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Xeno Crisis M64"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-releases on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Xibalba 64 M64"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' releases on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+	
+	} else {
 	}
 	//CHECK ACCESSORIES\\	
 	if (gFeatures.match("VRU")){
@@ -2810,7 +2822,7 @@ function roundUp () {
 		if (titleCount == 0) {
 		} else {
 			myAudio = new Audio('Config/Sounds/Trophy.wav'); myAudio.volume = myVolume; myAudio.play();
-			var myToast = Toastify({text: " 𝗪𝗲𝗹𝗹 𝗗𝗼𝗻𝗲!\n\nYou own all titles in this category.", style: {background: '#0096C8'}, avatar: "Config/Images/Trophy.gif", close: true, duration: 5000}); myToast.showToast();
+			var myToast = Toastify({text: " 𝗖𝗼𝗻𝗴𝗿𝗮𝘁𝘂𝗹𝗮𝘁𝗶𝗼𝗻𝘀!\n\nYou own all titles in this category.", style: {background: '#0096C8'}, avatar: "Config/Images/Trophy.gif", close: true, duration: 5000}); myToast.showToast();
 			document.getElementById("start").style.display = "none";
 		}
 	}
@@ -3125,7 +3137,7 @@ fetch(imgzoom.src)
   });
 }
 function themeSwap() {
-const themes = ["Ice Blue", "Fire Orange", "Midnight Blue", "Watermelon Red", "Jungle Green", "Smoke Grey", "Pokemon Blue", "Pokemon Orange", "Japan Boxart", "Extreme Green", "Accessible"];
+const themes = ["Ice Blue", "Fire Orange", "Midnight Blue", "Watermelon Red", "Jungle Green", "Smoke Grey", "Pokemon Blue", "Pokemon Orange", "Japan Boxart", "Extreme Green", "Accessible","RetroMod","3D Analogue"];
 	if (localStorage.retroTheme==null){
 		tPos = 0;
 		} else {
@@ -3146,7 +3158,7 @@ function bureauDeChange() {
 	gMoney = Currency.value.slice(0,1);
 	gUnits = Currency.value.slice(1,4);
 	//HARD/SOFT temp naming for CONSOLES
-	document.getElementById("values").innerHTML = "<span style='font-weight:bold;color:white;'>𝗘𝗫𝗣𝗘𝗡𝗗𝗔𝗧𝗨𝗥𝗘:</span><hr class='type1'>Hard/Soft: "+gMoney+Math.round(result1*currencyList[gUnits])+"<br>Boxed: "+gMoney+Math.round(result2*currencyList[gUnits])+"<br>Manuals: "+gMoney+Math.round(result3*currencyList[gUnits])+"<br>Sealed: "+gMoney+Math.round(result4*currencyList[gUnits])+"<br><hr class='type1'>Outlay: "+gMoney+Math.round(result6*currencyList[gUnits]);
+	document.getElementById("values").innerHTML = "<span style='font-weight:bold;'>𝗘𝗫𝗣𝗘𝗡𝗗𝗔𝗧𝗨𝗥𝗘:</span><hr class='type1'>Hard/Soft: "+gMoney+Math.round(result1*currencyList[gUnits])+"<br>Boxed: "+gMoney+Math.round(result2*currencyList[gUnits])+"<br>Manuals: "+gMoney+Math.round(result3*currencyList[gUnits])+"<br>Sealed: "+gMoney+Math.round(result4*currencyList[gUnits])+"<br><hr class='type1'>Outlay: "+gMoney+Math.round(result6*currencyList[gUnits]);
 }
 document.getElementById('addVlist').onclick = function() {
 let regFix = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
@@ -3370,6 +3382,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.5.31-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.2-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>

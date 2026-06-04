@@ -948,7 +948,7 @@ myCount = 0;
 			}
 			
 			if (gRegion === "F"||gRegion === "SCN"){
-				if (gTitle.includes("Pokemon Stadium Battle Set")|| gTitle.includes("Atomic Purple Controller Bundle")){ //F/SCN bespoke fix
+				if (gTitle.includes("Pokemon Stadium Battle Set")|| gTitle.includes("Atomic Purple Controller Bundle")){ //F/SCN fix
 					document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 				}
 			} else { //UKV fix
@@ -957,17 +957,18 @@ myCount = 0;
 			
 		//^ blanket fix end ^\\
 		} else if (lines[info].match("REGION=U ")){
-			if (gTitle.match("Remute")){ //bespoke fix
-				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+			if (gTitle.match("Remute")||gTitle.match("Junk Runner 64")){ //bespoke thumb fix
+				//document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
-			if (gTitle.includes("Donut Dodo")){ //bespoke fix
+			if (gTitle.includes("Donut Dodo")){
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/U/Donut Dodo U.jpg");
 			}
-			if (gTitle.includes("Atomic Purple Controller Bundle")||gTitle.includes("Gold Toys R Us Exclusive")){ //CONSOLES bespoke fix
+			if (gTitle.includes("Atomic Purple Controller Bundle")||gTitle.includes("Gold Toys R Us Exclusive")){ //CONSOLES fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
-			if (gTitle.includes("Donkey Kong 64 Set")){ //CONSOLES bespoke fix
+			if (gTitle.includes("Donkey Kong 64 Set")){ //CONSOLES fix
 				//document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
 			}
 			
@@ -1633,7 +1634,6 @@ function reply_click(clicked_id){
 				document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
 				document.getElementById("thumbRC2").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
 			}
-			
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
@@ -1786,9 +1786,15 @@ function reply_click(clicked_id){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player platformer developed by Eurocom in 1999 and published by Piko Interactive in 2019.<br><br>You can view more information on the official site <a href='https://www.pikointeractive.com/home/40-Winks-N64-NTSC-AVAILABLE-p132666160?ref=readonlymemo.com' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML === "Belushi Speedball What us Worry U"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a music album on a cartridge that was released on "+rDate+".<br><br>You can listen to the tracks available <a href='https://belushispeedball.bandcamp.com/album/what-us-worry' target='_blank'>HERE</a>"
+	} else if (frametitle.innerHTML === "Junk Runner 64 U"){
+		document.getElementById("thumb").src = '';
+		document.getElementById("thumbRC").src = 'Carts/U/Junk Runner 64 U.png';
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a single player adventure game made by "+pubCo+" which was released on "+rDate+".<br><br>You can find the physical cartridge available for purchase <a href='https://james-lambert-shop.fourthwall.com/products/junkrunner-64' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML === "Party Cannon Subjected to a Partying E"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a music album on a cartridge that was released on "+rDate+".<br><br>You can listen to the tracks available <a href='https://party-cannon.com/products/subjected-to-a-partying-n64-bundle' target='_blank'>HERE</a>"	
 	} else if (frametitle.innerHTML === "Remute R64 U"){
+		document.getElementById("thumb").src = '';
+		document.getElementById("thumbRC").src = 'Carts/U/Remute R64 U.png';
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a music album on a cartridge that was released on "+rDate+".<br><br>You can listen to the tracks available <a href='https://remute.bandcamp.com/album/r64-nintendo-64-music-album' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML === "Telocation Gemini U"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player puzzle platforming game made by "+pubCo+" that was released on "+rDate+".<br><br>You can view more information on the project page <a href='https://teamultrarare.itch.io/telocation-gemini' target='_blank'>HERE</a>"
@@ -1871,7 +1877,6 @@ function reply_click(clicked_id){
 		if (frametitle.innerHTML.includes("Analogue 3D")){ //Analogue 3D console fix
 			
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
-		
 			document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
 			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("3D")+2, frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
 			//document.getElementById("thumbA3").style.width = "48%";
@@ -1880,7 +1885,6 @@ function reply_click(clicked_id){
 		} else if (frametitle.innerHTML.includes("ModRetro M64")){ //M64 console fix
 		
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
-			
 			document.getElementById("thumbA2").src = 'Consoles/M64 Underside Generic.png'; //Temporary			
 			//document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
 			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("M64"), frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
@@ -1889,7 +1893,6 @@ function reply_click(clicked_id){
 		} else if (frametitle.innerHTML.includes("Foxdata Chrome Console 2017")){ //Foxdata console fix
 		
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
-			
 			document.getElementById("thumbA2").src = 'Consoles/Foxdata Chrome Console 2017 UKV B.png';
 			//document.getElementById("thumbA3").src = 'Controllers/Foxdata Chrome.png';
 			document.getElementById("thumbA3").style.width = "48%";
@@ -3382,6 +3385,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.2-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.5-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
