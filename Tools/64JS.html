@@ -44,14 +44,13 @@ function handleFileSelect(event) {
 		decoder = new TextDecoder("windows-1252");
 		str = decoder.decode(reader.result);
 		var boot, name, cid, gRev;
-		//alert(byteArray.slice(0x00, 0x08));
 			if (byteArray.slice(0x00, 0x08) == "128,55,18,64,0,0,0,15") {
 				boot = "BIG ENDIAN (*.Z64)";
 				name = str.slice(32, 59);
 				cid = str.slice(59,63);
 				gRev = byteArray.slice(0x3F, 0x40);
 			} else if (byteArray.slice(0x00, 0x08) == "128,55,18,64,0,0,0,0") { //Junk Runner/Pandemonium
-				boot = "BIG ENDIAN HOME BREW (*.Z64)";
+				boot = "BIG ENDIAN - HOMEBREW (*.Z64)";
 				name = str.slice(32, 59);
 				cid = str.slice(59,63);
 				gRev = byteArray.slice(0x3F, 0x40);
@@ -71,10 +70,8 @@ function handleFileSelect(event) {
 				cid = str.slice(59,63);
 				gRev = byteArray.slice(0x3F, 0x40);
 			}
-			
 			const encodedString = name;
 			decodedName = decodeShiftJIS(encodedString);
-			//alert(cid.slice(1,3))
 			boxart.src = "LOWRES/"+cid.slice(1,3)+".png";
 			boxart.onerror = fixboxart;
 				function fixboxart(){
@@ -132,7 +129,7 @@ function handleFileSelect(event) {
             const firstMB = CryptoJS.MD5(wordArray2).toString();
 			document.getElementById("result").innerHTML += "<span id='label1'>[MD5]:</span> " + hash.toUpperCase()+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label1'>[SH1]:</span> " + hash2.toUpperCase()+"<br>";
-			document.getElementById("result").innerHTML += "<span id='label1'>[CRC]:</span> " + hash3.toString(16).padStart(8, '0').toUpperCase()+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[CRC]:</span> " + hash3.toString(16).padStart(8, '0').toUpperCase()+"<br>";			
 			switch (true)  {
 				case ((/955894C2E40A698BF98A67B78A4E28FA/i.test(firstMB.toUpperCase()))||(/e01a02379886f2a90d6d4859e75c4f8a/i.test(firstMB.toUpperCase()))||(/baff2496776653d7952656dc914f52eb/i.test(firstMB.toUpperCase()))):
 						switch (cid[3]){
@@ -169,10 +166,15 @@ function handleFileSelect(event) {
 						cic = "7106";
 					}
 				break;
+				
+				case ((/0E9C2FCD4E10B0272DC6F6DCD487F959/i.test(firstMB.toUpperCase()))): //Libdragon CIC?
+					cic = "HOMEBREW";
+				break;
+				
 				case (/ALECK64 GAME/i.test(media)): cic = "ARCADE";
 				break;
 				default:
-				cic = "UNKNOWN";
+					cic = "UNKNOWN";
 			};
 			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> " + cic.toUpperCase()+"<br>";
 			const fileType = file.name.split('.').pop().toLowerCase();
