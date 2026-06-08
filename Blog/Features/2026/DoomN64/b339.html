@@ -1,0 +1,73 @@
+<div id="b339" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Doom-N64 Released</span></h2>
+	<h5 class="subtitle">WAD Loading & Multiplayer! ~ Jun 8, 2026</h5>
+	<div class="bgChat" style="background-image:url('Covers/U/Doom 64 U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Doom-N64 Released</div></div>
+	<h4>Blow Your WAD</h4>
+	<div class="titleUnderline"></div>
+	<p>A couple of days ago I spotted a project that slightly blew my mind. Typically, when playing Doom on the Nintendo 64, you're limited to playing the 1997 retail release or prebuilt modified ROM's that may contain outdated mods that you wish included other levels or WADs.</p>
+	<p>Nintendo 64 homebrew developer Ham1ton, aka Hamltoe, has released a stunning new project that gives you full instructions on how to build your own custom Doom 64 with any WADs you wish, but he also has another neat surprise: this version allows for full 2, 3, and 4-player multiplayer as well as cooperative play!</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>DOOM-N64</b></p>
+	<p>DOOM-N64 is a Windows-friendly porting project for running classic DOOM on the Nintendo 64. Play your favorite mods using the WAD browser to load IWAD and PWAD files at runtime. Try the original shareware demo on the releases page.
+	<p><b>What This Project Does:</b></p>
+	<p>+ Builds a Nintendo 64 DOOM ROM on Windows using WSL.</p>
+	<p>+ Lets you choose IWAD and PWAD files in an in-game WAD browser.</p>
+	<p>+ Copies all .wad/.WAD files from WADs/ into ROM filesystem during build.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/DoomN64/1.gif" width="40%" style="padding:auto"/>
+	</center>
+	<h4>READ ME</h4>
+	<div class="titleUnderline"></div>
+	<p>In order to build your own WAD-packed version and enjoy the thrills of split-screen multiplayer on your own console, you will need to install the <a href="https://github.com/DragonMinded/libdragon">Libdragon N64 SDK toolchain</a> installed at /opt/libdragon, Windows 10 or 11, and WSL2 with Ubuntu (or a similar distro).</p>
+	<p>Once you have the development environment set up and ready, you can download the project and alter it to your liking with your legally owned WAD files by following these instructions:</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>1) Get project</b></p>
+	<p>If cloning new:</p>
+	<p><code>git clone --recurse-submodules <your-repo-url></code></p>
+	<p><code>cd DOOM-N64</code></p>
+	<p>If already cloned:</p>
+	<p><code>git submodule update --init --recursive</code></p>
+	<p><b>2) Add your WAD files</b></p>
+	<p>Place your legally owned files into the WADs/ folder.</p>
+	<p>Minimum setup: At least one IWAD (example: DOOM.WAD, DOOM1.WAD)</p>
+	<p>Custom mod setup: One IWAD + one or more PWAD files</p>
+	<p>Example:</p>
+	<p>&nbsp&nbspWADs/DOOM.WAD</p>
+	<p>&nbsp&nbspWADs/plutonia.wad</p>
+	<p><b>3) Build ROM</b></p>
+	<p>Fastest in VS Code:</p>
+ 	<p>&nbsp&nbsp1, Run Task</p>
+	<p>&nbsp&nbsp2, Select build-doom</p>
+	<p>Debug build with logging:</p>
+	<p>&nbsp&nbsp1, Run Task</p>
+	<p>&nbsp&nbsp2, Select build-doom-debug</p>
+	<p>Post-build verification:</p>
+	<p>&nbsp&nbsp1, Run Task</p>
+	<p>&nbsp&nbsp2, Select verify-wsl-n64-env</p>
+	<p>Important:</p>
+	<p>Run build and verify tasks sequentially (not concurrently).</p>
+	<p>All project tasks are pinned to N64_INST=/opt/libdragon and N64_GCCPREFIX=/opt/libdragon.</p>
+	<p>Command-line build in WSL (same result):</p>
+	<code>
+	<p>&nbsp&nbspexport N64_INST=/opt/libdragon</p>
+	<p>&nbsp&nbspexport N64_GCCPREFIX=/opt/libdragon</p>
+	<p>&nbsp&nbspmake -j"$(nproc)"</p>
+	<p>&nbsp&nbspecho rom_bytes="$(stat -c%s Doom-N64.z64)"</p>
+	</code>
+	<p><b>4) Find output</b></p>
+	<p>ROM output: Doom-N64.z64</p>
+	<p><b>5) Launch and play</b></p>
+	<p>At startup, WAD browser appears:</p>
+  	<p>IWAD to play base game.</p>
+  	<p>PWAD to play mod. Browser asks for base IWAD.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p>For those without technical knowledge but who still wish to give it a go, the GitHub site offers a shareware option too, so there is no reason not to at least fire this up and give it a bash on your flashcarts.</p>
+	<p>I recall asking <a href="https://defaultdnb.github.io/ReCollect64/blog.html#c42">Immorpher</a> a while back about the possibility of loading WADs directly into a ROM from the flashcart's SD card, and the answer was extremely positive, but as far as I know, no one has attempted to implement this yet. If it did, there would be no need for recompiling the ROM and all the more reason to get playing with friends!</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/hamltoe/DOOM-N64">GitHub Source</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
