@@ -1,0 +1,46 @@
+<div id="b345" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64Memtest 0.9 Released</span></h2>
+	<h5 class="subtitle">By Rasky ~ Jun 11, 2026</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2026/N64Memtest/1.png'); background-position: 50% 5%; image-rendering: smooth;"></div>
+	<h4>A Hunk of Burn-in Love</h4>
+	<div class="titleUnderline"></div>
+	<p>With the Nintendo 64 making its 30th journey around the sun this year—yes the console is turning 30 in Japan on the 23rd of June—it's always good to be able to give the system a thorough testing to ensure it's operating correctly. N64Memtest by Rasky provides an intuitive tool that runs directly on your console via flashcart that aims to stress test the on-board 4MiB Rambus DRAM.</p>
+	<p>We have been able to run diagnostics on general hardware, displays, and controllers for a while, thanks to tools like <a href="https://artemiourbina.itch.io/240p-test-suite">Artemio's 240p Test Suite</a>, <a href="https://github.com/wermipls/mimi">Wermipls Mimi</a>, and <a href="https://github.com/Ryzee119/n64_controller_test">Ryzee119's Controller Test ROM</a>, as well as <a href="https://github.com/meauxdal/N64-Revision-Test">Meauxdal's N64 Revision Tester</a>, but a full-on MIPS-based memory tester is a much-welcomed addition.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/N64Memtest/1.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Features/2026/N64Memtest/1.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/N64Memtest/2.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Features/2026/N64Memtest/2.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/N64Memtest/3.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Features/2026/N64Memtest/3.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>N64Memtest is a homebrew memory diagnostic tool for the Nintendo 64. It exercises RDRAM with a suite of classic RAM test patterns and March algorithms, reports mismatches with bank/address details, and keeps the UI responsive while tests run in hand-written MIPS assembly.</p>
+	<p><b>Features:</b></p>
+	<p>18 memory test patterns, including:</p>
+
+	<p>+ Random value, checkerboard, solid bits</p>
+	<p>+ Walking ones / walking zeroes</p>
+	<p>+ Sequential increment, bit spread, bit flip</p>
+	<p>+ March MATS+, MATS++, A, B, C-, C+, SR, SS, X, Y</p>
+
+	<p><b>Four test profiles</b></p>
+
+	<p>+ Quick — fast sanity check (random, checkerboard, solid bits, selected March tests)</p>
+	<p>+ Full — comprehensive coverage (all March tests, walking patterns, bit flip, random)</p>
+	<p>+ Burn-in — continuous stress run (Full plus every remaining pattern; infinite loops)</p>
+	<p>+ Custom — pick banks and tests individually</p>
+
+	<p>Configurable loop count — 1, 5, 20, or infinite (Burn-in always runs continuously)</p>
+	<p>Real-time UI — progress percentage, KiB tested, slice count, error log with address/expected/actual values</p>
+	<p>Pause / resume / stop controls during a run</p>
+	<p>Snake easter egg — play while waiting for long burn-in sessions</p>
+	<p>Headless burn-in mode — if no controller is connected on port 1, the tool auto-starts a burn-in run (useful for unattended testing)</p>
+	<p>iQue Player support — detects iQue hardware and tests the 16 MiB physical RAM window correctly</p>
+	<p>Debug logging — structured log messages over emulator log and USB debug</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	</center>
+	<p>Just pop it onto a flashcart, and run the tests. If you find that you have black screens, graphical glitches, or crashing on your console in general, it might be time to look into fixing or replacing the RDRAM, or even procuring another console, if the issues make gameplay unbearable.</p>
+	<p>A tool like this can also be taken with you to any place you might want to go to purchase an N64 console. If you buy from local sellers, pawn shops in town, or even retro gaming market events, bring this along with you to ensure you're making a sound purchase of a console with no issues.</p> 
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/rasky/n64memtest">Rasky GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
