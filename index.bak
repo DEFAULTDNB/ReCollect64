@@ -139,8 +139,8 @@
 	<option value="PCX" title="𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲/𝗠𝗶𝗹𝗹𝗶𝗼𝗻 𝗦𝗲𝗹𝗹𝗲𝗿">🌎⭐ 𝗦𝗣𝗘</option>
 <optgroup label="𝗛𝗮𝗿𝗱𝘄𝗮𝗿𝗲:">
 	<option value="HWR" title="𝗖𝗼𝗻𝘀𝗼𝗹𝗲𝘀">🕹️ 𝗖𝗢𝗡𝗦</option>
-	<!--option value="CTR" title="HARDWARE: CONTROLLERS">🎮 PADS</option>
-	<option value="ACC" title="HARDWARE: ACCESSORIES">💾 ACCS</option-->	
+	<!--option value="PAD" title="HARDWARE: CONTROLLERS">🎮 𝗣𝗔𝗗𝗦</option>
+	<option value="ACC" title="HARDWARE: ACCESSORIES">💾 𝗔𝗖𝗖𝗦</option-->	
 <optgroup label="𝗢𝘁𝗵𝗲𝗿:">
 	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗 𝗗𝗶𝘀𝗸𝘀">🇯🇵 🌏 𝟲𝟰𝗗𝗗</option>
 	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗚𝗮𝗺𝗲𝘀">🇨🇳 🌏 𝗜𝗤𝗨𝗘</option>	
@@ -212,9 +212,7 @@
 </div>
 <center><div id="main" class="main" style="border: none;"></div><center>
 <script charset="utf-8">
-
 document.getElementById("start").style.display = "block";
-
 function spitFacts() {
 	fetch('Config/facts.cfg')
     .then(response => {
@@ -465,6 +463,7 @@ var prevRegion = localStorage.regKey; //needs implementing to fix cust.cfg
 	if (document.getElementById("Region").value == "JS") {var myToast = Toastify({className: "PopStyle", text: " 𝗝𝗮𝗽𝗮𝗻𝗲𝘀𝗲 𝗦𝗮𝗺𝗽𝗹𝗲𝘀:\n\nJapanese store demos.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/SAMPLE.png", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "BRA") {var myToast = Toastify({className: "PopStyle", text: " 𝗕𝗿𝗮𝘇𝗶𝗹𝗶𝗮𝗻 𝗚𝗮𝗺𝗲𝘀:\n\nPlaytronic/Gradiente releases.", style: {background: '#009C3B', color: "#FEDF00"}, avatar: "Config/Images/Alert.gif", close: true, duration: 5000}); myToast.showToast(); document.getElementById('mbrasil').style.animation="mbrasilfade 2.5s ease-in"; document.getElementById('mbrasil').addEventListener("animationend", (e) => e.target.style.animation = '');}
 	if (document.getElementById("Region").value == "HWR") {var myToast = Toastify({className: "PopStyle", text: " 𝗖𝗼𝗻𝘀𝗼𝗹𝗲𝘀 𝗮𝗻𝗱 𝗕𝘂𝗻𝗱𝗹𝗲𝘀:\n\nGlobal variants & bundles.", style: {background: '#EB6319', color: "white"}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();}
+	if (document.getElementById("Region").value == "PAD") {var myToast = Toastify({className: "PopStyle", text: " 𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿𝘀:\n\nGlobal variants.", style: {background: 'grey', color: "white"}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "AFT") {var myToast = Toastify({className: "PopStyle", text: " 𝗔𝗳𝘁𝗲𝗿𝗺𝗮𝗿𝗸𝗲𝘁 𝗚𝗮𝗺𝗲𝘀:\n\nGames released after 2002.", style: {background: 'Black', color: "white"}, avatar: "Config/Images/N64.gif", close: true, duration: 5000}); myToast.showToast();}
 	if (document.getElementById("Region").value == "M64") {var myToast = Toastify({className: "PopStyle", text: " 𝗠𝗼𝗱𝗥𝗲𝘁𝗿𝗼 𝗥𝗲𝗹𝗲𝗮𝘀𝗲𝘀:\n\nM64 release titles.", style: {background: "#ff01a1", color: "#ffb400"}, avatar: "Config/Images/M64.png", close: true, duration: 5000}); myToast.showToast();}
 
@@ -720,29 +719,35 @@ myCount = 0;
 				}
 			}
 		}
-		//THUMBNAILS\\
+		//INITIAL THUMBNAIL INFO\\
 		if (div.style.backgroundColor) {
 		myCount = myCount + 1; //if got no greyscale
-			if (document.getElementById("Region").value == "HWR") { //hardware mod
+			if (document.getElementById("Region").value == "HWR"||document.getElementById("Region").value == "PAD") { //hardware mod
 				div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(10%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"<br><span style='font-size:11pt'><span style='color:yellow'>Publisher: </span>"+gPublisher+"</span></div>";
 			} else {
 				div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(10%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
 			}
 			div.className = "thumbnail";
 		} else { //if got greyscale
-			if (document.getElementById("Region").value == "HWR") {//hardware mod
+			if (document.getElementById("Region").value == "HWR"||document.getElementById("Region").value == "PAD") {//hardware mod
 				div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"<br><span style='font-size:11pt'><span style='color:yellow'>Publisher: </span>"+gPublisher+"</span></div>";
 			} else {
 				div.innerHTML = "<div id='"+gTitle.replace(/ /g,"_")+"'><img id='"+coverFlow[i]+"' decoding='async' role='presentation' loading='lazy' src='Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg' style='position:relative; float: left; left: 5px; top: 4px; height: 172px; filter: grayscale(95%);'/></div><div style='position:relative; float: right; width: 41%;'>"+gotOrNot+"<br><span id='"+coverFlow[i]+"Span' style='padding:5px 5px;font-weight:bold;'>"+gTitle+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Date: </span>"+gYear+"</span><br><span style='font-size:11pt'><span style='color:yellow'>Genre: </span>"+gGenre+"<br><span style='color:yellow;font-size:11pt;'>Score: </span>"+gScore+"%</span><br><span style='font-size:11pt'><span style='color:yellow'>Region: </span>"+gRegion+"</span></div>";
 			}
 			div.className = "thumbnail";
 		}
-		//THUMBNAIL FIXES PER REGION\\
+		
+		
+		
+		//TO DO: do the same for consoles?
+		//Route thumbs to their own folder for ease of use and to de-pollute game cover folders.
+		
+		//INITIAL THUMBNAIL FIXES PER REGION\\
 		if (lines[info].match("REGION=A ")) {
 			if (gTitle.includes("Pokemon Pokemaniac Bundle")||gTitle.includes("N64 Twin Controller Pack")){ //CONSOLES bespoke fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
 			}
-		if (gTitle.includes("Vigilante 8")){
+			if (gTitle.includes("Vigilante 8")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			}
 		} else if (lines[info].match("REGION=ALTA ")||lines[info].match("REGION=AV1 ")){
@@ -842,14 +847,14 @@ myCount = 0;
 		} else if (lines[info].match("REGION=J")||lines[info].match("REGION=CH ")||lines[info].match("REGION=ALTJ ")||lines[info].match("REGION=SEJ ")||lines[info].match("REGION=M64 ")){
 			//Portrait fix for thumbnails
 			if (document.getElementById("Region").value == "HWR"){
-			
 				if (gTitle.includes("Console")||gTitle.includes("Clear Black")||gTitle.includes("Daiei Hawks Exclusive")||gTitle.includes("Midnight Blue")||gTitle.includes("Toys R Us Exclusive")||gTitle.includes("and White")||gTitle.includes("ANA All Nippon")||gTitle.includes("JUSCO 30th")||gTitle.includes("Lawson Station Exclusive")){ //CONSOLES bespoke fix
 					document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/Charcoal Grey Console J.jpg"');
 					document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "20px";
 				} else if (gTitle.includes("Pikachu Edition")){ // bespoke fix..why
 					document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "7px";		
 				}
-				
+			} else if (document.getElementById("Region").value == "PAD"){
+				//dont change initial thumb aspect ratio for JPN thumb jpg
 			} else {	
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/'+gTitle+' J.jpg"');
 				document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
@@ -976,12 +981,25 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('src', "Consoles/"+gTitle+".png");
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
-
 			
 		} else {
 			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg"); //default fallback
 		}
 		//END OF THUMBNAILS
+		
+		
+		//CONTROLLER INITIAL THUMBNAIL FIX
+		if (gTitle.includes("Controller Pack")||gTitle.includes("Controller Bundle")) {
+		//Do nothing on console bundles.
+		} else if (gTitle.includes("Controller")||gTitle.includes("8BitDo")){
+			if (gTitle.includes("Foxdata")||gTitle.includes("LodgeNet")||gTitle.includes("Nintendo Power")||gTitle.includes("1995")||gTitle.includes("Geoffrey")||gTitle.includes("Hello Mac")||gTitle.includes("Hyundai")) {
+				document.getElementById(coverFlow[i]).setAttribute('src', "Controllers/"+gTitle+".png");
+				document.getElementById(coverFlow[i]).style.width = "170px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.left = "35px"; document.getElementById(coverFlow[i]).style.top = "10px";
+			} else {
+				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/Controllers/"+gTitle+" "+gRegion+".jpg");
+			}
+		}
+		
 	}
 	document.getElementById("searcher").value = "";
 	document.getElementById("searcher").focus();
@@ -1135,6 +1153,7 @@ function reply_click(clicked_id){
 		//no manual/no box/unsealed
 		if (gameTitle === "Remute R64"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CARTPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
+			//remove not working.
 		//no manual only
 		} else if (gameTitle === "Star Wars Episode I Racer Classic Edition"||gameTitle === "Star Wars Shadows of the Empire Classic Edition"||gameTitle === "Party Cannon Subjected to a Partying"||gameTitle === "Belushi Speedball What us Worry") {
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CARTPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
@@ -1147,8 +1166,15 @@ function reply_click(clicked_id){
 			document.getElementById("thumbA3").after(document.getElementById("thumbMA"));
 			//change node order to put manual after controller (resize?)
 		
-		} else if (Region.options[Region.selectedIndex].value == "CTR"){
+		} else if (Region.options[Region.selectedIndex].value == "PAD"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
+		
+			if (gameTitle.includes("Foxdata")||gameTitle.includes("LodgeNet")||gameTitle.includes("Nintendo Power")||gameTitle.includes("1995")||gameTitle.includes("Geoffrey")||gameTitle.includes("Hello Mac")||gameTitle.includes("Hyundai")){
+				document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
+				//remove not working.
+			}
+		
+		
 		//} else if (Region.options[Region.selectedIndex].value == "ACC"){
 			//document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Accessory?"><div id="ACCPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
 		} else {
@@ -1163,7 +1189,7 @@ function reply_click(clicked_id){
 	if (document.getElementById("Region").value == "HWR"){ //CONSOLES modded
 		document.getElementById("frametext").innerHTML = "<center>&nbsp <span id='frameinfo'>Serial/Revision: </span>" + gCode +"</center>";
 		document.documentElement.style.cssText = "--cOwn-content: ' Console '";
-	} else if (document.getElementById("Region").value == "CTR"){ //CONTROLLERS modded
+	} else if (document.getElementById("Region").value == "PAD"){ //CONTROLLERS modded
 		document.getElementById("frametext").innerHTML = "<center>CONTROLLER TEST</center>";
 		document.documentElement.style.cssText = "--cOwn-content: ' Controller '";
 	//} else if (document.getElementById("Region").value == "ACC"){ //ACCESSORIES modded
@@ -1250,7 +1276,15 @@ function reply_click(clicked_id){
 	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
 	//Style game media background\\
 	let convertthumbtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers").replace("jpg", "png");
-	document.getElementById('grid-container').style.backgroundImage = 'url('+convertthumbtopng+')';
+	if (Region.options[Region.selectedIndex].value == "PAD"){
+			if (frametitle.innerHTML.includes("Foxdata")||frametitle.innerHTML.includes("LodgeNet")||frametitle.innerHTML.includes("Nintendo Power")||frametitle.innerHTML.includes("1995")||frametitle.innerHTML.includes("Geoffrey")||frametitle.innerHTML.includes("Hello Mac")||frametitle.innerHTML.includes("Hyundai")){
+				document.getElementById('grid-container').style.backgroundImage = "url('Controllers/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+".png')";
+			} else {
+				document.getElementById('grid-container').style.backgroundImage = "url('Controllers/Boxes/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+".png')";
+			}
+	} else {
+		document.getElementById('grid-container').style.backgroundImage = 'url('+convertthumbtopng+')';
+	}
 	document.getElementById('grid-container').style.backgroundRepeat = 'no-repeat';
 	document.getElementById('grid-container').style.backgroundSize = 'cover';
 	//QUICK CLEAR MEDIA SLOTS\\
@@ -1270,19 +1304,20 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA").style.height = "auto";
 	document.getElementById("thumbMA2").style.width = "23%";
 	document.getElementById("thumbMA2").style.height = "auto";
-	
 	if (document.getElementById("Region").value == "HWR") { //CONSOLES mod
-	
 		if (frametitle.innerHTML.includes("Analogue 3D")||frametitle.innerHTML.includes("ModRetro M64")) {
 			document.getElementById("description").innerHTML = "The " + gameTitle + " was released worldwide on/around " + rDate + ".<br><br>It is an FPGA-based hardware-accurate recreation console (no controller came supplied with it).";
 		} else {
 			document.getElementById("description").innerHTML = "The " + gameTitle + " console was released by " + pubCo + " in " + gameRegions+ " on/around " + rDate + ".";
 		}
-		
 	} else {
 		document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 	}
+	if (document.getElementById("Region").value == "PAD") { //CONTROLLERS mod
 	
+		document.getElementById("description").innerHTML = "The " + gameTitle + " was released by " + pubCo + " in " + gameRegions+ " on " + rDate + ".";
+
+	}
 	///////////TRY A CATCH ALL APPROACHES:\\\\\\\\\\\\
 	//AUS logic: temp until all entered
 	if (gFeatures.includes("AUS sticker")){
@@ -1308,8 +1343,6 @@ function reply_click(clicked_id){
 	if (gFeatures.includes("back")){
 		//CONSOLE HARDWARE BACK - generic polystyrene back
 		if (Region.options[Region.selectedIndex].value === "HWR"){
-			//if (pReg === "AS"||gameRegions === "KO"||pReg === "J"||pReg === "TW"){
-			
 			if (gFeatures.includes("Pikachu poly")){
 				document.getElementById("thumbBB").src = 'Backs/J/Pikachu Console J.png';
 			} else {
@@ -1443,7 +1476,6 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB2").style.height = "auto";
 			document.getElementById("thumbBB2").style.width = "48%";
 			}
-				
 	} else if (pReg === "DD") {
 		if (frametitle.innerHTML === "Randnet (Blue Sticker) DD"){
 			document.getElementById("thumbMA").src = "Manuals/DD/Randnet DD.png";
@@ -1490,8 +1522,6 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").style.width = "48%"
 		}
 	}
-	
-	//Switch cart into thumb slot temporarily:
 	document.getElementById("thumbRC").src = 'Carts/'+pReg+"/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+pReg+'.png';
 	document.getElementById("thumbRC").style.width = "48%";
 	document.getElementById("thumbRC").style.height = "auto";
@@ -1860,6 +1890,47 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.height = "auto";
 	}
 	
+	//PADS element formatting\\
+	if (Region.options[Region.selectedIndex].value == "PAD"){
+	
+		//alert('Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+'.png')
+		
+		if (frametitle.innerHTML.includes("8BitDo 64 Classic Wireless")){
+			document.getElementById("thumb").src = 'Controllers/Boxes/8BitDo 64 Classic Wireless U.png';
+			document.getElementById("thumbBB").src = 'Controllers/Boxes/8BitDo 64 Classic Wireless U B.png';
+			document.getElementById("thumbA2").src = 'Controllers/8BitDo 64 Classic.png';
+			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64 Classic Wireless B.png';
+			document.getElementById("thumbA3").after(document.getElementById("thumbA1"));
+			document.getElementById("thumbA1").width = "10%";
+			//document.getElementById("thumbA1").height = "auto";
+		} else if (frametitle.innerHTML.includes("8BitDo 64 Classic BT")){
+			document.getElementById("thumb").src = 'Controllers/Boxes/8BitDo 64 Classic BT U.png';
+			document.getElementById("thumbBB").src = 'Controllers/Boxes/8BitDo 64 Classic BT U B.png';
+			document.getElementById("thumbA2").src = 'Controllers/8BitDo 64 Classic.png';
+			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64 Classic BT B.png';
+		} else if (frametitle.innerHTML.includes("Foxdata")||frametitle.innerHTML.includes("LodgeNet")||frametitle.innerHTML.includes("Nintendo Power")||frametitle.innerHTML.includes("1995")||frametitle.innerHTML.includes("Geoffrey")||frametitle.innerHTML.includes("Hello Mac")||frametitle.innerHTML.includes("Hyundai")){
+			document.getElementById("thumb").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+'.png';
+			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
+			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+' B.png';
+			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗮𝗰𝗸";
+		} else {
+			document.getElementById("thumb").src = 'Controllers/Boxes/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+'.png';
+			document.getElementById("thumbBB").src = 'Controllers/Boxes/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' B.png';
+			document.getElementById("thumbA2").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.indexOf("Controller")-1)+'.png';
+			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.indexOf("Controller")-1)+' B.png';
+			document.getElementById("thumbA2").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
+			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗮𝗰𝗸";
+		}
+		document.getElementById("thumb").style.height = "auto"
+		document.getElementById("thumb").style.width = "48%"
+		document.getElementById("thumbBB").style.height = "auto"
+		document.getElementById("thumbBB").style.width = "48%"
+		document.getElementById("thumbA2").style.height = "auto";		
+		document.getElementById("thumbA2").style.width = "48%";
+		document.getElementById("thumbA3").style.height = "auto";		
+		document.getElementById("thumbA3").style.width = "48%";
+	}
+	
 	//HWR CONSOLES element formatting\\
 	if (Region.options[Region.selectedIndex].value == "HWR"){
 		document.getElementById("thumbA1").style.width = "48%";
@@ -1980,7 +2051,6 @@ function reply_click(clicked_id){
 			}
 			document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
 			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 1";
-			
 			document.getElementById("thumbBB1").src = 'Controllers/Grey.png'; //second controller test
 			document.getElementById("thumbBB1").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝟮";
 			document.getElementById("thumbA3").after(document.getElementById("thumbBB1")); //swap node order
@@ -1988,8 +2058,6 @@ function reply_click(clicked_id){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey U B.png';
 			document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
-
-			
 		} else if (frametitle.innerHTML.includes("Gold Controller Bundle")){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 			if (pReg === "E"){
@@ -2019,15 +2087,16 @@ function reply_click(clicked_id){
 		} else if (frametitle.innerHTML.includes("Daiei Hawks Exclusive")){
 			document.getElementById("thumbA1").src = 'Consoles/Daiei Hawks Exclusive J.png';
 			document.getElementById("thumbA2").src = 'Consoles/Daiei Hawks Exclusive J B.png';
-			document.getElementById("thumbA3").src = 'Controllers/Daiei Hawks Exclusive.png';			
-		} else if (frametitle.innerHTML.includes("Charcoal Grey Console")||frametitle.innerHTML.includes("Star Wars")||frametitle.innerHTML.includes("Sleeved")||frametitle.innerHTML.includes("Taiwanese Console")||frametitle.innerHTML.includes("Malaysian Console")||frametitle.innerHTML.includes("Bundle")||frametitle.innerHTML.includes("LE Set")||frametitle.innerHTML.includes("Pak")||frametitle.innerHTML.includes("Noire")){
+			document.getElementById("thumbA3").src = 'Controllers/Daiei Hawks.png';
+		
+		} else if (frametitle.innerHTML.includes("Charcoal Grey Console")||frametitle.innerHTML.includes("Controller Bundle")||frametitle.innerHTML.includes("Console Bundle")||frametitle.innerHTML.includes("Ocarina of Time Green")||frametitle.innerHTML.includes("Spotlight")||frametitle.innerHTML.includes("Star Wars")||frametitle.innerHTML.includes("Sleeved")||frametitle.innerHTML.includes("Taiwanese Console")||frametitle.innerHTML.includes("Malaysian Console")||frametitle.innerHTML.includes("LE Set")||frametitle.innerHTML.includes("Pak")||frametitle.innerHTML.includes("Noire")){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 			if (pReg === "J"|| pReg === "AS"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 			} else if (pReg === "TW"){
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey TW B.png';
-			//} else if (pReg === "HK"){ //MANI
-				//document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey HK B.png';
+			} else if (pReg === "HK"){ //MANI
+				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey HK B.png';
 			} else if (pReg === "I"){ //GIG
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey I B.png';
 			} else if (pReg === "U"||pReg === "BR"){
@@ -2037,64 +2106,57 @@ function reply_click(clicked_id){
 			} else {
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			}
-			
-				if (frametitle.innerHTML.includes("N64 Mario Pak")){
-					document.getElementById("thumbBB").src = 'Backs/E/N64 Mario Pak E.png';
-				} 
-				if (frametitle.innerHTML.includes("N64 Mario Pak Grey")){
-					document.getElementById("thumbBB").src = 'Backs/E/N64 Mario Pak Grey E.png';
-				}
+			if (frametitle.innerHTML.includes("N64 Mario Pak")){
+				document.getElementById("thumbBB").src = 'Backs/E/N64 Mario Pak E.png';
+			} 
+			if (frametitle.innerHTML.includes("N64 Mario Pak Grey")){
+				document.getElementById("thumbBB").src = 'Backs/E/N64 Mario Pak Grey E.png';
+			}
 			document.getElementById("thumbA3").src = 'Controllers/Grey.png';
-			
 		} else if (frametitle.innerHTML.includes("Perfect Action Set")){
-			
 			document.getElementById("thumbBB").src = 'Backs/E/Perfect Action Set E.png';
-
 			if (frametitle.innerHTML.includes("Atomic")){
 				document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';
-
 			} else if (frametitle.innerHTML.includes("Jungle")){
 				document.getElementById("thumbA1").src = 'Consoles/Funtastic Green.png';
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Green E B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Funtastic Green.png';
-				
 			} else if (frametitle.innerHTML.includes("Ocean")){
 				document.getElementById("thumbA1").src = 'Consoles/Funtastic Blue.png';
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Blue E B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Funtastic Blue.png';
-			
 			} else if (frametitle.innerHTML.includes("Smoked")){
 				document.getElementById("thumbA1").src = 'Consoles/Funtastic Grey.png';
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey E B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey.png';
 			}
-			
 		} else if (frametitle.innerHTML.includes("Zelda Special Value Pack")){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 			document.getElementById("thumbA3").src = 'Controllers/Grey.png';
-			
 		} else if (frametitle.innerHTML.includes("Lawson Station")){
 			document.getElementById("thumbA1").src = 'Consoles/Lawson Station.png';
 			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey J B.png';
 			document.getElementById("thumbA3").src = 'Controllers/Lawson Station.png';
-
-		} else if (frametitle.innerHTML.includes("Pikachu Edition")){
+		} else if (frametitle.innerHTML.includes("Pikachu Edition")){			
 			if (frametitle.innerHTML.includes("Dark Blue")){
 				document.getElementById("thumbA1").src = 'Consoles/Dark Blue Pikachu.png';
 					if (pReg === "J"){
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu J B.png';
+						document.getElementById("thumbA3").src = 'Controllers/Dark Blue Pikachu.png';//JPN
 					} else if (pReg === "E"){
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu E B.png';
+						document.getElementById("thumbA3").src = 'Controllers/Blue Pokemon.png';//USA/EUR
 					} else if (pReg === "D"){
 						document.getElementById("thumbBB").src = 'Backs/E/Dark Blue Pikachu Edition E.png';
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu E B.png';
+						document.getElementById("thumbA3").src = 'Controllers/Blue Pokemon.png';//USA/EUR
 					} else {
 						document.getElementById("thumbA2").src = 'Consoles/Dark Blue Pikachu U B.png';
+						document.getElementById("thumbA3").src = 'Controllers/Blue Pokemon.png';//USA/EUR
 					}
-				document.getElementById("thumbA3").src = 'Controllers/Dark Blue Pikachu.png';
 			} else if (frametitle.innerHTML.includes("Light Blue Pikachu Edition")){
 				document.getElementById("thumbA1").src = 'Consoles/Light Blue Pikachu.png';
 				document.getElementById("thumbA2").src = 'Consoles/Light Blue Pikachu J B.png';
@@ -2104,7 +2166,11 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA2").src = 'Consoles/Orange Pikachu J B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Orange Pikachu.png';
 			}
-		} else if (frametitle.innerHTML.includes("Pokemon Stadium Battle Set")||frametitle.innerHTML.includes("Pokemon Pokemaniac Bundle")){
+		} else if (frametitle.innerHTML.includes("Pokemon Pokemaniac Bundle")){
+			document.getElementById("thumbA1").src = 'Consoles/Pokemon Stadium Console.png';
+			document.getElementById("thumbA2").src = 'Consoles/Pokemon Stadium Console B.png';
+			document.getElementById("thumbA3").src = 'Controllers/Yellow Pokemon.png';
+		} else if (frametitle.innerHTML.includes("Pokemon Stadium Battle Set")){
 			if (pReg === "UKV"){
 				document.getElementById("thumbA1").src = 'Consoles/Pokemon Stadium Console.png';
 				document.getElementById("thumbA2").src = 'Consoles/Pokemon Stadium Console B.png';
@@ -2113,6 +2179,14 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 				document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
 				document.getElementById("thumbA3").src = 'Controllers/Atomic Purple.png';			
+			}
+		} else if (frametitle.innerHTML.includes("Magnificent Prizes")){
+			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
+			document.getElementById("thumbA2").src = 'Consoles/Charcoal Grey E B.png';
+			if (frametitle.innerHTML.includes("Red Pad")){
+				document.getElementById("thumbA3").src = 'Controllers/Red.png';
+			} else {
+				document.getElementById("thumbA3").src = 'Controllers/Yellow.png';
 			}
 		} else if (frametitle.innerHTML.includes("Futebol 98 Edition BR")){
 			document.getElementById("thumbBB").src = 'Backs/BR/Charcoal Grey Console Gradiente BR.png';
@@ -2139,18 +2213,15 @@ function reply_click(clicked_id){
 				document.getElementById("thumbA2").src = 'Consoles/Clear Red and White E B.png';
 			}
 			document.getElementById("thumbA3").src = 'Controllers/Clear Red and White.png';
-
 		} else if (frametitle.innerHTML.includes("JUSCO 30th Anniversary Exclusive J")) {
 			document.getElementById("thumbA1").src = 'Consoles/JUSCO 30th Anniversary Exclusive.png';
 			document.getElementById("thumbA2").src = 'Consoles/JUSCO 30th Anniversary Exclusive B.png';
-			document.getElementById("thumbA3").src = 'Controllers/JUSCO 30th Anniversary Exclusive.png';
+			document.getElementById("thumbA3").src = 'Controllers/JUSCO 30th Anniversary.png';
 		}
-
 	}
-	
 	//Poster - KEEP THIS IDEA OPEN
 	//document.getElementById("thumbP1").src = 'Poster/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' P1.png';
-	
+
 	//Screenshot 800x600
 	document.getElementById("thumbS1").src = 'Screens/'+pReg+'/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' S1.png';
 	document.getElementById("thumbS1").style.width = "48%";
@@ -3385,6 +3456,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.5-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.12-2.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>

@@ -992,7 +992,7 @@ myCount = 0;
 		if (gTitle.includes("Controller Pack")||gTitle.includes("Controller Bundle")) {
 		//Do nothing on console bundles.
 		} else if (gTitle.includes("Controller")||gTitle.includes("8BitDo")){
-			if (gTitle.includes("Foxdata")||gTitle.includes("LodgeNet")||gTitle.includes("Nintendo Power")||gTitle.includes("1995")||gTitle.includes("Geoffrey")||gTitle.includes("Hello Mac")||gTitle.includes("Hyundai")) {
+			if (gTitle.includes("Foxdata")||gTitle.includes("LodgeNet")||gTitle.includes("Nintendo Power")||gTitle.includes("1995")||gTitle.includes("Hyundai")||gTitle.includes("1997 Prize")) {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Controllers/"+gTitle+".png");
 				document.getElementById(coverFlow[i]).style.width = "170px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.left = "35px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			} else {
@@ -1169,9 +1169,8 @@ function reply_click(clicked_id){
 		} else if (Region.options[Region.selectedIndex].value == "PAD"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
 		
-			if (gameTitle.includes("Foxdata")||gameTitle.includes("LodgeNet")||gameTitle.includes("Nintendo Power")||gameTitle.includes("1995")||gameTitle.includes("Geoffrey")||gameTitle.includes("Hello Mac")||gameTitle.includes("Hyundai")){
-				document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
-				//remove not working.
+			if (gameTitle.includes("Foxdata")||gameTitle.includes("LodgeNet")||gameTitle.includes("Nintendo Power")||gameTitle.includes("1995")||gameTitle.includes("Hyundai")||gameTitle.includes("1997 Prize")){
+				document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
 			}
 		
 		
@@ -1277,7 +1276,7 @@ function reply_click(clicked_id){
 	//Style game media background\\
 	let convertthumbtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers").replace("jpg", "png");
 	if (Region.options[Region.selectedIndex].value == "PAD"){
-			if (frametitle.innerHTML.includes("Foxdata")||frametitle.innerHTML.includes("LodgeNet")||frametitle.innerHTML.includes("Nintendo Power")||frametitle.innerHTML.includes("1995")||frametitle.innerHTML.includes("Geoffrey")||frametitle.innerHTML.includes("Hello Mac")||frametitle.innerHTML.includes("Hyundai")){
+			if (frametitle.innerHTML.includes("Foxdata")||frametitle.innerHTML.includes("LodgeNet")||frametitle.innerHTML.includes("Nintendo Power")||frametitle.innerHTML.includes("1995")||frametitle.innerHTML.includes("Hyundai")||frametitle.innerHTML.includes("1997 Prize")){
 				document.getElementById('grid-container').style.backgroundImage = "url('Controllers/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+".png')";
 			} else {
 				document.getElementById('grid-container').style.backgroundImage = "url('Controllers/Boxes/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+".png')";
@@ -1902,13 +1901,12 @@ function reply_click(clicked_id){
 			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64 Classic Wireless B.png';
 			document.getElementById("thumbA3").after(document.getElementById("thumbA1"));
 			document.getElementById("thumbA1").width = "10%";
-			//document.getElementById("thumbA1").height = "auto";
 		} else if (frametitle.innerHTML.includes("8BitDo 64 Classic BT")){
 			document.getElementById("thumb").src = 'Controllers/Boxes/8BitDo 64 Classic BT U.png';
 			document.getElementById("thumbBB").src = 'Controllers/Boxes/8BitDo 64 Classic BT U B.png';
 			document.getElementById("thumbA2").src = 'Controllers/8BitDo 64 Classic.png';
 			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64 Classic BT B.png';
-		} else if (frametitle.innerHTML.includes("Foxdata")||frametitle.innerHTML.includes("LodgeNet")||frametitle.innerHTML.includes("Nintendo Power")||frametitle.innerHTML.includes("1995")||frametitle.innerHTML.includes("Geoffrey")||frametitle.innerHTML.includes("Hello Mac")||frametitle.innerHTML.includes("Hyundai")){
+		} else if (frametitle.innerHTML.includes("Foxdata")||frametitle.innerHTML.includes("LodgeNet")||frametitle.innerHTML.includes("Nintendo Power")||frametitle.innerHTML.includes("1995")||frametitle.innerHTML.includes("Hyundai")||frametitle.innerHTML.includes("1997 Prize")){
 			document.getElementById("thumb").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+'.png';
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
 			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+' B.png';
@@ -1921,6 +1919,7 @@ function reply_click(clicked_id){
 			document.getElementById("thumbA2").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
 			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗮𝗰𝗸";
 		}
+		
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
 		document.getElementById("thumbBB").style.height = "auto"
@@ -1929,6 +1928,13 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA2").style.width = "48%";
 		document.getElementById("thumbA3").style.height = "auto";		
 		document.getElementById("thumbA3").style.width = "48%";
+		
+		//BESPOKE PAD FIXES\\
+		if (frametitle.innerHTML.includes("Clear Black")){
+			document.getElementById("thumbA2").src = 'Controllers/Funtastic Grey.png';
+		} else if (frametitle.innerHTML.includes("Midnight Blue")){
+			document.getElementById("thumbA2").src = 'Controllers/Funtastic Purple.png';
+		}
 	}
 	
 	//HWR CONSOLES element formatting\\
@@ -2404,13 +2410,19 @@ function check_click(clicked_id){
 	let indexOfFirst = lines[info].indexOf(gCurrency);
 	let indexOfSecond = lines[info].indexOf(gCurrency, (indexOfFirst + 1));
 	let indexOfThird = lines[info].indexOf(gCurrency, (indexOfSecond + 1));
+	
 	let parts = [];
-	if (document.getElementById("frametitle").innerHTML.match("LRGC")){
-		parts = ["cartridge", "boxed"];
+		
+		if (document.getElementById("frametitle").innerHTML.match("LRGC")){
+			parts = ["cartridge", "boxed"];		
 		} else {
-		parts = ["cartridge", "boxed", "manual"];
-	}
+			parts = ["cartridge", "boxed", "manual"];
+		}
 	if (clicked_id.match(/sealed/g)){
+	
+	//TO DO: fix item not adding again immediately after unsealed has been clicked.
+	//click sealed to check all, reload, click sealed again to uncheck all and try add cart again before reload.
+	
 		for (p = 0; p < parts.length; p++) {
 			if (!document.getElementById(rMatch+"sealed").checked){
 				if (document.getElementById(rMatch+parts[p]).checked){
@@ -2423,6 +2435,7 @@ function check_click(clicked_id){
 			}
 		}
 	}
+	
 	if (document.getElementById(clicked_id).checked){ //storing check marks
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
@@ -2430,10 +2443,13 @@ function check_click(clicked_id){
 			}
 			document.getElementById(clicked_id+"Spent").style.display = "inline-block";
 		}
+	   
 	} else if (!document.getElementById(clicked_id).checked){ //when unchecking
 		for (m = 0; m < myCollectionList.length; m++) {
 			if (myCollectionList[m][0] == document.getElementById("frametitle").innerHTML) {
+				
 				valPaid = clicked_id.charAt(gRegions.length)+"Paid";
+				
 				myCollectionList[m].splice(myCollectionList[m].indexOf(clicked_id), 1);
 				myCollectionList[m].splice(myCollectionList[m].indexOf(valPaid), 1);
 			}
@@ -2441,7 +2457,14 @@ function check_click(clicked_id){
 			document.getElementById(clicked_id+"Spent").style.display = "none";
 			document.getElementById(clicked_id+"Spent").style.color = "white";			
 		}
-		if (document.getElementById("frametitle").innerHTML.match(/NFR|IQUE/g)){
+		
+		 ///////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+		//NEEDS FIXING FOR SINGLE ITEMS (Remute R64 or unboxed control pads for example)\\
+	   /////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+		let ii = document.getElementById("frametitle").innerHTML;
+		if (ii.match(/NFR|IQUE|Remute R64|LodgeNet|DK64 Cont|Millennium 2000|100 Gold|1997 Prize|Desert Storm|Red Rain|Purple Forest|Chrome Leopard|Foxdata Bronze|Foxdata Electric|Foxdata Gold|Foxdata Chrome|1995|Hyundai Comboy 64 Red|Hyundai Comboy 64 Grey/g)){
+		
+		//add all individual objects that fail to remove properly here
 		} else {
 			if (document.getElementById(rMatch+"sealed").checked){
 				document.getElementById(clicked_id).click();
@@ -2450,10 +2473,9 @@ function check_click(clicked_id){
 		}
 	} else {
 	}
-	//clean empty [] elements
+	//Clean [] elements
 	const cleanedArray = myCollectionList.filter(subArray => subArray.length > 0);
 	localStorage.myCollection = JSON.stringify(cleanedArray);
-	//localStorage.myCollection = JSON.stringify(myCollectionList); //old
 		if (localStorage.debug=="true"){
 		alert(localStorage.myCollection + "\n\rActual!");
 		}
@@ -3456,6 +3478,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.12-2.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.13-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
