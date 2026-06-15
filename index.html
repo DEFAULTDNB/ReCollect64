@@ -139,8 +139,8 @@
 	<option value="PCX" title="𝗣𝗹𝗮𝘆𝗲𝗿𝘀 𝗖𝗵𝗼𝗶𝗰𝗲/𝗠𝗶𝗹𝗹𝗶𝗼𝗻 𝗦𝗲𝗹𝗹𝗲𝗿">🌎⭐ 𝗦𝗣𝗘</option>
 <optgroup label="𝗛𝗮𝗿𝗱𝘄𝗮𝗿𝗲:">
 	<option value="HWR" title="𝗖𝗼𝗻𝘀𝗼𝗹𝗲𝘀">🕹️ 𝗖𝗢𝗡𝗦</option>
-	<!--option value="PAD" title="HARDWARE: CONTROLLERS">🎮 𝗣𝗔𝗗𝗦</option>
-	<option value="ACC" title="HARDWARE: ACCESSORIES">💾 𝗔𝗖𝗖𝗦</option-->	
+	<option value="PAD" title="HARDWARE: CONTROLLERS">🎮 𝗣𝗔𝗗𝗦</option>
+	<!--option value="ACC" title="HARDWARE: ACCESSORIES">💾 𝗔𝗖𝗖𝗦</option-->	
 <optgroup label="𝗢𝘁𝗵𝗲𝗿:">
 	<option value="N64DD" title="𝗡𝟲𝟰𝗗𝗗 𝗗𝗶𝘀𝗸𝘀">🇯🇵 🌏 𝟲𝟰𝗗𝗗</option>
 	<option value="IQUE" title="𝗶𝗤𝘂𝗲 𝗚𝗮𝗺𝗲𝘀">🇨🇳 🌏 𝗜𝗤𝗨𝗘</option>	
@@ -941,7 +941,7 @@ myCount = 0;
 			}
 		//blanket fix for odd regions\\
 		} else if (lines[info].match("REGION=UKV ")||lines[info].match("REGION=D ")||lines[info].match("REGION=F ")||lines[info].match("REGION=FAH ")||lines[info].match("REGION=FRG ")||lines[info].match("REGION=I ")||lines[info].match("REGION=A ")||lines[info].match("REGION=ALTE ")||lines[info].match("REGION=S ")||lines[info].match("REGION=HOL ")||lines[info].match("REGION=SCN1 ")||lines[info].match("REGION=ASCN ")){
-			if (gTitle.match("Forsaken")||gTitle.match("Mission Impossible")||gTitle.match("NFL Quarterback Club 2000")||gTitle.match("Tarzan")||gTitle.match("Taz")||gTitle.match("Twisted")||gTitle.match("Vigilante")||gTitle.match("Worms")||gTitle.match("World Cup 98")||gTitle.match("Xena")) {
+			if (gTitle.match(/Forsaken|Mission Impossible|NFL Quarterback Club 2000|Tarzan|Taz|Twisted|Vigilante|Worms|World Cup 98|Xena/g)) {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/UKV/'+gTitle+' UKV.jpg"');
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/E/'+gTitle+' E.jpg"');
@@ -962,26 +962,20 @@ myCount = 0;
 			
 		//^ blanket fix end ^\\
 		} else if (lines[info].match("REGION=U ")){
-			if (gTitle.match("Remute")||gTitle.match("Junk Runner 64")){ //bespoke thumb fix
-				//document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".png");
+			if (gTitle.match(/Remute|Junk Runner 64/g)){ //thumb fix
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
 			if (gTitle.includes("Donut Dodo")){
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/U/Donut Dodo U.jpg");
 			}
-			if (gTitle.includes("Atomic Purple Controller Bundle")||gTitle.includes("Gold Toys R Us Exclusive")){ //CONSOLES fix
+			if (gTitle.match(/Atomic Purple Controller Bundle|Gold Toys R Us Exclusive/g)){ //CONSOLES fix
 				document.getElementById(coverFlow[i]).style.width = "230px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "25px";
-			}
-			if (gTitle.includes("Donkey Kong 64 Set")){ //CONSOLES fix
-				//document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
-			}
-			
-			if (gTitle.includes("Analogue 3D")||gTitle.includes("ModRetro M64")){
+			}			
+			if (gTitle.match(/Analogue 3D|ModRetro M64/g)){
 				document.getElementById(coverFlow[i]).setAttribute('src', "Consoles/"+gTitle+".png");
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
-			
 		} else {
 			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg"); //default fallback
 		}
@@ -989,10 +983,10 @@ myCount = 0;
 		
 		
 		//CONTROLLER INITIAL THUMBNAIL FIX
-		if (gTitle.includes("Controller Pack")||gTitle.includes("Controller Bundle")) {
+		if (gTitle.match(/Controller Pack|Controller Bundle/g)) {
 		//Do nothing on console bundles.
-		} else if (gTitle.includes("Controller")||gTitle.includes("8BitDo")){
-			if (gTitle.includes("Foxdata")||gTitle.includes("LodgeNet")||gTitle.includes("Nintendo Power")||gTitle.includes("1995")||gTitle.includes("Hyundai")||gTitle.includes("1997 Prize")) {
+		} else if (gTitle.match(/Controller|8BitDo/g)){
+			if (gTitle.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)) {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Controllers/"+gTitle+".png");
 				document.getElementById(coverFlow[i]).style.width = "170px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.left = "35px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			} else {
@@ -1151,29 +1145,23 @@ function reply_click(clicked_id){
 
 		default:
 		//no manual/no box/unsealed
-		if (gameTitle === "Remute R64"){
+		if (gameTitle.match(/Remute R64/g)){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CARTPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
-			//remove not working.
 		//no manual only
-		} else if (gameTitle === "Star Wars Episode I Racer Classic Edition"||gameTitle === "Star Wars Shadows of the Empire Classic Edition"||gameTitle === "Party Cannon Subjected to a Partying"||gameTitle === "Belushi Speedball What us Worry") {
+		} else if (gameTitle.match(/Star Wars Episode I Racer Classic Edition|Star Wars Shadows of the Empire Classic Edition|Party Cannon Subjected to a Partying|Belushi Speedball What us Worry/g)) {
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CARTPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
 		} else {
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Game?"><div id="CARTPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
 		}
-		//inject here for hardware/controller/accessories.
+		//inject hardware/controller/accessories.
 		if (Region.options[Region.selectedIndex].value == "HWR"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Console?"><div id="CONSPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
-			document.getElementById("thumbA3").after(document.getElementById("thumbMA"));
-			//change node order to put manual after controller (resize?)
-		
+			document.getElementById("thumbA3").after(document.getElementById("thumbMA"));		
 		} else if (Region.options[Region.selectedIndex].value == "PAD"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
-		
-			if (gameTitle.includes("Foxdata")||gameTitle.includes("LodgeNet")||gameTitle.includes("Nintendo Power")||gameTitle.includes("1995")||gameTitle.includes("Hyundai")||gameTitle.includes("1997 Prize")){
-				document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
-			}
-		
-		
+				if (gameTitle.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)){
+					document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
+				}
 		//} else if (Region.options[Region.selectedIndex].value == "ACC"){
 			//document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Accessory?"><div id="ACCPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Manual?"><div id="MANPNG"></div><input id="'+gameRegions+"manual"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="mOwn"></span>&nbsp;<span id="'+gameRegions+"manualSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="mMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="mPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
 		} else {
@@ -1189,7 +1177,7 @@ function reply_click(clicked_id){
 		document.getElementById("frametext").innerHTML = "<center>&nbsp <span id='frameinfo'>Serial/Revision: </span>" + gCode +"</center>";
 		document.documentElement.style.cssText = "--cOwn-content: ' Console '";
 	} else if (document.getElementById("Region").value == "PAD"){ //CONTROLLERS modded
-		document.getElementById("frametext").innerHTML = "<center>CONTROLLER TEST</center>";
+		document.getElementById("frametext").innerHTML = "<center><span id='subframeinfo'>"+gFeatures+"</span></center>";
 		document.documentElement.style.cssText = "--cOwn-content: ' Controller '";
 	//} else if (document.getElementById("Region").value == "ACC"){ //ACCESSORIES modded
 		//document.getElementById("frametext").innerHTML = "<center>ACCESSORY TEST</center>";
@@ -1276,7 +1264,7 @@ function reply_click(clicked_id){
 	//Style game media background\\
 	let convertthumbtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers").replace("jpg", "png");
 	if (Region.options[Region.selectedIndex].value == "PAD"){
-			if (frametitle.innerHTML.includes("Foxdata")||frametitle.innerHTML.includes("LodgeNet")||frametitle.innerHTML.includes("Nintendo Power")||frametitle.innerHTML.includes("1995")||frametitle.innerHTML.includes("Hyundai")||frametitle.innerHTML.includes("1997 Prize")){
+			if (frametitle.innerHTML.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)){
 				document.getElementById('grid-container').style.backgroundImage = "url('Controllers/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+".png')";
 			} else {
 				document.getElementById('grid-container').style.backgroundImage = "url('Controllers/Boxes/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+".png')";
@@ -1303,19 +1291,30 @@ function reply_click(clicked_id){
 	document.getElementById("thumbMA").style.height = "auto";
 	document.getElementById("thumbMA2").style.width = "23%";
 	document.getElementById("thumbMA2").style.height = "auto";
+	
 	if (document.getElementById("Region").value == "HWR") { //CONSOLES mod
-		if (frametitle.innerHTML.includes("Analogue 3D")||frametitle.innerHTML.includes("ModRetro M64")) {
-			document.getElementById("description").innerHTML = "The " + gameTitle + " was released worldwide on/around " + rDate + ".<br><br>It is an FPGA-based hardware-accurate recreation console (no controller came supplied with it).";
+		if (frametitle.innerHTML.match(/Analogue 3D|ModRetro M64/g)) {
+			document.getElementById("description").innerHTML = "The " + gameTitle + " was released worldwide on " + rDate + ".<br><br>It is an FPGA-based hardware-accurate recreation console (no controller came supplied with it).";
 		} else {
-			document.getElementById("description").innerHTML = "The " + gameTitle + " console was released by " + pubCo + " in " + gameRegions+ " on/around " + rDate + ".";
+			document.getElementById("description").innerHTML = "The " + gameTitle + " console was released by " + pubCo + " in " + gameRegions+ " on " + rDate + ".";
 		}
 	} else {
 		document.getElementById("description").innerHTML =  "'" + gameTitle + "' is a " + gamePlayers + gameGenre + " game published by " + pubCo + " in " + rDate+ ".<br><br>It received review scores of " + gameScore + "%, when it launched in " + gameRegions;
 	}
 	if (document.getElementById("Region").value == "PAD") { //CONTROLLERS mod
+	//unreleased fixes
+		if (frametitle.innerHTML.match(/1995/g)){
+			document.getElementById("description").innerHTML = "The " + gameTitle + " was never released. It was a prototype controller used for promotion and testing (extremely rare).";
+		} else if (frametitle.innerHTML.match(/Desert Storm|Red Rain|Purple Forest|Chrome Leopard/g)){
+			document.getElementById("description").innerHTML = pubCo + " made the "+ gameTitle + " through a mail-order aftermarket hydro-dipping service that was exclusive to the " + gameRegions+ " region.";
+		} else if (frametitle.innerHTML.match(/Foxdata Bronze|Foxdata Chrome|Foxdata Electric|Foxdata Gold/g)){
+			document.getElementById("description").innerHTML = "The " + gameTitle + " was never released. It was a scrapped variant that failed wear and tear durability control.";
+		} else if (frametitle.innerHTML.match(/LodgeNet/g)){
+			document.getElementById("description").innerHTML = "The " + gameTitle + " was never sold at retail. It was used in hotels and connected to a set-top box with an RJ11 connector.";
+		} else {
+			document.getElementById("description").innerHTML = "The " + gameTitle + " was released by " + pubCo + " in " + gameRegions+ " on " + rDate + ".";
+		} 
 	
-		document.getElementById("description").innerHTML = "The " + gameTitle + " was released by " + pubCo + " in " + gameRegions+ " on " + rDate + ".";
-
 	}
 	///////////TRY A CATCH ALL APPROACHES:\\\\\\\\\\\\
 	//AUS logic: temp until all entered
@@ -1811,7 +1810,7 @@ function reply_click(clicked_id){
 	} else if (frametitle.innerHTML === "40 Winks E"){
 		document.getElementById("thumbRC").src = 'Carts/U/40 Winks U.png';
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player platformer developed by Eurocom in 1999 and published by Piko Interactive in 2019.<br><br>You can view more information on the official site <a href='https://www.pikointeractive.com/home/40-Winks-N64-NTSC-AVAILABLE-p132666160?ref=readonlymemo.com' target='_blank'>HERE</a>"
-	} else if (frametitle.innerHTML === "40 Winks SEE"||frametitle.innerHTML === "40 Winks SEU"||frametitle.innerHTML === "40 Winks U"){
+	} else if (frametitle.innerHTML.match(/40 Winks/g)){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player platformer developed by Eurocom in 1999 and published by Piko Interactive in 2019.<br><br>You can view more information on the official site <a href='https://www.pikointeractive.com/home/40-Winks-N64-NTSC-AVAILABLE-p132666160?ref=readonlymemo.com' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML === "Belushi Speedball What us Worry U"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a music album on a cartridge that was released on "+rDate+".<br><br>You can listen to the tracks available <a href='https://belushispeedball.bandcamp.com/album/what-us-worry' target='_blank'>HERE</a>"
@@ -1827,10 +1826,10 @@ function reply_click(clicked_id){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a music album on a cartridge that was released on "+rDate+".<br><br>You can listen to the tracks available <a href='https://remute.bandcamp.com/album/r64-nintendo-64-music-album' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML === "Telocation Gemini U"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player puzzle platforming game made by "+pubCo+" that was released on "+rDate+".<br><br>You can view more information on the project page <a href='https://teamultrarare.itch.io/telocation-gemini' target='_blank'>HERE</a>"
-	} else if (frametitle.innerHTML === "Xeno Crisis U"||frametitle.innerHTML === "Xeno Crisis E"||frametitle.innerHTML === "Xeno Crisis J"){
+	} else if (frametitle.innerHTML.match(/Xeno Crisis U|Xeno Crisis E|Xeno Crisis J/g)){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player shoot 'em up made by "+pubCo+" that was released on "+rDate+".<br><br>You can view more information on the official site <a href='https://www.bitmapbureau.com/games/xeno-crisis' target='_blank'>HERE</a>"
 	//FULLSET game releases:
-	} else if (frametitle.innerHTML === "Project Neon U"||frametitle.innerHTML === "Project Neon J"||frametitle.innerHTML === "Project Neon E"){
+	} else if (frametitle.innerHTML.match(/Project Neon/g)){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player arcade shoot 'em up by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the project page <a href='https://fullset.io/collections/nintendo-64/products/project-neon-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML === "Overserved Food Fighters U"||frametitle.innerHTML === "Overserved Food Fighters J"||frametitle.innerHTML === "Overserved Food Fighters E"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-8 player action arcade game by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the project page <a href='https://fullset.io/collections/nintendo-64/products/overserved-food-fighters-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
@@ -1906,7 +1905,7 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Controllers/Boxes/8BitDo 64 Classic BT U B.png';
 			document.getElementById("thumbA2").src = 'Controllers/8BitDo 64 Classic.png';
 			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64 Classic BT B.png';
-		} else if (frametitle.innerHTML.includes("Foxdata")||frametitle.innerHTML.includes("LodgeNet")||frametitle.innerHTML.includes("Nintendo Power")||frametitle.innerHTML.includes("1995")||frametitle.innerHTML.includes("Hyundai")||frametitle.innerHTML.includes("1997 Prize")){
+		} else if (frametitle.innerHTML.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)){
 			document.getElementById("thumb").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+'.png';
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
 			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+' B.png';
@@ -1932,9 +1931,22 @@ function reply_click(clicked_id){
 		//BESPOKE PAD FIXES\\
 		if (frametitle.innerHTML.includes("Clear Black")){
 			document.getElementById("thumbA2").src = 'Controllers/Funtastic Grey.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey B.png';
 		} else if (frametitle.innerHTML.includes("Midnight Blue")){
 			document.getElementById("thumbA2").src = 'Controllers/Funtastic Purple.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Purple B.png';
+		} else if (frametitle.innerHTML.match(/1997 Prize|Power 100 Gold/g)){
+			document.getElementById("thumbA3").src = 'Controllers/Gold B.png';
+		} else if (frametitle.innerHTML.includes("Millennium")){
+			document.getElementById("thumbA3").src = 'Controllers/Black B.png';
+		} else if (frametitle.innerHTML.includes("Comboy 64 Red")){
+			document.getElementById("thumbA3").src = 'Controllers/Red B.png';
+		} else if (frametitle.innerHTML.includes("Comboy 64 Grey")){
+			document.getElementById("thumbA3").src = 'Controllers/Grey B.png';
+		} else if (frametitle.innerHTML.match(/Geoffrey|Hello Mac/g)){ //and Mario Kart pad...
+			document.getElementById("thumbA3").src = 'Controllers/Black Grey B.png';
 		}
+		
 	}
 	
 	//HWR CONSOLES element formatting\\
@@ -3478,6 +3490,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.13-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.15-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
