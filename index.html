@@ -1929,12 +1929,12 @@ function reply_click(clicked_id){
 		document.getElementById("thumbA3").style.width = "48%";
 		
 		//BESPOKE PAD FIXES\\
-		if (frametitle.innerHTML.includes("Clear Black")){
-			document.getElementById("thumbA2").src = 'Controllers/Funtastic Grey.png';
-			document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey B.png';
-		} else if (frametitle.innerHTML.includes("Midnight Blue")){
-			document.getElementById("thumbA2").src = 'Controllers/Funtastic Purple.png';
-			document.getElementById("thumbA3").src = 'Controllers/Funtastic Purple B.png';
+		if (frametitle.innerHTML.match(/Clear Black|Smoke Grey/g)){
+			document.getElementById("thumbA2").src = 'Controllers/Funtastic Smoke.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Smoke B.png';
+		} else if (frametitle.innerHTML.match(/Clear Purple|Midnight Blue/g)){
+			document.getElementById("thumbA2").src = 'Controllers/Atomic Purple.png';
+			document.getElementById("thumbA3").src = 'Controllers/Atomic Purple B.png';
 		} else if (frametitle.innerHTML.match(/1997 Prize|Power 100 Gold/g)){
 			document.getElementById("thumbA3").src = 'Controllers/Gold B.png';
 		} else if (frametitle.innerHTML.includes("Millennium")){
@@ -1961,29 +1961,23 @@ function reply_click(clicked_id){
 		document.getElementById("thumb").title = "𝗕𝗼𝘅 𝗔𝗿𝘁";
 		document.getElementById("thumbA1").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
 		document.getElementById("thumbA2").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗕𝗼𝘁𝘁𝗼𝗺";
-		document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿";
+		document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗧𝗼𝗽";
+		//document.getElementById("thumbS1").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗼𝘁𝘁𝗼𝗺"; //not working.
 	
 		if (frametitle.innerHTML.includes("Analogue 3D")){ //Analogue 3D console fix
-			
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
 			document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
 			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("3D")+2, frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
-			//document.getElementById("thumbA3").style.width = "48%";
-
-			
 		} else if (frametitle.innerHTML.includes("ModRetro M64")){ //M64 console fix
-		
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
 			document.getElementById("thumbA2").src = 'Consoles/M64 Underside Generic.png'; //Temporary			
 			//document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
 			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("M64"), frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
-			//document.getElementById("thumbA3").style.width = "48%";
 			
 		} else if (frametitle.innerHTML.includes("Foxdata Chrome Console 2017")){ //Foxdata console fix
-		
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
 			document.getElementById("thumbA2").src = 'Consoles/Foxdata Chrome Console 2017 UKV B.png';
-			//document.getElementById("thumbA3").src = 'Controllers/Foxdata Chrome.png';
+			document.getElementById("thumbA3").src = 'Controllers/Foxdata Chrome Controller.png';
 			document.getElementById("thumbA3").style.width = "48%";
 			
 		} else if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
@@ -1995,7 +1989,7 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey U B.png';
 			}
-			document.getElementById("thumbA3").src = 'Controllers/Funtastic Grey.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Smoke.png';
 		} else if (frametitle.innerHTML.includes("Funtastic Ice")||frametitle.innerHTML.includes("Funtastic Blue")||frametitle.innerHTML.includes("Sabores Anis")){
 			document.getElementById("thumbA1").src = 'Consoles/Funtastic Blue.png';
 			if (pReg === "E"||pReg === "A"){
@@ -2005,7 +1999,7 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Blue U B.png';
 			}
-			document.getElementById("thumbA3").src = 'Controllers/Funtastic Blue.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Ice.png';
 		} else if (frametitle.innerHTML.includes("Funtastic Jungle")||frametitle.innerHTML.includes("Funtastic Green")||frametitle.innerHTML.includes("Sabores Kiwi")||frametitle.innerHTML.includes("Donkey Kong 64 Set")){
 			document.getElementById("thumbA1").src = 'Consoles/Funtastic Green.png';
 			if (pReg === "E"){
@@ -2015,7 +2009,7 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Green U B.png';
 			}
-			document.getElementById("thumbA3").src = 'Controllers/Funtastic Green.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Jungle.png';
 		} else if (frametitle.innerHTML.includes("Funtastic Watermelon")||frametitle.innerHTML.includes("Funtastic Red")||frametitle.innerHTML.includes("Sabores Ceraja")){
 			document.getElementById("thumbA1").src = 'Consoles/Funtastic Red.png';
 			if (pReg === "E"){
@@ -2025,7 +2019,7 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Red U B.png';
 			}
-			document.getElementById("thumbA3").src = 'Controllers/Funtastic Red.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Watermelon.png';
 		} else if (frametitle.innerHTML.includes("Funtastic Fire")||frametitle.innerHTML.includes("Funtastic Sun")||frametitle.innerHTML.includes("Sabores Tangerina")){
 			document.getElementById("thumbA1").src = 'Consoles/Funtastic Orange.png';
 			if (pReg === "E"||pReg ==="A"){ //are also "wave" variants coloured feet/black feet.
@@ -2035,7 +2029,7 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Orange U B.png';
 			}
-			document.getElementById("thumbA3").src = 'Controllers/Funtastic Orange.png';
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Fire.png';
 		} else if (frametitle.innerHTML.includes("Funtastic Grape")||frametitle.innerHTML.includes("Funtastic Purple")||frametitle.innerHTML.includes("Sabores Uva")||frametitle.innerHTML.includes("Midnight Blue")){
 			document.getElementById("thumbA1").src = 'Consoles/Funtastic Purple.png';
 			if (pReg === "E"||pReg === "A"){
@@ -2045,8 +2039,7 @@ function reply_click(clicked_id){
 			} else {//BR/U/MSA/CAN?
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Purple U B.png';
 			}
-			document.getElementById("thumbA3").src = 'Controllers/Funtastic Purple.png';
-			
+			document.getElementById("thumbA3").src = 'Controllers/Funtastic Grape.png';
 		} else if (frametitle.innerHTML.includes("Extreme Green")){
 			document.getElementById("thumbA1").src = 'Consoles/Charcoal Grey.png';
 			if (pReg === "E"){
@@ -3490,6 +3483,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.15-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.16-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
