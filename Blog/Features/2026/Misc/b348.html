@@ -1,0 +1,41 @@
+<div id="b348" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">DN:ZH Netplay Recomp</span></h2>
+	<h5 class="subtitle">Project by SnakePlissken ~ Jun 17, 2026</h5>
+	<div class="bgChat" style="background-image:url('Covers/U/Duke Nukem Zero Hour U.png'); background-position: 20% 10%; image-rendering: smooth;"><div class="overlaytext">DN:ZH Netplay Recomp</div></div>
+	<h4>Hail to the King</h4>
+	<div class="titleUnderline"></div>
+	<p>In the last couple of days, I noticed some interesting activity on my good friend Snake Plissken's X/Twitter feed. Snake has been busy recently, adding a multitude of features to the existing <i>DN:ZH recompiled</i> codebase, and is in the process of turning it into an online multiplayer experience, so naturally, I fired over a quick message to find out more!</p>
+	<p>The first <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b224">recompilation of <i>Duke Nukem Zero Hour</i> was released by SonicDcer</a> just 8 days after the game was <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b220">100% decompiled on October 20th, 2025</a>. The latest alpha build featured mappable controls, rock-solid 30 FPS/60 Hz, 60 FPS/120 hz, and 120 FPS/240 hz frame rates depending on your monitor, but it lacked widescreen and multiplayer functionality.</p>
+	<center>
+		<blockquote class="twitter-tweet" data-media-max-width="560"><p lang="en" dir="ltr">My Duke Nukem Zero Hour PC PORT has MULTIPLAYER <a href="https://x.com/VinciusMedeiro6?ref_src=twsrc%5Etfw">@VinciusMedeiro6</a> :) ill have it released soon jus cleaning some things up <a href="https://t.co/bcwkTz83zk">pic.twitter.com/bcwkTz83zk</a></p>&mdash; Snake Plissken (PS4 / PS5 Homebrew) (@_SnakePlissken1) <a href="https://x.com/_SnakePlissken1/status/2066140346359177684?ref_src=twsrc%5Etfw">June 14, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script> 
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>Project Brief: Duke Nukem: Zero Hour Fullscreen Netplay Recompilation by Snake Plissken</b></p>
+	<p><b>1. Overview: What It Is</b></p>
+	<p>This project is a modern, high-performance PC port of the 1999 Nintendo 64 classic Duke Nukem: Zero Hour, built utilizing the groundbreaking N64Recomp framework. Rather than running via traditional emulation, the original game’s machine code has been statically recompiled into native x86 C++ code.</p>
+	<p>The crowning achievement of this specific project is the complete extraction and overhaul of the game's native local split-screen code, transforming it into a modern, authoritative host/client network multiplayer experience where each player enjoys a full, uncompromised widescreen display.</p>
+	<p><b>2. The Technical Sorcery: How It Was Accomplished</b></p>
+	<p>Low-Level Netcode Integration: To bridge the network layer seamlessly, the high-performance ENet (reliable UDP) library was integrated directly into the recompiled N64 input controller layer (osContGetReadData).</p>
+	<p>Authoritative Input Architecture: The multiplayer operates on a strict Host/Client relationship. Instead of synchronizing massive, volatile game states across the network, the Client streams its raw controller inputs to the Host. The Host aggregates all inputs into a master state array, processes the "absolute truth" of the game loop, and broadcasts that state back to all connected clients at a locked 60Hz.</p>
+	<p>MIPS Graphics Pipeline Manipulation: Natively, triggering multiplayer forces the N64 engine to squish the display into a local split-screen. To break this limitation, surgical overrides were written into the recompiled graphics pipeline (patches.c). The runtime dynamically queries the network layer for the local player's index and intercepts the native N64 viewport and hardware scissor registers (gDPSetScissor).</p>
+	<p>The Fullscreen Viewport Hack: The engine is commanded to upscale the local player's specific quadrant to fill the entire monitor. Simultaneously, a custom fixed-point math routine intercepts the remote phantom player's scissor box, safely crushing their rendering field down into a legal 2x2 micro-viewport out of sight. This tricks the retro engine into rendering multiplayer, while providing both host and client a modern, isolated fullscreen experience.</p>
+	<p><b>3. Current State: What Is Fully Functional Right Now</b></p>
+	<p>Native PC Performance: Flawless 60Hz gameplay running natively on modern PC hardware, free from the frame-rate chugs and hardware limitations of the original N64 console.</p>
+	<p>Fully Realized Fullscreen Widescreen Netplay: Host and client can connect seamlessly over LAN or internet via ENet, ready up in the menus, and drop into multiplayer arenas with zero visual splitting or screen stretching.</p>
+	<p>Locked Synchronization: Complete inputs are mirrored effortlessly across devices, ensuring real-time response times vital for a fast-paced late-90s shooter.</p>
+	<p><b>4. The Horizon: What Is To Come</b></p>
+	<p>Campaign Co-Op Mode: Natively, Zero Hour never possessed a cooperative campaign mode. Work is currently underway to intercept the single-player level-loading sequence, forcing the main game loop to spawn multiple player indices and map objects without defaulting to Deathmatch rules.</p>
+	<p>Enemy AI Tracking Patches: Because original campaign enemies are hardcoded to track only a single player target (gPlayer[0]), custom MIPS routine hooks are being designed to recalculate enemy distance arrays, allowing the horde to dynamically track and hunt whichever Duke is closest.</p>
+	<p>Real-Time PBR/RTX Material Forge: Future development plans include exploring runtime hooks linked to local AI material generators (like ComfyUI). This layout aims to analyze the classic low-poly textures on the fly and generate modern PBR material data (normals, roughness, emissive paths) to feed directly into advanced Ray-Tracing render backends (RT64), bridging 1999 geometry with modern lighting. only in development however, for such effects will be backed into the final build and togglable via a next gen on and off button</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<h4>Zero Hour</h4>
+	<div class="titleUnderline"></div>
+	<p>With a release imminent, I will be eagerly waiting to get my hands on this one. <i>DN:ZH</i> was never my favourite game, probably only scraping into my personal top 30, but being able to replay the multiplayer modes with friends again in widescreen, and getting to experience the whole campaign cooperatively in future releases, will be an absolute nostalgia blast and totally worth a play.</p>
+	<p>Notably, SonicDcer's GitHub containing the initial recompilation builds is absent, 404'ing when requested. It is unclear why his repository is AWOL at present, but hopefully it's a temporary thing and everything is ok with Alejandro, aka Sonic Dreamcaster. I have reached out to him to enquire but haven't had a response yet.</p>
+	<p>I will be avidly updating this article once more information or releases present themselves.</p>
+	<p class="subtitle"><i class="fa-brands fa-x-twitter"></i>&nbsp;<a href="https://x.com/_SnakePlissken1">Snake Plissken Twitter</a></p>
+	<p class="subtitle"><i class="fa-brands fa-youtube"></i>&nbsp;<a href="https://www.youtube.com/@snakeplissken2862">Snake Plissken YouTube</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
