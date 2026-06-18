@@ -347,3 +347,4 @@ Blog/Features/2026/N64Memtest/b345.html
 Blog/Features/2026/LightHouseBK/b346.html
 Blog/Features/2026/Misc/b347.html
 Blog/Features/2026/Misc/b348.html
+Blog/Features/2026/Misc/b349.html
