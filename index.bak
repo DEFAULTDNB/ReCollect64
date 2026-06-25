@@ -854,7 +854,7 @@ myCount = 0;
 					document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "7px";		
 				}
 			} else if (document.getElementById("Region").value == "PAD"){
-				//dont change initial thumb aspect ratio for JPN thumb jpg
+				//dont change initial thumb aspect ratio for JPN thumb jpg				
 			} else {	
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/J/'+gTitle+' J.jpg"');
 				document.getElementById(coverFlow[i]).style.width = "126px"; document.getElementById(coverFlow[i]).style.left = "65px";
@@ -991,6 +991,12 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).style.width = "170px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.left = "35px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/Controllers/"+gTitle+" "+gRegion+".jpg");
+			}
+			
+			if (gRegion.match("A")) {
+				if (gTitle.match(/Black|Blue|Green|Grey|Red|Yellow/g)) {
+					document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/Controllers/"+gTitle+" E.jpg");
+				}
 			}
 		}
 		
@@ -1263,12 +1269,13 @@ function reply_click(clicked_id){
 	let pReg = frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf(" ")+1, frametitle.innerHTML.length);
 	//Style game media background\\
 	let convertthumbtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers").replace("jpg", "png");
+	
 	if (Region.options[Region.selectedIndex].value == "PAD"){
-			if (frametitle.innerHTML.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)){
-				document.getElementById('grid-container').style.backgroundImage = "url('Controllers/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+".png')";
-			} else {
-				document.getElementById('grid-container').style.backgroundImage = "url('Controllers/Boxes/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+".png')";
-			}
+		if (frametitle.innerHTML.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)){
+			document.getElementById('grid-container').style.backgroundImage = "url('Controllers/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+".png')";
+		} else {
+			document.getElementById('grid-container').style.backgroundImage = "url('Controllers/Boxes/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+".png')";
+		}
 	} else {
 		document.getElementById('grid-container').style.backgroundImage = 'url('+convertthumbtopng+')';
 	}
@@ -1313,8 +1320,7 @@ function reply_click(clicked_id){
 			document.getElementById("description").innerHTML = "The " + gameTitle + " was never sold at retail. It was used in hotels and connected to a set-top box with an RJ11 connector.";
 		} else {
 			document.getElementById("description").innerHTML = "The " + gameTitle + " was released by " + pubCo + " in " + gameRegions+ " on " + rDate + ".";
-		} 
-	
+		}	
 	}
 	///////////TRY A CATCH ALL APPROACHES:\\\\\\\\\\\\
 	//AUS logic: temp until all entered
@@ -1917,6 +1923,14 @@ function reply_click(clicked_id){
 			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.indexOf("Controller")-1)+' B.png';
 			document.getElementById("thumbA2").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
 			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗮𝗰𝗸";
+		}
+		
+		if (pReg = "A"){ //AUS fix for dupe E covers
+			if (frametitle.innerHTML.match(/Funtastic|Clear Purple/g)){
+			} else {
+			document.getElementById("thumb").src = 'Controllers/Boxes/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+			document.getElementById("thumbBB").src = 'Controllers/Boxes/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E B.png';
+			}
 		}
 		
 		document.getElementById("thumb").style.height = "auto"
@@ -2877,10 +2891,10 @@ function roundUp () {
 	boxesCounted = myCollectionList.flat().filter(x => x.match(/boxed/gi)).length;
 	manualsCounted = myCollectionList.flat().filter(x => x.match(/manual/gi)).length;
 	sealedCounted = myCollectionList.flat().filter(x => x.match(/sealed/gi)).length;
-	result1 = calculateSum(myCollectionList.flat().filter(x => x.match(/cPaid/gi)).map(v => v.slice(6, v.length))); //cart example //alert("£"+result1);
-	result2 = calculateSum(myCollectionList.flat().filter(x => x.match(/bPaid/gi)).map(v => v.slice(6, v.length))); //box example //alert("£"+result2);
-	result3 = calculateSum(myCollectionList.flat().filter(x => x.match(/mPaid/gi)).map(v => v.slice(6, v.length))); //manual example //alert("£"+result3);
-	result4 = calculateSum(myCollectionList.flat().filter(x => x.match(/sPaid/gi)).map(v => v.slice(6, v.length))); //sealed/mint example //alert("£"+result4);
+	result1 = calculateSum(myCollectionList.flat().filter(x => x.match(/cPaid/gi)).map(v => v.slice(6, v.length)));
+	result2 = calculateSum(myCollectionList.flat().filter(x => x.match(/bPaid/gi)).map(v => v.slice(6, v.length)));
+	result3 = calculateSum(myCollectionList.flat().filter(x => x.match(/mPaid/gi)).map(v => v.slice(6, v.length)));
+	result4 = calculateSum(myCollectionList.flat().filter(x => x.match(/sPaid/gi)).map(v => v.slice(6, v.length)));
 	result6 = calculateSum(myCollectionList.flat().filter(x => x.match(/Paid/gi)).map(v => v.slice(6, v.length))); //total example
 	tally = 0
 	for(var k = 0; k < myCollectionList.length; k++){
@@ -3483,6 +3497,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.16-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.21-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
