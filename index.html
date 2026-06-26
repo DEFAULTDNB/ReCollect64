@@ -983,6 +983,9 @@ myCount = 0;
 		
 		
 		//CONTROLLER INITIAL THUMBNAIL FIX
+		
+		//TO DO: FIX D + FAH thumbs incorrect & too big.
+		
 		if (gTitle.match(/Controller Pack|Controller Bundle/g)) {
 		//Do nothing on console bundles.
 		} else if (gTitle.match(/Controller|8BitDo/g)){
@@ -1212,6 +1215,8 @@ function reply_click(clicked_id){
 		gameRegions = "Europe (PAL)";
 	} else if (gameRegions === "FAH"){
 		gameRegions = "France/Holland (PAL)";
+	} else if (gameRegions === "FEH"){
+		gameRegions = "France/Spain/Holland (PAL)"; //FEH CONTROLLER
 	} else if (gameRegions === "FRG"){
 		gameRegions = "France/Germany (PAL)";
 	} else if (gameRegions === "CAN"){
@@ -1933,7 +1938,10 @@ function reply_click(clicked_id){
 			} else {
 			document.getElementById("thumb").src = 'Controllers/Boxes/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
 			}
+		} else if (pReg == "EUU"){ //EUU all have same back?
+			document.getElementById("thumbBB").src = 'Controllers/Boxes/Controller EUU B.png';
 		}
+		
 		
 		document.getElementById("thumb").style.height = "auto"
 		document.getElementById("thumb").style.width = "48%"
@@ -3499,6 +3507,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.25-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.6.26-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
