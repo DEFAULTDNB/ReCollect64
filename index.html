@@ -979,13 +979,9 @@ myCount = 0;
 		} else {
 			document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/"+gRegion+"/"+gTitle+" "+gRegion+".jpg"); //default fallback
 		}
-		//END OF THUMBNAILS
+		//END OF *REGULAR* THUMBNAILS
 		
-		
-		//CONTROLLER INITIAL THUMBNAIL FIX
-		
-		//TO DO: FIX D + FAH thumbs incorrect & too big.
-		
+		//CONTROLLER INITIAL THUMBNAIL FIX		
 		if (gTitle.match(/Controller Pack|Controller Bundle/g)) {
 		//Do nothing on console bundles.
 		} else if (gTitle.match(/Controller|8BitDo/g)){
@@ -1932,6 +1928,13 @@ function reply_click(clicked_id){
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
 			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+' B.png';
 			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗮𝗰𝗸";
+		} else if (frametitle.innerHTML.match("Black and Grey Controller")){
+			document.getElementById("thumb").src = 'Controllers/Boxes/Black and Grey Controller J.png';
+			document.getElementById("thumbBB").src = 'Controllers/Boxes/Black and Grey Controller J B.png';
+			document.getElementById("thumbA2").src = 'Controllers/Black.png';
+			document.getElementById("thumbA2").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
+			document.getElementById("thumbA3").src = 'Controllers/Grey B.png';
+			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗮𝗰𝗸";			
 		} else {		
 			document.getElementById("thumb").src = 'Controllers/Boxes/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+'.png';
 			document.getElementById("thumbBB").src = 'Controllers/Boxes/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+' B.png';
@@ -3517,6 +3520,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.7.1-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.7.2-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
