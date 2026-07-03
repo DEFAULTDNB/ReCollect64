@@ -1,0 +1,59 @@
+<div id="b359" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">N64ever SC64 Menu</span></h2>
+	<h5 class="subtitle">Another SC64 GUI ~ Jul 3, 2026</h5>
+	<div class="bgChat" style="background-image:url('https://preview.redd.it/release-n64ever-the-definite-flashcard-menu-based-v0-m0krawi4y9ah1.png?width=1080&crop=smart&auto=webp&s=87a0e197f903799894b918eeb42ac49fc097712b'); background-position: center; image-rendering: smooth;"><div class="overlaytext">N64ever SC64 Menu</div></div>
+	<h4>Box Fresh</h4>
+	<div class="titleUnderline"></div>
+	<p>A couple of days ago, Bjerreman released a box-art-forward SummerCart64 GUI based on the <a href="https://github.com/Polprzewodnikowy/N64FlashcartMenu">N64FlashcartMenu</a>. While the project is almost completely vibecoded, Bejerrman notes that he simply wanted to have this and did it in a way that might be contrary to how things are supposed to be done but did it anyway so that he could enjoy the exact thing he held in his mind. This method of bringing things into existance without fully learning or understanding the original code required is a strange practice, but it proves to some extent that almost anything is possible in this day and age.</p>
+	<p>That said, the menu looks clean and fresh and is functionally sound with a plethora of functions listed below, and it is extremely simple to get up and running. Bjerreman worked from user suggestions to prompt his vision into reality. Claude was utilised with regression testing and guardrails over several iterations in order to get the code to function suitably. The coding might not be conventional, but as a proof-of-concept it's certainly intriguing to see, and as Bjerrman hopes, it might inspire more forks of the project with heavier visual or functional twists in the future.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>Noobs: download sc64menu.n64 and put it on the root folder of your SD card.</b></p>
+	<p>Here are the highlight:</p>
+	<p>+ Favorites Grid is the home screen — a masonry layout of cover art, not a file list.</p>
+	<p>+ Universal "More" menu (R) — one menu for everything: launch, favorite, per-game art, grid settings, hardware, history, settings, file browser.</p>
+	<p>+ Inspect popup (A) — cover + a 2+2 metadata block (name/developer over date/region) and a scrollable description sized to fit without scrolling for most games; sits on top of the grid.</p>
+	<p>+ Shrink-wrapped File Browser popup — favorite ROMs (single or whole folders), launch, with a live favorites counter. Full file management (Copy/Move/Paste, Delete, Rename + Create folder via an on-screen keyboard), reachable even in an empty folder.</p>
+	<p>+ ROM boot — optionally boot a chosen ROM on power-on after a cancellable art countdown (userland, no firmware autoboot; hold START at boot to disable).</p>
+	<p>+ 60 fps render with per-frame animations tuned to match; grid Tile: Square/Box sizing.</p>
+	<p>+ Great metadata support - don't sweat it.</p>
+	<p>+ Built-in text database — 445 games with title/developer/dates/description (100% have a title + a back-of-box description). Binary-searched by 3-char base code.</p>
+	<p>+ Special editions — ROMs that reuse another game's NUS code (e.g. OoT Master Quest, Smash Remix) get their own name/date/description + art, matched on the filename.</p>
+	<p>+ Build-type labels — Demo / Prototype / Beta ROMs are recognised from their filename dump tags and flagged in Inspect (so a missing cover reads as "this is a demo", not a bug).</p>
+	<p>+ Blank-cart placeholders — an uncovered game shows a realistic label-removed N64 cart (or 64DD disk) instead of a generic placeholder.</p>
+	<p>+ 64DD disc support — expansion discs (e.g. F-Zero X Expansion Kit) link to a base cartridge; the link is a manual, per-region disclink config (English ⇄ Japanese cache independently), and launching an unlinked expansion disc from Files offers to link it.</p>
+	<p>+ Animated screensaver — idle cover-art marquee; also used as the live background of the redesigned Menu Information (one scrollable list in a rainbow popup, N64ever logo on top).</p>
+	<p>+ Cancel/abort — B aborts a folder-favorite (full undo) or an A-Z sort mid-run.</p>
+	<p>+ Game Metadata register — on-device diagnostic of which art/text sources exist per game.</p>
+	<p>+ Custom splash — user PNG as the boot splash.</p>
+	<p>+ Everything is a popup over the grid (except a few deliberately-black screens).</p>
+	<p>+ 2048-favorite cap.</p>
+	<p>Much love,</p>
+	<p>Bjerreman</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<a title="" href="" onclick="window.open('https://preview.redd.it/release-n64ever-the-definite-flashcard-menu-based-v0-m0krawi4y9ah1.png?width=1080&crop=smart&auto=webp&s=87a0e197f903799894b918eeb42ac49fc097712b','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="https://preview.redd.it/release-n64ever-the-definite-flashcard-menu-based-v0-m0krawi4y9ah1.png?width=1080&crop=smart&auto=webp&s=87a0e197f903799894b918eeb42ac49fc097712b" width="50%" style="padding:auto"/></a>
+	</center>
+	<h4>Passion Projects</h4>
+	<div class="titleUnderline"></div>
+	<p>AI assisted projects are becoming more prevalent now, but as we know the code produced by AI is rarely maintainable and the majority of it would need to be rebuilt from scratch, by a human hand that is familiar with the codebase of N64FlashcartMenu, for elements within projects like this to ever be considered for use within the mainline builds.</p>
+	<p>A couple of years ago, there was another, similar, project by Arthur Carvalho, <a href="https://www.reddit.com/r/n64/comments/1pcghnw/how_to_use_the_nso_menu_proof_of_concept_on/">which appears to have been an inspiration for Bjerreman</a>. The concept was visually very similar, an NSO-style menu of box art as a launcher for the SC64; however, as far as I know, no AI was deployed in that project. If you would like to try the NSO menu example for yourself as an alternative to the N64ever menu, you will need to extract your own assets from the Nintendo Switch NSO app and use mksprite from <a href="https://libdragon.dev/">libdragon</a> to craft the covers.</p>
+	<center>
+		<iframe id="" class="video" src="https://www.youtube.com/embed/z3AQ_MfTExw"></iframe>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>Download the sc64menu.n64 from the GitHub repo. I renamed mine to nso.n64 because I didn't want to replace the default menu.</p>
+	<p>Create a title.csv which is a list of ids which will be used to locate the sprite and z64 rom on the sd card. there is a limited csv buffer so making the ids too large causes a buffer overflow if you add too many.</p>
+	<p>sd:/menu/title.csv</p>
+	<p>sd:/menu/title/*code*/*code*_e.z64</p>
+	<p>sd:/menu/title/*code*/*code*_e.sprite</p>
+	<p>Roms need to be in z64 format.</p>
+	<p>Use mksprite from libdragon to convert 256x179 png files of the covers to the libdragon sprite format.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/bjerreman/N64FlashcartMenu-N64ever">Bjerreman N64ever GitHub</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/ArthCarvalho/n64menu">ArthCarvalho NSO Menu GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
