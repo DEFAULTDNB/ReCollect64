@@ -985,9 +985,14 @@ myCount = 0;
 		if (gTitle.match(/Controller Pack|Controller Bundle/g)) {
 		//Do nothing on console bundles.
 		} else if (gTitle.match(/Controller|8BitDo/g)){
-			if (gTitle.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)) {
+			if (gTitle.match(/Foxdata|LodgeNet|Nintendo Power|1994|1995|Hyundai|1997 Prize|Product Testing|M64/g)) {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Controllers/"+gTitle+".png");
 				document.getElementById(coverFlow[i]).style.width = "170px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.left = "35px"; document.getElementById(coverFlow[i]).style.top = "10px";
+			} else if (gTitle.match(/Metallic Blue|Metallic Green|Metallic Grey|Pearl Purple/g)) { //Temp ASCII fix.
+				document.getElementById(coverFlow[i]).setAttribute('src', "Controllers/"+gTitle.slice(0, gTitle.indexOf("Controller")-1)+".png");
+				document.getElementById(coverFlow[i]).style.width = "170px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.left = "35px"; document.getElementById(coverFlow[i]).style.top = "10px";
+			
+			
 			} else {
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/Controllers/"+gTitle+" "+gRegion+".jpg");
 			}
@@ -1177,7 +1182,7 @@ function reply_click(clicked_id){
 			document.getElementById("thumbA3").after(document.getElementById("thumbMA"));		
 		} else if (Region.options[Region.selectedIndex].value == "PAD"){
 			document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span><br><span title="Box?"><div id="BOXPNG"></div><input id="'+gameRegions+"boxed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="bOwn"></span>&nbsp;<span id="'+gameRegions+"boxedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="bMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="bPaid"></span></span><br><span title="Sealed?"><div id="SLDPNG"></div><input id="'+gameRegions+"sealed"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="sOwn"></span>&nbsp;<span id="'+gameRegions+"sealedSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="sMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="sPaid"></span></span></div>';
-				if (gameTitle.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)){
+				if (gameTitle.match(/Foxdata|LodgeNet|Nintendo Power|1994|1995|Hyundai|1997 Prize|Product Testing|M64/g)){
 					document.getElementById("container").innerHTML = '<div id="'+gameRegions+"cart"+'"><span title="Controller?"><div id="CPADPNG"></div><input id="'+gameRegions+"cartridge"+'" type="checkbox" onclick="check_click(this.id)"></span><span id="cOwn"></span>&nbsp;<span id="'+gameRegions+"cartridgeSpent"+'"><span title="𝗜𝗻𝘀𝗲𝗿𝘁 𝘃𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱" class="editable" onclick="cMoney()">✏️ </span><span title="𝗩𝗮𝗹𝘂𝗲 𝗽𝗮𝗶𝗱:"class="cPaid"></span></span></div>';
 				}
 		//} else if (Region.options[Region.selectedIndex].value == "ACC"){
@@ -1285,7 +1290,7 @@ function reply_click(clicked_id){
 	let convertthumbtopng = document.getElementById(coverFlow[clicked_id-1]).src.replace("Thumbs", "Covers").replace("jpg", "png");
 	
 	if (Region.options[Region.selectedIndex].value == "PAD"){
-		if (frametitle.innerHTML.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)){
+		if (frametitle.innerHTML.match(/Foxdata|LodgeNet|Nintendo Power|1994|1995|Hyundai|1997 Prize|Product Testing|M64/g)){
 			document.getElementById('grid-container').style.backgroundImage = "url('Controllers/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+".png')";
 		} else {
 			document.getElementById('grid-container').style.backgroundImage = "url('Controllers/Boxes/"+frametitle.innerHTML.slice(0, frametitle.innerHTML.length)+".png')";
@@ -1324,7 +1329,7 @@ function reply_click(clicked_id){
 	}
 	if (document.getElementById("Region").value == "PAD") { //CONTROLLERS mod
 	//unreleased fixes
-		if (frametitle.innerHTML.match(/1995/g)){
+		if (frametitle.innerHTML.match(/1994|1995/g)){
 			document.getElementById("description").innerHTML = "The " + gameTitle + " was never released. It was a prototype controller used for promotion and testing (extremely rare).";
 		} else if (frametitle.innerHTML.match(/Desert Storm|Red Rain|Purple Forest|Chrome Leopard/g)){
 			document.getElementById("description").innerHTML = pubCo + " made the "+ gameTitle + " through a mail-order aftermarket hydro-dipping service that was exclusive to the " + gameRegions+ " region.";
@@ -1923,11 +1928,16 @@ function reply_click(clicked_id){
 			document.getElementById("thumbBB").src = 'Controllers/Boxes/8BitDo 64 Classic BT U B.png';
 			document.getElementById("thumbA2").src = 'Controllers/8BitDo 64 Classic.png';
 			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64 Classic BT B.png';
-		} else if (frametitle.innerHTML.match(/Foxdata|LodgeNet|Nintendo Power|1995|Hyundai|1997 Prize/g)){
+		} else if (frametitle.innerHTML.match(/Foxdata|LodgeNet|Nintendo Power|1994|1995|Hyundai|1997 Prize|M64/g)){
 			document.getElementById("thumb").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+'.png';
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
 			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+' B.png';
 			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗮𝗰𝗸";
+		} else if (frametitle.innerHTML.match(/Product Testing/g)){
+			document.getElementById("thumb").src = 'Controllers/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" "))+'.png';
+			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗙𝗿𝗼𝗻𝘁";
+			document.getElementById("thumbA3").src = 'Controllers/Black B.png';
+			document.getElementById("thumbA3").title = "𝗖𝗼𝗻𝘁𝗿𝗼𝗹𝗹𝗲𝗿 𝗕𝗮𝗰𝗸"
 		} else if (frametitle.innerHTML.match("Black and Grey Controller")){
 			document.getElementById("thumb").src = 'Controllers/Boxes/Black and Grey Controller J.png';
 			document.getElementById("thumbBB").src = 'Controllers/Boxes/Black and Grey Controller J B.png';
@@ -2504,7 +2514,7 @@ function check_click(clicked_id){
 		//NEEDS FIXING FOR SINGLE ITEMS (Remute R64 or unboxed control pads for example)\\
 	   /////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		let ii = document.getElementById("frametitle").innerHTML;
-		if (ii.match(/NFR|IQUE|Remute R64|LodgeNet|DK64 Cont|Millennium 2000|100 Gold|1997 Prize|Desert Storm|Red Rain|Purple Forest|Chrome Leopard|Foxdata Bronze|Foxdata Electric|Foxdata Gold|Foxdata Chrome|1995|Hyundai Comboy 64 Red|Hyundai Comboy 64 Grey/g)){
+		if (ii.match(/NFR|IQUE|Remute R64|LodgeNet|DK64 Cont|Millennium 2000|100 Gold|1997 Prize|Desert Storm|Red Rain|Purple Forest|Chrome Leopard|Foxdata Bronze|Foxdata Electric|Foxdata Gold|Foxdata Chrome|1995|1994|Product Testing|Hyundai Comboy 64 Red|Hyundai Comboy 64 Grey/g)){
 		
 		//add all individual objects that fail to remove properly here
 		} else {
@@ -3520,6 +3530,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.7.2-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.7.8-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
