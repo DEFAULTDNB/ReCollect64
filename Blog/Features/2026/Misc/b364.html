@@ -1,0 +1,45 @@
+<div id="b364" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">SM64 Running on PSX & 3DO</span></h2>
+	<h5 class="subtitle">The 3DO One is Not a Port! ~ Jul 15, 2026</h5>
+	<div class="bgChat" style="background-image:url('https://img.youtube.com/vi/8BxpaMkVaZU/maxresdefault.jpg'); background-position: center; image-rendering: smooth;"><div class="overlaytext">SM64 Running on PSX & 3DO</div></div>
+	<h4>PS & Panasonic Polygons</h4>
+	<div class="titleUnderline"></div>
+	<p>Last week, Eyepatch Entertainment released a video showcasing <i>Super Mario 64</i> running on Sony's OG PlayStation console, and today they have also shown footage of various assets pulled from the SM64 ROM running in some capacity on a Panasonic 3DO.</p>
+	<p>Based on the <a href="https://github.com/n64decomp/sm64">SM64 decompilation</a>, the PlayStation port is based on the <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b235">WIP PSX port by Malucard</a> but targeting PSX hardware rather than PSX emulation. The 3DO project is somewhat different in that the 64-bit decompilation's assets are running directly within 3DO's <a href="https://en.wikipedia.org/wiki/3DO">CEL Engine</a>. The authors are currently referring to the 3DO version as a piece of homebrew, rather than a port.</p>
+	<p>Here is the current progress report for the PS version:</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>Recorded off a CRT to show its really all on hardware and not an emulator. this was my second PS1 adventure after porting my other game/app: <a href="https://eyepatchfilms.com/playstation.html">HERE</a>.</p>
+	<p>**Foundation**: Started as a fork of the n64decomp/sm64 decompilation by <a href="https://github.com/malucard/sm64-psx">https://github.com/malucard/sm64-psx</a> by malucart, retargeted to boot on real PS1 hardware instead of N64/emulator.</p>
+	<p>**Phase 1 — 2MB bring-up (June, builds ~1–1900)**: Spent this whole stretch just getting the game to boot and stay up within the PS1's real 2MB RAM budget. Fixed stale CD-image LBA baked in at compile time, misaligned ISO9660 reads, and wrong CD controller mode causing garbage texture loads. Early debugging was "guess and check against screenshots" for ~68 builds before switching to GDB/backtrace debugging via PCSX-Redux, which is when progress actually started sticking. Most of this era was repeated `MAIN_POOL_LOW_ALLOC`/RAM-overflow assert fights on Bob-omb Battlefield — the literal fight to fit in 2MB. Around build ~1890 the team confirmed explicitly: upstream was built for real 2MB PS1 use, CD loading was the historical blocker.</p>
+	<p>**Phase 2 — Visual/gameplay polish, (July 1–3)**: Terrain LOD tuning, Peach cutscene framing, first audio investigation (found audio builds overflowed RAM by ~18.5KB). July 2 was the big one: **first successful boot and run on real PS1 hardware**, after fixing an inverted framebuffer flip bug that only showed up on accurate hardware/emulators, not lenient ones. Also fixed Mario's see-through head bug. July 3: root-caused a recurring Bob-omb Battlefield crash (object-pool/coin exhaustion) and added spawn-burst crash guards.</p>
+    <p>**Phase 3 —  (July 4–5)**: Assembled a "Demo1" build for a planned YouTube capture, which kicked off rapid same-day triage of five bugs (castle brightness, missing Chain Chomp, Mario model, star select, texture corruption). This is the pivot point where audio/music became the top priority instead of a "someday" item. July 5:  root-caused a permanent castle door-loop/game-over bug as silently dropped collision surfaces (undersized static collision pool, not a warp bug). Same day, hardware audio filter attempt caused erratic behavior on console.</p>
+	<p>*Phase 4 — Music on real hardware (July 5–6, today)**: July 5,  got the first-ever audible hardware music (a Peach-letter fragment) by correctly mapping XA stream files, but playback died on later CD reads. July 6: **root cause nailed down* — every music track built to date was encoded as 8-bit ADPCM, which emulators decode fine but real PS1 hardware only supports 4-bit XA-ADPCM, so music worked in DuckStation/Redux and played as garbage on console. Fix: re-encode all music 4-bit, adjust sector interleave, and add an automated hardware-decodability check so this class of bug can't sneak back in. This is the fix that has music working on console now.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<iframe id="1" class="video" src="https://www.youtube.com/embed/I2Omh33UUJA"></iframe>
+	</center>
+	<br>
+	<p>Here is the current progress report for the 3DO version:</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>Super Mario 64's Bob-omb Battlefield and Peach's Castle running on the Panasonic 3DO, a console that never had anything like it. Built from the real Super Mario 64 decompilation assets, rendered entirely on the 3DO's cel engine. No sound yet. This is a hobby port, still in progress.</p>
+	<p>This video shows it running on real 3DO hardware (Panasonic FZ-10 via a USB optical drive emulator) alongside the Opera emulator, so you can see both.</p>
+	<p>What's in so far: the full castle exterior and interior, the courtyard, and a walkable Bob-omb Battlefield with enemies, the Chain Chomp, the Big Bob-omb fight, stars, the seesaw bridge, checkerboard elevators and bowling balls — all placed from the game's original level data.</p>
+	<p>The hard part isn't the geometry, it's the 3DO's fill rate: its cel engine pays per on-screen pixel, so big close-up surfaces are murder. Getting it to hold a framerate on real hardware took a lot of very specific tricks and a lot of builds.</p>
+	<p>No copyrighted ROMs or assets are distributed — this is a non-commercial technical demo.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<iframe id="2" class="video" src="https://www.youtube.com/embed/8BxpaMkVaZU"></iframe>
+	</center>
+	<h4>Harnessing Homebrew</h4>
+	<div class="titleUnderline"></div>
+	<p>It should be noted that the 3DO (1994) cannot produce polygons with the same efficiency that the PSX (1994) or N64 (1996) could, so the differences with this 3DO effigy mean that a 3D Mario model is impossible, so a 2D sprite is currently employed with tank controls and buttons mapped for specific moves like jump and ground pound, as well as strafing left and right.</p>
+	<p>The 3DO version is also not a fork from any other version; it's a brand new implementation that runs directly on 3DO hardware or emulators. The reason a port is not achieveable right now is because the CEL engine graphics co-processor lacks a traditional geometric 3D pipeline, whereas the PlayStation had a dedicated math co-processor called the Geometry Transformation Engine (GTE), and the N64 had the Reality Coprocessor (RCP) to handle complex geometry and advanced lighting.</p>
+	<p>The PlayStation version is far more akin to ports that we would recognise. It runs with the cut scenes and sound, albeit extremely buggy and unpolished. The developers note VRAM corruption and various bugs in the video that are frequently causing stutters and freezes, but the progress since the initial implementation for emulators in November of last year to getting it running on real hardware just 8 months later is an incredible technical achievement.</p>
+	<p>It's impressive to see the spoils of the SM64 decompilation project still producing quality content, years after it was completed. <i>Super Mario 64</i> is becoming the new <i>Doom</i> in that it's almost playable in one form or another on almost every platform imaginable.</p>
+	<p class="subtitle"><i class="fa-brands fa-youtube"></i>&nbsp;<a href="https://www.youtube.com/@Eyepatchfilms">Eyepatch Entertainment YouTube</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
