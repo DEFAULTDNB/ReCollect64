@@ -102,3 +102,4 @@ Blog/Reviews/Games/CRUISNUSA/r100.html
 Blog/Reviews/Games/ASTEROIDS/r101.html
 Blog/Reviews/Games/BATMAN/r102.html
 Blog/Reviews/Games/JUNKRUNNER/r103.html
+Blog/Reviews/HyperAlpha/r104.html
