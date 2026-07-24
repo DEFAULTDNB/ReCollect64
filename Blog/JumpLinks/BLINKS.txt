@@ -372,3 +372,4 @@ Blog/Features/2026/Misc/b370.html
 Blog/Features/2026/Misc/b371.html
 Blog/Features/2026/Misc/b372.html
 Blog/Features/2026/RetroShelf64/b373.html
+Blog/Features/2026/Misc/b374.html
