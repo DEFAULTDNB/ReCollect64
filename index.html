@@ -737,8 +737,6 @@ myCount = 0;
 			div.className = "thumbnail";
 		}
 		
-		
-		
 		//TO DO: do the same for consoles?
 		//Route thumbs to their own folder for ease of use and to de-pollute game cover folders.
 		
@@ -853,6 +851,7 @@ myCount = 0;
 				} else if (gTitle.includes("Pikachu Edition")){ // bespoke fix..why
 					document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "7px";		
 				}
+				
 			} else if (document.getElementById("Region").value == "PAD"){
 				//dont change initial thumb aspect ratio for JPN thumb jpg				
 			} else {	
@@ -1015,6 +1014,11 @@ myCount = 0;
 		} else if (gTitle.match(/Hyperkin/g)){
 			document.getElementById(coverFlow[i]).setAttribute('src', "Controllers/"+gTitle+".png");
 			document.getElementById(coverFlow[i]).style.width = "170px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.left = "35px"; document.getElementById(coverFlow[i]).style.top = "10px";
+		
+		} else if (gTitle.match(/M64 Pro/g)){
+			document.getElementById(coverFlow[i]).setAttribute('src', "Controllers/"+gTitle+".png");
+			document.getElementById(coverFlow[i]).style.width = "170px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.left = "35px"; document.getElementById(coverFlow[i]).style.top = "10px";
+		
 		}
 		
 	}
@@ -1685,6 +1689,10 @@ function reply_click(clicked_id){
 				document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
 				document.getElementById("thumbRC2").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
 			}
+		} else if (pReg === "M64") {
+		
+		document.getElementById("thumbMA").style.width = "50%";
+			
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
@@ -1860,13 +1868,17 @@ function reply_click(clicked_id){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is an arcade platformer by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the Kickstarter <a href='https://www.kickstarter.com/projects/pixelgamessarls/donut-dodo-a-new-nintendo-64-game' target='_blank'>HERE</a>"
 	//ModRetro M64 game releases:
 	} else if (frametitle.innerHTML === "Buck Bumble M64"){
-		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-releases on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official information and manual <a href='https://modretro.com/products/buck-bumble' target='_blank'>HERE</a>"
+		document.getElementById("thumbMA").style.width = "48%";
 	} else if (frametitle.innerHTML === "Extreme-G Turbo Fusion M64"){
-		document.getElementById("description").innerHTML = "'"+gameTitle+"' releases on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official information and manual <a href='https://modretro.com/products/extreme-g-turbo-fusion' target='_blank'>HERE</a>"
+		document.getElementById("thumbMA").style.width = "48%";
 	} else if (frametitle.innerHTML === "Xeno Crisis M64"){
-		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-releases on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official information and manual <a href='https://modretro.com/products/xeno-crisis' target='_blank'>HERE</a>"
+		document.getElementById("thumbMA").style.width = "48%";
 	} else if (frametitle.innerHTML === "Xibalba 64 M64"){
-		document.getElementById("description").innerHTML = "'"+gameTitle+"' releases on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official ModRetro site <a href='https://modretro.com/collections/games' target='_blank'>HERE</a>"
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official information and manual <a href='https://modretro.com/products/xibalba-64' target='_blank'>HERE</a>"
+		document.getElementById("thumbMA").style.width = "48%";
 	
 	} else {
 	}
@@ -2015,12 +2027,12 @@ function reply_click(clicked_id){
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
 			document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
 			document.getElementById("thumbA3").src = 'Controllers/8BitDo 64'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("3D")+2, frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
+		
 		} else if (frametitle.innerHTML.includes("ModRetro M64")){ //M64 console fix
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
-			document.getElementById("thumbA2").src = 'Consoles/M64 Underside Generic.png'; //Temporary			
-			//document.getElementById("thumbA2").src = 'Consoles/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf("U")-1)+' B.png';
-			document.getElementById("thumbA3").src = 'Controllers/'+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("M64"), frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
-			
+			document.getElementById("thumbA2").src = 'Consoles/M64 Underside Generic.png'; //Temporary
+			document.getElementById("thumbA3").src = 'Controllers/M64 Pro '+frametitle.innerHTML.slice(frametitle.innerHTML.lastIndexOf("M64")+4, frametitle.innerHTML.lastIndexOf("Console")-1)+'.png';
+		
 		} else if (frametitle.innerHTML.includes("Foxdata Chrome Console 2017")){ //Foxdata console fix
 			document.getElementById("thumb").title = "𝗖𝗼𝗻𝘀𝗼𝗹𝗲 𝗧𝗼𝗽";
 			document.getElementById("thumbA2").src = 'Consoles/Foxdata Chrome Console 2017 UKV B.png';
@@ -2028,7 +2040,7 @@ function reply_click(clicked_id){
 			document.getElementById("thumbA3").style.width = "48%";
 			
 		} else if (frametitle.innerHTML.includes("Smoke Grey")||frametitle.innerHTML.includes("Clear Black")||frametitle.innerHTML.includes("Funtastic Smoke")||frametitle.innerHTML.includes("Jabuticaba")||frametitle.innerHTML.includes("Funtastic Charcoal")){
-		document.getElementById("thumbA1").src = 'Consoles/Funtastic Grey.png';
+			document.getElementById("thumbA1").src = 'Consoles/Funtastic Grey.png';
 			if (pReg === "E"){
 				document.getElementById("thumbA2").src = 'Consoles/Funtastic Grey E B.png';
 			} else if (pReg === "J"||pReg === "TW"){
@@ -3530,6 +3542,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.7.8-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.7.29-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
