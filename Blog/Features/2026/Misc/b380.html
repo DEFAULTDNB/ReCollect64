@@ -1,0 +1,42 @@
+<div id="b380" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Golden Ballon DRK Web Port</span></h2>
+	<h5 class="subtitle">Web-based Diddy Kong Racing! ~ Jul 30, 2026</h5>
+	<div class="bgChat" style="background-image:url('Covers/U/Diddy Kong Racing U.png'); background-position: center; image-rendering: smooth;" ><div class="overlaytext">Golden Ballon DRK Web Port</div></div>
+	<h4>Broswer-based Boosting</h4>
+	<div class="titleUnderline"></div>
+	<p>Following the news that <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b375"><i>Diddy Kong Racing is now 100% decompiled</i></a>, Akratch, who helped with the final stages of the DKR and SF64 decompilations, has released a web browser-based port of <i>Diddy Kong Racing</i> entitled: Golden Balloon.</p>
+	<p>As with all ports, this one also requires you to upload your own USA 1.1 REV A ROM to begin with, and then you can play it in any WebGPU compatible browser, including capable mobile phones and tablets (it works brilliantly on my iPhone 17 Pro Max). The code is most likely predominently AI-driven based on Akratch's other projects and tools, and it is listed as incomplete, so please bear this in mind if you wish to try this out.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>Golden Balloon Features:</b></p>
+	<p>Bring your own ROM. This repository contains no ROM and no game assets — no textures, audio, music, models or level data, and none in its history. You supply a copy of the original game that you legally own and dumped yourself.</p>
+	<p>Other revisions (US 1.0, EU 1.0, Japan) are recognised and named back to you, but not supported yet — this build is compiled for the 1.1 data and nothing bounds-checks an index into a section that shrank. </p>
+	<p>Your ROM is read locally, in this browser. It is never uploaded — there is no server here to receive it. No game data is distributed with this page; you supply your own copy. </p>
+	<p>Saves persist in your browser, so lap records survive a reload. Stored data (step 04) erases them if you want a clean slate.</p>
+	<p>Needs WebGPU — Chrome or Edge 113+. There is no WebGL fallback, so this page says so up front rather than running black.</p>
+	<p>Supersampling renders above your window size and filters back down, which is what removes the stair-stepping on edges. Restored and Remastered use 2×. Set it to Off and back to 4× while watching the balloons and palm trees — that is the difference. It costs fill rate, so drop back if the frame rate suffers.</p>
+	<p>Adventure, Tracks, Time Trial, bosses, trophy series, and challenge modes are playable.</p>
+	<p>Two-, three-, and four-player split-screen work with additional controllers.</p>
+	<p>The mouse is not used in-game; play with a keyboard, gamepad, or the automatic phone/tablet touch controls.</p>
+	<p> Browser storage can be cleared by browser settings, private mode, storage eviction, or a site reset. Download a backup if the progress matters to you. Save files and ROMs stay on this device and are never uploaded.</p>
+	<p>No saved progress is stored yet. Save tools are ready without a ROM. Adventure progress and Controller Pak ghosts are stored separately; use both backup buttons if both matter. Import and editing use a rollback transaction: the candidate is staged, persisted, reloaded, and checked byte-for-byte before it becomes live. The game also retains three checksum-safe automatic snapshots. Corrupt blocks are never repaired silently. </p>
+	<p>Unofficial fan project, made for research and preservation. Not affiliated with or endorsed by any rights holder; all trademarks belong to their owners. Game logic comes from the community decompilation. The engine layer, renderer and this web build are original work.</p>
+	<p><b>Known Issues:</b></p>
+	<p>Controller Pak backup uses mdkr64's versioned .mdkr-paks bundle. Import of raw emulator .mpk images is not available yet.</p>
+	<p>Rumble support depends on the browser and controller. Devices without a Web Gamepad vibration actuator play normally without feedback.</p>
+	<p>Video Options are available from the in-game Options menu. Aspect, FOV, and supersampling apply immediately; cache-wide presentation changes clearly request a restart.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<iframe src="https://akratch.github.io/golden-balloon/" width="960px" height="720px" title="Golden Balloon"></iframe> 
+	</center>
+	<h4>Artifical Adventure</h4>
+	<div class="titleUnderline"></div>
+	<p>This variant of DKR supports HD resolutions as well as the OG native ones, 16:9 or 4:3 viewports, and 4 player modes, but it contains a few bugs, and it has been produced relatively quickly in line with the decompilation, which would also indicate AI assistance, although the Golden Ballon repository doesn't list any at this moment in time.</p>
+	<p>While AI-powered recompilations and even web-based ports are working their way into everyday life, this is not what the community will majorly accept. Most of us will wait for a true PC port from reputable names. Sure, this one is portable and quite cleverly done, but I'm unsure how the community will react to this type of "port", which cannot be downloaded.</p>
+	<p>If you also take a look at Akratch's GitHub repository they have a project called <a href="https://github.com/akratch/mgb64"><i>Man with the Golden Build</i> (MGB64)</a>, which is a vibe-coded recompilation of <i>GoldenEye 007</i> for various platforms, however the performance is not so good and is an example of how AI-driven projects are not always successful.</p>
+	<p>Are you a fan of these AI projects? Are you staunchly anti-AI? Will you at least try it out to see what it's like? Let us know either way in the comments!</p>
+	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://akratch.github.io/golden-balloon/">Golden Balloon Site</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/akratch/golden-balloon">Akratch GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
