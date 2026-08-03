@@ -382,3 +382,4 @@ Blog/Features/2026/Misc/b380.html
 Blog/Features/2026/Relictum64/b381.html
 Blog/Features/2026/PicoPAK3in1/b382.html
 Blog/Features/2026/Misc/b383.html
+Blog/Features/2026/SCUMMVMN64/b384.html
