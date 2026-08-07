@@ -533,7 +533,7 @@ button {
 	padding: 12px 12px;
 	background-color: #ededed;
 }
-.fa-quote-right{
+.fa-quote-right {
 	float: right;
 	margin: 0 5px;
 }
@@ -668,6 +668,17 @@ button {
 	justify-content: center;
 	align-items: center;
 }
+.containerRP3 {
+	display: grid;
+	grid-template-columns: 80% 10% 10%;
+	gap: 3px;
+}
+.containerRP3 div {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .Dicon {
 	background-color: #f1f1f1;
 	color: black;
@@ -684,7 +695,6 @@ button {
 	box-shadow: -0px 0px 0px 3px DarkViolet;
 	border-radius: 10px;
 }
-
 /* if screen is < 800px wide columns stack */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {
