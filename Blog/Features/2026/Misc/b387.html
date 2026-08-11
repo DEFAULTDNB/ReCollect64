@@ -1,0 +1,54 @@
+<div id="b387" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">F-Zero X PC Port Released</span></h2>
+	<h5 class="subtitle">With A 64DD Bonus! ~ Aug 11, 2026</h5>
+	<div class="bgChat" style="background-image:url('Covers/U/F-Zero X U.png'); background-position: 10% 70%; image-rendering: smooth;"><div class="overlaytext">F-Zero X PC Port Released</div></div>
+	<h4>Boost Power!</h4>
+	<div class="titleUnderline"></div>
+	<p><i>G-Diffuser</i> is the name of the latest and greatest Nintendo 64 source port, brought to us by Zorkats. It takes <i>F-Zero X</i> and its niche Japanese-exclusive disk drive add-on, the <i>F-Zero X Expansion Kit</i>, and brings it slap bang into the modern world with some absolutely stunning features. Check them all out for yourself:</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p><b>G-Diffuser F-Zero X PC Port:</b></p>
+	<p>G-Diffuser runs F-Zero X natively on your PC — no emulator at runtime. It is a fully decompiled source port built on top of the <a href="https://github.com/inspectredc/fzerox">inspectredc/fzerox</a> matching decompilation and the <a href="https://github.com/Kenix3/libultraship">Kenix3/libultraship</a> runtime (the same engine behind Ship of Harkinian and Starship, along with other PC ports like Battleship). On top of the original game it adds true widescreen rendering, an in-game enhancement menu, quality-of-life features, texture-pack modding, and full support for the 64DD Expansion Kit — Course Edit and the DD cups included.</p>
+	<p>The repository ships no Nintendo ROM, disk, IPL, or extracted game assets. <b>You bring your own legally obtained dumps</b>; game data is extracted or loaded locally from the files you supply.</p>
+	<p><b>Features:</b></p>
+	<p>• True widescreen — the game renders in 16:9 (gEnhancements.Graphics.Widescreen), with an optional widescreen-anchored HUD so on-screen elements sit at the screen edges instead of being stretched from 4:3 (gEnhancements.Graphics.WidescreenUI).</p>
+	<p>• Ultrawide support (21:9 and wider) — an opt-in mode widens the game's own culling so track pieces, machines, fireworks and background stars stop popping at the edges of ultrawide windows; the HUD anchors to the true corners (gEnhancements.Graphics.UltrawideMode).</p>
+	<p>• Black border removal — the original game framed every screen inside the CRT overscan-safe area, which shows as a black border on modern displays. An opt-in toggle opens the picture to the true edges on every screen (gEnhancements.Graphics.RemoveBorders), with a companion toggle to hide the race-intro wipe curtain (gEnhancements.Graphics.HideRaceCurtain).</p>
+	<p>• High-refresh frame interpolation — the simulation runs at its true 60 Hz while rendering interpolates smoothly up to your monitor's refresh rate (144 Hz and beyond), covering the camera, racers, effects and UI. WARNING: NOT PERFECT: While I did my best efforts to implement this in full capacity, it might get some slowdowns rarely, especially after screen transitions. I will do my best to keep optimizing this feature in future releases.</p>
+	<p>• Discord Rich Presence — off by default; when enabled it shows your mode, course, lap and position on your Discord profile, with per-field privacy toggles so you choose exactly what is visible (gEnhancements.Online.DiscordPresence).</p>
+	<p>• In-game enhancement menu — a full ImGui menu opened with F1 (also Escape or Gamepad Back). Graphics, audio, gameplay, practice, ghosts and workshop tabs, keyboard- and controller-navigable.</p>
+	<p>• 64DD Expansion Kit — loads the translated EK disk image and the 64DD IPL ROM to unlock the Course Edit track editor and the DD cups.</p>
+	<p>• Ghost library — import/export ghost replays as .gdg files, a per-course host-side ghost library, and a Ghost Browser window, all alongside the game's own SRAM ghost slot.</p>
+	<p>• Photo mode — hide the HUD while paused in a race for clean captures (gEnhancements.Practice.PhotoMode).</p>
+	<p>• Practice lap deltas — your last lap versus your session best, drawn in Practice mode (gEnhancements.Practice.ShowLapDeltas).</p>
+	<p>• Texture-pack modding — drop .o2r packs in a mods/ folder to override textures (gEnhancements.Workshop.TexturePacks), with hot reload from the menu.</p>
+	<p>• Asset dumping — decode named assets straight from the extracted archive, per class, from the Workshop tab. See docs/MODDING_GUIDE.md for which dumper to use when building a pack.</p>
+	<p>• Durable 64DD save sidecar — Course Edit saves and disk writes are journaled to a sidecar file next to the game; your original .ndd disk image is never modified.</p>
+	<p>• Modern rendering knobs — internal resolution scale, MSAA, texture filtering, VSync, z-fighting mitigation, draw distance, and frame pacing.</p>
+	<p>• Input — keyboard and SDL controller support (including DualSense), plus a draggable on-screen N64 input viewer overlay.</p>
+	<p>• Developer tools — live Stats, an optional top-right FPS/frame-time overlay, a command Console, and the Fast3D graphics debugger under Dev Tools.</p>
+	<p><b>Planned features:</b></p>
+	<p>All of the vanilla content — cartridge and Expansion Kit — is playable from start to finish today. These are the next things planned for G-Diffuser:</p>
+	<p>• Mouse control in Course Edit — point-and-click track editing instead of driving the cursor with a pad.</p>
+	<p>• Content export and import — share a custom track or a Create Machine vehicle as a single file another player can drop in and race, author ghosts included.</p>
+	<p>• Better modding support — per-tile font/atlas overrides and paletted (CI4/CI8) texture encoding, the two big gaps in what packs can replace today.</p>
+	<p>• Players 2–4 on gamepads — full multi-controller support for VS and split-screen.</p>
+	<p>• Full controller navigation of the enhancement menu.</p>
+	<p>• Japanese version support — the original JP ROM and disk as a selectable profile.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<a title="" href="" onclick="window.open('Covers/DD/F-Zero X Expansion Kit DD.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Covers/DD/F-Zero X Expansion Kit DD.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Backs/DD/F-Zero X Expansion Kit DD.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Backs/DD/F-Zero X Expansion Kit DD.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Disks/F-Zero X Expansion Kit DI.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Disks/F-Zero X Expansion Kit DI.png" width="25%" style="padding:auto"/></a>
+	</center>
+	<h4>Large Language Models</h4>
+	<div class="titleUnderline"></div>
+	<p>It almost goes without saying that when a project pops up these days, AI has been involved in one shape or form. <i>G-Diffuser</i> is no different, with Zorkats noting that the project uses LLM to fill in the holes where a 100% decompilation for this to be based off has not quite been achieved yet. They state that the code is 70% human and 30% AI, with all code stringently regulated and tested by them to ensure quality and accelerate progress only until it can be fully hand written.</p>
+	<p>If you would like to try it out for yourself, all you need is to head over to the <i>G-Diffuser</i> GitHub site linked below, download the latest release and bring along your own copies of these files:</p>
+	<p>• <i>F-Zero X</i> US ROM (MD5: 753437D0D8ADA1D12F3F9CF0F0A5171F).</p>
+	<p>• Zoinkity's cartridge converted and translated NDD image of the <i>F-Zero X Expansion Kit</i> (MD5: F775DFC557F48720EDBA1920F3EA9F5B).</p>
+	<p>• The 4 MB Japanese <i>N64DDIPLROM.n64</i> IPL file (MD5: 8D3D9F294B6E174BC7B1D2FD1C727530) or the 4 MB USA prototype IPL dump (MD5: 37C36E4286D36892A9FC70EAFE4104BE).</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/Zorkats/G-Diffuser">Zorkats GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Have an upcoming N64-related project? Drop me a DM!</a></p>
+</div>
