@@ -386,3 +386,4 @@ Blog/Features/2026/SCUMMVMN64/b384.html
 Blog/Features/2026/GEQUIZ/b385.html
 Blog/Features/2026/Misc/b386.html
 Blog/Features/2026/Misc/b387.html
+Blog/Features/2026/Misc/b388.html
