@@ -1,0 +1,38 @@
+<div id="b391" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">NFM Grid & Themes WIP</span></h2>
+	<h5 class="subtitle">Unified Tabs & More ~ Aug 12, 2026</h5>
+	<div class="bgChat" style="background-image:url('https://media.discordapp.net/attachments/1536805672153391185/1536805672832999455/image.png?ex=6a7d6610&is=6a7c1490&hm=f023715c7c4baa78559ae9a7a51dc8aedfcf7bf01203729bb4bedac73ba0ea89&=&format=webp&quality=lossless&width=768&height=589'); background-position: center; image-rendering: smooth;"><div class="overlaytext">NFM Grid & Themes WIP</div></div>
+	<h4>Off Grid</h4>
+	<div class="titleUnderline"></div>
+	<p>As anyone who has ever used the SummerCart64 knows, the N64FlashcartMenu (NFM) is a stunningly fast piece of open-source software that rightly prioritises reliable utility over bells & whistles. That said, the OS looks pretty decent, but it has always been missing that slight pop to elevate it into something more than just a basic, clean interface.</p>
+	<p>Enter Scaevolus (<a href="https://github.com/rmmh">Ryan Hitchman</a>), a modder who wants to re-point the interface, giving it Windows-like paned panels, hued tints, backgrounds, and ultimately a nicer grid layout for box art. Take a look at the video below:</p>
+	<center>
+		<a title="" href="" onclick="window.open('https://media.discordapp.net/attachments/1536805672153391185/1536805672832999455/image.png?ex=6a7d6610&is=6a7c1490&hm=f023715c7c4baa78559ae9a7a51dc8aedfcf7bf01203729bb4bedac73ba0ea89&=&format=webp&quality=lossless&width=768&height=589','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="https://media.discordapp.net/attachments/1536805672153391185/1536805672832999455/image.png?ex=6a7d6610&is=6a7c1490&hm=f023715c7c4baa78559ae9a7a51dc8aedfcf7bf01203729bb4bedac73ba0ea89&=&format=webp&quality=lossless&width=768&height=589" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('https://media.discordapp.net/attachments/1536805672153391185/1536808466289795154/image.png?ex=6a7d68aa&is=6a7c172a&hm=0884f6a2874c5fc16df8b1195545e22d8b07bf84308bccd0c3b35d7a1f2bbf8d&=&format=webp&quality=lossless&width=768&height=589','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="https://media.discordapp.net/attachments/1536805672153391185/1536808466289795154/image.png?ex=6a7d68aa&is=6a7c172a&hm=0884f6a2874c5fc16df8b1195545e22d8b07bf84308bccd0c3b35d7a1f2bbf8d&=&format=webp&quality=lossless&width=768&height=589" width="40%" style="padding:auto"/></a>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>Description</b></p>
+	<p>Adds a unified settings tab at the top right, consolidating multiple separate screens into a simple paned interface. The new interface supports direct d-pad adjustment, a confirmation warning dialog for PAL60, and consistent action-bar hints.</p>
+	<p>This also standardizes L/R for switching tabs, allowing individual tabs to use D-pad freely-- useful for the settings pane and other tabs that might want to have left/right too.</p>
+	<p>It also cleans up a few strings ("Load" to show a ROM's info screen, "Launch" to execute it) that were inconsistent before.</p>
+	<p><b>Motivation and Context</b></p>
+	<p>Settings and system functionality was previous scattered around with inconsistent navigation patterns. This unifies it nicely. It's also a prerequisite to my Theme work, which relies on having a nice Settings tab with panes to do its configuration.
+	<p><b>How Has This Been Tested?</b></p>
+	<p>Make all works, and all ROM variants build. I have tested the UI extensively in Ares, but have not confirmed this on hardware yet. (Because I'm still waiting for packages to arrive, will be able to do hardware testing in a week).</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+	<video width="50%" height="auto" controls>
+		<source src="https://mod.ifies.com/f/260811_n64cart_gridtheme.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+	</center>
+
+	<h4>Pull Request</h4>
+	<div class="titleUnderline"></div>
+	<p>These changes are pretty nice, and if accepted into the main code stream, they will give the menu a slightly enhanced look, something more enjoyable to boot into, and something that doesn't detract from the original ethos of the project. The only element that might not initially make it is that of the background images. As a result, the author has opted for simpler gradient-colour backgrounds that can be drawn within the menu, rather than importing images to use as a wallpaper. Textures may come as an additional SD card theme extension later on.</p>
+	<p>For those wondering, the only dependency of this over the OG menu is that of the <a href="https://github.com/n64-tools/n64-flashcart-menu-metadata">metadata pack</a> being installed to organise cartridge images and game names. If the update does take root, be sure to check back here for updates and links!</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/Polprzewodnikowy/N64FlashcartMenu/pull/388">NFM GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
