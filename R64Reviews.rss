@@ -6,12 +6,21 @@
 	<link>https://defaultdnb.github.io/ReCollect64/blog.html#HallOfFame</link>
 	<description>Share. Ispire. Discuss.</description>
 	
+    <atom:link rel="self" type="application/rss+xml" href="https://defaultdnb.github.io/ReCollect64/R64Reviews.rss"/>
+	
+	
 	<item>
-	  <title>M64 Pro Controller</title>
-	  <link>https://defaultdnb.github.io/ReCollect64/blog.html#r109</link>
-	  <guid>https://defaultdnb.github.io/ReCollect64/blog.html#r109</guid>
-	  <description><![CDATA[My M64 Pro pad review is here, but is it all it's cracked up to be?<br><img src="https://defaultdnb.github.io/ReCollect64/Blog/Reviews/M64PROPAD/0.png">]]></description>
-	  <author>ReCollect64Official</author>
+		<title>M64 Pro Controller</title>
+		<link>https://defaultdnb.github.io/ReCollect64/blog.html#r109</link>
+		<guid>https://defaultdnb.github.io/ReCollect64/blog.html#r109</guid>
+		<description>My M64 Pro pad review is here, but is it all it's cracked up to be?</description>
+		<image>
+			<url>https://defaultdnb.github.io/ReCollect64/Blog/Reviews/M64PROPAD/0.png</url>
+			<title>test 1</title>
+			<link>https://defaultdnb.github.io/ReCollect64/blog.html#r109</link>
+		</image>
+
+		<author>ReCollect64Official</author>
 	  
 	  
 	  
@@ -20,7 +29,13 @@
 		<title>ModRetro M64 Console</title>
 		<link>https://defaultdnb.github.io/ReCollect64/blog.html#r108</link>
 		<guid>https://defaultdnb.github.io/ReCollect64/blog.html#r108</guid>
-		<description><![CDATA[ModRetro's M64 has been released, but just how good is it?<br><img src="https://defaultdnb.github.io/ReCollect64/Blog/Reviews/M64CONSOLE/0.png">]]></description>
+		<description>ModRetro's M64 has been released, but just how good is it?</description>
+		<image>
+			<url>https://defaultdnb.github.io/ReCollect64/Blog/Reviews/M64CONSOLE/0.png</url>
+			<title>test 2</title>
+			<link>https://defaultdnb.github.io/ReCollect64/blog.html#r108</link>
+		</image>
+		
 		<author>ReCollect64Official</author>
 		
 		
@@ -29,7 +44,14 @@
 		<title>Extreme-G Turbo Fusion</title>
 		<link>https://defaultdnb.github.io/ReCollect64/blog.html#r107</link>
 		<guid>https://defaultdnb.github.io/ReCollect64/blog.html#r107</guid>
-		<description><![CDATA[The N64 Extreme-G duology have been re-released as a 2-in-1 double-pack M64 launch title.<br><img src="https://defaultdnb.github.io/ReCollect64/Blog/Reviews/Games/XGTURBOFUSION/1.png">]]></description>
+		<description>The N64 Extreme-G duology have been re-released as a 2-in-1 double-pack M64 launch title.</description>
+		<image>
+			<url>https://defaultdnb.github.io/ReCollect64/Blog/Reviews/Games/XGTURBOFUSION/1.png</url>
+			<title>test 3</title>
+			<link>https://defaultdnb.github.io/ReCollect64/blog.html#r107</link>
+		</image>
+
+		
 		<author>ReCollect64Official</author>
 		
 		
