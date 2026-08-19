@@ -1,0 +1,124 @@
+<div id="r110" class="card">
+	<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 110</span></h2>
+	<h5 class="subtitle">EverDrive-64 Pro ~ Aug 19, 2026</h5>
+	<div class="bgBanner"><img decoding='async' role='presentation' loading='lazy' src="Devices/EverDrive 64 Pro Clear.png" alt="ED64PRO" class="center"/><div class="overlaytext">EverDrive-64 Pro</div></div>
+	<h4>Flash Your Carts</h4>
+	<div class="titleUnderline"></div>
+	<p>It feels like only yesterday I purchased my EverDrive-64 X7, but it was in fact almost 5 years ago because I waited a while and ended up snapping up a tasty Black Friday deal. Nevertheless, the EverDrive-64 X7 (2019) is no longer the biggest, baddest, flashiest cartridge for the Nintendo 64 offered by Krikzz; that mantle goes to his brand-spanking new EverDrive-64 Pro.</p>
+	<p>Enhanced in almost every way, the Pro (2026) features upgraded FPGA architecture, more RAM, expansive feature-rich firmware, and, to top it off, a swanky new button to slap on the top!</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>Technical Specifications:</b></p>
+	<p>+ Cyclone 10 FPGA</p>
+	<p>+ 128 MB SDRAM (1024 Mbit)</p>
+	<p>+ High-quality 6-layer PCB with hard-gold surface finish</p>
+	<p>+ Native 64DD support</p>
+	<p>+ RTC support</p>
+	<p>+ Support for all Game Pak save types (SRAM, EEPROM, FlashRAM)</p>
+	<p>+ Cheat code support (requires Expansion Pak)</p>
+	<p>+ Controller Pak manager</p>
+	<p>+ Transfer Pak manager</p>
+	<p>+ IPS/APS auto patching</p>
+	<p>+ Custom menu themes</p>
+	<p>+ ROM metadata support</p>
+	<p>+ Battery voltage monitoring</p>
+	<p>+ Built-in FPGA-based NES core</p>
+	<p>+ External emulators support</p>
+	<p>+ On-board button for 64DD disk swapping and cheats</p>
+	<p>+ High-speed USB port for development</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/1.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/1.jpeg" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/2.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/2.jpeg" width="40%" style="padding:auto"/></a>
+	</center>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/3.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/3.jpeg" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/4.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/4.jpeg" width="40%" style="padding:auto"/></a>
+	</center>
+	<center><p>(<i>I was very kindly sent the clear variant for review purposes</i>)</p></center>
+	<h4>Less Limitations</h4>
+	<div class="titleUnderline"></div>
+	<p>I began by loading up a 32 GB MicroSD card with the latest <a href="https://krikzz.com/pub/support/everdrive-64/pro-series/firmware/">firmware update</a>, ed64-pro-fw-v26.0812.efu  at the time of writing. I inserted the ED64-Pro into my brand new M64, selected the EFU file, and clicked update. The process wass very easy, and in doing so, it also ensured that my SD card was prepared with a system folder and other bits I would need to configure things later on. There is no need for an OS to download first or a bootloader binary to flash; the EFU is an all-in-one that also includes the FPGA NES emulator.</p>
+	<p>Once set up, I took my SD card to my laptop and added the IPL files for 64DD loading, a selection of legally obtained ROMs, and some updated emulation files specifically for the M64, that should fix issues when loading <a href="https://github.com/UsaRandom/gb64-next/releases/tag/v1.0">GB/GBC</a> and <a href="https://github.com/UsaRandom/lithium64/releases">SFC</a> ROMs on the newly released FPGA machine.</p>
+	<p>When it comes to N64 ROM loading, the ED64 Pro is, as the name suggests, a complete professional. Games run perfectly with minimal configuration, but should you need to, you can edit the ROM region; each ROM generates a save folder with the save (SRA/FLA/SRM/EEP) within it, any cheats you've applied, and an INI that stores your specific configurations. For ROM hacks or betas like <i>Dinosaur Planet</i>, for example, you can specify the save type rather than needing to hunt through and modify a singular save_db.txt. It feels cleaner and more usable this way.</p>
+	<p>On the OG N64 hardware, this flashcart is a beast, exhibiting no issues whatsoever. On FPGA hardware, it is limited to whatever performance the FPGA is outputting, so be wary if using this device, specifically on an M64, because performance is in parity with their already shaky <a href="https://modretro.com/pages/m64-compatibility">game compatibility</a>, which has actually increased the number of games that have issues since launch from 16 to 20. The Analogue 3D displays far fewer performance issues, and the horizontal upscaling makes the ED64 Pro menu look even more crisp.</p>
+	<p>It should be noted that larger ROM hacks that would not run on the original EverDrive 64 and ED64 X series carts *might* now work. The ED64 Pro packs 128 MB SDRAM, as opposed to the X series 64 MB, which means expanded <i>Super Mario 64</i> ROM hacks such as <i>B3313 Unabandoned</i>, which is 96 MB, and larger-scale wrestling bundles like <i>ECW: Born to be Wired</i>, which is 72 MB, can at least now boot up, but they might need further patching by the authors to get them fully working outside of less-restrictive emulators. The scope for this is huge, and it means ROM hackers and modders can be all the more expansive with their console-compatible creations going forward!</i>
+	<p>Running out of memory for cheats is also a thing of the past here. The 128 MB memory allows for up to 480 individual cheat entries to be run and experimented with simultaneously, per game. This is an incredible increase compared to the originals' 34 code limit, which, let's be real, was plenty for us end users to play with already. This means that developers can experiment with a lot more at the same time, giving  them a better grasp on what works, what doesn't and what combinations can be used to push games further with more complex cheats and mods. Regarding <a href="https://github.com/krikzz/ed64-pro-pub">development</a>, the USB-C connectivity is also upgraded, with a 20 MB/s Type-C socket compared to the X series' 1 MB/s transfer rate. This means that devs can now utilise loader64 or usb64 for radically faster ROM loading and debugging.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/11.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/11.png" width="30%" style="padding:auto"/></a>
+	</center>	
+	<h4>Expansive Elements</h4>
+	<div class="titleUnderline"></div>
+	<p>Emulation-wise, all the ED64 Pro needs are folders named with the file extensions of the ROM you want to play (e.g., "gb"/"gbc"/"sfc"/"gg") and the relevant emulator *.v64 file within their individual folder, which in turn are placed within the "edapp" folder. When selecting a retro ROM, it will then run the game with the correct emulator automatically. Mileage varies with emulation on the N64, specifically when you get up to the 16-bit level of SNES games; however, through testing, I have discovered information that should be extremely useful to FPGA users as well as OG N64 owners.</p>
+	<p>Using the M64 "fixed" versions of GB/GBC/SNES is a must, but only for M64 owners. Using the vanilla versions causes the graphics to be glitched out when attempting to load retro games on ModRetro's machine. Running GB/GBC and even GG games usually works perfectly regardless of fixed files or not, but SNES ROMs are painfully finicky regardless of platform, and any overly technical games, such as anything that uses mode-7 scaling or required the Super-FX or SA-1 chip, will simply not run. For best compatibility, pre-convert any ROMs (preferably NTSC-U) to *.Z64, rather than running raw ROMs. OG N64 users and Analogue 3D owners should simply convert their SNES ROMs using the <a href="https://github.com/Hydr8gon/sodium64/releases">original Sodium64 conversion tool</a> with the unpatched Sodium64 .z64 emulator ROM. M64 users should again use the modified emulator z64 ROM with the original N64 ROM converter tools. Be warned that on the M64 they <b>still run slightly glitched</b> and horribly slowly unless overclocked, but this is clearly an M64 specific issue.</p>
+	<p>I tested <i>Donkey Kong Country</i> and <i>Super Mario All-Stars</i>, and they ran perfectly this way on OG N64 and A3D. Unconverted SNES ROMs and M64 "fixed" converted SNES ROMs also ran badly on the A3D and OG hardware, so bear this in mind when it comes time to replay your childhood games. TLDR; M64 turned out to be the worst for SNES emulation, even with fixed or preconverted files.</p>
+	<p>In addition to the FPGA NES core already being present and working brilliantly across every game I threw at it, the ED64 Pro now also loads 64DD (*.NDD) files natively when paired with their sibling ROM. For example, when the <i>F-Zero X</i> USA translated Expansion Kit .NDD file is sat next to the <i>F-Zero X</i> USA ROM, as you load the N64 ROM, it also automatically loads the Expansion Kit add-on. On other flash carts, you need to highlight the base ROM, back out, find the NDD add-on, hold R and select "launch both". This is a far simpler implementation, which I feel comes from having studied its competitors and the EverDrive 64 lineage is now catching up with the likes of the SummerCart 64 (2024).</p> 
+	<p>Last but by no means least, the Mpak and Tpak functionality has to be mentioned as being excellent. You can back up and restore memory cards, and even dump GB/GBC ROMs through a transfer pak (this can be done on SC64 too with <a href="https://github.com/alexishida/gb-transfer-dumper">THIS</a> additional tool). For those wondering, you can also use <a href="https://github.com/mntorankusu/N64-SwapDumper">SwapDumper</a> (or the <a href="https://github.com/Nekokabu/N64-SwapDumper">CRC modded version</a>) to dump your N64 games to your flashcart's SD card too. The ED64 Pro is really a swiss army knife in terms of baked in features, compatibility and unwaiveringly stoic reliabilty.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/5.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/5.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/6.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/6.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/7.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/7.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<center><p>(<i>The benchmarks aren't bad, but the GC-style stick is not ideal</i>)</p></center>
+	<h4>Cartridge Consumers</h4>
+	<div class="titleUnderline"></div>
+	<p>As we know, the SummerCart 64 already had USB-C, the <a href="https://github.com/n64-tools/n64-flashcart-menu-metadata/releases">metadata pack</a>, native 64DD loading and larger ROM hack compatibility (78 MB), backed by open-source software, so how does Krikzz's latest 64-bit EverDrive compete?</p>
+	<p>The biggest thing Krikzz has is a consistent standard of quality when it comes to manufacturing, a heavily polished and responsive OS with robust functions and cheat support, and now even more expansive homebrew and ROM hack compatibility. The OS is sleek and intuitive; you can even <a href="https://krikzz.com/pub/support/everdrive-64/pro-series/theme64.zip">theme it as you wish<a/>, and you can copy, paste, text-view, hex-view, and more with a refined UX as well as a crisp and streamlined GUI.</p>
+	<p>With over a decade of research and design behind it, and a guaranteed safe and high-quality component build that even optimises power draw of the N64 and displays your RTC battery level, Krikzz's products do come with a heftier price tag because of their almost luxury-brand-like status. Sure, you could buy a SummerCart for a fraction of the price, but because of the SC64's open-source nature, unless you're buying from a reputable source such as <a href="https://store.phenommod.com/">Phenom Mod</a>, they will more than likely be extremely mass-produced low-quality effigies, use unstable cloned chips, and might not even feature the button for cheats/disk switching or a USB socket at all.</p>
+	<p>There is an argument for both, but it's nice to see some healthy competition in the N64 flashcart sector. With news that an upgraded SummerCart64 Pro variant is in the works too, it will be interesting to see just how that fares against the ED64 Pro when it does eventually release.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/8.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/8.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/9.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/9.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/ED64PRO/10.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/ED64PRO/10.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<center><p>(<i>Drop a firmware update and go. The ED64-Pro doesn't require any messing about to get you set up</i>)</p></center>
+	<h4>Other Oddities</h4>
+	<div class="titleUnderline"></div>
+	<p>Throughout my week of testing, I experienced a couple of odd things, which, while they aren't entirely game-breaking, are certainly odd nonetheless. <i>Banjo-Tooie</i>'s USA ROM will only launch on the FPGA consoles with the MPAL region selected; no other region <i>Tooie</i> ROMs (A/E or J) wanted to work on any FPGA system, regardless of region switching. <i>F-Zero-X</i> would also not load either the USA-translated or JPN DD expansions on the M64 at all. The A3D would run the USA translated Expansion kit fine, but not the JPN original. It has to be noted that the OG N64 hardware has zero issues with any of these, so these are certainly FPGA-relative issues.</p>
+	<p>Some meta information was cut off or missing, even after converting the metadata pack for use on the ED64 Pro. Again, not a game breaking issue, but strange behaviour that possibly needs addressing in a future firmware update. I also noticed that portrait JPN covers in the untouched metadata pack are 112x158px (158 x 112px for landscape EU/USA covers), but the <a href="https://krikzz.com/pub/support/everdrive-64/pro-series/edmeta.zip">EDMETA tool</a> converts them to 170x120px which makes them look squished when viewed in an image viewer; however, they look to be corrected when displayed on the ED64 Pro. Equally, any cartridge images are 158x112px in the untouched pack, but the EDMETA tool converts them to 240x85px, which is stretched in an image viewer, but they appear corrected when in use on the ED64 Pro. I'm sure Krikzz knows what he's doing, but it seems like an odd and potentially unnecessary process.</p>
+	<p>Tapping into the community metapack is a great concept on paper, but is it right for the ED64 Pro? I'm not sure. I had hoped for a bit more visual lustre from the ED64 Pro, but perhaps that will come in time. A lot of developers are currently working on new UIs and graphical experiences for flashcart ROM loading, so hopefully they will be able to adopt the ED64 Pro as a basis (like ALT64/ALTRA64 did), or maybe the N64FlashcartMenu will support the ED64 Pro going forward, because that is what most of these snazzy open-source menus are being built upon.</p>
+	<div class="col-container">
+	<div class="pro"><strong> The Pros:</strong>
+	<p></p>
+	<i class="fa-solid fa-check">&nbsp;</i>Works brilliantly for N64 games on all consoles.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Fast-loading and reliable for gaming and saving.<br>	
+	<i class="fa-solid fa-check">&nbsp;</i>Massive 128 MB SDRAM for bigger ROM hacks & up to 480 codes.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Native 64DD loading uses the cleanest implementation yet.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Button can be used to change disks or enable/disable cheats.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Emulation up to SNES is excellent on OG and A3D consoles.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Built-in hex/text editor, Mpak backup/restore & Tpak ROM dumping!<br>
+	<i class="fa-solid fa-check">&nbsp;</i>High-speed USB-C socket for developers.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Onboard battery voltage monitor is a handy feature.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>An awesome selection of colours are available.</div>
+	<div class="con"><strong> The Cons:</strong>
+	<p></p>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Metadata support isn't mind-blowing.<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Has teething issues on FPGA machines.<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>£130 ($169 USD) is not cheap but you ensure high quality.</div>
+	</div>
+	<div class="verdict"><strong>Conclusion:</strong>
+	<p>The EverDrive-64 Pro is no doubt an absolute powerhouse, but sadly the average N64 pirate will not fully appreciate this for expansive ROM handling and developmental abilities.</p>
+	<p>Updated hardware aside, the experince feels slick and well rounded, and every feature works with lightning speeds efficiency and reliability from the word "go".</p>
+	<p>This is a no brainer of an upgrade from the X7 to the Pro, let alone anyone on the X5 or below (V3/V2.5 or clones). This has already become my new daily driver and feels like an essential flashcart that is justifiably 110% worth the pricetag in my opinion.</p>
+	<center title="9/10">
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star"></span>
+	</center>
+	</div>
+	<br>
+	<div class="info">
+		<p><strong>NOTE:</strong> If you wish to run the EverDrive-64 Pro on your Analogue 3D and you want to get rid of that blank image, then simply visit <a href="https://enoznal.com/3d/labels.html">THIS SITE</a>, upload your labels.db from your A3D's SD card under "Library/N64/Images", and insert <a href="Blog/Reviews/ED64PRO/ED64 Pro Label.png">THIS LABEL</a> into your database using the ID: "9810A321".</p>
+	</div>	
+	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://krikzz.com/our-products/cartridges/everdrive-64-pro.html">Krikzz Store</a></p>	
+	<p class="subtitle"><i class="fa-solid fa-file-pdf"></i>&nbsp;<a href="https://krikzz.com/pub/support/everdrive-64/pro-series/ed64-pro-manual.pdf">ED64 Pro Manual</a></p>	
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64@gmail.com">Want to see something reviewed? Contact me!</a></p>	
+</div>

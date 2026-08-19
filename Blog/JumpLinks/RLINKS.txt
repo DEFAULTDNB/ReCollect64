@@ -108,3 +108,4 @@ Blog/Reviews/Games/XIBALBA64/r106.html
 Blog/Reviews/Games/XGTURBOFUSION/r107.html
 Blog/Reviews/M64CONSOLE/r108.html
 Blog/Reviews/M64PROPAD/r109.html
+Blog/Reviews/ED64PRO/r110.html
