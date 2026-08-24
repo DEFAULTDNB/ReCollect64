@@ -43,32 +43,57 @@ function handleFileSelect(event) {
 		let convertedBuffer;			
 		decoder = new TextDecoder("windows-1252");
 		str = decoder.decode(reader.result);
-		var boot, name, cid, gRev;
-			if (byteArray.slice(0x00, 0x08) == "128,55,18,64,0,0,0,15") {
+		var boot, name, cid, gid, gmedia, gRev;
+			if (buf2hex(byteArray.slice(0x00, 0x01)) == 80) {
+
 				boot = "BIG ENDIAN (*.Z64)";
+				//Internal name
 				name = str.slice(32, 59);
-				cid = str.slice(59,63);
-				gRev = byteArray.slice(0x3F, 0x40);
-			} else if (byteArray.slice(0x00, 0x08) == "128,55,18,64,0,0,0,0") { //Junk Runner/Pandemonium
-				boot = "BIG ENDIAN - HOMEBREW (*.Z64)";
-				name = str.slice(32, 59);
-				cid = str.slice(59,63);
-				gRev = byteArray.slice(0x3F, 0x40);
-			} else if (byteArray.slice(0x00, 0x08) == "55,128,64,18,0,0,15,0") {
-				boot = "BYTE SWAPPED (*.V64)";				
+				//Cart ID
+				cid = str.slice(59,63);				
+				//Game Media/Category Code
+				gmedia = cid[0];
+				//Unique Game ID
+				gid = cid[1]+cid[2];
+				//0x04 - 0x08 = Advanced Homebrew ROM Header\\
+				if (cid[1]+cid[2] == "ED"){
+					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> ADVANCED HOMEBREW<br>";
+				} else {
+					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> RETAIL/ROM HACK<br>";
+				}
+				//Region/Destination ID
+				rid = cid[3];
+				//Revision (from byte array)
+				gRev = byteArray.slice(0x3F, 0x40); 
+				//libultra version
+				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0E]).replace(/(.{1})/, '$1.') + hex2a(byteArray[0x0F]).toUpperCase() +"<br>";
+
+				//Savetype
+				//alert(byteArray)
+				//alert(buf2hex(byteArray))
+				//alert(byteArray.slice(0x34, 0x3C))
+				
+				if (byteArray.slice(0x04, 0x08) == "3,160,127,95") { //LRG SWSOTE REV3
+					//alert("STAR WARS - SHADOWS OF THE EMPIRE (U) (REV 3) (LRG)")
+					document.getElementById("result").innerHTML += "<span id='label1'>[INFO]:</span> 'STAR WARS - SHADOWS OF THE EMPIRE (U) (REV 3) (LRG)'<br>";
+				} else if (byteArray[0x08] == "15"){
+					alert("what is this")
+				}
+				
+			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 37) {
+				boot = "BYTE SWAPPED (*.V64)";			
 				name = str[33]+str[32]+str[35]+str[34]+str[37]+str[36]+str[39]+str[38]+str[41]+str[40]+str[43]+str[42]+str[45]+str[44]+str[47]+str[46]+str[49]+str[48]+str[51]+str[50]+str[53]+str[52]+str[55]+str[54]+str[57]+str[55];
 				cid = str[58]+str[61]+str[60]+str[63];
 				gRev = byteArray.slice(0x3E, 0x3F);
-			} else if (byteArray.slice(0x00, 0x08) == "64,18,55,128,15,0,0,0") {
+				
+			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 40) {
 				boot = "LITTLE ENDIAN (*.N64)";
 				name = str[35]+str[34]+str[33]+str[32]+str[39]+str[38]+str[37]+str[36]+str[43]+str[42]+str[41]+str[40]+str[47]+str[46]+str[45]+str[44]+str[51]+str[50]+str[49]+str[48];
 				cid = str[56]+str[63]+str[62]+str[61];
 				gRev = byteArray.slice(0x3C, 0x3D);
-			} else if (byteArray.slice(0x00, 0x08) == "128,55,18,64,3,160,127,95") { //LRG SWSOTE REV3
-				boot = "BIG ENDIAN (*.Z64)";
-				name = str.slice(32, 59);
-				cid = str.slice(59,63);
-				gRev = byteArray.slice(0x3F, 0x40);
+			
+			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 12) {
+				boot = "BYTESWAPPED (V64) + WORDSWAPPED (N64)";
 			}
 			const encodedString = name;
 			decodedName = decodeShiftJIS(encodedString);
@@ -76,15 +101,6 @@ function handleFileSelect(event) {
 			boxart.onerror = fixboxart;
 				function fixboxart(){
 					boxart.src = "LOWRES/00.png";
-				}
-			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";
-			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]:</span> <span id='decname'>"+decodedName.toUpperCase()+"</span><br>";
-				if (decname.innerHTML.length < 1) {
-					decname.innerHTML = "UNKNOWN";
-				}
-			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> <span id='cidID'>"+cid.toUpperCase()+"</span><br>";
-				if (cidID.innerHTML.length < 1) {
-					cidID.innerHTML = "UNKNOWN";
 				}
 			switch (cid[0]) {
 				case 'N': media = "CARTRIDGE"; break;
@@ -94,7 +110,18 @@ function handleFileSelect(event) {
 				case 'Z': media = "ALECK64 GAME"; break;
 				default: media = "UNKNOWN";
 			}
-			document.getElementById("result").innerHTML += "<span id='label1'>[MEDIA]:</span> "+media+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[MEDIA]:</span> "+media+"<br>";				
+				
+			document.getElementById("result").innerHTML += "<span id='label1'>[BOOT]:</span> "+boot+"<br>";
+			document.getElementById("result").innerHTML += "<span id='label1'>[LABEL]:</span> <span id='decname'>"+decodedName.toUpperCase()+"</span><br>";
+				if (decname.innerHTML.length < 1) {
+					decname.innerHTML = "UNKNOWN";
+				}
+			document.getElementById("result").innerHTML += "<span id='label1'>[ID]:</span> <span id='cidID'>"+cid.toUpperCase()+"</span><br>";
+				if (cidID.innerHTML.length < 1) {
+					cidID.innerHTML = "UNKNOWN";
+				}
+
 			switch (cid[3]) {
 				case '7': region = "BETA"; break;
 				case 'A': region = "ASIAN"; break;
@@ -117,7 +144,7 @@ function handleFileSelect(event) {
 				case 'X': region = "EUROPE (X)"; break;
 				case 'Y': region = "EUROPE (Y)"; break;
 				case 'Z': region = "EUROPE (Z)"; break;
-				default: region = "UNKNOWN";
+				default: region = "REGION FREE"; //alt UNKNOWN
 			}
 			document.getElementById("result").innerHTML += "<span id='label1'>[REGION]:</span> "+region+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label1'>[VER]:</span> V1."+gRev+"<br>";
@@ -166,23 +193,22 @@ function handleFileSelect(event) {
 						cic = "7106";
 					}
 				break;
-				
 				case ((/0E9C2FCD4E10B0272DC6F6DCD487F959/i.test(firstMB.toUpperCase()))): //Libdragon CIC?
 					cic = "HOMEBREW";
 				break;
-				
-				case (/ALECK64 GAME/i.test(media)): cic = "ARCADE";
+				case (/ALECK64 GAME/i.test(media)): 
+					cic = "ARCADE";
 				break;
 				default:
-					cic = "UNKNOWN";
+					cic = "UNKNOWN (HASH: "+firstMB.toUpperCase()+")";
 			};
 			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> " + cic.toUpperCase()+"<br>";
 			const fileType = file.name.split('.').pop().toLowerCase();
 			const options = document.getElementById('conversionOptions');
 			options.innerHTML = '';
 				if (fileType === 'z64') {
-					options.innerHTML += '<option value="bigToLittle" title="*.z64 to *.n64">Big-Endian to Little-Endian</option>';
-					options.innerHTML += '<option value="bigToByteSwapped" title="*.z64 to *.v64">Big-Endian to Byte-Swapped</option>';
+					options.innerHTML += '<option value="bigToLittle" title="*.z64 to *.n64">Z64 -> N64</option>';
+					options.innerHTML += '<option value="bigToByteSwapped" title="*.z64 to *.v64">Z64 -> V64</option>';
 				} else if (fileType === 'n64') {
 					options.innerHTML += '<option value="littleToBig" title="*.n64 to *.z64">Little-Endian to Big-Endian</option>';
 					options.innerHTML += '<option value="littleToByteSwapped" title="*.n64 to *.v64">Little-Endian to Byte-Swapped</option>';
@@ -348,10 +374,17 @@ function decodeShiftJIS(encodedString) {
 function buf2hex(buffer) {
 	return [...new Uint8Array(buffer)].map(x => x.toString(16).padStart(2, '0')).join('');
 }
+function hex2a(hexx) {
+    var hex = hexx.toString();
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    return str;
+}
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V3.7</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.0</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
