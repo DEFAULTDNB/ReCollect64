@@ -408,3 +408,4 @@ Blog/Features/2026/PSN64/b406.html
 Blog/Features/2026/Misc/b407.html
 Blog/Features/2026/CZ64/b408.html
 Blog/Features/2026/Misc/b409.html
+Blog/Features/2026/Misc/b410.html
