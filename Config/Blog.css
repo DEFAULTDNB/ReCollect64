@@ -690,9 +690,21 @@ button {
 	color: white;
 	cursor: pointer;
 }
+.AIDicon:hover {
+	background-image: linear-gradient(to bottom, red, red);
+	cursor: pointer;
+	color: white;
+	font-size: 20px;
+	border-radius: 10px;
+}
 .RDicon:hover {
 	cursor: pointer;
 	box-shadow: -0px 0px 0px 3px DarkViolet;
+	border-radius: 10px;
+}
+.AIicon:hover {
+	cursor: pointer;
+	box-shadow: -0px 0px 0px 3px red;
 	border-radius: 10px;
 }
 /* if screen is < 800px wide columns stack */
