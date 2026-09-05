@@ -1,5 +1,5 @@
 <div id="b401" class="card">
-	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Extreme-G Recomp Released</span></h2>
+	<h2><span class="badge new">UPDATED</span> <span class="title">Extreme-G Recomp Released</span></h2>
 	<h5 class="subtitle">By SonicDcer ~ Aug 23, 2026</h5>
 	<div class="bgChat" style="background-image:url('Covers/U/Extreme-G U.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">Extreme-G Recomp Released</div></div>
 	<h4>Pro-Grade Porting</h4>
@@ -9,6 +9,31 @@
 	<center>
 		<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Extreme-G Recompiled:<br><br>Happy Birthday to me!, Oh also I&#39;m releasing a new PC-PORT today, it is the time for Extreme-G to have a chance to shine again on modern hardware!<br><br>Download links in the next reply. <a href="https://t.co/sBr2DEzcyC">pic.twitter.com/sBr2DEzcyC</a></p>&mdash; SonicDcer (@SonicDcer) <a href="https://x.com/SonicDcer/status/2091356513327546498?ref_src=twsrc%5Etfw">August 23, 2026</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script> </center>
 	</center>
+	
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>UPDATE: A word from SonicDcer:</b></p>
+	
+	<p>Extreme-G Recompiled, how was this possible without a decomp project?</p>
+	<p>The answer is N64Recomp is a framework that makes it possible to make a port without decompiled source code.</p>
+	<p>Even though the majority of ports made with N64Recomp so far derived from partial or complete decomp projects, Extreme-G just happened to be the perfect showcase for this technology. N64Recomp isn't a magic black box that turns ROMs into ports, it rather needs to know the exact location and sizes of all the functions and data that compose the game, that metadata has to come from somewhere, usually an .elf file which can result of building a decompilation project, but there's also another way...</p>
+
+	<p>Where is the Extreme-G Decompilation project?</p>
+	<p>Oh it's here https://gitlab.com/sonicdcer/extreme-g but..</p>
+	<p>Well.. I wouldn't call it a decompilation project yet since barely anything in there is decompiled, what I made is know as a disassembly, which is the previous step of what composes a decompilation project.</p>
+
+	<p>In order to achieve that, some research has to be done to the game ROM itself, such as where is the code of the game, where is the data, where is the rodata, what are the vram addresses of each section, if the game has compressed code, a decompressed rom has to be made first, which was unfortunately the case for Extreme-G. It seems they compressed as much as they could to fit the game inside an 8 MB ROM. Some previous research revealed that the game was compressed with LZSS as well as LZHUF type compression. Initially the way i reconstructed the uncompressed rom was by breakpointing through the functions of the game while running it through an emulator. With a combination of Dynamic and Static analysis I was able to dump the uncompressed portions of the game from RAM.</p>
+
+	<p>After I had the uncompressed rom the disassembly was manually handled piece by piece, by reading the machine code and mapping the game code into sections, this process proved to be more difficult than I experienced with other games because this particular one was built with a toolchain known as SN, which has unusual code rodata/data/text sections as well as bits of compiler garbage to account for padding, the code and data inside it were also aligned in an unusual way making the disassembly incompatible with the current setup I had for other games. After those problems were solved/circumvented and all the SDK library functions identified in it, the disassembly was ready to produce an .elf file that was compatible with N64Recomp, but that wasn't the end, more research was needed to map the overall functionality of the game, figure out where some stuff is in code without any documentation can be very tricky.</p>
+
+	<p>The bare minimum things that were patched for this game to be in a decent state are:</p>
+	<p>+ Widescreen alignment of hud and menu elements for the bike select screen.</p>
+	<p>+ Widescreen fill of the fade transitions.</p>
+	<p>+ Simultaneous Controller Pak and Rumble Pak support</p>
+
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+
 	<h4>Awesome Assembly</h4>
 	<div class="titleUnderline"></div>
 	<p>When porting the game to modern formats, this port is constructed entirely through assembly code (ASM); there is zero decompiled code, and everything is done without any C patches. No original source code for this project was employed either, because it is likely stored under lock and key by the company that acquired the <i>Extreme-G</i> IP, among 184 other game properties, in 2006: Throwback Entertainment. Alternatively, the source code could have been lost forever through failing to be archived properly or simple data misplacement.</p>
