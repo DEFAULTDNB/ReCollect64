@@ -74,6 +74,7 @@ function handleFileSelect(event) {
 				//alert(byteArray.slice(0x34, 0x3C))
 				
 				if (byteArray.slice(0x04, 0x08) == "3,160,127,95") { //LRG SWSOTE REV3
+					//alert("STAR WARS - SHADOWS OF THE EMPIRE (U) (REV 3) (LRG)")
 					document.getElementById("result").innerHTML += "<span id='label1'>[INFO]:</span> 'STAR WARS - SHADOWS OF THE EMPIRE (U) (REV 3) (LRG)'<br>";
 				} else if (byteArray[0x08] == "15"){
 					alert("what is this")
@@ -202,44 +203,6 @@ function handleFileSelect(event) {
 					cic = "UNKNOWN (HASH: "+firstMB.toUpperCase()+")";
 			};
 			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> " + cic.toUpperCase()+"<br>";
-
-			cleanROM();
-			function cleanROM(){
-			 if (boot.includes("Z64")){
-				fetch('z64.sha1')
-				.then(response => {
-					return response.text();
-				})
-				.then(data => {
-					let sha1check = data.split("\n");
-					
-					for (i = 0; i < data.length; i++){
-						if (sha1check[i].includes(hash2)){
-							document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
-							break;
-						} else {
-						}
-					}
-					});
-				} else if (boot.includes("V64")){
-					fetch('v64.sha1')
-					.then(response => {
-						return response.text();
-					})
-					.then(data => {
-						let sha1check = data.split("\n");
-						
-						for (i = 0; i < data.length; i++){
-							if (sha1check[i].includes(hash2)){
-								document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
-								break;
-							} else {
-							}
-						}
-						});
-				}
-			}
-			
 			const fileType = file.name.split('.').pop().toLowerCase();
 			const options = document.getElementById('conversionOptions');
 			options.innerHTML = '';
@@ -255,8 +218,8 @@ function handleFileSelect(event) {
 				}
 			document.getElementById('options').style.display = 'block';
 	}
-	document.getElementById('convertButton').addEventListener('click', convertFile);
-	reader.readAsArrayBuffer(file);
+document.getElementById('convertButton').addEventListener('click', convertFile);
+reader.readAsArrayBuffer(file);
 }
 function convertFile() {
 	const file = document.getElementById('fileInput').files[0];
@@ -288,7 +251,6 @@ function convertFile() {
 				break;
 		}
 	saveFile(convertedBuffer, file.name);
-	
 };
 function saveFile(buffer, originalFileName) {
 	Blob = (function() {
@@ -422,7 +384,7 @@ function hex2a(hexx) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.1.0</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.0.1</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
