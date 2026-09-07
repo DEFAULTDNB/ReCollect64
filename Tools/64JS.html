@@ -45,26 +45,18 @@ function handleFileSelect(event) {
 		str = decoder.decode(reader.result);
 		var boot, name, cid, gid, gmedia, gRev;
 			if (buf2hex(byteArray.slice(0x00, 0x01)) == 80) {
-
-				boot = "BIG ENDIAN (*.Z64)";
-				//Internal name
-				name = str.slice(32, 59);
-				//Cart ID
-				cid = str.slice(59,63);				
-				//Game Media/Category Code
-				gmedia = cid[0];
-				//Unique Game ID
-				gid = cid[1]+cid[2];
-				//0x04 - 0x08 = Advanced Homebrew ROM Header\\
-				if (cid[1]+cid[2] == "ED"){
+				boot = "BIG ENDIAN (*.Z64)"; //ROM Type
+				name = str.slice(32, 59); //Internal name
+				cid = str.slice(59,63);	//Cart ID		
+				gmedia = cid[0]; //Game Media/Category Code
+				gid = cid[1]+cid[2];//Unique Game ID
+				if (cid[1]+cid[2] == "ED"){ //0x04 - 0x08 = Advanced Homebrew ROM Header
 					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> ADVANCED HOMEBREW<br>";
 				} else {
 					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> RETAIL/ROM HACK<br>";
 				}
-				//Region/Destination ID
-				rid = cid[3];
-				//Revision (from byte array)
-				gRev = byteArray.slice(0x3F, 0x40); 
+				rid = cid[3]; //Region/Destination ID
+				gRev = byteArray.slice(0x3F, 0x40); //Revision (from byte array)
 				//libultra version
 				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0E]).replace(/(.{1})/, '$1.') + hex2a(byteArray[0x0F]).toUpperCase() +"<br>";
 
@@ -80,17 +72,33 @@ function handleFileSelect(event) {
 				}
 				
 			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 37) {
-				boot = "BYTE SWAPPED (*.V64)";			
+				boot = "BYTE SWAPPED (*.V64)"; //ROM Type
 				name = str[33]+str[32]+str[35]+str[34]+str[37]+str[36]+str[39]+str[38]+str[41]+str[40]+str[43]+str[42]+str[45]+str[44]+str[47]+str[46]+str[49]+str[48]+str[51]+str[50]+str[53]+str[52]+str[55]+str[54]+str[57]+str[55];
 				cid = str[58]+str[61]+str[60]+str[63];
-				gRev = byteArray.slice(0x3E, 0x3F);
-				
+				gmedia = cid[0]; //Game Media/Category Code
+				gid = cid[1]+cid[2]; //Unique Game ID
+				if (cid[1]+cid[2] == "ED"){ //0x04 - 0x08 = Advanced Homebrew ROM Header
+					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> ADVANCED HOMEBREW<br>";
+				} else {
+					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> RETAIL/ROM HACK<br>";
+				}
+				//libultra version
+				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0F]).replace(/(.{1})/, '$1.') + hex2a(byteArray[0x0E]).toUpperCase() +"<br>";
+
 			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 40) {
-				boot = "LITTLE ENDIAN (*.N64)";
+				boot = "LITTLE ENDIAN (*.N64)"; //ROM Type
 				name = str[35]+str[34]+str[33]+str[32]+str[39]+str[38]+str[37]+str[36]+str[43]+str[42]+str[41]+str[40]+str[47]+str[46]+str[45]+str[44]+str[51]+str[50]+str[49]+str[48];
 				cid = str[56]+str[63]+str[62]+str[61];
-				gRev = byteArray.slice(0x3C, 0x3D);
-			
+				gmedia = cid[0]; //Game Media/Category Code
+				gid = cid[1]+cid[2]; //Unique Game ID
+				if (cid[1]+cid[2] == "ED"){ //0x04 - 0x08 = Advanced Homebrew ROM Header
+					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> ADVANCED HOMEBREW<br>";
+				} else {
+					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> RETAIL/ROM HACK<br>";
+				}
+				//libultra version
+				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0D]).replace(/(.{1})/, '$1.') + hex2a(byteArray[0x0C]).toUpperCase() +"<br>";
+				
 			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 12) {
 				boot = "BYTESWAPPED (V64) + WORDSWAPPED (N64)";
 			}
@@ -202,9 +210,8 @@ function handleFileSelect(event) {
 					cic = "UNKNOWN (HASH: "+firstMB.toUpperCase()+")";
 			};
 			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> " + cic.toUpperCase()+"<br>";
-
-			cleanROM();
-			function cleanROM(){
+			
+			//CLEAN ROM CHECK (SHA1)			
 			 if (boot.includes("Z64")){
 				fetch('z64.sha1')
 				.then(response => {
@@ -216,9 +223,7 @@ function handleFileSelect(event) {
 					for (i = 0; i < data.length; i++){
 						if (sha1check[i].includes(hash2)){
 							document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
-							break;
-						} else {
-						}
+						}					
 					}
 					});
 				} else if (boot.includes("V64")){
@@ -237,8 +242,9 @@ function handleFileSelect(event) {
 							}
 						}
 						});
+				} else {
+					document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: red';> UNVERIFIED</span><br>";
 				}
-			}
 			
 			const fileType = file.name.split('.').pop().toLowerCase();
 			const options = document.getElementById('conversionOptions');
@@ -247,11 +253,11 @@ function handleFileSelect(event) {
 					options.innerHTML += '<option value="bigToLittle" title="*.z64 to *.n64">Z64 -> N64</option>';
 					options.innerHTML += '<option value="bigToByteSwapped" title="*.z64 to *.v64">Z64 -> V64</option>';
 				} else if (fileType === 'n64') {
-					options.innerHTML += '<option value="littleToBig" title="*.n64 to *.z64">Little-Endian to Big-Endian</option>';
-					options.innerHTML += '<option value="littleToByteSwapped" title="*.n64 to *.v64">Little-Endian to Byte-Swapped</option>';
+					options.innerHTML += '<option value="littleToBig" title="*.n64 to *.z64">N64 -> Z64</option>';
+					options.innerHTML += '<option value="littleToByteSwapped" title="*.n64 to *.v64">N64 -> V64</option>';
 				} else if (fileType === 'v64') {
-					options.innerHTML += '<option value="byteSwappedToBig" title="*.v64 to *.z64">Byte-Swapped to Big-Endian</option>';
-					options.innerHTML += '<option value="byteSwappedToLittle" title="*.v64 to *.n64">Byte-Swapped to Little-Endian</option>';
+					options.innerHTML += '<option value="byteSwappedToBig" title="*.v64 to *.z64">V64 -> Z64</option>';
+					options.innerHTML += '<option value="byteSwappedToLittle" title="*.v64 to *.n64">V64 -> N64</option>';
 				}
 			document.getElementById('options').style.display = 'block';
 	}
@@ -422,7 +428,7 @@ function hex2a(hexx) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.1.0</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.2.0</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
