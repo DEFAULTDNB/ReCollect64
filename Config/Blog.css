@@ -320,6 +320,9 @@ a .btn {
 .audio {
 	background-image: linear-gradient(to bottom, darkviolet, darkmagenta);
 }
+.artificial {
+	background-image: linear-gradient(to bottom, red, red);
+}
 .tech {
 	background-image: linear-gradient(to bottom, navy, cyan);
 }
