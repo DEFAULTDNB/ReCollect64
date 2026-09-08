@@ -65,11 +65,11 @@ function handleFileSelect(event) {
 				//alert(buf2hex(byteArray))
 				//alert(byteArray.slice(0x34, 0x3C))
 				
-				if (byteArray.slice(0x04, 0x08) == "3,160,127,95") { //LRG SWSOTE REV3
-					document.getElementById("result").innerHTML += "<span id='label1'>[INFO]:</span> 'STAR WARS - SHADOWS OF THE EMPIRE (U) (REV 3) (LRG)'<br>";
-				} else if (byteArray[0x08] == "15"){
-					alert("what is this")
-				}
+				//if (byteArray.slice(0x04, 0x08) == "3,160,127,95") { //LRG SWSOTE REV3
+					//document.getElementById("result").innerHTML += "<span id='label1'>[INFO]:</span> 'STAR WARS - SHADOWS OF THE EMPIRE (U) (REV 3) (LRG)'<br>";
+				//} else if (byteArray[0x08] == "15"){
+					//alert("what is this")
+				//}
 				
 			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 37) {
 				boot = "BYTE SWAPPED (*.V64)"; //ROM Type
@@ -165,7 +165,7 @@ function handleFileSelect(event) {
 			document.getElementById("result").innerHTML += "<span id='label1'>[SH1]:</span> " + hash2.toUpperCase()+"<br>";
 			document.getElementById("result").innerHTML += "<span id='label1'>[CRC]:</span> " + hash3.toString(16).padStart(8, '0').toUpperCase()+"<br>";			
 			switch (true)  {
-				case ((/955894C2E40A698BF98A67B78A4E28FA/i.test(firstMB.toUpperCase()))||(/e01a02379886f2a90d6d4859e75c4f8a/i.test(firstMB.toUpperCase()))||(/baff2496776653d7952656dc914f52eb/i.test(firstMB.toUpperCase()))):
+				case ((/900B4A5B68EDB71F4C7ED52ACD814FC5/i.test(firstMB.toUpperCase()))||(/955894C2E40A698BF98A67B78A4E28FA/i.test(firstMB.toUpperCase()))||(/e01a02379886f2a90d6d4859e75c4f8a/i.test(firstMB.toUpperCase()))||(/baff2496776653d7952656dc914f52eb/i.test(firstMB.toUpperCase()))):
 						switch (cid[3]){
 						case "A": case "E": case "J": cic = "6101"; break;//Star Fox 64 NTSC
 						default:
@@ -199,7 +199,7 @@ function handleFileSelect(event) {
 						default:
 						cic = "7106";
 					}
-				break;
+				break;				
 				case ((/0E9C2FCD4E10B0272DC6F6DCD487F959/i.test(firstMB.toUpperCase()))): //Libdragon CIC?
 					cic = "HOMEBREW";
 				break;
@@ -211,8 +211,11 @@ function handleFileSelect(event) {
 			};
 			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> " + cic.toUpperCase()+"<br>";
 			
-			//CLEAN ROM CHECK (SHA1)			
-			 if (boot.includes("Z64")){
+			//CLEAN ROM CHECK (SHA1)
+
+			//.match(/cartridge/gi)
+			
+			if (boot.includes("Z64")){
 				fetch('z64.sha1')
 				.then(response => {
 					return response.text();
@@ -223,9 +226,10 @@ function handleFileSelect(event) {
 					for (i = 0; i < data.length; i++){
 						if (sha1check[i].includes(hash2)){
 							document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
-						}					
+						}				
 					}
 					});
+					
 				} else if (boot.includes("V64")){
 					fetch('v64.sha1')
 					.then(response => {
@@ -237,14 +241,28 @@ function handleFileSelect(event) {
 						for (i = 0; i < data.length; i++){
 							if (sha1check[i].includes(hash2)){
 								document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
-								break;
-							} else {
 							}
 						}
 						});
-				} else {
-					document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: red';> UNVERIFIED</span><br>";
-				}
+						
+				} else if (boot.includes("N64")){
+					fetch('n64.sha1')
+					.then(response => {
+						return response.text();
+					})
+					.then(data => {
+						let sha1check = data.split("\n");
+						
+						for (i = 0; i < data.length; i++){
+							if (sha1check[i].toLowerCase().includes(hash2)){
+								document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
+							}
+						}
+						});
+						
+				//} else {
+					//document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: red';> UNVERIFIED</span><br>";
+			}
 			
 			const fileType = file.name.split('.').pop().toLowerCase();
 			const options = document.getElementById('conversionOptions');
@@ -428,7 +446,7 @@ function hex2a(hexx) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.2.0</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.2.1</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
