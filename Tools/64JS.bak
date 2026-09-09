@@ -82,6 +82,7 @@ function handleFileSelect(event) {
 				} else {
 					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> RETAIL/ROM HACK<br>";
 				}
+				gRev = byteArray.slice(0x3E, 0x3F); //Revision (from byte array)
 				//libultra version
 				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0F]).replace(/(.{1})/, '$1.') + hex2a(byteArray[0x0E]).toUpperCase() +"<br>";
 
@@ -96,6 +97,7 @@ function handleFileSelect(event) {
 				} else {
 					document.getElementById("result").innerHTML += "<span id='label1'>[HEADER]:</span> RETAIL/ROM HACK<br>";
 				}
+				gRev = byteArray.slice(0x3C, 0x3D); //Revision (from byte array)
 				//libultra version
 				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0D]).replace(/(.{1})/, '$1.') + hex2a(byteArray[0x0C]).toUpperCase() +"<br>";
 				
@@ -212,70 +214,31 @@ function handleFileSelect(event) {
 			document.getElementById("result").innerHTML += "<span id='label1'>[CIC]:</span> " + cic.toUpperCase()+"<br>";
 			
 			//CLEAN ROM CHECK (SHA1)
-
-			//.match(/cartridge/gi)
-			
-			if (boot.includes("Z64")){
-				fetch('z64.sha1')
+			fetch(boot.slice(boot.indexOf(".")+1, boot.lastIndexOf(")")).toLowerCase()+'.sha1')
 				.then(response => {
 					return response.text();
 				})
 				.then(data => {
 					let sha1check = data.split("\n");
-					
 					for (i = 0; i < data.length; i++){
-						if (sha1check[i].includes(hash2)){
+						if (sha1check[i].toLowerCase().includes(hash2)){
 							document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
 						}				
 					}
 					});
 					
-				} else if (boot.includes("V64")){
-					fetch('v64.sha1')
-					.then(response => {
-						return response.text();
-					})
-					.then(data => {
-						let sha1check = data.split("\n");
-						
-						for (i = 0; i < data.length; i++){
-							if (sha1check[i].includes(hash2)){
-								document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
-							}
-						}
-						});
-						
-				} else if (boot.includes("N64")){
-					fetch('n64.sha1')
-					.then(response => {
-						return response.text();
-					})
-					.then(data => {
-						let sha1check = data.split("\n");
-						
-						for (i = 0; i < data.length; i++){
-							if (sha1check[i].toLowerCase().includes(hash2)){
-								document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: lime';> VERIFIED</span><br>";
-							}
-						}
-						});
-						
-				//} else {
-					//document.getElementById("result").innerHTML += "<span id='label1'>[CLEAN ROM]:</span> <span style='color: red';> UNVERIFIED</span><br>";
-			}
-			
 			const fileType = file.name.split('.').pop().toLowerCase();
 			const options = document.getElementById('conversionOptions');
 			options.innerHTML = '';
 				if (fileType === 'z64') {
-					options.innerHTML += '<option value="bigToLittle" title="*.z64 to *.n64">Z64 -> N64</option>';
-					options.innerHTML += '<option value="bigToByteSwapped" title="*.z64 to *.v64">Z64 -> V64</option>';
+					options.innerHTML += '<option value="bigToLittle">Z64 -> N64</option>';
+					options.innerHTML += '<option value="bigToByteSwapped">Z64 -> V64</option>';
 				} else if (fileType === 'n64') {
-					options.innerHTML += '<option value="littleToBig" title="*.n64 to *.z64">N64 -> Z64</option>';
-					options.innerHTML += '<option value="littleToByteSwapped" title="*.n64 to *.v64">N64 -> V64</option>';
+					options.innerHTML += '<option value="littleToBig">N64 -> Z64</option>';
+					options.innerHTML += '<option value="littleToByteSwapped">N64 -> V64</option>';
 				} else if (fileType === 'v64') {
-					options.innerHTML += '<option value="byteSwappedToBig" title="*.v64 to *.z64">V64 -> Z64</option>';
-					options.innerHTML += '<option value="byteSwappedToLittle" title="*.v64 to *.n64">V64 -> N64</option>';
+					options.innerHTML += '<option value="byteSwappedToBig">V64 -> Z64</option>';
+					options.innerHTML += '<option value="byteSwappedToLittle">V64 -> N64</option>';
 				}
 			document.getElementById('options').style.display = 'block';
 	}
@@ -446,7 +409,7 @@ function hex2a(hexx) {
 </script>
 <center>
 <p></p>
-<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.2.1</span><span style="color:red;">]</span></div>
+<div id="footer" class="footer" style="color:silver;"><span style="color:red;">[</span>DEFAULTDNB 2026 </span><span style="color:lime;">V4.3</span><span style="color:red;">]</span></div>
 </center>
 </body>
 </html>
