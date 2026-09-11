@@ -78,7 +78,7 @@ function handleFileSelect(event) {
 				}
 				gRev = byteArray.slice(0x3E, 0x3F); //Revision (from byte array)
 				//libultra version
-				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0E]).replace(/(.{1})/, '$1.') + hex2a(buf2hex(byteArray.slice(0x0F, 0x10))).toUpperCase() +"&nbsp;&nbsp;";
+				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0F]).replace(/(.{1})/, '$1.') + hex2a(buf2hex(byteArray.slice(0x0E, 0x0F))).toUpperCase() +"&nbsp;&nbsp;";
 
 			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 40) {
 				boot = "LITTLE ENDIAN (*.N64)"; //ROM Type
@@ -93,7 +93,7 @@ function handleFileSelect(event) {
 				}
 				gRev = byteArray.slice(0x3C, 0x3D); //Revision (from byte array)
 				//libultra version
-				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0E]).replace(/(.{1})/, '$1.') + hex2a(buf2hex(byteArray.slice(0x0F, 0x10))).toUpperCase() +"&nbsp;&nbsp;";
+				document.getElementById("result").innerHTML += "<span id='label1'>[LIBULTRA]: </span>"+ String(byteArray[0x0D]).replace(/(.{1})/, '$1.') + hex2a(buf2hex(byteArray.slice(0x0C, 0xD))).toUpperCase() +"&nbsp;&nbsp;";
 				
 			} else if (buf2hex(byteArray.slice(0x00, 0x01)) == 12) {
 				boot = "BYTESWAPPED (V64) + WORDSWAPPED (N64)";
