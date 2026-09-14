@@ -410,3 +410,4 @@ Blog/Features/2026/CZ64/b408.html
 Blog/Features/2026/Misc/b409.html
 Blog/Features/2026/Misc/b410.html
 Blog/Features/2026/Misc/b411.html
+Blog/Features/2026/DoomRPG/b412.html

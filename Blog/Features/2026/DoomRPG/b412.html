@@ -1,0 +1,59 @@
+<div id="b412" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Doom RPG N64 Port</span></h2>
+	<h5 class="subtitle">Port by BigChat88 ~ Sep 14, 2026</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2026/DoomRPG/0.jpg'); background-position: bottom; background-size: 100%; image-rendering: smooth;"><div class="overlaytext">Doom RPG N64 Port</div></div>
+	<h4>RPG: Role Playing Guns</h4>
+	<div class="titleUnderline"></div>
+	<p>Did you know that Doom was ported to mobile phones in 2005 but as turn-based role-playing game? Yes, during the pre-iPhone era which was dominated by Nokia and their Symbian OS, id Software's classic FPS Doom was given the RPG treatment in order to have some presence on the platform. The BREW Mobile platform version featured superior graphics over the typical Java (J2ME) version, which included extra lighting effects, more textures, advanced animation, and real audio clips as opposed to MIDI.</p>
+	<p>BigChat88, with the help of AI, has built a tool that automatically converts the BAR format homebrew file into the z64 format with the help of our favourite open-source SDK, <a href="https://github.com/DragonMinded/libdragon">Libdragon</a>. BigChat88's previous project, <a href="https://github.com/BigChat88/N64VideoGenerator">N64VideoGenerator</a>, also deploys AI to convert movie files into natively playable N64 videos according to the same SDK's audio and video decoding API's.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/DoomRPG/1.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/DoomRPG/1.png" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/DoomRPG/2.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/DoomRPG/2.png" width="40%" style="padding:auto"/></a>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p><b>Doom RPG N64 Port</b></p>
+	<p>A Nintendo 64 (libdragon) port of Doom RPG, plus a tool that turns your own copy of the original BREW game into a runnable .z64.</p>
+	<p>No copyrighted game data is in this repository. You supply your own doomrpg.zip; the tool decodes it and builds the ROM.</p>
+	<p>The doomrpg.zip you need</p>
+	<p>The BREW build of Doom RPG — the 2005 mobile game by JAMDAT / id Software / EA (BREW, not the Java/J2ME version). You must own it; it is not distributed here.</p>
+	<p>The build accepts, dropped into input/:</p>
+	<p>+ doomrpg.zip — how the game is usually found: a ZIP that contains doomrpg.bar (any casing) somewhere inside.</p>
+	<p>+ doomrpg.bar — the raw BREW asset archive itself.</p>
+	<p>A valid .bar holds gzip members named entities.db, sintable.bin, palettes.bin, mappings.bin, bitshapes.bin, wtexels.bin, stexels.bin, every *.bsp map (intro, junction, level01…level07, reactor, menu, …), the menu *.bmp images, help.txt, and ~95 PMD sound resources. The builder fails early with a clear message if the file is not a Doom RPG .bar.</p>
+	<p><b>What do you need</b></p>
+	<p>Python 3.8+ on your PATH (python --version).</p>
+	<p>Your own doomrpg.zip (or doomrpg.bar) — see the section above.</p>
+	<p>ffmpeg and fluidsynth on your PATH. They render the three BREW MIDI tracks (intro / menu / in-game) into the ROM.</p>
+	<p><b>Installing FFmpeg on Windows</b></p>
+	<p>Easiest, with a package manager (run in PowerShell/Terminal):</p>
+	<p>+ winget install Gyan.FFmpeg  — or —  choco install ffmpeg-full</p>
+	<p>+ Open a new terminal afterwards so the updated PATH takes effect.</p>
+	<p>Manual: download a build from gyan.dev (get "ffmpeg-release-full") or BtbN/FFmpeg-Builds, unzip it somewhere permanent (e.g. C:\ffmpeg), then add the bin folder (C:\ffmpeg\bin, the one containing ffmpeg.exe and ffprobe.exe) to your PATH: Start → "Edit the system environment variables" → Environment Variables → select Path → Edit → New.</p>
+	<p>Verify: open a new terminal and run ffmpeg -version and ffprobe -version.</p>
+	<p><b>Installing FluidSynth on Windows</b></p>
+	<p>Easiest, with a package manager (run in PowerShell/Terminal):</p>
+	<p>+ winget install FluidSynth.FluidSynth  — or —  choco install fluidsynth</p>
+	<p>+ Open a new terminal afterwards so the updated PATH takes effect.</p>
+	<p>Manual: download the latest fluidsynth-*-win10-x64.zip from FluidSynth releases, unzip it somewhere permanent (e.g. C:\fluidsynth), then add its bin folder (C:\fluidsynth\bin, the one containing fluidsynth.exe and the libfluidsynth-*.dll) to your PATH: Start → "Edit the system environment variables" → Environment Variables → select Path → Edit → New.</p>
+	<p>Verify: open a new terminal and run fluidsynth --version.</p>
+	<p><b>How to Build</b></p>
+	<p>Put your doomrpg.zip (or doomrpg.bar) in input/.</p>
+	<p>Run the builder:</p>
+	<p>+ Windows: double-click build.cmd (or run it from a terminal).</p>
+	<p>+ Any platform: python app/build_rom.py</p>
+	<p>Wait for OK -> output/doomrpg.z64. That file is your ROM — run it in an emulator or flash it to an EverDrive-64.</p>
+	<p>Extra flags pass straight through, e.g. build.cmd --no-audio for a fast silent ROM or build.cmd --soundfont "C:\path\to\GM.sf2". See python app/build_rom.py --help or app/README.md for every option.</p>
+	<p><b>Acknowledgements</b></p>
+	<p>Huge thanks to Erick194 for DoomRPG-RE — the from-scratch reverse-engineered source port of Doom RPG. This project vendors that engine (upstream 8ff35da, GPL-3.0) essentially unmodified and simply gives it a Nintendo 64 backend; without that work none of this would exist.</p>
+	<p>Thanks also to the libdragon team for the open-source N64 SDK, and to id Software / JAMDAT / EA for the original 2005 game.</p>
+	<p><b>AI Note</b></p>
+	<p>The application was developed using AI. I'm just an enthusiast who wanted to create interesting projects. In this case, how it was achieved is not relevant to me.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p>In order to try this game for yourself, you will need to download the latest DoomRPGPort build from the GitHub link below as well as the Doom RPG brew zip, which can be found on <a href="https://archive.org/download/doomrpg_brew/">Archive.org</a>. Place the zip in the input folder, run the build.bat file, and after a minute or two, you will find a 10.5 MB *.z64 file with the MD5: 8DF345D0E38A4884BDBD45E52C87DB18, ready to play on the <a href="https://ares-emu.net/">Ares emulator</a> or real hardware via a flashcart.</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/BigChat88/N64DoomRPGPort">BigChat88 GitHub</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/BigChat88/N64DoomRPGPort/releases/">Doom RPG Download</a></p>
+	<p class="subtitle"><i class="fa-brands fa-reddit"></i>&nbsp;<a href="https://www.reddit.com/r/n64/comments/1wcr28f/doom_rpg_64_port/">Source</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
