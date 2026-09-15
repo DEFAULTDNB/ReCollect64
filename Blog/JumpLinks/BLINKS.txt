@@ -414,3 +414,4 @@ Blog/Features/2026/DoomRPG/b412.html
 Blog/Features/2026/Misc/b413.html
 Blog/Features/2026/GTAN64/b414.html
 Blog/Features/2026/SleekMenu64/b415.html
+Blog/Features/2026/SC64ROTV/b416.html
