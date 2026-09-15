@@ -1,0 +1,57 @@
+<div id="b415" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">SleekMenu 64 Released</span></h2>
+	<h5 class="subtitle">Built By CathodeJay & AI ~ Sep 15, 2026</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2026/SleekMenu64/2.png'); background-position: center; background-size: 100%; image-rendering: smooth;"><div class="overlaytext">SleekMenu 64 Released</div></div>
+	<h4>Python Power</h4>
+	<div class="titleUnderline"></div>
+	<p>Today I have learned that another N64 menu is in development for our Nintendo 64 flashcarts. This time the author CathodeJay, with the assistance of AI, has made an N64 ROM that runs alongside any other menu and loads ROMs with box art and metadata, has three views, cheats,  and a handy category filter system.</p>
+	<p>In order to fully set this game browser up, you will need to use <a href="https://www.python.org/">Python 3.9 (or higher)</a> and <a href="https://pypi.org/project/pillow/">Pillow</a>, as well as the <a href="https://github.com/n64-tools/n64-flashcart-menu-metadata/releases">N64-Flashcart-Menu-Metadata</a> file to build your library. Follow the instructions below for more details:</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/SleekMenu64/1.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/SleekMenu64/1.png" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/SleekMenu64/2.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/SleekMenu64/2.png" width="40%" style="padding:auto"/></a>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p><b>SleekMenu 64</b></p>
+	<p>A game browser for the EverDrive-64. It is an ordinary N64 ROM that you start from the EverDrive's own menu: it shows your library with box art, genres, descriptions and filters, and boots the game you pick. The EverDrive's menu stays where it is — SleekMenu sits beside it on the card, and a reset or a power cycle brings the stock menu back.
+	<p>Works on the EverDrive-64 X7 and the EverDrive-64 Pro with one and the same ROM. Saves go to the same ED64/gamedata/ folder the stock menu uses, so a game started from either menu carries its save into the other.
+	<p><b>What you need</b></p>
+	<p>An EverDrive-64 X7 (OS 3.11) or an EverDrive-64 Pro, with your ROMs in a ROMS folder on the card, in any sub-folders you like.</p>
+	<p>A computer with Python 3.9 or newer and Pillow (pip install Pillow) to prepare the card. No compiler, no toolchain.</p>
+	<p><b>Install</b></p>
+	<p>1. Get the two release files from this project's releases page:</p>
+	<p>SleekMenu64.z64 — the browser</p>
+	<p>sleekmenu-prep.pyz — the tool that builds the catalog and the covers</p>
+	<p>2. Get the box art and descriptions. Download release-metadata.zip from the n64-flashcart-menu-metadata releases. It is a public-domain collection of box scans and descriptions for every cartridge, shared with other N64 menus. SleekMenu ships none of it and never downloads anything itself.</p>
+	<p>3. Copy the three files to the root of the card, next to ROMS:</p>
+	<p>/SleekMenu64.z64</p>
+	<p>/sleekmenu-prep.pyz</p>
+	<p>/release-metadata.zip</p>
+	<p>/ROMS/...</p>
+	<p>4. Run the tool from the card. It takes no arguments; running it from the card is how it knows where the card is.</p>
+	<p>cd /Volumes/CARD          # or wherever the card is mounted</p>
+	<p>python3 sleekmenu-prep.pyz</p>
+	<p>It reads every ROM, matches each one to its box and description, and writes sleekmenu/catalog.ebc and sleekmenu/covers.pak beside itself. A card of three thousand games takes under a minute. Run it again whenever you add games.</p>
+	<p>5. Eject the card, put it in the cart, and start SleekMenu64.z64 from the EverDrive menu. Press A on a game for its details, Start to play. To get back to the EverDrive menu, reset the console.</p>
+	<p>What the tool writes, and what it leaves alone:</p>
+	<p>/sleekmenu/catalog.ebc     titles, genre, publisher, year, descriptions</p>
+	<p>/sleekmenu/covers.pak      every cover in one file</p>
+	<p>/sleekmenu/favorites.txt   written by the browser as you star games</p>
+	<p>/sleekmenu/history.txt     the last fifteen games you launched</p>
+	<p>/sleekmenu/cheats.txt      which cheats are on, per game</p>
+	<p>/ED64/gamedata/            saves, shared with the EverDrive menu — never touched</p>
+	<p>Both the catalog and the covers are optional: with no catalog the browser scans the card and shows filenames, with no covers it draws a placeholder. The tool never moves, renames or deletes anything on the card.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center
+		<a title="" href="" onclick="window.open('Blog/Features/2026/SleekMenu64/3.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/SleekMenu64/3.png" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/SleekMenu64/4.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/SleekMenu64/4.png" width="40%" style="padding:auto"/></a>
+	</center>
+	<h4>Intuitive After Install</h4>
+	<div class="titleUnderline"></div>
+	<p>Controlling the menu is simple. The A button opens a folder or shows a game's details; the B button goes back; the C-left/C-right buttons select tabs; C-up changes views (list, cover flow or grid); the shoulder buttons jump to the previous/next letter; the Start button starts a game, and the  trigger shows details and allows filtering. All the rest of the navigation is controller by the D-pad or the analogue stick.</p>  
+	<p>The main feature here is that this menu is compatible with all major flashcarts, can handle libraries of over 3,400 games, and though the set up is a little finnicky (essentially install Python and run the PYZ file), it is entirely optional. You could just whack this on an existing EverDrive or SummerCart set up, run the SleekMenu 64 ROM and enjoy browsing from there, but I would advise the use of the meta data pack for best results. Setting this ROM to auto boot on start up also gives the feeling of a complete menu replacement if you're brave enough, but regardless, everything is easily reversable and will not mess with existing installations.</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/CathodeJay/sleekmenu64">SleekMenu 64 GitHub</a></p>
+	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://krikzz.com/forum/index.php?topic=14237.0">Source</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
