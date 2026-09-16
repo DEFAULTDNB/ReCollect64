@@ -1,0 +1,32 @@
+<div id="b417" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">SummerCart64: Save States & More</span></h2>
+	<h5 class="subtitle">Modded by John Steinmeyer ~ Sep 17, 2026</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2026/SC64SAVESTATES/0.png'); background-position: top; background-size: 100%; image-rendering: smooth;"><div class="overlaytext">SummerCart64: Save States!</div></div>
+	<h4>Saving Your States</h4>
+	<div class="titleUnderline"></div>
+	<p>The Nintendo 64 is not a modern console by any stretch, so the news that modern features such as save states have been made a reality on the console is nothing short of mind blowing.</p>
+	<p>By leveraging the added memory of an Expansion Pak, John Steinmeyer has managed to eke out save states, a virtual Controller Pak, suspend/resume and slow motion for the SummerCart64, by modifying the hugely successful open-source <a href="https://menu.summercart64.dev/">N64 Flashcart Menu</a>.</p>
+	<center>
+		<iframe id="" class="video" src="https://www.youtube.com/embed/yBQcb5c4tq0"></iframe>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p><b>This fork adds, for the SummerCart64:</b></p>
+	<p>+ Save states. Hold L + R + D-pad Up in a game to save, L + R + D-pad Down to load, L + R + Start for a slot panel with thumbnails; states persist on the SD card. Nothing stays resident in the console's memory, so games that use the whole Expansion Pak work too.</p>
+	<p>+ A virtual Controller Pak (memory pak). A game that uses one gets a pak that lives on the SD card, whether or not a real one is plugged in; on by default for the games known to use one.</p>
+	<p>+ Suspend and resume. Suspend a game to a slot from the panel and switch the console off; the next launch of that game picks up where you left it.</p>
+	<p>+ Slow motion and frame step, as a per-game option.</p>
+	<p>NOTE: It needs an Expansion Pak and works with 276 of the 298 games tested so far.</p>
+	<p><b>What you need:</b></p>
+	<p>+ A SummerCart64.</p>
+	<p>+ An Expansion Pak. The top 128 KiB of it is the working room the routine borrows during a save or a load (and gives back, byte for byte, before the game runs again), so states are not possible on a 4 MiB console.</p>
+	<p>+ ROMs up to 48 MiB. The states are kept in the cartridge memory above the ROM; the bigger the ROM, the fewer slots fit, and a 64 MiB ROM leaves no room at all (the option refuses to switch on for those, and such a game gets no virtual pak either).</p>
+	<p>+ Free space on the SD card: about 8 MiB per slot per game, allocated the first time a game boots with save states on (48 MiB for a game with six slots), and 32 KiB per game for its virtual pak.</p>
+	<p><b>How to use:</b></p>
+	<p>+ Select ROM, open options, choose save states and toggle enable.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p>I will be testing this in the coming days and will update this article with my findings!</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/john-steinmeyer/sc64-savestates">SC64 Savestates GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
