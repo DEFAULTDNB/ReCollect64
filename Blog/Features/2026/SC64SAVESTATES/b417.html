@@ -12,7 +12,7 @@
 	<div class="container">
 	&nbsp;<i class="fa-solid fa-quote-left"></i>
 	<p><b>This fork adds, for the SummerCart64:</b></p>
-	<p>+ Save states. Hold L + R + D-pad Up in a game to save, L + R + D-pad Down to load, L + R + Start for a slot panel with thumbnails; states persist on the SD card. Nothing stays resident in the console's memory, so games that use the whole Expansion Pak work too.</p>
+	<p>+ Save states. Hold L + R + D-pad Up in a game to save, L + R + D-pad Down to load, <b>R + Z + Start</b> for a slot panel with thumbnails; states persist on the SD card. Nothing stays resident in the console's memory, so games that use the whole Expansion Pak work too.</p>
 	<p>+ A virtual Controller Pak (memory pak). A game that uses one gets a pak that lives on the SD card, whether or not a real one is plugged in; on by default for the games known to use one.</p>
 	<p>+ Suspend and resume. Suspend a game to a slot from the panel and switch the console off; the next launch of that game picks up where you left it.</p>
 	<p>+ Slow motion and frame step, as a per-game option.</p>
@@ -27,6 +27,7 @@
 	<i class="fa-solid fa-quote-right"></i>
 	</div>
 	<p>I will be testing this in the coming days and will update this article with my findings!</p>
+	<hr>
 	<div class="info">
 		<p><strong>UPDATE:</strong> 17/09/2026 - Having given this a full testing this morning here are my results:</p>
 		<p><b>OG N64 Hardware:</b></p>
@@ -35,6 +36,19 @@
 		<p>Save/load states and the save state menu work perfectly but using virtual controller pak doesn't seem to register anything at all.</p>		
 		<p><b>M64:</b></p>
 		<p>Neither save states nor virtual controller pak works, which is unfortunate because this could have seriously bridged the gap for virtual controller pak support that remains missing from the official firmware.</p>
+	</div>
+	<hr>
+	<div class="info">
+		<p><strong>UPDATE:</strong> 18/09/2026 - 1.2 has been released with some changes and new features:</p>
+		<p>The GUI panel hotkeys are <b>R + Z + Start</b> now.</p>
+		<p>Save states for libdragon homebrew. I've tested about forty ROMs: FlappyBird, Kraken64, Legend of Elya, Junk Runner 64, Cathode Quest 64, VoidStrider64, Driving Strikers 64, nineteen of the N64brew Game Jam 2025 entries and most of the SDK examples. Games with the pre-2023 entry code run without the routine.</p>
+		<p>The virtual Controller Pak's port is yours to pick (Port 1 to 4, or Off), and the panel can pull the pak out and put it back in any port mid-game. Beetle Adventure Racing gets its Controller Pak for saving and its Rumble Pak for racing that way, and Perfect Dark takes a Rumble Pak in port 1 with the pak in port 2.</p>
+		<p>Hotkeys are configurable, one button or more each, for all games or per game.</p>
+		<p>Screenshot button, per game. A tap writes a PNG to sd:/screenshots/<game>/. Hundreds per launch.</p>
+		<p>Frame step without the lag: one press, one frame. Hold to step ten a second.</p>
+		<p>The image viewer steps through a folder, the file browser previews images, and a background image fills the screen.</p>
+		<p>Slow motion is refused for the four games that use all of the Expansion Pak, since they never booted with it on.</p>
+		<p>Fixes: the panel in interlaced modes, a hotkey tap leaking to the game, the RDP's pipe-busy flag blocking saves, games that poll a masked interrupt, resuming on the vblank, a state saved with Slow motion off not loading after a power cycle with it on, and a few libdragon ones. The changelog has the full list.</p>
 	</div>
 	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/john-steinmeyer/sc64-savestates">SC64 Savestates GitHub</a></p>
 	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
