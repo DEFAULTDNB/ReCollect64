@@ -1,5 +1,5 @@
 <div id="b415" class="card">
-	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">SleekMenu 64 Released</span></h2>
+	<h2><span class="badge new">UPDATED</span> <span class="title">SleekMenu 64 Released</span></h2>
 	<h5 class="subtitle">Built By CathodeJay & AI ~ Sep 15, 2026</h5>
 	<div class="bgChat" style="background-image:url('Blog/Features/2026/SleekMenu64/2.png'); background-position: center; background-size: 100%; image-rendering: smooth;"><div class="overlaytext">SleekMenu 64 Released</div></div>
 	<h4>Python Power</h4>
@@ -51,6 +51,28 @@
 	<div class="titleUnderline"></div>
 	<p>Controlling the menu is simple. The A button opens a folder or shows a game's details; the B button goes back; the C-left/C-right buttons select tabs; C-up changes views (list, cover flow or grid); the shoulder buttons jump to the previous/next letter; the Start button starts a game, and the  trigger shows details and allows filtering. All the rest of the navigation is controller by the D-pad or the analogue stick.</p>  
 	<p>The main feature here is that this menu is compatible with all major flashcarts, can handle libraries of over 3,400 games, and though the set up is a little finnicky (essentially install Python and run the PYZ file), it is entirely optional. You could just whack this on an existing EverDrive or SummerCart set up, run the SleekMenu 64 ROM and enjoy browsing from there, but I would advise the use of the meta data pack for best results. Setting this ROM to auto boot on start up also gives the feeling of a complete menu replacement if you're brave enough, but regardless, everything is easily reversable and will not mess with existing installations.</p>
+	<div class="info">
+		<p><strong>UPDATE:</strong> 21/09/2026 - V1.1 has been released with the following updates and fixes:</p>
+		<p>Games are found anywhere on the card, not only in ROMS/ (or pick one folder in the GUI and sleekmenu64 will remember it)</p>
+		<p>- Hacks that black-screened should now boot: the header checksum is fixed at launch, like the EverDrive menu does</p>
+		<p>- Games with special characters  in their name (Pokémon…) showed up twice with weird characters and wouldn't start if the card was prepared on a Mac</p>
+		<p>- Long descriptions now scroll instead of being cut off (you can also use the d-pad to scroll manually)</p>
+		<p>- X7: games that use the clock (Animal Forest) get it set at launch. Thanks TheDiscordian for the PR!
+		<p><b>New: a prep app</b></p>
+		<p>Preparing the card used to mean running a Python script in a terminal. Now there's an app for Mac (Apple silicon and Intel), Windows and Linux, nothing to install:</p>
+		<p>- Pick your card, press Download (box art, first time only), then Prepare</p>
+		<p>- The Catalog tab shows your card the way the console will: every game with its box, genre, year, publisher…</p>
+		<p>- Search your library, and change any game's title, genre, publisher, year, players, region, description or box art. Save puts it on the card right away</p>
+		<p>- Added games? Prepare again. It only reads what changed, so it takes seconds It's not signed, so macOS and Windows will warn you the first time. The README says what to click.</p>
+		<p>* Note that the app is unsigned so it will raise a warning on Mac and Windows.</p>
+		<p><b>Other new features</b></p>
+		<p>- Start launches the game straight from the list, A still opens the details</p>
+		<p>- Box view: A on the details shows the box art full screen, with optional high-res boxes (must be downloaded using the GUI prep tool)</p>
+		<p>- Games you copied since the last prepare show up anyway and play (marked NOT IN CATALOG)</p>
+		<p>- Your own box art and metadata, handy for hacks and homebrew</p>
+		<p>- Version number on the start screen</p>
+	</div>
+	
 	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/CathodeJay/sleekmenu64">SleekMenu 64 GitHub</a></p>
 	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://krikzz.com/forum/index.php?topic=14237.0">Source</a></p>
 	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
