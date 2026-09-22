@@ -1,0 +1,71 @@
+<div id="b420" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Open M64: Custom Firmware WIP</span></h2>
+	<h5 class="subtitle">Created by Fulviov & AI ~ Sep 22, 2026</h5>
+	<div class="bgChat" style="background-color: rgba(21, 19, 17); background-image:url('Blog/Features/2026/OM64/0.png'); background-position: center; background-size: 100%; image-rendering: smooth;"><!--div class="overlaytext"></div--></div>
+	<h4>More Cores</h4>
+	<div class="titleUnderline"></div>
+	<p>ModRetro's divisive M64 has only been out since the end of July, but already people are working on open-source solutions to fix what some might consider to be a generally lacking firmware. The first notable CFW to step into the limelight has come from Fulviov of the MiSTer scene, who has openly employed AI to analyse and reverse engineer the <a href="https://cdn.shopify.com/s/files/1/0829/2034/1806/files/M64_MLB_SCH.pdf?v=1786637413">M64's recently published schematics</a> in order to begin building a fully featured multi-core firmware for the M64 console.</p>
+	<p>Fulviov, aka Retro Garage, will be giving a fully demonstrational livestream via <a href="https://www.youtube.com/c/PixelCherryNinja">Pixel Cherry Ninja's wonderful YouTube channel</a>, which I highly recommend you take a look at because if you're into FPGA and gaming across all platforms, he has virtually everything covered!</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p>Hi all, I’ve been working on OM64, an experimental replacement firmware for the ModRetro M64.</p>
+	<p>I started it because, while I really like the hardware, I wasn’t happy with the stock video quality and CRT filters, and once the schematics were published I figured: why not build an alternative firmware from scratch?</p>
+	<p>So far OM64 has a graphical loader with themes, 720p/1080p/4K output, buffered/low-latency/VRR video modes, Wi-Fi, OTA updates, Bluetooth gamepad support, and working Game Boy and SNES cores.</p>
+	<p>The N64 core is currently in development. The firmware is experimental, but it uses the same recovery mechanism as the official M64 site, so you should be able to return to stock if needed.</p>
+	<p>OM64 will also be open-source once the architecture and codebase are stable.</p>
+	<p>More info on my ko-fi.</p>
+	<p><b>We’ll be demoing OM64 live this Saturday on the Pixel Cherry Ninja channel: demos, video modes, cores, and probably a few things breaking in real time.</b></p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+	<video width="50%" height="auto" controls>
+		<source src="https://v.redd.it/taeyzjqegvqh1/CMAF_1080.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p><b>Open M64 Custom Firmware Features:</b></p>
+	<p>When I first learned about the M64, an FPGA-based console with some pretty impressive specs (and one that ModRetro has promised to fully open-source) I immediately ordered one to experiment with.</p>
+	<p>The console itself looks and feels great. What I wasn’t particularly impressed with, though, was the video quality. It seemed somewhat subpar, and the included CRT filters looked noticeably worse to me than what I was used to on MiSTer.</p>
+	<p>ModRetro promised to open-source both the schematics and firmware. The schematics are now available, but the firmware isn’t- at least not yet.</p>
+	<p>So I started wondering: why not build a custom open firmware from scratch, based on the published schematics?</p>
+	<p>And that’s how OM64 was born.</p>
+	<p>OM64 aims to be a full replacement for the stock M64 firmware. You can always go back to stock, of course, but ideally, you won’t need (or want) to. 🙂</p>
+	<p><b>The initial feature set includes:</b></p>
+    	<p>•    Fully graphical loader with skins and themes. The loader runs as a separate core, so it doesn’t eat into the FPGA resources available to the actual console cores.</p>
+    	<p>•    Multiple video output options. Choose between 720p, 1080p, and 4K, with Buffered, Low Latency, and VRR video modes.</p>
+    	<p>•    Wi-Fi networking. Including support for OTA updates.</p>
+    	<p>•    Bluetooth gamepads. Duh, obviously.</p>
+	<p>I’ve also ported a Gameboy and SNES core to test core switching and the platform in general.</p>
+	<p><b>The next core is, obviously, Nintendo 64: the one we all want and need for a console that is supposed to emulate, well... the N64.</b></p>
+	<p>That core is currently in development but should be ready soon.</p>
+	<p>In the meantime, I wanted to share what I’ve built so far, get it into more people’s hands, and hopefully collect some bug reports. Those are always appreciated.</p>
+	<p><b>Some questions you might have</b></p>
+	<p>Q: Can I go back to the stock firmware? Is this dangerous for my console?</p>
+	<p>A: First, the disclaimer: this is EXPERIMENTAL firmware. Treat it accordingly. I take no responsibility if it fries your M64, gives you diarrhea, or causes your cat to destroy your couch.</p>
+	<p>That said, OM64 uses the same recovery mechanism used by the official website to restore the console, so it should be safe. You should also be able to return to the stock firmware using the same recovery procedure.</p>
+	<p>Still: experimental firmware is experimental firmware. Proceed at your own risk.</p>
+	<p>Q: Is OM64 going to be fully open-source?</p>
+	<p>A: Eventually, yes. (that’s what the O stands for 😀)</p>
+	<p>Right now I’m cleaning up the codebase, improving performance, and still making architectural changes that could affect how cores are developed. I’d rather hold off on publishing the source until the architecture has stabilized and I feel the code is ready for a public release.</p>
+	<p><b>Q: Was this developed using AI</p>
+	<p>A: Yes. OM64 was developed with assistance from Codex and Claude. They helped me analyze and reverse-engineer the published schematics and accelerate implementation work based on the architecture I designed.</p>
+	<p>AI-assisted development is increasingly common, and I use these tools to speed up development. If you’re fundamentally opposed to AI being used in software development, then this firmware probably isn’t for you.</b></p>
+	<p>Q: When is the N64 core coming out?</p>
+	<p>A: It’s being developed right now.</p>
+	<p>Soon™. 🙂</p>
+	</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<h4>A Flashcart-less Flex?</h4>
+	<div class="titleUnderline"></div>
+	<p>With the live demo scheduled for <a href="https://www.youtube.com/live/lPllbfuCDbs">Saturday the 26th</a>, it will be interesting to see what the future of open-source custom firmwares and alternative cores could look like on the system, even if this one in particular is not yet the right project for you. Personally, I think that CFW is always an interesting subject, and I would love to see more options available from more developers so that we can choose the ones that suit us best. For me, if someone were to get <i>Street Fighter III</i> working on the M64 alongside an improved N64 core, I would have a difficult time not switching over to it to test it out.</p>
+	<p>I assume that with SNES and GB cores comes backup loading, and therefore if an N64 comes, we might also see the first way to dump and play our N64 games without the need for a flashcart.</p>
+	<p>Do you own an M64 yet? Do you approve this use of AI assistance for projects like this? Will you be trying it out when it arrives or awaiting another alternative? Got an N64-related project in the pipeline? Let us know!</p>
+	<p class="subtitle"><i class="fa-brands fa-x-twitter"></i>&nbsp;<a href="https://x.com/fulviuus">Fulviuus X/Twitter</a></p>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-right"></i>&nbsp;<a href="https://ko-fi.com/post/OM64--Open-M64-custom-firmware-D2R127EMXY">RetroGarage KoFi</a></p>
+	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://retrogarage.net/">RetroGarage Site</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/retrogarage">RetroGarage GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
