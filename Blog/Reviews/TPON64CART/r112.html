@@ -1,0 +1,123 @@
+<div id="r112" class="card">
+	<h2><span class="badge review"><i class="fa-solid fa-magnifying-glass-plus"></i></span> <span class="title">ReCollect64 Reviews No. 112</span></h2>
+	<h5 class="subtitle">TPO's N64 Cart ~ Sep 23, 2026</h5>
+	<div class="bgBanner" style="background-image:url('Blog/Reviews/TPON64CART/TPOBG.jpg'); background-size: 45%; background-position: center; image-rendering: smooth; outline: 1px solid black;"><img decoding='async' role='presentation' loading='lazy' src="Devices/N64 Cart TPO.png" alt="N64CART" class="center"/></div>
+	<h4>Flexing Flashcarts</h4>
+	<div class="titleUnderline"></div>
+	<p>With the SummerCart64 and EverDrive N64 flashcarts dominating the world of N64 backups, it's always refreshing to see an alternative. Tim, AKA The Peaceful Outcome, a mechanical designer with an interesting penchant for console mods, has graciously sent me his latest collaborative project, the <i>N64 Cart</i>, for testing and review prior to release. The PCB design and software are notably provided by Sachs, aka <a href="https://github.com/pdaxrom">PDAXROM</a>, and as flashcarts go, this device will not cost you an arm and a leg!</p>
+	<p>At just $29.99, the N64 Cart is an RPi 2040-based cart which builds on an open-source project of the same name. It packs in the core features every casual N64 player would want but also comes with inherent limitations by consciously occupying the lower-end spectrum sales space of the flashcart market and being built from cost-effective SoC parts.</i>
+	<p>The Peaceful Outcome traditionally sells mods, so this retail-level product is a fresh tangent for the site. The driving force for this project was to craft a budget-friendly entry-level flashcart that plainly differentiates itself from the likes of the SC64 and the ED64. Let's dig into the tech specs and features and do some testing to see exactly where it stands.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>Technical Specifications:</b></p>
+	<p>+ RP2040-based microcontroller unit/SoC (clone).</p>
+	<p>+ MX66L1G45G chip onboard + 128 MB storage.</p>
+	<p>+ USB-C port for connectivity.</p>
+	<p>+ V1.13* firmware available.</p>
+	<p>+ V3* n64cart manager menu software.</p>
+	<p>+ Qt-based V1.0* ROMfs manager to add/remove files.</p>
+	<p>* (at the time of writing)</p>
+	<p><b>Features:</b></p>
+	<p>+ Load multiple games / ROMs onto one cartridge or have a single ROM automatically run on startup</p>
+	<p>+ Great solution for a physical copy of N64 ROM hacks</p>
+	<p>+ Supports EEPROM (memory on the cartridge) and SRAM (controller pak) save modes</p>
+	<p>+ Can be used for ROM development</p>
+	<p>+ Play Nintendo and Super Nintendo games on your N64 via emulation</p>
+	<p>+ Play original GameBoy and GameBoy Color games on your N64 via emulation</p>
+	<p>+ Convenient rear located firmware flashing button for updating firmware quickly and easily</p>
+	<p>+ Region free cartridge design</p>
+	<p>+ On-cart file deletion.</p>
+	<p>+ Customisable background image.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/TPON64CART/1.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/TPON64CART/1.jpeg" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/TPON64CART/5.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/TPON64CART/5.jpeg" width="40%" style="padding:auto"/></a>
+	</center>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/TPON64CART/3.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/TPON64CART/3.jpeg" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/TPON64CART/4.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/TPON64CART/4.jpeg" width="40%" style="padding:auto"/></a>
+	</center>
+	<center><p>(<i>I was very kindly sent the black variant for review purposes</i>)</p></center>
+	<h4>NTSC/PAL Conversion</h4>
+	<div class="titleUnderline"></div>
+	<p>I was sent the N64 Cart fully built and pre-flahed with PAL firmware, ready to work on my European PAL console (if you live in the USA, the unit will come with NTSC FW flashed). If you have an American or Japanese N64 you would like to use it on, you'll need to flash your N64 Cart with NTSC firmware to run on those consoles. To do so, you simply grab a data-capable USB-C cable and plug the N64 Cart into your computer, holding the button on the rear of the cartridge. This forces the device into a mode whereby you simply drag and drop the <a href="https://github.com/pdaxrom/N64cart/releases/download/1.13/n64cart-v3-1.13-pal.uf2">PAL</a> or <a href="https://github.com/pdaxrom/N64cart/releases/download/1.13/n64cart-v3-1.13-ntsc.uf2">NTSC</a> UF2 firmware files across to the window and wait for it to close to signify that the flashing or updating is complete.</p>
+	<p>Crucially, at this point you need to ensure that you aren't flashing the RPi2040-based device with the Pico or Pico Lite files on the GitHub repo; you'll need the vanilla 1.13 firmware file as well as the latest N64 Cart Manager.z64 (V3 at the time of writing) and the cartridge menu, to get the N64 Cart working when you plug it into your console. I also noticed that USA and Japanese ROMs ran fast when tested on the PAL-flashed device, so it's also worth making sure to match your ROM set to your firmware region, or that you have converted any regionally exclusive ROMs to match your console's region too.</p>
+	<p>With 128 Mb of storage, this cart is in far better standing than the <a href="https://defaultdnb.github.io/ReCollect64/blog.html#r7">PicoCart</a>, which could barely handle one game at a time, and where each one had to be flashed singularly. Here, you can store around 8-16 games depending on size, with the majority of games in the N64 library consisting of 4/8/12 or 16 MB sized ROMs. Sadly, there is no option to upgrade the memory. Sachz has already worked his technical trickery to wrangle 128 MB addressed with the RPi2040; hence, the bespoke ROMfs manager is required to write to it and it is not simply drag-and-drop like the RPi's main firmware partition.</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/TPON64CART/2.jpeg','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/TPON64CART/2.jpeg" width="40%" style="padding:auto"/></a>
+	</center>
+	<center><p>(<i>The RPi2040 clone hardware features USB-C, which is far handier than USB-mini or micro. The flash memory is soldered to it on the right-hand side.</i>)</p></center>
+	<h4>Casual Connoisseurs</h4>
+	<div class="titleUnderline"></div>
+	<p>With a relatively small memory pool at your disposal and no SD card slot to bump it up, you do need to be mindful of how much space you're going to be using within its finite storage. With a total of 133,734,400 bytes, 64 MB ROMs like <i>Conker</i> or <i>RE2</i> can swamp the drive. Your best option is going for titles you will definitely play. Games you plan to tuck into regularly and that will occupy your time the most engagingly. Separate the wheat from the chaff and considefr how many of the 388 strong library you actually would need to have on there, because if you think you need <i>Batman Beyond, Power Puff Girls</i>, or <i>Power Rangers</i> available to play at all times, I'm here to tell you that you really, truly, do not!</p>
+	<p>Plugging in the N64 Cart without holding any buttons, the device doesn't enumerate as a USB mass storage device, so you need to use the accompanying ROMfs manager tool to load your games on or back up your saves. It's as simple as clicking connect and dragging ROMs into the manager, but once your start a transfer, you cannot stop it. I noticed that file names with too many characters prevented copying, and obviously, if you run out of space, it will abort.</p> 
+	<p>My personal faves to test are always the AAA titles. <i>1080° Snowboarding, F-Zero X, GoldenEye 007, Mario Kart 64 (Amped UP V3.21), Perfect Dark,</i> and <i>Wave Race 64 (Shindou translated)</i>. These titles easily bring me the most nostalgia, competitive pleasure and replayability. Sadly, with 128 MB at play, you won't be able to fit <i>RE2</i> and <i>Conker</i> on the device at the same time, so opt for one giant game and a series of smaller ones if you need to have a selection to hand.</p>
+	<p>I noticed that all ROMs, even massive ones such as <i>Conkers Bad Fur Day</i>, loaded instantaneously, with no loading bar like you would see on the SummerCart64, for example. This is because there is no internal transfer required from an SD card back to the onboard memory; it's already there!</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Reviews/TPON64CART/6.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/TPON64CART/6.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/TPON64CART/7.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/TPON64CART/7.png" width="30%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Reviews/TPON64CART/8.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img class="thumbnail" src="Blog/Reviews/TPON64CART/8.png" width="30%" style="padding:auto"/></a>
+	</center>
+	<center><p>(<i>The menu is uncluttered and rudimentary, but works well. Swap the menu .z64 to a game .z64 & you have an auto loading game!</i>)</p></center>
+	<h4>Other Oddities</h4>
+	<div class="titleUnderline"></div>
+	<p>Throughout my session of testing I noted a few things. First of all, the ROMfs manager is quite cumbersome and slow. As much work has gone into making the flash memory usable as storage, the method for getting your ROMs onto the device is painfully slow. I tested a couple of ROMs or various sizes, and these were my findings:</p>
+		<ul>
+			<li>1 minute 36 seconds to copy an 8 MB file (<i>Wave Race 64 Rev 2 Shindou 1.2 English Patched</i>) *.z64.
+			<li>2 minutes 30 seconds to copy a 12 MB file (<i>GoldenEye 007</i>) *.z64</i>
+			<li>6 minutes 48 seconds to copy a 32 MB file (<i>Jet Force Gemini</i>) *.z64.
+			<li>14 minutes 45 seconds to copy the biggest 64 MB files (<i>Conker's Bad Fur Day/Resident Evil 2/Pokemon Stadium 2</i>) *.z64.
+		</ul>
+	<p>With a write speed of 0.07 MB/sec, there is definitely room for improvement in the connectivity department. The developers are aware of this, so hopefully firmware updates or even possibly hardware revisions to the RP2350 might make the experience quicker and smoother in the future.</p> 
+	<p>When using the ROMfs manager, it automatically pops up to ask if you need to convert your ROM to *.z64 when you drag and drop any file onto the window. While this is technically a great feature, it also asks to convert *.z64 to *.z64, so perhaps some more sanity checks are required to make it a little more user-friendly.</p>
+	<p>The N64 Cart works perfectly on M64 and Analogue 3D FPGA devices for playing games, though flushing saves to the cart doesn't work at all due to how these devices shut down or reset their cores virtually. Luckily, on the A3D you have memories (save states), but on the M64 this is not available so cart saves are impossible right now.</p>
+	<p>SNES, NES, GB, GBC and GG emulators work (but patched versions of these emulators are required to run un-garbled on the M64, but, honestly, SNES emulation on M64 is not worth the bother right now), ROM hacks and Libdragon-based homebrew all run perfectly, and even 64DD conversions will work if you patch them correctly. For example, I managed to get the <i>Super Mario 64 Disk Version</i> *.ndd file converted to *.z64 and running perfectly with the wiggler crash issue fixed too!</p>
+	<p>The bottom line is that this device is decent if you work within its constraints, It has a little learning curve, but I've figured out the intricacies here so you don't have to!</p>
+	<div class="col-container">
+	<div class="pro"><strong> The Pros:</strong>
+	<p></p>
+	<i class="fa-solid fa-check">&nbsp;</i>Works for loading games on M64 and Analogue 3D as well as OG hardware.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>128 MB is ideal for 6-18 games depending on size.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>USB-C connectivity is great, no need for a card reader.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Region free shell design.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Fast loading when you select your game on the console.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>ROM hacks, emulators and homebrew work perfectly.<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Just $29.99 + shipping (£22 + shipping & taxes out side of the US).<br>
+	<i class="fa-solid fa-check">&nbsp;</i>Available in white, grey or black.</div>
+	<div class="con"><strong> The Cons:</strong>
+	<p></p>
+	<i class="fa-solid fa-xmark">&nbsp;</i>No universal CIC, must flash PAL/NTSC FW.<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Incredibly slow (0.07 MB/s) at adding ROMs.<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>No expandable storage options.<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>No art, metadata info, RTC etc.<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Need to press reset to copy saves to the cart.<br>
+	<i class="fa-solid fa-xmark">&nbsp;</i>Cart saves don't work on FPGA devices.</div>
+	</div>
+	<div class="verdict"><strong>Conclusion:</strong>
+	<p>The <i>N64 Cart</i> is a low-cost alternative to the existing monopoly that the <a href="https://defaultdnb.github.io/ReCollect64/blog.html#r2">$40-$130 SummerCart64</a> and <a href="https://defaultdnb.github.io/ReCollect64/blog.html#r110">$150+ EverDrive 64</a> range hold. It might not be as feature-rich or as spacious, but when it comes to playing games or testing homebrew on a budget, you cannot go wrong; it's spot-on!</p>
+	<p>As a device for casual players or even developers, this is ideal, but for hard-core pirates who need 20 GB of ROMs, you might want to splash out on one with more storage. Set for global release on Friday the 25th of September 2026, you will be able to get hold of one of your own very soon via the links below!</p> 
+	<center title="7/10">
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star checked"></span>
+	<span class="fa-solid fa-star"></span>
+	<span class="fa-solid fa-star"></span>
+	<span class="fa-solid fa-star"></span>
+	</center>
+	</div>
+	<br>
+	<div class="info">
+		<p><strong>NOTE:</strong> If you wish to use the N64 Cart on your Analogue 3D and you want to get rid of the blank image, then simply visit <a href="https://enoznal.com/3d/labels.html">THIS SITE</a>, upload your labels.db from your A3D's SD card under "Library/N64/Images", and insert <a href="Blog/Reviews/TPON64CART/N64 Cart Label.png">THIS LABEL</a> into your database using the ID: "421541C2" in PAL mode or "71CEF1B3" in NTSC mode.</p>
+		<p>From A3D update V1.5.1, you can now edit the the library.json file in the corresponding folder on your Analoge 3D's SD card to update the name of the cartridge, year of release, the developer & publisher names and more!</p>
+	</div>	
+	<p class="subtitle"><i class="fa-solid fa-globe"></i>&nbsp;<a href="https://thepeacefuloutcome.com/shop/ols/products/n64-cart---nintendo-64">The Peaceful Outcome Store</a></p>	
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/pdaxrom/N64cart/releases">PDAXROM GitHub</a></p>
+	<p class="subtitle"><i class="fa-solid fa-circle-arrow-down"></i>&nbsp;<a href="https://thepeacefuloutcome.com/downloads">The Peaceful Outcome Downloads</a></p>	
+	<p class="subtitle"><i class="fa-solid fa-file-pdf"></i>&nbsp;<a href="https://img1.wsimg.com/blobby/go/ed818f69-3727-471d-ab86-f21dc9f63cb7/downloads/c86fb21b-a7e4-46cd-a1d3-5ba7352bf28f/N64%20Cart%20Manual.pdf?ver=1789949392660">N64 Cart Manual</a></p>	
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64@gmail.com">Want to see something reviewed? Contact me!</a></p>	
+</div>
