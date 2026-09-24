@@ -80,6 +80,21 @@
 		<p>The Virtual Controller Paks view no longer crashes on a real pak holding a note with a byte outside the pak's character set in its name; the byte shows as a ? now. Reported by Tom Scro, with the dump that named it. He also found that a controller whose pak cannot come out (a Switch Online controller through a BlueRetro adapter) launches with the virtual pak once it is in its Rumble Pak mode; that is in the notes now, as is when a game's pak writes reach the card (about a second and a half after the last one, the LED blinking; keep the console on for that). A hand-copied pak file of the wrong size in the paks folder is left alone, with a message, instead of being replaced.</p>
 		<p>States and pak files do not change; hook version 13 as in 1.5.</p>
 	</div>
+	<hr>
+	<div class="info">
+		<p><strong>UPDATE:</strong> 23/09/2026 - 1.8 has been released with some changes and new features:</p>
+		<p>Save states for the SummerCart64, built on N64FlashcartMenu 0.3.4. Version 1.8: unlimited save states!</p>
+		<p>Well. 256 per game. Which at 8 MiB a state is 2 GiB of card for one game, so the card gives out long before the list does. A long list costs a little at launch, about a tenth of a second a slot at most.</p>
+		<p>The list of save-state slots grows. It lives on the card, one file per slot with no fixed count, and the cartridge's own slots (by ROM size, as before) hold the states in use: a save goes to the cartridge and to the card right after, a load of a state not in the cartridge reads it from the card first, about a second, and the state used longest ago makes room. Asked for by Acurrz.</p>
+		<p>Every launch keeps six empty slots beyond the last one used and gives back empty ones past that. Empty slots to keep, in a game's Save States options, raises the six to 12, 24 or 48 for a game where you lay down many states in one sitting.</p>
+		<p>The panel scrolls, eight rows at a time (C-up and C-down page), fetches the thumbnail of a state that is on the card, asks before the last empty slot is used, says when none is left, and its Game page has Delete slot.</p>
+		<p>Your files are the first slots, untouched; nothing changes until a game saves past the old count.</p>
+		<p>Set ROM to autoload saves the game whose page is open, from every tab and for a game in the card's root folder; before, it could save the file browser's highlighted entry, or a path the next boot could not open. Other games' pages opened after a set show their own game now, a failed autoload no longer leaves the next page to crash, and a box confirms the setting with the file name and the way back to the menu.</p>
+		<p>A state saved with Slow motion on is refused with a message when it is asked for with the option off, and the panel marks such states SLOW. Loaded that way, a state saved while the game was busy froze it; with the option on it loads as before. A state saved with the option off loads either way.</p>
+		<p>States and pak files do not change; the file format gains one word, the slot a state was saved into. Hook version 13 as in 1.5.</p>
+		<p>sc64menu.n64 goes on the card as before. Built on N64FlashcartMenu 0.3.4.</p>
+		</div>
+
 	
 	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/john-steinmeyer/sc64-savestates">SC64 Savestates GitHub</a></p>
 	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
