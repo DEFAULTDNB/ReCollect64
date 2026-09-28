@@ -1,0 +1,50 @@
+<div id="b424" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">SW: Dark Forces N64 Port</span></h2>
+	<h5 class="subtitle">Built by BigChat88 & AI ~ Sep 28, 2026</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2026/SWDFPORT/0.png'); background-position: center; image-rendering: smooth;"><div class="overlaytext">SW: Dark Forces N64 Port</div></div>
+	<h4>Feel the Force</h4>
+	<div class="titleUnderline"></div>
+	<p>Following on from his <a href="https://defaultdnb.github.io/ReCollect64/blog.html#b412">Doom RPG port</a>, BigChat88 has today released his AI-assisted port of <i>Star Wars: Dark Forces</i> to the Nintendo 64. This FPS was ahead of its time, bringing features such as jumping and crouching as well as the ability to look up and down vertically, features we take for granted today, yet most games lacked during that fledgling era of 3D video games.</p>
+	<p><i>Star Wars: Dark Forces</i> was initially released on PC in 1995 and eventually made its way to the original PlayStation in 1996, but it never came to the Nintendo 64. Instead, we got <i>Star Wars: Shadows of the Empire</i>, a rather dull and awkward game that tells the tale of the period between <i>Empire Strikes Back</i> and </i>Return of the Jedi</i> in third-person perspective through Dash Rendar. I for one would have much preferred a game like <i>Dark Forces</i> with Kyle Katarn's first-person laser blasting alone, but the size of the game far exceeded that of an N64 cart.</p>
+	<p>BigChat88 has managed to compress this ~300 MB ISO into a mere 64 MB Z64, so if you want to have a pop at uncovering and stopping the Galactic Empire's secret Dark Trooper Project, follow the instructions below:</p>
+	<center>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/SWDFPORT/1.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/SWDFPORT/1.png" width="40%" style="padding:auto"/></a>
+		<a title="" href="" onclick="window.open('Blog/Features/2026/SWDFPORT/2.png','targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=600px, Height=450px, top=150px left=350px'); return false;"><img style="border: 1px solid black;" class="thumbnail" src="Blog/Features/2026/SWDFPORT/2.png" width="40%" style="padding:auto"/></a>
+	</center>	
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>Dark Forces 64</b></p>
+	<p>A port of Star Wars: Dark Forces to the Nintendo 64, built on The Force Engine and libdragon (the open-source N64 homebrew SDK), plus a tool that turns your own copy of the game into a runnable .z64.</p>
+	<p>No copyrighted game data is in this repository. You supply your own Dark Forces files; the build packs them into the ROM.</p>
+	<p><b>What you need to play:</b></p>
+	<p>An Expansion Pak (4MB RAM upgrade), on real hardware or the equivalent option in your emulator. The game needs it and won't boot without one.</p>
+	<p>Saves go to the cartridge's SRAM (256 kbit): your flashcart or emulator handles that automatically.</p>
+	<p>On real hardware, a flashcart that takes 64MB ROMs (most do, e.g. the EverDrive-64 or the SummerCart64). The ROM is about 63MB: the level files are packed without their indentation and comments to make it fit (see tools/compact_levels.py); your own game files are not modified.</p>
+	<p><b>The game files you need:</b></p>
+	<p>A legally obtained copy of Dark Forces (the original CD, GOG or Steam release). From its install folder you need:</p>
+	<p>DARK.GOB, SOUNDS.GOB, SPRITES.GOB, TEXTURES.GOB</p>
+	<p>LOCAL.MSG</p>
+	<p>the LFD folder (*.LFD)</p>
+	<p>Copy them into gamedata/, keeping LFD/ as a subfolder. Letter case doesn't matter. You can also drop a single .zip of your install folder into gamedata/, or point the packer at the install folder directly with --gamedata.</p>
+	<p><b>Music:</b></p>
+	<p>Dark Forces' music is General MIDI. The project ships the SoundFont it plays it with, a Roland SC-55 style one (soundfont/SC55.sf2); every build converts it and packs it into the ROM, nothing to do on your side. See soundfont/README.md.</p>
+	<p><b>How to build the ROM</b></p>
+	<p>You only need Python 3 on your PATH (python --version). No Docker or N64 toolchain.</p>
+	<p>Grab the latest Release and unzip it.</p>
+	<p>Put your Dark Forces files in gamedata/ (see above).</p>
+	<p><b>Build it:</b></p>
+	<p>Windows: double-click build.cmd (or run it from a terminal).</p>
+	<p>Any platform: python tools/pack_rom.py</p>
+	<p>Wait for OK -> output/darkforces64.z64. That file is your ROM: run it in an emulator (e.g. Ares, simple64) with the Expansion Pak enabled, or copy it to a flashcart (e.g. EverDrive-64).</p>
+	<p><b>Other sources for the game files:</b></p>
+	<p>python tools/pack_rom.py --gamedata "C:/Games/Dark Forces/Game"</p>
+	<p>python tools/pack_rom.py --gamedata path/to/dark-forces.zip</p>
+	<p>The Release ships the host tools for Windows and Linux x86-64. On other platforms, build them with tools/vendor/bin/build-tools.sh (see tools/vendor/bin/README.md).</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<p>While no files are provided with the binaries, it is relatively simple to build if you own your own copy of the game on GOG or Steam. There are <i>alternate</i> methods to obtaining said files, but that's entirely up to you. Locating a reasonably priced physical copy of this game to rip and dissect, purely for the purposes of playing it on the N64, might also be quite challenging or expensive these days.</p>
+	<p>Are you a fan of <i>Dark Forces</i>? Will you be giving this port a shot? Let us know on our social channels!</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/BigChat88/N64DarkForcesPort">BigChat88 GitHub</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/BigChat88/N64DarkForcesPort/releases">DarkForcesPort Download</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
