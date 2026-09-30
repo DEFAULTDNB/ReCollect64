@@ -93,8 +93,39 @@
 		<p>A state saved with Slow motion on is refused with a message when it is asked for with the option off, and the panel marks such states SLOW. Loaded that way, a state saved while the game was busy froze it; with the option on it loads as before. A state saved with the option off loads either way.</p>
 		<p>States and pak files do not change; the file format gains one word, the slot a state was saved into. Hook version 13 as in 1.5.</p>
 		<p>sc64menu.n64 goes on the card as before. Built on N64FlashcartMenu 0.3.4.</p>
-		</div>
-
+	</div>
+	<hr>
+	<div class="info">
+		<p><strong>UPDATE:</strong> 28/09/2026 - 1.9 has been released with some changes and new features:</p>
+		<p>FreeCam! Fly through any saved moment.</p>
+		<p>Press C-right on a state in the slot panel. The console redraws that frozen frame from wherever you point the camera: the world stands still and you fly through it. Press B and the game carries on from the state, as a normal load would. FreeCam here on the panel's Game page does the same on the live game, no state needed.</p>
+		<p>Works on most 3D games. It does not work on a 2D screen, on games with their own rendering microcode (Jet Force Gemini, Rogue Squadron) or on a frame drawn in pieces (Perfect Dark): the game says so and simply loads the state.</p>
+	</div>
+	<hr>
+	<div class="info">
+	<p><strong>UPDATE:</strong> 01/10/2026 - 2.0 has been released with some changes and new features:</p>
+		<p><b>Save states for the 64 MB games! Conker's Bad Fur Day, Resident Evil 2 and Pokemon Stadium 2.</b></p>
+   		<p>These three fill the cartridge's memory, so their states go straight to the SD card. A save takes about five seconds and a load about three.</p>
+   		<p>The hotkeys, the slot panel and screenshots work in all three, and FreeCam in Conker and Stadium 2. Resident Evil 2's rooms are pre-rendered pictures, so FreeCam there says NO FRAME TO FLY and just loads the state.</p>
+  		<p>Switch Save States on in the game's options, as for any other game. I tested the US versions, and the European Stadium 2 saves and loads too.</p>
+  		<p>No virtual Controller Pak for these three (none of them uses one), and no Slow motion in Resident Evil 2 or Stadium 2 (the menu says why).</p>
+		<p><b>Favorites and History</b></p></b></p>
+  		<p>Favorites hold up to 256 games now, one line each, in the order you choose: press Z on one to pick it up, move it, and A to put it down. New favorites go to the end of the list.</p>
+  		<p>Add a ROM to your favorites straight from the file list: R on it, then Add to favorites.</p>
+		<p>History keeps your last 50 games. R removes a game from either list, after asking.</p>
+		<p><b>Reset button</b></p>
+		<p>A new setting in Menu settings, Reset Button. On Restart game, the console's reset button starts the game you're playing again, save states and all, instead of going back to the menu. It takes a few seconds while the menu loads the game again. Hold Start while pressing reset to get the menu.</p>
+		<p>The save-state routine is what notices the reset button, so it works in games with Save States, the virtual pak or a screenshot button on, while the game is running. In other games, or with the panel or FreeCam open, reset goes to the menu. Switching the console on never counts as a reset.</p>
+		<p>It's set to Menu by default, so nothing changes unless you switch it.</p>
+		<p><b>Smaller changes</b></p>
+		<p>After a game from another region (a PAL game on an NTSC console, or the other way round), Exit to menu brought the menu back in the game's video mode. It keeps your console's now.</p>
+		<p>With a ROM set to autoload, Exit to menu now reaches the menu instead of starting the game again.</p>
+		<p>A second bar under Loading ROM shows the save states being set up, which takes longer for a game with lots of them.</p>
+		<p>On the panel's Game page, the hint line no longer sits over FREECAM HERE, and the Delete slot hint fits the box.</p>
+		<p>When FreeCam can't fly a moment it now says NO FRAME TO FLY with Slow motion off too.</p>
+		<p><b>Upgrading</b></p>
+		<p>Copy sc64menu.n64 to the root of the card, as before. Your states, virtual pak saves, settings, favorites and history carry over. If you go back to an older menu later, it keeps only your first eight favorites and history entries.</p>
+	</div>
 	
 	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/john-steinmeyer/sc64-savestates">SC64 Savestates GitHub</a></p>
 	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
