@@ -425,3 +425,4 @@ Blog/Features/2026/GEPLUS/b423.html
 Blog/Features/2026/SWDFPORT/b424.html
 Blog/Features/2026/N64onSNES/b425.html
 Blog/Features/2026/ISS2KPCPORT/b426.html
+Blog/Features/2026/Misc/b427.html
