@@ -1,0 +1,61 @@
+<div id="b430" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Mirlo64 for Analogue Pocket</span></h2>
+	<h5 class="subtitle">Developed by Tortugaveloz ~ Oct 11, 2026</h5>
+	<div class="bgChat" style="background-image:url('Blog/Features/2026/MIRLO64/0.png'); background-position: center; image-rendering: smooth;"></div>
+	<h4>Portable Power</h4>
+	<div class="titleUnderline"></div>
+	<p>Analogue's portable, the Analogue Pocket is a neat little multi-system device that is compatible with the Game Boy, Game Boy Color & Game Boy Advance game cartridges, as well as Game Gear, Neo Geo Pocket Color, TurboGrafx-16, Atari Lynx & more, (legitimately) via cartridge adaptors.</p>
+	<p>Until recently, running Nintendo 64 games on the system was entirely off limits. That was until today, when Tortugaveloz released Mirlo64, an N64 core made specifically to fit in the Analogue Pocket which intends to replicate the N64 architecture the best it can. This method does not use a cartridge adaptor, it effectively loads ROMs, but you never know, someone might build one in the future.</p>
+	<center>
+	<video width="30%" height="auto" controls>
+		<source src="https://v.redd.it/wb4ilishgpuh1/CMAF_360.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
+	</center>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p><b>Installing on the Pocket</b></p>
+	<p>Download tortuga.Mirlo64_< version >.zip from the releases.</p>
+	<p>Unzip it onto the root of the Pocket's SD card, merging with the folders already there. It adds only Mirlo's own files:</p>
+	<p> + Assets/mirlo/common/          n64rt.sys (the runtime) and n64savedb.txt; where Mirlo's games go</p>
+	<p> + Cores/tortuga.Mirlo64/        the core: mirlo.rev (the bitstream), core.json, ...</p>
+	<p> + Platforms/mirlo.json          the platform, under Console</p>
+	<p> + Platforms/_images/mirlo.bin   its image</p>
+	<p>Put the games (games in .z64 format) in Assets/mirlo/common/.</p>
+	<p>On the Pocket: openFPGA → Console → Nintendo 64, then pick a game.</p>
+	<p>Saves (.sav) appear in Saves/mirlo/common/ when you quit a game. To update the core, unzip a newer release the same way; it replaces the files in Cores/tortuga.Mirlo64/.</p>
+	<p><b>Features:</b></p>
+	<p>It replicates as best as possible the N64 architecture with all its components (64-bit MIPS processor, RSP, RDP, etc.). This is not emulation.</p>
+	<p> + PAL and NTSC games are supported.</p>
+	<p> + All savefile formats are supported.</p>
+	<p> + Controller Pak and Transfer Pak support (only on P1).</p>
+	<p> + Expansion Pak is included.</p>
+	<p>Please note not all games are supported yet! Working through the N64 architecture is a tedious process. Hopefully compatibility will improve in future releases.</p>
+	<p><b>If you have an Analogue Dock, several additional features become available:</b></p>
+	<p> + Up to 4p split-screen multiplayer.</p>
+	<p> + Joysticks are supported.</p>
+	<p> + Due to the Dock's firmware, several limitations exist, namely: Rumble is not supported, joystick support is available only for bluetooth-connected controllers, and there is no joystick support in the N64 NSO controller. Hopefully Analogue addresses some of these in the future.</p>
+	<p><b>Current known limitations:</b></p>
+	<p> + Many games still will show issues and / or won’t load. If you encounter issues, raising them in the github would be very appreciated and it would help the project advance, thanks a lot!</p>
+	<p> + ROM size limit is currently 48 MiB.</p>
+	<p> + Resolution is restricted to 240p NTSC, 288p PAL.</p>
+	<p><b>Some technical details:</b></p>
+	<p> + This project provides a MIPS at 93.75 MHz (stock CPU clock), with all 32-bit instructions and most 64-bit instructions. Some 64-bit instructions were intentionally left out (such as fp64, for instance) and are managed through a trap. These instructions are mostly unused by N64 games, and were left out to have room for other components.</p>
+	<p> + The RSP and RDP are at 62.5 MHz. There are a few concessions here. The RSP runs 4-lane vectorisation instead of the stock 8-lane vectorisation, however this barely affects speed. Mipmapping is also left out in the core's current form. Whether these two can fit in future iterations of the core is to be seen. Notably, blending and AA are in.</p>
+	<p> + Most of the N64 interface is there. That includes: RCP commands (VI, AI, PI, SI), the MI, etc.</p>
+	<p> + The SDRAM transfers at 125 MT/s. That is 1/4 of the RDRAM peak 500 MT/s.</p>
+	<p> + Some video output modes are still unsupported.</p>
+	<p> + The TLB is partially implemented. Still exploring ways for it to not take up much space.</p>
+	<p> + Current focus of the project is to widen game support, and understand game by game what is missing. As the project is almost saturating the Cyclone V FPGA, each decision matters.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<h4>Pocket Rocket</h4>
+	<div class="titleUnderline"></div>
+	<p>Following his efforts to understand Nintendo 64-based sources and even <a href="https://github.com/tortugaveloz/supermirlo64">port <i>Super Mario 64</i> to the Analogue Pocket</a>, an N64 core seemed to be the next logical step for getting a wider range of games working on the handheld more quickly.</p>
+	<p>Analogue's inclusion of openFPGA with the Analogue Pocket is crucial to this working as this is not simply software emulation; it's hardware-level emulation. OpenFPGA is a developer platform and open-source hardware ecosystem, which essentially allows anyone with enough technical knowledge to craft operable cores in the system.</p>
+	<p>Sadly, some games such as <i>GoldenEye 007, Donkey Kong 64, Mario Tennis</i> and <i>F-Zero X</i> do not currently work with the current release, but staples such as <i>Super Mario 64, Diddy Kong Racing</i> and <i>The Legend of Zelda: Ocarina of Time</i> work well, even when docked and with up to four players where applicable!</p>
+	<p>Hopefully compatibility will improve as the core matures, but I will be keeping an eye on this as it progresses to share updates and more.</p> 
+	<p class="subtitle"><i class="fa-brands fa-reddit"></i>&nbsp;<a href="https://www.reddit.com/r/AnaloguePocket/comments/1x2qme3/comment/pf7f8m0/?context=3">Source</a></p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/tortugaveloz/MIRLO64">Tortugaveloz GitHub</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Seen something cool for N64? Drop me a DM!</a></p>
+</div>
