@@ -710,23 +710,31 @@ button {
 	box-shadow: -0px 0px 0px 3px red;
 	border-radius: 10px;
 }
+.customIcon{
+	height: 30px;
+	width: auto;
+	--vertical-align: middle;
+	vertical-align: text-top;
+}
+	
+	
 /* if screen is < 800px wide columns stack */
 @media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {
-    width: 100%;
-    padding: 0;
-  }
-  .storecard {
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.7);
-  max-width: 80%;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-  }
-  .controller, th, td {
-	font-family: "Homenaje", sans-serif;
-	border-collapse: collapse;
-	width: 100%;
-	border: 2px solid black;
+	.leftcolumn, .rightcolumn {
+		width: 100%;
+		padding: 0;
+	}
+	.storecard {
+		box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.7);
+		max-width: 80%;
+		margin: auto;
+		text-align: center;
+		font-family: arial;
+	}
+	.controller, th, td {
+		font-family: "Homenaje", sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+		border: 2px solid black;
 	}
 }
