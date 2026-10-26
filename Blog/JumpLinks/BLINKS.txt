@@ -434,3 +434,4 @@ Blog/Features/2026/Misc/b432.html
 Blog/Features/2026/Misc/b433.html
 Blog/Features/2026/HALO64/b434.html
 Blog/Features/2026/FBDOSPORT/b435.html
+Blog/Features/2026/Misc/b436.html
