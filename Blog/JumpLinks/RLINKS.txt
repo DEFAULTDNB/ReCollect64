@@ -112,3 +112,4 @@ Blog/Reviews/ED64PRO/r110.html
 Blog/Reviews/Games/DRMARIO/r111.html
 Blog/Reviews/TPON64CART/r112.html
 Blog/Reviews/Games/DONUTDODO/r113.html
+Blog/Reviews/N64POW/r114.html
