@@ -6089,9 +6089,9 @@
 		</div>
 		
 		<div id="RECOMPS" class="rcard">
-			<div class="badge audio"><span class="rtitle"><i class="fa-solid fa-laptop"></i> RECOMPS</span></div>
+			<div class="badge audio" onclick=""><span class="rtitle"><i class="fa-solid fa-laptop"></i> RECOMPS</span></div>
 			<p></p>
-			<div class="containerRP">
+			<div id="test" class="containerRP">
 			
 				<div onclick="window.open('https://github.com/BanjoRecomp/BanjoRecomp')" class="RDicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Banjo-Kazooie.png" width="100%;" style="border-radius:10px;" /></div>
 				<div onclick="window.open('https://github.com/BanjoRecomp/BanjoRecomp/releases/')" class="Dicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
@@ -6190,7 +6190,7 @@
 		</div>
 		
 		<div id="PCNATIVE" class="rcard">
-			<div class="badge audio"><span class="rtitle"><i class="fa-solid fa-laptop-medical"></i> PC/NATIVE PORTS</span></div>
+			<div class="badge audio"><span class="rtitle"><i class="fa-solid fa-laptop-medical"></i> PC PORTS</span></div>
 			<p></p>
 			<div class="containerRP">			
 
@@ -6787,21 +6787,84 @@
 			
 		
 		<div id="WEB" class="rcard">
-			<div class="badge audio"><span class="rtitle"><i class="fa-solid fa-window-maximize"></i> WEB PORTS</span></div>
+			<!--div class="badge audio"><span class="rtitle"><i class="fa-solid fa-window-maximize"></i> WEB PORTS</span></div-->
+			<div class="badge artificial"><span class="rtitle"><img src="Config/Images/CustomIcons/AIWEB.png" class="customIcon"/> WEB PORTS</span></div>
+
 			<p></p>
 			<div class="containerRP3">
 			
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/akratch/golden-balloon')" class="RDicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Diddy Kong Racing.png" width="100%;" style="border-radius:10px;" /></div>
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://akratch.github.io/golden-balloon/')" class="Dicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://akratch.github.io/golden-balloon/releases')" class="Dicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
-			
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗥𝗘𝗣𝗢 𝗬𝗘𝗧')" class="RDicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/GoldenEye 007.png" width="100%;" style="border-radius:10px;" /></div>
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://goldenweb64.com/')" class="Dicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="Dicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/1080-Snowboarding-recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/1080° Snowboarding.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/1080-snowboarding/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
 				
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/turtlesoupy/opensmash')" class="RDicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Super Smash Bros.png" width="100%;" style="border-radius:10px;" /></div>
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://smash.fun/')" class="Dicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
-				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="Dicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/BanjoRecomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Banjo-Kazooie.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/banjo-kazooie/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/BanjoTooieRecompiled-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Banjo-Tooie.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/banjo-tooie/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/CBFD-Recompiled-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Conkers Bad Fur Day.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/conker/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+			
+			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/akratch/golden-balloon')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Diddy Kong Racing.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://akratch.github.io/golden-balloon/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://akratch.github.io/golden-balloon/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/Donkey-Kong-64-Recompiled-web" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Donkey Kong 64.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/donkey-kong-64/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+								
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/GoldenEye64Recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/GoldenEye 007.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/goldeneye/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/JetForceGemini-Recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Jet Force Gemini.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/jet-force-gemini/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+								
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/MarioKart64Recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/MArio Kart 64.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/mario-kart-64/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+												
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/pilotwings-64-recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Pilotwings 64.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/pilotwings-64/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+												
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/Snap64Recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Pokemon Snap.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/pokemon-snap/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/rush2recompiled-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Rush 2.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/rush-2/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/rush-2049-recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Rush 2049.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/rush-2049/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/Starfox64Recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Star Fox 64.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/star-fox-64/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+								
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/turtlesoupy/opensmash')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Super Smash Bros.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://smash.fun/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/wave-race-64-recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Wave Race 64.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/wave-race-64/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/Zelda64Recomp-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Majoras Mask.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/majoras-mask/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/oot-recompiled-web')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Ocarina of Time.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://n64hub.com/ocarina-of-time/')" class="AIDicon" title="𝗣𝗟𝗔𝗬 𝗢𝗡𝗟𝗜𝗡𝗘"><i class="fa-solid fa-cloud-arrow-down"></i></div>			
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');alert('𝗡𝗢 𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗 𝗬𝗘𝗧')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>			
 						
 			</div>
 		</div>		
@@ -6854,8 +6917,7 @@
 		</div>
 		
 		<!--div id="RECOMPSAI" class="rcard">
-			<div class="badge artificial"><span class="rtitle"><img src="Config/Images/CustomIcons/AI.png" class="customIcon"/> RECOMPS (AI)</span></div>
-
+			<div class="badge artificial"><span class="rtitle"><img src="Config/Images/CustomIcons/AILAPTOP.png" class="customIcon"/> RECOMPS (AI)</span></div>
 			<p></p>
 			<div class="containerRP">
 			
@@ -6907,6 +6969,15 @@
 				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/danielgomesvieira2000/hybrid-heaven-recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Hybrid Heaven.png" width="100%;" style="border-radius:10px;" /></div>
 				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/danielgomesvieira2000/hybrid-heaven-recomp/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
 				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/mario-party-recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Mario Party.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/mario-party-recomp/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/mario-party-2-recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Mario Party 2.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/mario-party-2-recomp/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
+				
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/mario-party-3-recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Mario Party 3.png" width="100%;" style="border-radius:10px;" /></div>
+				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/n64hub/mario-party-3-recomp/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
+
 				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/ThiagoLira/trouble-makers-pc-recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Mischief Makers.png" width="100%;" style="border-radius:10px;" /></div>
 				<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/ThiagoLira/trouble-makers-pc-recomp/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
 			
