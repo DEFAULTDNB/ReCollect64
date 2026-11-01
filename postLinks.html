@@ -6087,11 +6087,11 @@
 			<div title="𝗚𝗔𝗠𝗘𝗦 𝗥𝗘𝗩𝗜𝗘𝗪𝗘𝗗 𝗙𝗥𝗢𝗠 𝗧𝗛𝗘 𝟯𝟴𝟴 𝗪𝗢𝗥𝗟𝗗 𝗦𝗘𝗧" id="myProgress"><div id="myBar">0/388</div></div>
 			<center><span class="rtitle"><div class="badge controls control" title="𝗥𝗘𝗔𝗗 𝗥𝗘𝗩𝗜𝗘𝗪𝗦" onclick="$(function(){$('#content-placeholder').load('Blog/Roundup/SCORES/SCORES.html');}); gototop();"><i class="fa-solid fa-magnifying-glass-plus"></i> REVIEWS</div></span></center>
 		</div>
-		
+	
 		<div id="RECOMPS" class="rcard">
 			<div class="badge audio" onclick=""><span class="rtitle"><i class="fa-solid fa-laptop"></i> RECOMPS</span></div>
 			<p></p>
-			<div id="test" class="containerRP">
+			<div class="containerRP">
 			
 				<div onclick="window.open('https://github.com/BanjoRecomp/BanjoRecomp')" class="RDicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Banjo-Kazooie.png" width="100%;" style="border-radius:10px;" /></div>
 				<div onclick="window.open('https://github.com/BanjoRecomp/BanjoRecomp/releases/')" class="Dicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
@@ -6878,7 +6878,7 @@
 				<div onclick="window.open('https://portmaster.games/detail.html?name=spaghettikart')" class="Dicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>					
 				
 				<div onclick="window.open('https://portmaster.games/detail.html?name=sm64coopdx')" class="RDicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Super Mario 64.png" width="100%;" style="border-radius:10px;" /></div>
-				<div onclick="window.open('https://portmaster.games/detail.html?name=sm64coopdx')" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>					
+				<div onclick="window.open('https://portmaster.games/detail.html?name=sm64coopdx')" class="Dicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>					
 				
 			</div>
 		</div>
@@ -6906,6 +6906,20 @@
 		</div>
 		
 		<div id="SATURN" class="rcard">
+			<button class="badge audio collapsible"><span class="rtitle"><img src="Config/Images/CustomIcons/SATURN.png" class="customIcon"/>SATURN PORTS</span></button>
+			<div class="content">
+			<p> </p>
+				<div class="containerRP">
+			  
+					<div onclick="window.open('https://github.com/JiltedValkyrie/dosei-legend')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Ocarina of Time.png" width="100%;" style="border-radius:10px;" /></div>
+					<div onclick="window.open('https://github.com/JiltedValkyrie/dosei-legend/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>					
+								
+				</div>
+				
+			</div>
+		</div>
+		
+		<!--div id="SATURN" class="rcard">
 			<div class="badge audio"><span class="rtitle"><img src="Config/Images/CustomIcons/SATURN.png" class="customIcon"/>SATURN PORTS</span></div>
 			<p></p>
 			<div class="containerRP">
@@ -6914,7 +6928,7 @@
 				<div onclick="window.open('https://github.com/JiltedValkyrie/dosei-legend/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>					
 				
 			</div>
-		</div>
+		</div-->
 		
 		<!--div id="RECOMPSAI" class="rcard">
 			<div class="badge artificial"><span class="rtitle"><img src="Config/Images/CustomIcons/AILAPTOP.png" class="customIcon"/> RECOMPS (AI)</span></div>
@@ -7228,5 +7242,20 @@
 				}
 		});
 	});
+	
+	var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
 	</script>
 </div>
