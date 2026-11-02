@@ -36,6 +36,7 @@
 <div id="content-placeholder" name="contph" onload=""></div>
 <div id="share-placeholder" name="shareph" onload=""></div>
 <script>
+var URLfallback;
 function setRegion() {localStorage.regKey = flag+".cfg";}
 function sharePost() {
 	let site = "https://defaultdnb.github.io/ReCollect64/blog.html";
@@ -74,15 +75,15 @@ function gotologo() {
 }
 document.addEventListener('DOMContentLoaded', function() {
 	if (window.location.href.match("#top")||window.location.href.match("#logo")||window.location.href.match("#bottom")) {
-	$(function(){$("#content-placeholder").load("postLinks.html");}); gototop();
+		$(function(){$("#content-placeholder").load("postLinks.html");}); gototop();
 	} else if (window.location.href.match("#HallOfFame")) {
-	$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/SCORES.html");});
+		$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/SCORES.html");});
 	} else if (window.location.href.match("#Hist")||window.location.href.match("#hist")) {
-	$(function(){$('#content-placeholder').load("Blog/Roundup/N64History/HISTORY.html");});
+		$(function(){$('#content-placeholder').load("Blog/Roundup/N64History/HISTORY.html");});
 	} else if (window.location.href.match("#LTKCupV")) {
-	$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/LTKCUPV.html");});
+		$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/LTKCUPV.html");});
 	} else if (window.location.href.match("#ITFSG")) {
-	$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/ITFSG/ITFSG.html");});
+		$(function(){$('#content-placeholder').load("Blog/Roundup/SCORES/ITFSG/ITFSG.html");});
 	} else if (window.location.href.match("#")){
 		const prefix = window.location.href.slice(window.location.href.indexOf("#")+1,window.location.href.indexOf("#")+2);
 		const linktoget = window.location.href.slice(window.location.href.lastIndexOf(prefix)+1,window.location.href.length);
@@ -99,9 +100,34 @@ document.addEventListener('DOMContentLoaded', function() {
 		$(function(){$("#content-placeholder").load("postLinks.html");});
 	}
 }, false);
-window.addEventListener("click", function myFunction(e) {
-window.history.pushState({page: "reset"}, "reset URL", "blog.html");
+window.addEventListener("load", function myFunction(e) {
+	
+	//let URLresolver = "blog.html"+URLfallback;
+	
+	//window.history.pushState({page: "reset"}, "reset URL", URLresolver);
+
+	//window.history.pushState({page: "reset"}, "reset URL", "blog.html");
+	
+	//const base = document.createElement('base');
+	//base.href = 'blog.html';
+	//document.head.append(base);
+	
 });
+
+//window.onhashchange = function() {
+	//window.location.reload();
+//}
+	document.addEventListener('keydown', e => {
+		if ((e.ctrlKey || e.metaKey) && (e.key === 'x')) {
+		e.preventDefault();
+			let choice = prompt("What do you want?", "");
+				if (choice.match(/slop/gi)) {
+					alert("Displaying slop");
+					document.getElementById("RECOMPSAI").style = "block";
+					document.getElementById("PCNATIVEAI").style = "block";
+				}
+		}
+	});
 </script>
 	<span id="bottom"></span>
 </body>
