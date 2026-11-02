@@ -117,17 +117,6 @@ window.addEventListener("load", function myFunction(e) {
 //window.onhashchange = function() {
 	//window.location.reload();
 //}
-	document.addEventListener('keydown', e => {
-		if ((e.ctrlKey || e.metaKey) && (e.key === 'x')) {
-		e.preventDefault();
-			let choice = prompt("What do you want?", "");
-				if (choice.match(/slop/gi)) {
-					alert("Displaying slop");
-					document.getElementById("RECOMPSAI").style = "block";
-					document.getElementById("PCNATIVEAI").style = "block";
-				}
-		}
-	});
 </script>
 	<span id="bottom"></span>
 </body>
