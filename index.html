@@ -810,6 +810,9 @@ myCount = 0;
 			if (gTitle.includes("Funtastic")||gTitle.includes("Sleeved Bundle")){ //CONSOLES bespoke fix //too general?
 				document.getElementById(coverFlow[i]).style.width = "220px"; document.getElementById(coverFlow[i]).style.height = "auto";  document.getElementById(coverFlow[i]).style.top = "15px";
 			}
+			if (gTitle.includes("Donut Dodo")){
+				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/E/Donut Dodo E.jpg");
+			}
 		} else if (lines[info].match("REGION=I ")){
 			if (gTitle.match("Turok Rage Wars")){
 				document.getElementById(coverFlow[i]).setAttribute('onerror', 'this.src="Thumbs/S/'+gTitle+' S.jpg"');
@@ -965,7 +968,7 @@ myCount = 0;
 				document.getElementById(coverFlow[i]).setAttribute('src', "Carts/"+gRegion+"/"+gTitle+" "+gRegion+".png");
 				document.getElementById(coverFlow[i]).style.height = "155px"; document.getElementById(coverFlow[i]).style.left = "15px"; document.getElementById(coverFlow[i]).style.top = "10px";
 			}
-			if (gTitle.includes("Donut Dodo")){
+			if (gTitle.match(/Donut Dodo/g)){
 				document.getElementById(coverFlow[i]).setAttribute('src', "Thumbs/U/Donut Dodo U.jpg");
 			}
 			if (gTitle.match(/Atomic Purple Controller Bundle|Gold Toys R Us Exclusive/g)){ //CONSOLES fix
@@ -1433,11 +1436,11 @@ function reply_click(clicked_id){
 		document.getElementById("thumbBB").style.width = "48%";
 	} else if (pReg === "AV1"){
 		document.getElementById("thumb").src = 'Covers/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
-		if (frametitle.innerHTML === "Turok Dinosaur Hunter AV1"){
-			document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
-		} else {
-			document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
-		}
+			if (frametitle.innerHTML === "Turok Dinosaur Hunter AV1"){
+				document.getElementById("thumbBB").src = 'Backs/E/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'E.png';
+			} else {
+				document.getElementById("thumbBB").src = 'Backs/A/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'A.png';
+			}
 		document.getElementById("thumb").style.height = "auto";
 		document.getElementById("thumb").style.width = "48%";
 		document.getElementById("thumbBB").style.height = "auto";
@@ -1689,10 +1692,6 @@ function reply_click(clicked_id){
 				document.getElementById("thumbRC").src = 'Carts/NFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'NFR.png';
 				document.getElementById("thumbRC2").src = 'Backs/ANFR/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'ANFR.png';
 			}
-		} else if (pReg === "M64") {
-		
-		document.getElementById("thumbMA").style.width = "50%";
-			
 		} else {
 			document.getElementById("thumbRC").src = 'Carts/U/'+frametitle.innerHTML.slice(0, frametitle.innerHTML.lastIndexOf(" ")+1)+'U.png';
 		}
@@ -1859,16 +1858,37 @@ function reply_click(clicked_id){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player puzzle platforming game made by "+pubCo+" that was released on "+rDate+".<br><br>You can view more information on the project page <a href='https://teamultrarare.itch.io/telocation-gemini' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML.match(/Xeno Crisis U|Xeno Crisis E|Xeno Crisis J/g)){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player shoot 'em up made by "+pubCo+" that was released on "+rDate+".<br><br>You can view more information on the official site <a href='https://www.bitmapbureau.com/games/xeno-crisis' target='_blank'>HERE</a>"
-	//FULLSET game releases:
+	
+	//FULLSET releases:
 	} else if (frametitle.innerHTML.match(/Project Neon/g)){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-2 player arcade shoot 'em up by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the project page <a href='https://fullset.io/collections/nintendo-64/products/project-neon-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
 	} else if (frametitle.innerHTML === "Overserved Food Fighters U"||frametitle.innerHTML === "Overserved Food Fighters J"||frametitle.innerHTML === "Overserved Food Fighters E"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is a 1-8 player action arcade game by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the project page <a href='https://fullset.io/collections/nintendo-64/products/overserved-food-fighters-nintendo-64-pre-order-batch-1' target='_blank'>HERE</a>"
-	} else if (frametitle.innerHTML === "Donut Dodo U"||frametitle.innerHTML === "Donut Dodo DODO-RED Edition U"||frametitle.innerHTML === "Donut Dodo Executive Producer Edition U"){
+
+	//PIXEL GAMES releases:
+	} else if (frametitle.innerHTML.match(/Donut Dodo/g)){
+		document.getElementById("thumbA1").src = 'Accessories/Donut Dodo U A1.png'; //not working
+		document.getElementById("thumbA2").src = 'Accessories/Donut Dodo U A2.png'; //not working
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' is an arcade platformer by "+pubCo+" releasing on "+rDate+".<br><br>You can find more information on the Kickstarter <a href='https://www.kickstarter.com/projects/pixelgamessarls/donut-dodo-a-new-nintendo-64-game' target='_blank'>HERE</a>"
-	//ModRetro M64 game releases:
+		document.getElementById("thumbBB").src = 'Backs/'+pReg+'/Donut Dodo '+pReg+'.png';
+
+		if (frametitle.innerHTML.match(/RED Edition/g)){
+			document.getElementById("thumbRC").src = 'Carts/U/Donut Dodo DODO-RED Edition U.png';
+		} else if (frametitle.innerHTML.match(/Executive Producer/g)){
+			document.getElementById("thumbRC").src = 'Carts/U/Donut Dodo Executive Producer Edition U.png';
+		} else {
+			document.getElementById("thumbRC").src = 'Carts/U/Donut Dodo U.png';
+		}
+	
+	//ModRetro M64 GAME releases:
 	} else if (frametitle.innerHTML === "Buck Bumble M64"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official information and manual <a href='https://modretro.com/products/buck-bumble' target='_blank'>HERE</a>"
+		document.getElementById("thumbMA").style.width = "48%";	
+	} else if (frametitle.innerHTML === "Body Harvest M64"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official information and manual <a href='https://modretro.com/products/body-harvest' target='_blank'>HERE</a>"
+		document.getElementById("thumbMA").style.width = "48%";	} 
+	else if (frametitle.innerHTML === "Clay Fighter Sculptors Cut M64"){
+		document.getElementById("description").innerHTML = "'"+gameTitle+"' re-released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official information and manual <a href='https://modretro.com/products/clayfighter-sculptors-cut' target='_blank'>HERE</a>"
 		document.getElementById("thumbMA").style.width = "48%";
 	} else if (frametitle.innerHTML === "Extreme-G Turbo Fusion M64"){
 		document.getElementById("description").innerHTML = "'"+gameTitle+"' released on "+rDate+" in conjunction with "+pubCo+" for ModRetro's M64 console.<br><br>Check out the official information and manual <a href='https://modretro.com/products/extreme-g-turbo-fusion' target='_blank'>HERE</a>"
@@ -1882,6 +1902,7 @@ function reply_click(clicked_id){
 	
 	} else {
 	}
+	
 	//CHECK ACCESSORIES\\	
 	if (gFeatures.match("VRU")){
 		document.getElementById("thumbA1").src = 'Accessories/VRU A1.png';
@@ -3545,6 +3566,6 @@ $(document).ready( function() {
 <div id="bsky" onclick="window.open('https://bsky.app/profile/recollect64.bsky.social');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗕𝗹𝘂𝗲𝘀𝗸𝘆"></div>
 <div id="insta" onclick="window.open('https://www.instagram.com/recollect64/');" title="𝗥𝗲𝗖𝗼𝗹𝗹𝗲𝗰𝘁𝟲𝟰 𝗼𝗻 𝗜𝗻𝘀𝘁𝗮𝗴𝗿𝗮𝗺"></div>
 <!--img id="pussy" src="Config/Images/MEOW.png" class="pussy" onmouseover="myAudio = new Audio('Config/Sounds/Meow.wav');myAudio.volume = myVolume; myAudio.play();"/-->
-<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.8.21-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
+<div id="footer" class="footer"><span title="𝗖𝗼𝗻𝘁𝗮𝗰𝘁 𝗺𝗲: 𝘀𝗲𝗻𝗱 𝘀𝘂𝗴𝗴𝗲𝘀𝘁𝗶𝗼𝗻𝘀!" onclick="window.open('https://twitter.com/messages/compose?recipient_id=170775741');">DEFAULTDNB (APP VER: 4.0.11.03-1.2026)</span></div><!-- app.0.month.day.rev.year)-->
 <img id="regNuke" title="𝗥𝗲𝘀𝗲𝘁 𝗥𝗲𝗴𝗶𝗼𝗻 𝗜𝗻𝗳𝗼" src="Config/Images/ZBUT.png" onmousedown="localStorage.removeItem('gMoney'); localStorage.removeItem('cUnits'); localStorage.removeItem('regKey'); localStorage.removeItem('retroTheme'); localStorage.removeItem('moneyKey'); document.getElementById('Region').scrollIntoView({behavior: 'auto' }); location.reload();"/>
 </html>
