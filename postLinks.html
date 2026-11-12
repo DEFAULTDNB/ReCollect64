@@ -6130,7 +6130,7 @@
 		</div>
 	
 		<div id="RECOMPS" class="rcard">
-			<div class="badge audio" onclick=""><span class="rtitle"><i class="fa-solid fa-laptop"></i> RECOMPS</span></div>
+			<div class="badge audio" onclick="" ><span class="rtitle"><i class="fa-solid fa-laptop"></i> RECOMPS</span></div>
 			<p></p>
 			<div class="containerRP">
 			
@@ -7055,6 +7055,9 @@
 					<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/StopSine/GGA64Recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Goemons Great Adventure.png" width="100%;" style="border-radius:10px;" /></div>
 					<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/StopSine/GGA64Recomp/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
 					
+					<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/tijayfly/gt64_recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/GT 64.png" width="100%;" style="border-radius:10px;" /></div>
+					<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/tijayfly/gt64_recomp/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
+					
 					<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/danielgomesvieira2000/hybrid-heaven-recomp')" class="AIicon" title="𝗩𝗜𝗦𝗜𝗧 𝗥𝗘𝗣𝗢"><img src="Blog/Spines/Hybrid Heaven.png" width="100%;" style="border-radius:10px;" /></div>
 					<div onclick="alert('[𝗣𝗦𝗔] 𝗧𝗛𝗜𝗦 𝗣𝗥𝗢𝗝𝗘𝗖𝗧 𝗨𝗦𝗘𝗦 𝗔𝗜');window.open('https://github.com/danielgomesvieira2000/hybrid-heaven-recomp/releases')" class="AIDicon" title="𝗗𝗢𝗪𝗡𝗟𝗢𝗔𝗗"><i class="fa-solid fa-file-arrow-down"></i></div>
 										
@@ -7374,5 +7377,12 @@
 			} 
 		});
 	}
+	
+	span = RECOMPS.getElementsByTagName('span')[0];
+	txt = document.createTextNode(" ("+ ((RECOMPS.getElementsByTagName('div').length - 2) / 2) +")");
+	span.appendChild(txt);
+	span = PCNATIVE.getElementsByTagName('span')[0];
+	txt = document.createTextNode(" ("+ ((PCNATIVE.getElementsByTagName('div').length - 2) / 2) +")");
+	span.appendChild(txt);
 	</script>
 </div>
