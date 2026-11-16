@@ -1,0 +1,63 @@
+<div id="b442" class="card">
+	<h2><span class="badge tech"><i class="fa-solid fa-pen-to-square"></i></span> <span class="title">Kestrel64 SDK</span></h2>
+	<h5 class="subtitle">An AI Assisted Development Kit ~ Nov 16, 2026</h5>
+	<div class="bgBanner" style="background-image: linear-gradient(to bottom, #070c16, #0c111d, #0f1625, #11192c, #141d34);"><img decoding='async' role='presentation' loading='lazy' src="Blog/Features/2026/Kestrel64/0.png" alt="K64SDK" class="center"/></div>
+	<h4>We Shape AI, Then AI Shapes Us</h4>
+	<div class="titleUnderline"></div>
+	<p>A couple of weeks ago, Celgasoft aka Celgadis84, released a peek at their latest AI-assisted project dubbed Kestrel64 SDK. It is a bare-metal Nintendo 64 SDK built around its own RSP microcode (KGFX) and a direct RDP command stream. Featuring C on the CPU, hand-written RSP vector code and host tools in Python; it builds with clang + CMake/Ninja and runs on real hardware as well as on Celgadis84's <a href="https://github.com/celgadis84/kestrel64">Kestrel64 emulator</a>.</p>
+	<p>With a host of effects in its library, including advanced particles, environment mapping, custom RSP microcode lighting, clipping, performance-first animation, 96 sprites on-screen at once, 50 <a href="https://github.com/HailToDodongo/tiny3d">Tiny3D</a> objects on-screen at once at 60 FPS and crash mapping with backtrace and function names, the first video demo ends with a rather unexpected crescendo; a PS1 compatibility layer running natively on the N64.</p>
+	<center>
+		<iframe id="1" class="video" src="https://www.youtube.com/embed/g8ONF8AQ998"></iframe>
+	</center>
+	<p>The below video shows off seven special effects working in perfect harmony. These effects include planar mirroring in the floor, RSP point lighting, projected shadows, embossed textures on the brick walls, toon and wind effects, and real-time heat haze, as well as bloom and vignette post-processing effects.</p>
+	<center>
+		<iframe id="2" class="video" src="https://www.youtube.com/embed/2ctVW_ZHZiU"></iframe>
+	</center>
+	<p>Based on these built-in abilities, the next demo shows them within the context of a basic water-based racing game. The demo is short but sweet, though it definitely showcases the homebrew possibilities of the Kestrel64 SDK.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>Three speedboats, three laps round a lighthouse island. The boats ride a Gerstner wave sea (height, pitch, roll, jumps off crests), cel-shaded with ink outlines, with foam wakes, spray, glows, weather and time of day. Engine and water sound mixed on the RSP. Built only from the SDK's effect kits. The demo plays itself.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<iframe id="3" class="video" src="https://www.youtube.com/embed/ww2uBLi3RbI"></iframe>
+	</center>
+	<p>The next demo is that of a typical racing game. Taking advantage of Kestrel64's abilities allows these demos to contain plenty of background detail such as trees, lamp posts and distant track detail. This demo reminds me somewhat of <i>Road Rash 64</i>, albeit with cars on a track instead of bikes on the open road.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i>
+	<p>Six cars on a 1.2 km circuit with grandstands and a start gantry, or a gravel forest stage against the clock (splits, co-driver calls, dust). Track swept from a spline, collision on the same mesh, car LODs, skid marks, blob shadows, particles. Original looping music. AI drives when the pad is idle.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<iframe id="4" class="video" src="https://www.youtube.com/embed/uPnN99L2njo"></iframe>
+	</center>
+	<p>Next up is the thing I was most intrigued by, Namco's <i>Tekken 3</i> running on the N64 via a compatibility layer. Though it runs at between 4 and 12 FPS, just 20% of the games' native framerate, there is a possibility that future iterations and deploying recompilation could yield far better real-time speeds and potentially make playing PSX games on the N64 a reality.</p>
+	<div class="container">
+	&nbsp;<i class="fa-solid fa-quote-left"></i> 
+	<p>The Stress Test: Running PS1 games natively on N64</p>
+	<p>To push the SDK to its limits, I built a custom PlayStation 1 emulator running natively on the N64.</p>
+	<p>Here's what's under the hood:</p>
+	<p>• CPU: Custom MIPS dynamic recompiler (dynarec).</p>
+	<p>• GTE: Native GTE execution layer.</p>
+	<p>• GPU: A translator mapping PSX GPU calls directly into custom RDP commands running on the RSP.</p>
+	<p>As a proof of concept, Tekken 3 is bootable into gameplay. It’s not running at full speed yet, but every commit scratches away milliseconds and gets us closer to real-time execution.</p>
+	<i class="fa-solid fa-quote-right"></i>
+	</div>
+	<center>
+		<iframe id="5" class="video" src="https://www.youtube.com/embed/3RZ5gSGk6aw"></iframe>
+	</center>
+	<p>The next demo to be uploaded was that of <i>Tomb Raider</i> running on the N64 via XProger's <a href="https://github.com/XProger/OpenLara">OpenLara</a>. Notably, it is based on the full PC version of the OpenLara engine, not the cut-down GBA/32X branch; levels, meshes and textures are baked offline into native N64 formats (at run time the game only loads them and calls pre-built display lists); all 3D goes through the N64's RSP with our own microcode (KGFX), the CPU only feeds it, and intro FMVs stream directly from the flashcart's SD card, but music and sound are packed into ROM.</p>
+	<center>
+		<iframe id="6" class="video" src="https://www.youtube.com/embed/okhtWs9yL3w"></iframe>
+	</center>
+	<p></p>
+	<p>The latest demonstration video shows <a href="https://devilutionx.com/">DevilutionX</a>, the open-source Diablo engine, running natively on the N64. Though loading times appear quite long and the intro video a little stuttery, it's impressive to behold.</p>
+	<center>
+		<iframe id="7" class="video" src="https://www.youtube.com/embed/ODokACGmd20"></iframe>
+	</center>
+	<p>IF you wish to support the developer, then please follow the links below to access their Patreon page, and get advanced previews of their progress as well as downloadable samples to try out for yourself.</p>
+	<p class="subtitle"><i class="fa-brands fa-github"></i>&nbsp;<a href="https://github.com/celgadis84/Kestrel64-SDK-public">Kestrel64 GitHub</a></p>
+	<p class="subtitle"><i class="fa-brands fa-youtube"></i>&nbsp;<a href="https://www.youtube.com/@celgasoft1984">Celgasoft YouTube</a></p>
+	<p class="subtitle"><i class="fa-brands fa-patreon"></i>&nbsp;<a href="https://www.patreon.com/cw/celgadis84">Celgasoft Patreon</a></p>
+	<p class="subtitle"><i class="fa-regular fa-envelope"></i>&nbsp;<a href="mailto:recollect64official@gmail.com">Have an upcoming N64-related project? Drop me a DM!</a></p>
+</div>
